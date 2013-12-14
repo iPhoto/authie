@@ -18,6 +18,10 @@
         UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
         splitViewController.delegate = (id)navigationController.topViewController;
     }
+    
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"authie-logo-01-568px.png"] forBarMetrics:UIBarMetricsDefault];
+
+    
     return YES;
 }
 							

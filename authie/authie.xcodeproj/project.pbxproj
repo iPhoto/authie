@@ -28,6 +28,8 @@
 		5DEE7CBA185234E800F532B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DEE7CB8185234E800F532B3 /* InfoPlist.strings */; };
 		5DEE7CBC185234E800F532B3 /* authieTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DEE7CBB185234E800F532B3 /* authieTests.m */; };
 		5DF8648B185BEA60002DCCDC /* RODAuthie.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF8648A185BEA60002DCCDC /* RODAuthie.m */; };
+		5DF8648D185C0663002DCCDC /* authie-logo-01-400px.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF8648C185C0663002DCCDC /* authie-logo-01-400px.png */; };
+		5DF8648F185C0796002DCCDC /* authie-logo-01-568px.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF8648E185C0796002DCCDC /* authie-logo-01-568px.png */; };
 		B5EBFC1942B24520895926B1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A1BF85A36E24AF4B7D475C5 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +77,8 @@
 		5DEE7CBB185234E800F532B3 /* authieTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = authieTests.m; sourceTree = "<group>"; };
 		5DF86489185BEA60002DCCDC /* RODAuthie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RODAuthie.h; sourceTree = "<group>"; };
 		5DF8648A185BEA60002DCCDC /* RODAuthie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RODAuthie.m; sourceTree = "<group>"; };
+		5DF8648C185C0663002DCCDC /* authie-logo-01-400px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "authie-logo-01-400px.png"; sourceTree = "<group>"; };
+		5DF8648E185C0796002DCCDC /* authie-logo-01-568px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "authie-logo-01-568px.png"; sourceTree = "<group>"; };
 		BE7E9845C80F41FA9068220A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = ../Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,6 +170,8 @@
 			isa = PBXGroup;
 			children = (
 				5DEE7C92185234E800F532B3 /* authie-Info.plist */,
+				5DF8648E185C0796002DCCDC /* authie-logo-01-568px.png */,
+				5DF8648C185C0663002DCCDC /* authie-logo-01-400px.png */,
 				5DEE7C93185234E800F532B3 /* InfoPlist.strings */,
 				5DEE7C96185234E800F532B3 /* main.m */,
 				5DEE7C98185234E800F532B3 /* authie-Prefix.pch */,
@@ -270,7 +276,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DEE7CA1185234E800F532B3 /* Main_iPad.storyboard in Resources */,
+				5DF8648D185C0663002DCCDC /* authie-logo-01-400px.png in Resources */,
 				5DEE7CA9185234E800F532B3 /* Images.xcassets in Resources */,
+				5DF8648F185C0796002DCCDC /* authie-logo-01-568px.png in Resources */,
 				5DEE7C9E185234E800F532B3 /* Main_iPhone.storyboard in Resources */,
 				5DEE7C95185234E800F532B3 /* InfoPlist.strings in Resources */,
 			);

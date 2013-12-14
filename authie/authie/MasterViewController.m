@@ -29,6 +29,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
@@ -75,7 +76,7 @@
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateStyle:NSDateFormatterShortStyle];
     NSString *dateString = [dateFormat stringFromDate:selfie.selfieDate];
-    NSLog(@"Date: %@", dateString);
+    //NSLog(@"Date: %@", dateString);
     
     cell.textLabel.text = dateString;
     
