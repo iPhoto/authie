@@ -12,7 +12,8 @@
 #import "RODImageStore.h"
 #import <RestKit.h>
 #import "RKPostSelfie.h"
-
+#import "RODAuthie.h"
+#import "RODSelfie.h"
 
 @implementation MasterViewController
 
@@ -62,14 +63,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [RODItemStore sharedStore].allSelfies.count;
+    return [RODItemStore sharedStore].authie.allSelfies.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    RODSelfie *selfie = [[RODItemStore sharedStore].allSelfies  objectAtIndex:indexPath.row];
+    RODSelfie *selfie = [[RODItemStore sharedStore].authie.allSelfies  objectAtIndex:indexPath.row];
         
     //NSDate *object = _objects[indexPath.row];
     //cell.textLabel.text = [object description];
@@ -125,7 +126,7 @@
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         
-        RODSelfie *selfie = [[RODItemStore sharedStore].allSelfies objectAtIndex:indexPath.row];
+        RODSelfie *selfie = [[RODItemStore sharedStore].authie.allSelfies objectAtIndex:indexPath.row];
         
         self.detailViewController.detailItem = selfie;
         self.detailViewController.snap = selfie;
@@ -138,7 +139,7 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
 //        NSDate *object = _objects[indexPath.row];
         
-        RODSelfie *selfie = [[RODItemStore sharedStore].allSelfies objectAtIndex:indexPath.row];
+        RODSelfie *selfie = [[RODItemStore sharedStore].authie.allSelfies objectAtIndex:indexPath.row];
         
         [[segue destinationViewController] setDetailItem:selfie];
         

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@class RODSelfie;
 
 @interface RODAuthie : NSObject <NSCoding>
 
@@ -14,5 +15,7 @@
 @property (nonatomic, strong) NSString *authieHandle;
 @property (nonatomic, strong) NSString *authieKey;
 @property (nonatomic) int registered;
+
+- (NSArray *)all_Selfies;
 
 @end

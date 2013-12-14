@@ -13,7 +13,6 @@
 
 @interface RODItemStore : NSObject
 {
-    NSMutableArray *allSelfies;
     RODAuthie *_authie;
 }
 
@@ -23,11 +22,10 @@
 
 - (RODAuthie *)authie;
 
-- (NSArray *)allSelfies;
+- (NSString *)itemArchivePath;
+
 - (RODSelfie *)createSelfie:(NSString *)key;
 - (void) removeSelfie:(NSInteger)index;
-
-- (NSString *)itemArchivePath;
 
 - (BOOL)saveChanges;
 

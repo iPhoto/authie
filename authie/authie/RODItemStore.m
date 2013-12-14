@@ -40,15 +40,13 @@
         } else {
             NSLog(@"Loaded authie from file.");
         }
-        
-        
-        
-        NSLog(@"current authie: registered: %i, authieKey: %@, selfies: %lu", self.authie.registered, self.authie.authieKey, (unsigned long)[self.allSelfies count]);
-        
-        if(!allSelfies)
-            allSelfies = [[NSMutableArray alloc] init];
                 
-        self.recentSelfie = [allSelfies lastObject];
+        NSLog(@"current authie: registered: %i, authieKey: %@, selfies: %lu", self.authie.registered, self.authie.authieKey, (unsigned long)[self.authie.allSelfies count]);
+        
+        if(!_authie.allSelfies)
+            _authie.allSelfies = [[NSMutableArray alloc] init];
+                
+        self.recentSelfie = [_authie.allSelfies lastObject];
     }
     
     return self;
@@ -59,17 +57,12 @@
     return _authie;
 }
 
-- (NSArray *)allSelfies
-{
-    return allSelfies;
-}
-
 - (RODSelfie *)createSelfie:(NSString *)key
 {
     RODSelfie *s = [[RODSelfie alloc] init];
     [s setSelfieKey:key];
     
-    [allSelfies addObject:s];
+    [_authie.allSelfies addObject:s];
     
     [self saveChanges];
     
@@ -78,10 +71,10 @@
 
 - (void)removeSelfie:(NSInteger)index
 {
-    NSString *key = [(RODSelfie *)[allSelfies objectAtIndex:index] selfieKey];
+    NSString *key = [(RODSelfie *)[_authie.allSelfies objectAtIndex:index] selfieKey];
     [[RODImageStore sharedStore] deleteImageForKey:key];
     
-    [allSelfies removeObjectAtIndex:index];
+    [_authie.allSelfies removeObjectAtIndex:index];
     
     [self saveChanges];
 }

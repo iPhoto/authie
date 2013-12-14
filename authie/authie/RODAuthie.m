@@ -7,9 +7,15 @@
 //
 
 #import "RODAuthie.h"
+#import "RODSelfie.h"
 
 @implementation RODAuthie
 @synthesize authieHandle, authieKey, registered, allSelfies;
+
+- (NSArray *)all_Selfies
+{
+    return allSelfies;
+}
 
 - (void) encodeWithCoder:(NSCoder *)aCoder
 {
