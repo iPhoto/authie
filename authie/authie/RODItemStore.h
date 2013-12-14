@@ -14,12 +14,15 @@
 @interface RODItemStore : NSObject
 {
     NSMutableArray *allSelfies;
+    RODAuthie *_authie;
 }
 
 @property (nonatomic) NSInteger currentSelfieIndex;
 @property (nonatomic, retain) RODSelfie *recentSelfie;
 
 + (RODItemStore *)sharedStore;
+
+- (RODAuthie *)authie;
 
 - (NSArray *)allSelfies;
 - (RODSelfie *)createSelfie:(NSString *)key;

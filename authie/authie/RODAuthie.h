@@ -11,8 +11,8 @@
 @interface RODAuthie : NSObject <NSCoding>
 
 @property (nonatomic, strong) NSString *authieHandle;
-@property (nonatomic, strong) NSDate *authieKey;
-@property (nonatomic) BOOL *registered;
+@property (nonatomic, strong) NSString *authieKey;
+@property (nonatomic) int registered;
 
 
 @end

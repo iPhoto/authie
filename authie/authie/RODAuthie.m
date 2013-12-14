@@ -15,7 +15,7 @@
 {
     [aCoder encodeObject:authieKey forKey:@"authieKey"];
     [aCoder encodeObject:authieHandle forKey:@"authieHandle"];
-    [aCoder encodeBool:registered forKey:@"registered"];
+    [aCoder encodeInt:registered forKey:@"registered"];
 }
 
 - (id) initWithCoder:(NSCoder *)aDecoder
@@ -24,7 +24,7 @@
     if (self) {
         [self setAuthieKey:[aDecoder decodeObjectForKey:@"authieKey"]];
         [self setAuthieHandle:[aDecoder decodeObjectForKey:@"authieHandle"]];
-        [self setRegistered:(bool *)[aDecoder decodeBoolForKey:@"registered"]];
+        [self setRegistered:[aDecoder decodeIntForKey:@"registered"]];
     }
     return self;
 }

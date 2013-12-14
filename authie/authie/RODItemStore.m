@@ -9,6 +9,7 @@
 #import "RODItemStore.h"
 #import "RODImageStore.h"
 #import "RODSelfie.h"
+#import "RODAuthie.h"
 
 @implementation RODItemStore
 
@@ -19,6 +20,13 @@
         
         NSString *path = [self itemArchivePath];
         allSelfies = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+        
+        //authie = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+        
+        if(!self.authie) {
+        }
+
+        NSLog(@"current authie: registered: %i, authieKey: %@", self.authie.registered, self.authie.authieKey);
         
         if(!allSelfies)
             allSelfies = [[NSMutableArray alloc] init];
@@ -32,6 +40,27 @@
     }
     
     return self;
+}
+
+- (RODAuthie *)authie;
+{
+    
+    if(!_authie) {
+        _authie = [[RODAuthie alloc] init];
+        
+        // automatically assume all new apps are not registered,
+        // later on we'll need to add the functionality that lets
+        // you log in to your account from another account.
+        _authie.registered = NO;
+        
+        // generate a private key for the app/device 8)
+        // THIS IS A USER's PASSWORD!
+        NSString * uuid = [[NSUUID UUID] UUIDString];
+        _authie.authieKey = uuid;
+        
+        
+    }
+    return _authie;
 }
 
 - (NSArray *)allSelfies
