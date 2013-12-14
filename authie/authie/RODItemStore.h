@@ -17,7 +17,6 @@
     RODAuthie *_authie;
 }
 
-@property (nonatomic) NSInteger currentSelfieIndex;
 @property (nonatomic, retain) RODSelfie *recentSelfie;
 
 + (RODItemStore *)sharedStore;

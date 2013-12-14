@@ -9,13 +9,14 @@
 #import "RODAuthie.h"
 
 @implementation RODAuthie
-@synthesize authieHandle, authieKey, registered;
+@synthesize authieHandle, authieKey, registered, allSelfies;
 
 - (void) encodeWithCoder:(NSCoder *)aCoder
 {
     [aCoder encodeObject:authieKey forKey:@"authieKey"];
     [aCoder encodeObject:authieHandle forKey:@"authieHandle"];
     [aCoder encodeInt:registered forKey:@"registered"];
+    [aCoder encodeObject:allSelfies forKey:@"allSelfies"];
 }
 
 - (id) initWithCoder:(NSCoder *)aDecoder
@@ -25,6 +26,7 @@
         [self setAuthieKey:[aDecoder decodeObjectForKey:@"authieKey"]];
         [self setAuthieHandle:[aDecoder decodeObjectForKey:@"authieHandle"]];
         [self setRegistered:[aDecoder decodeIntForKey:@"registered"]];
+        allSelfies = [aDecoder decodeObjectForKey:@"allSelfies"];
     }
     return self;
 }

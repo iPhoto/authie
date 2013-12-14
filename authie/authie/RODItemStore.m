@@ -19,23 +19,35 @@
     if (self) {
         
         NSString *path = [self itemArchivePath];
-        allSelfies = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
-        
-        //authie = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
-        
-        if(!self.authie) {
-        }
 
-        NSLog(@"current authie: registered: %i, authieKey: %@", self.authie.registered, self.authie.authieKey);
+        _authie = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+        
+        if(!_authie) {
+            NSLog(@"Generated new authie.");
+            _authie = [[RODAuthie alloc] init];
+            
+            // automatically assume all new apps are not registered,
+            // later on we'll need to add the functionality that lets
+            // you log in to your account from another account.
+            _authie.registered = NO;
+            
+            // generate a private key for the app/device 8)
+            // THIS IS A USER's PASSWORD!
+            NSString * uuid = [[NSUUID UUID] UUIDString];
+            _authie.authieKey = uuid;
+            
+            [self saveChanges];
+        } else {
+            NSLog(@"Loaded authie from file.");
+        }
+        
+        
+        
+        NSLog(@"current authie: registered: %i, authieKey: %@, selfies: %lu", self.authie.registered, self.authie.authieKey, (unsigned long)[self.allSelfies count]);
         
         if(!allSelfies)
             allSelfies = [[NSMutableArray alloc] init];
-        
-        NSLog(@"Loaded selfies: %d", [allSelfies count]);
-
-        self.currentSelfieIndex = [allSelfies count] - 1;
-        NSLog(@"currentSelfieIndex init: %d", self.currentSelfieIndex);
-        
+                
         self.recentSelfie = [allSelfies lastObject];
     }
     
@@ -44,22 +56,6 @@
 
 - (RODAuthie *)authie;
 {
-    
-    if(!_authie) {
-        _authie = [[RODAuthie alloc] init];
-        
-        // automatically assume all new apps are not registered,
-        // later on we'll need to add the functionality that lets
-        // you log in to your account from another account.
-        _authie.registered = NO;
-        
-        // generate a private key for the app/device 8)
-        // THIS IS A USER's PASSWORD!
-        NSString * uuid = [[NSUUID UUID] UUIDString];
-        _authie.authieKey = uuid;
-        
-        
-    }
     return _authie;
 }
 
@@ -101,7 +97,7 @@
 - (BOOL)saveChanges
 {    
     NSString *path = [self itemArchivePath];
-    return [NSKeyedArchiver archiveRootObject:allSelfies toFile:path];
+    return [NSKeyedArchiver archiveRootObject:_authie toFile:path];
 }
 
 + (RODItemStore *)sharedStore

@@ -175,8 +175,6 @@
     
     NSLog(@"Created key: %@", [RODItemStore sharedStore].recentSelfie.selfieKey);
     
-    [RODItemStore sharedStore].currentSelfieIndex = [[[RODItemStore sharedStore] allSelfies] count] - 1;
-    
     CFRelease(newUniqueIDString);
     CFRelease(newUniqueID);
 
