@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class RODSelfie;
+@class RODAuthie;
 
 @interface RODItemStore : NSObject
 {

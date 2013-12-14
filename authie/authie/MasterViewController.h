@@ -10,8 +10,9 @@
 
 @class DetailViewController;
 
-@interface MasterViewController : UITableViewController
+@interface MasterViewController : UITableViewController <UIImagePickerControllerDelegate>
 
+@property (strong, nonatomic) UIImagePickerController *imagePicker;
 @property (strong, nonatomic) DetailViewController *detailViewController;
 
 @end
