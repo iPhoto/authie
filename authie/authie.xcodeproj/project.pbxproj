@@ -161,15 +161,15 @@
 				5DEE7C9A185234E800F532B3 /* AppDelegate.m */,
 				5DEE7C9C185234E800F532B3 /* Main_iPhone.storyboard */,
 				5DEE7C9F185234E800F532B3 /* Main_iPad.storyboard */,
+				5DF86490185F75CA002DCCDC /* RegisterViewController.h */,
+				5DF86491185F75CA002DCCDC /* RegisterViewController.m */,
+				5DF86492185F75CA002DCCDC /* RegisterViewController.xib */,
 				5DEE7CA2185234E800F532B3 /* MasterViewController.h */,
 				5DEE7CA3185234E800F532B3 /* MasterViewController.m */,
 				5DEE7CA5185234E800F532B3 /* DetailViewController.h */,
 				5DEE7CA6185234E800F532B3 /* DetailViewController.m */,
 				5DEE7CA8185234E800F532B3 /* Images.xcassets */,
 				5DEE7C91185234E800F532B3 /* Supporting Files */,
-				5DF86490185F75CA002DCCDC /* RegisterViewController.h */,
-				5DF86491185F75CA002DCCDC /* RegisterViewController.m */,
-				5DF86492185F75CA002DCCDC /* RegisterViewController.xib */,
 			);
 			path = authie;
 			sourceTree = "<group>";
