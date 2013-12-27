@@ -10,6 +10,8 @@
 #import "RODImageStore.h"
 #import "RODSelfie.h"
 #import "RODAuthie.h"
+#import "RegisterViewController.h"
+#import "AppDelegate.h"
 
 @implementation RODItemStore
 
@@ -40,13 +42,23 @@
         } else {
             NSLog(@"Loaded authie from file.");
         }
-                
-        NSLog(@"current authie: registered: %i, authieKey: %@, selfies: %lu", self.authie.registered, self.authie.authieKey, (unsigned long)[self.authie.allSelfies count]);
+                NSLog(@"current authie: registered: %i, authieKey: %@, selfies: %lu", self.authie.registered, self.authie.authieKey, (unsigned long)[self.authie.allSelfies count]);
         
         if(!_authie.allSelfies)
             _authie.allSelfies = [[NSMutableArray alloc] init];
                 
         self.recentSelfie = [_authie.allSelfies lastObject];
+        
+        if(self.authie.registered == 0) {
+            // show register handle screen
+
+            AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+            
+            RegisterViewController *rvc = [[RegisterViewController alloc] init];
+            [(UINavigationController *)appDelegate.window.rootViewController presentViewController:rvc animated:YES completion:nil];
+        }
+        
+        
     }
     
     return self;
