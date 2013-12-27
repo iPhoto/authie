@@ -6,6 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController">
             <connections>
+                <outlet property="authieHandle" destination="K0f-pb-hdp" id="kha-rR-Ffm"/>
+                <outlet property="handleAvailability" destination="hzn-bz-8eH" id="e7I-Sd-Gd5"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -35,46 +37,78 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="author name" minimumFontSize="32" translatesAutoresizingMaskIntoConstraints="NO" id="K0f-pb-hdp">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="author name" minimumFontSize="32" translatesAutoresizingMaskIntoConstraints="NO" id="K0f-pb-hdp">
                     <rect key="frame" x="20" y="108" width="280" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="cQr-uf-yrn"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                    <connections>
+                        <action selector="authieHandleChanged:" destination="-1" eventType="editingChanged" id="6Ok-1Z-p0J"/>
+                        <outlet property="delegate" destination="-1" id="7gM-gg-XWB"/>
+                    </connections>
                 </textField>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="ssY-d0-Zsd">
-                    <rect key="frame" x="20" y="146" width="280" height="204"/>
+                    <rect key="frame" x="20" y="161" width="280" height="204"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <string key="text">Your handle will be public. People that do not follow you on authie will be able to see that your account exists at getauthie.com/{your handle} (but they can't see your snaps without permission.) So please do do not use personal information. You may change this later.</string>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="oh hai, welcome. let's get you set up." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ISa-Z4-Lkr">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="oh hai, welcome. let's get you set up." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ISa-Z4-Lkr">
                     <rect key="frame" x="20" y="42" width="294" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="this handle is available." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hzn-bz-8eH">
+                    <rect key="frame" x="20" y="137" width="294" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
             <constraints>
-                <constraint firstItem="SG9-1b-hRM" firstAttribute="top" secondItem="ssY-d0-Zsd" secondAttribute="bottom" constant="13" id="1uS-uJ-4xE"/>
+                <constraint firstItem="SG9-1b-hRM" firstAttribute="top" secondItem="ssY-d0-Zsd" secondAttribute="bottom" constant="-2" id="1uS-uJ-4xE"/>
                 <constraint firstItem="Pyn-gy-dVt" firstAttribute="trailing" secondItem="K0f-pb-hdp" secondAttribute="trailing" id="6kn-U1-Poy"/>
+                <constraint firstItem="hzn-bz-8eH" firstAttribute="top" secondItem="1" secondAttribute="top" constant="137" id="71G-i7-vkW"/>
                 <constraint firstAttribute="trailing" secondItem="Pyn-gy-dVt" secondAttribute="trailing" constant="20" symbolic="YES" id="CTj-VP-sWN"/>
+                <constraint firstItem="ssY-d0-Zsd" firstAttribute="top" secondItem="hzn-bz-8eH" secondAttribute="bottom" constant="3" id="CyV-nS-oJ7"/>
+                <constraint firstItem="ssY-d0-Zsd" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="GGv-WA-3hF"/>
+                <constraint firstItem="hzn-bz-8eH" firstAttribute="trailing" secondItem="ISa-Z4-Lkr" secondAttribute="trailing" id="Gfw-zi-Pjv"/>
+                <constraint firstItem="ISa-Z4-Lkr" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="HYE-Pu-7XQ"/>
                 <constraint firstItem="SG9-1b-hRM" firstAttribute="trailing" secondItem="ssY-d0-Zsd" secondAttribute="trailing" id="IBD-QB-BNW"/>
+                <constraint firstItem="hzn-bz-8eH" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="IKl-KT-uwF"/>
                 <constraint firstItem="ssY-d0-Zsd" firstAttribute="trailing" secondItem="K0f-pb-hdp" secondAttribute="trailing" id="L5D-jH-FhZ"/>
+                <constraint firstItem="Pyn-gy-dVt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1" secondAttribute="leading" constant="20" id="Pke-x9-mWm"/>
                 <constraint firstItem="Pyn-gy-dVt" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" symbolic="YES" id="QyT-or-9X5"/>
-                <constraint firstItem="ssY-d0-Zsd" firstAttribute="top" secondItem="K0f-pb-hdp" secondAttribute="bottom" constant="8" symbolic="YES" id="au6-Ce-LOi"/>
+                <constraint firstAttribute="trailing" secondItem="hzn-bz-8eH" secondAttribute="trailing" constant="6" id="UbR-ok-5gq"/>
+                <constraint firstItem="ssY-d0-Zsd" firstAttribute="top" secondItem="K0f-pb-hdp" secondAttribute="bottom" constant="23" id="au6-Ce-LOi"/>
                 <constraint firstAttribute="trailing" secondItem="SG9-1b-hRM" secondAttribute="trailing" constant="20" id="dBJ-Ti-Rkn"/>
+                <constraint firstItem="K0f-pb-hdp" firstAttribute="top" secondItem="ISa-Z4-Lkr" secondAttribute="bottom" constant="45" id="g2U-Uu-z9E"/>
                 <constraint firstItem="K0f-pb-hdp" firstAttribute="leading" secondItem="ssY-d0-Zsd" secondAttribute="leading" id="hRi-i5-hNg"/>
                 <constraint firstItem="K0f-pb-hdp" firstAttribute="top" secondItem="Pyn-gy-dVt" secondAttribute="bottom" constant="8" symbolic="YES" id="j0W-nj-v5n"/>
+                <constraint firstItem="K0f-pb-hdp" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="kuC-CK-AcU"/>
                 <constraint firstItem="Pyn-gy-dVt" firstAttribute="leading" secondItem="K0f-pb-hdp" secondAttribute="leading" id="lks-ww-5eR"/>
                 <constraint firstAttribute="bottom" secondItem="SG9-1b-hRM" secondAttribute="bottom" constant="20" symbolic="YES" id="oeH-MB-5nK"/>
+                <constraint firstItem="ISa-Z4-Lkr" firstAttribute="top" secondItem="1" secondAttribute="top" constant="42" id="rBg-tp-bmM"/>
+                <constraint firstItem="hzn-bz-8eH" firstAttribute="leading" secondItem="K0f-pb-hdp" secondAttribute="leading" id="uck-0f-1Fc"/>
                 <constraint firstItem="Pyn-gy-dVt" firstAttribute="top" secondItem="1" secondAttribute="top" constant="51" id="utm-qk-6tr"/>
+                <constraint firstItem="hzn-bz-8eH" firstAttribute="leading" secondItem="ISa-Z4-Lkr" secondAttribute="leading" id="wUq-mv-mgy"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="h6K-uu-lO4" appends="YES" id="Tdb-wC-B4Z"/>
+            </connections>
         </view>
+        <tapGestureRecognizer id="h6K-uu-lO4">
+            <connections>
+                <action selector="tappedScreen:" destination="-1" id="RGN-D9-15l"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>

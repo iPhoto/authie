@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface RegisterViewController : UIViewController  <UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *authieHandle;
+@property (weak, nonatomic) IBOutlet UILabel *handleAvailability;
+- (IBAction)tappedScreen:(id)sender;
 
+- (IBAction)authieHandleChanged:(id)sender;
+- (void)checkHandleAvailability;
 @end

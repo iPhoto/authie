@@ -19,6 +19,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
     }
     return self;
 }
@@ -37,9 +38,28 @@
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    NSLog(@"Returned.");
+    [self checkHandleAvailability];
+    
     [textField resignFirstResponder];
     return YES;
 }
 
+- (IBAction)tappedScreen:(id)sender {
+    [self.authieHandle resignFirstResponder];
+    
+    [self checkHandleAvailability];
+}
+
+- (IBAction)authieHandleChanged:(id)sender {
+    [self checkHandleAvailability];
+}
+
+
+- (void)checkHandleAvailability
+{
+    NSString *check_status = [NSString stringWithFormat:@"check %@", [self.authieHandle text]];
+    [self.handleAvailability setText:check_status];
+    
+    
+}
 @end

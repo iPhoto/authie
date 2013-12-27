@@ -55,7 +55,7 @@
             AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
             
             RegisterViewController *rvc = [[RegisterViewController alloc] init];
-            [(UINavigationController *)appDelegate.window.rootViewController presentViewController:rvc animated:YES completion:nil];
+            [(UINavigationController *)appDelegate.window.rootViewController presentViewController:rvc animated:NO completion:nil];
         }
         
         
