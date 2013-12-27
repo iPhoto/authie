@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <RestKit.h>
 
 @implementation AppDelegate
 
@@ -21,6 +22,10 @@
     
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"authie-logo-01-568px.png"] forBarMetrics:UIBarMetricsDefault];
 
+
+    RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
+    //RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
+    
     
     return YES;
 }

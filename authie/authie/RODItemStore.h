@@ -28,7 +28,7 @@
 - (void) removeSelfie:(NSInteger)index;
 
 - (BOOL)saveChanges;
-
+- (BOOL)checkHandleAvailability:(NSString *)handle;
 
 @end
 

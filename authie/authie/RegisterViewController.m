@@ -6,7 +6,9 @@
 //  Copyright (c) 2013 bitwise. All rights reserved.
 //
 
+#import "RODItemStore.h"
 #import "RegisterViewController.h"
+#define StringFromBOOL(b) ((b) ? @"YES" : @"NO")
 
 @interface RegisterViewController ()
 
@@ -57,9 +59,10 @@
 
 - (void)checkHandleAvailability
 {
-    NSString *check_status = [NSString stringWithFormat:@"check %@", [self.authieHandle text]];
+    
+    NSString *check_handle = [self.authieHandle text];
+    NSString *check_status = [NSString stringWithFormat:@"check %@, available: %@", check_handle, StringFromBOOL([[RODItemStore sharedStore] checkHandleAvailability:check_handle])];
     [self.handleAvailability setText:check_status];
-    
-    
+        
 }
 @end
