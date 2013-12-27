@@ -61,8 +61,16 @@
 {
     
     NSString *check_handle = [self.authieHandle text];
-    NSString *check_status = [NSString stringWithFormat:@"check %@, available: %@", check_handle, StringFromBOOL([[RODItemStore sharedStore] checkHandleAvailability:check_handle])];
-    [self.handleAvailability setText:check_status];
+    NSString *check_result;
+    BOOL check_status = [[RODItemStore sharedStore] checkHandleAvailability:check_handle];
+    
+    if(check_status == YES) {
+        check_result = [NSString stringWithFormat:@"%@ is available.", check_handle];
+    } else {
+        check_result = [NSString stringWithFormat:@"%@ is not available.", check_handle];
+    }
+    
+    [self.handleAvailability setText:check_result];
         
 }
 @end
