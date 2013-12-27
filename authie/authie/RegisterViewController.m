@@ -20,7 +20,10 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        
+        // isAvailable refers to whether or not we have checked to see
+        // if the user's handle is available to register on the site.
+        self.isAvailable = NO;
         
     }
     return self;
@@ -52,6 +55,22 @@
     [self checkHandleAvailability];
 }
 
+- (IBAction)registerHandle:(id)sender {
+    
+    if(self.isAvailable == NO) {
+    
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Handle" message: @"Please choose an available handle." delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        [alert show];
+        
+        return;
+        
+    } else {
+        // okay, now register it for real
+        
+    }
+}
+
 - (IBAction)authieHandleChanged:(id)sender {
     [self checkHandleAvailability];
 }
@@ -66,8 +85,10 @@
     
     if(check_status == YES) {
         check_result = [NSString stringWithFormat:@"%@ is available.", check_handle];
+        self.isAvailable = YES;
     } else {
         check_result = [NSString stringWithFormat:@"%@ is not available.", check_handle];
+        self.isAvailable = NO;
     }
     
     [self.handleAvailability setText:check_result];

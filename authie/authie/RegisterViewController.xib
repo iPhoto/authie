@@ -36,6 +36,9 @@
                     <state key="normal" title="register">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="registerHandle:" destination="-1" eventType="touchUpInside" id="hSs-n3-8Hp"/>
+                    </connections>
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="author name" minimumFontSize="32" translatesAutoresizingMaskIntoConstraints="NO" id="K0f-pb-hdp">
                     <rect key="frame" x="20" y="108" width="280" height="30"/>
