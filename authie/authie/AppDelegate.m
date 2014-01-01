@@ -20,7 +20,8 @@
         splitViewController.delegate = (id)navigationController.topViewController;
     }
     
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"authie-logo-01-568px.png"] forBarMetrics:UIBarMetricsDefault];
+    
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"authie-logo-05-84px.png"] forBarPosition:UIBarPositionTopAttached    barMetrics:UIBarMetricsDefault];
 
 
     RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
