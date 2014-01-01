@@ -29,6 +29,7 @@
 
 - (BOOL)saveChanges;
 - (BOOL)checkHandleAvailability:(NSString *)handle;
+- (BOOL)registerHandle:(NSString *)handle;
 
 @end
 

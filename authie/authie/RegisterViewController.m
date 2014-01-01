@@ -56,10 +56,12 @@
 }
 
 - (IBAction)registerHandle:(id)sender {
+
+    UIAlertView *alert;
     
     if(self.isAvailable == NO) {
     
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Handle" message: @"Please choose an available handle." delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        alert = [[UIAlertView alloc] initWithTitle: @"Handle" message: @"Please choose an available handle." delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         
         [alert show];
         
@@ -67,6 +69,18 @@
         
     } else {
         // okay, now register it for real
+        bool registered = [[RODItemStore sharedStore] registerHandle:self.handle];
+        
+        if(registered == YES) {
+            // show the main screen?
+            [self dismissViewControllerAnimated:YES completion:nil];
+            
+        } else {
+            
+            alert = [[UIAlertView alloc] initWithTitle:@"Handle" message:@"We were unable to register your handle. Please try again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+            
+        }
         
     }
 }
@@ -81,6 +95,9 @@
     
     NSString *check_handle = [self.authieHandle text];
     NSString *check_result;
+    
+    self.handle = check_handle;
+    
     BOOL check_status = [[RODItemStore sharedStore] checkHandleAvailability:check_handle];
     
     if(check_status == YES) {

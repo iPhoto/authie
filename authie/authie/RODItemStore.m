@@ -123,8 +123,6 @@
     
     NSError *error = nil;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:checkDict options:kNilOptions error:&error];
-
-    NSString *sent_data = [[NSString alloc] initWithData:jsonData encoding:NSASCIIStringEncoding];
     
     NSURLResponse *response;
     NSData *localData = nil;
@@ -162,6 +160,71 @@
     }
     
     return is_available;
+    
+}
+
+- (BOOL)registerHandle:(NSString *)handle
+{
+    bool registered_result = NO;
+    
+	// Create a new letter and POST it to the server
+	RODHandle* check_handle = [RODHandle new];
+    check_handle.active = [NSNumber numberWithInt:1];
+    check_handle.userGuid = @"lol";
+    check_handle.name = handle;
+    check_handle.id = [NSNumber numberWithInt:1];
+    
+    NSDictionary *checkDict = [[NSDictionary alloc] initWithObjectsAndKeys:
+                               @"1", @"id",
+                               handle, @"name",
+                               @"1", @"active",
+                               @"lol", @"userGuid",
+                               nil];
+    
+    NSError *error = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:checkDict options:kNilOptions error:&error];
+    
+    NSURLResponse *response;
+    NSData *localData = nil;
+    
+    NSString *url = @"http://selfies.io/api/handle";
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"POST"];
+    
+    if(error == nil) {
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        [request setHTTPBody:jsonData];
+        
+        //send the request and get the response
+        localData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        NSError *deserialize_error = nil;
+        
+        id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingAllowFragments error:&deserialize_error];
+        
+        if([object isKindOfClass:[NSDictionary class]] && deserialize_error == nil) {
+            
+            NSLog(@"results from registration: %@", object);
+            
+            NSInteger active_result;
+            active_result = [[object objectForKey:@"active"] integerValue];
+            
+            if(active_result == 1) {
+                registered_result = YES;
+                [self.authie setRegistered:1];
+                
+                [self saveChanges];
+            } else {
+                registered_result = NO;
+            }
+            
+        }
+        
+    }
+    
+    return registered_result;
     
 }
 

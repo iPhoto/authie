@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *authieHandle;
 @property (weak, nonatomic) IBOutlet UILabel *handleAvailability;
 @property (nonatomic) bool isAvailable;
+@property (copy, nonatomic) NSString *handle;
 - (IBAction)tappedScreen:(id)sender;
 - (IBAction)registerHandle:(id)sender;
 
