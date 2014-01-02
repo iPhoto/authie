@@ -86,7 +86,13 @@
 }
 
 - (IBAction)authieHandleChanged:(id)sender {
-    [self checkHandleAvailability];
+    
+    if([self.authieHandle text].length > 4) {
+        [self.handleAvailability setHidden:false];
+        [self checkHandleAvailability];
+    } else {
+        [self.handleAvailability setHidden:true];
+    }
 }
 
 

@@ -43,7 +43,7 @@
             
             [self saveChanges];
         } else {
-            NSLog(@"Loaded authie from file.");
+            NSLog(@"Loaded authie from file, public/private: %@, %@", self.authie.authiePublicKey, self.authie.authiePrivateKey);
         }
                 NSLog(@"current authie: registered: %i, authieKey: %@, selfies: %lu", self.authie.registered, self.authie.authieKey, (unsigned long)[self.authie.allSelfies count]);
         
@@ -214,6 +214,10 @@
             if(active_result == 1) {
                 registered_result = YES;
                 [self.authie setRegistered:1];
+                [self.authie setAuthiePrivateKey:[object objectForKey:@"privateKey"]];
+                [self.authie setAuthiePublicKey:[object objectForKey:@"publicKey"]];
+                
+                NSLog(@"privateKey: %@, publicKey: %@", self.authie.authiePrivateKey, self.authie.authiePublicKey);
                 
                 [self saveChanges];
             } else {
