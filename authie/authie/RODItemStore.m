@@ -43,10 +43,11 @@
             
             [self saveChanges];
         } else {
-            NSLog(@"Loaded authie from file, public/private: %@, %@", self.authie.authiePublicKey, self.authie.authiePrivateKey);
+            NSLog(@"Loaded authie from file, public/private: %@, %@", self.authie.handle.publicKey, self.authie.handle.privateKey);
         }
-                NSLog(@"current authie: registered: %i, authieKey: %@, selfies: %lu", self.authie.registered, self.authie.authieKey, (unsigned long)[self.authie.allSelfies count]);
         
+        NSLog(@"current authie: registered: %i, authieKey: %@, selfies: %lu, id: %@, name: %@", self.authie.registered, self.authie.authieKey, (unsigned long)[self.authie.allSelfies count], self.authie.handle.id, self.authie.handle.name);
+
         if(!_authie.allSelfies)
             _authie.allSelfies = [[NSMutableArray alloc] init];
                 
@@ -59,6 +60,21 @@
             
             RegisterViewController *rvc = [[RegisterViewController alloc] init];
             [(UINavigationController *)appDelegate.window.rootViewController presentViewController:rvc animated:NO completion:nil];
+        } else {
+            // check login status
+            // try to log in if not logged in
+
+            if([self checkLoginStatus] == false) {
+                
+                NSLog(@"please login");
+                
+            } else {
+                // we're logged in and ready to go,
+                // load the latest data
+                NSLog(@"please load the latest data.");
+                
+            }
+            
         }
         
         
@@ -100,6 +116,110 @@
     NSString *documentDirectory = [documentDirectories objectAtIndex:0];
     
     return [documentDirectory stringByAppendingPathComponent:@"items.archive"];
+}
+
+- (BOOL)login
+{
+    BOOL logged_in = NO;
+    
+	// Create a new letter and POST it to the server
+    
+    NSDictionary *checkDict = [[NSDictionary alloc] initWithObjectsAndKeys:
+                               @"1", @"id",
+                               self.authie.handle.name, @"name",
+                               @"1", @"active",
+                               @"lol", @"userGuid",
+                               self.authie.handle.publicKey, @"publicKey",
+                               self.authie.handle.privateKey, @"privateKey",
+                               nil];
+    
+    NSError *error = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:checkDict options:kNilOptions error:&error];
+    
+    NSURLResponse *response;
+    NSData *localData = nil;
+    
+    NSString *url = @"http://selfies.io/api/login";
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"POST"];
+    
+    if(error == nil) {
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        [request setHTTPBody:jsonData];
+        
+        //send the request and get the response
+        localData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        NSError *deserialize_error = nil;
+        
+        id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingAllowFragments error:&deserialize_error];
+        
+        if([object isKindOfClass:[NSDictionary class]] && deserialize_error == nil) {
+
+            NSLog(@"results from login: %@", object);
+            
+            NSInteger response_result;
+            response_result = [[object objectForKey:@"result"] integerValue];
+            
+            if(response_result == 0) {
+                logged_in = NO;
+            } else {
+                logged_in = YES;
+            }
+            
+        }
+        
+    }
+    
+    return logged_in;
+}
+
+- (BOOL)checkLoginStatus
+{
+    
+    BOOL is_logged_in = NO;
+    
+    NSError *error = nil;
+    
+    NSURLResponse *response;
+    NSData *localData = nil;
+    
+    NSString *url = @"http://selfies.io/api/login";
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"GET"];
+    
+    if(error == nil) {
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        
+        //send the request and get the response
+        localData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        NSError *deserialize_error = nil;
+        
+        id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingAllowFragments error:&deserialize_error];
+        if([object isKindOfClass:[NSDictionary class]] && deserialize_error == nil) {
+
+            NSLog(@"results from login: %@", object);
+            
+            NSInteger response_result;
+            response_result = [[object objectForKey:@"result"] integerValue];
+            
+            if(response_result == 0) {
+                is_logged_in = NO;
+            } else {
+                is_logged_in = YES;                
+            }
+            
+        }
+        
+    }
+    
+    return is_logged_in;
+    
 }
 
 - (BOOL)checkHandleAvailability:(NSString *)handle
@@ -211,13 +331,35 @@
             NSInteger active_result;
             active_result = [[object objectForKey:@"active"] integerValue];
             
+            NSInteger id_result;
+            id_result = [[object objectForKey:@"id"] integerValue];
+            
+            NSString *privateKey;
+            privateKey = [object objectForKey:@"privateKey"];
+            
+            NSString *publicKey;
+            publicKey = [object objectForKey:@"publicKey"];
+            
+            NSString *name;
+            name = [object objectForKey:@"name"];
+            
+            NSString *userGuid;
+            userGuid = [object objectForKey:@"userGuid"];
+                        
             if(active_result == 1) {
                 registered_result = YES;
                 [self.authie setRegistered:1];
-                [self.authie setAuthiePrivateKey:[object objectForKey:@"privateKey"]];
-                [self.authie setAuthiePublicKey:[object objectForKey:@"publicKey"]];
                 
-                NSLog(@"privateKey: %@, publicKey: %@", self.authie.authiePrivateKey, self.authie.authiePublicKey);
+                self.authie.handle = [[RODHandle alloc] init];
+
+                [self.authie.handle setId:[NSNumber numberWithInteger:id_result]];
+                [self.authie.handle setName:name];
+                [self.authie.handle setActive:[NSNumber numberWithInteger:active_result]];
+                [self.authie.handle setUserGuid:userGuid];
+                [self.authie.handle setPrivateKey:privateKey];
+                [self.authie.handle setPublicKey:publicKey];
+                
+                NSLog(@"id: %li, privateKey: %@, publicKey: %@", [self.authie.handle.id integerValue], self.authie.handle.privateKey, self.authie.handle.publicKey);
                 
                 [self saveChanges];
             } else {

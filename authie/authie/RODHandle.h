@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface RODHandle : NSObject
+@interface RODHandle : NSObject <NSCoding>
 
 @property (nonatomic) NSNumber *id;
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSNumber *active;
 @property (nonatomic) NSString *userGuid;
+@property (nonatomic) NSString *publicKey;
+@property (nonatomic) NSString *privateKey;
 
 @end

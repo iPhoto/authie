@@ -8,14 +8,14 @@
 
 #import <Foundation/Foundation.h>
 @class RODSelfie;
+@class RODHandle;
 
 @interface RODAuthie : NSObject <NSCoding>
 
 @property (nonatomic, strong) NSMutableArray *allSelfies;
+@property (nonatomic, strong) RODHandle *handle;
 @property (nonatomic, strong) NSString *authieHandle;
 @property (nonatomic, strong) NSString *authieKey;
-@property (nonatomic, strong) NSString *authiePublicKey;
-@property (nonatomic, strong) NSString *authiePrivateKey;
 @property (nonatomic) int registered;
 
 - (NSArray *)all_Selfies;

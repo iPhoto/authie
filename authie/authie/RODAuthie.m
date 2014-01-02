@@ -8,9 +8,10 @@
 
 #import "RODAuthie.h"
 #import "RODSelfie.h"
+#import "RODHandle.h"
 
 @implementation RODAuthie
-@synthesize authieHandle, authieKey, registered, allSelfies, authiePrivateKey, authiePublicKey;
+@synthesize authieHandle, authieKey, registered, allSelfies, handle;
 
 - (NSArray *)all_Selfies
 {
@@ -23,8 +24,7 @@
     [aCoder encodeObject:authieHandle forKey:@"authieHandle"];
     [aCoder encodeInt:registered forKey:@"registered"];
     [aCoder encodeObject:allSelfies forKey:@"allSelfies"];
-    [aCoder encodeObject:authiePrivateKey forKey:@"authiePrivateKey"];
-    [aCoder encodeObject:authiePublicKey forKey:@"authiePublicKey"];
+    [aCoder encodeObject:handle forKey:@"handle"];
 }
 
 - (id) initWithCoder:(NSCoder *)aDecoder
@@ -34,9 +34,8 @@
         [self setAuthieKey:[aDecoder decodeObjectForKey:@"authieKey"]];
         [self setAuthieHandle:[aDecoder decodeObjectForKey:@"authieHandle"]];
         [self setRegistered:[aDecoder decodeIntForKey:@"registered"]];
+        [self setHandle:[aDecoder decodeObjectForKey:@"handle"]];
         allSelfies = [aDecoder decodeObjectForKey:@"allSelfies"];
-        [self setAuthiePrivateKey:[aDecoder decodeObjectForKey:@"authiePrivateKey"]];
-        [self setAuthiePublicKey:[aDecoder decodeObjectForKey:@"authiePublicKey"]];
     }
     return self;
 }

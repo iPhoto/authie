@@ -21,13 +21,12 @@
     }
     
     
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"authie-logo-05-84px.png"] forBarPosition:UIBarPositionTopAttached    barMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"authie-logo-06-94px.png"] forBarPosition:UIBarPositionTopAttached    barMetrics:UIBarMetricsDefault];
 
 
-    RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
+    //RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
     //RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
-    
-    
+        
     return YES;
 }
 							
