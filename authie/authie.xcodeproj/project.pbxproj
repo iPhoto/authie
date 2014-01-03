@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D9A453218765184008C45FD /* RODThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9A453118765184008C45FD /* RODThread.m */; };
 		5D9DEE9A185242E300F80413 /* RKPostSelfie.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DEE93185242E300F80413 /* RKPostSelfie.m */; };
 		5D9DEE9B185242E300F80413 /* RODImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DEE95185242E300F80413 /* RODImageStore.m */; };
 		5D9DEE9C185242E300F80413 /* RODItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DEE97185242E300F80413 /* RODItemStore.m */; };
@@ -49,6 +50,8 @@
 
 /* Begin PBXFileReference section */
 		1A1BF85A36E24AF4B7D475C5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D9A453018765184008C45FD /* RODThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RODThread.h; sourceTree = "<group>"; };
+		5D9A453118765184008C45FD /* RODThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RODThread.m; sourceTree = "<group>"; };
 		5D9DEE92185242E300F80413 /* RKPostSelfie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKPostSelfie.h; sourceTree = "<group>"; };
 		5D9DEE93185242E300F80413 /* RKPostSelfie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKPostSelfie.m; sourceTree = "<group>"; };
 		5D9DEE94185242E300F80413 /* RODImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RODImageStore.h; sourceTree = "<group>"; };
@@ -167,6 +170,8 @@
 				5DF86496186E0E7A002DCCDC /* RODResponseMessage.m */,
 				5DF86498186E1701002DCCDC /* RODHandle.h */,
 				5DF86499186E1701002DCCDC /* RODHandle.m */,
+				5D9A453018765184008C45FD /* RODThread.h */,
+				5D9A453118765184008C45FD /* RODThread.m */,
 				5DEE7C99185234E800F532B3 /* AppDelegate.h */,
 				5DEE7C9A185234E800F532B3 /* AppDelegate.m */,
 				5DEE7C9C185234E800F532B3 /* Main_iPhone.storyboard */,
@@ -351,6 +356,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D9A453218765184008C45FD /* RODThread.m in Sources */,
 				5D9DEE9C185242E300F80413 /* RODItemStore.m in Sources */,
 				5DEE7C9B185234E800F532B3 /* AppDelegate.m in Sources */,
 				5DEE7CA4185234E800F532B3 /* MasterViewController.m in Sources */,

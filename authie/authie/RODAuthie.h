@@ -12,6 +12,7 @@
 
 @interface RODAuthie : NSObject <NSCoding>
 
+@property (nonatomic, strong) NSMutableArray *allThreads;
 @property (nonatomic, strong) NSMutableArray *allSelfies;
 @property (nonatomic, strong) RODHandle *handle;
 @property (nonatomic, strong) NSString *authieHandle;
@@ -19,5 +20,6 @@
 @property (nonatomic) int registered;
 
 - (NSArray *)all_Selfies;
+- (NSArray *)all_Threads;
 
 @end
