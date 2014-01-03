@@ -31,7 +31,10 @@
 - (BOOL)checkHandleAvailability:(NSString *)handle;
 - (BOOL)registerHandle:(NSString *)handle;
 - (BOOL)login;
+- (BOOL)loadThreads;
 - (BOOL)checkLoginStatus;
+- (BOOL)startThread:(NSString *)toHandle;
+
 
 @end
 

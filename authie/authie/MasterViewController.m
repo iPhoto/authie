@@ -176,6 +176,8 @@
     
     NSLog(@"Created key: %@", [RODItemStore sharedStore].recentSelfie.selfieKey);
     
+    [[RODItemStore sharedStore] startThread:@"1"];
+    
     CFRelease(newUniqueIDString);
     CFRelease(newUniqueID);
 

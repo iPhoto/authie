@@ -72,6 +72,7 @@
                 // we're logged in and ready to go,
                 // load the latest data
                 NSLog(@"please load the latest data.");
+                [self loadThreads];
                 
             }
             
@@ -220,6 +221,110 @@
     
     return is_logged_in;
     
+}
+
+- (BOOL)startThread:(NSString *)toHandle
+{
+    
+    BOOL start_convo_success = NO;
+    
+	// Create a new letter and POST it to the server
+    
+    NSString *uuidString = [[NSUUID UUID] UUIDString];
+    
+    NSDictionary *checkDict = [[NSDictionary alloc] initWithObjectsAndKeys:
+                               @"1", @"id",
+                               self.authie.handle.publicKey, @"fromHandleId",
+                               toHandle, @"toHandleId",
+                               uuidString, @"groupKey",
+                               nil];
+    
+    NSError *error = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:checkDict options:kNilOptions error:&error];
+    
+    NSURLResponse *response;
+    NSData *localData = nil;
+    
+    NSString *url = @"http://selfies.io/api/thread";
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"POST"];
+    
+    if(error == nil) {
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        [request setHTTPBody:jsonData];
+        
+        //send the request and get the response
+        localData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        NSError *deserialize_error = nil;
+        
+        id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingAllowFragments error:&deserialize_error];
+        
+        if([object isKindOfClass:[NSDictionary class]] && deserialize_error == nil) {
+            
+            NSLog(@"results from startConvo: %@", object);
+            
+            NSInteger response_result;
+            response_result = [[object objectForKey:@"result"] integerValue];
+            
+            if(response_result == 0) {
+                start_convo_success = NO;
+            } else {
+                start_convo_success = YES;
+            }
+            
+        }
+        
+    }
+    
+    return start_convo_success;
+}
+
+- (BOOL)loadThreads
+{
+    BOOL loaded_convos = NO;
+
+    
+    NSError *error = nil;
+    
+    NSURLResponse *response;
+    NSData *localData = nil;
+    
+    NSString *url = @"http://selfies.io/api/thread";
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"GET"];
+    
+    if(error == nil) {
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        
+        //send the request and get the response
+        localData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        NSError *deserialize_error = nil;
+        
+        id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingMutableContainers error:&deserialize_error];
+        if([object isKindOfClass:[NSArray self]] && deserialize_error == nil) {
+            
+            NSLog(@"results from loadThreads: %@", object);
+            
+            for (NSDictionary *result in object) {
+                NSLog(@"found thread: %@", result);
+            }
+            
+            loaded_convos = YES;
+            
+        } else {
+            NSLog(@"Not that kind of object: %@, deserialize_error: %@", object, deserialize_error);
+        }
+        
+    }
+
+    
+    return loaded_convos;
 }
 
 - (BOOL)checkHandleAvailability:(NSString *)handle

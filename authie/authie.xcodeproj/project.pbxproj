@@ -163,6 +163,10 @@
 				5D9DEE99185242E300F80413 /* RODSelfie.m */,
 				5DF86489185BEA60002DCCDC /* RODAuthie.h */,
 				5DF8648A185BEA60002DCCDC /* RODAuthie.m */,
+				5DF86495186E0E7A002DCCDC /* RODResponseMessage.h */,
+				5DF86496186E0E7A002DCCDC /* RODResponseMessage.m */,
+				5DF86498186E1701002DCCDC /* RODHandle.h */,
+				5DF86499186E1701002DCCDC /* RODHandle.m */,
 				5DEE7C99185234E800F532B3 /* AppDelegate.h */,
 				5DEE7C9A185234E800F532B3 /* AppDelegate.m */,
 				5DEE7C9C185234E800F532B3 /* Main_iPhone.storyboard */,
@@ -176,10 +180,6 @@
 				5DEE7CA6185234E800F532B3 /* DetailViewController.m */,
 				5DEE7CA8185234E800F532B3 /* Images.xcassets */,
 				5DEE7C91185234E800F532B3 /* Supporting Files */,
-				5DF86495186E0E7A002DCCDC /* RODResponseMessage.h */,
-				5DF86496186E0E7A002DCCDC /* RODResponseMessage.m */,
-				5DF86498186E1701002DCCDC /* RODHandle.h */,
-				5DF86499186E1701002DCCDC /* RODHandle.m */,
 			);
 			path = authie;
 			sourceTree = "<group>";
