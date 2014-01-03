@@ -184,6 +184,7 @@
     //NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     //[self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     
+    
     [self dismissViewControllerAnimated:NO completion:nil];
         
     // upload now lol

@@ -17,12 +17,12 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SG9-1b-hRM">
-                    <rect key="frame" x="131" y="251" width="41" height="30"/>
+                    <rect key="frame" x="126" y="251" width="52" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="41" id="BBi-Sa-K94"/>
+                        <constraint firstAttribute="width" constant="52" id="BBi-Sa-K94"/>
                     </constraints>
-                    <state key="normal" title="press">
+                    <state key="normal" title="choose">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -30,12 +30,12 @@
                     </connections>
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="handle" minimumFontSize="32" translatesAutoresizingMaskIntoConstraints="NO" id="K0f-pb-hdp">
-                    <rect key="frame" x="9" y="251" width="120" height="30"/>
+                    <rect key="frame" x="9" y="251" width="109" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="6vI-dz-2Ke"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="109" id="6vI-dz-2Ke"/>
                         <constraint firstAttribute="height" constant="30" id="IPl-iY-dIp"/>
-                        <constraint firstAttribute="width" constant="120" id="zwb-hR-hVS"/>
+                        <constraint firstAttribute="width" constant="109" id="zwb-hR-hVS"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                     <textInputTraits key="textInputTraits" returnKeyType="next"/>
@@ -44,11 +44,11 @@
                         <outlet property="delegate" destination="-1" id="7gM-gg-XWB"/>
                     </connections>
                 </textField>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="157" translatesAutoresizingMaskIntoConstraints="NO" id="ssY-d0-Zsd">
-                    <rect key="frame" x="9" y="85" width="157" height="153"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="171" translatesAutoresizingMaskIntoConstraints="NO" id="ssY-d0-Zsd">
+                    <rect key="frame" x="9" y="85" width="171" height="136"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="157" id="sHW-0n-X0S"/>
+                        <constraint firstAttribute="width" constant="171" id="sHW-0n-X0S"/>
                     </constraints>
                     <attributedString key="attributedText">
                         <fragment>
@@ -82,14 +82,14 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstItem="SG9-1b-hRM" firstAttribute="leading" secondItem="K0f-pb-hdp" secondAttribute="trailing" constant="2" id="Ewc-Tb-3JZ"/>
+                <constraint firstItem="SG9-1b-hRM" firstAttribute="leading" secondItem="K0f-pb-hdp" secondAttribute="trailing" constant="8" id="Ewc-Tb-3JZ"/>
                 <constraint firstItem="ssY-d0-Zsd" firstAttribute="top" secondItem="KPf-tW-n1F" secondAttribute="bottom" constant="-6" id="My4-8Z-xXX"/>
                 <constraint firstItem="K0f-pb-hdp" firstAttribute="leading" secondItem="ssY-d0-Zsd" secondAttribute="leading" id="WIw-ID-vxf"/>
                 <constraint firstItem="K0f-pb-hdp" firstAttribute="top" secondItem="1" secondAttribute="top" constant="251" id="WSK-P3-NjG"/>
                 <constraint firstItem="KPf-tW-n1F" firstAttribute="top" secondItem="1" secondAttribute="top" constant="14" id="bma-a6-iLg"/>
                 <constraint firstItem="hzn-bz-8eH" firstAttribute="top" secondItem="1" secondAttribute="top" constant="289" id="d7y-VA-Bom"/>
-                <constraint firstItem="KPf-tW-n1F" firstAttribute="centerX" secondItem="ssY-d0-Zsd" secondAttribute="centerX" constant="3.5" id="hR1-9T-4fg"/>
-                <constraint firstItem="K0f-pb-hdp" firstAttribute="top" secondItem="ssY-d0-Zsd" secondAttribute="bottom" constant="13" id="jqg-tT-bC6"/>
+                <constraint firstItem="KPf-tW-n1F" firstAttribute="centerX" secondItem="ssY-d0-Zsd" secondAttribute="centerX" constant="-3.5" id="hR1-9T-4fg"/>
+                <constraint firstItem="K0f-pb-hdp" firstAttribute="top" secondItem="ssY-d0-Zsd" secondAttribute="bottom" constant="30" id="jqg-tT-bC6"/>
                 <constraint firstItem="hzn-bz-8eH" firstAttribute="top" secondItem="K0f-pb-hdp" secondAttribute="bottom" constant="8" id="lDI-zf-VvV"/>
                 <constraint firstItem="K0f-pb-hdp" firstAttribute="top" secondItem="SG9-1b-hRM" secondAttribute="top" id="mGs-Si-ndc"/>
                 <constraint firstItem="ssY-d0-Zsd" firstAttribute="top" secondItem="1" secondAttribute="top" constant="85" id="nDR-6y-L8o"/>

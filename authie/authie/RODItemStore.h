@@ -34,7 +34,7 @@
 - (BOOL)loadThreads;
 - (BOOL)checkLoginStatus;
 - (BOOL)startThread:(NSString *)toHandle forKey:(NSString *)key;
-
+- (BOOL)uploadSnap:(NSString *)key;
 
 @end
 
