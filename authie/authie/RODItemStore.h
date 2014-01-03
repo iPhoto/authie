@@ -33,7 +33,7 @@
 - (BOOL)login;
 - (BOOL)loadThreads;
 - (BOOL)checkLoginStatus;
-- (BOOL)startThread:(NSString *)toHandle;
+- (BOOL)startThread:(NSString *)toHandle forKey:(NSString *)key;
 
 
 @end

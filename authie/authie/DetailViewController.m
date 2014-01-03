@@ -8,6 +8,9 @@
 
 #import "DetailViewController.h"
 #import "RODImageStore.h"
+#import "RODItemStore.h"
+#import "RODAuthie.h"
+#import "RODThread.h"
 
 @interface DetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -38,12 +41,13 @@
 - (void)configureView
 {
     // Update the user interface for the detail item.
+    
+    RODSelfie *detailItemSelfie = (RODSelfie *)self.detailItem;
 
-    if (self.snap) {
-        NSLog(@"Selfie: %@", self.snap.selfieKey);
-
-        [self.snapVIew setImage:[[RODImageStore sharedStore] imageForKey:self.snap.selfieKey]];
-
+    if (detailItemSelfie) {
+        NSString *key = detailItemSelfie.selfieKey;
+        NSLog(@"Selfie: %@", key);
+        [self.SnapView setImage:[[RODImageStore sharedStore] imageForKey:key]];
     } else {
         NSLog(@"emptienss");
     }

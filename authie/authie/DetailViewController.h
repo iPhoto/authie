@@ -13,7 +13,8 @@
 
 @property (strong, nonatomic) RODSelfie *snap;
 @property (strong, nonatomic) id detailItem;
-@property (weak, nonatomic) IBOutlet UIImageView *snapVIew;
+@property (weak, nonatomic) IBOutlet UIImageView *SnapView;
+@property (weak, nonatomic) IBOutlet UILabel *SnapLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 @end

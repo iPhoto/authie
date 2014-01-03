@@ -223,20 +223,18 @@
     
 }
 
-- (BOOL)startThread:(NSString *)toHandle
+- (BOOL)startThread:(NSString *)toHandle forKey:(NSString *)key;
 {
     
     BOOL start_convo_success = NO;
     
 	// Create a new letter and POST it to the server
-    
-    NSString *uuidString = [[NSUUID UUID] UUIDString];
-    
+        
     NSDictionary *checkDict = [[NSDictionary alloc] initWithObjectsAndKeys:
                                @"1", @"id",
                                self.authie.handle.publicKey, @"fromHandleId",
                                toHandle, @"toHandleId",
-                               uuidString, @"groupKey",
+                               key, @"groupKey",
                                nil];
     
     NSError *error = nil;

@@ -142,7 +142,7 @@
         RODSelfie *selfie = [[RODItemStore sharedStore].authie.allSelfies objectAtIndex:indexPath.row];
         
         [[segue destinationViewController] setDetailItem:selfie];
-        
+        NSLog(@"Show detail: %@", selfie.selfieKey);
     }
 }
 
@@ -171,24 +171,21 @@
     NSString *key = (__bridge NSString *)newUniqueIDString;
     
     [[RODImageStore sharedStore] setImage:image forKey:key];
+    NSLog(@"Created key: %@", key);
     
-    [RODItemStore sharedStore].recentSelfie = [[RODItemStore sharedStore] createSelfie:key];
-    
-    NSLog(@"Created key: %@", [RODItemStore sharedStore].recentSelfie.selfieKey);
-    
-    [[RODItemStore sharedStore] startThread:@"1"];
+    [[RODItemStore sharedStore] createSelfie:key];
+    [[RODItemStore sharedStore] startThread:@"1" forKey:key];
     
     CFRelease(newUniqueIDString);
     CFRelease(newUniqueID);
 
     //[_objects insertObject:[NSDate date] atIndex:0];
     
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    //NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    //[self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
-    
+    [self dismissViewControllerAnimated:NO completion:nil];
+        
     // upload now lol
     
     //    RKObjectMapping *responseMapping = [RKObjectMapping mappingForClass:[RKPostSelfie class]];
