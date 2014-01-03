@@ -41,6 +41,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;    
+}
+
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [self checkHandleAvailability];
