@@ -254,7 +254,7 @@
     NSMutableData *body = [NSMutableData data];
 
     // add image data
-    NSData *imageData = UIImageJPEGRepresentation([[RODImageStore sharedStore] imageForKey:key], 0.1);
+    NSData *imageData = UIImageJPEGRepresentation([[RODImageStore sharedStore] imageForKey:key], 0.25);
     
     NSLog(@"length: %lu", [imageData length]);
     if (imageData) {
@@ -285,7 +285,7 @@
         localData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
         
         NSError *deserialize_error = nil;
-                
+        
         id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingAllowFragments error:&deserialize_error];
         if([object isKindOfClass:[NSDictionary class]] && deserialize_error == nil) {
             
