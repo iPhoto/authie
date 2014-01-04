@@ -20,10 +20,8 @@
         splitViewController.delegate = (id)navigationController.topViewController;
     }
     
+    [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
     
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"authie-logo-06-94px.png"] forBarPosition:UIBarPositionTopAttached    barMetrics:UIBarMetricsDefault];
-
-
     //RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
     //RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
         

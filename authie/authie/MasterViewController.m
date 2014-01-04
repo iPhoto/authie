@@ -40,6 +40,12 @@
     
     self.imagePicker = [[UIImagePickerController alloc] init];
     
+    UIImage *image = [UIImage imageNamed:@"authie-logo-09-100px"];
+    UIImageView *imageview = [[UIImageView alloc] initWithImage:image];
+    self.navigationItem.titleView = imageview;
+    
+    self.navigationItem.title = @"seth";
+
 }
 
 - (void)didReceiveMemoryWarning
