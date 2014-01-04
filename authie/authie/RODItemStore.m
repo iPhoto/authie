@@ -15,6 +15,8 @@
 #import <RestKit.h>
 #import "RODResponseMessage.h"
 #import "RODHandle.h"
+#import "RODThread.h"
+#import "MasterViewController.h"
 
 @implementation RODItemStore
 
@@ -50,7 +52,10 @@
 
         if(!_authie.allSelfies)
             _authie.allSelfies = [[NSMutableArray alloc] init];
-                
+        
+        if(!_authie.allThreads)
+            _authie.allThreads = [[NSMutableArray alloc] init];
+        
         self.recentSelfie = [_authie.allSelfies lastObject];
         
         if(self.authie.registered == 0) {
@@ -64,17 +69,27 @@
             // check login status
             // try to log in if not logged in
 
-            if([self checkLoginStatus] == false) {
-                
-                NSLog(@"please login");
-                
+            bool logged_in = [self checkLoginStatus];
+            
+            if(logged_in == YES) {
+                NSLog(@"Logged in.");
+                [self loadThreads];
             } else {
+                NSLog(@"Not logged in.");
+            }
+            
+            
+            //if([self checkLoginStatus] == false) {
+                
+            //    NSLog(@"please login");
+                
+            //} else {
                 // we're logged in and ready to go,
                 // load the latest data
-                NSLog(@"please load the latest data.");
-                [self loadThreads];
+                //NSLog(@"please load the latest data.");
+                //[self loadThreads];
                 
-            }
+            //}
             
         }
         
@@ -212,6 +227,7 @@
             if(response_result == 0) {
                 is_logged_in = NO;
             } else {
+                //[self loadThreads];
                 is_logged_in = YES;                
             }
             
@@ -256,7 +272,6 @@
     // add image data
     NSData *imageData = UIImageJPEGRepresentation([[RODImageStore sharedStore] imageForKey:key], 0.25);
     
-    NSLog(@"length: %lu", [imageData length]);
     if (imageData) {
         [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
         [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"image.jpg\"\r\n", @"file"] dataUsingEncoding:NSUTF8StringEncoding]];
@@ -264,7 +279,6 @@
         [body appendData:imageData];
         [body appendData:[[NSString stringWithFormat:@"\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
     }
-    
     
     [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", @"groupKey"] dataUsingEncoding:NSUTF8StringEncoding]];
@@ -278,7 +292,6 @@
     // set URL
     [request setURL:[NSURL URLWithString:url]];
     
-    NSLog(@"set url");
     if(error == nil) {
         
         //send the request and get the response
@@ -391,11 +404,24 @@
         
         id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingMutableContainers error:&deserialize_error];
         if([object isKindOfClass:[NSArray self]] && deserialize_error == nil) {
-            
-            NSLog(@"results from loadThreads: %@", object);
+
+            // clear all other threads
+            [self.authie.allThreads removeAllObjects];
             
             for (NSDictionary *result in object) {
-                NSLog(@"found thread: %@", result);
+
+                NSInteger id_result = [[result objectForKey:@"id"] integerValue];
+                NSString *to_result = [result objectForKey:@"toHandleId"];
+
+                NSLog(@"found thread to %@", to_result);
+                
+                // replace them with the new ones
+                RODThread *thready = [[RODThread alloc] init];
+                thready.id = [NSNumber numberWithInteger:id_result];
+                thready.toHandleId = to_result;
+                thready.fromHandleId = [result objectForKey:@"fromHandleId"];
+                thready.startDate = [NSDate new];
+                [self.authie.allThreads addObject:thready];
             }
             
             loaded_convos = YES;
@@ -406,6 +432,11 @@
         
     }
 
+    NSLog(@"Done loading threads. Tell tableview to reload: %lu threads", [self.authie.allThreads count]);
+
+    //AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    //MasterViewController *mvc = [appDelegate.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"Master"];
+    //[mvc.tableView reloadData];
     
     return loaded_convos;
 }

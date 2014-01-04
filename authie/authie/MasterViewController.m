@@ -14,6 +14,7 @@
 #import "RKPostSelfie.h"
 #import "RODAuthie.h"
 #import "RODSelfie.h"
+#import "RODThread.h"
 
 @implementation MasterViewController
 
@@ -63,25 +64,19 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [RODItemStore sharedStore].authie.allSelfies.count;
+    return [RODItemStore sharedStore].authie.all_Threads.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    RODSelfie *selfie = [[RODItemStore sharedStore].authie.allSelfies  objectAtIndex:indexPath.row];
-        
-    //NSDate *object = _objects[indexPath.row];
+    RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads  objectAtIndex:indexPath.row];
     
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateStyle:NSDateFormatterShortStyle];
-    NSString *dateString = [dateFormat stringFromDate:selfie.selfieDate];
-    //NSLog(@"Date: %@", dateString);
+    NSLog(@"Found: %@", thread.toHandleId);
     
-    cell.textLabel.text = dateString;
-    
-    cell.detailTextLabel.text = dateString;
+    cell.textLabel.text = thread.toHandleId;
+    cell.detailTextLabel.text = thread.toHandleId;
     return cell;
 }
 
@@ -178,11 +173,13 @@
     
     CFRelease(newUniqueIDString);
     CFRelease(newUniqueID);
+    
+    [self.tableView reloadData];
 
     //[_objects insertObject:[NSDate date] atIndex:0];
     
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    //NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    //[self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     
     
     [self dismissViewControllerAnimated:NO completion:nil];

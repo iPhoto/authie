@@ -11,11 +11,16 @@
 #import "RODHandle.h"
 
 @implementation RODAuthie
-@synthesize authieHandle, authieKey, registered, allSelfies, handle;
+@synthesize authieHandle, authieKey, registered, allSelfies, allThreads, handle;
 
 - (NSArray *)all_Selfies
 {
     return allSelfies;
+}
+
+- (NSArray *)all_Threads
+{
+    return allThreads;
 }
 
 - (void) encodeWithCoder:(NSCoder *)aCoder
