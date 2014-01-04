@@ -366,7 +366,8 @@
             } else {
                 start_convo_success = YES;
                 
-                [[RODItemStore sharedStore] uploadSnap:key];
+                [self uploadSnap:key];
+                [self loadThreads];
                 
                 
             }
@@ -433,10 +434,10 @@
     }
 
     NSLog(@"Done loading threads. Tell tableview to reload: %lu threads", [self.authie.allThreads count]);
-
-    //AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    //MasterViewController *mvc = [appDelegate.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"Master"];
-    //[mvc.tableView reloadData];
+    
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    MasterViewController *mvc = [(UINavigationController *)appDelegate.window.rootViewController viewControllers][0];
+    [mvc.tableView reloadData];
     
     return loaded_convos;
 }

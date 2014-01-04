@@ -139,6 +139,13 @@
         [[segue destinationViewController] setDetailItem:selfie];
         NSLog(@"Show detail: %@", selfie.selfieKey);
     }
+    
+    if ([[segue identifier] isEqualToString:@"refreshTable"]) {
+        
+        [self.tableView reloadData];
+        NSLog(@"refreshTable");
+    }
+    
 }
 
 - (void)createSnap
@@ -173,14 +180,6 @@
     
     CFRelease(newUniqueIDString);
     CFRelease(newUniqueID);
-    
-    [self.tableView reloadData];
-
-    //[_objects insertObject:[NSDate date] atIndex:0];
-    
-    //NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    //[self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-    
     
     [self dismissViewControllerAnimated:NO completion:nil];
     
