@@ -8,6 +8,11 @@
 
 #import "AppDelegate.h"
 #import <RestKit.h>
+#define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+#define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
 
 @implementation AppDelegate
 
@@ -20,7 +25,10 @@
         splitViewController.delegate = (id)navigationController.topViewController;
     }
     
-    [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
+
+    if(SYSTEM_VERSION_GREATER_THAN(@"7.0") ) { 
+        [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
+    }
     
     //RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
     //RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
