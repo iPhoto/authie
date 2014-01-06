@@ -14,6 +14,7 @@
 #import "RODAuthie.h"
 #import "RODSelfie.h"
 #import "RODThread.h"
+#import "RODHandle.h"
 
 @implementation MasterViewController
 
@@ -43,7 +44,7 @@
     UIImageView *imageview = [[UIImageView alloc] initWithImage:image];
     self.navigationItem.titleView = imageview;
     
-    self.navigationItem.title = @"seth";
+    self.navigationItem.title = [RODItemStore sharedStore].authie.handle.name;
 
 }
 
