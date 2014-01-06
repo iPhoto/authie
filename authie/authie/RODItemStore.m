@@ -12,7 +12,6 @@
 #import "RODAuthie.h"
 #import "RegisterViewController.h"
 #import "AppDelegate.h"
-#import <RestKit.h>
 #import "RODResponseMessage.h"
 #import "RODHandle.h"
 #import "RODThread.h"

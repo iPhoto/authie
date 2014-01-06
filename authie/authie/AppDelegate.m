@@ -7,12 +7,13 @@
 //
 
 #import "AppDelegate.h"
-#import <RestKit.h>
 #define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
 #define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 #define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 #define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+#import "SlideNavigationController.h"
+#import "MenuViewController.h"
 
 @implementation AppDelegate
 
@@ -32,7 +33,12 @@
     
     //RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
     //RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
-        
+    
+    
+    MenuViewController *leftMenu = [[MenuViewController alloc] init];
+    [SlideNavigationController sharedInstance].leftMenu = leftMenu;
+    
+    // Override point for customization after application launch.
     return YES;
 }
 							

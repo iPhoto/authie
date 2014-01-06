@@ -10,7 +10,6 @@
 #import "DetailViewController.h"
 #import "RODItemStore.h"
 #import "RODImageStore.h"
-#import <RestKit.h>
 #import "RKPostSelfie.h"
 #import "RODAuthie.h"
 #import "RODSelfie.h"
