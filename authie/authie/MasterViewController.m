@@ -115,10 +115,9 @@
 
         //[_objects removeObjectAtIndex:indexPath.row];
 
-        //RODSelfie *selfie = [[RODItemStore sharedStore].allSelfies  objectAtIndex:indexPath.row];
-        [[RODItemStore sharedStore] removeSelfie:indexPath.row];
-        
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [[RODItemStore sharedStore] removeThread:indexPath.row];
+        [self.tableView reloadData];
+        //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }

@@ -115,12 +115,16 @@
     return s;
 }
 
-- (void)removeSelfie:(NSInteger)index
+- (void)removeThread:(NSInteger)index
 {
-    NSString *key = [(RODSelfie *)[_authie.allSelfies objectAtIndex:index] selfieKey];
-    [[RODImageStore sharedStore] deleteImageForKey:key];
+    //NSString *key = [(RODSelfie *)[_authie.allSelfies objectAtIndex:index] selfieKey];
     
-    [_authie.allSelfies removeObjectAtIndex:index];
+    RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:index];
+    NSLog(@"Remove thread: %@", thread.id);
+
+    [[RODImageStore sharedStore] deleteImageForKey:thread.groupKey];
+
+    //[_authie.allSelfies removeObjectAtIndex:index];
     
     [self saveChanges];
 }

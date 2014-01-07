@@ -25,7 +25,7 @@
 - (NSString *)itemArchivePath;
 
 - (RODSelfie *)createSelfie:(NSString *)key;
-- (void) removeSelfie:(NSInteger)index;
+- (void) removeThread:(NSInteger)index;
 
 - (BOOL)saveChanges;
 - (BOOL)checkHandleAvailability:(NSString *)handle;
