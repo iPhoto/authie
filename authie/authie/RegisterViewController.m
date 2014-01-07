@@ -92,7 +92,7 @@
 
 - (IBAction)authieHandleChanged:(id)sender {
     
-    if([self.authieHandle text].length > 4) {
+    if([self.authieHandle text].length > 2) {
         [self.handleAvailability setHidden:false];
         [self checkHandleAvailability];
     } else {

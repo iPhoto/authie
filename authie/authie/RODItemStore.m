@@ -324,9 +324,7 @@
 	// Create a new letter and POST it to the server
         
     NSDictionary *checkDict = [[NSDictionary alloc] initWithObjectsAndKeys:
-                               @"1", @"id",
-                               self.authie.handle.publicKey, @"fromHandleId",
-                               toHandle, @"toHandleId",
+                               @"1", @"toGuid",
                                key, @"groupKey",
                                nil];
     
