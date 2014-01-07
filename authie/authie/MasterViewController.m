@@ -15,6 +15,8 @@
 #import "RODSelfie.h"
 #import "RODThread.h"
 #import "RODHandle.h"
+#import <SlideNavigationController.h>
+#import "MenuViewController.h"
 
 @implementation MasterViewController
 
@@ -31,12 +33,19 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+        
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    
+    UIButton *btnSettings = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btnSettings setFrame:CGRectMake(0,0,23,21)];
+    [btnSettings setBackgroundImage:[UIImage imageNamed:@"cog.png"] forState:UIControlStateNormal];
+    [btnSettings addTarget:self action:@selector(btnSettings:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *settingsItem = [[UIBarButtonItem alloc] initWithCustomView:btnSettings];
+    self.navigationItem.leftBarButtonItem = settingsItem;
     
     self.imagePicker = [[UIImagePickerController alloc] init];
     
@@ -46,6 +55,13 @@
     
     self.navigationItem.title = [RODItemStore sharedStore].authie.handle.name;
 
+}
+
+-(void)btnSettings:(UIButton *)b
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"tag line" message:@"something happens" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+    [alert show];
+    
 }
 
 - (void)didReceiveMemoryWarning

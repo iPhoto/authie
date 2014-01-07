@@ -38,6 +38,7 @@
     MenuViewController *leftMenu = [[MenuViewController alloc] init];
     [SlideNavigationController sharedInstance].leftMenu = leftMenu;
     
+    
     // Override point for customization after application launch.
     return YES;
 }
