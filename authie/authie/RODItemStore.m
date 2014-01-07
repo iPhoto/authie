@@ -407,19 +407,30 @@
             [self.authie.allThreads removeAllObjects];
             
             for (NSDictionary *result in object) {
-
+                
                 NSInteger id_result = [[result objectForKey:@"id"] integerValue];
-                NSString *to_result = [result objectForKey:@"toHandleId"];
 
-                NSLog(@"found thread to %@", to_result);
                 
                 // replace them with the new ones
                 RODThread *thready = [[RODThread alloc] init];
                 thready.id = [NSNumber numberWithInteger:id_result];
+                
+                
+                NSDictionary *inner_result = [result objectForKey:@"toHandle"];
+                NSString *to_result = [inner_result objectForKey:@"name"];
+                
+                NSDictionary *from_inner_result = [result objectForKey:@"fromHandle"];
+                NSString *from_result = [NSString stringWithFormat:@"from: %@",[from_inner_result objectForKey:@"name"]];
+                
                 thready.toHandleId = to_result;
-                thready.fromHandleId = [result objectForKey:@"fromHandleId"];
+                thready.fromHandleId = from_result;
                 thready.startDate = [NSDate new];
+                
                 [self.authie.allThreads addObject:thready];
+
+                NSLog(@"found thread %d to %@, from %@", id_result, to_result, from_result);
+
+                
             }
             
             loaded_convos = YES;

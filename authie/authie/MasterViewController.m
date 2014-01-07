@@ -95,10 +95,10 @@
 
     RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads  objectAtIndex:indexPath.row];
     
-    NSLog(@"Found: %@", thread.toHandleId);
+    NSLog(@"Found: %@, %@", thread.toHandleId, thread.groupKey);
     
-    cell.textLabel.text = thread.toHandleId;
-    cell.detailTextLabel.text = thread.toHandleId;
+    cell.textLabel.text = [NSString stringWithFormat:@"%@", thread.toHandleId];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", thread.fromHandleId];
     return cell;
 }
 
