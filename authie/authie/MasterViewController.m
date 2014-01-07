@@ -48,6 +48,7 @@
     self.navigationItem.leftBarButtonItem = settingsItem;
     
     self.imagePicker = [[UIImagePickerController alloc] init];
+    [self.imagePicker setNavigationBarHidden:true];
     
     UIImage *image = [UIImage imageNamed:@"authie-logo-09-100px"];
     UIImageView *imageview = [[UIImageView alloc] initWithImage:image];
@@ -179,14 +180,22 @@
         [self.imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     }
     
+    // DISABLE THE STATUS BAR... but how...
+    
     [self.imagePicker setDelegate:self];
     
     [self presentViewController:self.imagePicker animated:YES completion:nil];
+    
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
+    
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     
     CFUUIDRef newUniqueID = CFUUIDCreate(kCFAllocatorDefault);
