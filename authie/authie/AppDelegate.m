@@ -13,8 +13,12 @@
 #define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 #define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
 #import "MenuViewController.h"
+#import "NavigationController.h"
+#import "MasterViewController.h"
+#import <REFrostedViewController.h>
 
 @implementation AppDelegate
+@synthesize menuViewController, navigationController, drawer, masterViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -34,7 +38,34 @@
     //RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
     
     
-    MenuViewController *leftMenu = [[MenuViewController alloc] init];
+    MenuViewController * leftDrawer = [[MenuViewController alloc] init];
+    menuViewController = leftDrawer;
+
+    MasterViewController *master = [[MasterViewController alloc] init];
+    masterViewController = master;
+    
+    NavigationController *navController = [[NavigationController alloc] initWithRootViewController:master];
+    navController.navigationBar.tintColor = [UIColor blackColor];
+    [navController.navigationBar setBackgroundColor:[UIColor whiteColor]];
+    
+//    [navController.menuViewController setThreshold:100.0f];
+//    [navController.menuViewController se]
+    
+    NSDictionary *new_font = [NSDictionary dictionaryWithObjectsAndKeys:
+                              [UIColor blackColor], UITextAttributeTextColor,
+                              [UIFont systemFontOfSize:12.0], UITextAttributeFont, nil];
+    
+    [navController.navigationBar setTitleTextAttributes:new_font];
+    
+    navigationController = navController;
+    
+    REFrostedViewController *drawerController = [[REFrostedViewController alloc] init];
+    drawer = drawerController;
+    
+    [[self window] setRootViewController:navController];
+    
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     
     
     // Override point for customization after application launch.
