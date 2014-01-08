@@ -42,12 +42,11 @@
 {
     // Update the user interface for the detail item.
     
-    RODSelfie *detailItemSelfie = (RODSelfie *)self.detailItem;
+    RODThread *thread = (RODThread *)self.detailItem;
 
-    if (detailItemSelfie) {
-        NSString *key = detailItemSelfie.selfieKey;
-        NSLog(@"Selfie: %@", key);
-        [self.SnapView setImage:[[RODImageStore sharedStore] imageForKey:key]];
+    if (thread) {
+        NSLog(@"Selfie: %@", thread.groupKey);
+        [self.SnapView setImage:[[RODImageStore sharedStore] imageForKey:thread.groupKey]];
     } else {
         NSLog(@"emptienss");
     }

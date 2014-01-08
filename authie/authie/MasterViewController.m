@@ -113,10 +113,7 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
 
-        //[_objects removeObjectAtIndex:indexPath.row];
-
         [[RODItemStore sharedStore] removeThread:indexPath.row];
-        [self.tableView reloadData];
         //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
@@ -143,10 +140,10 @@
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         
-        RODSelfie *selfie = [[RODItemStore sharedStore].authie.allSelfies objectAtIndex:indexPath.row];
+        RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:indexPath.row];
         
-        self.detailViewController.detailItem = selfie;
-        self.detailViewController.snap = selfie;
+        self.detailViewController.detailItem = thread;
+        self.detailViewController.snap = thread;
     }
 }
 
@@ -155,10 +152,10 @@
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         
-        RODSelfie *selfie = [[RODItemStore sharedStore].authie.allSelfies objectAtIndex:indexPath.row];
+        RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:indexPath.row];
         
-        [[segue destinationViewController] setDetailItem:selfie];
-        NSLog(@"Show detail: %@", selfie.selfieKey);
+        [[segue destinationViewController] setDetailItem:thread];
+        NSLog(@"Show detail: %@", thread.groupKey);
     }
     
 }

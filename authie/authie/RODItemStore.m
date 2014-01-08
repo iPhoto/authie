@@ -117,10 +117,61 @@
 
 - (void)removeThread:(NSInteger)index
 {
-    //NSString *key = [(RODSelfie *)[_authie.allSelfies objectAtIndex:index] selfieKey];
     
     RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:index];
-    NSLog(@"Remove thread: %@", thread.id);
+    NSLog(@"Remove thread: %@", thread.groupKey);
+
+    NSDictionary *checkDict = [[NSDictionary alloc] initWithObjectsAndKeys:
+                               thread.groupKey, @"s",
+                               nil];
+    
+    NSError *error = nil;
+    
+    NSData *jsonData;
+    [jsonData setValue:thread.groupKey forKey:@""];
+    
+    NSMutableData *data = [NSMutableData data];
+    [data appendData:[[NSString stringWithFormat:@"=%@",thread.groupKey] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    NSURLResponse *response;
+    NSData *localData = nil;
+    
+    NSString *url = @"http://selfies.io/api/thread";
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"DELETE"];
+    
+    if(error == nil) {
+        [request setValue:@"application/x-www-form-urlencoded; charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        [request setHTTPBody:data];
+        
+        //send the request and get the response
+        localData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        NSError *deserialize_error = nil;
+        
+        id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingAllowFragments error:&deserialize_error];
+        
+        if([object isKindOfClass:[NSDictionary class]] && deserialize_error == nil) {
+            
+            NSLog(@"results from delete: %@", object);
+            
+            NSInteger response_result;
+            response_result = [[object objectForKey:@"result"] integerValue];
+            
+            if(response_result == 1) {
+                [self loadThreads];                
+            }
+            
+            
+        }
+        
+    } else {
+        NSLog(@"Error: %@", error);
+    }
+
+    
 
     [[RODImageStore sharedStore] deleteImageForKey:thread.groupKey];
 
@@ -426,13 +477,14 @@
                 NSDictionary *from_inner_result = [result objectForKey:@"fromHandle"];
                 NSString *from_result = [NSString stringWithFormat:@"from: %@",[from_inner_result objectForKey:@"name"]];
                 
+                thready.groupKey = [result objectForKey:@"groupKey"];
                 thready.toHandleId = to_result;
                 thready.fromHandleId = from_result;
                 thready.startDate = [NSDate new];
                 
                 [self.authie.allThreads addObject:thready];
 
-                NSLog(@"found thread %d to %@, from %@", id_result, to_result, from_result);
+                NSLog(@"found thread %@ to %@, from %@", thready.groupKey, to_result, from_result);
 
                 
             }
