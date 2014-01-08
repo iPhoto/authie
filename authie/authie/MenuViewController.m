@@ -20,39 +20,24 @@
 {
     [super viewDidLoad];
     
+    self.tableView = [[UITableView alloc] init]; // Frame will be automatically set
     self.tableView.separatorColor = [UIColor colorWithRed:150/255.0f green:161/255.0f blue:177/255.0f alpha:1.0f];
+    self.tableView.separatorInset = UIEdgeInsetsZero;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.opaque = NO;
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.tableHeaderView = ({
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 184.0f)];
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 40, 100, 100)];
-        imageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-        imageView.image = [UIImage imageNamed:@"avatar.jpg"];
-        imageView.layer.masksToBounds = YES;
-        imageView.layer.cornerRadius = 50.0;
-        imageView.layer.borderColor = [UIColor whiteColor].CGColor;
-        imageView.layer.borderWidth = 3.0f;
-        imageView.layer.rasterizationScale = [UIScreen mainScreen].scale;
-        imageView.layer.shouldRasterize = YES;
-        imageView.clipsToBounds = YES;
-        
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 150, 0, 24)];
-        label.text = @"Roman Efimov";
-        label.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
-        label.backgroundColor = [UIColor clearColor];
-        label.textColor = [UIColor colorWithRed:62/255.0f green:68/255.0f blue:75/255.0f alpha:1.0f];
-        [label sizeToFit];
-        label.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-        
-        [view addSubview:imageView];
-        [view addSubview:label];
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 29.0f)];
         view;
     });
-
-
-    [self setView:self.tableView];
+    
+    
+    [self.tableView reloadData];
+    
+    [self.tableView setSeparatorInset:UIEdgeInsetsZero];
+    [self.tableView setSeparatorColor:[UIColor clearColor]];
+    
 }
 
 #pragma mark -
@@ -89,21 +74,21 @@
     if (sectionIndex == 0)
         return 0;
     
-    return 34;
+    return 0;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.section == 0 && indexPath.row == 0) {
-        MasterViewController *homeViewController = [[MasterViewController alloc] init];
-        NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:homeViewController];
-        self.frostedViewController.contentViewController = navigationController;
-    } else {
-        DetailViewController *secondViewController = [[DetailViewController alloc] init];
-        NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:secondViewController];
-        self.frostedViewController.contentViewController = navigationController;
-    }
+//    if (indexPath.section == 0 && indexPath.row == 0) {
+//        MasterViewController *homeViewController = [[MasterViewController alloc] init];
+//        NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:homeViewController];
+//        self.frostedViewController.contentViewController = navigationController;
+//    } else {
+//        DetailViewController *secondViewController = [[DetailViewController alloc] init];
+//        NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:secondViewController];
+//        self.frostedViewController.contentViewController = navigationController;
+//    }
     
     [self.frostedViewController hideMenuViewController];
 }
@@ -118,7 +103,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
@@ -136,13 +121,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
-    if (indexPath.section == 0) {
-        NSArray *titles = @[@"Home", @"Profile", @"Chats"];
-        cell.textLabel.text = titles[indexPath.row];
-    } else {
-        NSArray *titles = @[@"John Appleseed", @"John Doe", @"Test User"];
-        cell.textLabel.text = titles[indexPath.row];
-    }
+    NSArray *titles = @[@"Inbox", @"Contacts", @"Send Snap"];
+    cell.textLabel.text = titles[indexPath.row];
     
     return cell;
 }
