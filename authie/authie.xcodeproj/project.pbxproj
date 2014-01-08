@@ -12,6 +12,7 @@
 		5D9A453218765184008C45FD /* RODThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9A453118765184008C45FD /* RODThread.m */; };
 		5D9A453418771D0F008C45FD /* authie-logo-07-350px.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9A453318771D0F008C45FD /* authie-logo-07-350px.png */; };
 		5D9C7C57187DE25200BE2D42 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C7C56187DE25200BE2D42 /* NavigationController.m */; };
+		5D9C7C59187DEF8600BE2D42 /* MenuHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C7C58187DEF8600BE2D42 /* MenuHeader.xib */; };
 		5D9DEE9A185242E300F80413 /* RKPostSelfie.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DEE93185242E300F80413 /* RKPostSelfie.m */; };
 		5D9DEE9B185242E300F80413 /* RODImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DEE95185242E300F80413 /* RODImageStore.m */; };
 		5D9DEE9C185242E300F80413 /* RODItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DEE97185242E300F80413 /* RODItemStore.m */; };
@@ -64,6 +65,7 @@
 		5D9A453318771D0F008C45FD /* authie-logo-07-350px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "authie-logo-07-350px.png"; sourceTree = "<group>"; };
 		5D9C7C55187DE25200BE2D42 /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
 		5D9C7C56187DE25200BE2D42 /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
+		5D9C7C58187DEF8600BE2D42 /* MenuHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuHeader.xib; sourceTree = "<group>"; };
 		5D9DEE92185242E300F80413 /* RKPostSelfie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKPostSelfie.h; sourceTree = "<group>"; };
 		5D9DEE93185242E300F80413 /* RKPostSelfie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKPostSelfie.m; sourceTree = "<group>"; };
 		5D9DEE94185242E300F80413 /* RODImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RODImageStore.h; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				5D9A453118765184008C45FD /* RODThread.m */,
 				5DEE7C99185234E800F532B3 /* AppDelegate.h */,
 				5DEE7C9A185234E800F532B3 /* AppDelegate.m */,
+				5D9C7C58187DEF8600BE2D42 /* MenuHeader.xib */,
 				5D06B97F187B0C1F00FC17F0 /* MenuViewController.h */,
 				5D06B980187B0C1F00FC17F0 /* MenuViewController.m */,
 				5D9C7C55187DE25200BE2D42 /* NavigationController.h */,
@@ -322,6 +325,7 @@
 			files = (
 				5DEE7CA1185234E800F532B3 /* Main_iPad.storyboard in Resources */,
 				5DF86494185F75CA002DCCDC /* RegisterViewController.xib in Resources */,
+				5D9C7C59187DEF8600BE2D42 /* MenuHeader.xib in Resources */,
 				5DA64689187898B900F158E8 /* authie-logo-09-100px.png in Resources */,
 				5D06B985187B0D4E00FC17F0 /* cog.png in Resources */,
 				5DEE7CA9185234E800F532B3 /* Images.xcassets in Resources */,

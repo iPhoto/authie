@@ -8,18 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
-#import <REFrostedViewController.h>
 
-@interface MenuViewController : REFrostedViewController <UITableViewDelegate, UITableViewDataSource>
+@interface MenuViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 {
-    IBOutlet UIView *loginView;
+    IBOutlet UIView *menuHeaderView;
     IBOutlet UIView *footerView;
+    NSArray *menuItems;
 }
 
-- (UIView *)loginView;
-
-@property (weak, readwrite, nonatomic) UINavigationController *navigationController;
-@property (strong, readwrite, nonatomic) UITableView *tableView;
-@property (strong, nonatomic) NSArray *menuItems;
+- (UIView *)menuHeaderView;
 
 @end

@@ -18,38 +18,31 @@
 #import <REFrostedViewController.h>
 
 @implementation AppDelegate
-@synthesize menuViewController, navigationController, drawer, masterViewController;
+@synthesize masterViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-        UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-        splitViewController.delegate = (id)navigationController.topViewController;
+        UINavigationController *znavigationController = [splitViewController.viewControllers lastObject];
+        splitViewController.delegate = (id)znavigationController.topViewController;
     }
     
 
     if(SYSTEM_VERSION_GREATER_THAN(@"7.0") ) { 
         [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
     }
-    
-    //RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
-    //RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
-    
-    
-    MenuViewController * leftDrawer = [[MenuViewController alloc] init];
-    menuViewController = leftDrawer;
 
     MasterViewController *master = [[MasterViewController alloc] init];
     masterViewController = master;
     
-    NavigationController *navController = [[NavigationController alloc] initWithRootViewController:master];
+    NavigationController *navController = [[NavigationController alloc] initWithRootViewController:masterViewController];
     navController.navigationBar.tintColor = [UIColor blackColor];
     [navController.navigationBar setBackgroundColor:[UIColor whiteColor]];
     
-//    [navController.menuViewController setThreshold:100.0f];
-//    [navController.menuViewController se]
+    MenuViewController * leftDrawer = [[MenuViewController alloc] initWithStyle:UITableViewStylePlain];
+    self.leftDrawer = leftDrawer;
     
     NSDictionary *new_font = [NSDictionary dictionaryWithObjectsAndKeys:
                               [UIColor blackColor], UITextAttributeTextColor,
@@ -57,13 +50,12 @@
     
     [navController.navigationBar setTitleTextAttributes:new_font];
     
-    navigationController = navController;
-    
-    REFrostedViewController *drawerController = [[REFrostedViewController alloc] init];
-    drawer = drawerController;
-    
-    [[self window] setRootViewController:navController];
-    
+    REFrostedViewController *drawerController = [[REFrostedViewController alloc] initWithContentViewController:navController menuViewController:self.leftDrawer];
+    drawerController.direction = REFrostedViewControllerDirectionLeft;
+    drawerController.liveBlurBackgroundStyle = REFrostedViewControllerLiveBackgroundStyleLight;
+    drawerController.delegate = self;
+
+    [self.window setRootViewController:drawerController];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     
@@ -71,7 +63,32 @@
     // Override point for customization after application launch.
     return YES;
 }
-							
+
+- (void)frostedViewController:(REFrostedViewController *)frostedViewController didRecognizePanGesture:(UIPanGestureRecognizer *)recognizer
+{
+    
+}
+
+- (void)frostedViewController:(REFrostedViewController *)frostedViewController willShowMenuViewController:(UIViewController *)menuViewController
+{
+    NSLog(@"willShowMenuViewController");
+}
+
+- (void)frostedViewController:(REFrostedViewController *)frostedViewController didShowMenuViewController:(UIViewController *)menuViewController
+{
+    NSLog(@"didShowMenuViewController");
+}
+
+- (void)frostedViewController:(REFrostedViewController *)frostedViewController willHideMenuViewController:(UIViewController *)menuViewController
+{
+    NSLog(@"willHideMenuViewController");
+}
+
+- (void)frostedViewController:(REFrostedViewController *)frostedViewController didHideMenuViewController:(UIViewController *)menuViewController
+{
+    NSLog(@"didHideMenuViewController");
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

@@ -10,36 +10,51 @@
 #import "RODItemStore.h"
 #import "AppDelegate.h"
 #import <REFrostedViewController.h>
+#import "UIViewController+REFrostedViewController.h"
 
 @implementation MenuViewController
-@synthesize tableView, navigationController;
 
 -(void)viewDidLoad
 {
+ 
     
-    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(oneTap:)];
+    NSLog(@"view did load");
+    menuItems = [NSArray arrayWithObjects:@"one", @"private key", @"lol", nil];
     
-    [self.loginView addGestureRecognizer:singleTap];
-    
-    self.menuItems = [NSArray arrayWithObjects:@"hi", @"heheheh", nil];
-    
-    self.view.opaque = NO;
-    self.view.backgroundColor = [UIColor clearColor];
-    self.view.alpha = 0.95f;
-    
-//    [self setThreshold:150.0f];
-    
-    self.tableView = [[UITableView alloc] init]; // Frame will be automatically set
     self.tableView.separatorColor = [UIColor colorWithRed:150/255.0f green:161/255.0f blue:177/255.0f alpha:1.0f];
-    self.tableView.separatorInset = UIEdgeInsetsZero;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.opaque = NO;
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.tableHeaderView = ({
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 29.0f)];
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 184.0f)];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 40, 100, 100)];
+        imageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+        imageView.image = [UIImage imageNamed:@"avatar.jpg"];
+        imageView.layer.masksToBounds = YES;
+        imageView.layer.cornerRadius = 50.0;
+        imageView.layer.borderColor = [UIColor whiteColor].CGColor;
+        imageView.layer.borderWidth = 3.0f;
+        imageView.layer.rasterizationScale = [UIScreen mainScreen].scale;
+        imageView.layer.shouldRasterize = YES;
+        imageView.clipsToBounds = YES;
+        
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 150, 0, 24)];
+        label.text = @"Roman Efimov";
+        label.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
+        label.backgroundColor = [UIColor clearColor];
+        label.textColor = [UIColor colorWithRed:62/255.0f green:68/255.0f blue:75/255.0f alpha:1.0f];
+        [label sizeToFit];
+        label.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+        
+        [view addSubview:imageView];
+        [view addSubview:label];
         view;
     });
+    
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(oneTap:)];
+    
+    [self.menuHeaderView addGestureRecognizer:singleTap];
     
     
     [self.view addSubview:self.tableView];
@@ -52,23 +67,26 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    
+    NSLog(@"view will appear");
+
     [super viewWillAppear:animated];
     [self.tableView reloadData];
     
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     
-    NSLog(@"Top class: %@", [[appDelegate.navigationController visibleViewController] class]);
+//    NSLog(@"Top class: %@", [[appDelegate.navigationController visibleViewController] class]);
     
     
 }
 
-- (UIView *)loginView
+- (UIView *)menuHeaderView
 {
-    if (!loginView) {
-        [[NSBundle mainBundle] loadNibNamed:@"LoginView" owner:self options:nil];
+    if (!menuHeaderView) {
+        [[NSBundle mainBundle] loadNibNamed:@"MenuHeader" owner:self options:nil];
     }
     
-    return loginView;
+    return menuHeaderView;
 }
 
 
@@ -79,17 +97,17 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    return [self loginView];
+    return [self menuHeaderView];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return [[self loginView] bounds].size.height;
+    return [[self menuHeaderView] bounds].size.height;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.menuItems count];
+    return [menuItems count];
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -109,7 +127,7 @@
     }
     
     
-    NSString *s = [self.menuItems objectAtIndex:[indexPath row]];
+    NSString *s = [menuItems objectAtIndex:[indexPath row]];
     
     [[cell textLabel] setText:s];
     

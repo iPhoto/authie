@@ -8,9 +8,15 @@
 
 #import "NavigationController.h"
 #import <REFrostedViewController.h>
+#import "MenuViewController.h"
+
+@interface NavigationController ()
+
+@property (strong, readwrite, nonatomic) MenuViewController *menuViewController;
+
+@end
 
 @implementation NavigationController
-@synthesize menuViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,10 +31,8 @@
 {
     [super viewDidLoad];
 
-    self.menuViewController = [[MenuViewController alloc] init];
-    self.menuViewController.navigationController = self;
-    
     [self.view addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognized:)]];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,6 +43,7 @@
 
 - (void)showMenu
 {
+    NSLog(@"ShowMenu called.");
     [self resignFirstResponder];
 //    [self.menuViewController presentFromViewController:self animated:YES completion:nil];
     [self.frostedViewController presentMenuViewController];

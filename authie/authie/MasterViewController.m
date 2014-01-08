@@ -16,6 +16,8 @@
 #import "RODThread.h"
 #import "RODHandle.h"
 #import "MenuViewController.h"
+#import "AppDelegate.h"
+#import "NavigationController.h"
 
 @implementation MasterViewController
 
@@ -38,13 +40,19 @@
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
-    UIButton *btnSettings = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btnSettings setFrame:CGRectMake(0,0,23,21)];
-    [btnSettings setBackgroundImage:[UIImage imageNamed:@"cog.png"] forState:UIControlStateNormal];
-    [btnSettings addTarget:self action:@selector(btnSettings:) forControlEvents:UIControlEventTouchUpInside];
+    //UIButton *button_menu = [UIButton buttonWithType:UIButtonTypeCustom];
+    //[button_menu setFrame:CGRectMake(0, 0, 30, 30)];
+    //[button_menu setImage:[UIImage imageNamed:@"cog.png"] forState:UIControlStateNormal];
+    //[button_menu addTarget:self action:@selector(hamburger:) forControlEvents:UIControlEventTouchUpInside];
     
-    UIBarButtonItem *settingsItem = [[UIBarButtonItem alloc] initWithCustomView:btnSettings];
-    self.navigationItem.leftBarButtonItem = settingsItem;
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu"
+                                                                             style:UIBarButtonItemStylePlain
+                                                                            target:(NavigationController *)self.navigationController
+                                                                            action:@selector(showMenu)];
+    
+    
+    //UIBarButtonItem *leftDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_menu];
+    //self.navigationItem.leftBarButtonItem = leftDrawerButton;
     
     self.imagePicker = [[UIImagePickerController alloc] init];
     [self.imagePicker setNavigationBarHidden:true];
@@ -56,6 +64,14 @@
     self.navigationItem.title = [RODItemStore sharedStore].authie.handle.name;
 
 }
+
+//- (void)hamburger:(id)sender
+//{
+//    NSLog(@"menu timeeee");
+//    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+//    [appDelegate.drawer presentMenuViewController];
+//}
+
 
 -(void)btnSettings:(UIButton *)b
 {
@@ -95,7 +111,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
 
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
     }
     
     RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads  objectAtIndex:indexPath.row];
@@ -148,6 +164,16 @@
         
         self.detailViewController.detailItem = thread;
         self.detailViewController.snap = thread;
+    } else {
+
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        
+        RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:indexPath.row];
+        
+        //[[segue destinationViewController] setDetailItem:thread];
+        NSLog(@"Show thread pls: %@", thread.groupKey);
+        
+        
     }
 }
 

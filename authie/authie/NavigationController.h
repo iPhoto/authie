@@ -11,8 +11,6 @@
 
 @interface NavigationController : UINavigationController
 
-@property (strong, readwrite, nonatomic) MenuViewController *menuViewController;
-
 - (void)showMenu;
 
 @end
