@@ -47,6 +47,7 @@
     if (thread) {
         NSLog(@"Selfie: %@", thread.groupKey);
         [self.SnapView setImage:[[RODImageStore sharedStore] imageForKey:thread.groupKey]];
+
     } else {
         NSLog(@"emptienss");
     }

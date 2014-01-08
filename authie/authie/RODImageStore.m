@@ -49,16 +49,33 @@
     
 }
 
+-(UIImage *) getSnapFromWebsite:(NSString *)groupKey {
+    UIImage * result;
+    
+    NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://selfies.io/api/snap/500/%@", groupKey]]];
+    result = [UIImage imageWithData:data];
+    
+    return result;
+}
+
 - (UIImage *)imageForKey:(NSString *)s
 {
 
+    NSLog(@"Image for key: %@", s);
     UIImage *result = [dictionary objectForKey:s];
     
     if (!result) {
         result = [UIImage imageWithContentsOfFile:[self imagePathForKey:s]];
         
-        if (result)
+        if (result) {
             [dictionary setObject:result forKey:s];
+        } else {
+            NSLog(@"Unable to load image, loading from website");
+            result = [self getSnapFromWebsite:s];
+            
+            if(result)
+                [dictionary setObject:result forKey:s];
+        }
     }
     
     return result;
