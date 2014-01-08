@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <SlideNavigationController.h>
 
 @class DetailViewController;
 

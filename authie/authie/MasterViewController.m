@@ -15,7 +15,6 @@
 #import "RODSelfie.h"
 #import "RODThread.h"
 #import "RODHandle.h"
-#import <SlideNavigationController.h>
 #import "MenuViewController.h"
 
 @implementation MasterViewController
