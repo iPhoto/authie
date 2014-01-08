@@ -18,14 +18,6 @@
 
 @implementation NavigationController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -44,7 +36,7 @@
 - (void)showMenu
 {
     NSLog(@"ShowMenu called.");
-    [self resignFirstResponder];
+ //   [self resignFirstResponder];
 //    [self.menuViewController presentFromViewController:self animated:YES completion:nil];
     [self.frostedViewController presentMenuViewController];
 }
@@ -52,7 +44,7 @@
 - (void)panGestureRecognized:(UIPanGestureRecognizer *)sender
 {
 //    [self.menuViewController presentFromViewController:self panGestureRecognizer:sender];
-    [self.frostedViewController presentMenuViewController];
+    [self.frostedViewController panGestureRecognized:sender];
 }
 
 @end

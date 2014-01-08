@@ -11,11 +11,7 @@
 
 @interface MenuViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 {
-    IBOutlet UIView *menuHeaderView;
-    IBOutlet UIView *footerView;
-    NSArray *menuItems;
 }
 
-- (UIView *)menuHeaderView;
 
 @end
