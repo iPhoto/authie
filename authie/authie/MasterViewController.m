@@ -154,18 +154,11 @@
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//        NSDate *object = _objects[indexPath.row];
         
         RODSelfie *selfie = [[RODItemStore sharedStore].authie.allSelfies objectAtIndex:indexPath.row];
         
         [[segue destinationViewController] setDetailItem:selfie];
         NSLog(@"Show detail: %@", selfie.selfieKey);
-    }
-    
-    if ([[segue identifier] isEqualToString:@"refreshTable"]) {
-        
-        [self.tableView reloadData];
-        NSLog(@"refreshTable");
     }
     
 }
@@ -185,15 +178,10 @@
     
     [self presentViewController:self.imagePicker animated:YES completion:nil];
     
-    [[UIApplication sharedApplication] setStatusBarHidden:YES];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    
-    [[UIApplication sharedApplication] setStatusBarHidden:NO];
     
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     

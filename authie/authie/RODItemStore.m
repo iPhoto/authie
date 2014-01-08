@@ -124,7 +124,7 @@
 
     [[RODImageStore sharedStore] deleteImageForKey:thread.groupKey];
 
-    //[_authie.allSelfies removeObjectAtIndex:index];
+
     
     [self saveChanges];
 }
