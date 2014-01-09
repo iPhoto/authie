@@ -15,6 +15,7 @@
 #import "RODResponseMessage.h"
 #import "RODHandle.h"
 #import "RODThread.h"
+#import "RODFollower.h"
 #import "MasterViewController.h"
 
 @implementation RODItemStore
@@ -426,6 +427,74 @@
     }
     
     return start_convo_success;
+}
+
+- (BOOL)loadContacts
+{
+    BOOL loaded_contacts = NO;
+
+    
+    NSError *error = nil;
+    
+    NSURLResponse *response;
+    NSData *localData = nil;
+    
+    NSString *url = @"http://selfies.io/api/follower";
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"GET"];
+    
+    if(error == nil) {
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        
+        //send the request and get the response
+        localData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        NSError *deserialize_error = nil;
+        
+        id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingMutableContainers error:&deserialize_error];
+        if([object isKindOfClass:[NSArray self]] && deserialize_error == nil) {
+            
+            // clear all old contacts
+            [self.authie.allContacts removeAllObjects];
+            
+            for (NSDictionary *result in object) {
+                
+                NSInteger id_result = [[result objectForKey:@"id"] integerValue];
+                
+                // replace them with the new ones
+                RODFollower *follower = [[RODFollower alloc] init];
+                follower.id = [NSNumber numberWithInteger:id_result];
+                
+//                NSDictionary *inner_result = [result objectForKey:@"toHandle"];
+//                NSString *to_result = [inner_result objectForKey:@"name"];
+//                
+//                NSDictionary *from_inner_result = [result objectForKey:@"fromHandle"];
+//                NSString *from_result = [NSString stringWithFormat:@"from: %@",[from_inner_result objectForKey:@"name"]];
+//                
+//                thready.groupKey = [result objectForKey:@"groupKey"];
+//                thready.toHandleId = to_result;
+//                thready.fromHandleId = from_result;
+//                thready.startDate = [NSDate new];
+//                
+//                [self.authie.allThreads addObject:thready];
+//                
+//                NSLog(@"found thread %@ to %@, from %@", thready.groupKey, to_result, from_result);
+
+                NSLog(@"result: ", result);
+                
+            }
+            
+            loaded_contacts = YES;
+            
+        } else {
+            NSLog(@"Not that kind of object: %@, deserialize_error: %@", object, deserialize_error);
+        }
+        
+    }
+    
+    return loaded_contacts;
 }
 
 - (BOOL)loadThreads

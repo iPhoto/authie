@@ -67,7 +67,8 @@
     self.navigationItem.title = [RODItemStore sharedStore].authie.handle.name;
     
     [self.tableView setSeparatorInset:UIEdgeInsetsZero];
-
+    [self.tableView setAllowsSelection:YES];
+    [self.tableView setAllowsSelectionDuringEditing:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -121,8 +122,12 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    NSLog(@"commitEditingStyle");
+    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
 
+        NSLog(@"Delete.");
         [[RODItemStore sharedStore] removeThread:indexPath.row];
         //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
