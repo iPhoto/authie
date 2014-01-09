@@ -18,6 +18,7 @@
 #import "MenuViewController.h"
 #import "AppDelegate.h"
 #import "NavigationController.h"
+#import "ThreadViewController.h"
 
 @implementation MasterViewController
 
@@ -34,8 +35,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-        
-
+    
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
@@ -154,10 +154,18 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         
         RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:indexPath.row];
+
+        NSLog(@"didSelectRowAtIndexPath: %@", thread.groupKey);
         
-        //[[segue destinationViewController] setDetailItem:thread];
-        NSLog(@"Show thread pls: %@", thread.groupKey);
+        ThreadViewController *tvc = [[ThreadViewController alloc] init];
+        [tvc setThread:thread];
+
+        //AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+        //[appDelegate.threadViewController setThread:thread];
         
+        
+        NavigationController *navigationController = (NavigationController *)self.navigationController;
+        [navigationController pushViewController:tvc animated:YES];
         
     }
 }

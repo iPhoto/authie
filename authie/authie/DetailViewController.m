@@ -21,9 +21,10 @@
 
 #pragma mark - Managing the detail item
 
-- (void)setSnap:(RODSelfie *)new_snap
+- (void)setThread:(RODThread *)new_thread
 {
-    self.snap = new_snap;
+    NSLog(@"setSnap: %@", new_thread.groupKey);
+    self.snap = new_thread;
 
     if (self.snap) {
         
@@ -42,10 +43,10 @@
 {
     // Update the user interface for the detail item.
     
-    RODThread *thread = (RODThread *)self.detailItem;
+    RODThread *thread = self.snap;
 
     if (thread) {
-        NSLog(@"Selfie: %@", thread.groupKey);
+        NSLog(@"Thread: %@", thread.groupKey);
         [self.SnapView setImage:[[RODImageStore sharedStore] imageForKey:thread.groupKey]];
 
     } else {
@@ -57,7 +58,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    [self configureView];
+    //[self configureView];
+    NSLog(@"DetailViewController started.");
+
 }
 
 - (void)didReceiveMemoryWarning

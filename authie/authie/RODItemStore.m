@@ -497,7 +497,6 @@
         
     }
 
-    NSLog(@"Done loading threads. Tell tableview to reload: %lu threads", [self.authie.allThreads count]);
     
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     [appDelegate.masterViewController.tableView reloadData];

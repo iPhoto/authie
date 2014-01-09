@@ -18,4 +18,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *SnapLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+
+-(void)setThread:(RODThread *)new_thread;
 @end

@@ -11,11 +11,13 @@
 #import "NavigationController.h"
 #import "MasterViewController.h"
 #import "MenuViewController.h"
+#import "ThreadViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, REFrostedViewControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) MasterViewController *masterViewController;
+@property (strong, nonatomic) ThreadViewController *threadViewController;
 @property (strong, nonatomic) MenuViewController *leftDrawer;
 
 @end

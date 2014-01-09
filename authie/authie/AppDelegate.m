@@ -6,19 +6,21 @@
 //  Copyright (c) 2013 bitwise. All rights reserved.
 //
 
-#import "AppDelegate.h"
 #define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
 #define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 #define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 #define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+#import "AppDelegate.h"
 #import "MenuViewController.h"
+#import "DetailViewController.h"
 #import "NavigationController.h"
 #import "MasterViewController.h"
 #import <REFrostedViewController.h>
+#import "ThreadViewController.h"
 
 @implementation AppDelegate
-@synthesize masterViewController;
+@synthesize masterViewController, threadViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -36,6 +38,9 @@
 
     MasterViewController *master = [[MasterViewController alloc] init];
     masterViewController = master;
+    
+    ThreadViewController *thread = [[ThreadViewController alloc] init];
+    threadViewController = thread;
     
     NavigationController *navController = [[NavigationController alloc] initWithRootViewController:masterViewController];
     navController.navigationBar.tintColor = [UIColor blackColor];
