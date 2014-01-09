@@ -82,8 +82,10 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 0 && indexPath.row == 0) {
-        MasterViewController *homeViewController = [[MasterViewController alloc] init];
-        NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:homeViewController];
+        
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        
+        NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.masterViewController];
         self.frostedViewController.contentViewController = navigationController;
     } else {
         ContactsViewController *contacts = [[ContactsViewController alloc] init];
