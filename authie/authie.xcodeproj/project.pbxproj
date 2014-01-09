@@ -12,6 +12,7 @@
 		5D9A453218765184008C45FD /* RODThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9A453118765184008C45FD /* RODThread.m */; };
 		5D9A453418771D0F008C45FD /* authie-logo-07-350px.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9A453318771D0F008C45FD /* authie-logo-07-350px.png */; };
 		5D9C7C57187DE25200BE2D42 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C7C56187DE25200BE2D42 /* NavigationController.m */; };
+		5D9C7C5C187E0F0400BE2D42 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C7C5B187E0F0400BE2D42 /* ContactsViewController.m */; };
 		5D9DEE9A185242E300F80413 /* RKPostSelfie.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DEE93185242E300F80413 /* RKPostSelfie.m */; };
 		5D9DEE9B185242E300F80413 /* RODImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DEE95185242E300F80413 /* RODImageStore.m */; };
 		5D9DEE9C185242E300F80413 /* RODItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DEE97185242E300F80413 /* RODItemStore.m */; };
@@ -64,6 +65,8 @@
 		5D9A453318771D0F008C45FD /* authie-logo-07-350px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "authie-logo-07-350px.png"; sourceTree = "<group>"; };
 		5D9C7C55187DE25200BE2D42 /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
 		5D9C7C56187DE25200BE2D42 /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
+		5D9C7C5A187E0F0400BE2D42 /* ContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsViewController.h; sourceTree = "<group>"; };
+		5D9C7C5B187E0F0400BE2D42 /* ContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsViewController.m; sourceTree = "<group>"; };
 		5D9DEE92185242E300F80413 /* RKPostSelfie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKPostSelfie.h; sourceTree = "<group>"; };
 		5D9DEE93185242E300F80413 /* RKPostSelfie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKPostSelfie.m; sourceTree = "<group>"; };
 		5D9DEE94185242E300F80413 /* RODImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RODImageStore.h; sourceTree = "<group>"; };
@@ -201,6 +204,8 @@
 				5DEE7CA3185234E800F532B3 /* MasterViewController.m */,
 				5DEE7CA5185234E800F532B3 /* DetailViewController.h */,
 				5DEE7CA6185234E800F532B3 /* DetailViewController.m */,
+				5D9C7C5A187E0F0400BE2D42 /* ContactsViewController.h */,
+				5D9C7C5B187E0F0400BE2D42 /* ContactsViewController.m */,
 				5DEE7CA8185234E800F532B3 /* Images.xcassets */,
 				5DEE7C91185234E800F532B3 /* Supporting Files */,
 			);
@@ -383,6 +388,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D9A453218765184008C45FD /* RODThread.m in Sources */,
+				5D9C7C5C187E0F0400BE2D42 /* ContactsViewController.m in Sources */,
 				5D9DEE9C185242E300F80413 /* RODItemStore.m in Sources */,
 				5DEE7C9B185234E800F532B3 /* AppDelegate.m in Sources */,
 				5DEE7CA4185234E800F532B3 /* MasterViewController.m in Sources */,

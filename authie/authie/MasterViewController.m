@@ -57,9 +57,17 @@
     self.imagePicker = [[UIImagePickerController alloc] init];
     [self.imagePicker setNavigationBarHidden:true];
     
-    UIImage *image = [UIImage imageNamed:@"authie-logo-09-100px"];
+    UIImage *image = [UIImage imageNamed:@"authie-logo-07-350px"];
     UIImageView *imageview = [[UIImageView alloc] initWithImage:image];
+
+    [imageview setFrame:CGRectMake(0, 0, 100, 20)];
+    NSLog(@"frame w, h: %f, %f", self.navigationItem.titleView.frame.size.width, self.navigationItem.titleView.frame.size.height);
+    
+    [imageview setContentMode:UIViewContentModeScaleAspectFit];
+
     self.navigationItem.titleView = imageview;
+
+    NSLog(@"frame w, h: %f, %f", self.navigationItem.titleView.frame.size.width, self.navigationItem.titleView.frame.size.height);
     
     self.navigationItem.title = [RODItemStore sharedStore].authie.handle.name;
 
