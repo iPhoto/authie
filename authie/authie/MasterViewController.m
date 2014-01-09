@@ -153,19 +153,6 @@
     }
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        
-        RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:indexPath.row];
-        
-        [[segue destinationViewController] setDetailItem:thread];
-        NSLog(@"Show detail: %@", thread.groupKey);
-    }
-    
-}
-
 - (void)createSnap
 {
     
