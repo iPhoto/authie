@@ -14,11 +14,13 @@
 
 @property (nonatomic, strong) NSMutableArray *allThreads;
 @property (nonatomic, strong) NSMutableArray *allSelfies;
+@property (nonatomic, strong) NSMutableArray *allContacts;
 @property (nonatomic, strong) RODHandle *handle;
 @property (nonatomic, strong) NSString *authieHandle;
 @property (nonatomic, strong) NSString *authieKey;
 @property (nonatomic) int registered;
 
+- (NSArray *)all_Contacts;
 - (NSArray *)all_Selfies;
 - (NSArray *)all_Threads;
 

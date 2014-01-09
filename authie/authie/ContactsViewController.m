@@ -28,6 +28,10 @@
         UIBarButtonItem *leftDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_menu];
         self.navigationItem.leftBarButtonItem = leftDrawerButton;
         
+        UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addContact:)];
+        self.navigationItem.rightBarButtonItem = addButton;
+        
+        
     }
     return self;
 }
@@ -127,5 +131,12 @@
 }
 
  */
+
+- (void)addContact:(id)sender
+{
+    
+    NSLog(@"add contact pls...");
+    
+}
 
 @end

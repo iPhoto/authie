@@ -11,7 +11,7 @@
 #import "RODHandle.h"
 
 @implementation RODAuthie
-@synthesize authieHandle, authieKey, registered, allSelfies, allThreads, handle;
+@synthesize authieHandle, authieKey, registered, allSelfies, allThreads, handle, allContacts;
 
 - (NSArray *)all_Selfies
 {
@@ -23,12 +23,18 @@
     return allThreads;
 }
 
+- (NSArray *)all_Contacts
+{
+    return allContacts;
+}
+
 - (void) encodeWithCoder:(NSCoder *)aCoder
 {
     [aCoder encodeObject:authieKey forKey:@"authieKey"];
     [aCoder encodeObject:authieHandle forKey:@"authieHandle"];
     [aCoder encodeInt:registered forKey:@"registered"];
     [aCoder encodeObject:allSelfies forKey:@"allSelfies"];
+    [aCoder encodeObject:allContacts forKey:@"allContacts"];
     [aCoder encodeObject:handle forKey:@"handle"];
 }
 
@@ -41,6 +47,7 @@
         [self setRegistered:[aDecoder decodeIntForKey:@"registered"]];
         [self setHandle:[aDecoder decodeObjectForKey:@"handle"]];
         allSelfies = [aDecoder decodeObjectForKey:@"allSelfies"];
+        allContacts = [aDecoder decodeObjectForKey:@"allContacts"];
     }
     return self;
 }
