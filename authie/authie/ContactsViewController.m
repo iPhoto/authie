@@ -21,8 +21,8 @@
     if (self) {
 
         UIButton *button_menu = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button_menu setFrame:CGRectMake(0, 0, 23, 23)];
-        [button_menu setImage:[UIImage imageNamed:@"cog.png"] forState:UIControlStateNormal];
+        [button_menu setFrame:CGRectMake(0, 0, 40, 40)];
+        [button_menu setImage:[UIImage imageNamed:@"cog-black.png"] forState:UIControlStateNormal];
         [button_menu addTarget:(NavigationController *)self.navigationController action:@selector(showMenu:) forControlEvents:UIControlEventTouchUpInside];
         
         UIBarButtonItem *leftDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_menu];

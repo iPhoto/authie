@@ -12,6 +12,7 @@
 		5D8C1CD7187E38E300158AE5 /* ThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C1CD5187E38E300158AE5 /* ThreadViewController.m */; };
 		5D8C1CD8187E38E300158AE5 /* ThreadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C1CD6187E38E300158AE5 /* ThreadViewController.xib */; };
 		5D8C1CDB187F3ACA00158AE5 /* RODFollower.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C1CDA187F3ACA00158AE5 /* RODFollower.m */; };
+		5D8C1CDD187F3EC000158AE5 /* cog-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C1CDC187F3EC000158AE5 /* cog-black.png */; };
 		5D9A453218765184008C45FD /* RODThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9A453118765184008C45FD /* RODThread.m */; };
 		5D9A453418771D0F008C45FD /* authie-logo-07-350px.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9A453318771D0F008C45FD /* authie-logo-07-350px.png */; };
 		5D9C7C57187DE25200BE2D42 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C7C56187DE25200BE2D42 /* NavigationController.m */; };
@@ -68,6 +69,7 @@
 		5D8C1CD6187E38E300158AE5 /* ThreadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThreadViewController.xib; sourceTree = "<group>"; };
 		5D8C1CD9187F3ACA00158AE5 /* RODFollower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RODFollower.h; sourceTree = "<group>"; };
 		5D8C1CDA187F3ACA00158AE5 /* RODFollower.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RODFollower.m; sourceTree = "<group>"; };
+		5D8C1CDC187F3EC000158AE5 /* cog-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cog-black.png"; sourceTree = "<group>"; };
 		5D9A453018765184008C45FD /* RODThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RODThread.h; sourceTree = "<group>"; };
 		5D9A453118765184008C45FD /* RODThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RODThread.m; sourceTree = "<group>"; };
 		5D9A453318771D0F008C45FD /* authie-logo-07-350px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "authie-logo-07-350px.png"; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				5D06B984187B0D4E00FC17F0 /* cog.png */,
+				5D8C1CDC187F3EC000158AE5 /* cog-black.png */,
 				5DA64688187898B900F158E8 /* authie-logo-09-100px.png */,
 				5DA646861878980900F158E8 /* authie-logo-08-200px.png */,
 				5DEE7C92185234E800F532B3 /* authie-Info.plist */,
@@ -347,6 +350,7 @@
 				5DF864A21874A8C9002DCCDC /* authie-logo-05-84px.png in Resources */,
 				5D9A453418771D0F008C45FD /* authie-logo-07-350px.png in Resources */,
 				5DEE7C9E185234E800F532B3 /* Main_iPhone.storyboard in Resources */,
+				5D8C1CDD187F3EC000158AE5 /* cog-black.png in Resources */,
 				5DA646871878980900F158E8 /* authie-logo-08-200px.png in Resources */,
 				5DF864A41874AA0B002DCCDC /* authie-logo-06-94px.png in Resources */,
 				5DEE7C95185234E800F532B3 /* InfoPlist.strings in Resources */,
