@@ -151,22 +151,8 @@
         self.detailViewController.snap = thread;
     } else {
 
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        
-        RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:indexPath.row];
-
-        NSLog(@"didSelectRowAtIndexPath: %@", thread.groupKey);
-        
-        ThreadViewController *tvc = [[ThreadViewController alloc] init];
-        [tvc setThread:thread];
-
-        //AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-        //[appDelegate.threadViewController setThread:thread];
-        
-        
-        NavigationController *navigationController = (NavigationController *)self.navigationController;
-        [navigationController pushViewController:tvc animated:YES];
-        
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];        
+        [[RODImageStore sharedStore] preloadImageAndShowScreen:indexPath.row];
     }
 }
 

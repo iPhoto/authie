@@ -7,7 +7,10 @@
 //
 
 #import "RODImageStore.h"
-
+#import "NavigationController.h"
+#import "AppDelegate.h"
+#import "RODItemStore.h"
+#import "RODAuthie.h"
 
 @implementation RODImageStore
 
@@ -43,8 +46,9 @@
     
     NSString *imagePath = [self imagePathForKey:s];
     
-    NSData *d = UIImageJPEGRepresentation(i, 0.9);
-    
+    NSData *d = UIImageJPEGRepresentation(i, 1);
+
+    NSLog(@"Image written to disk: %@", s);
     [d writeToFile:imagePath atomically:YES];
     
 }
@@ -55,7 +59,47 @@
     NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://selfies.io/api/snap/500/%@", groupKey]]];
     result = [UIImage imageWithData:data];
     
+    [self setImage:result forKey:groupKey];
+    
     return result;
+}
+
+-(void)preloadImageAndShowScreen:(int)row
+{
+
+    RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:row];
+    UIImage *result = [dictionary objectForKey:thread.groupKey];
+    
+    if(result) {
+
+        AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+        [appDelegate.threadViewController loadThread:row];
+        
+        //    NavigationController *navigationController = appDelegate.masterViewController.navigationController;
+        [appDelegate.masterViewController.navigationController pushViewController:appDelegate.threadViewController animated:YES];
+        
+        
+    } else {
+        
+        NSLog(@"ok, downloadImageAndShowScreen");
+        downloadingSnapRow = row;
+        downloadingSnapKey = thread.groupKey;
+        
+        [self downloadImageAndShowScreen:thread.groupKey];
+    }
+    
+
+    
+}
+
+- (void)downloadImageAndShowScreen:(NSString *)groupKey
+{
+    
+    NSString *websiteUrl = [NSString stringWithFormat:@"http://selfies.io/api/snap/500/%@", groupKey];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:websiteUrl]];
+    
+    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
 }
 
 - (UIImage *)imageForKey:(NSString *)s
@@ -63,7 +107,7 @@
 
     NSLog(@"Image for key: %@", s);
     UIImage *result = [dictionary objectForKey:s];
-    
+        
     if (!result) {
         result = [UIImage imageWithContentsOfFile:[self imagePathForKey:s]];
         
@@ -73,8 +117,10 @@
             NSLog(@"Unable to load image, loading from website");
             result = [self getSnapFromWebsite:s];
             
-            if(result)
-                [dictionary setObject:result forKey:s];
+            if(result) {
+                [self setImage:result forKey:s];
+                NSLog(@"Called setImage after downloading...");
+            }
         }
     }
     
@@ -105,6 +151,38 @@
 {
     NSLog(@"flushing %d images out of the cache", [dictionary count]);
     [dictionary removeAllObjects];
+}
+
+-(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    _downloadingSnap = [[NSMutableData alloc] init];
+}
+
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    [_downloadingSnap appendData:data];
+}
+
+- (NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse
+{
+    return nil;
+}
+
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    
+    UIImage *result;
+    result = [UIImage imageWithData:_downloadingSnap];
+    
+    [self setImage:result forKey:downloadingSnapKey];
+
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    [appDelegate.threadViewController loadThread:downloadingSnapRow];
+    
+    //    NavigationController *navigationController = appDelegate.masterViewController.navigationController;
+    [appDelegate.masterViewController.navigationController pushViewController:appDelegate.threadViewController animated:YES];
+
+    
 }
 
 @end

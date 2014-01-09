@@ -16,6 +16,6 @@
 @property (weak, nonatomic) RODThread *thread;
 
 - (void)setThread:(RODThread *)new_thread;
-
+- (void)loadThread:(int)row;
 
 @end

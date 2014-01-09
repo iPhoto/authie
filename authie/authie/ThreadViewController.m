@@ -8,7 +8,9 @@
 
 #import "ThreadViewController.h"
 #import "RODImageStore.h"
+#import "RODItemStore.h"
 #import "RODThread.h"
+#import "RODAuthie.h"
 
 @implementation ThreadViewController
 
@@ -18,7 +20,10 @@
     if (self) {
         // Custom initialization
         NSLog(@"ThreadViewController init.");
-       
+        // PREVENT THE UNDERLAPPING THAT OCCURS WITH
+        // IOS 7!!!!!
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+
     }
     return self;
 }
@@ -27,8 +32,14 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+        
+}
+
+-(void)loadThread:(int)row
+{
     
-    NSLog(@"ThreadViewController viewDidLoad");
+    RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:row];
+    self.thread = thread;
     
 }
 
