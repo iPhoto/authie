@@ -62,6 +62,8 @@
     [imageview setContentMode:UIViewContentModeScaleAspectFit];
     self.navigationItem.titleView = imageview;
     self.navigationItem.title = [RODItemStore sharedStore].authie.handle.name;
+    
+    [self.tableView setSeparatorInset:UIEdgeInsetsZero];
 
 }
 

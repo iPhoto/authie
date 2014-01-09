@@ -13,6 +13,7 @@
 #import "UIViewController+REFrostedViewController.h"
 #import "DetailViewController.h"
 #import "MasterViewController.h"
+#import "ContactsViewController.h"
 
 @implementation MenuViewController
 
@@ -80,15 +81,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//    if (indexPath.section == 0 && indexPath.row == 0) {
-//        MasterViewController *homeViewController = [[MasterViewController alloc] init];
-//        NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:homeViewController];
-//        self.frostedViewController.contentViewController = navigationController;
-//    } else {
-//        DetailViewController *secondViewController = [[DetailViewController alloc] init];
-//        NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:secondViewController];
-//        self.frostedViewController.contentViewController = navigationController;
-//    }
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        MasterViewController *homeViewController = [[MasterViewController alloc] init];
+        NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:homeViewController];
+        self.frostedViewController.contentViewController = navigationController;
+    } else {
+        ContactsViewController *contacts = [[ContactsViewController alloc] init];
+        NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:contacts];
+        self.frostedViewController.contentViewController = navigationController;
+    }
     
     [self.frostedViewController hideMenuViewController];
 }
