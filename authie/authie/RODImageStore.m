@@ -171,6 +171,8 @@
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     
+    NSLog(@"connecitonDidFinishLoading.");
+    
     UIImage *result;
     result = [UIImage imageWithData:_downloadingSnap];
     
@@ -179,7 +181,7 @@
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     [appDelegate.threadViewController loadThread:downloadingSnapRow];
     
-    //    NavigationController *navigationController = appDelegate.masterViewController.navigationController;
+    NSLog(@"pushing...");
     [appDelegate.masterViewController.navigationController pushViewController:appDelegate.threadViewController animated:YES];
 
     

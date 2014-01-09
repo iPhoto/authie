@@ -10,10 +10,13 @@
 #import "RODThread.h"
 
 @interface ThreadViewController : UIViewController
+{
+    int loadRow;
+}
 
 @property (weak, nonatomic) IBOutlet UILabel *threadFrom;
 @property (weak, nonatomic) IBOutlet UIImageView *snapView;
-@property (weak, nonatomic) RODThread *thread;
+@property (strong, nonatomic) RODThread *thread;
 
 - (void)setThread:(RODThread *)new_thread;
 - (void)loadThread:(int)row;

@@ -23,7 +23,8 @@
         // PREVENT THE UNDERLAPPING THAT OCCURS WITH
         // IOS 7!!!!!
         self.edgesForExtendedLayout = UIRectEdgeNone;
-
+        loadRow = -1;
+        
     }
     return self;
 }
@@ -32,13 +33,19 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-        
+    NSLog(@"viewDidLoad: %i", loadRow);
+    if(self.thread) {
+        [self.snapView setImage:[[RODImageStore sharedStore] imageForKey:self.thread.groupKey]];
+    } else {
+        NSLog(@"No thread.");
+    }
 }
 
 -(void)loadThread:(int)row
 {
-    
+    NSLog(@"loadThread: %i", row);
     RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:row];
+    [self.snapView setImage:[[RODImageStore sharedStore] imageForKey:thread.groupKey]];
     self.thread = thread;
     
 }
@@ -49,13 +56,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)setThread:(RODThread *)new_thread
+- (void)setThreadRow:(int)row
 {
-    NSLog(@"setThread: %@", new_thread.groupKey);
-    //self.thread = new_thread;
-    
-    [self.snapView setImage:[[RODImageStore sharedStore] imageForKey:new_thread.groupKey]];
-    
+    loadRow = row;
 }
 
 @end
