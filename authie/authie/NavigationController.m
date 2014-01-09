@@ -33,7 +33,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)showMenu
+- (IBAction)showMenu:(id)sender
 {
     NSLog(@"ShowMenu called.");
  //   [self resignFirstResponder];

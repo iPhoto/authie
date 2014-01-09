@@ -11,6 +11,6 @@
 
 @interface NavigationController : UINavigationController
 
-- (void)showMenu;
+- (IBAction)showMenu:(id)sender;
 
 @end

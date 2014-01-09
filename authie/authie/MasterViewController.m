@@ -40,52 +40,29 @@
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
-    //UIButton *button_menu = [UIButton buttonWithType:UIButtonTypeCustom];
-    //[button_menu setFrame:CGRectMake(0, 0, 30, 30)];
-    //[button_menu setImage:[UIImage imageNamed:@"cog.png"] forState:UIControlStateNormal];
-    //[button_menu addTarget:self action:@selector(hamburger:) forControlEvents:UIControlEventTouchUpInside];
+    UIButton *button_menu = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button_menu setFrame:CGRectMake(0, 0, 23, 23)];
+    [button_menu setImage:[UIImage imageNamed:@"cog.png"] forState:UIControlStateNormal];
+    [button_menu addTarget:(NavigationController *)self.navigationController action:@selector(showMenu:) forControlEvents:UIControlEventTouchUpInside];
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu"
-                                                                             style:UIBarButtonItemStylePlain
-                                                                            target:(NavigationController *)self.navigationController
-                                                                            action:@selector(showMenu)];
+    //self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu"
+    //                                                                         style:UIBarButtonItemStylePlain
+    //                                                                        target:(NavigationController *)self.navigationController
+    //                                                                        action:@selector(showMenu)];
     
-    
-    //UIBarButtonItem *leftDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_menu];
-    //self.navigationItem.leftBarButtonItem = leftDrawerButton;
+    UIBarButtonItem *leftDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_menu];
+    self.navigationItem.leftBarButtonItem = leftDrawerButton;
     
     self.imagePicker = [[UIImagePickerController alloc] init];
     [self.imagePicker setNavigationBarHidden:true];
     
     UIImage *image = [UIImage imageNamed:@"authie-logo-07-350px"];
     UIImageView *imageview = [[UIImageView alloc] initWithImage:image];
-
     [imageview setFrame:CGRectMake(0, 0, 100, 20)];
-    NSLog(@"frame w, h: %f, %f", self.navigationItem.titleView.frame.size.width, self.navigationItem.titleView.frame.size.height);
-    
     [imageview setContentMode:UIViewContentModeScaleAspectFit];
-
     self.navigationItem.titleView = imageview;
-
-    NSLog(@"frame w, h: %f, %f", self.navigationItem.titleView.frame.size.width, self.navigationItem.titleView.frame.size.height);
-    
     self.navigationItem.title = [RODItemStore sharedStore].authie.handle.name;
 
-}
-
-//- (void)hamburger:(id)sender
-//{
-//    NSLog(@"menu timeeee");
-//    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-//    [appDelegate.drawer presentMenuViewController];
-//}
-
-
--(void)btnSettings:(UIButton *)b
-{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"tag line" message:@"something happens" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
-    [alert show];
-    
 }
 
 - (void)didReceiveMemoryWarning
