@@ -172,10 +172,7 @@
     }
 
     
-
     [[RODImageStore sharedStore] deleteImageForKey:thread.groupKey];
-
-
     
     [self saveChanges];
 }

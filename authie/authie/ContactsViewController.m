@@ -8,10 +8,10 @@
 
 #import "ContactsViewController.h"
 #import "NavigationController.h"
-
-@interface ContactsViewController ()
-
-@end
+#import "AppDelegate.h"
+#import "RODAuthie.h"
+#import "RODFollower.h"
+#import "RODItemStore.h"
 
 @implementation ContactsViewController
 
@@ -31,6 +31,11 @@
         UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addContact:)];
         self.navigationItem.rightBarButtonItem = addButton;
         
+        self.navigationItem.title = @"Contacts";
+
+        AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+        
+        NSLog(@"Contacts: %i", [[RODItemStore sharedStore].authie.all_Contacts count]);
         
     }
     return self;

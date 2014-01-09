@@ -35,16 +35,13 @@
 
 - (IBAction)showMenu:(id)sender
 {
-    NSLog(@"ShowMenu called.");
- //   [self resignFirstResponder];
-//    [self.menuViewController presentFromViewController:self animated:YES completion:nil];
     [self.frostedViewController presentMenuViewController];
 }
 
 - (void)panGestureRecognized:(UIPanGestureRecognizer *)sender
 {
-//    [self.menuViewController presentFromViewController:self panGestureRecognizer:sender];
-    [self.frostedViewController panGestureRecognized:sender];
+// no more pan gesture, this is annoying
+//    [self.frostedViewController panGestureRecognized:sender];
 }
 
 @end
