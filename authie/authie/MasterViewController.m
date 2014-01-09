@@ -45,11 +45,6 @@
     [button_menu setImage:[UIImage imageNamed:@"cog.png"] forState:UIControlStateNormal];
     [button_menu addTarget:(NavigationController *)self.navigationController action:@selector(showMenu:) forControlEvents:UIControlEventTouchUpInside];
     
-    //self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu"
-    //                                                                         style:UIBarButtonItemStylePlain
-    //                                                                        target:(NavigationController *)self.navigationController
-    //                                                                        action:@selector(showMenu)];
-    
     UIBarButtonItem *leftDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_menu];
     self.navigationItem.leftBarButtonItem = leftDrawerButton;
     

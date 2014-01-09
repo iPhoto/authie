@@ -7,6 +7,7 @@
 //
 
 #import "ContactsViewController.h"
+#import "NavigationController.h"
 
 @interface ContactsViewController ()
 
@@ -18,7 +19,15 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+
+        UIButton *button_menu = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button_menu setFrame:CGRectMake(0, 0, 23, 23)];
+        [button_menu setImage:[UIImage imageNamed:@"cog.png"] forState:UIControlStateNormal];
+        [button_menu addTarget:(NavigationController *)self.navigationController action:@selector(showMenu:) forControlEvents:UIControlEventTouchUpInside];
+        
+        UIBarButtonItem *leftDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_menu];
+        self.navigationItem.leftBarButtonItem = leftDrawerButton;
+        
     }
     return self;
 }
