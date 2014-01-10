@@ -18,6 +18,9 @@
 #import "MasterViewController.h"
 #import <REFrostedViewController.h>
 #import "ThreadViewController.h"
+#import "RODItemStore.h"
+#import "RODAuthie.h"
+#import "RegisterViewController.h"
 
 @implementation AppDelegate
 @synthesize masterViewController, threadViewController;
@@ -64,7 +67,34 @@
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     
-    
+    if([RODItemStore sharedStore].authie.registered == 0) {
+        // show register handle screen
+        
+        AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+        
+        RegisterViewController *rvc = [[RegisterViewController alloc] init];
+        [(UINavigationController *)appDelegate.window.rootViewController presentViewController:rvc animated:NO completion:nil];
+    } else {
+        // check login status
+        // try to log in if not logged in
+        
+        bool logged_in = [[RODItemStore sharedStore] checkLoginStatus];
+        
+        
+        //if([self checkLoginStatus] == false) {
+        
+        //    NSLog(@"please login");
+        
+        //} else {
+        // we're logged in and ready to go,
+        // load the latest data
+        //NSLog(@"please load the latest data.");
+        //[self loadThreads];
+        
+        //}
+        
+    }
+
     // Override point for customization after application launch.
     return YES;
 }

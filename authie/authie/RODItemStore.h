@@ -35,6 +35,7 @@
 - (BOOL)checkLoginStatus;
 - (BOOL)startThread:(NSString *)toHandle forKey:(NSString *)key;
 - (BOOL)uploadSnap:(NSString *)key;
+- (BOOL)addContact:(NSString *)handle;
 
 @end
 

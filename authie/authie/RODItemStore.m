@@ -49,6 +49,9 @@
         }
         
         NSLog(@"current authie: registered: %i, authieKey: %@, selfies: %lu, id: %@, name: %@", self.authie.registered, self.authie.authieKey, (unsigned long)[self.authie.allSelfies count], self.authie.handle.id, self.authie.handle.name);
+        
+        if(!_authie.allContacts)
+            _authie.allContacts = [[NSMutableArray alloc] init];
 
         if(!_authie.allSelfies)
             _authie.allSelfies = [[NSMutableArray alloc] init];
@@ -56,43 +59,7 @@
         if(!_authie.allThreads)
             _authie.allThreads = [[NSMutableArray alloc] init];
         
-        self.recentSelfie = [_authie.allSelfies lastObject];
-        
-        if(self.authie.registered == 0) {
-            // show register handle screen
-
-            AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-            
-            RegisterViewController *rvc = [[RegisterViewController alloc] init];
-            [(UINavigationController *)appDelegate.window.rootViewController presentViewController:rvc animated:NO completion:nil];
-        } else {
-            // check login status
-            // try to log in if not logged in
-
-            bool logged_in = [self checkLoginStatus];
-            
-            if(logged_in == YES) {
-                NSLog(@"Logged in.");
-                [self loadThreads];
-            } else {
-                NSLog(@"Not logged in.");
-            }
-            
-            
-            //if([self checkLoginStatus] == false) {
                 
-            //    NSLog(@"please login");
-                
-            //} else {
-                // we're logged in and ready to go,
-                // load the latest data
-                //NSLog(@"please load the latest data.");
-                //[self loadThreads];
-                
-            //}
-            
-        }
-        
         
     }
     
@@ -121,10 +88,6 @@
     
     RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:index];
     NSLog(@"Remove thread: %@", thread.groupKey);
-
-    NSDictionary *checkDict = [[NSDictionary alloc] initWithObjectsAndKeys:
-                               thread.groupKey, @"s",
-                               nil];
     
     NSError *error = nil;
     
@@ -280,7 +243,11 @@
                 is_logged_in = NO;
             } else {
                 //[self loadThreads];
-                is_logged_in = YES;                
+                is_logged_in = YES;
+                
+                [self loadThreads];
+                [self loadContacts];
+
             }
             
         }
@@ -429,10 +396,65 @@
     return start_convo_success;
 }
 
+- (BOOL)addContact:(NSString *)handle
+{
+    BOOL added_contact = NO;
+    
+    NSError *error = nil;
+    
+    NSData *jsonData;
+    [jsonData setValue:handle forKey:@""];
+    
+    NSMutableData *data = [NSMutableData data];
+    [data appendData:[[NSString stringWithFormat:@"=%@",handle] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    NSURLResponse *response;
+    NSData *localData = nil;
+    
+    NSString *url = @"http://selfies.io/api/follower";
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"POST"];
+    
+    if(error == nil) {
+        [request setValue:@"application/x-www-form-urlencoded; charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        [request setHTTPBody:data];
+        
+        //send the request and get the response
+        localData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        NSError *deserialize_error = nil;
+        
+        id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingAllowFragments error:&deserialize_error];
+        
+        if([object isKindOfClass:[NSDictionary class]] && deserialize_error == nil) {
+            
+            NSLog(@"results from add_contact: %@", object);
+            
+            RODHandle *followeeHandle = [[RODHandle alloc] init];
+            
+            NSDictionary *from_result = [object objectForKey:@"followeeHandle"];
+            
+            followeeHandle.name = [from_result objectForKey:@"name"];
+            followeeHandle.publicKey = [from_result objectForKey:@"publicKey"];
+
+            [self.authie.allContacts addObject:followeeHandle];
+            
+        }
+        
+    } else {
+        NSLog(@"Error: %@", error);
+    }
+    
+    return added_contact;
+}
+
 - (BOOL)loadContacts
 {
     BOOL loaded_contacts = NO;
 
+    NSLog(@"loadContacts.");
     
     NSError *error = nil;
     
@@ -454,35 +476,26 @@
         NSError *deserialize_error = nil;
         
         id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingMutableContainers error:&deserialize_error];
+        
+        NSLog(@"ok contacts");
+        
         if([object isKindOfClass:[NSArray self]] && deserialize_error == nil) {
+            
+            NSLog(@"last step");
             
             // clear all old contacts
             [self.authie.allContacts removeAllObjects];
             
             for (NSDictionary *result in object) {
                 
-                NSInteger id_result = [[result objectForKey:@"id"] integerValue];
+                RODHandle *followeeHandle = [[RODHandle alloc] init];
                 
-                // replace them with the new ones
-                RODFollower *follower = [[RODFollower alloc] init];
-                follower.id = [NSNumber numberWithInteger:id_result];
+                NSDictionary *from_result = [result objectForKey:@"followeeHandle"];
                 
-//                NSDictionary *inner_result = [result objectForKey:@"toHandle"];
-//                NSString *to_result = [inner_result objectForKey:@"name"];
-//                
-//                NSDictionary *from_inner_result = [result objectForKey:@"fromHandle"];
-//                NSString *from_result = [NSString stringWithFormat:@"from: %@",[from_inner_result objectForKey:@"name"]];
-//                
-//                thready.groupKey = [result objectForKey:@"groupKey"];
-//                thready.toHandleId = to_result;
-//                thready.fromHandleId = from_result;
-//                thready.startDate = [NSDate new];
-//                
-//                [self.authie.allThreads addObject:thready];
-//                
-//                NSLog(@"found thread %@ to %@, from %@", thready.groupKey, to_result, from_result);
-
-                NSLog(@"result: ", result);
+                followeeHandle.name = [from_result objectForKey:@"name"];
+                followeeHandle.publicKey = [from_result objectForKey:@"publicKey"];
+                
+                [self.authie.allContacts addObject:followeeHandle];
                 
             }
             

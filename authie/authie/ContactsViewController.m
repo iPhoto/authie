@@ -32,10 +32,6 @@
         self.navigationItem.rightBarButtonItem = addButton;
         
         self.navigationItem.title = @"Contacts";
-
-        AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-        
-        NSLog(@"Contacts: %i", [[RODItemStore sharedStore].authie.all_Contacts count]);
         
     }
     return self;
@@ -64,24 +60,30 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    NSLog(@"rows in section: %i", [[RODItemStore sharedStore].authie.all_Contacts count]);
+    
+    return [[RODItemStore sharedStore].authie.all_Contacts count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     
-    // Configure the cell...
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
+    }
+    
+    RODHandle *handle = [[RODItemStore sharedStore].authie.all_Contacts  objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = handle.name;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", handle.publicKey];
     
     return cell;
 }
@@ -141,6 +143,8 @@
 {
     
     NSLog(@"add contact pls...");
+    
+    [[RODItemStore sharedStore] addContact:@"modest"];
     
 }
 
