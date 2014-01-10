@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SelectContactViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
+@interface SelectContactViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIPickerView *picker;
 
 @end

@@ -50,8 +50,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    NSLog(@"masterViewController viewDidLoad");
-    
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(sendSnap:)];
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
@@ -66,9 +64,7 @@
     [imageview setContentMode:UIViewContentModeScaleAspectFit];
     self.navigationItem.titleView = imageview;
     self.navigationItem.title = [RODItemStore sharedStore].authie.handle.name;
-    
-    self.tableView.editing = true;
-    
+        
     [self.tableView setSeparatorInset:UIEdgeInsetsZero];
     [self.tableView setAllowsSelection:YES];
     [self.tableView setAllowsSelectionDuringEditing:YES];

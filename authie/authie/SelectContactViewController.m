@@ -45,32 +45,35 @@
     NSLog(@"bye.");
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-//    [appDelegate.masterViewController.navigationController dismissViewController completion:nil];
     [appDelegate.masterViewController.navigationController popToRootViewControllerAnimated:YES];
     
 }
 
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
 
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [[RODItemStore sharedStore].authie.all_Contacts count];
 }
 
--(NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RODHandle *handle = [[RODItemStore sharedStore].authie.all_Contacts objectAtIndex:row];
-    return handle.name;
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
+    }
+    
+    RODHandle *handle = [[RODItemStore sharedStore].authie.all_Contacts objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = handle.name;
+    return cell;
 }
 
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
-{
-    RODHandle *handle = [[RODItemStore sharedStore].authie.all_Contacts objectAtIndex:row];
-    NSLog(@"Selected %@", handle.name);
-    
-}
+
 
 @end

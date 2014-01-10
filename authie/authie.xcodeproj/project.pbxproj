@@ -228,11 +228,11 @@
 				5D8C1CD6187E38E300158AE5 /* ThreadViewController.xib */,
 				5D9C7C5A187E0F0400BE2D42 /* ContactsViewController.h */,
 				5D9C7C5B187E0F0400BE2D42 /* ContactsViewController.m */,
-				5DEE7CA8185234E800F532B3 /* Images.xcassets */,
-				5DEE7C91185234E800F532B3 /* Supporting Files */,
 				5D8C1CE518808FC000158AE5 /* SelectContactViewController.h */,
 				5D8C1CE618808FC000158AE5 /* SelectContactViewController.m */,
 				5D8C1CE718808FC000158AE5 /* SelectContactViewController.xib */,
+				5DEE7CA8185234E800F532B3 /* Images.xcassets */,
+				5DEE7C91185234E800F532B3 /* Supporting Files */,
 			);
 			path = authie;
 			sourceTree = "<group>";
