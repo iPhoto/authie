@@ -13,5 +13,7 @@
 {
 }
 
+@property (strong, nonatomic) NSArray *buttons;
+
 
 @end

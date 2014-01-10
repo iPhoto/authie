@@ -66,6 +66,8 @@
     self.navigationItem.titleView = imageview;
     self.navigationItem.title = [RODItemStore sharedStore].authie.handle.name;
     
+    self.tableView.editing = true;
+    
     [self.tableView setSeparatorInset:UIEdgeInsetsZero];
     [self.tableView setAllowsSelection:YES];
     [self.tableView setAllowsSelectionDuringEditing:YES];
@@ -128,7 +130,8 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
 
         NSLog(@"Delete.");
-        [[RODItemStore sharedStore] removeThread:indexPath.row];
+        RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:indexPath.row];
+        [[RODItemStore sharedStore] removeThread:thread];
         //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.

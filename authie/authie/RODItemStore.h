@@ -10,6 +10,7 @@
 
 @class RODSelfie;
 @class RODAuthie;
+@class RODThread;
 
 @interface RODItemStore : NSObject
 {
@@ -25,7 +26,7 @@
 - (NSString *)itemArchivePath;
 
 - (RODSelfie *)createSelfie:(NSString *)key;
-- (void) removeThread:(NSInteger)index;
+- (void) removeThread:(RODThread *)thread;
 
 - (BOOL)saveChanges;
 - (BOOL)checkHandleAvailability:(NSString *)handle;

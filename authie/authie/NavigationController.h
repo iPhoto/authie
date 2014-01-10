@@ -10,6 +10,8 @@
 #import "MenuViewController.h"
 
 @interface NavigationController : UINavigationController
+{
+}
 
 - (IBAction)showMenu:(id)sender;
 

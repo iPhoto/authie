@@ -83,10 +83,9 @@
     return s;
 }
 
-- (void)removeThread:(NSInteger)index
+- (void)removeThread:(RODThread *)thread
 {
     
-    RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:index];
     NSLog(@"Remove thread: %@", thread.groupKey);
     
     NSError *error = nil;

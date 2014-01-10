@@ -16,10 +16,13 @@
 #import "ContactsViewController.h"
 
 @implementation MenuViewController
+@synthesize buttons;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.buttons = @[@"Inbox", @"Contacts", @"Invite", @"The Daily", @"Compose", @"Private Key"];
     
     self.tableView = [[UITableView alloc] init]; // Frame will be automatically set
     self.tableView.separatorColor = [UIColor colorWithRed:150/255.0f green:161/255.0f blue:177/255.0f alpha:1.0f];
@@ -35,7 +38,7 @@
     
     
     [self.tableView reloadData];
-    
+
     [self.tableView setSeparatorInset:UIEdgeInsetsZero];
     [self.tableView setSeparatorColor:[UIColor clearColor]];
     
@@ -111,7 +114,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
 {
-    return 3;
+    return [self.buttons count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -124,8 +127,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
-    NSArray *titles = @[@"Inbox", @"Contacts", @"Send Snap"];
-    cell.textLabel.text = titles[indexPath.row];
+    cell.textLabel.text = self.buttons[indexPath.row];
     
     return cell;
 }

@@ -25,6 +25,10 @@
         self.edgesForExtendedLayout = UIRectEdgeNone;
         loadRow = -1;
         
+        UIBarButtonItem *edit = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(removeThread:)];
+        
+        self.navigationItem.rightBarButtonItem = edit;
+        
     }
     return self;
 }
@@ -39,6 +43,13 @@
     } else {
         NSLog(@"No thread.");
     }
+}
+
+-(void)removeThread:(id)sender
+{
+    NSLog(@"Remove thread.");
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [[RODItemStore sharedStore] removeThread:self.thread];
 }
 
 -(void)loadThread:(int)row
