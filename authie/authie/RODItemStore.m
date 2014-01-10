@@ -434,20 +434,19 @@
             
             NSLog(@"results from add_contact: %@", object);
             
-            // error handler
+            NSInteger result = [[object objectForKey:@"result"] integerValue];
             
-            RODHandle *followeeHandle = [[RODHandle alloc] init];
-            
-            NSDictionary *from_result = [object objectForKey:@"followeeHandle"];
-            
-            followeeHandle.name = [from_result objectForKey:@"name"];
-            followeeHandle.publicKey = [from_result objectForKey:@"publicKey"];
+            if(result == 1) {
+                [self loadContacts];
+            } else {
+                
+                NSString *message = [object objectForKey:@"message"];
+                
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"error" message:message delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+                [alert show];
+                
+            }
 
-            [self.authie.allContacts addObject:followeeHandle];
-            
-            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-            [appDelegate.contactsViewController.tableView reloadData];
-            
         }
         
     } else {
@@ -459,6 +458,7 @@
 
 - (BOOL)loadContacts
 {
+    
     BOOL loaded_contacts = NO;
 
     NSLog(@"loadContacts.");
@@ -503,7 +503,10 @@
                 [self.authie.allContacts addObject:followeeHandle];
                 
             }
-            
+
+            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            [appDelegate.contactsViewController.tableView reloadData];
+                        
             loaded_contacts = YES;
             
         } else {
