@@ -21,9 +21,10 @@
 #import "RODItemStore.h"
 #import "RODAuthie.h"
 #import "RegisterViewController.h"
+#import "ContactsViewController.h"
 
 @implementation AppDelegate
-@synthesize masterViewController, threadViewController;
+@synthesize masterViewController, threadViewController, contactsViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -44,6 +45,9 @@
     
     ThreadViewController *thread = [[ThreadViewController alloc] init];
     threadViewController = thread;
+    
+    ContactsViewController *contacts = [[ContactsViewController alloc] init];
+    contactsViewController = contacts;
     
     NavigationController *navController = [[NavigationController alloc] initWithRootViewController:masterViewController];
     navController.navigationBar.tintColor = [UIColor blackColor];
@@ -79,7 +83,6 @@
         // try to log in if not logged in
         
         bool logged_in = [[RODItemStore sharedStore] checkLoginStatus];
-        
         
         //if([self checkLoginStatus] == false) {
         

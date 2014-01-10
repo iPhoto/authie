@@ -144,8 +144,22 @@
     
     NSLog(@"add contact pls...");
     
-    [[RODItemStore sharedStore] addContact:@"modest"];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"enter handle"
+                                                    message:@"  "
+                                                   delegate:self
+                                          cancelButtonTitle:@"Cancel"
+                                          otherButtonTitles:@"OK", nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [alert show];
     
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        NSString *name = [alertView textFieldAtIndex:0].text;
+        [[RODItemStore sharedStore] addContact:name];
+    }
 }
 
 @end

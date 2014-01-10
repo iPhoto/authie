@@ -398,6 +398,8 @@
 
 - (BOOL)addContact:(NSString *)handle
 {
+    NSLog(@"Added contact: %@", handle);
+    
     BOOL added_contact = NO;
     
     NSError *error = nil;
@@ -432,6 +434,8 @@
             
             NSLog(@"results from add_contact: %@", object);
             
+            // error handler
+            
             RODHandle *followeeHandle = [[RODHandle alloc] init];
             
             NSDictionary *from_result = [object objectForKey:@"followeeHandle"];
@@ -440,6 +444,9 @@
             followeeHandle.publicKey = [from_result objectForKey:@"publicKey"];
 
             [self.authie.allContacts addObject:followeeHandle];
+            
+            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            [appDelegate.contactsViewController.tableView reloadData];
             
         }
         
@@ -477,16 +484,14 @@
         
         id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingMutableContainers error:&deserialize_error];
         
-        NSLog(@"ok contacts");
-        
         if([object isKindOfClass:[NSArray self]] && deserialize_error == nil) {
-            
-            NSLog(@"last step");
             
             // clear all old contacts
             [self.authie.allContacts removeAllObjects];
             
             for (NSDictionary *result in object) {
+                
+                NSLog(@"found contact: %@", result);
                 
                 RODHandle *followeeHandle = [[RODHandle alloc] init];
                 
