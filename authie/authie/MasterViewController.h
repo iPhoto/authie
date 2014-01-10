@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class DetailViewController;
+@class SnapCreatorController;
 
 @interface MasterViewController : UITableViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 

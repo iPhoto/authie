@@ -19,6 +19,7 @@
 #import "AppDelegate.h"
 #import "NavigationController.h"
 #import "ThreadViewController.h"
+#import "SelectContactViewController.h"
 
 @implementation MasterViewController
 
@@ -51,13 +52,13 @@
     
     NSLog(@"masterViewController viewDidLoad");
     
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(sendSnap:)];
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
     
     self.imagePicker = [[UIImagePickerController alloc] init];
-    [self.imagePicker setNavigationBarHidden:true];
+    //[self.imagePicker setNavigationBarHidden:true];
     
     UIImage *image = [UIImage imageNamed:@"authie-logo-07-350px"];
     UIImageView *imageview = [[UIImageView alloc] initWithImage:image];
@@ -77,6 +78,14 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)sendSnap:(id)sender
+{
+    
+    SelectContactViewController *select = [[SelectContactViewController alloc] init];
+    [self.navigationController pushViewController:select animated:YES];
+    
 }
 
 - (void)insertNewObject:(id)sender
@@ -174,6 +183,15 @@
     
     if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         [self.imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+        
+        
+        //CGRect f = self.imagePicker.view.bounds;
+        //f.size.height = 20;
+        //UIView *seth = [[UIView alloc] init];
+        //seth.frame = CGRectMake(0, 0, 20, 100);
+        //seth.backgroundColor = [UIColor redColor];
+        //[self.imagePicker.cameraOverlayView addSubview:seth];
+        
     } else {
         [self.imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     }
