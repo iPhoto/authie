@@ -52,7 +52,7 @@
         
         if(!_authie.allContacts)
             _authie.allContacts = [[NSMutableArray alloc] init];
-
+        
         if(!_authie.allSelfies)
             _authie.allSelfies = [[NSMutableArray alloc] init];
         
@@ -124,7 +124,10 @@
             response_result = [[object objectForKey:@"result"] integerValue];
             
             if(response_result == 1) {
-                [self loadThreads];                
+                [self loadThreads];
+                AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+                [appDelegate.masterViewController.navigationController popToRootViewControllerAnimated:YES];
+                
             }
             
             
@@ -343,7 +346,7 @@
 	// Create a new letter and POST it to the server
         
     NSDictionary *checkDict = [[NSDictionary alloc] initWithObjectsAndKeys:
-                               @"1", @"toGuid",
+                               toHandle, @"toGuid",
                                key, @"groupKey",
                                nil];
     

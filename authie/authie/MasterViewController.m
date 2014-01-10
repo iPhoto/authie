@@ -63,7 +63,7 @@
     [imageview setFrame:CGRectMake(0, 0, 100, 20)];
     [imageview setContentMode:UIViewContentModeScaleAspectFit];
     self.navigationItem.titleView = imageview;
-    self.navigationItem.title = [RODItemStore sharedStore].authie.handle.name;
+    self.navigationItem.title = @"Inbox";
         
     [self.tableView setSeparatorInset:UIEdgeInsetsZero];
     [self.tableView setAllowsSelection:YES];
@@ -179,20 +179,9 @@
     
     if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         [self.imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
-        
-        
-        //CGRect f = self.imagePicker.view.bounds;
-        //f.size.height = 20;
-        //UIView *seth = [[UIView alloc] init];
-        //seth.frame = CGRectMake(0, 0, 20, 100);
-        //seth.backgroundColor = [UIColor redColor];
-        //[self.imagePicker.cameraOverlayView addSubview:seth];
-        
     } else {
         [self.imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     }
-    
-    // DISABLE THE STATUS BAR... but how...
     
     [self.imagePicker setDelegate:self];
     

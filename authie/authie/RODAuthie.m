@@ -28,6 +28,20 @@
     return allContacts;
 }
 
+- (NSArray *)all_ContactsWithEverybody
+{
+    NSMutableArray *before = [[NSMutableArray alloc] initWithArray:allContacts];
+    
+    RODHandle *everyone = [[RODHandle alloc] init];
+    everyone.id = [NSNumber numberWithInt:1];
+    everyone.name = @"Everyone (public snap)";
+    everyone.publicKey = @"1";
+    
+    [before insertObject:everyone atIndex:0];
+    
+    return before;
+}
+
 - (void) encodeWithCoder:(NSCoder *)aCoder
 {
     [aCoder encodeObject:authieKey forKey:@"authieKey"];

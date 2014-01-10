@@ -12,8 +12,10 @@
 #import "RODHandle.h"
 #import "AppDelegate.h"
 #import "MasterViewController.h"
+#import "RODImageStore.h"
 
 @implementation SelectContactViewController
+@synthesize imagePicker;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,7 +46,6 @@
 {
     NSLog(@"bye.");
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
     [appDelegate.masterViewController.navigationController popToRootViewControllerAnimated:YES];
     
 }
@@ -56,7 +57,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[RODItemStore sharedStore].authie.all_Contacts count];
+    return [[RODItemStore sharedStore].authie.all_ContactsWithEverybody count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -68,12 +69,72 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
     }
     
-    RODHandle *handle = [[RODItemStore sharedStore].authie.all_Contacts objectAtIndex:indexPath.row];
+    RODHandle *handle = [[RODItemStore sharedStore].authie.all_ContactsWithEverybody objectAtIndex:indexPath.row];
     
     cell.textLabel.text = handle.name;
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    RODHandle *handle = [[RODItemStore sharedStore].authie.all_ContactsWithEverybody objectAtIndex:indexPath.row];
+    NSLog(@"Clicked on %@", handle.name);
+    
+    self.selected = handle;
+    
+    self.imagePicker = [[UIImagePickerController alloc] init];
+    
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        [self.imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+    } else {
+        [self.imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    }
+    
+    [self.imagePicker setDelegate:self];
+    
+    [self presentViewController:self.imagePicker animated:YES completion:nil];
 
+    
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
+    CFUUIDRef newUniqueID = CFUUIDCreate(kCFAllocatorDefault);
+    CFStringRef newUniqueIDString = CFUUIDCreateString(kCFAllocatorDefault, newUniqueID);
+    
+    NSString *key = (__bridge NSString *)newUniqueIDString;
+    
+    [[RODImageStore sharedStore] setImage:image forKey:key];
+    NSLog(@"Created key: %@", key);
+    
+    [[RODItemStore sharedStore] createSelfie:key];
+    [[RODItemStore sharedStore] startThread:self.selected.publicKey forKey:key];
+    
+    CFRelease(newUniqueIDString);
+    CFRelease(newUniqueID);
+    
+    [self dismissViewControllerAnimated:NO completion:nil];
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.masterViewController.navigationController popToRootViewControllerAnimated:YES];
+}
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    NSLog(@"Cancel pls.");
+    [self dismissViewControllerAnimated:NO completion:nil];
+
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"trashed" message:@"Your message has been trashed." delegate:appDelegate.masterViewController cancelButtonTitle:@"ok" otherButtonTitles:nil];
+
+    [appDelegate.masterViewController.navigationController popToRootViewControllerAnimated:YES];
+
+    [alert show];
+    
+}
 
 @end

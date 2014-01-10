@@ -6,9 +6,11 @@
 //  Copyright (c) 2014 bitwise. All rights reserved.
 //
 
+@class RODHandle;
 #import <UIKit/UIKit.h>
 
-@interface SelectContactViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
-@property (weak, nonatomic) IBOutlet UIPickerView *picker;
+@interface SelectContactViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource>
+@property (strong, nonatomic) UIImagePickerController *imagePicker;
+@property (strong, nonatomic) RODHandle *selected;
 
 @end
