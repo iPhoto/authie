@@ -33,6 +33,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    [self.navigationController setNavigationBarHidden:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,12 +45,27 @@
 
 - (BOOL)prefersStatusBarHidden
 {
-    return YES;    
+    return NO;
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [self checkHandleAvailability];
+
+    // okay, now register it for real
+    bool registered = [[RODItemStore sharedStore] registerHandle:self.handle];
+    
+    if(registered == YES) {
+        // show the main screen?
+        [self dismissViewControllerAnimated:YES completion:nil];
+        
+    } else {
+        
+        UIAlertView *alert;
+        alert = [[UIAlertView alloc] initWithTitle:@"Handle" message:@"We were unable to register your handle. Please try again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        
+    }
+    
     
     [textField resignFirstResponder];
     return YES;
@@ -78,7 +95,7 @@
         
         if(registered == YES) {
             // show the main screen?
-            [self dismissViewControllerAnimated:YES completion:nil];
+            [self.navigationController popToRootViewControllerAnimated:YES];
             
         } else {
             

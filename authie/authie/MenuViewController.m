@@ -89,10 +89,12 @@
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         
         NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.masterViewController];
+        [navigationController.navigationBar setTintColor:[UIColor blackColor]];
         self.frostedViewController.contentViewController = navigationController;
     } else {
         ContactsViewController *contacts = [[ContactsViewController alloc] init];
         NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:contacts];
+        [navigationController.navigationBar setTintColor:[UIColor blackColor]];
         self.frostedViewController.contentViewController = navigationController;
     }
     

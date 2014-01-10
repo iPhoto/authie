@@ -56,7 +56,7 @@
 -(UIImage *) getSnapFromWebsite:(NSString *)groupKey {
     UIImage * result;
     
-    NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://selfies.io/api/snap/500/%@", groupKey]]];
+    NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://authie.me/api/snap/500/%@", groupKey]]];
     result = [UIImage imageWithData:data];
     
     [self setImage:result forKey:groupKey];
@@ -95,7 +95,7 @@
 - (void)downloadImageAndShowScreen:(NSString *)groupKey
 {
     
-    NSString *websiteUrl = [NSString stringWithFormat:@"http://selfies.io/api/snap/500/%@", groupKey];
+    NSString *websiteUrl = [NSString stringWithFormat:@"http://authie.me/api/snap/500/%@", groupKey];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:websiteUrl]];
     
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];

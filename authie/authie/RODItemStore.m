@@ -99,7 +99,7 @@
     NSURLResponse *response;
     NSData *localData = nil;
     
-    NSString *url = @"http://selfies.io/api/thread";
+    NSString *url = @"http://authie.me/api/thread";
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
     [request setHTTPMethod:@"DELETE"];
@@ -172,7 +172,7 @@
     NSURLResponse *response;
     NSData *localData = nil;
     
-    NSString *url = @"http://selfies.io/api/login";
+    NSString *url = @"http://authie.me/api/login";
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
     [request setHTTPMethod:@"POST"];
@@ -219,7 +219,7 @@
     NSURLResponse *response;
     NSData *localData = nil;
     
-    NSString *url = @"http://selfies.io/api/login";
+    NSString *url = @"http://authie.me/api/login";
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
     [request setHTTPMethod:@"GET"];
@@ -269,7 +269,7 @@
     NSURLResponse *response;
     NSData *localData = nil;
     
-    NSString *url = [NSString stringWithFormat:@"http://selfies.io/api/upload/postfile?key=%@", key];
+    NSString *url = [NSString stringWithFormat:@"http://authie.me/api/upload/postfile?key=%@", key];
 
     NSLog(@"ok, about to upload snap: %@", key);
     
@@ -356,7 +356,7 @@
     NSURLResponse *response;
     NSData *localData = nil;
     
-    NSString *url = @"http://selfies.io/api/thread";
+    NSString *url = @"http://authie.me/api/thread";
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
     [request setHTTPMethod:@"POST"];
@@ -415,7 +415,7 @@
     NSURLResponse *response;
     NSData *localData = nil;
     
-    NSString *url = @"http://selfies.io/api/follower";
+    NSString *url = @"http://authie.me/api/follower";
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
     [request setHTTPMethod:@"POST"];
@@ -470,7 +470,7 @@
     NSURLResponse *response;
     NSData *localData = nil;
     
-    NSString *url = @"http://selfies.io/api/follower";
+    NSString *url = @"http://authie.me/api/follower";
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
     [request setHTTPMethod:@"GET"];
@@ -530,7 +530,7 @@
     NSURLResponse *response;
     NSData *localData = nil;
     
-    NSString *url = @"http://selfies.io/api/thread";
+    NSString *url = @"http://authie.me/api/thread";
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
     [request setHTTPMethod:@"GET"];
@@ -587,8 +587,7 @@
     }
 
     
-    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    [appDelegate.masterViewController.tableView reloadData];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     return loaded_convos;
 }
@@ -618,7 +617,7 @@
     NSURLResponse *response;
     NSData *localData = nil;
     
-    NSString *url = @"http://selfies.io/api/checkhandle";
+    NSString *url = @"http://authie.me/api/checkhandle";
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
     [request setHTTPMethod:@"POST"];
@@ -678,7 +677,7 @@
     NSURLResponse *response;
     NSData *localData = nil;
     
-    NSString *url = @"http://selfies.io/api/handle";
+    NSString *url = @"http://authie.me/api/handle";
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
     [request setHTTPMethod:@"POST"];
@@ -731,6 +730,9 @@
                 [self.authie.handle setPublicKey:publicKey];
                 
                 NSLog(@"id: %li, privateKey: %@, publicKey: %@", [self.authie.handle.id integerValue], self.authie.handle.privateKey, self.authie.handle.publicKey);
+                
+                AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+                [appDelegate.masterViewController.navigationController popToRootViewControllerAnimated:YES];
                 
                 [self saveChanges];
             } else {

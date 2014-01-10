@@ -53,6 +53,8 @@
     navController.navigationBar.tintColor = [UIColor blackColor];
     [navController.navigationBar setBackgroundColor:[UIColor whiteColor]];
     
+    
+    
     MenuViewController * leftDrawer = [[MenuViewController alloc] initWithStyle:UITableViewStylePlain];
     self.leftDrawer = leftDrawer;
     
@@ -61,43 +63,31 @@
                               [UIFont systemFontOfSize:12.0], UITextAttributeFont, nil];
     
     [navController.navigationBar setTitleTextAttributes:new_font];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     
-    REFrostedViewController *drawerController = [[REFrostedViewController alloc] initWithContentViewController:navController menuViewController:self.leftDrawer];
+
+    REFrostedViewController *drawerController;
+    drawerController = [[REFrostedViewController alloc] initWithContentViewController:navController menuViewController:self.leftDrawer];
     drawerController.direction = REFrostedViewControllerDirectionLeft;
     drawerController.liveBlurBackgroundStyle = REFrostedViewControllerLiveBackgroundStyleLight;
     drawerController.delegate = self;
-
     [self.window setRootViewController:drawerController];
-    
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     
     if([RODItemStore sharedStore].authie.registered == 0) {
         // show register handle screen
-        
-        AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-        
+
         RegisterViewController *rvc = [[RegisterViewController alloc] init];
-        [(UINavigationController *)appDelegate.window.rootViewController presentViewController:rvc animated:NO completion:nil];
+        [self.masterViewController.navigationController pushViewController:rvc animated:YES];
+        
     } else {
         // check login status
         // try to log in if not logged in
-        
-        bool logged_in = [[RODItemStore sharedStore] checkLoginStatus];
-        
-        //if([self checkLoginStatus] == false) {
-        
-        //    NSLog(@"please login");
-        
-        //} else {
-        // we're logged in and ready to go,
-        // load the latest data
-        //NSLog(@"please load the latest data.");
-        //[self loadThreads];
-        
-        //}
+
+        [[RODItemStore sharedStore] checkLoginStatus];
         
     }
 
+    
     // Override point for customization after application launch.
     return YES;
 }

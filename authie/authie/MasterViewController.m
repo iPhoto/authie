@@ -64,9 +64,12 @@
     [imageview setContentMode:UIViewContentModeScaleAspectFit];
     self.navigationItem.titleView = imageview;
     self.navigationItem.title = @"Inbox";
+    
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
         
     [self.tableView setSeparatorInset:UIEdgeInsetsZero];
     [self.tableView setAllowsSelection:YES];
+    [self.tableView setAllowsMultipleSelection:NO];
     [self.tableView setAllowsSelectionDuringEditing:YES];
 }
 
