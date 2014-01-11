@@ -234,7 +234,13 @@
 {
 
     // Block whole window
-    [MRProgressOverlayView showOverlayAddedTo:self.navigationController.view.window animated:YES];
+
+    MRProgressOverlayView *progressView = [MRProgressOverlayView new];
+    progressView.titleLabelText = @"saving, pls chill";
+    progressView.titleLabel.font = [UIFont systemFontOfSize:10];
+    [self.navigationController.view.window addSubview:progressView];
+    
+    [progressView show:YES];
 
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
     dispatch_async(queue, ^{
@@ -254,7 +260,7 @@
             // Update UI
             // Example:
             // self.myLabel.text = result;
-            [MRProgressOverlayView dismissOverlayForView:self.navigationController.view.window animated:YES];
+            [progressView dismiss:YES];
             [self resetUploadVariables];
             [self.tableView reloadData];
         });
