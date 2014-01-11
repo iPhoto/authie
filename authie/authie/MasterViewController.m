@@ -189,7 +189,9 @@
 
         // Block whole window
         
-        MRProgressOverlayView *progressView = [MRProgressOverlayView new];        
+        MRProgressOverlayView *progressView = [MRProgressOverlayView new];
+        [progressView setTintColor:[UIColor blackColor]];
+        [progressView setTitleLabelText:@""];
         [self.view.window addSubview:progressView];
         [progressView show:YES];
         
@@ -247,6 +249,8 @@
     MRProgressOverlayView *progressView = [MRProgressOverlayView new];
     progressView.titleLabelText = @"uploading, pls chill a moment";
     progressView.titleLabel.font = [UIFont systemFontOfSize:10];
+    [progressView setTintColor:[UIColor blackColor]];
+    
     [self.navigationController.view.window addSubview:progressView];
     
     [progressView show:YES];

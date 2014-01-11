@@ -62,6 +62,7 @@
     
     MRProgressOverlayView *progressView = [MRProgressOverlayView new];
     progressView.titleLabelText = @"downloading, pls chill a moment";
+    [progressView setTintColor:[UIColor blackColor]];    
     progressView.titleLabel.font = [UIFont systemFontOfSize:10];
     [self.navigationController.view.window addSubview:progressView];
     
