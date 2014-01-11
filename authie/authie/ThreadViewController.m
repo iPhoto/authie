@@ -33,6 +33,13 @@
     return self;
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:NO];
+    [self.snapView setImage:[UIImage alloc]];
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
