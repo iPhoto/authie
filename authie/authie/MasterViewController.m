@@ -61,11 +61,26 @@
     self.imagePicker = [[UIImagePickerController alloc] init];
     //[self.imagePicker setNavigationBarHidden:true];
     
+    UIView *holder = [[UIView alloc] init];
+    [holder setFrame:CGRectMake(0, 0, 100, 30)];
+    
+    
     UIImage *image = [UIImage imageNamed:@"authie-logo-07-350px"];
     UIImageView *imageview = [[UIImageView alloc] initWithImage:image];
     [imageview setFrame:CGRectMake(0, 0, 100, 20)];
     [imageview setContentMode:UIViewContentModeScaleAspectFit];
-    self.navigationItem.titleView = imageview;
+    
+    [holder addSubview:imageview];
+    
+    UILabel *handleLabel = [[UILabel alloc] init];
+    handleLabel.text = [RODItemStore sharedStore].authie.handle.name;
+    [handleLabel setFont:[UIFont systemFontOfSize:10]];
+    [handleLabel setFrame:CGRectMake(0, 20, 100, 10)];
+    [handleLabel setTextAlignment:NSTextAlignmentCenter];
+
+    [holder addSubview:handleLabel];
+    
+    self.navigationItem.titleView = holder;
     self.navigationItem.title = @"Inbox";
     
     [self.navigationController setNavigationBarHidden:NO animated:YES];
