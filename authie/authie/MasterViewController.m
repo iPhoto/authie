@@ -183,16 +183,20 @@
 
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
 
+        AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+        appDelegate.threadViewController = [[ThreadViewController alloc] init];
+        [appDelegate.masterViewController.navigationController pushViewController:appDelegate.threadViewController animated:YES];
+
         // Block whole window
         
-        MRProgressOverlayView *progressView = [MRProgressOverlayView new];
-        progressView.titleLabelText = @"";
+        MRProgressOverlayView *progressView = [MRProgressOverlayView new];        
         [self.view.window addSubview:progressView];
-        
         [progressView show:YES];
         
         dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
         dispatch_async(queue, ^{
+
+
             
             [[RODImageStore sharedStore] preloadImageAndShowScreen:indexPath.row];
             
@@ -201,13 +205,9 @@
                 // Example:
                 // self.myLabel.text = result;
                 
-                AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+                [appDelegate.threadViewController loadThread:indexPath.row];
                 [progressView dismiss:YES];
                 
-                appDelegate.threadViewController = [[ThreadViewController alloc] init];
-                [appDelegate.threadViewController loadThread:indexPath.row];
-
-                [appDelegate.masterViewController.navigationController pushViewController:appDelegate.threadViewController animated:YES];
                 
             });
         });
