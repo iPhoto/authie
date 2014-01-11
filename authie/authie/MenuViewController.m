@@ -92,6 +92,7 @@
         [navigationController.navigationBar setTintColor:[UIColor blackColor]];
         self.frostedViewController.contentViewController = navigationController;
         
+        [[RODItemStore sharedStore] loadThreads];
         
     } else {
         
