@@ -16,6 +16,7 @@
 #import "ContactsViewController.h"
 #import "InviteViewController.h"
 #import "PrivateKeyViewController.h"
+#import "SelectContactViewController.h"
 
 @implementation MenuViewController
 @synthesize buttons;
@@ -109,6 +110,24 @@
         case 2: // invite
         {
             NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.inviteViewController];
+            [navigationController.navigationBar setTintColor:[UIColor blackColor]];
+            self.frostedViewController.contentViewController = navigationController;
+        }
+            break;
+        case 3: // daily
+        {
+            NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.dailyViewController];
+            [navigationController.navigationBar setTintColor:[UIColor blackColor]];
+            self.frostedViewController.contentViewController = navigationController;
+        }
+            break;
+        case 4: // compose
+        {
+            SelectContactViewController *select = [[SelectContactViewController alloc] init];
+            
+            NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.masterViewController];
+            [appDelegate.masterViewController.navigationController pushViewController:select animated:YES];
+            
             [navigationController.navigationBar setTintColor:[UIColor blackColor]];
             self.frostedViewController.contentViewController = navigationController;
         }

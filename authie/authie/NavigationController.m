@@ -42,6 +42,7 @@
 {
 // no more pan gesture, this is annoying
 //    [self.frostedViewController panGestureRecognized:sender];
+    
 }
 
 @end

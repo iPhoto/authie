@@ -80,25 +80,7 @@
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
-    UIView *holder = [[UIView alloc] init];
-    [holder setFrame:CGRectMake(0, 0, 100, 35)];
-    
-    UIImage *image = [UIImage imageNamed:@"authie-logo-07-350px"];
-    UIImageView *imageview = [[UIImageView alloc] initWithImage:image];
-    [imageview setFrame:CGRectMake(0, 2, 100, 18)];
-    [imageview setContentMode:UIViewContentModeScaleAspectFit];
-    
-    [holder addSubview:imageview];
-    
-    UILabel *handleLabel = [[UILabel alloc] init];
-    handleLabel.text = [RODItemStore sharedStore].authie.handle.name;
-    [handleLabel setFont:[UIFont systemFontOfSize:10]];
-    [handleLabel setFrame:CGRectMake(0, 22, 100, 10)];
-    [handleLabel setTextAlignment:NSTextAlignmentCenter];
-
-    [holder addSubview:handleLabel];
-    
-    self.navigationItem.titleView = holder;
+    self.navigationItem.titleView = [[RODItemStore sharedStore] generateHeaderView];
     self.navigationItem.title = @"Inbox";
     
     [self.navigationController setNavigationBarHidden:NO animated:YES];
