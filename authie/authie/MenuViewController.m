@@ -115,8 +115,9 @@
             break;
         case 5: // private key
         {
-            PrivateKeyViewController *pvc = [[PrivateKeyViewController alloc] init];
-            [appDelegate.masterViewController.navigationController pushViewController:pvc animated:YES];
+            NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.privateKeyViewController];
+            [navigationController.navigationBar setTintColor:[UIColor blackColor]];
+            self.frostedViewController.contentViewController = navigationController;
         }
             break;
     }
