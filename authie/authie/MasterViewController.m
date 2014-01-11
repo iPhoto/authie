@@ -181,8 +181,39 @@
         self.detailViewController.snap = thread;
     } else {
 
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];        
-        [[RODImageStore sharedStore] preloadImageAndShowScreen:indexPath.row];
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+
+        // Block whole window
+        
+        MRProgressOverlayView *progressView = [MRProgressOverlayView new];
+        progressView.titleLabelText = @"downloading, pls chill a moment";
+        progressView.titleLabel.font = [UIFont systemFontOfSize:10];
+        [self.view.window addSubview:progressView];
+        
+        [progressView show:YES];
+        
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+        dispatch_async(queue, ^{
+            
+            [[RODImageStore sharedStore] preloadImageAndShowScreen:indexPath.row];
+            
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                // Update UI
+                // Example:
+                // self.myLabel.text = result;
+                
+                AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+                [progressView dismiss:YES];
+                
+                appDelegate.threadViewController = [[ThreadViewController alloc] init];
+                [appDelegate.threadViewController loadThread:indexPath.row];
+
+                [appDelegate.masterViewController.navigationController pushViewController:appDelegate.threadViewController animated:YES];
+                
+            });
+        });
+        
+        
     }
 }
 

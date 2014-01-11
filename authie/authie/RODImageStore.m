@@ -71,14 +71,7 @@
     RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:row];
     UIImage *result = [dictionary objectForKey:thread.groupKey];
     
-    if(result) {
-
-        AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-        [appDelegate.threadViewController loadThread:row];
-        [appDelegate.masterViewController.navigationController pushViewController:appDelegate.threadViewController animated:YES];
-        
-        
-    } else {
+    if(!result) {
         
         downloadingSnapRow = row;
         downloadingSnapKey = thread.groupKey;
@@ -180,10 +173,9 @@
     [self setImage:result forKey:downloadingSnapKey];
 
     if(showThreadAfterDownload == YES) {
-        AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-        [appDelegate.threadViewController loadThread:downloadingSnapRow];
-        
-        [appDelegate.masterViewController.navigationController pushViewController:appDelegate.threadViewController animated:YES];
+        //AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+        //[appDelegate.threadViewController loadThread:downloadingSnapRow];
+        //[appDelegate.masterViewController.navigationController pushViewController:appDelegate.threadViewController animated:YES];
     }
 
     showThreadAfterDownload = YES;
