@@ -24,7 +24,7 @@
 #import "ContactsViewController.h"
 
 @implementation AppDelegate
-@synthesize masterViewController, threadViewController, contactsViewController, privateKeyViewController, inviteViewController;
+@synthesize masterViewController, threadViewController, contactsViewController, privateKeyViewController, inviteViewController, dailyViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -55,11 +55,12 @@
     InviteViewController *invite = [[InviteViewController alloc] init];
     inviteViewController = invite;
     
+    DailyViewController *daily = [[DailyViewController alloc] init];
+    dailyViewController = daily;
+    
     NavigationController *navController = [[NavigationController alloc] initWithRootViewController:masterViewController];
     navController.navigationBar.tintColor = [UIColor blackColor];
     [navController.navigationBar setBackgroundColor:[UIColor whiteColor]];
-    
-    
     
     MenuViewController * leftDrawer = [[MenuViewController alloc] initWithStyle:UITableViewStylePlain];
     self.leftDrawer = leftDrawer;

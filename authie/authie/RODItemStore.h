@@ -38,6 +38,7 @@
 - (BOOL)getThreadsFromHandle:(NSString *)publicKey;
 - (BOOL)uploadSnap:(NSString *)key;
 - (BOOL)addContact:(NSString *)handle;
+- (UIView *)generateHeaderView;
 
 @end
 

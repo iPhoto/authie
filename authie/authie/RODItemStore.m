@@ -819,6 +819,11 @@
     return [NSKeyedArchiver archiveRootObject:_authie toFile:path];
 }
 
+- (UIView *)generateHeaderView
+{
+    
+}
+
 + (RODItemStore *)sharedStore
 {
     static RODItemStore *sharedStore = nil;

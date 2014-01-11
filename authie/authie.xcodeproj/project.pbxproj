@@ -34,6 +34,8 @@
 		5D9DEE9D185242E300F80413 /* RODSelfie.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DEE99185242E300F80413 /* RODSelfie.m */; };
 		5DA646871878980900F158E8 /* authie-logo-08-200px.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DA646861878980900F158E8 /* authie-logo-08-200px.png */; };
 		5DA64689187898B900F158E8 /* authie-logo-09-100px.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DA64688187898B900F158E8 /* authie-logo-09-100px.png */; };
+		5DBBDBE41881C8B6004446DE /* DailyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DBBDBE21881C8B6004446DE /* DailyViewController.m */; };
+		5DBBDBE51881C8B6004446DE /* DailyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DBBDBE31881C8B6004446DE /* DailyViewController.xib */; };
 		5DEE7C8B185234E700F532B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DEE7C8A185234E700F532B3 /* Foundation.framework */; };
 		5DEE7C8D185234E700F532B3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DEE7C8C185234E700F532B3 /* CoreGraphics.framework */; };
 		5DEE7C8F185234E800F532B3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DEE7C8E185234E700F532B3 /* UIKit.framework */; };
@@ -114,6 +116,9 @@
 		5D9DEE99185242E300F80413 /* RODSelfie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RODSelfie.m; sourceTree = "<group>"; };
 		5DA646861878980900F158E8 /* authie-logo-08-200px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "authie-logo-08-200px.png"; sourceTree = "<group>"; };
 		5DA64688187898B900F158E8 /* authie-logo-09-100px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "authie-logo-09-100px.png"; sourceTree = "<group>"; };
+		5DBBDBE11881C8B6004446DE /* DailyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyViewController.h; sourceTree = "<group>"; };
+		5DBBDBE21881C8B6004446DE /* DailyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyViewController.m; sourceTree = "<group>"; };
+		5DBBDBE31881C8B6004446DE /* DailyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DailyViewController.xib; sourceTree = "<group>"; };
 		5DEE7C87185234E700F532B3 /* authie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = authie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DEE7C8A185234E700F532B3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5DEE7C8C185234E700F532B3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -263,6 +268,9 @@
 				5D8C1CEF1880E45500158AE5 /* PrivateKeyViewController.h */,
 				5D8C1CF01880E45500158AE5 /* PrivateKeyViewController.m */,
 				5D8C1CF11880E45500158AE5 /* PrivateKeyViewController.xib */,
+				5DBBDBE11881C8B6004446DE /* DailyViewController.h */,
+				5DBBDBE21881C8B6004446DE /* DailyViewController.m */,
+				5DBBDBE31881C8B6004446DE /* DailyViewController.xib */,
 				5DEE7CA8185234E800F532B3 /* Images.xcassets */,
 				5DEE7C91185234E800F532B3 /* Supporting Files */,
 			);
@@ -402,6 +410,7 @@
 				5DA646871878980900F158E8 /* authie-logo-08-200px.png in Resources */,
 				5DF864A41874AA0B002DCCDC /* authie-logo-06-94px.png in Resources */,
 				5DEE7C95185234E800F532B3 /* InfoPlist.strings in Resources */,
+				5DBBDBE51881C8B6004446DE /* DailyViewController.xib in Resources */,
 				5D8C1CE918808FC000158AE5 /* SelectContactViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -472,6 +481,7 @@
 				5DF86497186E0E7A002DCCDC /* RODResponseMessage.m in Sources */,
 				5D8C1CE818808FC000158AE5 /* SelectContactViewController.m in Sources */,
 				5DEE7CA7185234E800F532B3 /* DetailViewController.m in Sources */,
+				5DBBDBE41881C8B6004446DE /* DailyViewController.m in Sources */,
 				5D06B982187B0C1F00FC17F0 /* MenuViewController.m in Sources */,
 				5D8C1CD7187E38E300158AE5 /* ThreadViewController.m in Sources */,
 				5D9C7C57187DE25200BE2D42 /* NavigationController.m in Sources */,

@@ -15,6 +15,7 @@
 #import "ContactsViewController.h"
 #import "InviteViewController.h"
 #import "PrivateKeyViewController.h"
+#import "DailyViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, REFrostedViewControllerDelegate>
 
@@ -25,5 +26,6 @@
 @property (strong, nonatomic) ContactsViewController *contactsViewController;
 @property (strong, nonatomic) InviteViewController *inviteViewController;
 @property (strong, nonatomic) PrivateKeyViewController *privateKeyViewController;
+@property (strong, nonatomic) DailyViewController *dailyViewController;
 
 @end
