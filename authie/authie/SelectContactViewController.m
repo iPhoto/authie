@@ -23,8 +23,6 @@
     if (self) {
         // Custom initialization
         [self setEdgesForExtendedLayout:UIRectEdgeNone];
-        UIBarButtonItem *b = [[UIBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStyleDone target:self action:@selector(sendSnap:)];
-        self.navigationItem.rightBarButtonItem = b;
         
     }
     return self;
