@@ -22,6 +22,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
+        //[self setEdgesForExtendedLayout:UIRectEdgeNone];
     }
     return self;
 }
@@ -31,8 +33,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [self.handleLabel setText:handle.name];
- 
+    [self.navigationItem setTitle:handle.name];
+    
     [self getThreads];
 
 }
@@ -88,7 +90,7 @@
     
     NSLog(@"populateScrollView started: %i", [[RODItemStore sharedStore].loadedThreadsFromAuthor count]);
     MiniThreadViewController *mini;
-    int yOffset = 50;
+    int yOffset = 0;
 
     for(int i=0; i < [[RODItemStore sharedStore].loadedThreadsFromAuthor count]; i++) {
         
@@ -102,16 +104,17 @@
         
         //photo_height = mini.snapView.image.size.height + 10;
         
-        yOffset = yOffset + mini.view.frame.size.height + 3;
+        yOffset = yOffset + 300;
+        
         [self.scroll addSubview:mini.view];
-        NSLog(@"added %@, height: %f", thread.groupKey, image.size.height);
         
     }
 
     self.contentSize = yOffset;
+    [self.scroll setContentSize:CGSizeMake(self.scroll.frame.size.width, self.contentSize)];
+
     
     NSLog(@"Scroll view content size: %f, %f", self.scroll.contentSize.height, self.scroll.frame.size.width);
-
     
 }
 
