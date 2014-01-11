@@ -23,7 +23,7 @@
     if (self) {
         // Custom initialization
         
-        //[self setEdgesForExtendedLayout:UIRectEdgeNone];
+        [self setEdgesForExtendedLayout:UIRectEdgeNone];
     }
     return self;
 }
@@ -50,6 +50,8 @@
     [super viewDidLayoutSubviews];
     
     [self.scroll setContentSize:CGSizeMake(self.scroll.frame.size.width, self.contentSize)];
+    
+    [self.scroll layoutSubviews];
    
 }
 
@@ -100,11 +102,15 @@
         UIImage *image =[[RODImageStore sharedStore] imageForKey:thread.groupKey];
         
         mini.view.frame = CGRectMake(0, yOffset, self.scroll.frame.size.width, 300);
+        [mini.snapView setContentMode:UIViewContentModeScaleAspectFill];
         [mini.snapView setImage:image];
+        [mini.view layoutIfNeeded];
         
         //photo_height = mini.snapView.image.size.height + 10;
         
         yOffset = yOffset + 300;
+        
+        NSLog(@"Image height, snapView height: %i, %i", image.size.height, mini.snapView.frame.size.height);
         
         [self.scroll addSubview:mini.view];
         

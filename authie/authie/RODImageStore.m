@@ -3,7 +3,7 @@
 //  selfies
 //
 //  Created by Seth Hayward on 11/14/13.
-//  Copyright (c) 2013 bitwise. All rights reserved.
+//  Copyright (c) 2014 bitwise. All rights reserved.
 //
 
 #import "RODImageStore.h"
@@ -51,9 +51,7 @@
     
     NSData *d = UIImageJPEGRepresentation(i, 1);
 
-    NSLog(@"Image written to disk: %@", s);
     [d writeToFile:imagePath atomically:YES];
-    
 }
 
 -(UIImage *) getSnapFromWebsite:(NSString *)groupKey {
@@ -77,21 +75,16 @@
 
         AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
         [appDelegate.threadViewController loadThread:row];
-        
-        //    NavigationController *navigationController = appDelegate.masterViewController.navigationController;
         [appDelegate.masterViewController.navigationController pushViewController:appDelegate.threadViewController animated:YES];
         
         
     } else {
         
-        NSLog(@"ok, downloadImageAndShowScreen");
         downloadingSnapRow = row;
         downloadingSnapKey = thread.groupKey;
         
         [self downloadImageAndShowScreen:thread.groupKey];
     }
-    
-
     
 }
 
@@ -181,14 +174,12 @@
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     
-    NSLog(@"connecitonDidFinishLoading.");
-    
     UIImage *result;
     result = [UIImage imageWithData:_downloadingSnap];
     
     [self setImage:result forKey:downloadingSnapKey];
 
-    if(showThreadAfterDownload) {
+    if(showThreadAfterDownload == YES) {
         AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
         [appDelegate.threadViewController loadThread:downloadingSnapRow];
         
