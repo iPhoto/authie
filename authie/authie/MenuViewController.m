@@ -84,16 +84,18 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
     if (indexPath.section == 0 && indexPath.row == 0) {
-        
-        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         
         NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.masterViewController];
         [navigationController.navigationBar setTintColor:[UIColor blackColor]];
         self.frostedViewController.contentViewController = navigationController;
+        
+        
     } else {
-        ContactsViewController *contacts = [[ContactsViewController alloc] init];
-        NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:contacts];
+        
+        NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.contactsViewController];
         [navigationController.navigationBar setTintColor:[UIColor blackColor]];
         self.frostedViewController.contentViewController = navigationController;
     }

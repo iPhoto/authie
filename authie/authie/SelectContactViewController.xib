@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SelectContactViewController">
             <connections>
+                <outlet property="contactsTable" destination="gSF-hK-Nk8" id="Mba-p7-eG4"/>
                 <outlet property="view" destination="CKy-FI-H5w" id="7XM-al-6jY"/>
             </connections>
         </placeholder>

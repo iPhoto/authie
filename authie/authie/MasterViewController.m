@@ -43,6 +43,9 @@
     UIBarButtonItem *leftDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_menu];
     self.navigationItem.leftBarButtonItem = leftDrawerButton;
     
+    NSLog(@"Reload data...");
+    [self.tableView reloadData];
+    
 }
 
 - (void)viewDidLoad

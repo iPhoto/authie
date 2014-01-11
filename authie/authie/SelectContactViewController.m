@@ -15,7 +15,7 @@
 #import "RODImageStore.h"
 
 @implementation SelectContactViewController
-@synthesize imagePicker;
+@synthesize imagePicker, contactsTable;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,6 +34,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    [self.contactsTable setSeparatorInset:UIEdgeInsetsZero];
+
 }
 
 - (void)didReceiveMemoryWarning
