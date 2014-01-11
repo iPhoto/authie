@@ -12,6 +12,7 @@
 #import "RODAuthie.h"
 #import "RODFollower.h"
 #import "RODItemStore.h"
+#import "ProfileViewController.h"
 
 @implementation ContactsViewController
 
@@ -79,6 +80,7 @@
     return [[RODItemStore sharedStore].authie.all_Contacts count];
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
@@ -93,6 +95,17 @@
     //cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", handle.publicKey];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    RODHandle *handle = [[RODItemStore sharedStore].authie.all_Contacts objectAtIndex:indexPath.row];
+    NSLog(@"Clicked on %@", handle.name);
+    
+    ProfileViewController *pvc = [[ProfileViewController alloc] init];
+    pvc.handle = handle;
+    [self.navigationController pushViewController:pvc animated:YES];
+    
 }
 
 /*
@@ -134,17 +147,7 @@
 }
 */
 
-/*
-#pragma mark - Navigation
 
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
- */
 
 - (void)addContact:(id)sender
 {
