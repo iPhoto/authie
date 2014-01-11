@@ -21,8 +21,10 @@
 #import "ThreadViewController.h"
 #import "SelectContactViewController.h"
 #import <MRProgress/MRProgress.h>
+#import "RODImageStore.h"
 
 @implementation MasterViewController
+@synthesize imageToUpload, keyToUpload, handleToUpload, doUploadOnView;
 
 - (void)awakeFromNib
 {
@@ -35,6 +37,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
 
     UIButton *button_menu = [UIButton buttonWithType:UIButtonTypeCustom];
     [button_menu setFrame:CGRectMake(0, 0, 40, 40)];
@@ -48,18 +51,34 @@
     
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+ 
+    
+    if(self.doUploadOnView) {
+        [self doUpload];
+    }
+    
+}
+
+- (void)resetUploadVariables
+{
+    self.doUploadOnView = NO;
+    self.keyToUpload = @"";
+    self.imageToUpload = [UIImage alloc];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    [self resetUploadVariables];
+    
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(sendSnap:)];
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
-    
-    
-    self.imagePicker = [[UIImagePickerController alloc] init];
-    //[self.imagePicker setNavigationBarHidden:true];
     
     UIView *holder = [[UIView alloc] init];
     [holder setFrame:CGRectMake(0, 0, 100, 30)];
@@ -211,11 +230,36 @@
     
 }
 
-- (void)showLoadingIndicator
+- (void)doUpload
 {
+
     // Block whole window
-    [MRProgressOverlayView showOverlayAddedTo:self.view animated:YES];
-    
+    [MRProgressOverlayView showOverlayAddedTo:self.navigationController.view.window animated:YES];
+
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+    dispatch_async(queue, ^{
+        // Perform async operation
+        // Call your method/function here
+        // Example:
+        // NSString *result = [anObject calculateSomething];
+
+        [[RODImageStore sharedStore] setImage:self.imageToUpload forKey:self.keyToUpload];
+        NSLog(@"Created key: %@", self.keyToUpload);
+        
+        [[RODItemStore sharedStore] createSelfie:self.keyToUpload];
+        [[RODItemStore sharedStore] startThread:self.handleToUpload.publicKey forKey:self.keyToUpload];
+
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            // Update UI
+            // Example:
+            // self.myLabel.text = result;
+            [MRProgressOverlayView dismissOverlayForView:self.navigationController.view.window animated:YES];
+            [self resetUploadVariables];
+            [self.tableView reloadData];
+        });
+    });
+
 }
 
 @end

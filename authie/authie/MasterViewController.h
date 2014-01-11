@@ -10,12 +10,17 @@
 
 @class DetailViewController;
 @class SnapCreatorController;
+@class RODHandle;
 
 @interface MasterViewController : UITableViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
-@property (strong, nonatomic) UIImagePickerController *imagePicker;
 @property (strong, nonatomic) DetailViewController *detailViewController;
 
-- (void)showLoadingIndicator;
+@property (strong, nonatomic) UIImage *imageToUpload;
+@property (strong, nonatomic) NSString *keyToUpload;
+@property (strong, nonatomic) RODHandle *handleToUpload;
+@property (nonatomic) BOOL doUploadOnView;
+
+- (void)doUpload;
 
 @end

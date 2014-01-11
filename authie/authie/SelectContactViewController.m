@@ -109,20 +109,19 @@
     CFStringRef newUniqueIDString = CFUUIDCreateString(kCFAllocatorDefault, newUniqueID);
     
     NSString *key = (__bridge NSString *)newUniqueIDString;
-    
-    [[RODImageStore sharedStore] setImage:image forKey:key];
-    NSLog(@"Created key: %@", key);
-    
-    [[RODItemStore sharedStore] createSelfie:key];
-    [[RODItemStore sharedStore] startThread:self.selected.publicKey forKey:key];
-    
+
     CFRelease(newUniqueIDString);
     CFRelease(newUniqueID);
     
     [self dismissViewControllerAnimated:NO completion:nil];
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    appDelegate.masterViewController.imageToUpload = image;
+    appDelegate.masterViewController.keyToUpload = key;
+    appDelegate.masterViewController.handleToUpload = self.selected;
+    [appDelegate.masterViewController setDoUploadOnView:true];
     [appDelegate.masterViewController.navigationController popToRootViewControllerAnimated:YES];
+
 }
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
