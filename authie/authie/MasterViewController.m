@@ -186,8 +186,7 @@
         // Block whole window
         
         MRProgressOverlayView *progressView = [MRProgressOverlayView new];
-        progressView.titleLabelText = @"downloading, pls chill a moment";
-        progressView.titleLabel.font = [UIFont systemFontOfSize:10];
+        progressView.titleLabelText = @"";
         [self.view.window addSubview:progressView];
         
         [progressView show:YES];
