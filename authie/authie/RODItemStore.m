@@ -19,6 +19,7 @@
 #import "MasterViewController.h"
 
 @implementation RODItemStore
+@synthesize loadedThreadsFromAuthor;
 
 - (id)init
 {
@@ -523,7 +524,6 @@
 - (BOOL)loadThreads
 {
     BOOL loaded_convos = NO;
-
     
     NSError *error = nil;
     
@@ -586,11 +586,77 @@
         
     }
 
-    
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
     return loaded_convos;
 }
+
+- (BOOL)getThreadsFromHandle:(NSString *)publicKey
+{
+    BOOL loaded_threads = NO;
+
+    NSError *error = nil;
+    
+    NSURLResponse *response;
+    NSData *localData = nil;
+    
+    NSString *url = [NSString stringWithFormat:@"http://authie.me/api/threads/%@", publicKey];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"GET"];
+    
+    if(error == nil) {
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        
+        //send the request and get the response
+        localData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        NSError *deserialize_error = nil;
+        
+        id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingMutableContainers error:&deserialize_error];
+        if([object isKindOfClass:[NSArray self]] && deserialize_error == nil) {
+            
+            // clear out old threads
+            [self.loadedThreadsFromAuthor removeAllObjects];
+            
+            for (NSDictionary *result in object) {
+                
+                NSInteger id_result = [[result objectForKey:@"id"] integerValue];
+                
+                // replace them with the new ones
+                RODThread *thready = [[RODThread alloc] init];
+                thready.id = [NSNumber numberWithInteger:id_result];
+                                
+                NSDictionary *inner_result = [result objectForKey:@"toHandle"];
+                NSString *to_result = [inner_result objectForKey:@"name"];
+                
+                NSDictionary *from_inner_result = [result objectForKey:@"fromHandle"];
+                NSString *from_result = [NSString stringWithFormat:@"from: %@",[from_inner_result objectForKey:@"name"]];
+                
+                thready.groupKey = [result objectForKey:@"groupKey"];
+                thready.toHandleId = to_result;
+                thready.fromHandleId = from_result;
+                thready.startDate = [NSDate new];
+                
+                [self.loadedThreadsFromAuthor addObject:thready];
+                
+                NSLog(@"found thread %@ to %@, from %@", thready.groupKey, to_result, from_result);
+                
+                
+            }
+            
+            loaded_threads = YES;
+            
+        } else {
+            NSLog(@"Not that kind of object: %@, deserialize_error: %@", object, deserialize_error);
+        }
+        
+    }
+
+    
+    
+    return loaded_threads;
+}
+
 
 - (BOOL)checkHandleAvailability:(NSString *)handle
 {

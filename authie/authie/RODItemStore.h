@@ -17,7 +17,7 @@
     RODAuthie *_authie;
 }
 
-@property (nonatomic, retain) RODSelfie *recentSelfie;
+@property (weak, nonatomic) NSMutableArray *loadedThreadsFromAuthor;
 
 + (RODItemStore *)sharedStore;
 
@@ -35,6 +35,7 @@
 - (BOOL)loadThreads;
 - (BOOL)checkLoginStatus;
 - (BOOL)startThread:(NSString *)toHandle forKey:(NSString *)key;
+- (BOOL)getThreadsFromHandle:(NSString *)publicKey;
 - (BOOL)uploadSnap:(NSString *)key;
 - (BOOL)addContact:(NSString *)handle;
 
