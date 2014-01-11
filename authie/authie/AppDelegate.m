@@ -59,8 +59,8 @@
     self.leftDrawer = leftDrawer;
     
     NSDictionary *new_font = [NSDictionary dictionaryWithObjectsAndKeys:
-                              [UIColor blackColor], UITextAttributeTextColor,
-                              [UIFont systemFontOfSize:12.0], UITextAttributeFont, nil];
+                              [UIColor blackColor], NSForegroundColorAttributeName,
+                              [UIFont systemFontOfSize:12.0], NSFontAttributeName, nil];
     
     [navController.navigationBar setTitleTextAttributes:new_font];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];

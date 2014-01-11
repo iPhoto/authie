@@ -100,6 +100,7 @@
     
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
+    [conn start];
 }
 
 - (UIImage *)imageForKey:(NSString *)s

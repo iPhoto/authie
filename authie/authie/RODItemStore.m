@@ -795,7 +795,7 @@
                 [self.authie.handle setPrivateKey:privateKey];
                 [self.authie.handle setPublicKey:publicKey];
                 
-                NSLog(@"id: %li, privateKey: %@, publicKey: %@", [self.authie.handle.id integerValue], self.authie.handle.privateKey, self.authie.handle.publicKey);
+                NSLog(@"id: %lu, privateKey: %@, publicKey: %@", [self.authie.handle.id longValue], self.authie.handle.privateKey, self.authie.handle.publicKey);
                 
                 AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
                 [appDelegate.masterViewController.navigationController popToRootViewControllerAnimated:YES];
