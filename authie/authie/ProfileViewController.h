@@ -14,4 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *handleLabel;
 @property (weak, nonatomic) RODHandle *handle;
 
+- (void)populateScrollView;
+
 @end

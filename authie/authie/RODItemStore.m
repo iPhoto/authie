@@ -60,7 +60,8 @@
         if(!_authie.allThreads)
             _authie.allThreads = [[NSMutableArray alloc] init];
         
-                
+        if(!loadedThreadsFromAuthor)
+            loadedThreadsFromAuthor = [[NSMutableArray alloc] init];
         
     }
     
@@ -642,7 +643,7 @@
                 
                 [[RODImageStore sharedStore] downloadImage:thready.groupKey];
                 
-                NSLog(@"found thread %@ to %@, from %@", thready.groupKey, to_result, from_result);
+                NSLog(@"threadFromHandle: %@", thready.groupKey);
                 
             }
             
@@ -653,9 +654,7 @@
         }
         
     }
-
-    
-    
+        
     return loaded_threads;
 }
 

@@ -24,7 +24,7 @@
 #import "ContactsViewController.h"
 
 @implementation AppDelegate
-@synthesize masterViewController, threadViewController, contactsViewController, privateKeyViewController, inviteViewController, dailyViewController;
+@synthesize masterViewController, threadViewController, contactsViewController, privateKeyViewController, inviteViewController, dailyViewController, profileViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -54,6 +54,9 @@
     
     InviteViewController *invite = [[InviteViewController alloc] init];
     inviteViewController = invite;
+    
+    ProfileViewController *profile = [[ProfileViewController alloc] init];
+    profileViewController = profile;
     
     DailyViewController *daily = [[DailyViewController alloc] init];
     dailyViewController = daily;

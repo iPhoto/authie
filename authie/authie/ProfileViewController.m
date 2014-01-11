@@ -8,8 +8,11 @@
 
 #import "ProfileViewController.h"
 #import "RODItemStore.h"
+#import "RODImageStore.h"
 #import "RODHandle.h"
 #import <MRProgress/MRProgress.h>
+#import "MiniThreadViewController.h"
+#import "RODThread.h"
 
 @implementation ProfileViewController
 @synthesize handle;
@@ -65,6 +68,7 @@
             // Update UI
             // Example:
             // self.myLabel.text = result;
+            [self populateScrollView];
             [progressView dismiss:YES];
         });
     });
@@ -73,6 +77,28 @@
 
 - (void)populateScrollView
 {
+    
+    NSLog(@"populateScrollView started: %i", [[RODItemStore sharedStore].loadedThreadsFromAuthor count]);
+    MiniThreadViewController *mini;
+    int yOffset = 0;
+    int photo_height = 300;
+    
+    for(int i=0; i < [[RODItemStore sharedStore].loadedThreadsFromAuthor count]; i++) {
+        
+        RODThread *thread = [[RODItemStore sharedStore].loadedThreadsFromAuthor objectAtIndex:i];
+        mini = [[MiniThreadViewController alloc] init];
+
+        mini.view.frame = CGRectMake(0, yOffset, self.view.bounds.size.width - 5, photo_height);
+        
+        [mini.snapView setImage:[[RODImageStore sharedStore] imageForKey:thread.groupKey]];
+
+        yOffset = yOffset + photo_height;
+        [self.scroll addSubview:mini.view];
+        NSLog(@"added %@", thread.groupKey);
+        
+    }
+    
+    [self.scroll setContentSize:CGSizeMake(self.view.bounds.size.width, yOffset)];
     
 }
 

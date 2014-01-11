@@ -18,7 +18,7 @@
     RODAuthie *_authie;
 }
 
-@property (weak, nonatomic) NSMutableArray *loadedThreadsFromAuthor;
+@property (strong, nonatomic) NSMutableArray *loadedThreadsFromAuthor;
 
 + (RODItemStore *)sharedStore;
 
