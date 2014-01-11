@@ -29,7 +29,7 @@
         NSString *path = [self itemArchivePath];
 
         _authie = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
-        
+                
         if(!_authie) {
             NSLog(@"Generated new authie.");
             _authie = [[RODAuthie alloc] init];
@@ -632,6 +632,7 @@
                 NSDictionary *from_inner_result = [result objectForKey:@"fromHandle"];
                 NSString *from_result = [NSString stringWithFormat:@"from: %@",[from_inner_result objectForKey:@"name"]];
                 
+                
                 thready.groupKey = [result objectForKey:@"groupKey"];
                 thready.toHandleId = to_result;
                 thready.fromHandleId = from_result;
@@ -639,8 +640,9 @@
                 
                 [self.loadedThreadsFromAuthor addObject:thready];
                 
-                NSLog(@"found thread %@ to %@, from %@", thready.groupKey, to_result, from_result);
+                [[RODImageStore sharedStore] downloadImage:thready.groupKey];
                 
+                NSLog(@"found thread %@ to %@, from %@", thready.groupKey, to_result, from_result);
                 
             }
             

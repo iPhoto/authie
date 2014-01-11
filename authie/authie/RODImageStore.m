@@ -13,6 +13,7 @@
 #import "RODAuthie.h"
 
 @implementation RODImageStore
+@synthesize showThreadAfterDownload;
 
 + (id)allocWithZone:(struct _NSZone *)zone
 {
@@ -32,6 +33,8 @@
     self = [super init];
     if (self) {
         dictionary = [[NSMutableDictionary alloc] init];
+        
+        showThreadAfterDownload = YES;
         
         NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
         [nc addObserver:self selector:@selector(clearCache:) name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
@@ -90,6 +93,12 @@
     
 
     
+}
+
+- (void)downloadImage:(NSString *)groupKey
+{
+    showThreadAfterDownload = NO;
+    [self downloadImageAndShowScreen:groupKey];
 }
 
 - (void)downloadImageAndShowScreen:(NSString *)groupKey
@@ -179,13 +188,14 @@
     
     [self setImage:result forKey:downloadingSnapKey];
 
-    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    [appDelegate.threadViewController loadThread:downloadingSnapRow];
-    
-    NSLog(@"pushing...");
-    [appDelegate.masterViewController.navigationController pushViewController:appDelegate.threadViewController animated:YES];
+    if(showThreadAfterDownload) {
+        AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+        [appDelegate.threadViewController loadThread:downloadingSnapRow];
+        
+        [appDelegate.masterViewController.navigationController pushViewController:appDelegate.threadViewController animated:YES];
+    }
 
-    
+    showThreadAfterDownload = YES;
 }
 
 @end

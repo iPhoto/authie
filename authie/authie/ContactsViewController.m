@@ -92,9 +92,7 @@
 {
     RODHandle *handle = [[RODItemStore sharedStore].authie.all_Contacts objectAtIndex:indexPath.row];
     NSLog(@"Clicked on %@", handle.name);
-    
-    [[RODItemStore sharedStore] getThreadsFromHandle:handle.publicKey];
-    
+        
     ProfileViewController *pvc = [[ProfileViewController alloc] init];
     pvc.handle = handle;
     [self.navigationController pushViewController:pvc animated:YES];

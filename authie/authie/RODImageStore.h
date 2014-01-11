@@ -16,6 +16,8 @@
     int downloadingSnapRow;
 }
 
+@property (nonatomic) BOOL showThreadAfterDownload;
+
 + (RODImageStore *)sharedStore;
 
 - (void)setImage:(UIImage *)i forKey:(NSString *)s;
@@ -24,5 +26,6 @@
 -(void)preloadImageAndShowScreen:(int)row;
 
 - (NSString *)imagePathForKey:(NSString *)key;
+- (void)downloadImage:(NSString *)groupKey;
 
 @end
