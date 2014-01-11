@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface PrivateKeyViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *privateKey;
 
 @end

@@ -19,6 +19,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        [self setEdgesForExtendedLayout:UIRectEdgeNone];
     }
     return self;
 }
@@ -29,6 +30,8 @@
     // Do any additional setup after loading the view from its nib.
     
     self.navigationItem.titleView = [[RODItemStore sharedStore] generateHeaderView];
+    
+    self.privateKey.text = [[RODItemStore sharedStore].authie.handle.privateKey substringToIndex:5];
     
 }
 

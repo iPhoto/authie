@@ -7,30 +7,61 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PrivateKeyViewController">
             <connections>
+                <outlet property="privateKey" destination="JWD-cW-vz3" id="6Wg-Ms-rQe"/>
                 <outlet property="view" destination="6Mu-Ph-ztR" id="ZRI-gq-sJP"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="6Mu-Ph-ztR">
-            <rect key="frame" x="0.0" y="0.0" width="260" height="250"/>
+            <rect key="frame" x="0.0" y="0.0" width="266" height="356"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="private key deploying soon" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="129" translatesAutoresizingMaskIntoConstraints="NO" id="JWD-cW-vz3">
-                    <rect key="frame" x="66" y="93" width="129" height="64"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23421" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="226" translatesAutoresizingMaskIntoConstraints="NO" id="JWD-cW-vz3">
+                    <rect key="frame" x="20" y="62" width="226" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="39"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="your private key:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="miH-x3-9WO">
+                    <rect key="frame" x="20" y="27" width="226" height="27"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="211" translatesAutoresizingMaskIntoConstraints="NO" id="bRr-Ah-wdc">
+                    <rect key="frame" x="27" y="101" width="211" height="121"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="64" id="oY1-Tv-wX5"/>
+                        <constraint firstAttribute="width" constant="211" id="9xO-wk-WiX"/>
+                        <constraint firstAttribute="height" constant="121" id="ZFD-aR-dzF"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <attributedString key="attributedText">
+                        <fragment>
+                            <string key="content">you use your private key to log in to authie on a phone or other computers/browsers/technologies. your private key is like a password, so please don't show it to anyone.</string>
+                            <attributes>
+                                <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <font key="NSFont" size="13" name="HelveticaNeue"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="JWD-cW-vz3" secondAttribute="trailing" constant="65" id="Ad1-DM-ht8"/>
-                <constraint firstItem="JWD-cW-vz3" firstAttribute="centerY" secondItem="6Mu-Ph-ztR" secondAttribute="centerY" id="BEQ-MD-ber"/>
-                <constraint firstItem="JWD-cW-vz3" firstAttribute="leading" secondItem="6Mu-Ph-ztR" secondAttribute="leading" constant="66" id="yCb-V5-Gst"/>
+                <constraint firstAttribute="trailing" secondItem="JWD-cW-vz3" secondAttribute="trailing" constant="20" id="0vY-XL-6EA"/>
+                <constraint firstItem="miH-x3-9WO" firstAttribute="top" secondItem="6Mu-Ph-ztR" secondAttribute="top" constant="27" id="4cN-Mz-cA0"/>
+                <constraint firstItem="bRr-Ah-wdc" firstAttribute="top" secondItem="6Mu-Ph-ztR" secondAttribute="top" constant="101" id="63m-mr-Kl9"/>
+                <constraint firstAttribute="trailing" secondItem="miH-x3-9WO" secondAttribute="trailing" constant="20" id="6ss-rB-jE8"/>
+                <constraint firstItem="JWD-cW-vz3" firstAttribute="top" secondItem="6Mu-Ph-ztR" secondAttribute="top" constant="62" id="7Tm-CT-HCB"/>
+                <constraint firstItem="bRr-Ah-wdc" firstAttribute="top" secondItem="JWD-cW-vz3" secondAttribute="bottom" constant="-5" id="BBc-SN-QAl"/>
+                <constraint firstItem="bRr-Ah-wdc" firstAttribute="centerX" secondItem="JWD-cW-vz3" secondAttribute="centerX" constant="-1" id="YXh-rv-LJz"/>
+                <constraint firstItem="JWD-cW-vz3" firstAttribute="leading" secondItem="6Mu-Ph-ztR" secondAttribute="leading" constant="20" id="gxw-XN-uCW"/>
+                <constraint firstItem="miH-x3-9WO" firstAttribute="leading" secondItem="6Mu-Ph-ztR" secondAttribute="leading" constant="20" id="rkx-7S-NOw"/>
+                <constraint firstItem="bRr-Ah-wdc" firstAttribute="top" secondItem="miH-x3-9WO" secondAttribute="bottom" constant="47" id="vvi-nG-6FS"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
