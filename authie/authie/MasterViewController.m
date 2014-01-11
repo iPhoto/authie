@@ -20,6 +20,7 @@
 #import "NavigationController.h"
 #import "ThreadViewController.h"
 #import "SelectContactViewController.h"
+#import <MRProgress/MRProgress.h>
 
 @implementation MasterViewController
 
@@ -43,7 +44,6 @@
     UIBarButtonItem *leftDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_menu];
     self.navigationItem.leftBarButtonItem = leftDrawerButton;
     
-    NSLog(@"Reload data...");
     [self.tableView reloadData];
     
 }
@@ -102,13 +102,6 @@
     
     SelectContactViewController *select = [[SelectContactViewController alloc] init];
     [self.navigationController pushViewController:select animated:YES];
-    
-}
-
-- (void)insertNewObject:(id)sender
-{
-    
-    [self createSnap];
     
 }
 
@@ -195,21 +188,6 @@
     }
 }
 
-- (void)createSnap
-{
-    
-    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        [self.imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
-    } else {
-        [self.imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
-    }
-    
-    [self.imagePicker setDelegate:self];
-    
-    [self presentViewController:self.imagePicker animated:YES completion:nil];
-    
-}
-
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     
@@ -233,5 +211,11 @@
     
 }
 
+- (void)showLoadingIndicator
+{
+    // Block whole window
+    [MRProgressOverlayView showOverlayAddedTo:self.view animated:YES];
+    
+}
 
 @end

@@ -16,4 +16,6 @@
 @property (strong, nonatomic) UIImagePickerController *imagePicker;
 @property (strong, nonatomic) DetailViewController *detailViewController;
 
+- (void)showLoadingIndicator;
+
 @end
