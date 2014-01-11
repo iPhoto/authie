@@ -15,6 +15,7 @@
 #import "MasterViewController.h"
 #import "ContactsViewController.h"
 #import "InviteViewController.h"
+#import "PrivateKeyViewController.h"
 
 @implementation MenuViewController
 @synthesize buttons;
@@ -111,7 +112,13 @@
             [appDelegate.masterViewController.navigationController pushViewController:ivc animated:YES];
         }
             break;
-    }    
+        case 5: // private key
+        {
+            PrivateKeyViewController *pvc = [[PrivateKeyViewController alloc] init];
+            [appDelegate.masterViewController.navigationController pushViewController:pvc animated:YES];
+        }
+            break;
+    }
     
     [self.frostedViewController hideMenuViewController];
 }

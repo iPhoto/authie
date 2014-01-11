@@ -5,21 +5,21 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InviteViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PrivateKeyViewController">
             <connections>
-                <outlet property="view" destination="DlB-vS-NPY" id="NGh-HN-yhJ"/>
+                <outlet property="view" destination="6Mu-Ph-ztR" id="ZRI-gq-sJP"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="DlB-vS-NPY">
+        <view contentMode="scaleToFill" id="6Mu-Ph-ztR">
             <rect key="frame" x="0.0" y="0.0" width="260" height="250"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="invite coming soon." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGA-SO-Lzj">
-                    <rect key="frame" x="38" y="111" width="183" height="29"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="private key coming soon" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="129" translatesAutoresizingMaskIntoConstraints="NO" id="JWD-cW-vz3">
+                    <rect key="frame" x="66" y="93" width="129" height="64"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="29" id="8Vh-uK-WrH"/>
+                        <constraint firstAttribute="height" constant="64" id="oY1-Tv-wX5"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
@@ -28,9 +28,9 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstItem="rGA-SO-Lzj" firstAttribute="leading" secondItem="DlB-vS-NPY" secondAttribute="leading" constant="38" id="Ub3-1J-s0o"/>
-                <constraint firstAttribute="trailing" secondItem="rGA-SO-Lzj" secondAttribute="trailing" constant="39" id="jnS-Qj-ijF"/>
-                <constraint firstItem="rGA-SO-Lzj" firstAttribute="centerY" secondItem="DlB-vS-NPY" secondAttribute="centerY" id="thm-zM-oUp"/>
+                <constraint firstAttribute="trailing" secondItem="JWD-cW-vz3" secondAttribute="trailing" constant="65" id="Ad1-DM-ht8"/>
+                <constraint firstItem="JWD-cW-vz3" firstAttribute="centerY" secondItem="6Mu-Ph-ztR" secondAttribute="centerY" id="BEQ-MD-ber"/>
+                <constraint firstItem="JWD-cW-vz3" firstAttribute="leading" secondItem="6Mu-Ph-ztR" secondAttribute="leading" constant="66" id="yCb-V5-Gst"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>

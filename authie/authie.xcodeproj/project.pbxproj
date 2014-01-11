@@ -18,6 +18,8 @@
 		5D8C1CE918808FC000158AE5 /* SelectContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C1CE718808FC000158AE5 /* SelectContactViewController.xib */; };
 		5D8C1CED1880E0F200158AE5 /* InviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C1CEB1880E0F200158AE5 /* InviteViewController.m */; };
 		5D8C1CEE1880E0F200158AE5 /* InviteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C1CEC1880E0F200158AE5 /* InviteViewController.xib */; };
+		5D8C1CF21880E45600158AE5 /* PrivateKeyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C1CF01880E45500158AE5 /* PrivateKeyViewController.m */; };
+		5D8C1CF31880E45600158AE5 /* PrivateKeyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C1CF11880E45500158AE5 /* PrivateKeyViewController.xib */; };
 		5D9A453218765184008C45FD /* RODThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9A453118765184008C45FD /* RODThread.m */; };
 		5D9A453418771D0F008C45FD /* authie-logo-07-350px.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9A453318771D0F008C45FD /* authie-logo-07-350px.png */; };
 		5D9C7C57187DE25200BE2D42 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C7C56187DE25200BE2D42 /* NavigationController.m */; };
@@ -82,6 +84,9 @@
 		5D8C1CEA1880E0F200158AE5 /* InviteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteViewController.h; sourceTree = "<group>"; };
 		5D8C1CEB1880E0F200158AE5 /* InviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteViewController.m; sourceTree = "<group>"; };
 		5D8C1CEC1880E0F200158AE5 /* InviteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InviteViewController.xib; sourceTree = "<group>"; };
+		5D8C1CEF1880E45500158AE5 /* PrivateKeyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivateKeyViewController.h; sourceTree = "<group>"; };
+		5D8C1CF01880E45500158AE5 /* PrivateKeyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivateKeyViewController.m; sourceTree = "<group>"; };
+		5D8C1CF11880E45500158AE5 /* PrivateKeyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrivateKeyViewController.xib; sourceTree = "<group>"; };
 		5D9A453018765184008C45FD /* RODThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RODThread.h; sourceTree = "<group>"; };
 		5D9A453118765184008C45FD /* RODThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RODThread.m; sourceTree = "<group>"; };
 		5D9A453318771D0F008C45FD /* authie-logo-07-350px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "authie-logo-07-350px.png"; sourceTree = "<group>"; };
@@ -239,6 +244,9 @@
 				5D8C1CE518808FC000158AE5 /* SelectContactViewController.h */,
 				5D8C1CE618808FC000158AE5 /* SelectContactViewController.m */,
 				5D8C1CE718808FC000158AE5 /* SelectContactViewController.xib */,
+				5D8C1CEF1880E45500158AE5 /* PrivateKeyViewController.h */,
+				5D8C1CF01880E45500158AE5 /* PrivateKeyViewController.m */,
+				5D8C1CF11880E45500158AE5 /* PrivateKeyViewController.xib */,
 				5DEE7CA8185234E800F532B3 /* Images.xcassets */,
 				5DEE7C91185234E800F532B3 /* Supporting Files */,
 			);
@@ -369,6 +377,7 @@
 				5DEE7CA9185234E800F532B3 /* Images.xcassets in Resources */,
 				5D8C1CEE1880E0F200158AE5 /* InviteViewController.xib in Resources */,
 				5DF864A21874A8C9002DCCDC /* authie-logo-05-84px.png in Resources */,
+				5D8C1CF31880E45600158AE5 /* PrivateKeyViewController.xib in Resources */,
 				5D9A453418771D0F008C45FD /* authie-logo-07-350px.png in Resources */,
 				5DEE7C9E185234E800F532B3 /* Main_iPhone.storyboard in Resources */,
 				5D8C1CDD187F3EC000158AE5 /* cog-black.png in Resources */,
@@ -439,6 +448,7 @@
 				5DEE7C97185234E800F532B3 /* main.m in Sources */,
 				5D9DEE9B185242E300F80413 /* RODImageStore.m in Sources */,
 				5D8C1CED1880E0F200158AE5 /* InviteViewController.m in Sources */,
+				5D8C1CF21880E45600158AE5 /* PrivateKeyViewController.m in Sources */,
 				5DF86497186E0E7A002DCCDC /* RODResponseMessage.m in Sources */,
 				5D8C1CE818808FC000158AE5 /* SelectContactViewController.m in Sources */,
 				5DEE7CA7185234E800F532B3 /* DetailViewController.m in Sources */,
