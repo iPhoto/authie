@@ -108,8 +108,9 @@
             break;
         case 2: // invite
         {
-            InviteViewController *ivc = [[InviteViewController alloc] init];
-            [appDelegate.masterViewController.navigationController pushViewController:ivc animated:YES];
+            NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.inviteViewController];
+            [navigationController.navigationBar setTintColor:[UIColor blackColor]];
+            self.frostedViewController.contentViewController = navigationController;
         }
             break;
         case 5: // private key

@@ -81,8 +81,7 @@
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
     UIView *holder = [[UIView alloc] init];
-    [holder setFrame:CGRectMake(0, 0, 100, 30)];
-    
+    [holder setFrame:CGRectMake(0, 0, 100, 35)];
     
     UIImage *image = [UIImage imageNamed:@"authie-logo-07-350px"];
     UIImageView *imageview = [[UIImageView alloc] initWithImage:image];
@@ -94,7 +93,7 @@
     UILabel *handleLabel = [[UILabel alloc] init];
     handleLabel.text = [RODItemStore sharedStore].authie.handle.name;
     [handleLabel setFont:[UIFont systemFontOfSize:10]];
-    [handleLabel setFrame:CGRectMake(0, 20, 100, 10)];
+    [handleLabel setFrame:CGRectMake(0, 25, 100, 10)];
     [handleLabel setTextAlignment:NSTextAlignmentCenter];
 
     [holder addSubview:handleLabel];
@@ -146,8 +145,6 @@
     }
     
     RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads  objectAtIndex:indexPath.row];
-    
-    NSLog(@"Found: %@, %@", thread.toHandleId, thread.groupKey);
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@", thread.toHandleId];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", thread.fromHandleId];

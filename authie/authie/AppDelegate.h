@@ -13,6 +13,8 @@
 #import "MenuViewController.h"
 #import "ThreadViewController.h"
 #import "ContactsViewController.h"
+#import "InviteViewController.h"
+#import "PrivateKeyViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, REFrostedViewControllerDelegate>
 
@@ -21,5 +23,7 @@
 @property (strong, nonatomic) ThreadViewController *threadViewController;
 @property (strong, nonatomic) MenuViewController *leftDrawer;
 @property (strong, nonatomic) ContactsViewController *contactsViewController;
+@property (strong, nonatomic) InviteViewController *inviteViewController;
+@property (strong, nonatomic) PrivateKeyViewController *privateKeyViewController;
 
 @end

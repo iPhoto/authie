@@ -24,7 +24,7 @@
 #import "ContactsViewController.h"
 
 @implementation AppDelegate
-@synthesize masterViewController, threadViewController, contactsViewController;
+@synthesize masterViewController, threadViewController, contactsViewController, privateKeyViewController, inviteViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -48,6 +48,12 @@
     
     ContactsViewController *contacts = [[ContactsViewController alloc] init];
     contactsViewController = contacts;
+    
+    PrivateKeyViewController *private = [[PrivateKeyViewController alloc] init];
+    privateKeyViewController = private;
+    
+    InviteViewController *invite = [[InviteViewController alloc] init];
+    inviteViewController = invite;
     
     NavigationController *navController = [[NavigationController alloc] initWithRootViewController:masterViewController];
     navController.navigationBar.tintColor = [UIColor blackColor];
