@@ -29,25 +29,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    UIView *holder = [[UIView alloc] init];
-    [holder setFrame:CGRectMake(0, 0, 100, 35)];
-    
-    UIImage *image = [UIImage imageNamed:@"authie-logo-07-350px"];
-    UIImageView *imageview = [[UIImageView alloc] initWithImage:image];
-    [imageview setFrame:CGRectMake(0, 2, 100, 18)];
-    [imageview setContentMode:UIViewContentModeScaleAspectFit];
-    
-    [holder addSubview:imageview];
-    
-    UILabel *handleLabel = [[UILabel alloc] init];
-    handleLabel.text = [RODItemStore sharedStore].authie.handle.name;
-    [handleLabel setFont:[UIFont systemFontOfSize:10]];
-    [handleLabel setFrame:CGRectMake(0, 22, 100, 10)];
-    [handleLabel setTextAlignment:NSTextAlignmentCenter];
-    
-    [holder addSubview:handleLabel];
-    
-    self.navigationItem.titleView = holder;
+    self.navigationItem.titleView = [[RODItemStore sharedStore] generateHeaderView];
     
 }
 
@@ -55,13 +37,7 @@
 {
     [super viewWillAppear:animated];
     
-    UIButton *button_menu = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button_menu setFrame:CGRectMake(0, 0, 40, 40)];
-    [button_menu setImage:[UIImage imageNamed:@"cog-black.png"] forState:UIControlStateNormal];
-    [button_menu addTarget:(NavigationController *)self.navigationController action:@selector(showMenu:) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIBarButtonItem *leftDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_menu];
-    self.navigationItem.leftBarButtonItem = leftDrawerButton;
+    self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateSettingsCog:self];
 
 }
 

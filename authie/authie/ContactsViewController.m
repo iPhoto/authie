@@ -21,13 +21,7 @@
     self = [super initWithStyle:style];
     if (self) {
 
-        UIButton *button_menu = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button_menu setFrame:CGRectMake(0, 0, 40, 40)];
-        [button_menu setImage:[UIImage imageNamed:@"cog-black.png"] forState:UIControlStateNormal];
-        [button_menu addTarget:(NavigationController *)self.navigationController action:@selector(showMenu:) forControlEvents:UIControlEventTouchUpInside];
-        
-        UIBarButtonItem *leftDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_menu];
-        self.navigationItem.leftBarButtonItem = leftDrawerButton;
+        self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateSettingsCog:self];
         
         UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addContact:)];
         self.navigationItem.rightBarButtonItem = addButton;
@@ -74,9 +68,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    NSLog(@"rows in section: %i", [[RODItemStore sharedStore].authie.all_Contacts count]);
-    
     return [[RODItemStore sharedStore].authie.all_Contacts count];
 }
 

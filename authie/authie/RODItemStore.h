@@ -11,6 +11,7 @@
 @class RODSelfie;
 @class RODAuthie;
 @class RODThread;
+@class NavigationController;
 
 @interface RODItemStore : NSObject
 {
@@ -39,6 +40,7 @@
 - (BOOL)uploadSnap:(NSString *)key;
 - (BOOL)addContact:(NSString *)handle;
 - (UIView *)generateHeaderView;
+- (UIBarButtonItem *)generateSettingsCog:(UIViewController *)target;
 
 @end
 
