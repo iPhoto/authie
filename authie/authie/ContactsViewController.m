@@ -84,13 +84,13 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
     }
     
     RODHandle *handle = [[RODItemStore sharedStore].authie.all_Contacts  objectAtIndex:indexPath.row];
     
     cell.textLabel.text = handle.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", handle.publicKey];
+    //cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", handle.publicKey];
     
     return cell;
 }

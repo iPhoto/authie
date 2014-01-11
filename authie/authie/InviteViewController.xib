@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment defaultVersion="1552" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InviteViewController">
+            <connections>
+                <outlet property="view" destination="DlB-vS-NPY" id="NGh-HN-yhJ"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="DlB-vS-NPY">
+            <rect key="frame" x="0.0" y="0.0" width="267" height="247"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="invite coming soon." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGA-SO-Lzj">
+                    <rect key="frame" x="38" y="108" width="190" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="29" id="8Vh-uK-WrH"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstItem="rGA-SO-Lzj" firstAttribute="centerX" secondItem="DlB-vS-NPY" secondAttribute="centerX" id="4Hc-QU-5R9"/>
+                <constraint firstItem="rGA-SO-Lzj" firstAttribute="top" secondItem="DlB-vS-NPY" secondAttribute="top" constant="108" id="FBG-6G-0UF"/>
+                <constraint firstItem="rGA-SO-Lzj" firstAttribute="leading" secondItem="DlB-vS-NPY" secondAttribute="leading" constant="38" id="Ub3-1J-s0o"/>
+                <constraint firstAttribute="trailing" secondItem="rGA-SO-Lzj" secondAttribute="trailing" constant="39" id="jnS-Qj-ijF"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+</document>

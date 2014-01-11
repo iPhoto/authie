@@ -14,6 +14,7 @@
 #import "DetailViewController.h"
 #import "MasterViewController.h"
 #import "ContactsViewController.h"
+#import "InviteViewController.h"
 
 @implementation MenuViewController
 @synthesize buttons;
@@ -86,20 +87,31 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    if (indexPath.section == 0 && indexPath.row == 0) {
-        
-        NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.masterViewController];
-        [navigationController.navigationBar setTintColor:[UIColor blackColor]];
-        self.frostedViewController.contentViewController = navigationController;
-        
-        [[RODItemStore sharedStore] loadThreads];
-        
-    } else {
-        
-        NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.contactsViewController];
-        [navigationController.navigationBar setTintColor:[UIColor blackColor]];
-        self.frostedViewController.contentViewController = navigationController;
-    }
+    switch (indexPath.row) {
+        case 0: // inbox
+        {
+            NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.masterViewController];
+            [navigationController.navigationBar setTintColor:[UIColor blackColor]];
+            self.frostedViewController.contentViewController = navigationController;
+            
+            [[RODItemStore sharedStore] loadThreads];
+            
+        }
+            break;
+        case 1: // contacts
+        {
+            NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.contactsViewController];
+            [navigationController.navigationBar setTintColor:[UIColor blackColor]];
+            self.frostedViewController.contentViewController = navigationController;
+        }
+            break;
+        case 2: // invite
+        {
+            InviteViewController *ivc = [[InviteViewController alloc] init];
+            [appDelegate.masterViewController.navigationController pushViewController:ivc animated:YES];
+        }
+            break;
+    }    
     
     [self.frostedViewController hideMenuViewController];
 }
