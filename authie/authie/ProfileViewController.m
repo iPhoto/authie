@@ -15,7 +15,7 @@
 #import "RODThread.h"
 
 @implementation ProfileViewController
-@synthesize handle;
+@synthesize handle, contentSize;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,6 +41,14 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    
+    [self.scroll setContentSize:CGSizeMake(self.scroll.frame.size.width, self.contentSize)];
+   
 }
 
 - (void)getThreads
@@ -80,25 +88,30 @@
     
     NSLog(@"populateScrollView started: %i", [[RODItemStore sharedStore].loadedThreadsFromAuthor count]);
     MiniThreadViewController *mini;
-    int yOffset = 0;
-    int photo_height = 300;
-    
+    int yOffset = 50;
+
     for(int i=0; i < [[RODItemStore sharedStore].loadedThreadsFromAuthor count]; i++) {
         
         RODThread *thread = [[RODItemStore sharedStore].loadedThreadsFromAuthor objectAtIndex:i];
         mini = [[MiniThreadViewController alloc] init];
 
-        mini.view.frame = CGRectMake(0, yOffset, self.view.bounds.size.width - 5, photo_height);
+        UIImage *image =[[RODImageStore sharedStore] imageForKey:thread.groupKey];
         
-        [mini.snapView setImage:[[RODImageStore sharedStore] imageForKey:thread.groupKey]];
-
-        yOffset = yOffset + photo_height;
+        mini.view.frame = CGRectMake(0, yOffset, self.scroll.frame.size.width, 300);
+        [mini.snapView setImage:image];
+        
+        //photo_height = mini.snapView.image.size.height + 10;
+        
+        yOffset = yOffset + mini.view.frame.size.height + 3;
         [self.scroll addSubview:mini.view];
-        NSLog(@"added %@", thread.groupKey);
+        NSLog(@"added %@, height: %f", thread.groupKey, image.size.height);
         
     }
+
+    self.contentSize = yOffset;
     
-    [self.scroll setContentSize:CGSizeMake(self.view.bounds.size.width, yOffset)];
+    NSLog(@"Scroll view content size: %f, %f", self.scroll.contentSize.height, self.scroll.frame.size.width);
+
     
 }
 

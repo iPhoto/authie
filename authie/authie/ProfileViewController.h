@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 @property (weak, nonatomic) IBOutlet UILabel *handleLabel;
 @property (weak, nonatomic) RODHandle *handle;
+@property (nonatomic) int contentSize;
 
 - (void)populateScrollView;
 
