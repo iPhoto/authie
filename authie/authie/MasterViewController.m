@@ -22,6 +22,7 @@
 #import "SelectContactViewController.h"
 #import <MRProgress/MRProgress.h>
 #import "RODImageStore.h"
+#import "NSDate+PrettyDate.h"
 
 @implementation MasterViewController
 @synthesize imageToUpload, keyToUpload, handleToUpload, doUploadOnView;
@@ -123,13 +124,18 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
 
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
     }
     
     RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads  objectAtIndex:indexPath.row];
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@", thread.toHandleId];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", thread.fromHandleId];
+    
+    NSLog(@"startDate: %@, ", thread.startDate);
+    
+    NSString *cool_time = [thread.startDate prettyDate];
+    cell.detailTextLabel.text = cool_time;
+    
     return cell;
 }
 

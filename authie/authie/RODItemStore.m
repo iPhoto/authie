@@ -562,8 +562,6 @@
 {
     
     BOOL loaded_contacts = NO;
-
-    NSLog(@"loadContacts.");
     
     NSError *error = nil;
     
@@ -592,8 +590,6 @@
             [self.authie.allContacts removeAllObjects];
             
             for (NSDictionary *result in object) {
-                
-                NSLog(@"found contact: %@", result);
                 
                 RODHandle *followeeHandle = [[RODHandle alloc] init];
                 
@@ -668,7 +664,16 @@
                 thready.groupKey = [result objectForKey:@"groupKey"];
                 thready.toHandleId = to_result;
                 thready.fromHandleId = from_result;
-                thready.startDate = [NSDate new];
+                
+                
+                NSString *silly_date = [result objectForKey:@"startDate"];
+                NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+                
+                //The Z at the end of your string represents Zulu which is UTC
+                [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
+                [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
+                
+                thready.startDate = [dateFormatter dateFromString:silly_date];
                 
                 [self.authie.allThreads addObject:thready];
 
