@@ -23,6 +23,7 @@
 #import "RegisterViewController.h"
 #import "ContactsViewController.h"
 #import "TestFlight.h"
+#import "GAI.h"
 
 @implementation AppDelegate
 @synthesize masterViewController, threadViewController, contactsViewController, privateKeyViewController, inviteViewController, dailyViewController, profileViewController;
@@ -43,6 +44,20 @@
     
     // test flighty
     [TestFlight takeOff:@"e0b1dd9c-b710-4223-8aa8-b68350a2da33"];
+
+    // urchin
+
+    // Optional: automatically send uncaught exceptions to Google Analytics.
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    
+    // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
+    [GAI sharedInstance].dispatchInterval = 20;
+    
+    // Optional: set Logger to VERBOSE for debug information.
+    [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
+    
+    // Initialize tracker.
+    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-47064407-1"];
 
     MasterViewController *master = [[MasterViewController alloc] init];
     masterViewController = master;
