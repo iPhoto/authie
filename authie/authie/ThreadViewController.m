@@ -43,16 +43,11 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    if(self.thread) {
-        [self.snapView setImage:[[RODImageStore sharedStore] imageForKey:self.thread.groupKey]];
-    } else {
-        NSLog(@"No thread.");
-    }
+    
 }
 
 -(void)removeThread:(id)sender
 {
-    NSLog(@"Remove thread.");
     [self dismissViewControllerAnimated:YES completion:nil];
     [[RODItemStore sharedStore] removeThread:self.thread];
 }
@@ -62,7 +57,7 @@
     RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:row];
     [self.snapView setImage:[[RODImageStore sharedStore] imageForKey:thread.groupKey]];
     self.thread = thread;
-    
+    self.navigationItem.title = thread.fromHandleId;
 }
 
 - (void)didReceiveMemoryWarning

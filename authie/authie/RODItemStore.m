@@ -661,6 +661,7 @@
                 thready.toHandleId = to_result;
                 thready.fromHandleId = from_result;
                 
+                NSLog(@"from: %@", thready.fromHandleId);
                 
                 NSString *silly_date = [result objectForKey:@"startDate"];
                 NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
