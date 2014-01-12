@@ -19,7 +19,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        NSLog(@"ThreadViewController init.");
         // PREVENT THE UNDERLAPPING THAT OCCURS WITH
         // IOS 7!!!!!
         self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -44,7 +43,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    NSLog(@"viewDidLoad: %i", loadRow);
     if(self.thread) {
         [self.snapView setImage:[[RODImageStore sharedStore] imageForKey:self.thread.groupKey]];
     } else {
@@ -61,7 +59,6 @@
 
 -(void)loadThread:(int)row
 {
-    NSLog(@"loadThread: %i", row);
     RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:row];
     [self.snapView setImage:[[RODImageStore sharedStore] imageForKey:thread.groupKey]];
     self.thread = thread;

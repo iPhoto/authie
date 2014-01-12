@@ -131,8 +131,6 @@
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@", thread.toHandleId];
     
-    NSLog(@"startDate: %@, ", thread.startDate);
-    
     NSString *cool_time = [thread.startDate prettyDate];
     cell.detailTextLabel.text = cool_time;
     

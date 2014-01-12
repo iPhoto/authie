@@ -242,8 +242,6 @@
         
         id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingAllowFragments error:&deserialize_error];
         if([object isKindOfClass:[NSDictionary class]] && deserialize_error == nil) {
-
-            NSLog(@"results from login: %@", object);
             
             NSInteger response_result;
             response_result = [[object objectForKey:@"result"] integerValue];
@@ -353,8 +351,6 @@
         }
         
     }
-    
-
     
     
     return got;
@@ -676,9 +672,6 @@
                 thready.startDate = [dateFormatter dateFromString:silly_date];
                 
                 [self.authie.allThreads addObject:thready];
-
-                NSLog(@"found thread %@ to %@, from %@", thready.groupKey, to_result, from_result);
-
                 
             }
             
