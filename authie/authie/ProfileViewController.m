@@ -103,6 +103,8 @@
     
     MiniThreadViewController *mini;
     int yOffset = 0;
+    
+    int photo_height = 500;
 
     for(int i=0; i < [[RODItemStore sharedStore].loadedThreadsFromAuthor count]; i++) {
         
@@ -111,14 +113,14 @@
 
         UIImage *image =[[RODImageStore sharedStore] imageForKey:thread.groupKey];
         
-        mini.view.frame = CGRectMake(0, yOffset, self.scroll.frame.size.width, 300);
+        mini.view.frame = CGRectMake(0, yOffset, self.scroll.frame.size.width, photo_height);
         [mini.snapView setContentMode:UIViewContentModeScaleAspectFill];
         [mini.snapView setImage:image];
         [mini.view layoutIfNeeded];
         
         //photo_height = mini.snapView.image.size.height + 10;
         
-        yOffset = yOffset + 300;
+        yOffset = yOffset + photo_height;
                 
         [self.scroll addSubview:mini.view];
         
