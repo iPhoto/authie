@@ -22,6 +22,7 @@
 #import "RODAuthie.h"
 #import "RegisterViewController.h"
 #import "ContactsViewController.h"
+#import "TestFlight.h"
 
 @implementation AppDelegate
 @synthesize masterViewController, threadViewController, contactsViewController, privateKeyViewController, inviteViewController, dailyViewController, profileViewController;
@@ -39,6 +40,9 @@
     if(SYSTEM_VERSION_GREATER_THAN(@"7.0") ) { 
         [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
     }
+    
+    // test flighty
+    [TestFlight takeOff:@"e0b1dd9c-b710-4223-8aa8-b68350a2da33"];
 
     MasterViewController *master = [[MasterViewController alloc] init];
     masterViewController = master;

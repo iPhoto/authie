@@ -39,6 +39,7 @@
 		5DBBDBEC18822C80004446DE /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBBDBE618822C80004446DE /* libTestFlight.a */; };
 		5DBBDBED18822C80004446DE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5DBBDBE718822C80004446DE /* README.md */; };
 		5DBBDBEE18822C80004446DE /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 5DBBDBE818822C80004446DE /* release_notes.md */; };
+		5DBBDBF018822D51004446DE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBBDBEF18822D51004446DE /* libz.dylib */; };
 		5DEE7C8B185234E700F532B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DEE7C8A185234E700F532B3 /* Foundation.framework */; };
 		5DEE7C8D185234E700F532B3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DEE7C8C185234E700F532B3 /* CoreGraphics.framework */; };
 		5DEE7C8F185234E800F532B3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DEE7C8E185234E700F532B3 /* UIKit.framework */; };
@@ -128,6 +129,7 @@
 		5DBBDBE918822C80004446DE /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		5DBBDBEA18822C80004446DE /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
 		5DBBDBEB18822C80004446DE /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		5DBBDBEF18822D51004446DE /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		5DEE7C87185234E700F532B3 /* authie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = authie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DEE7C8A185234E700F532B3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5DEE7C8C185234E700F532B3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -169,6 +171,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DBBDBF018822D51004446DE /* libz.dylib in Frameworks */,
 				5DBBDBEC18822C80004446DE /* libTestFlight.a in Frameworks */,
 				5DEE7C8D185234E700F532B3 /* CoreGraphics.framework in Frameworks */,
 				5DEE7C8F185234E800F532B3 /* UIKit.framework in Frameworks */,
@@ -213,6 +216,7 @@
 		5DEE7C89185234E700F532B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5DBBDBEF18822D51004446DE /* libz.dylib */,
 				5DEE7C8A185234E700F532B3 /* Foundation.framework */,
 				5DEE7C8C185234E700F532B3 /* CoreGraphics.framework */,
 				5DEE7C8E185234E700F532B3 /* UIKit.framework */,
