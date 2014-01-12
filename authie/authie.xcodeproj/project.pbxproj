@@ -36,6 +36,9 @@
 		5DA64689187898B900F158E8 /* authie-logo-09-100px.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DA64688187898B900F158E8 /* authie-logo-09-100px.png */; };
 		5DBBDBE41881C8B6004446DE /* DailyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DBBDBE21881C8B6004446DE /* DailyViewController.m */; };
 		5DBBDBE51881C8B6004446DE /* DailyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DBBDBE31881C8B6004446DE /* DailyViewController.xib */; };
+		5DBBDBEC18822C80004446DE /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBBDBE618822C80004446DE /* libTestFlight.a */; };
+		5DBBDBED18822C80004446DE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5DBBDBE718822C80004446DE /* README.md */; };
+		5DBBDBEE18822C80004446DE /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 5DBBDBE818822C80004446DE /* release_notes.md */; };
 		5DEE7C8B185234E700F532B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DEE7C8A185234E700F532B3 /* Foundation.framework */; };
 		5DEE7C8D185234E700F532B3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DEE7C8C185234E700F532B3 /* CoreGraphics.framework */; };
 		5DEE7C8F185234E800F532B3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DEE7C8E185234E700F532B3 /* UIKit.framework */; };
@@ -119,6 +122,12 @@
 		5DBBDBE11881C8B6004446DE /* DailyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyViewController.h; sourceTree = "<group>"; };
 		5DBBDBE21881C8B6004446DE /* DailyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyViewController.m; sourceTree = "<group>"; };
 		5DBBDBE31881C8B6004446DE /* DailyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DailyViewController.xib; sourceTree = "<group>"; };
+		5DBBDBE618822C80004446DE /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		5DBBDBE718822C80004446DE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		5DBBDBE818822C80004446DE /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
+		5DBBDBE918822C80004446DE /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		5DBBDBEA18822C80004446DE /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		5DBBDBEB18822C80004446DE /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		5DEE7C87185234E700F532B3 /* authie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = authie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DEE7C8A185234E700F532B3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5DEE7C8C185234E700F532B3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -160,6 +169,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DBBDBEC18822C80004446DE /* libTestFlight.a in Frameworks */,
 				5DEE7C8D185234E700F532B3 /* CoreGraphics.framework in Frameworks */,
 				5DEE7C8F185234E800F532B3 /* UIKit.framework in Frameworks */,
 				5DEE7C8B185234E700F532B3 /* Foundation.framework in Frameworks */,
@@ -292,6 +302,12 @@
 				5DEE7C93185234E800F532B3 /* InfoPlist.strings */,
 				5DEE7C96185234E800F532B3 /* main.m */,
 				5DEE7C98185234E800F532B3 /* authie-Prefix.pch */,
+				5DBBDBE618822C80004446DE /* libTestFlight.a */,
+				5DBBDBE718822C80004446DE /* README.md */,
+				5DBBDBE818822C80004446DE /* release_notes.md */,
+				5DBBDBE918822C80004446DE /* TestFlight.h */,
+				5DBBDBEA18822C80004446DE /* TestFlight+AsyncLogging.h */,
+				5DBBDBEB18822C80004446DE /* TestFlight+ManualSessions.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -395,6 +411,8 @@
 				5D8C1CF81880E8B800158AE5 /* ProfileViewController.xib in Resources */,
 				5D8C1CD8187E38E300158AE5 /* ThreadViewController.xib in Resources */,
 				5DEE7CA1185234E800F532B3 /* Main_iPad.storyboard in Resources */,
+				5DBBDBED18822C80004446DE /* README.md in Resources */,
+				5DBBDBEE18822C80004446DE /* release_notes.md in Resources */,
 				5DF86494185F75CA002DCCDC /* RegisterViewController.xib in Resources */,
 				5D8C1CFD1880EEB900158AE5 /* MiniThreadViewController.xib in Resources */,
 				5DA64689187898B900F158E8 /* authie-logo-09-100px.png in Resources */,
@@ -630,6 +648,10 @@
 				GCC_PREFIX_HEADER = "authie/authie-Prefix.pch";
 				INFOPLIST_FILE = "authie/authie-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/seth/dev/authie/authie/authie,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "6B8B0E67-EB59-4126-B7AB-8DA87C12460C";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -648,6 +670,10 @@
 				GCC_PREFIX_HEADER = "authie/authie-Prefix.pch";
 				INFOPLIST_FILE = "authie/authie-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/seth/dev/authie/authie/authie,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "6B8B0E67-EB59-4126-B7AB-8DA87C12460C";
 				TARGETED_DEVICE_FAMILY = "1,2";
