@@ -85,15 +85,67 @@
     return s;
 }
 
+- (void) removeContact:(RODHandle *)handle
+{
+    NSLog(@"Remove contact: %@", handle.name);
+
+    NSError *error = nil;
+    
+    NSMutableData *data = [NSMutableData data];
+    [data appendData:[[NSString stringWithFormat:@"=%@",handle.name] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    NSURLResponse *response;
+    NSData *localData = nil;
+    
+    NSString *url = @"http://authie.me/api/follower";
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"DELETE"];
+    
+    if(error == nil) {
+        [request setValue:@"application/x-www-form-urlencoded; charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        [request setHTTPBody:data];
+        
+        //send the request and get the response
+        localData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        NSError *deserialize_error = nil;
+        
+        id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingAllowFragments error:&deserialize_error];
+        
+        if([object isKindOfClass:[NSDictionary class]] && deserialize_error == nil) {
+            
+            NSLog(@"results from delete contact: %@", object);
+            
+            NSInteger response_result;
+            response_result = [[object objectForKey:@"result"] integerValue];
+            
+            if(response_result == 1) {
+                [self loadContacts];
+                AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+                [appDelegate.contactsViewController.navigationController popToRootViewControllerAnimated:YES];
+                
+            }
+            
+            
+        }
+        
+    } else {
+        NSLog(@"Error: %@", error);
+    }
+    
+    
+    [self saveChanges];
+    
+}
+
 - (void)removeThread:(RODThread *)thread
 {
     
     NSLog(@"Remove thread: %@", thread.groupKey);
     
     NSError *error = nil;
-    
-    NSData *jsonData;
-    [jsonData setValue:thread.groupKey forKey:@""];
     
     NSMutableData *data = [NSMutableData data];
     [data appendData:[[NSString stringWithFormat:@"=%@",thread.groupKey] dataUsingEncoding:NSUTF8StringEncoding]];
@@ -660,7 +712,7 @@
                 thready.groupKey = [result objectForKey:@"groupKey"];
                 thready.toHandleId = to_result;
                 thready.fromHandleId = from_result;
-                                
+                
                 NSString *silly_date = [result objectForKey:@"startDate"];
                 NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
                 

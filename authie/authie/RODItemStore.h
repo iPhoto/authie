@@ -11,6 +11,7 @@
 @class RODSelfie;
 @class RODAuthie;
 @class RODThread;
+@class RODHandle;
 @class NavigationController;
 
 @interface RODItemStore : NSObject
@@ -28,6 +29,7 @@
 
 - (RODSelfie *)createSelfie:(NSString *)key;
 - (void) removeThread:(RODThread *)thread;
+- (void) removeContact:(RODHandle *)handle;
 
 - (BOOL)saveChanges;
 - (BOOL)checkHandleAvailability:(NSString *)handle;

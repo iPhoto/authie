@@ -13,6 +13,7 @@
 #import <MRProgress/MRProgress.h>
 #import "MiniThreadViewController.h"
 #import "RODThread.h"
+#import "RODAuthie.h"
 
 @implementation ProfileViewController
 @synthesize handle, contentSize;
@@ -42,9 +43,21 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    if(self.navigationItem.leftBarButtonItem == nil) {
+        
+    if(self.handle.name != [RODItemStore sharedStore].authie.handle.name) {
+        
+        // add trash can button to allow the user
+        // to remove a contact
+        UIBarButtonItem *edit = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(removeContact:)];
+        
+        self.navigationItem.rightBarButtonItem = edit;
+        
+    } else {
+
+        // this happens when they are viewing their own profile
         self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateSettingsCog:self];
+
+        
     }
     
 }
@@ -63,6 +76,25 @@
     
     [self.scroll layoutSubviews];
    
+}
+
+-(void)removeContact:(id)sender
+{
+    
+    NSString *message = [NSString stringWithFormat:@"remove %@ as a contact?", handle.name];
+    
+    UIAlertView *confirm = [[UIAlertView alloc] initWithTitle:@"remove contact" message:message delegate:self cancelButtonTitle:@"no" otherButtonTitles:@"yes", nil];
+    
+    [confirm show];
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        [[RODItemStore sharedStore] removeContact:handle];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 - (void)getThreads
