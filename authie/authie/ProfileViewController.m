@@ -91,7 +91,6 @@
 - (void)populateScrollView
 {
     
-    NSLog(@"populateScrollView started: %i", [[RODItemStore sharedStore].loadedThreadsFromAuthor count]);
     MiniThreadViewController *mini;
     int yOffset = 0;
 
@@ -110,9 +109,7 @@
         //photo_height = mini.snapView.image.size.height + 10;
         
         yOffset = yOffset + 300;
-        
-        NSLog(@"Image height, snapView height: %i, %i", image.size.height, mini.snapView.frame.size.height);
-        
+                
         [self.scroll addSubview:mini.view];
         
     }
@@ -120,9 +117,6 @@
     self.contentSize = yOffset;
     [self.scroll setContentSize:CGSizeMake(self.scroll.frame.size.width, self.contentSize)];
 
-    
-    NSLog(@"Scroll view content size: %f, %f", self.scroll.contentSize.height, self.scroll.frame.size.width);
-    
 }
 
 @end
