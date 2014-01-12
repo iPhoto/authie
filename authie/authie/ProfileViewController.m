@@ -93,7 +93,6 @@
 {
     if (buttonIndex == 1) {
         [[RODItemStore sharedStore] removeContact:handle];
-        [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
 
