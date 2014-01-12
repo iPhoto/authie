@@ -6,8 +6,11 @@
 //  Copyright (c) 2013 bitwise. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import "RODItemStore.h"
 #import "RegisterViewController.h"
+#import "LoginViewController.h"
+
 #define StringFromBOOL(b) ((b) ? @"YES" : @"NO")
 
 @interface RegisterViewController ()
@@ -48,6 +51,7 @@
 {
     return NO;
 }
+
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
@@ -106,6 +110,13 @@
         }
         
     }
+}
+
+- (IBAction)loginWithPrivateKey:(id)sender {
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    LoginViewController *lvc = [[LoginViewController alloc] init];
+    [appDelegate.masterViewController.navigationController pushViewController:lvc animated:YES];    
 }
 
 - (IBAction)authieHandleChanged:(id)sender {

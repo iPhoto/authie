@@ -15,6 +15,7 @@
 @property (copy, nonatomic) NSString *handle;
 - (IBAction)tappedScreen:(id)sender;
 - (IBAction)registerHandle:(id)sender;
+- (IBAction)loginWithPrivateKey:(id)sender;
 
 - (IBAction)authieHandleChanged:(id)sender;
 - (void)checkHandleAvailability;
