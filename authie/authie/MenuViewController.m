@@ -17,6 +17,8 @@
 #import "InviteViewController.h"
 #import "PrivateKeyViewController.h"
 #import "SelectContactViewController.h"
+#import "RODHandle.h"
+#import "RODAuthie.h"
 
 @implementation MenuViewController
 @synthesize buttons;
@@ -25,7 +27,7 @@
 {
     [super viewDidLoad];
     
-    self.buttons = @[@"Inbox", @"Contacts", @"Invite", @"The Daily", @"Compose", @"Private Key"];
+    self.buttons = @[@"Inbox", @"Profile", @"Contacts", @"Invite", @"The Daily", @"Compose", @"Private Key"];
     
     self.tableView = [[UITableView alloc] init]; // Frame will be automatically set
     self.tableView.separatorColor = [UIColor colorWithRed:150/255.0f green:161/255.0f blue:177/255.0f alpha:1.0f];
@@ -97,31 +99,41 @@
             self.frostedViewController.contentViewController = navigationController;
             
             [[RODItemStore sharedStore] loadThreads];
-            
         }
             break;
-        case 1: // contacts
+        case 1: // profile
+        {
+                        
+            appDelegate.profileViewController = [[ProfileViewController alloc] init];
+            
+            NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.profileViewController];
+            appDelegate.profileViewController.handle = [RODItemStore sharedStore].authie.handle;
+            [navigationController.navigationBar setTintColor:[UIColor blackColor]];
+            self.frostedViewController.contentViewController = navigationController;
+        }
+            break;
+        case 2: // contacts
         {
             NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.contactsViewController];
             [navigationController.navigationBar setTintColor:[UIColor blackColor]];
             self.frostedViewController.contentViewController = navigationController;
         }
             break;
-        case 2: // invite
+        case 3: // invite
         {
             NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.inviteViewController];
             [navigationController.navigationBar setTintColor:[UIColor blackColor]];
             self.frostedViewController.contentViewController = navigationController;
         }
             break;
-        case 3: // daily
+        case 4: // daily
         {
             NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.dailyViewController];
             [navigationController.navigationBar setTintColor:[UIColor blackColor]];
             self.frostedViewController.contentViewController = navigationController;
         }
             break;
-        case 4: // compose
+        case 5: // compose
         {
             SelectContactViewController *select = [[SelectContactViewController alloc] init];
             
@@ -132,7 +144,7 @@
             self.frostedViewController.contentViewController = navigationController;
         }
             break;
-        case 5: // private key
+        case 6: // private key
         {
             NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.privateKeyViewController];
             [navigationController.navigationBar setTintColor:[UIColor blackColor]];
