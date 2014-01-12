@@ -124,7 +124,6 @@
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-    NSLog(@"Cancel pls.");
     [self dismissViewControllerAnimated:NO completion:nil];
 
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];

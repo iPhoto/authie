@@ -181,6 +181,10 @@
                 [self loadThreads];
                 AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
                 [appDelegate.masterViewController.navigationController popToRootViewControllerAnimated:YES];
+
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"bye" message:@"This thread has been trashed." delegate:appDelegate.masterViewController cancelButtonTitle:@"ok" otherButtonTitles:nil];
+
+                [alert show];
                 
             }
             
