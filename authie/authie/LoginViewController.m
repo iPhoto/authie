@@ -7,10 +7,8 @@
 //
 
 #import "LoginViewController.h"
-
-@interface LoginViewController ()
-
-@end
+#import "RODItemStore.h"
+#import "AppDelegate.h"
 
 @implementation LoginViewController
 
@@ -33,6 +31,18 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)doLogin:(id)sender {
+    
+    [[RODItemStore sharedStore] login:self.textHandle.text privateKey:self.textKey.text];
+}
+
+- (IBAction)cancel:(id)sender {
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.masterViewController.navigationController popToViewController:appDelegate.registerViewController animated:YES];
+    
 }
 
 @end

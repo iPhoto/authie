@@ -55,7 +55,7 @@
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-
+    
     // okay, now register it for real
     bool registered = [[RODItemStore sharedStore] registerHandle:self.handle];
     
@@ -116,6 +116,7 @@
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     LoginViewController *lvc = [[LoginViewController alloc] init];
+    appDelegate.loginViewController = lvc;
     [appDelegate.masterViewController.navigationController pushViewController:lvc animated:YES];    
 }
 

@@ -153,19 +153,17 @@
     return [documentDirectory stringByAppendingPathComponent:@"items.archive"];
 }
 
-- (BOOL)login
+- (BOOL)login:(NSString *)handle privateKey:(NSString *)key;
 {
     BOOL logged_in = NO;
     
-	// Create a new letter and POST it to the server
-    
     NSDictionary *checkDict = [[NSDictionary alloc] initWithObjectsAndKeys:
                                @"1", @"id",
-                               self.authie.handle.name, @"name",
+                               handle, @"name",
                                @"1", @"active",
                                @"lol", @"userGuid",
-                               self.authie.handle.publicKey, @"publicKey",
-                               self.authie.handle.privateKey, @"privateKey",
+                               @"", @"publicKey",
+                               key, @"privateKey",
                                nil];
     
     NSError *error = nil;
@@ -198,8 +196,14 @@
             NSInteger response_result;
             response_result = [[object objectForKey:@"result"] integerValue];
             
+            NSString *message_result;
+            message_result = [object objectForKey:@"message"];
+            
+            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            
             if(response_result == 0) {
                 logged_in = NO;
+                [appDelegate.loginViewController.labelResults setText:message_result];                
             } else {
                 logged_in = YES;
             }

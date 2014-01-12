@@ -26,7 +26,7 @@
 #import "GAI.h"
 
 @implementation AppDelegate
-@synthesize masterViewController, threadViewController, contactsViewController, privateKeyViewController, inviteViewController, dailyViewController, profileViewController;
+@synthesize masterViewController, threadViewController, contactsViewController, privateKeyViewController, inviteViewController, dailyViewController, profileViewController, loginViewController, registerViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -77,6 +77,9 @@
     ProfileViewController *profile = [[ProfileViewController alloc] init];
     profileViewController = profile;
     
+    LoginViewController *login = [[LoginViewController alloc] init];
+    loginViewController = login;
+    
     DailyViewController *daily = [[DailyViewController alloc] init];
     dailyViewController = daily;
     
@@ -106,6 +109,7 @@
         // show register handle screen
 
         RegisterViewController *rvc = [[RegisterViewController alloc] init];
+        registerViewController = rvc;
         [self.masterViewController.navigationController pushViewController:rvc animated:YES];
         
     } else {

@@ -32,7 +32,7 @@
 - (BOOL)saveChanges;
 - (BOOL)checkHandleAvailability:(NSString *)handle;
 - (BOOL)registerHandle:(NSString *)handle;
-- (BOOL)login;
+- (BOOL)login:(NSString *)handle privateKey:(NSString *)key;
 - (BOOL)loadThreads;
 - (BOOL)checkLoginStatus;
 - (BOOL)startThread:(NSString *)toHandle forKey:(NSString *)key;
