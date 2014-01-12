@@ -35,6 +35,7 @@
 - (BOOL)login:(NSString *)handle privateKey:(NSString *)key;
 - (BOOL)loadThreads;
 - (BOOL)checkLoginStatus;
+- (BOOL)getHandleInformation;
 - (BOOL)startThread:(NSString *)toHandle forKey:(NSString *)key;
 - (BOOL)getThreadsFromHandle:(NSString *)publicKey;
 - (BOOL)uploadSnap:(NSString *)key;

@@ -206,6 +206,7 @@
                 [appDelegate.loginViewController.labelResults setText:message_result];                
             } else {
                 logged_in = YES;
+                [self getHandleInformation];
             }
             
         }
@@ -252,7 +253,6 @@
             } else {
                 //[self loadThreads];
                 is_logged_in = YES;
-                
                 [self loadThreads];
                 [self loadContacts];
 
@@ -264,6 +264,100 @@
     
     return is_logged_in;
     
+}
+
+- (BOOL)getHandleInformation
+{
+    BOOL got = NO;
+ 
+    NSLog(@"getHandleInformation...");
+    
+    NSError *error = nil;
+    
+    NSURLResponse *response;
+    
+    NSString *url = @"http://authie.me/api/handle";
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"GET"];
+
+    NSData *localData = nil;
+    
+    if(error == nil) {
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        
+        //send the request and get the response
+        localData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        NSError *deserialize_error = nil;
+        
+        id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingAllowFragments error:&deserialize_error];
+        
+        id inner_object = [object objectAtIndex:0];
+
+        if([inner_object isKindOfClass:[NSDictionary class]] && deserialize_error == nil) {
+
+            NSLog(@"results from registration: %@", object);
+            
+            NSInteger active_result;
+            active_result = [[inner_object objectForKey:@"active"] integerValue];
+            
+            NSInteger id_result;
+            id_result = [[inner_object objectForKey:@"id"] integerValue];
+            
+            NSString *privateKey;
+            privateKey = [inner_object objectForKey:@"privateKey"];
+            
+            NSString *publicKey;
+            publicKey = [inner_object objectForKey:@"publicKey"];
+            
+            NSString *name;
+            name = [inner_object objectForKey:@"name"];
+            
+            NSString *userGuid;
+            userGuid = [inner_object objectForKey:@"userGuid"];
+            
+            if(active_result == 1) {
+                got = YES;
+                [self.authie setRegistered:1];
+                
+                self.authie.handle = [[RODHandle alloc] init];
+                
+                [self.authie.handle setId:[NSNumber numberWithInteger:id_result]];
+                [self.authie.handle setName:name];
+                [self.authie.handle setActive:[NSNumber numberWithInteger:active_result]];
+                [self.authie.handle setUserGuid:userGuid];
+                [self.authie.handle setPrivateKey:privateKey];
+                [self.authie.handle setPublicKey:publicKey];
+                
+                NSLog(@"id: %lu, privateKey: %@, publicKey: %@", [self.authie.handle.id longValue], self.authie.handle.privateKey, self.authie.handle.publicKey);
+                
+                AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+                [appDelegate.masterViewController.navigationController popToRootViewControllerAnimated:YES];
+                
+                [self saveChanges];
+                
+                [self loadThreads];
+                [self loadContacts];
+                
+            } else {
+                got = NO;
+                NSLog(@"bad result: %@", object);
+                
+            }
+
+            
+        } else {
+            NSLog(@"bad result: %@", object);
+        }
+        
+    }
+    
+
+    
+    
+    return got;
 }
 
 - (BOOL)uploadSnap:(NSString *)key
