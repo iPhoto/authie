@@ -18,11 +18,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mnk-5Y-nSR">
-                    <rect key="frame" x="-3" y="0.0" width="159" height="151"/>
+                    <rect key="frame" x="0.0" y="20" width="153" height="131"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.24999999999999967" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5zd-Wj-qXb">
-                    <rect key="frame" x="0.0" y="-4" width="157" height="22"/>
+                    <rect key="frame" x="-1" y="-1" width="157" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.023529414087533951" green="0.0078431377187371254" blue="0.0039215688593685627" alpha="0.10000000000000001" colorSpace="deviceRGB"/>
                     <constraints>
@@ -35,13 +35,13 @@
             </subviews>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstItem="5zd-Wj-qXb" firstAttribute="top" secondItem="cvM-xy-QNk" secondAttribute="top" constant="-4" id="6n2-Yr-fj4"/>
-                <constraint firstItem="5zd-Wj-qXb" firstAttribute="leading" secondItem="cvM-xy-QNk" secondAttribute="leading" id="Fnl-Pc-q0U"/>
-                <constraint firstAttribute="trailing" secondItem="5zd-Wj-qXb" secondAttribute="trailing" constant="-3" id="Qws-8p-EOY"/>
-                <constraint firstItem="Mnk-5Y-nSR" firstAttribute="leading" secondItem="cvM-xy-QNk" secondAttribute="leading" constant="-3" id="kXi-ed-FRT"/>
-                <constraint firstAttribute="trailing" secondItem="Mnk-5Y-nSR" secondAttribute="trailing" constant="-2" id="xCr-Z8-fmZ"/>
+                <constraint firstItem="5zd-Wj-qXb" firstAttribute="top" secondItem="cvM-xy-QNk" secondAttribute="top" constant="-1" id="6n2-Yr-fj4"/>
+                <constraint firstItem="5zd-Wj-qXb" firstAttribute="leading" secondItem="cvM-xy-QNk" secondAttribute="leading" constant="-1" id="Fnl-Pc-q0U"/>
+                <constraint firstAttribute="trailing" secondItem="5zd-Wj-qXb" secondAttribute="trailing" constant="-2" id="Qws-8p-EOY"/>
+                <constraint firstItem="Mnk-5Y-nSR" firstAttribute="leading" secondItem="cvM-xy-QNk" secondAttribute="leading" id="kXi-ed-FRT"/>
+                <constraint firstAttribute="trailing" secondItem="Mnk-5Y-nSR" secondAttribute="trailing" constant="1" id="xCr-Z8-fmZ"/>
                 <constraint firstAttribute="bottom" secondItem="Mnk-5Y-nSR" secondAttribute="bottom" id="yC5-cq-w4K"/>
-                <constraint firstItem="Mnk-5Y-nSR" firstAttribute="top" secondItem="cvM-xy-QNk" secondAttribute="top" id="zlO-eJ-UeG"/>
+                <constraint firstItem="Mnk-5Y-nSR" firstAttribute="top" secondItem="cvM-xy-QNk" secondAttribute="top" constant="20" id="zlO-eJ-UeG"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>

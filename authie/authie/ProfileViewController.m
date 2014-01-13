@@ -97,6 +97,12 @@
     }
 }
 
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    //[self.scroll setNeedsDisplay];
+    
+}
+
 - (void)getThreads
 {
     

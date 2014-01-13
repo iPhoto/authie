@@ -28,7 +28,7 @@
 {
     [super viewDidLoad];
     
-    self.buttons = @[@"Inbox", @"Profile", @"Contacts", @"Invite", @"The Daily", @"Compose", @"Private Key"];
+    self.buttons = @[@"Inbox", @"Profile", @"Contacts", @"Compose", @"The Daily", @"Invite", @"Private Key"];
     
     self.tableView = [[UITableView alloc] init]; // Frame will be automatically set
     self.tableView.separatorColor = [UIColor colorWithRed:150/255.0f green:161/255.0f blue:177/255.0f alpha:1.0f];
@@ -37,12 +37,7 @@
     self.tableView.dataSource = self;
     self.tableView.opaque = NO;
     self.tableView.backgroundColor = [UIColor clearColor];
-    self.tableView.tableHeaderView = ({
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 29.0f)];
-        view;
-    });
-    
-    
+        
     [self.tableView reloadData];
 
     [self.tableView setSeparatorInset:UIEdgeInsetsZero];
@@ -62,29 +57,17 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)sectionIndex
 {
-    if (sectionIndex == 0)
-        return nil;
-    
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 34)];
-    view.backgroundColor = [UIColor colorWithRed:167/255.0f green:167/255.0f blue:167/255.0f alpha:0.6f];
-    
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 8, 0, 0)];
-    label.text = @"Friends Online";
-    label.font = [UIFont systemFontOfSize:15];
-    label.textColor = [UIColor whiteColor];
-    label.backgroundColor = [UIColor clearColor];
-    [label sizeToFit];
-    [view addSubview:label];
-    
-    return view;
+    return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)sectionIndex
 {
-    if (sectionIndex == 0)
-        return 0;
-    
     return 0;
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    [self.tableView setNeedsDisplay];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -144,9 +127,13 @@
             self.frostedViewController.contentViewController = navigationController;
         }
             break;
-        case 3: // invite
+        case 3: // compose
         {
-            NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.inviteViewController];
+            SelectContactViewController *select = [[SelectContactViewController alloc] init];
+            
+            NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.masterViewController];
+            [appDelegate.masterViewController.navigationController pushViewController:select animated:YES];
+            
             [navigationController.navigationBar setTintColor:[UIColor blackColor]];
             self.frostedViewController.contentViewController = navigationController;
         }
@@ -158,13 +145,9 @@
             self.frostedViewController.contentViewController = navigationController;
         }
             break;
-        case 5: // compose
+        case 5: // invite
         {
-            SelectContactViewController *select = [[SelectContactViewController alloc] init];
-            
-            NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.masterViewController];
-            [appDelegate.masterViewController.navigationController pushViewController:select animated:YES];
-            
+            NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.inviteViewController];
             [navigationController.navigationBar setTintColor:[UIColor blackColor]];
             self.frostedViewController.contentViewController = navigationController;
         }
@@ -186,7 +169,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 54;
+    return 40;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
