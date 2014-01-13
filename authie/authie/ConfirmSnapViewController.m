@@ -34,7 +34,8 @@
 
     self.navigationItem.leftBarButtonItem = cancel;
 
-    UIBarButtonItem *send = [[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonSystemItemDone target:self action:@selector(sendSnap:)];
+    UIBarButtonItem *send = [[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonItemStylePlain target:self action:@selector(sendSnap:)];
+    
     self.navigationItem.rightBarButtonItem = send;
     
     
@@ -46,12 +47,12 @@
 }
 - (void)textViewDidBeginEditing:(UITextView *)textView {
     NSLog(@"textViewDidBeginEditing:");
-    self.snapCaption.backgroundColor = [UIColor greenColor];
+//    self.snapCaption.backgroundColor = [UIColor greenColor];
 }
 
 - (BOOL)textViewShouldEndEditing:(UITextView *)textView{
     NSLog(@"textViewShouldEndEditing:");
-    self.snapCaption.backgroundColor = [UIColor whiteColor];
+//    self.snapCaption.backgroundColor = [UIColor whiteColor];
     return YES;
 }
 - (void)textViewDidEndEditing:(UITextView *)textView{
@@ -71,7 +72,7 @@
 
 -(void)sendSnap:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:nil];    
+    [self dismissViewControllerAnimated:YES completion:nil];
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.masterViewController.imageToUpload = snap;
     appDelegate.masterViewController.keyToUpload = key;

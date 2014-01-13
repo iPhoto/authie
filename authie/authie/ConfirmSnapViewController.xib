@@ -24,7 +24,7 @@
                         <outletCollection property="gestureRecognizers" destination="ZCo-Cd-da8" appends="YES" id="6bz-Ne-ZGm"/>
                     </connections>
                 </imageView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.89999999999999991" contentMode="scaleToFill" text="One, two. Three, four. Five six seven eight. Nine Ten. Eleven." translatesAutoresizingMaskIntoConstraints="NO" id="yi4-UR-zYn">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.89999999999999991" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yi4-UR-zYn">
                     <rect key="frame" x="0.0" y="0.0" width="273" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
