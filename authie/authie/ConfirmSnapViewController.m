@@ -7,16 +7,18 @@
 //
 
 #import "ConfirmSnapViewController.h"
-#define kOFFSET_FOR_KEYBOARD 80.0
+#import "AppDelegate.h"
+#import "MasterViewController.h"
 
 @implementation ConfirmSnapViewController
-@synthesize snap;
+@synthesize snap, key, handle;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        [self setEdgesForExtendedLayout:UIRectEdgeNone];
     }
     return self;
 }
@@ -27,6 +29,33 @@
     // Do any additional setup after loading the view from its nib.
     
     [self.snapView setImage:self.snap];
+    
+    UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(trashMessage:)];
+
+    self.navigationItem.leftBarButtonItem = cancel;
+
+    UIBarButtonItem *send = [[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonSystemItemDone target:self action:@selector(sendSnap:)];
+    self.navigationItem.rightBarButtonItem = send;
+    
+    
+}
+
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
+    NSLog(@"textViewShouldBeginEditing:");
+    return YES;
+}
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    NSLog(@"textViewDidBeginEditing:");
+    self.snapCaption.backgroundColor = [UIColor greenColor];
+}
+
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView{
+    NSLog(@"textViewShouldEndEditing:");
+    self.snapCaption.backgroundColor = [UIColor whiteColor];
+    return YES;
+}
+- (void)textViewDidEndEditing:(UITextView *)textView{
+    NSLog(@"textViewDidEndEditing:");
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,107 +64,39 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)tappedScreen:(id)sender {
+    [self.snapCaption resignFirstResponder];
+    
+}
 
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad
+-(void)sendSnap:(id)sender
 {
-    [super viewDidLoad];
-    
-    // register for keyboard notifications
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillShow:)
-                                                 name:UIKeyboardWillShowNotification
-                                               object:self.view.window];
-    // register for keyboard notifications
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillHide:)
-                                                 name:UIKeyboardWillHideNotification
-                                               object:self.view.window];
-    keyboardIsShown = NO;
-    //make contentSize bigger than your scrollSize (you will need to figure out for your own use case)
-    CGSize scrollContentSize = CGSizeMake(320, 345);
-    self.scrollView.contentSize = scrollContentSize;
+    [self dismissViewControllerAnimated:YES completion:nil];    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    appDelegate.masterViewController.imageToUpload = snap;
+    appDelegate.masterViewController.keyToUpload = key;
+    appDelegate.masterViewController.handleToUpload = handle;
+    [appDelegate.masterViewController setDoUploadOnView:true];
+    [appDelegate.masterViewController.navigationController popToRootViewControllerAnimated:YES];
+
 }
 
-
-- (void)viewDidUnload {
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-    
-    // unregister for keyboard notifications while not visible.
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:UIKeyboardWillShowNotification
-                                                  object:nil];
-    // unregister for keyboard notifications while not visible.
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:UIKeyboardWillHideNotification
-                                                  object:nil];
-    
-}
-
-- (void)dealloc {
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-    
-    // unregister for keyboard notifications while not visible.
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:UIKeyboardWillShowNotification
-                                                  object:nil];
-    // unregister for keyboard notifications while not visible.
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:UIKeyboardWillHideNotification
-                                                  object:nil];
-    
-}
-
-- (void)keyboardWillHide:(NSNotification *)n
+-(void)trashMessage:(id)sender
 {
-    NSDictionary* userInfo = [n userInfo];
+    [self dismissViewControllerAnimated:NO completion:nil];
     
-    // get the size of the keyboard
-    CGSize keyboardSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"trashed" message:@"Your message has been trashed." delegate:appDelegate.masterViewController cancelButtonTitle:@"ok" otherButtonTitles:nil];
     
-    // resize the scrollview
-    CGRect viewFrame = self.view.frame;
-    // I'm also subtracting a constant kTabBarHeight because my UIScrollView was offset by the UITabBar so really only the portion of the keyboard that is leftover pass the UITabBar is obscuring my UIScrollView.
-    viewFrame.size.height += (keyboardSize.height - kTabBarHeight);
+    [appDelegate.masterViewController.navigationController popToRootViewControllerAnimated:YES];
     
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationBeginsFromCurrentState:YES];
-    // The kKeyboardAnimationDuration I am using is 0.3
-    [UIView setAnimationDuration:kKeyboardAnimationDuration];
-    [self.scrollView setFrame:viewFrame];
-    [UIView commitAnimations];
-    
-    keyboardIsShown = NO;
+    [alert show];
 }
 
-- (void)keyboardWillShow:(NSNotification *)n
-{
-    // This is an ivar I'm using to ensure that we do not do the frame size adjustment on the `UIScrollView` if the keyboard is already shown.  This can happen if the user, after fixing editing a `UITextField`, scrolls the resized `UIScrollView` to another `UITextField` and attempts to edit the next `UITextField`.  If we were to resize the `UIScrollView` again, it would be disastrous.  NOTE: The keyboard notification will fire even when the keyboard is already shown.
-    if (keyboardIsShown) {
-        return;
-    }
+- (IBAction)addCaption:(id)sender {
+//    [self.snapCaption setHidden:NO];
+//    [self.snapCaption becomeFirstResponder];
     
-    NSDictionary* userInfo = [n userInfo];
-    
-    // get the size of the keyboard
-    CGSize keyboardSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    
-    // resize the noteView
-    CGRect viewFrame = self.scrollView.frame;
-    // I'm also subtracting a constant kTabBarHeight because my UIScrollView was offset by the UITabBar so really only the portion of the keyboard that is leftover pass the UITabBar is obscuring my UIScrollView.
-    viewFrame.size.height -= (keyboardSize.height - kTabBarHeight);
-    
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationBeginsFromCurrentState:YES];
-    // The kKeyboardAnimationDuration I am using is 0.3
-    [UIView setAnimationDuration:kKeyboardAnimationDuration];
-    [self.scrollView setFrame:viewFrame];
-    [UIView commitAnimations];
-    
-    keyboardIsShown = YES;
 }
-
 @end

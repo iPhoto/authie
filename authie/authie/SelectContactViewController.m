@@ -118,16 +118,11 @@
     
     ConfirmSnapViewController *confirm = [[ConfirmSnapViewController alloc] init];
     confirm.snap = image;
+    confirm.key = key;
+    confirm.handle = self.selected;
     
     [self.navigationController pushViewController:confirm animated:YES];
     
-//    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-//    appDelegate.masterViewController.imageToUpload = image;
-//    appDelegate.masterViewController.keyToUpload = key;
-//    appDelegate.masterViewController.handleToUpload = self.selected;
-//    [appDelegate.masterViewController setDoUploadOnView:true];
-//    [appDelegate.masterViewController.navigationController popToRootViewControllerAnimated:YES];
-
 }
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker

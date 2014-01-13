@@ -6,45 +6,61 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ConfirmSnapViewController">
             <connections>
-                <outlet property="snapCaption" destination="D1f-Si-EKn" id="qGN-G1-dHw"/>
+                <outlet property="snapCaption" destination="yi4-UR-zYn" id="L7z-qa-JYW"/>
                 <outlet property="snapView" destination="dWL-1z-ZJk" id="Kg5-04-ae7"/>
                 <outlet property="view" destination="rKg-55-J7c" id="rKO-kd-UYu"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="rKg-55-J7c">
-            <rect key="frame" x="0.0" y="0.0" width="235" height="221"/>
+            <rect key="frame" x="0.0" y="0.0" width="273" height="321"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.png" translatesAutoresizingMaskIntoConstraints="NO" id="dWL-1z-ZJk">
-                    <rect key="frame" x="0.0" y="0.0" width="235" height="164"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.png" translatesAutoresizingMaskIntoConstraints="NO" id="dWL-1z-ZJk">
+                    <rect key="frame" x="0.0" y="0.0" width="273" height="321"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <gestureRecognizers/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="ZCo-Cd-da8" appends="YES" id="6bz-Ne-ZGm"/>
+                    </connections>
                 </imageView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididun" translatesAutoresizingMaskIntoConstraints="NO" id="D1f-Si-EKn">
-                    <rect key="frame" x="0.0" y="164" width="235" height="57"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.89999999999999991" contentMode="scaleToFill" text="One, two. Three, four. Five six seven eight. Nine Ten. Eleven." translatesAutoresizingMaskIntoConstraints="NO" id="yi4-UR-zYn">
+                    <rect key="frame" x="0.0" y="0.0" width="273" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="57" id="23P-0m-JsW"/>
+                        <constraint firstAttribute="height" constant="44" id="a0M-w6-rC9"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="aFQ-cz-4un"/>
+                    </connections>
                 </textView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="D1f-Si-EKn" secondAttribute="trailing" id="Wtv-Ka-ePh"/>
-                <constraint firstAttribute="bottom" secondItem="D1f-Si-EKn" secondAttribute="bottom" id="bJY-MC-XgV"/>
-                <constraint firstAttribute="bottom" secondItem="D1f-Si-EKn" secondAttribute="bottom" id="hll-wj-1Uj"/>
-                <constraint firstItem="D1f-Si-EKn" firstAttribute="leading" secondItem="dWL-1z-ZJk" secondAttribute="leading" id="jDS-Qc-oR4"/>
+                <constraint firstItem="yi4-UR-zYn" firstAttribute="leading" secondItem="rKg-55-J7c" secondAttribute="leading" id="IMh-WS-PBD"/>
+                <constraint firstAttribute="trailing" secondItem="yi4-UR-zYn" secondAttribute="trailing" id="XCh-wp-VuU"/>
+                <constraint firstItem="yi4-UR-zYn" firstAttribute="top" secondItem="rKg-55-J7c" secondAttribute="top" id="XEB-Wc-VtN"/>
                 <constraint firstAttribute="trailing" secondItem="dWL-1z-ZJk" secondAttribute="trailing" id="lWZ-bu-r51"/>
+                <constraint firstAttribute="trailing" secondItem="yi4-UR-zYn" secondAttribute="trailing" id="mSZ-Fa-976"/>
                 <constraint firstItem="dWL-1z-ZJk" firstAttribute="top" secondItem="rKg-55-J7c" secondAttribute="top" id="pPz-eL-45q"/>
                 <constraint firstItem="dWL-1z-ZJk" firstAttribute="leading" secondItem="rKg-55-J7c" secondAttribute="leading" id="tmf-hw-aAg"/>
-                <constraint firstAttribute="bottom" secondItem="dWL-1z-ZJk" secondAttribute="bottom" constant="57" id="xUY-DR-rkX"/>
+                <constraint firstAttribute="bottom" secondItem="dWL-1z-ZJk" secondAttribute="bottom" id="xUY-DR-rkX"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="ZCo-Cd-da8" appends="YES" id="rlT-iZ-TNU"/>
+            </connections>
         </view>
+        <tapGestureRecognizer id="ZCo-Cd-da8">
+            <connections>
+                <action selector="tappedScreen:" destination="-1" id="huR-da-KPy"/>
+                <outlet property="delegate" destination="-1" id="Fhd-AK-G7y"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="heart.png" width="15" height="13"/>

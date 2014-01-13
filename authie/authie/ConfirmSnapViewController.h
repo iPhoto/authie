@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+@class RODHandle;
 
-@interface ConfirmSnapViewController : UIViewController
+@interface ConfirmSnapViewController : UIViewController <UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *snapView;
 @property (weak, nonatomic) IBOutlet UITextView *snapCaption;
+@property (strong, nonatomic) NSString *key;
 @property (strong, nonatomic) UIImage *snap;
+@property (strong, nonatomic) RODHandle *handle;
+- (IBAction)addCaption:(id)sender;
 
 @end
