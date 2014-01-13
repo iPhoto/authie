@@ -15,6 +15,8 @@
 		5D5A072C18848A4F003848EA /* AuthorizeContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A072A18848A4F003848EA /* AuthorizeContactViewController.m */; };
 		5D5A072D18848A4F003848EA /* AuthorizeContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D5A072B18848A4F003848EA /* AuthorizeContactViewController.xib */; };
 		5D5A072F18848A7C003848EA /* lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D5A072E18848A7C003848EA /* lock.png */; };
+		5D5A073318848B0F003848EA /* ConfirmSnapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A073118848B0F003848EA /* ConfirmSnapViewController.m */; };
+		5D5A073418848B0F003848EA /* ConfirmSnapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D5A073218848B0F003848EA /* ConfirmSnapViewController.xib */; };
 		5D8C1CD7187E38E300158AE5 /* ThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C1CD5187E38E300158AE5 /* ThreadViewController.m */; };
 		5D8C1CD8187E38E300158AE5 /* ThreadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C1CD6187E38E300158AE5 /* ThreadViewController.xib */; };
 		5D8C1CDB187F3ACA00158AE5 /* RODFollower.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C1CDA187F3ACA00158AE5 /* RODFollower.m */; };
@@ -96,6 +98,9 @@
 		5D5A072A18848A4F003848EA /* AuthorizeContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorizeContactViewController.m; sourceTree = "<group>"; };
 		5D5A072B18848A4F003848EA /* AuthorizeContactViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthorizeContactViewController.xib; sourceTree = "<group>"; };
 		5D5A072E18848A7C003848EA /* lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock.png; sourceTree = "<group>"; };
+		5D5A073018848B0F003848EA /* ConfirmSnapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmSnapViewController.h; sourceTree = "<group>"; };
+		5D5A073118848B0F003848EA /* ConfirmSnapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmSnapViewController.m; sourceTree = "<group>"; };
+		5D5A073218848B0F003848EA /* ConfirmSnapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfirmSnapViewController.xib; sourceTree = "<group>"; };
 		5D8C1CD4187E38E300158AE5 /* ThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadViewController.h; sourceTree = "<group>"; };
 		5D8C1CD5187E38E300158AE5 /* ThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreadViewController.m; sourceTree = "<group>"; };
 		5D8C1CD6187E38E300158AE5 /* ThreadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThreadViewController.xib; sourceTree = "<group>"; };
@@ -310,6 +315,9 @@
 				5DEE7C91185234E800F532B3 /* Supporting Files */,
 				5D5A0726188271C4003848EA /* NSDate+PrettyDate.h */,
 				5D5A0727188271C4003848EA /* NSDate+PrettyDate.m */,
+				5D5A073018848B0F003848EA /* ConfirmSnapViewController.h */,
+				5D5A073118848B0F003848EA /* ConfirmSnapViewController.m */,
+				5D5A073218848B0F003848EA /* ConfirmSnapViewController.xib */,
 			);
 			path = authie;
 			sourceTree = "<group>";
@@ -461,6 +469,7 @@
 				5DEE7C95185234E800F532B3 /* InfoPlist.strings in Resources */,
 				5DBBDBE51881C8B6004446DE /* DailyViewController.xib in Resources */,
 				5D8C1CE918808FC000158AE5 /* SelectContactViewController.xib in Resources */,
+				5D5A073418848B0F003848EA /* ConfirmSnapViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,6 +538,7 @@
 				5D9DEE9B185242E300F80413 /* RODImageStore.m in Sources */,
 				5D8C1CFC1880EEB900158AE5 /* MiniThreadViewController.m in Sources */,
 				5D8C1CED1880E0F200158AE5 /* InviteViewController.m in Sources */,
+				5D5A073318848B0F003848EA /* ConfirmSnapViewController.m in Sources */,
 				5D8C1CF21880E45600158AE5 /* PrivateKeyViewController.m in Sources */,
 				5DF86497186E0E7A002DCCDC /* RODResponseMessage.m in Sources */,
 				5D8C1CE818808FC000158AE5 /* SelectContactViewController.m in Sources */,
