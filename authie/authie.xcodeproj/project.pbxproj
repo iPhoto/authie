@@ -311,13 +311,13 @@
 				5D5A072918848A4F003848EA /* AuthorizeContactViewController.h */,
 				5D5A072A18848A4F003848EA /* AuthorizeContactViewController.m */,
 				5D5A072B18848A4F003848EA /* AuthorizeContactViewController.xib */,
+				5D5A073018848B0F003848EA /* ConfirmSnapViewController.h */,
+				5D5A073118848B0F003848EA /* ConfirmSnapViewController.m */,
+				5D5A073218848B0F003848EA /* ConfirmSnapViewController.xib */,
 				5DEE7CA8185234E800F532B3 /* Images.xcassets */,
 				5DEE7C91185234E800F532B3 /* Supporting Files */,
 				5D5A0726188271C4003848EA /* NSDate+PrettyDate.h */,
 				5D5A0727188271C4003848EA /* NSDate+PrettyDate.m */,
-				5D5A073018848B0F003848EA /* ConfirmSnapViewController.h */,
-				5D5A073118848B0F003848EA /* ConfirmSnapViewController.m */,
-				5D5A073218848B0F003848EA /* ConfirmSnapViewController.xib */,
 			);
 			path = authie;
 			sourceTree = "<group>";

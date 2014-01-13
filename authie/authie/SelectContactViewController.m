@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "MasterViewController.h"
 #import "RODImageStore.h"
+#import "ConfirmSnapViewController.h"
 
 @implementation SelectContactViewController
 @synthesize imagePicker, contactsTable;
@@ -113,12 +114,17 @@
     
     [self dismissViewControllerAnimated:NO completion:nil];
     
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    appDelegate.masterViewController.imageToUpload = image;
-    appDelegate.masterViewController.keyToUpload = key;
-    appDelegate.masterViewController.handleToUpload = self.selected;
-    [appDelegate.masterViewController setDoUploadOnView:true];
-    [appDelegate.masterViewController.navigationController popToRootViewControllerAnimated:YES];
+    // now push to confirm snap
+    
+    ConfirmSnapViewController *confirm = [[ConfirmSnapViewController alloc] init];
+    [self.navigationController pushViewController:confirm animated:YES];
+    
+//    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+//    appDelegate.masterViewController.imageToUpload = image;
+//    appDelegate.masterViewController.keyToUpload = key;
+//    appDelegate.masterViewController.handleToUpload = self.selected;
+//    [appDelegate.masterViewController setDoUploadOnView:true];
+//    [appDelegate.masterViewController.navigationController popToRootViewControllerAnimated:YES];
 
 }
 

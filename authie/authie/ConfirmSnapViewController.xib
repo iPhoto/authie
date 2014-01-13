@@ -4,7 +4,13 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ConfirmSnapViewController"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ConfirmSnapViewController">
+            <connections>
+                <outlet property="snapCaption" destination="D1f-Si-EKn" id="qGN-G1-dHw"/>
+                <outlet property="snapView" destination="dWL-1z-ZJk" id="Kg5-04-ae7"/>
+                <outlet property="view" destination="rKg-55-J7c" id="rKO-kd-UYu"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="rKg-55-J7c">
             <rect key="frame" x="0.0" y="0.0" width="246" height="216"/>

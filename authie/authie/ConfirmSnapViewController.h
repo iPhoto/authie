@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ConfirmSnapViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIImageView *snapView;
+@property (weak, nonatomic) IBOutlet UITextView *snapCaption;
 
 @end
