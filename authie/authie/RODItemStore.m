@@ -711,7 +711,7 @@
                 NSString *to_result = [inner_result objectForKey:@"name"];
                 
                 NSDictionary *from_inner_result = [result objectForKey:@"fromHandle"];
-                NSString *from_result = [NSString stringWithFormat:@"from: %@",[from_inner_result objectForKey:@"name"]];
+                NSString *from_result = [from_inner_result objectForKey:@"name"];
                 
                 thready.groupKey = [result objectForKey:@"groupKey"];
                 thready.toHandleId = to_result;

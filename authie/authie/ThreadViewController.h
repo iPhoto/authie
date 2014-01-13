@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "RODThread.h"
 
-@interface ThreadViewController : UIViewController
+@interface ThreadViewController : UIViewController <UIScrollViewDelegate>
 {
     int loadRow;
 }
@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *threadFrom;
 @property (weak, nonatomic) IBOutlet UIImageView *snapView;
 @property (strong, nonatomic) RODThread *thread;
+@property (weak, nonatomic) IBOutlet UILabel *snapCaption;
 
 - (void)setThread:(RODThread *)new_thread;
 - (void)loadThread:(int)row;

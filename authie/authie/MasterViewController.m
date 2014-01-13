@@ -130,7 +130,7 @@
     
     RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", thread.toHandleId];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@", thread.fromHandleId];
     
     NSString *cool_time = [thread.startDate prettyDate];
     cell.detailTextLabel.text = cool_time;
@@ -178,15 +178,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        
-        RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:indexPath.row];
-        
-        self.detailViewController.detailItem = thread;
-        self.detailViewController.snap = thread;
-    } else {
+    //if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+    //
+    //    RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:indexPath.row];
+    //
+    //    self.detailViewController.detailItem = thread;
+    //    self.detailViewController.snap = thread;
+    //} else {
 
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        //NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
 
         AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
         appDelegate.threadViewController = [[ThreadViewController alloc] init];
@@ -220,7 +220,7 @@
         });
         
         
-    }
+    //}
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info

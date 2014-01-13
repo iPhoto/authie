@@ -11,5 +11,8 @@
 @interface MiniThreadViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *snapView;
 @property (weak, nonatomic) IBOutlet UILabel *labelDate;
+@property (weak, nonatomic) IBOutlet UILabel *labelCaption;
+
+
 
 @end

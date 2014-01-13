@@ -19,10 +19,9 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
-        // PREVENT THE UNDERLAPPING THAT OCCURS WITH
-        // IOS 7!!!!!
-        self.edgesForExtendedLayout = UIRectEdgeNone;
+
+        [self setEdgesForExtendedLayout:UIRectEdgeNone];
+        
         loadRow = -1;
         
         UIBarButtonItem *edit = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(removeThread:)];
@@ -31,6 +30,19 @@
         
     }
     return self;
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+}
+
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    [self loadThread:loadRow];
+    [self.snapView setNeedsUpdateConstraints];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -58,8 +70,8 @@
     RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:row];
     [self.snapView setImage:[[RODImageStore sharedStore] imageForKey:thread.groupKey]];
     self.thread = thread;
-    self.navigationItem.title = thread.fromHandleId;
-    
+    self.navigationItem.title = [NSString stringWithFormat:@"to: %@, from: %@", thread.toHandleId, thread.fromHandleId];
+    loadRow = row;
 }
 
 - (void)didReceiveMemoryWarning

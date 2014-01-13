@@ -12,6 +12,9 @@
 		5D556A631882384100C5B6FB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D556A611882384100C5B6FB /* LoginViewController.m */; };
 		5D556A641882384100C5B6FB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D556A621882384100C5B6FB /* LoginViewController.xib */; };
 		5D5A0728188271C4003848EA /* NSDate+PrettyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A0727188271C4003848EA /* NSDate+PrettyDate.m */; };
+		5D5A072C18848A4F003848EA /* AuthorizeContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A072A18848A4F003848EA /* AuthorizeContactViewController.m */; };
+		5D5A072D18848A4F003848EA /* AuthorizeContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D5A072B18848A4F003848EA /* AuthorizeContactViewController.xib */; };
+		5D5A072F18848A7C003848EA /* lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D5A072E18848A7C003848EA /* lock.png */; };
 		5D8C1CD7187E38E300158AE5 /* ThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C1CD5187E38E300158AE5 /* ThreadViewController.m */; };
 		5D8C1CD8187E38E300158AE5 /* ThreadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C1CD6187E38E300158AE5 /* ThreadViewController.xib */; };
 		5D8C1CDB187F3ACA00158AE5 /* RODFollower.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C1CDA187F3ACA00158AE5 /* RODFollower.m */; };
@@ -89,6 +92,10 @@
 		5D556A621882384100C5B6FB /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		5D5A0726188271C4003848EA /* NSDate+PrettyDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+PrettyDate.h"; sourceTree = "<group>"; };
 		5D5A0727188271C4003848EA /* NSDate+PrettyDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+PrettyDate.m"; sourceTree = "<group>"; };
+		5D5A072918848A4F003848EA /* AuthorizeContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorizeContactViewController.h; sourceTree = "<group>"; };
+		5D5A072A18848A4F003848EA /* AuthorizeContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorizeContactViewController.m; sourceTree = "<group>"; };
+		5D5A072B18848A4F003848EA /* AuthorizeContactViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthorizeContactViewController.xib; sourceTree = "<group>"; };
+		5D5A072E18848A7C003848EA /* lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock.png; sourceTree = "<group>"; };
 		5D8C1CD4187E38E300158AE5 /* ThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadViewController.h; sourceTree = "<group>"; };
 		5D8C1CD5187E38E300158AE5 /* ThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreadViewController.m; sourceTree = "<group>"; };
 		5D8C1CD6187E38E300158AE5 /* ThreadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThreadViewController.xib; sourceTree = "<group>"; };
@@ -296,6 +303,9 @@
 				5DBBDBE11881C8B6004446DE /* DailyViewController.h */,
 				5DBBDBE21881C8B6004446DE /* DailyViewController.m */,
 				5DBBDBE31881C8B6004446DE /* DailyViewController.xib */,
+				5D5A072918848A4F003848EA /* AuthorizeContactViewController.h */,
+				5D5A072A18848A4F003848EA /* AuthorizeContactViewController.m */,
+				5D5A072B18848A4F003848EA /* AuthorizeContactViewController.xib */,
 				5DEE7CA8185234E800F532B3 /* Images.xcassets */,
 				5DEE7C91185234E800F532B3 /* Supporting Files */,
 				5D5A0726188271C4003848EA /* NSDate+PrettyDate.h */,
@@ -308,6 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				5D06B984187B0D4E00FC17F0 /* cog.png */,
+				5D5A072E18848A7C003848EA /* lock.png */,
 				5D8C1CDE18805AA000158AE5 /* heart.png */,
 				5D8C1CDC187F3EC000158AE5 /* cog-black.png */,
 				5DA64688187898B900F158E8 /* authie-logo-09-100px.png */,
@@ -438,6 +449,7 @@
 				5DEE7CA9185234E800F532B3 /* Images.xcassets in Resources */,
 				5D8C1CEE1880E0F200158AE5 /* InviteViewController.xib in Resources */,
 				5DF864A21874A8C9002DCCDC /* authie-logo-05-84px.png in Resources */,
+				5D5A072D18848A4F003848EA /* AuthorizeContactViewController.xib in Resources */,
 				5D8C1CF31880E45600158AE5 /* PrivateKeyViewController.xib in Resources */,
 				5D9A453418771D0F008C45FD /* authie-logo-07-350px.png in Resources */,
 				5D556A641882384100C5B6FB /* LoginViewController.xib in Resources */,
@@ -445,6 +457,7 @@
 				5D8C1CDD187F3EC000158AE5 /* cog-black.png in Resources */,
 				5DA646871878980900F158E8 /* authie-logo-08-200px.png in Resources */,
 				5DF864A41874AA0B002DCCDC /* authie-logo-06-94px.png in Resources */,
+				5D5A072F18848A7C003848EA /* lock.png in Resources */,
 				5DEE7C95185234E800F532B3 /* InfoPlist.strings in Resources */,
 				5DBBDBE51881C8B6004446DE /* DailyViewController.xib in Resources */,
 				5D8C1CE918808FC000158AE5 /* SelectContactViewController.xib in Resources */,
@@ -499,6 +512,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D5A072C18848A4F003848EA /* AuthorizeContactViewController.m in Sources */,
 				5D9A453218765184008C45FD /* RODThread.m in Sources */,
 				5D9C7C5C187E0F0400BE2D42 /* ContactsViewController.m in Sources */,
 				5D9DEE9C185242E300F80413 /* RODItemStore.m in Sources */,
