@@ -11,6 +11,7 @@
 #import "RODItemStore.h"
 #import "RODThread.h"
 #import "RODAuthie.h"
+#import "NSDate+PrettyDate.h"
 
 @implementation ThreadViewController
 
@@ -58,6 +59,7 @@
     [self.snapView setImage:[[RODImageStore sharedStore] imageForKey:thread.groupKey]];
     self.thread = thread;
     self.navigationItem.title = thread.fromHandleId;
+    
 }
 
 - (void)didReceiveMemoryWarning

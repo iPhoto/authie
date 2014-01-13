@@ -788,7 +788,15 @@
                 thready.groupKey = [result objectForKey:@"groupKey"];
                 thready.toHandleId = to_result;
                 thready.fromHandleId = from_result;
-                thready.startDate = [NSDate new];
+
+                NSString *silly_date = [result objectForKey:@"startDate"];
+                NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+                
+                //The Z at the end of your string represents Zulu which is UTC
+                [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
+                [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
+                
+                thready.startDate = [dateFormatter dateFromString:silly_date];                
                 
                 [self.loadedThreadsFromAuthor addObject:thready];
                 

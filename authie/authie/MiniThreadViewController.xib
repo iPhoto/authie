@@ -7,24 +7,39 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MiniThreadViewController">
             <connections>
+                <outlet property="labelDate" destination="5zd-Wj-qXb" id="Sch-LX-1Fc"/>
                 <outlet property="snapView" destination="Mnk-5Y-nSR" id="73Z-rp-bVu"/>
                 <outlet property="view" destination="cvM-xy-QNk" id="LKQ-jQ-Wlc"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="cvM-xy-QNk" customClass="UIControl">
-            <rect key="frame" x="0.0" y="0.0" width="139" height="80"/>
+            <rect key="frame" x="0.0" y="0.0" width="154" height="151"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mnk-5Y-nSR">
-                    <rect key="frame" x="-2" y="0.0" width="142" height="80"/>
+                    <rect key="frame" x="-3" y="0.0" width="159" height="151"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.24999999999999967" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5zd-Wj-qXb">
+                    <rect key="frame" x="0.0" y="-4" width="157" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.023529414087533951" green="0.0078431377187371254" blue="0.0039215688593685627" alpha="0.10000000000000001" colorSpace="deviceRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="J9j-kW-VZ4"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="10"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstItem="Mnk-5Y-nSR" firstAttribute="leading" secondItem="cvM-xy-QNk" secondAttribute="leading" constant="-2" id="kXi-ed-FRT"/>
-                <constraint firstAttribute="trailing" secondItem="Mnk-5Y-nSR" secondAttribute="trailing" constant="-1" id="xCr-Z8-fmZ"/>
+                <constraint firstItem="5zd-Wj-qXb" firstAttribute="top" secondItem="cvM-xy-QNk" secondAttribute="top" constant="-4" id="6n2-Yr-fj4"/>
+                <constraint firstItem="5zd-Wj-qXb" firstAttribute="leading" secondItem="cvM-xy-QNk" secondAttribute="leading" id="Fnl-Pc-q0U"/>
+                <constraint firstAttribute="trailing" secondItem="5zd-Wj-qXb" secondAttribute="trailing" constant="-3" id="Qws-8p-EOY"/>
+                <constraint firstItem="Mnk-5Y-nSR" firstAttribute="leading" secondItem="cvM-xy-QNk" secondAttribute="leading" constant="-3" id="kXi-ed-FRT"/>
+                <constraint firstAttribute="trailing" secondItem="Mnk-5Y-nSR" secondAttribute="trailing" constant="-2" id="xCr-Z8-fmZ"/>
                 <constraint firstAttribute="bottom" secondItem="Mnk-5Y-nSR" secondAttribute="bottom" id="yC5-cq-w4K"/>
                 <constraint firstItem="Mnk-5Y-nSR" firstAttribute="top" secondItem="cvM-xy-QNk" secondAttribute="top" id="zlO-eJ-UeG"/>
             </constraints>

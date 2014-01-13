@@ -14,6 +14,7 @@
 #import "MiniThreadViewController.h"
 #import "RODThread.h"
 #import "RODAuthie.h"
+#import "NSDate+PrettyDate.h"
 
 @implementation ProfileViewController
 @synthesize handle, contentSize;
@@ -147,6 +148,8 @@
         mini.view.frame = CGRectMake(0, yOffset, self.scroll.frame.size.width, photo_height);
         [mini.snapView setContentMode:UIViewContentModeScaleAspectFill];
         [mini.snapView setImage:image];
+        [mini.labelDate setText:[thread.startDate prettyDate]];
+        
         [mini.view layoutIfNeeded];
         
         //photo_height = mini.snapView.image.size.height + 10;
