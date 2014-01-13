@@ -19,6 +19,7 @@
 #import "SelectContactViewController.h"
 #import "RODHandle.h"
 #import "RODAuthie.h"
+#import <MRProgress/MRProgress.h>
 
 @implementation MenuViewController
 @synthesize buttons;
@@ -94,11 +95,35 @@
     switch (indexPath.row) {
         case 0: // inbox
         {
+            
+            
+            MRProgressOverlayView *progressView = [MRProgressOverlayView new];
+            progressView.titleLabelText = @"";
+            [progressView setTintColor:[UIColor blackColor]];
+            progressView.titleLabel.font = [UIFont systemFontOfSize:10];
+
             NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.masterViewController];
             [navigationController.navigationBar setTintColor:[UIColor blackColor]];
             self.frostedViewController.contentViewController = navigationController;
+
+            [appDelegate.masterViewController.view addSubview:progressView];
             
-            [[RODItemStore sharedStore] loadThreads];
+            
+            [progressView show:YES];
+            
+            dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+            dispatch_async(queue, ^{
+                // Perform async operation
+                [[RODItemStore sharedStore] loadThreads];
+                
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    // Update UI
+                    [progressView dismiss:YES];
+                });
+            });
+            
+            
+            
         }
             break;
         case 1: // profile
