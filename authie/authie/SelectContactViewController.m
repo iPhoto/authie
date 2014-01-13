@@ -117,6 +117,8 @@
     // now push to confirm snap
     
     ConfirmSnapViewController *confirm = [[ConfirmSnapViewController alloc] init];
+    confirm.snap = image;
+    
     [self.navigationController pushViewController:confirm animated:YES];
     
 //    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];

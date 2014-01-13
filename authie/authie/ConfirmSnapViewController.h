@@ -11,5 +11,6 @@
 @interface ConfirmSnapViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *snapView;
 @property (weak, nonatomic) IBOutlet UITextView *snapCaption;
+@property (strong, nonatomic) UIImage *snap;
 
 @end

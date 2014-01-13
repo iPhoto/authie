@@ -130,10 +130,7 @@
         case 3: // compose
         {
             SelectContactViewController *select = [[SelectContactViewController alloc] init];
-            
-            NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.masterViewController];
-            [appDelegate.masterViewController.navigationController pushViewController:select animated:YES];
-            
+            NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:select];            
             [navigationController.navigationBar setTintColor:[UIColor blackColor]];
             self.frostedViewController.contentViewController = navigationController;
         }
