@@ -15,31 +15,33 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="cvM-xy-QNk" customClass="UIControl">
-            <rect key="frame" x="0.0" y="0.0" width="254" height="456"/>
+            <rect key="frame" x="0.0" y="0.0" width="402" height="533"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mnk-5Y-nSR">
-                    <rect key="frame" x="1" y="47" width="263" height="426"/>
+                    <rect key="frame" x="0.0" y="47" width="402" height="486"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vD6-wh-LcY">
-                    <rect key="frame" x="1" y="0.0" width="253" height="39"/>
+                    <rect key="frame" x="0.0" y="0.0" width="402" height="39"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="the quick fox jumped over the lazy dog. oh, okay, well then. once more into the breach." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="189" translatesAutoresizingMaskIntoConstraints="NO" id="BqQ-DW-QQh">
-                            <rect key="frame" x="0.0" y="0.0" width="189" height="39"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="once" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="158" translatesAutoresizingMaskIntoConstraints="NO" id="BqQ-DW-QQh">
+                            <rect key="frame" x="6" y="-3" width="158" height="46"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="39" id="mi9-gU-zoI"/>
+                                <constraint firstAttribute="width" constant="158" id="bcE-vA-O6F"/>
+                                <constraint firstAttribute="height" constant="46" id="mi9-gU-zoI"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 days ago" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="63" translatesAutoresizingMaskIntoConstraints="NO" id="5zd-Wj-qXb">
-                            <rect key="frame" x="183" y="0.0" width="63" height="34"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 days ago" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="108" translatesAutoresizingMaskIntoConstraints="NO" id="5zd-Wj-qXb">
+                            <rect key="frame" x="282" y="3" width="108" height="36"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="34" id="J9j-kW-VZ4"/>
+                                <constraint firstAttribute="height" constant="36" id="J9j-kW-VZ4"/>
+                                <constraint firstAttribute="width" constant="108" id="qQE-be-GZ2"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -48,10 +50,10 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="5zd-Wj-qXb" secondAttribute="trailing" constant="7" id="OWM-w9-4MQ"/>
-                        <constraint firstItem="BqQ-DW-QQh" firstAttribute="top" secondItem="vD6-wh-LcY" secondAttribute="top" id="Rgc-un-SkS"/>
-                        <constraint firstItem="BqQ-DW-QQh" firstAttribute="leading" secondItem="vD6-wh-LcY" secondAttribute="leading" id="kwB-mY-NcV"/>
-                        <constraint firstItem="5zd-Wj-qXb" firstAttribute="top" secondItem="vD6-wh-LcY" secondAttribute="top" id="mto-nc-QdZ"/>
+                        <constraint firstAttribute="trailing" secondItem="5zd-Wj-qXb" secondAttribute="trailing" constant="12" id="OWM-w9-4MQ"/>
+                        <constraint firstItem="BqQ-DW-QQh" firstAttribute="top" secondItem="vD6-wh-LcY" secondAttribute="top" constant="-3" id="Rgc-un-SkS"/>
+                        <constraint firstItem="BqQ-DW-QQh" firstAttribute="leading" secondItem="vD6-wh-LcY" secondAttribute="leading" constant="6" id="kwB-mY-NcV"/>
+                        <constraint firstItem="5zd-Wj-qXb" firstAttribute="top" secondItem="vD6-wh-LcY" secondAttribute="top" constant="3" id="mKN-cy-Aeq"/>
                         <constraint firstAttribute="height" constant="39" id="wpX-um-myJ"/>
                     </constraints>
                 </view>
@@ -59,11 +61,11 @@
             <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="vD6-wh-LcY" firstAttribute="top" secondItem="cvM-xy-QNk" secondAttribute="top" id="CAd-B0-hTo"/>
-                <constraint firstItem="vD6-wh-LcY" firstAttribute="leading" secondItem="cvM-xy-QNk" secondAttribute="leading" constant="1" id="Vzp-bS-DLU"/>
-                <constraint firstItem="Mnk-5Y-nSR" firstAttribute="leading" secondItem="cvM-xy-QNk" secondAttribute="leading" constant="1" id="kXi-ed-FRT"/>
+                <constraint firstAttribute="trailing" secondItem="Mnk-5Y-nSR" secondAttribute="trailing" id="Vfq-FJ-l5h"/>
+                <constraint firstItem="vD6-wh-LcY" firstAttribute="leading" secondItem="cvM-xy-QNk" secondAttribute="leading" id="Vzp-bS-DLU"/>
+                <constraint firstItem="Mnk-5Y-nSR" firstAttribute="leading" secondItem="cvM-xy-QNk" secondAttribute="leading" id="kXi-ed-FRT"/>
                 <constraint firstAttribute="trailing" secondItem="vD6-wh-LcY" secondAttribute="trailing" id="kvd-L9-fyN"/>
-                <constraint firstAttribute="trailing" secondItem="Mnk-5Y-nSR" secondAttribute="trailing" constant="-10" id="xCr-Z8-fmZ"/>
-                <constraint firstAttribute="bottom" secondItem="Mnk-5Y-nSR" secondAttribute="bottom" constant="-17" id="yC5-cq-w4K"/>
+                <constraint firstAttribute="bottom" secondItem="Mnk-5Y-nSR" secondAttribute="bottom" id="yC5-cq-w4K"/>
                 <constraint firstItem="Mnk-5Y-nSR" firstAttribute="top" secondItem="cvM-xy-QNk" secondAttribute="top" constant="47" id="zlO-eJ-UeG"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
