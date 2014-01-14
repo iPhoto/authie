@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+@class RODHandle;
 
-@interface ContactsViewController : UITableViewController
+@interface ContactsViewController : UITableViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
+@property (strong, nonatomic) UIImagePickerController *imagePicker;
+@property (strong, nonatomic) RODHandle *selected;
+
+- (void)showAuthorizationRequestImagePicker;
 
 @end

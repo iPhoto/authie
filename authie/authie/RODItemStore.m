@@ -553,7 +553,7 @@
 
 - (BOOL)addContact:(NSString *)handle
 {
-    NSLog(@"Added contact: %@", handle);
+    NSLog(@"Add contact: %@", handle);
     
     BOOL added_contact = NO;
     
@@ -592,7 +592,19 @@
             NSInteger result = [[object objectForKey:@"result"] integerValue];
             
             if(result == 1) {
-                [self loadContacts];
+
+                RODHandle *new_contact = [[RODHandle alloc] init];
+                new_contact.publicKey = [object objectForKey:@"message"];
+                new_contact.name = handle;
+                
+                // okay, now we show create screen
+                AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+                                            
+                [appDelegate.contactsViewController setSelected:new_contact];
+            
+                [appDelegate.contactsViewController showAuthorizationRequestImagePicker];
+                
+                
             } else {
                 
                 NSString *message = [object objectForKey:@"message"];

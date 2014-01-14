@@ -15,6 +15,7 @@
 #import "ProfileViewController.h"
 
 @implementation ContactsViewController
+@synthesize selected, imagePicker;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -153,6 +154,21 @@
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
     [alert show];
     
+}
+
+- (void)showAuthorizationRequestImagePicker
+{
+    self.imagePicker = [[UIImagePickerController alloc] init];
+    
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        [self.imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+    } else {
+        [self.imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    }
+    
+    [self.imagePicker setDelegate:self];
+    
+    [self presentViewController:self.imagePicker animated:YES completion:nil];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex

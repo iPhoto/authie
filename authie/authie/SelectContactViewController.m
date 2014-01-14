@@ -89,7 +89,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     RODHandle *handle = [[RODItemStore sharedStore].authie.all_ContactsWithEverybody objectAtIndex:indexPath.row];
-    NSLog(@"Clicked on %@", handle.name);
     
     self.selected = handle;
     
