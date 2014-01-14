@@ -17,7 +17,7 @@
 @property (nonatomic, strong) NSMutableArray *allContacts;
 @property (nonatomic, strong) RODHandle *handle;
 @property (nonatomic, strong) NSString *authieHandle;
-@property (nonatomic, strong) NSString *authieKey;
+@property (nonatomic, strong) NSString *privateKey;
 @property (nonatomic) int registered;
 
 - (NSArray *)all_ContactsWithEverybody;

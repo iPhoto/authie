@@ -11,7 +11,7 @@
 #import "RODHandle.h"
 
 @implementation RODAuthie
-@synthesize authieHandle, authieKey, registered, allSelfies, allThreads, handle, allContacts;
+@synthesize authieHandle, privateKey, registered, allSelfies, allThreads, handle, allContacts;
 
 - (NSArray *)all_Selfies
 {
@@ -34,7 +34,7 @@
     
     RODHandle *everyone = [[RODHandle alloc] init];
     everyone.id = [NSNumber numberWithInt:1];
-    everyone.name = @"Everyone (public snap)";
+    everyone.name = @"profile (24hr disappearing snap)";
     everyone.publicKey = @"1";
     
     [before insertObject:everyone atIndex:0];
@@ -44,7 +44,7 @@
 
 - (void) encodeWithCoder:(NSCoder *)aCoder
 {
-    [aCoder encodeObject:authieKey forKey:@"authieKey"];
+    [aCoder encodeObject:privateKey forKey:@"privateKey"];
     [aCoder encodeObject:authieHandle forKey:@"authieHandle"];
     [aCoder encodeInt:registered forKey:@"registered"];
     [aCoder encodeObject:allSelfies forKey:@"allSelfies"];
@@ -56,7 +56,7 @@
 {
     self = [super init];
     if (self) {
-        [self setAuthieKey:[aDecoder decodeObjectForKey:@"authieKey"]];
+        [self setPrivateKey:[aDecoder decodeObjectForKey:@"privateKey"]];
         [self setAuthieHandle:[aDecoder decodeObjectForKey:@"authieHandle"]];
         [self setRegistered:[aDecoder decodeIntForKey:@"registered"]];
         [self setHandle:[aDecoder decodeObjectForKey:@"handle"]];

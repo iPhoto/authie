@@ -42,14 +42,14 @@
             // generate a private key for the app/device 8)
             // THIS IS A USER's PASSWORD!
             NSString * uuid = [[NSUUID UUID] UUIDString];
-            _authie.authieKey = uuid;
+            _authie.privateKey = uuid;
             
             [self saveChanges];
         } else {
             NSLog(@"Loaded authie from file, public/private: %@, %@", self.authie.handle.publicKey, self.authie.handle.privateKey);
         }
         
-        NSLog(@"current authie: registered: %i, authieKey: %@, selfies: %lu, id: %@, name: %@", self.authie.registered, self.authie.authieKey, (unsigned long)[self.authie.allSelfies count], self.authie.handle.id, self.authie.handle.name);
+        NSLog(@"current authie: registered: %i, authieKey: %@, selfies: %lu, id: %@, name: %@", self.authie.registered, self.authie.privateKey, (unsigned long)[self.authie.allSelfies count], self.authie.handle.id, self.authie.handle.name);
         
         if(!_authie.allContacts)
             _authie.allContacts = [[NSMutableArray alloc] init];
@@ -218,7 +218,7 @@
                                handle, @"name",
                                @"1", @"active",
                                @"lol", @"userGuid",
-                               @"", @"publicKey",
+                               key, @"publicKey",
                                key, @"privateKey",
                                nil];
     
@@ -253,15 +253,19 @@
             response_result = [[object objectForKey:@"result"] integerValue];
             
             NSString *message_result;
+            // this will contain our private key if we were successful
             message_result = [object objectForKey:@"message"];
             
             AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
             
             if(response_result == 0) {
                 logged_in = NO;
-                [appDelegate.loginViewController.labelResults setText:message_result];                
+                [appDelegate.loginViewController.labelResults setText:message_result];
             } else {
                 logged_in = YES;
+                [RODItemStore sharedStore].authie.privateKey = message_result;
+                [[RODItemStore sharedStore] saveChanges];
+                
                 [self getHandleInformation];
             }
             
@@ -360,8 +364,8 @@
             NSInteger id_result;
             id_result = [[inner_object objectForKey:@"id"] integerValue];
             
-            NSString *privateKey;
-            privateKey = [inner_object objectForKey:@"privateKey"];
+            //NSString *privateKey;
+            //privateKey = [inner_object objectForKey:@"privateKey"];
             
             NSString *publicKey;
             publicKey = [inner_object objectForKey:@"publicKey"];
@@ -382,7 +386,7 @@
                 [self.authie.handle setName:name];
                 [self.authie.handle setActive:[NSNumber numberWithInteger:active_result]];
                 [self.authie.handle setUserGuid:userGuid];
-                [self.authie.handle setPrivateKey:privateKey];
+                //[self.authie.handle setPrivateKey:privateKey];
                 [self.authie.handle setPublicKey:publicKey];
                 
                 NSLog(@"id: %lu, privateKey: %@, publicKey: %@", [self.authie.handle.id longValue], self.authie.handle.privateKey, self.authie.handle.publicKey);
