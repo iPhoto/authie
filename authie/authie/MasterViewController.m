@@ -136,6 +136,11 @@
     NSString *cool_time = [thread.startDate prettyDate];
     cell.detailTextLabel.text = cool_time;
     
+    if([thread.authorizeRequest isEqualToNumber:[NSNumber numberWithInt:1]])
+    {
+        [cell.imageView setImage:[UIImage imageNamed:@"lock.png"]];    
+    }
+    
     return cell;
 }
 
