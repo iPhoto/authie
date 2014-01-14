@@ -144,9 +144,7 @@
 
 - (void)addContact:(id)sender
 {
-    
-    NSLog(@"add contact pls...");
-    
+        
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"add contact"
                                                     message:@"what is their handle?"
                                                    delegate:self
