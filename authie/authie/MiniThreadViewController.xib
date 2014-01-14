@@ -19,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mnk-5Y-nSR">
-                    <rect key="frame" x="0.0" y="42" width="223" height="207"/>
+                    <rect key="frame" x="0.0" y="42" width="233" height="207"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 days ago" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="71" translatesAutoresizingMaskIntoConstraints="NO" id="5zd-Wj-qXb">
@@ -50,7 +50,7 @@
                 <constraint firstItem="5zd-Wj-qXb" firstAttribute="top" secondItem="cvM-xy-QNk" secondAttribute="top" constant="3" id="WMX-b0-iNU"/>
                 <constraint firstItem="BqQ-DW-QQh" firstAttribute="top" secondItem="cvM-xy-QNk" secondAttribute="top" id="WTS-rg-yJz"/>
                 <constraint firstItem="Mnk-5Y-nSR" firstAttribute="leading" secondItem="cvM-xy-QNk" secondAttribute="leading" id="kXi-ed-FRT"/>
-                <constraint firstAttribute="trailing" secondItem="Mnk-5Y-nSR" secondAttribute="trailing" constant="1" id="xCr-Z8-fmZ"/>
+                <constraint firstAttribute="trailing" secondItem="Mnk-5Y-nSR" secondAttribute="trailing" constant="-9" id="xCr-Z8-fmZ"/>
                 <constraint firstAttribute="bottom" secondItem="Mnk-5Y-nSR" secondAttribute="bottom" id="yC5-cq-w4K"/>
                 <constraint firstItem="Mnk-5Y-nSR" firstAttribute="top" secondItem="cvM-xy-QNk" secondAttribute="top" constant="42" id="zlO-eJ-UeG"/>
             </constraints>
