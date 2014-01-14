@@ -17,6 +17,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *snapView;
 @property (strong, nonatomic) RODThread *thread;
 @property (weak, nonatomic) IBOutlet UIView *viewAuthorization;
+@property (weak, nonatomic) IBOutlet UIButton *btnAccept;
+@property (weak, nonatomic) IBOutlet UIButton *btnDeny;
+@property (weak, nonatomic) IBOutlet UIButton *btnBlock;
 
 - (void)loadThread:(int)row;
 

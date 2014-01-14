@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class RODHandle;
+
 @interface RODThread : NSObject <NSCoding>
 
 @property (nonatomic) NSNumber *id;
@@ -19,5 +21,8 @@
 @property (nonatomic) NSNumber *hearts;
 @property (nonatomic) NSNumber *authorizeRequest;
 @property (nonatomic) NSNumber *toHandleSeen;
+
+@property (nonatomic) RODHandle *fromHandle;
+@property (nonatomic) RODHandle *toHandle;
 
 @end

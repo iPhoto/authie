@@ -9,7 +9,7 @@
 #import "RODThread.h"
 
 @implementation RODThread
-@synthesize authorizeRequest, hearts, toHandleSeen, caption;
+@synthesize authorizeRequest, hearts, toHandleSeen, caption, fromHandle, toHandle;
 
 - (void) encodeWithCoder:(NSCoder *)aCoder
 {

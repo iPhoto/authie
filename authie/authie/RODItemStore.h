@@ -31,6 +31,7 @@
 - (void) removeThread:(RODThread *)thread;
 
 - (void) removeContact:(RODHandle *)handle;
+- (void) authorizeContact:(NSString *)publicKey;
 
 - (BOOL)saveChanges;
 - (BOOL)checkHandleAvailability:(NSString *)handle;

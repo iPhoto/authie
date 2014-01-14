@@ -11,6 +11,7 @@
 #import "RODImageStore.h"
 #import "RODItemStore.h"
 #import "RODAuthie.h"
+#import "RODHandle.h"
 
 @implementation AuthorizeContactViewController
 
@@ -53,11 +54,13 @@
 
 -(void)removeThread:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
     [[RODItemStore sharedStore] removeThread:self.thread];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)acceptAuthorization:(id)sender {
+    [[RODItemStore sharedStore] authorizeContact:self.thread.toHandle.publicKey];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)denyAuthorization:(id)sender {
@@ -77,9 +80,28 @@
     [self.snapView setImage:[[RODImageStore sharedStore] imageForKey:thread.groupKey]];
     self.thread = thread;
     
-    self.labelRequestDetails.text = [NSString stringWithFormat:@"You have received an authorization request from %@.", self.thread.fromHandleId];
+    NSLog(@"thread: %@", thread.toHandleId);
     
-    [self.navigationItem setTitle:self.thread.fromHandleId];
+    if([[RODItemStore sharedStore].authie.handle.name isEqualToString:thread.toHandleId]) {
+        // sent TO them, so display controls
+        self.labelRequestDetails.text = [NSString stringWithFormat:@"You have received an authorization request from %@.", self.thread.fromHandleId];
+        [self.btnAccept setHidden:NO];
+        [self.btnDeny setHidden:NO];
+        [self.btnBlock setHidden:NO];    
+
+        [self.navigationItem setTitle:self.thread.fromHandleId];
+        
+    } else {
+        // sent FROM them, so hide controls
+
+        [self.navigationItem setTitle:[NSString stringWithFormat:@"sent to %@", self.thread.toHandleId]];
+
+        
+        self.labelRequestDetails.text = [NSString stringWithFormat:@"You sent an authorization request to %@.", self.thread.toHandle.name];
+        [self.btnAccept setHidden:YES];
+        [self.btnDeny setHidden:YES];
+        [self.btnBlock setHidden:YES];
+    }
     
 }
 @end

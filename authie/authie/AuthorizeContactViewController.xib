@@ -6,6 +6,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AuthorizeContactViewController">
             <connections>
+                <outlet property="btnAccept" destination="uBY-f8-VbB" id="iha-K7-DhI"/>
+                <outlet property="btnBlock" destination="QEZ-1D-4QH" id="KeX-iA-a8i"/>
+                <outlet property="btnDeny" destination="hDb-p3-VOD" id="Q7a-JM-2fw"/>
                 <outlet property="labelRequestDetails" destination="dEW-8v-Vpd" id="F1i-W1-ePf"/>
                 <outlet property="snapView" destination="wwE-Ty-AP2" id="DLK-TY-ogR"/>
                 <outlet property="view" destination="D7I-pV-RUv" id="FkQ-CE-d2P"/>
@@ -33,7 +36,7 @@
                                 <constraint firstAttribute="height" constant="50" id="hmc-NC-FtX"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You have received an authorization request from handle. " lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="140" translatesAutoresizingMaskIntoConstraints="NO" id="dEW-8v-Vpd">
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loading..." lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="140" translatesAutoresizingMaskIntoConstraints="NO" id="dEW-8v-Vpd">
                             <rect key="frame" x="58" y="5" width="140" height="110"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>

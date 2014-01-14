@@ -627,6 +627,66 @@
     return added_contact;
 }
 
+
+- (void) authorizeContact:(NSString *)publicKey;
+{
+    NSLog(@"authorizeContact: %@", publicKey);
+    
+    NSError *error = nil;
+    
+    NSMutableData *data = [NSMutableData data];
+    [data appendData:[[NSString stringWithFormat:@"=%@", publicKey] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    NSURLResponse *response;
+    NSData *localData = nil;
+    
+    NSString *url = @"http://authie.me/api/authorize";
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"POST"];
+    
+    if(error == nil) {
+        [request setValue:@"application/x-www-form-urlencoded; charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        [request setHTTPBody:data];
+        
+        //send the request and get the response
+        localData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        NSError *deserialize_error = nil;
+        
+        id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingAllowFragments error:&deserialize_error];
+        
+        if([object isKindOfClass:[NSDictionary class]] && deserialize_error == nil) {
+            
+            NSLog(@"results from authorizeContact: %@", object);
+            
+            NSInteger result = [[object objectForKey:@"result"] integerValue];
+            
+            if(result == 1) {
+
+                [self loadContacts];
+                [self loadThreads];
+                AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+                [appDelegate.masterViewController.navigationController popToRootViewControllerAnimated:YES];
+                
+            } else {
+                
+                NSString *message = [object objectForKey:@"message"];
+                
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"error" message:message delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+                [alert show];
+                
+            }
+            
+        }
+        
+    } else {
+        NSLog(@"Error: %@", error);
+    }
+    
+}
+
 - (BOOL)loadContacts
 {
     
@@ -725,9 +785,23 @@
                 
                 NSDictionary *inner_result = [result objectForKey:@"toHandle"];
                 NSString *to_result = [inner_result objectForKey:@"name"];
+                NSString *to_publicKey = [inner_result objectForKey:@"publicKey"];
                 
                 NSDictionary *from_inner_result = [result objectForKey:@"fromHandle"];
                 NSString *from_result = [from_inner_result objectForKey:@"name"];
+                NSString *from_publicKey = [from_inner_result objectForKey:@"publicKey"];
+                
+                RODHandle *fromHandle = [[RODHandle alloc] init];
+                fromHandle.name = from_result;
+                fromHandle.publicKey = from_publicKey;
+                
+                thready.fromHandle = fromHandle;
+                
+                RODHandle *toHandle = [[RODHandle alloc] init];
+                toHandle.name = to_result;
+                toHandle.publicKey = to_publicKey;
+                
+                thready.toHandle = toHandle;
                 
                 thready.groupKey = [result objectForKey:@"groupKey"];
                 thready.toHandleId = to_result;
