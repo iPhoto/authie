@@ -21,6 +21,12 @@
         // Custom initialization
         [self setEdgesForExtendedLayout:UIRectEdgeNone];
         
+        UIBarButtonItem *edit = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(removeThread:)];
+        
+        self.navigationItem.rightBarButtonItem = edit;
+        
+        
+        
     }
     return self;
 }
@@ -45,13 +51,24 @@
     }
 }
 
+-(void)removeThread:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [[RODItemStore sharedStore] removeThread:self.thread];
+}
+
 - (IBAction)acceptAuthorization:(id)sender {
 }
 
 - (IBAction)denyAuthorization:(id)sender {
+    // same as trashing it
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [[RODItemStore sharedStore] removeThread:self.thread];
 }
 
 - (IBAction)block:(id)sender {
+    UIAlertView *block = [[UIAlertView alloc] initWithTitle:@"block" message:@"block is not implemented yet." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+    [block show];
 }
 
 -(void)loadThread:(int)row
@@ -61,5 +78,8 @@
     self.thread = thread;
     
     self.labelRequestDetails.text = [NSString stringWithFormat:@"You have received an authorization request from %@.", self.thread.fromHandleId];
+    
+    [self.navigationItem setTitle:self.thread.fromHandleId];
+    
 }
 @end
