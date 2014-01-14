@@ -71,6 +71,7 @@
     [self.snapView setImage:[[RODImageStore sharedStore] imageForKey:thread.groupKey]];
     self.thread = thread;
     self.navigationItem.title = [NSString stringWithFormat:@"to: %@, from: %@", thread.toHandleId, thread.fromHandleId];
+    self.snapDate.text = [self.thread.startDate prettyDate];
     loadRow = row;
 }
 
