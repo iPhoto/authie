@@ -196,13 +196,19 @@
     [self dismissViewControllerAnimated:NO completion:nil];
     
     // now push to confirm snap
+    //...
     
     ConfirmSnapViewController *confirm = [[ConfirmSnapViewController alloc] init];
     confirm.snap = image;
     confirm.key = key;
     confirm.handle = self.selected;
+
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.masterViewController];
     
-    [self.navigationController pushViewController:confirm animated:YES];
+    [appDelegate.masterViewController.navigationController pushViewController:confirm animated:YES];
+    
+    self.frostedViewController.contentViewController = navigationController;
     
 }
 
@@ -214,7 +220,7 @@
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"trashed" message:@"Your message has been trashed." delegate:appDelegate.masterViewController cancelButtonTitle:@"ok" otherButtonTitles:nil];
     
-    [appDelegate.masterViewController.navigationController popToRootViewControllerAnimated:YES];
+    [appDelegate.contactsViewController.navigationController popToRootViewControllerAnimated:YES];
     
     [alert show];
     
