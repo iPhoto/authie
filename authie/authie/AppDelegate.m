@@ -43,7 +43,7 @@
     }
     
     // test flighty
-    [TestFlight takeOff:@"e0b1dd9c-b710-4223-8aa8-b68350a2da33"];
+    //[TestFlight takeOff:@"e0b1dd9c-b710-4223-8aa8-b68350a2da33"];
 
     // urchin
 

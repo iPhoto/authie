@@ -74,7 +74,7 @@
     self.snapDate.text = [self.thread.startDate prettyDate];
     
     if(self.thread.caption == (id)[NSNull null] || self.thread.caption.length == 0 ) {
-        
+        self.snapCaption.text = @"";
     } else {
         self.snapCaption.text = self.thread.caption;
     }

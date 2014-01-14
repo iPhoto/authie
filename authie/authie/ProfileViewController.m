@@ -155,8 +155,14 @@
         [mini.snapView setContentMode:UIViewContentModeScaleAspectFill];
         [mini.snapView setImage:image];
         [mini.labelDate setText:[thread.startDate prettyDate]];
-        [mini.labelCaption setText:thread.caption];
         
+        
+        if(thread.caption == (id)[NSNull null] || thread.caption.length == 0 ) {
+            mini.labelCaption.text = @"";
+        } else {
+            mini.labelCaption.text = thread.caption;
+        }
+
         [mini.view layoutIfNeeded];
         
         //photo_height = mini.snapView.image.size.height + 10;
