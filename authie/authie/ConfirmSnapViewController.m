@@ -72,11 +72,14 @@
 
 -(void)sendSnap:(id)sender
 {
+
+    NSLog(@"Send snap.");
     [self dismissViewControllerAnimated:YES completion:nil];
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.masterViewController.imageToUpload = snap;
     appDelegate.masterViewController.keyToUpload = key;
     appDelegate.masterViewController.handleToUpload = handle;
+    appDelegate.masterViewController.captionToUpload = self.snapCaption.text;
     [appDelegate.masterViewController setDoUploadOnView:true];
     [appDelegate.masterViewController.navigationController popToRootViewControllerAnimated:YES];
 

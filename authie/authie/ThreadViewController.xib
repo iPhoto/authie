@@ -45,13 +45,13 @@
             <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="Prc-H2-aVu" firstAttribute="leading" secondItem="D2N-GB-prs" secondAttribute="leading" id="2h0-gb-wFc"/>
-                <constraint firstItem="wyz-qB-N7f" firstAttribute="leading" secondItem="D2N-GB-prs" secondAttribute="leading" constant="2" id="5z8-9o-GjW"/>
+                <constraint firstItem="wyz-qB-N7f" firstAttribute="leading" secondItem="D2N-GB-prs" secondAttribute="leading" constant="5" id="5z8-9o-GjW"/>
                 <constraint firstItem="utj-eQ-VKM" firstAttribute="centerY" secondItem="wyz-qB-N7f" secondAttribute="centerY" id="BA0-XM-G3T"/>
                 <constraint firstAttribute="bottom" secondItem="Prc-H2-aVu" secondAttribute="bottom" id="JHs-Va-LCo"/>
                 <constraint firstItem="Prc-H2-aVu" firstAttribute="top" secondItem="D2N-GB-prs" secondAttribute="top" constant="34" id="N6k-4y-iZe"/>
                 <constraint firstItem="Prc-H2-aVu" firstAttribute="top" secondItem="utj-eQ-VKM" secondAttribute="bottom" constant="11" id="V6Y-yN-Fga"/>
                 <constraint firstAttribute="trailing" secondItem="Prc-H2-aVu" secondAttribute="trailing" id="cho-xP-ViE"/>
-                <constraint firstItem="utj-eQ-VKM" firstAttribute="leading" secondItem="wyz-qB-N7f" secondAttribute="trailing" constant="-56" id="xov-yx-a09"/>
+                <constraint firstItem="utj-eQ-VKM" firstAttribute="leading" secondItem="wyz-qB-N7f" secondAttribute="trailing" constant="-59" id="xov-yx-a09"/>
                 <constraint firstAttribute="trailing" secondItem="utj-eQ-VKM" secondAttribute="trailing" constant="6" id="xuq-QA-5Gp"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

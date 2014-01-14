@@ -19,6 +19,8 @@
 @property (strong, nonatomic) UIImage *imageToUpload;
 @property (strong, nonatomic) NSString *keyToUpload;
 @property (strong, nonatomic) RODHandle *handleToUpload;
+@property (strong, nonatomic) NSString *captionToUpload;
+
 @property (nonatomic) BOOL doUploadOnView;
 
 - (void)doUpload;

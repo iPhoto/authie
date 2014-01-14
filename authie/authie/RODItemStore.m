@@ -490,7 +490,7 @@
     return upload_success;
 }
 
-- (BOOL)startThread:(NSString *)toHandle forKey:(NSString *)key;
+- (BOOL)startThread:(NSString *)toHandle forKey:(NSString *)key withCaption:(NSString *)caption;
 {
     
     BOOL start_convo_success = NO;
@@ -500,6 +500,7 @@
     NSDictionary *checkDict = [[NSDictionary alloc] initWithObjectsAndKeys:
                                toHandle, @"toGuid",
                                key, @"groupKey",
+                               caption, @"caption",
                                nil];
     
     NSError *error = nil;

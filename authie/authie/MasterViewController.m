@@ -25,7 +25,7 @@
 #import "NSDate+PrettyDate.h"
 
 @implementation MasterViewController
-@synthesize imageToUpload, keyToUpload, handleToUpload, doUploadOnView;
+@synthesize imageToUpload, keyToUpload, handleToUpload, doUploadOnView, captionToUpload;
 
 - (void)awakeFromNib
 {
@@ -68,6 +68,7 @@
     self.doUploadOnView = NO;
     self.keyToUpload = @"";
     self.imageToUpload = [UIImage alloc];
+    self.captionToUpload = @"";
 }
 
 - (void)viewDidLoad
@@ -223,29 +224,6 @@
     //}
 }
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-    
-    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    
-    CFUUIDRef newUniqueID = CFUUIDCreate(kCFAllocatorDefault);
-    CFStringRef newUniqueIDString = CFUUIDCreateString(kCFAllocatorDefault, newUniqueID);
-    
-    NSString *key = (__bridge NSString *)newUniqueIDString;
-    
-    [[RODImageStore sharedStore] setImage:image forKey:key];
-    NSLog(@"Created key: %@", key);
-    
-    [[RODItemStore sharedStore] createSelfie:key];
-    [[RODItemStore sharedStore] startThread:@"1" forKey:key];
-    
-    CFRelease(newUniqueIDString);
-    CFRelease(newUniqueID);
-    
-    [self dismissViewControllerAnimated:NO completion:nil];
-    
-}
-
 - (void)doUpload
 {
 
@@ -271,8 +249,7 @@
         NSLog(@"Created key: %@", self.keyToUpload);
         
         [[RODItemStore sharedStore] createSelfie:self.keyToUpload];
-        [[RODItemStore sharedStore] startThread:self.handleToUpload.publicKey forKey:self.keyToUpload];
-
+        [[RODItemStore sharedStore] startThread:self.handleToUpload.publicKey forKey:self.keyToUpload withCaption:self.captionToUpload];
         
         dispatch_sync(dispatch_get_main_queue(), ^{
             // Update UI
