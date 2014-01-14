@@ -103,8 +103,11 @@
 - (void)sendSnap:(id)sender
 {
     
-    SelectContactViewController *select = [[SelectContactViewController alloc] init];
-    [self.navigationController pushViewController:select animated:YES];
+    NSLog(@"Hi");
+
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+
+    [self.navigationController pushViewController:appDelegate.selectContactViewController animated:YES];
     
 }
 

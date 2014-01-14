@@ -19,6 +19,7 @@
 #import "ProfileViewController.h"
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
+#import "SelectContactViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, REFrostedViewControllerDelegate>
 
@@ -33,5 +34,6 @@
 @property (strong, nonatomic) ProfileViewController *profileViewController;
 @property (strong, nonatomic) LoginViewController *loginViewController;
 @property (strong, nonatomic) RegisterViewController *registerViewController;
+@property (strong, nonatomic) SelectContactViewController *selectContactViewController;
 
 @end

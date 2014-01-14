@@ -24,9 +24,10 @@
 #import "ContactsViewController.h"
 #import "TestFlight.h"
 #import "GAI.h"
+#import "SelectContactViewController.h"
 
 @implementation AppDelegate
-@synthesize masterViewController, threadViewController, contactsViewController, privateKeyViewController, inviteViewController, dailyViewController, profileViewController, loginViewController, registerViewController;
+@synthesize masterViewController, threadViewController, contactsViewController, privateKeyViewController, inviteViewController, dailyViewController, profileViewController, loginViewController, registerViewController, selectContactViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -57,13 +58,18 @@
     [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelError];
     
     // Initialize tracker.
-    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-47064407-1"];
+    id<GAITracker> tracker = nil;
+    
+    tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-47064407-1"];
 
     MasterViewController *master = [[MasterViewController alloc] init];
     masterViewController = master;
     
     ThreadViewController *thread = [[ThreadViewController alloc] init];
     threadViewController = thread;
+
+    SelectContactViewController *select = [[SelectContactViewController alloc] init];
+    selectContactViewController = select;
     
     ContactsViewController *contacts = [[ContactsViewController alloc] init];
     contactsViewController = contacts;

@@ -129,10 +129,9 @@
             break;
         case 3: // compose
         {
-            SelectContactViewController *select = [[SelectContactViewController alloc] init];
-            NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:select];            
-            [navigationController.navigationBar setTintColor:[UIColor blackColor]];
-            self.frostedViewController.contentViewController = navigationController;
+            
+            [self showSelectContact];
+            
         }
             break;
         case 4: // daily
@@ -163,6 +162,16 @@
 
 #pragma mark -
 #pragma mark UITableView Datasource
+
+-(void)showSelectContact
+{
+
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.selectContactViewController];
+    [navigationController.navigationBar setTintColor:[UIColor blackColor]];
+    self.frostedViewController.contentViewController = navigationController;
+    
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

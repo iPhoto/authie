@@ -15,5 +15,6 @@
 
 @property (strong, nonatomic) NSArray *buttons;
 
+-(void)showSelectContact;
 
 @end
