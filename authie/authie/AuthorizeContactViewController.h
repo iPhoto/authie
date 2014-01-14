@@ -16,6 +16,7 @@
 - (IBAction)block:(id)sender;
 @property (weak, nonatomic) IBOutlet UIImageView *snapView;
 @property (strong, nonatomic) RODThread *thread;
+@property (weak, nonatomic) IBOutlet UIView *viewAuthorization;
 
 - (void)loadThread:(int)row;
 

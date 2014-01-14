@@ -19,6 +19,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        [self setEdgesForExtendedLayout:UIRectEdgeNone];
+        
     }
     return self;
 }
@@ -33,6 +35,14 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)tappedScreen:(id)sender {
+    if(self.viewAuthorization.hidden == YES) {
+        [self.viewAuthorization setHidden:NO];
+    } else {
+        [self.viewAuthorization setHidden:YES];
+    }
 }
 
 - (IBAction)acceptAuthorization:(id)sender {
