@@ -13,6 +13,7 @@
 #import "RODFollower.h"
 #import "RODItemStore.h"
 #import "ProfileViewController.h"
+#import "ConfirmSnapViewController.h"
 
 @implementation ContactsViewController
 @synthesize selected, imagePicker;
@@ -146,11 +147,11 @@
 - (void)addContact:(id)sender
 {
         
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"add contact"
-                                                    message:@"what is their handle?"
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"request authorization"
+                                                    message:@"if you want to add someone, you will need to send verification. we suggest a selfie. enter their handle to begin."
                                                    delegate:self
                                           cancelButtonTitle:@"Cancel"
-                                          otherButtonTitles:@"OK", nil];
+                                          otherButtonTitles:@"take image", nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
     [alert show];
     
@@ -178,5 +179,46 @@
         [[RODItemStore sharedStore] addContact:name];
     }
 }
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
+    CFUUIDRef newUniqueID = CFUUIDCreate(kCFAllocatorDefault);
+    CFStringRef newUniqueIDString = CFUUIDCreateString(kCFAllocatorDefault, newUniqueID);
+    
+    NSString *key = (__bridge NSString *)newUniqueIDString;
+    
+    CFRelease(newUniqueIDString);
+    CFRelease(newUniqueID);
+    
+    [self dismissViewControllerAnimated:NO completion:nil];
+    
+    // now push to confirm snap
+    
+    ConfirmSnapViewController *confirm = [[ConfirmSnapViewController alloc] init];
+    confirm.snap = image;
+    confirm.key = key;
+    confirm.handle = self.selected;
+    
+    [self.navigationController pushViewController:confirm animated:YES];
+    
+}
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [self dismissViewControllerAnimated:NO completion:nil];
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"trashed" message:@"Your message has been trashed." delegate:appDelegate.masterViewController cancelButtonTitle:@"ok" otherButtonTitles:nil];
+    
+    [appDelegate.masterViewController.navigationController popToRootViewControllerAnimated:YES];
+    
+    [alert show];
+    
+}
+
 
 @end
