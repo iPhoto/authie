@@ -92,6 +92,11 @@
     [self.tableView setAllowsSelection:YES];
     [self.tableView setAllowsMultipleSelection:NO];
     [self.tableView setAllowsSelectionDuringEditing:YES];
+    
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    [self setRefreshControl:refreshControl];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -100,6 +105,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)refresh:(id)sender
+{
+    NSLog(@"Refresh fired.");
+    // do your refresh here and reload the tablview
+    [[RODItemStore sharedStore] loadThreads];
+}
 
 - (void)sendSnap:(id)sender
 {
@@ -140,6 +151,9 @@
     if([thread.authorizeRequest isEqualToNumber:[NSNumber numberWithInt:1]])
     {
         [cell.imageView setImage:[UIImage imageNamed:@"lock.png"]];    
+    } else
+    {
+        [cell.imageView setImage:[UIImage alloc]];
     }
     
     return cell;

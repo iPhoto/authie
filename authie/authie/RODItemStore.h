@@ -29,6 +29,7 @@
 
 - (RODSelfie *)createSelfie:(NSString *)key;
 - (void) removeThread:(RODThread *)thread;
+
 - (void) removeContact:(RODHandle *)handle;
 
 - (BOOL)saveChanges;

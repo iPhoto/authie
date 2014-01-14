@@ -62,8 +62,8 @@
 
 - (IBAction)denyAuthorization:(id)sender {
     // same as trashing it
-    [self dismissViewControllerAnimated:YES completion:nil];
     [[RODItemStore sharedStore] removeThread:self.thread];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)block:(id)sender {

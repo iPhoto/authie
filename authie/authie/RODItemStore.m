@@ -716,15 +716,12 @@
             
             for (NSDictionary *result in object) {
                 
-                NSLog(@"hi: %@", result);
-                
+                NSLog(@"loadThreads: %@", result);
                 NSInteger id_result = [[result objectForKey:@"id"] integerValue];
-
                 
                 // replace them with the new ones
                 RODThread *thready = [[RODThread alloc] init];
                 thready.id = [NSNumber numberWithInteger:id_result];
-                
                 
                 NSDictionary *inner_result = [result objectForKey:@"toHandle"];
                 NSString *to_result = [inner_result objectForKey:@"name"];
@@ -765,6 +762,10 @@
                 [self.authie.allThreads addObject:thready];
                 
             }
+            
+            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            [appDelegate.masterViewController.tableView reloadData];
+            [appDelegate.masterViewController.refreshControl endRefreshing];
             
             loaded_convos = YES;
             
