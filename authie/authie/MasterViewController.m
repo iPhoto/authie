@@ -184,49 +184,38 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-    //
-    //    RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:indexPath.row];
-    //
-    //    self.detailViewController.detailItem = thread;
-    //    self.detailViewController.snap = thread;
-    //} else {
+    
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    appDelegate.threadViewController = [[ThreadViewController alloc] init];
+    [appDelegate.masterViewController.navigationController pushViewController:appDelegate.threadViewController animated:YES];
 
-        //NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    // Block whole window
+    
+    MRProgressOverlayView *progressView = [MRProgressOverlayView new];
+    [progressView setTintColor:[UIColor blackColor]];
+    [progressView setTitleLabelText:@""];
+    [self.view.window addSubview:progressView];
+    [progressView show:YES];
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+    dispatch_async(queue, ^{
 
-        AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-        appDelegate.threadViewController = [[ThreadViewController alloc] init];
-        [appDelegate.masterViewController.navigationController pushViewController:appDelegate.threadViewController animated:YES];
 
-        // Block whole window
         
-        MRProgressOverlayView *progressView = [MRProgressOverlayView new];
-        [progressView setTintColor:[UIColor blackColor]];
-        [progressView setTitleLabelText:@""];
-        [self.view.window addSubview:progressView];
-        [progressView show:YES];
+        [[RODImageStore sharedStore] preloadImageAndShowScreen:indexPath.row];
         
-        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
-        dispatch_async(queue, ^{
-
-
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            // Update UI
+            // Example:
+            // self.myLabel.text = result;
             
-            [[RODImageStore sharedStore] preloadImageAndShowScreen:indexPath.row];
+            [appDelegate.threadViewController loadThread:indexPath.row];
+            [progressView dismiss:YES];
             
-            dispatch_sync(dispatch_get_main_queue(), ^{
-                // Update UI
-                // Example:
-                // self.myLabel.text = result;
-                
-                [appDelegate.threadViewController loadThread:indexPath.row];
-                [progressView dismiss:YES];
-                
-                
-            });
+            
         });
-        
-        
-    //}
+    });
+    
 }
 
 - (void)doUpload

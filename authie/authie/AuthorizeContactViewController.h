@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface AuthorizeContactViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *labelRequestDetails;
+- (IBAction)acceptAuthorization:(id)sender;
+- (IBAction)denyAuthorization:(id)sender;
+- (IBAction)block:(id)sender;
 
 @end

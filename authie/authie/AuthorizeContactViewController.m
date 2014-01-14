@@ -8,10 +8,6 @@
 
 #import "AuthorizeContactViewController.h"
 
-@interface AuthorizeContactViewController ()
-
-@end
-
 @implementation AuthorizeContactViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -35,4 +31,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)acceptAuthorization:(id)sender {
+}
+
+- (IBAction)denyAuthorization:(id)sender {
+}
+
+- (IBAction)block:(id)sender {
+}
 @end

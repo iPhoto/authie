@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AuthorizeContactViewController">
             <connections>
+                <outlet property="labelRequestDetails" destination="dEW-8v-Vpd" id="F1i-W1-ePf"/>
                 <outlet property="view" destination="D7I-pV-RUv" id="FkQ-CE-d2P"/>
             </connections>
         </placeholder>
@@ -42,9 +43,22 @@
                             <state key="normal" title="Accept">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="acceptAuthorization:" destination="-1" eventType="touchUpInside" id="NF2-gC-UcY"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDb-p3-VOD">
-                            <rect key="frame" x="89" y="120" width="54" height="30"/>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QEZ-1D-4QH">
+                            <rect key="frame" x="159" y="123" width="39" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Block">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="block:" destination="-1" eventType="touchUpInside" id="6Ax-Ns-Txl"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDb-p3-VOD">
+                            <rect key="frame" x="82" y="121" width="54" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="54" id="qIl-kN-s1s"/>
@@ -52,13 +66,9 @@
                             <state key="normal" title="Deny">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QEZ-1D-4QH">
-                            <rect key="frame" x="174" y="120" width="39" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Block">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
+                            <connections>
+                                <action selector="denyAuthorization:" destination="-1" eventType="touchUpInside" id="4Vl-bf-te0"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -70,7 +80,7 @@
                         <constraint firstItem="gmB-41-Vvd" firstAttribute="top" secondItem="okb-iq-2Ys" secondAttribute="top" constant="20" id="HbM-06-7fW"/>
                         <constraint firstItem="hDb-p3-VOD" firstAttribute="leading" secondItem="okb-iq-2Ys" secondAttribute="leading" constant="89" id="RGR-f6-IrM"/>
                         <constraint firstAttribute="width" constant="218" id="b64-yq-hc1"/>
-                        <constraint firstAttribute="trailing" secondItem="QEZ-1D-4QH" secondAttribute="trailing" constant="5" id="bgJ-qf-nb2"/>
+                        <constraint firstAttribute="trailing" secondItem="QEZ-1D-4QH" secondAttribute="trailing" constant="20" id="bgJ-qf-nb2"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="163" id="bze-QC-AS4"/>
                         <constraint firstAttribute="bottom" secondItem="uBY-f8-VbB" secondAttribute="bottom" constant="12" id="lIz-dz-LUb"/>
                         <constraint firstItem="gmB-41-Vvd" firstAttribute="leading" secondItem="okb-iq-2Ys" secondAttribute="leading" constant="5" id="x8T-gK-3ir"/>
