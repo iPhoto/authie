@@ -147,8 +147,8 @@
     
     NSLog(@"add contact pls...");
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"enter handle"
-                                                    message:@"  "
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"add contact"
+                                                    message:@"what is their handle?"
                                                    delegate:self
                                           cancelButtonTitle:@"Cancel"
                                           otherButtonTitles:@"OK", nil];

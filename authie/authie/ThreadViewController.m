@@ -70,7 +70,13 @@
     RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:row];
     [self.snapView setImage:[[RODImageStore sharedStore] imageForKey:thread.groupKey]];
     self.thread = thread;
-    self.navigationItem.title = [NSString stringWithFormat:@"to: %@, from: %@", thread.toHandleId, thread.fromHandleId];
+    
+    if([self.thread.toHandleId isEqualToString:@"profile"]) {
+        self.navigationItem.title = @"profile snap";
+    } else {
+        self.navigationItem.title = [NSString stringWithFormat:@"to: %@, from: %@", thread.toHandleId, thread.fromHandleId];
+    }
+    
     self.snapDate.text = [self.thread.startDate prettyDate];
     
     if(self.thread.caption == (id)[NSNull null] || self.thread.caption.length == 0 ) {
