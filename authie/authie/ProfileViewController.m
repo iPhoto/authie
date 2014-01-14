@@ -41,6 +41,11 @@
 
 }
 
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    [self populateScrollView];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -72,11 +77,6 @@
 -(void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
-    
-    [self.scroll setContentSize:CGSizeMake(self.scroll.frame.size.width, self.contentSize)];
-    
-    [self.scroll layoutSubviews];
-   
 }
 
 -(void)removeContact:(id)sender
@@ -99,8 +99,10 @@
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
-    //[self.scroll setNeedsDisplay];
+    NSArray *viewsToRemove = [self.scroll subviews];
+    for (UIView *v in viewsToRemove) [v removeFromSuperview];
     
+    //[self populateScrollView];
 }
 
 - (void)getThreads
@@ -163,7 +165,8 @@
             mini.labelCaption.text = thread.caption;
         }
 
-        [mini.view layoutIfNeeded];
+
+        [mini.view layoutSubviews];
         
         //photo_height = mini.snapView.image.size.height + 10;
         
