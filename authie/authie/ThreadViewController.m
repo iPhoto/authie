@@ -72,6 +72,13 @@
     self.thread = thread;
     self.navigationItem.title = [NSString stringWithFormat:@"to: %@, from: %@", thread.toHandleId, thread.fromHandleId];
     self.snapDate.text = [self.thread.startDate prettyDate];
+    
+    if(self.thread.caption == (id)[NSNull null] || self.thread.caption.length == 0 ) {
+        
+    } else {
+        self.snapCaption.text = self.thread.caption;
+    }
+    
     loadRow = row;
 }
 

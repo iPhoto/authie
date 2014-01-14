@@ -155,6 +155,7 @@
         [mini.snapView setContentMode:UIViewContentModeScaleAspectFill];
         [mini.snapView setImage:image];
         [mini.labelDate setText:[thread.startDate prettyDate]];
+        [mini.labelCaption setText:thread.caption];
         
         [mini.view layoutIfNeeded];
         

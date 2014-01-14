@@ -699,6 +699,8 @@
             
             for (NSDictionary *result in object) {
                 
+                NSLog(@"hi: %@", result);
+                
                 NSInteger id_result = [[result objectForKey:@"id"] integerValue];
 
                 
@@ -716,6 +718,23 @@
                 thready.groupKey = [result objectForKey:@"groupKey"];
                 thready.toHandleId = to_result;
                 thready.fromHandleId = from_result;
+                
+                NSString *caption_result = [result objectForKey:@"caption"];
+                thready.caption = caption_result;
+                
+                NSInteger hearts = [[result objectForKey:@"hearts"] integerValue];
+                NSInteger authorizeRequest = [[result objectForKey:@"authorizeRequest"] integerValue];
+                
+                id toHandleSeen_result = [result objectForKey:@"toHandleSeen"];
+                if(toHandleSeen_result == [NSNull null]) {
+                    thready.toHandleSeen = 0;
+                } else {
+                    thready.toHandleSeen = [NSNumber numberWithInteger:[toHandleSeen_result integerValue]];
+                }
+                
+                
+                thready.hearts = [NSNumber numberWithInteger:hearts];
+                thready.authorizeRequest = [NSNumber numberWithInteger:authorizeRequest];
                 
                 NSString *silly_date = [result objectForKey:@"startDate"];
                 NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
@@ -785,6 +804,25 @@
                 NSString *from_result = [NSString stringWithFormat:@"from: %@",[from_inner_result objectForKey:@"name"]];
                 
                 
+
+                
+                NSString *caption_result = [result objectForKey:@"caption"];
+                thready.caption = caption_result;
+                
+                NSInteger hearts = [[result objectForKey:@"hearts"] integerValue];
+                NSInteger authorizeRequest = [[result objectForKey:@"authorizeRequest"] integerValue];
+                
+                id toHandleSeen_result = [result objectForKey:@"toHandleSeen"];
+                NSLog(@"toHandleSeen_result: %@", toHandleSeen_result);
+                if(toHandleSeen_result == [NSNull null]) {
+                    thready.toHandleSeen = 0;
+                } else {
+                    thready.toHandleSeen = [NSNumber numberWithInteger:[toHandleSeen_result integerValue]];
+                }
+                
+                thready.hearts = [NSNumber numberWithInteger:hearts];
+                thready.authorizeRequest = [NSNumber numberWithInteger:authorizeRequest];
+                                
                 thready.groupKey = [result objectForKey:@"groupKey"];
                 thready.toHandleId = to_result;
                 thready.fromHandleId = from_result;
