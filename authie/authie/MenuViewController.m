@@ -167,8 +167,10 @@
 {
 
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.selectContactViewController];
-    [navigationController.navigationBar setTintColor:[UIColor blackColor]];
+    NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.masterViewController];
+    
+    [appDelegate.masterViewController.navigationController pushViewController:appDelegate.selectContactViewController animated:YES];
+    
     self.frostedViewController.contentViewController = navigationController;
     
 }
