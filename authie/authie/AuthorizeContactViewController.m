@@ -7,6 +7,10 @@
 //
 
 #import "AuthorizeContactViewController.h"
+#import "RODThread.h"
+#import "RODImageStore.h"
+#import "RODItemStore.h"
+#import "RODAuthie.h"
 
 @implementation AuthorizeContactViewController
 
@@ -38,5 +42,14 @@
 }
 
 - (IBAction)block:(id)sender {
+}
+
+-(void)loadThread:(int)row
+{
+    RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:row];
+    [self.snapView setImage:[[RODImageStore sharedStore] imageForKey:thread.groupKey]];
+    self.thread = thread;
+    
+    self.labelRequestDetails.text = [NSString stringWithFormat:@"You have received an authorization request from %@.", self.thread.fromHandleId];
 }
 @end

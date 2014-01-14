@@ -25,9 +25,10 @@
 #import "TestFlight.h"
 #import "GAI.h"
 #import "SelectContactViewController.h"
+#import "AuthorizeContactViewController.h"
 
 @implementation AppDelegate
-@synthesize masterViewController, threadViewController, contactsViewController, privateKeyViewController, inviteViewController, dailyViewController, profileViewController, loginViewController, registerViewController, selectContactViewController;
+@synthesize masterViewController, threadViewController, contactsViewController, privateKeyViewController, inviteViewController, dailyViewController, profileViewController, loginViewController, registerViewController, selectContactViewController, authorizeContactViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -67,6 +68,9 @@
     
     ThreadViewController *thread = [[ThreadViewController alloc] init];
     threadViewController = thread;
+    
+    AuthorizeContactViewController *authorize = [[AuthorizeContactViewController alloc] init];
+    authorizeContactViewController = authorize;
 
     SelectContactViewController *select = [[SelectContactViewController alloc] init];
     selectContactViewController = select;

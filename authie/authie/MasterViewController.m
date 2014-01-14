@@ -23,6 +23,7 @@
 #import <MRProgress/MRProgress.h>
 #import "RODImageStore.h"
 #import "NSDate+PrettyDate.h"
+#import "AuthorizeContactViewController.h"
 
 @implementation MasterViewController
 @synthesize imageToUpload, keyToUpload, handleToUpload, doUploadOnView, captionToUpload;
@@ -184,10 +185,26 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    appDelegate.threadViewController = [[ThreadViewController alloc] init];
-    [appDelegate.masterViewController.navigationController pushViewController:appDelegate.threadViewController animated:YES];
+
+    RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:indexPath.row];
+    
+    Boolean is_authorize_request = NO;
+    
+    if([thread.authorizeRequest isEqualToNumber:[NSNumber numberWithInt:1]])
+    {
+        
+        appDelegate.authorizeContactViewController = [[AuthorizeContactViewController alloc] init];
+        [appDelegate.masterViewController.navigationController pushViewController:appDelegate.authorizeContactViewController animated:YES];
+        is_authorize_request = YES;
+        
+    } else {
+        
+        appDelegate.threadViewController = [[ThreadViewController alloc] init];
+        [appDelegate.masterViewController.navigationController pushViewController:appDelegate.threadViewController animated:YES];
+        
+    }
 
     // Block whole window
     
@@ -208,8 +225,12 @@
             // Update UI
             // Example:
             // self.myLabel.text = result;
+            if(is_authorize_request == YES) {
+                [appDelegate.authorizeContactViewController loadThread:indexPath.row];
+            } else {
+                [appDelegate.threadViewController loadThread:indexPath.row];
+            }
             
-            [appDelegate.threadViewController loadThread:indexPath.row];
             [progressView dismiss:YES];
             
             
