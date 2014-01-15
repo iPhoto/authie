@@ -46,9 +46,28 @@
     UIBarButtonItem *send = [[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonItemStylePlain target:self action:@selector(sendSnap:)];
     
     self.navigationItem.rightBarButtonItem = send;
+
+    UIView *holder = [[UIView alloc] init];
+    [holder setFrame:CGRectMake(0, 0, 200, 35)];
     
-    self.navigationItem.title = self.handle.name;
-        
+    UILabel *handleLabel = [[UILabel alloc] init];
+    
+    
+    if([self.handle.id isEqualToNumber:[NSNumber numberWithInt:1]]) {
+        handleLabel.text = self.handle.name;
+    } else {
+        handleLabel.text = [NSString stringWithFormat:@"snap for %@", self.handle.name];
+    }
+    
+    [handleLabel setLineBreakMode:NSLineBreakByWordWrapping];
+    [handleLabel setFont:[UIFont systemFontOfSize:10]];
+    [handleLabel setFrame:CGRectMake(0, 5, 200, 30)];
+    [handleLabel setTextAlignment:NSTextAlignmentCenter];
+    
+    [holder addSubview:handleLabel];
+    
+    self.navigationItem.titleView = holder;
+    
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
