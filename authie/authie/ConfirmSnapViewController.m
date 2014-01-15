@@ -47,15 +47,8 @@
     
     self.navigationItem.rightBarButtonItem = send;
     
-    NSString *title;
-    
-    NSLog(@"key: %@, handle.name: %@", self.key, self.handle.name);
-    
-    //if(self.handle.name isEqualToString:[RODI])
-    
-    self.navigationItem.title = [NSString stringWithFormat:@"snap to %@", title];
-    
-    
+    self.navigationItem.title = self.handle.name;
+        
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
@@ -96,8 +89,11 @@
 
 -(void)sendSnap:(id)sender
 {
-
-    NSLog(@"Send snap.");
+    
+    if([self.snapCaption.text isEqualToString:@"Tap to caption..."]) {
+        [self.snapCaption setText:@""];
+    }
+    
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.masterViewController.imageToUpload = snap;
     appDelegate.masterViewController.keyToUpload = key;
