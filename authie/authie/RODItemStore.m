@@ -476,15 +476,20 @@
         
         NSError *deserialize_error = nil;
         
-        id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingAllowFragments error:&deserialize_error];
-        if([object isKindOfClass:[NSDictionary class]] && deserialize_error == nil) {
-            
-            NSLog(@"results from postfile: %@", object);
-            
-            upload_success = YES;
+        
+        if(localData != nil) {
+
+            id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingAllowFragments error:&deserialize_error];
+            if([object isKindOfClass:[NSDictionary class]] && deserialize_error == nil) {
+                
+                NSLog(@"results from postfile: %@", object);
+                
+                upload_success = YES;
+                
+            }
             
         } else {
-            NSLog(@"weird object from postfile, %@", object);
+            NSLog(@"uploadSnap timed out.");
         }
         
     }

@@ -74,7 +74,6 @@
 {
 
     NSLog(@"Send snap.");
-    [self dismissViewControllerAnimated:YES completion:nil];
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.masterViewController.imageToUpload = snap;
     appDelegate.masterViewController.keyToUpload = key;
@@ -82,6 +81,7 @@
     appDelegate.masterViewController.captionToUpload = self.snapCaption.text;
     [appDelegate.masterViewController setDoUploadOnView:true];
     [appDelegate.masterViewController.navigationController popToRootViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 
 }
 
@@ -92,6 +92,9 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"trashed" message:@"Your message has been trashed." delegate:appDelegate.masterViewController cancelButtonTitle:@"ok" otherButtonTitles:nil];
+    
+    [appDelegate.masterViewController.view setTintColor:[UIColor blackColor]];
+    [UIApplication sharedApplication].keyWindow.tintColor = [UIColor blackColor];
     
     [appDelegate.masterViewController.navigationController popToRootViewControllerAnimated:YES];
     

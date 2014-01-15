@@ -44,6 +44,9 @@
         [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
     }
     
+    
+    [[UIApplication sharedApplication] keyWindow].tintColor = [UIColor blackColor];
+    
     // test flighty
     [TestFlight takeOff:@"e0b1dd9c-b710-4223-8aa8-b68350a2da33"];
 

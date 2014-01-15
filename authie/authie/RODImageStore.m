@@ -45,13 +45,17 @@
 
 - (void)setImage:(UIImage *)i forKey:(NSString *)s
 {
-    [dictionary setObject:i forKey:s];
     
-    NSString *imagePath = [self imagePathForKey:s];
+    if(i != nil) {
+        [dictionary setObject:i forKey:s];
+        
+        NSString *imagePath = [self imagePathForKey:s];
+        
+        NSData *d = UIImageJPEGRepresentation(i, 1);
+        
+        [d writeToFile:imagePath atomically:YES];
+    }
     
-    NSData *d = UIImageJPEGRepresentation(i, 1);
-
-    [d writeToFile:imagePath atomically:YES];
 }
 
 -(UIImage *) getSnapFromWebsite:(NSString *)groupKey {
