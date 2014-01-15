@@ -265,23 +265,18 @@
     
     [progressView show:YES];
 
+    [[RODImageStore sharedStore] setImage:self.imageToUpload forKey:self.keyToUpload];
+    NSLog(@"Created key: %@", self.keyToUpload);
+    [[RODItemStore sharedStore] createSelfie:self.keyToUpload];
+    
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
     dispatch_async(queue, ^{
         // Perform async operation
-        // Call your method/function here
-        // Example:
-        // NSString *result = [anObject calculateSomething];
-
-        [[RODImageStore sharedStore] setImage:self.imageToUpload forKey:self.keyToUpload];
-        NSLog(@"Created key: %@", self.keyToUpload);
-        
-        [[RODItemStore sharedStore] createSelfie:self.keyToUpload];
         [[RODItemStore sharedStore] startThread:self.handleToUpload.publicKey forKey:self.keyToUpload withCaption:self.captionToUpload];
+
         
         dispatch_sync(dispatch_get_main_queue(), ^{
             // Update UI
-            // Example:
-            // self.myLabel.text = result;
             [progressView dismiss:YES];
             [self resetUploadVariables];
             [self.tableView reloadData];

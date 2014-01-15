@@ -41,10 +41,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    
-    NSLog(@"SelectContactViewController: viewWillAppear");
-    
+        
     // this happens when they are viewing their own profile
     self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateSettingsCog:self];
     

@@ -484,6 +484,7 @@
                 
                 NSLog(@"results from postfile: %@", object);
                 
+                [self loadThreads];
                 upload_success = YES;
                 
             }
@@ -548,7 +549,7 @@
                 start_convo_success = YES;
                 
                 [self uploadSnap:key];
-                [self loadThreads];
+                //[self loadThreads];
                 
                 
             }
