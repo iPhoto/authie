@@ -42,21 +42,11 @@
 }
 
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
-    NSLog(@"textViewShouldBeginEditing:");
     return YES;
-}
-- (void)textViewDidBeginEditing:(UITextView *)textView {
-    NSLog(@"textViewDidBeginEditing:");
-//    self.snapCaption.backgroundColor = [UIColor greenColor];
 }
 
 - (BOOL)textViewShouldEndEditing:(UITextView *)textView{
-    NSLog(@"textViewShouldEndEditing:");
-//    self.snapCaption.backgroundColor = [UIColor whiteColor];
     return YES;
-}
-- (void)textViewDidEndEditing:(UITextView *)textView{
-    NSLog(@"textViewDidEndEditing:");
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,6 +58,13 @@
 - (IBAction)tappedScreen:(id)sender {
     [self.snapCaption resignFirstResponder];
     
+}
+
+-(void)textViewDidBeginEditing:(UITextView *)textView
+{
+    if([textView.text isEqualToString:@"Tap to caption..."]) {
+        [textView setText:@""];
+    }
 }
 
 -(void)sendSnap:(id)sender

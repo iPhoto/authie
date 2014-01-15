@@ -24,14 +24,14 @@
                         <outletCollection property="gestureRecognizers" destination="ZCo-Cd-da8" appends="YES" id="6bz-Ne-ZGm"/>
                     </connections>
                 </imageView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.89999999999999991" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yi4-UR-zYn">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.89999999999999991" contentMode="scaleToFill" text="Tap to caption..." translatesAutoresizingMaskIntoConstraints="NO" id="yi4-UR-zYn">
                     <rect key="frame" x="0.0" y="0.0" width="311" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="a0M-w6-rC9"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="aFQ-cz-4un"/>
