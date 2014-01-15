@@ -92,18 +92,18 @@
             [appDelegate.masterViewController.view addSubview:progressView];
             
             
-            [progressView show:YES];
+//            [progressView show:YES];
             
-            dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
-            dispatch_async(queue, ^{
+            //dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+            //dispatch_async(queue, ^{
                 // Perform async operation
                 [[RODItemStore sharedStore] loadThreads];
                 
-                dispatch_sync(dispatch_get_main_queue(), ^{
+                //dispatch_sync(dispatch_get_main_queue(), ^{
                     // Update UI
-                    [progressView dismiss:YES];
-                });
-            });
+                    //[progressView dismiss:YES];
+                //});
+            //});
             
             
             

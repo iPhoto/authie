@@ -129,8 +129,6 @@
         [[RODItemStore sharedStore] checkLoginStatus];
         
     }
-
-    [[UIApplication sharedApplication] keyWindow].tintColor = [UIColor blackColor];
     
     // Override point for customization after application launch.
     return YES;
