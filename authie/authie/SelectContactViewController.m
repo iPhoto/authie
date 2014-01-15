@@ -41,7 +41,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-        
+    
     // this happens when they are viewing their own profile
     self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateSettingsCog:self];
     

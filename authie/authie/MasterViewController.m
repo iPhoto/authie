@@ -277,9 +277,10 @@
         
         dispatch_sync(dispatch_get_main_queue(), ^{
             // Update UI
-            [progressView dismiss:YES];
             [self resetUploadVariables];
-            [self.tableView reloadData];
+            [[RODItemStore sharedStore] loadThreads];
+            [progressView dismiss:YES];
+            
         });
     });
 
