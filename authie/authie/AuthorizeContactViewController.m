@@ -59,7 +59,7 @@
 }
 
 - (IBAction)acceptAuthorization:(id)sender {
-    [[RODItemStore sharedStore] authorizeContact:self.thread.toHandle.publicKey];
+    [[RODItemStore sharedStore] authorizeContact:self.thread.fromHandle.publicKey];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

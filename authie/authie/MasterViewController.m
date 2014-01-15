@@ -107,8 +107,6 @@
 
 - (void)refresh:(id)sender
 {
-    NSLog(@"Refresh fired.");
-    // do your refresh here and reload the tablview
     [[RODItemStore sharedStore] loadThreads];
 }
 

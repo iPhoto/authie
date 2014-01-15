@@ -38,6 +38,7 @@
 - (BOOL)registerHandle:(NSString *)handle;
 - (BOOL)login:(NSString *)handle privateKey:(NSString *)key;
 - (BOOL)loadThreads;
+- (BOOL)loadContacts;
 - (BOOL)checkLoginStatus;
 - (BOOL)getHandleInformation;
 - (BOOL)startThread:(NSString *)toHandle forKey:(NSString *)key withCaption:(NSString *)caption;

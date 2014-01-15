@@ -733,6 +733,7 @@
 
             AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
             [appDelegate.contactsViewController.tableView reloadData];
+            [appDelegate.contactsViewController.refreshControl endRefreshing];
                         
             loaded_contacts = YES;
             

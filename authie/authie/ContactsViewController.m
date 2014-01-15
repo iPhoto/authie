@@ -14,6 +14,7 @@
 #import "RODItemStore.h"
 #import "ProfileViewController.h"
 #import "ConfirmSnapViewController.h"
+#import "RODItemStore.h"
 
 @implementation ContactsViewController
 @synthesize selected, imagePicker;
@@ -47,6 +48,11 @@
 
     [self.tableView setSeparatorInset:UIEdgeInsetsZero];
     
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    [self setRefreshControl:refreshControl];
+    
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -59,6 +65,12 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)refresh:(id)sender
+{
+    [[RODItemStore sharedStore] loadContacts];
+}
+
 
 #pragma mark - Table view data source
 
