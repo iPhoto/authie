@@ -55,12 +55,22 @@
 }
 
 -(UIImage *) getSnapFromWebsite:(NSString *)groupKey {
-    UIImage * result;
     
-    NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://authie.me/api/snap/500/%@", groupKey]]];
-    result = [UIImage imageWithData:data];
     
-    [self setImage:result forKey:groupKey];
+    UIImage * __block result;
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+    dispatch_async(queue, ^{
+        
+        NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://authie.me/api/snap/500/%@", groupKey]]];
+        result = [UIImage imageWithData:data];
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            // Update UI
+            [self setImage:result forKey:groupKey];
+        });
+    });
+
     
     return result;
 }
@@ -100,10 +110,13 @@
 
 - (UIImage *)imageForKey:(NSString *)s
 {
+    
+    UIImage __block *result;
 
+    
     NSLog(@"Image for key: %@", s);
-    UIImage *result = [dictionary objectForKey:s];
-        
+    result = [dictionary objectForKey:s];
+    
     if (!result) {
         result = [UIImage imageWithContentsOfFile:[self imagePathForKey:s]];
         
@@ -111,16 +124,19 @@
             [dictionary setObject:result forKey:s];
         } else {
             NSLog(@"Unable to load image, loading from website");
+            
             result = [self getSnapFromWebsite:s];
             
             if(result) {
                 [self setImage:result forKey:s];
                 NSLog(@"Called setImage after downloading...");
             }
+            
         }
     }
     
     return result;
+
 }
 
 - (void)deleteImageForKey:(NSString *)s

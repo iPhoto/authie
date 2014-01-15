@@ -778,7 +778,7 @@
             
             for (NSDictionary *result in object) {
                 
-                NSLog(@"loadThreads: %@", result);
+                //NSLog(@"loadThreads: %@", result);
                 NSInteger id_result = [[result objectForKey:@"id"] integerValue];
                 
                 // replace them with the new ones

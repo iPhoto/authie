@@ -40,6 +40,14 @@
     [super viewWillAppear:animated];
     
     [self.tableView reloadData];
+    
+    self.imagePicker = [[UIImagePickerController alloc] init];
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    self.imagePicker = nil;
 }
 
 - (void)viewDidLoad
@@ -105,7 +113,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     RODHandle *handle = [[RODItemStore sharedStore].authie.all_Contacts objectAtIndex:indexPath.row];
-    
+        
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     ProfileViewController *pvc = [[ProfileViewController alloc] init];
     appDelegate.profileViewController = pvc;
@@ -171,6 +179,7 @@
 
 - (void)showAuthorizationRequestImagePicker
 {
+    self.imagePicker = nil;
     self.imagePicker = [[UIImagePickerController alloc] init];
     
     if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
@@ -196,6 +205,7 @@
 {
     
     [self dismissViewControllerAnimated:NO completion:nil];
+    self.imagePicker = nil;
     
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     
@@ -232,6 +242,7 @@
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     [self dismissViewControllerAnimated:NO completion:nil];
+    self.imagePicker = nil;
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     

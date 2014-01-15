@@ -42,14 +42,18 @@
 {
     [super viewWillAppear:animated];
     
+    
+    NSLog(@"SelectContactViewController: viewWillAppear");
+    
     // this happens when they are viewing their own profile
     self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateSettingsCog:self];
-
+    
     self.imagePicker = [[UIImagePickerController alloc] init];
     
     [self.contactsTable deselectRowAtIndexPath:[self.contactsTable indexPathForSelectedRow] animated:animated];
     
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -95,7 +99,8 @@
     RODHandle *handle = [[RODItemStore sharedStore].authie.all_ContactsWithEverybody objectAtIndex:indexPath.row];
     
     self.selected = handle;
-    
+        
+    self.imagePicker = nil;
     self.imagePicker = [[UIImagePickerController alloc] init];
     
     if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
@@ -113,8 +118,8 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    
     [self dismissViewControllerAnimated:NO completion:nil];
+    self.imagePicker = nil;
     
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     
@@ -142,6 +147,7 @@
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     [self dismissViewControllerAnimated:NO completion:nil];
+    self.imagePicker = nil;
 
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 
