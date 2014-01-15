@@ -31,7 +31,7 @@
     
     self.navigationItem.titleView = [[RODItemStore sharedStore] generateHeaderView];
     
-    self.privateKey.text = [[RODItemStore sharedStore].authie.handle.privateKey substringToIndex:5];
+    self.privateKey.text = [[RODItemStore sharedStore].authie.privateKey substringToIndex:5];
     
 }
 
