@@ -195,6 +195,8 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     
+    [self dismissViewControllerAnimated:NO completion:nil];
+    
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     
     CFUUIDRef newUniqueID = CFUUIDCreate(kCFAllocatorDefault);
@@ -205,7 +207,6 @@
     CFRelease(newUniqueIDString);
     CFRelease(newUniqueID);
     
-    [self dismissViewControllerAnimated:NO completion:nil];
     
     // now push to confirm snap
     //...
@@ -215,12 +216,16 @@
     confirm.key = key;
     confirm.handle = self.selected;
 
+
+    
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.masterViewController];
-    
+
+    [navigationController.navigationBar setTintColor:[UIColor blackColor]];
+
     [appDelegate.masterViewController.navigationController pushViewController:confirm animated:YES];
-    
     self.frostedViewController.contentViewController = navigationController;
+    
     
 }
 

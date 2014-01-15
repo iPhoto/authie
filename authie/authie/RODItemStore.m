@@ -665,10 +665,11 @@
             
             if(result == 1) {
 
-                [self loadContacts];
-                [self loadThreads];
                 AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
                 [appDelegate.masterViewController.navigationController popToRootViewControllerAnimated:YES];
+                
+                [self loadThreads];
+                [self loadContacts];
                 
             } else {
                 
