@@ -903,9 +903,6 @@
                 NSDictionary *from_inner_result = [result objectForKey:@"fromHandle"];
                 NSString *from_result = [NSString stringWithFormat:@"from: %@",[from_inner_result objectForKey:@"name"]];
                 
-                
-
-                
                 NSString *caption_result = [result objectForKey:@"caption"];
                 thready.caption = caption_result;
                 
@@ -913,7 +910,6 @@
                 NSInteger authorizeRequest = [[result objectForKey:@"authorizeRequest"] integerValue];
                 
                 id toHandleSeen_result = [result objectForKey:@"toHandleSeen"];
-                NSLog(@"toHandleSeen_result: %@", toHandleSeen_result);
                 if(toHandleSeen_result == [NSNull null]) {
                     thready.toHandleSeen = 0;
                 } else {
@@ -939,9 +935,7 @@
                 [self.loadedThreadsFromAuthor addObject:thready];
                 
                 [[RODImageStore sharedStore] downloadImage:thready.groupKey];
-                
-                NSLog(@"threadFromHandle: %@", thready.groupKey);
-                
+                                
             }
             
             loaded_threads = YES;

@@ -9,6 +9,8 @@
 #import "ConfirmSnapViewController.h"
 #import "AppDelegate.h"
 #import "MasterViewController.h"
+#import "RODHandle.h"
+#import "RODItemStore.h"
 
 @implementation ConfirmSnapViewController
 @synthesize snap, key, handle;
@@ -45,7 +47,25 @@
     
     self.navigationItem.rightBarButtonItem = send;
     
+    NSString *title;
     
+    NSLog(@"key: %@, handle.name: %@", self.key, self.handle.name);
+    
+    //if(self.handle.name isEqualToString:[RODI])
+    
+    self.navigationItem.title = [NSString stringWithFormat:@"snap to %@", title];
+    
+    
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    if([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    
+    return YES;
 }
 
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
