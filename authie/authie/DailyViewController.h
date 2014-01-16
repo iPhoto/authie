@@ -10,5 +10,8 @@
 
 @interface DailyViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
+@property (nonatomic) int contentSize;
+
+- (void)populateScrollView;
 
 @end
