@@ -34,13 +34,14 @@
     
     [self.navigationItem setTitle:@"the daily"];
     
-    [self getThreads];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateSettingsCog:self];
+    
+    [self getThreads];
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,8 +52,6 @@
 
 - (void)getThreads
 {
-    
-    NSLog(@"Loading threads...");
     
     // Block whole window
     
@@ -87,9 +86,12 @@
 - (void)populateScrollView
 {
     
-    NSLog(@"theDaily: populateScrollView");
     MiniThreadViewController *mini;
     int yOffset = 0;
+    
+    
+    // remove the threads that were there before
+    [[self.scroll subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
     int photo_height = 500;
     
