@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface DailyViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 
 @end

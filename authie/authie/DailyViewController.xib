@@ -6,30 +6,27 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DailyViewController">
             <connections>
-                <outlet property="view" destination="xyh-4E-7g4" id="jZI-SK-cxS"/>
+                <outlet property="scroll" destination="RT4-tR-jKQ" id="YiF-Iv-D9M"/>
+                <outlet property="view" destination="DyY-1C-Wl4" id="66T-7K-kon"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="xyh-4E-7g4">
-            <rect key="frame" x="0.0" y="0.0" width="260" height="250"/>
+        <view contentMode="scaleToFill" id="DyY-1C-Wl4">
+            <rect key="frame" x="0.0" y="0.0" width="287" height="202"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="the daily deploying soon" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="129" translatesAutoresizingMaskIntoConstraints="NO" id="jdb-Bv-lPy">
-                    <rect key="frame" x="66" y="93" width="129" height="64"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="64" id="TXN-YU-3lS"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RT4-tR-jKQ">
+                    <rect key="frame" x="0.0" y="0.0" width="287" height="202"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                </scrollView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstItem="jdb-Bv-lPy" firstAttribute="leading" secondItem="xyh-4E-7g4" secondAttribute="leading" constant="66" id="9So-He-yIu"/>
-                <constraint firstAttribute="trailing" secondItem="jdb-Bv-lPy" secondAttribute="trailing" constant="65" id="D9w-Cy-h4X"/>
-                <constraint firstItem="jdb-Bv-lPy" firstAttribute="centerY" secondItem="xyh-4E-7g4" secondAttribute="centerY" id="n6H-Lq-rgr"/>
+                <constraint firstAttribute="trailing" secondItem="RT4-tR-jKQ" secondAttribute="trailing" id="GqF-yO-FDL"/>
+                <constraint firstItem="RT4-tR-jKQ" firstAttribute="leading" secondItem="DyY-1C-Wl4" secondAttribute="leading" id="LRu-lN-kd5"/>
+                <constraint firstItem="RT4-tR-jKQ" firstAttribute="top" secondItem="DyY-1C-Wl4" secondAttribute="top" id="jRG-pg-9E5"/>
+                <constraint firstAttribute="bottom" secondItem="RT4-tR-jKQ" secondAttribute="bottom" id="jn6-tx-L8N"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
