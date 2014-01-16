@@ -64,6 +64,10 @@
         if(!loadedThreadsFromAuthor)
             loadedThreadsFromAuthor = [[NSMutableArray alloc] init];
         
+        if(!self.dailyThreads) {
+            self.dailyThreads = [[NSMutableArray alloc] init];
+        }
+        
     }
     
     return self;
@@ -949,6 +953,93 @@
     }
         
     return loaded_threads;
+}
+
+- (void)loadDaily
+{
+    
+    NSError *error = nil;
+    
+    NSURLResponse *response;
+    NSData *localData = nil;
+    
+    NSString *url = [NSString stringWithFormat:@"http://authie.me/api/daily"];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"GET"];
+    
+    if(error == nil) {
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        
+        //send the request and get the response
+        localData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        NSError *deserialize_error = nil;
+        
+        id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingMutableContainers error:&deserialize_error];
+        if([object isKindOfClass:[NSArray self]] && deserialize_error == nil) {
+            
+            // clear out old threads
+            [self.dailyThreads removeAllObjects];
+            
+            for (NSDictionary *result in object) {
+                
+                NSLog(@"the daily: %@", result);
+                
+                NSInteger id_result = [[result objectForKey:@"id"] integerValue];
+                
+                // replace them with the new ones
+                RODThread *thready = [[RODThread alloc] init];
+                thready.id = [NSNumber numberWithInteger:id_result];
+                
+                NSDictionary *inner_result = [result objectForKey:@"toHandle"];
+                NSString *to_result = [inner_result objectForKey:@"name"];
+                
+                NSDictionary *from_inner_result = [result objectForKey:@"fromHandle"];
+                NSString *from_result = [NSString stringWithFormat:@"from: %@",[from_inner_result objectForKey:@"name"]];
+                
+                NSString *caption_result = [result objectForKey:@"caption"];
+                thready.caption = caption_result;
+                
+                NSInteger hearts = [[result objectForKey:@"hearts"] integerValue];
+                NSInteger authorizeRequest = [[result objectForKey:@"authorizeRequest"] integerValue];
+                
+                id toHandleSeen_result = [result objectForKey:@"toHandleSeen"];
+                if(toHandleSeen_result == [NSNull null]) {
+                    thready.toHandleSeen = 0;
+                } else {
+                    thready.toHandleSeen = [NSNumber numberWithInteger:[toHandleSeen_result integerValue]];
+                }
+                
+                thready.hearts = [NSNumber numberWithInteger:hearts];
+                thready.authorizeRequest = [NSNumber numberWithInteger:authorizeRequest];
+                
+                thready.groupKey = [result objectForKey:@"groupKey"];
+                thready.toHandleId = to_result;
+                thready.fromHandleId = from_result;
+                
+                NSString *silly_date = [result objectForKey:@"startDate"];
+                NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+                
+                //The Z at the end of your string represents Zulu which is UTC
+                [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
+                [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
+                
+                thready.startDate = [dateFormatter dateFromString:silly_date];
+                
+                [self.dailyThreads addObject:thready];
+                
+                //[[RODImageStore sharedStore] downloadImage:thready.groupKey];
+                
+            }            
+            
+        } else {
+            NSLog(@"Not that kind of object: %@, deserialize_error: %@", object, deserialize_error);
+        }
+        
+    }
+    
 }
 
 

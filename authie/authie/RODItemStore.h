@@ -20,6 +20,7 @@
 }
 
 @property (strong, nonatomic) NSMutableArray *loadedThreadsFromAuthor;
+@property (strong, nonatomic) NSMutableArray *dailyThreads;
 
 + (RODItemStore *)sharedStore;
 
@@ -37,6 +38,7 @@
 - (BOOL)checkHandleAvailability:(NSString *)handle;
 - (BOOL)registerHandle:(NSString *)handle;
 - (BOOL)login:(NSString *)handle privateKey:(NSString *)key;
+- (void)loadDaily;
 - (BOOL)loadThreads;
 - (BOOL)loadContacts;
 - (BOOL)checkLoginStatus;

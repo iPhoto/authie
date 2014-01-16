@@ -71,7 +71,7 @@
         // Example:
         // NSString *result = [anObject calculateSomething];
         
-        [[RODItemStore sharedStore] getThreadsFromHandle:@"2"];
+        [[RODItemStore sharedStore] loadDaily];
         
         dispatch_sync(dispatch_get_main_queue(), ^{
             // Update UI
@@ -87,14 +87,15 @@
 - (void)populateScrollView
 {
     
+    NSLog(@"theDaily: populateScrollView");
     MiniThreadViewController *mini;
     int yOffset = 0;
     
     int photo_height = 500;
     
-    for(int i=0; i < [[RODItemStore sharedStore].loadedThreadsFromAuthor count]; i++) {
+    for(int i=0; i < [[RODItemStore sharedStore].dailyThreads count]; i++) {
         
-        RODThread *thread = [[RODItemStore sharedStore].loadedThreadsFromAuthor objectAtIndex:i];
+        RODThread *thread = [[RODItemStore sharedStore].dailyThreads objectAtIndex:i];
         mini = [[MiniThreadViewController alloc] init];
         
         UIImage *image =[[RODImageStore sharedStore] imageForKey:thread.groupKey];
