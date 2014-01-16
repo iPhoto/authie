@@ -31,8 +31,6 @@
     
     self.navigationItem.titleView = [[RODItemStore sharedStore] generateHeaderView];
     
-    self.privateKey.text = [[RODItemStore sharedStore].authie.privateKey substringToIndex:5];
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -40,7 +38,10 @@
     [super viewWillAppear:animated];
 
     self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateSettingsCog:self];
-    
+
+    NSLog(@"Will appear: %@",[RODItemStore sharedStore].authie.privateKey);
+    self.privateKey.text = [[RODItemStore sharedStore].authie.privateKey substringToIndex:5];
+
 }
 
 

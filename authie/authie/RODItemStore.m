@@ -47,6 +47,7 @@
             [self saveChanges];
         } else {
             NSLog(@"Loaded authie from file, public/private: %@, %@", self.authie.handle.publicKey, self.authie.handle.privateKey);
+                        
         }
         
         NSLog(@"current authie: registered: %i, authieKey: %@, selfies: %lu, id: %@, name: %@", self.authie.registered, self.authie.privateKey, (unsigned long)[self.authie.allSelfies count], self.authie.handle.id, self.authie.handle.name);
@@ -263,8 +264,11 @@
                 [appDelegate.loginViewController.labelResults setText:message_result];
             } else {
                 logged_in = YES;
+                
+                [RODItemStore sharedStore].authie.handle.privateKey = message_result;
                 [RODItemStore sharedStore].authie.privateKey = message_result;
                 [[RODItemStore sharedStore] saveChanges];
+                NSLog(@"found key: %@", message_result);
                 
                 [self getHandleInformation];
             }
@@ -327,8 +331,6 @@
 - (BOOL)getHandleInformation
 {
     BOOL got = NO;
- 
-    NSLog(@"getHandleInformation...");
     
     NSError *error = nil;
     
@@ -356,7 +358,7 @@
 
         if([inner_object isKindOfClass:[NSDictionary class]] && deserialize_error == nil) {
 
-            NSLog(@"results from registration: %@", object);
+            NSLog(@"results from getHandleInformation: %@", object);
             
             NSInteger active_result;
             active_result = [[inner_object objectForKey:@"active"] integerValue];
@@ -389,7 +391,7 @@
                 //[self.authie.handle setPrivateKey:privateKey];
                 [self.authie.handle setPublicKey:publicKey];
                 
-                NSLog(@"id: %lu, privateKey: %@, publicKey: %@", [self.authie.handle.id longValue], self.authie.handle.privateKey, self.authie.handle.publicKey);
+                NSLog(@"id: %lu, privateKey: %@, publicKey: %@", [self.authie.handle.id longValue], self.authie.privateKey, self.authie.handle.publicKey);
                 
                 AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
                 [appDelegate.masterViewController.navigationController popToRootViewControllerAnimated:YES];
@@ -1087,8 +1089,10 @@
                 [self.authie.handle setPrivateKey:privateKey];
                 [self.authie.handle setPublicKey:publicKey];
                 
-                NSLog(@"id: %lu, privateKey: %@, publicKey: %@", [self.authie.handle.id longValue], self.authie.handle.privateKey, self.authie.handle.publicKey);
+                [self.authie setPrivateKey:privateKey];
                 
+                NSLog(@"id: %lu, privateKey: %@, publicKey: %@", [self.authie.handle.id longValue], self.authie.handle.privateKey, self.authie.handle.publicKey);
+                                
                 AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
                 [appDelegate.masterViewController.navigationController popToRootViewControllerAnimated:YES];
                 
