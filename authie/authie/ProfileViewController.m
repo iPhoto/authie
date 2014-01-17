@@ -144,6 +144,12 @@
     
     int photo_height = 400;
 
+    // remove the threads that were there before
+    [[self.scroll subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    
+
+    [_items removeAllObjects];
+
     for(int i=0; i < [[RODItemStore sharedStore].loadedThreadsFromAuthor count]; i++) {
         
         RODThread *thread = [[RODItemStore sharedStore].loadedThreadsFromAuthor objectAtIndex:i];
@@ -179,6 +185,8 @@
             mini.labelCaption.text = thread.caption;
         }
 
+        NSLog(@"Length: %i", mini.labelCaption.text.length);
+        
         if(mini.labelCaption.text.length == 0) {
             
             [mini.heartsView setTranslatesAutoresizingMaskIntoConstraints:NO];
@@ -188,7 +196,7 @@
             f.size.width = self.scroll.frame.size.width;
             
             [mini.heartsView setFrame:f];
-        } else if(mini.labelCaption.text.length < 20) {
+        } else if(mini.labelCaption.text.length < 100) {
             
             [mini.heartsView setTranslatesAutoresizingMaskIntoConstraints:NO];
             

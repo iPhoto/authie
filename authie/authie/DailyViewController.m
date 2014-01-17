@@ -98,7 +98,7 @@
     // remove the threads that were there before
     [[self.scroll subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
-    int photo_height = 500;
+    int photo_height = 400;
     
     [_items removeAllObjects];
     
