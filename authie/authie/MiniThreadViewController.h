@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelCaption;
 @property (weak, nonatomic) IBOutlet UIView *heartsView;
 @property (weak, nonatomic) IBOutlet UILabel *heartsCount;
+@property (weak, nonatomic) IBOutlet UIView *reportView;
 
 
 

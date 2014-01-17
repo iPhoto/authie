@@ -214,10 +214,54 @@
     return [documentDirectory stringByAppendingPathComponent:@"items.archive"];
 }
 
+- (void)report:(NSString *)groupKey
+{
+    NSError *error = nil;
+    NSData *localData = nil;
+    NSURLResponse *response;
+    
+    NSDictionary *checkDict = [[NSDictionary alloc] initWithObjectsAndKeys:
+                               @"1", @"id",
+                               @"1", @"fromHandleId",
+                               @"1", @"toHandleId",
+                               groupKey, @"groupKey",
+                               @"1", @"active",
+                               @"", @"caption",
+                               nil];
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:checkDict options:kNilOptions error:&error];
+    
+    NSString *url = @"http://authie.me/api/report";
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"POST"];
+    
+    
+    if(error == nil) {
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        [request setHTTPBody:jsonData];
+        
+        //send the request and get the response
+        localData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        NSError *deserialize_error = nil;
+        
+        id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingAllowFragments error:&deserialize_error];
+        
+        if(deserialize_error == nil) {
+            
+            NSLog(@"results from report: %@", object);
+            
+        }
+        
+    }
+    
+
+}
+
 - (void)giveLove:(NSString *)groupKey
 {
-
-    
     NSError *error = nil;
     NSData *localData = nil;
     NSURLResponse *response;

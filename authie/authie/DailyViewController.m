@@ -127,9 +127,22 @@
         UITapGestureRecognizer *tapHearts = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickedHeart:)];
         [mini.heartsView addGestureRecognizer:tapHearts];
         
+        [mini.snapView setUserInteractionEnabled:YES];
+        
+        UITapGestureRecognizer *tapView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedImageView:)];
+        [mini.snapView addGestureRecognizer:tapView];
+        
+        [mini.reportView setUserInteractionEnabled:YES];
+        UITapGestureRecognizer *tapReport = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedReport:)];
+        [mini.reportView addGestureRecognizer:tapReport];
+        
         int mini_tag = i*100;
+        int imageview_tag = (i+100)*1000;
+        int report_tag = (i+900)*2000;
         mini.heartsView.tag = mini_tag;
-         
+        mini.snapView.tag = imageview_tag;
+        mini.reportView.tag = report_tag;
+        
         [mini.view layoutSubviews];
         
         //photo_height = mini.snapView.image.size.height + 10;
@@ -146,15 +159,51 @@
     
 }
 
+- (void)tappedReport:(UITapGestureRecognizer *)tapGesture
+{
+    
+    int thread_index = ([tapGesture.view tag] / 2000) - 900;
+    RODThread *thread = [[RODItemStore sharedStore].dailyThreads objectAtIndex:thread_index];
+
+    // run update interface code before calling web service
+    UIAlertView *reported = [[UIAlertView alloc] initWithTitle:@"Reported" message:@"This image has been reported. A moderator has been alerted and will remove the image if it is inappropriate." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+
+    [reported show];
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+    dispatch_async(queue, ^{
+        // Perform async operation
+        
+        [[RODItemStore sharedStore] report:thread.groupKey];
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            // Update UI
+        });
+    });
+    
+}
+
+
+- (void)tappedImageView:(UITapGestureRecognizer *)tapGesture
+{
+
+    int thread_index = ([tapGesture.view tag] / 1000) - 100;
+    
+    MiniThreadViewController *lil_t = [_items objectAtIndex:thread_index];
+    if([lil_t.reportView isHidden] == YES) {
+        [lil_t.reportView setHidden:NO];
+    } else {
+        [lil_t.reportView setHidden:YES];
+    }
+    
+}
+
 
 - (void)clickedHeart:(UITapGestureRecognizer *)tapGesture
 {
     
     int thread_index = [tapGesture.view tag] / 100;
     RODThread *thread = [[RODItemStore sharedStore].dailyThreads objectAtIndex:thread_index];
-    NSLog(@"vote for guid: %@", thread.groupKey);
-
-    
     
     // run update interface code before calling web service
     MiniThreadViewController *lil_t = [_items objectAtIndex:thread_index];

@@ -38,6 +38,7 @@
 - (BOOL)checkHandleAvailability:(NSString *)handle;
 - (BOOL)registerHandle:(NSString *)handle;
 - (BOOL)login:(NSString *)handle privateKey:(NSString *)key;
+- (void)report:(NSString *)groupKey;
 - (void)giveLove:(NSString *)groupKey;
 - (void)loadDaily;
 - (BOOL)loadThreads;
