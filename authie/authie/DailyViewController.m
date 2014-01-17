@@ -14,6 +14,7 @@
 #import "NSDate+PrettyDate.h"
 #import <MRProgress/MRProgress.h>
 #import "RODAuthie.h"
+#import "RODHandle.h"
 
 @implementation DailyViewController
 @synthesize contentSize;
@@ -114,7 +115,7 @@
         
         [mini.snapView setContentMode:UIViewContentModeScaleAspectFill];
         [mini.snapView setImage:image];
-        [mini.labelDate setText:[thread.startDate prettyDate]];
+        [mini.labelDate setText:[NSString stringWithFormat:@"%@, by %@", [thread.startDate prettyDate], thread.fromHandle.name]];
         
         [mini.heartsCount setText:[thread.hearts stringValue]];
         

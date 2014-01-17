@@ -1096,8 +1096,24 @@
                 NSString *to_result = [inner_result objectForKey:@"name"];
                 
                 NSDictionary *from_inner_result = [result objectForKey:@"fromHandle"];
-                NSString *from_result = [NSString stringWithFormat:@"from: %@",[from_inner_result objectForKey:@"name"]];
+                NSString *from_result = [from_inner_result objectForKey:@"name"];
                 
+                NSString *to_publicKey = [inner_result objectForKey:@"publicKey"];
+                NSString *from_publicKey = [from_inner_result objectForKey:@"publicKey"];
+                
+                RODHandle *fromHandle = [[RODHandle alloc] init];
+                fromHandle.name = from_result;
+                fromHandle.publicKey = from_publicKey;
+                
+                thready.fromHandle = fromHandle;
+                
+                RODHandle *toHandle = [[RODHandle alloc] init];
+                toHandle.name = to_result;
+                toHandle.publicKey = to_publicKey;
+                
+                thready.toHandle = toHandle;
+                
+    
                 NSString *caption_result = [result objectForKey:@"caption"];
                 thready.caption = caption_result;
                 
@@ -1117,6 +1133,7 @@
                 thready.groupKey = [result objectForKey:@"groupKey"];
                 thready.toHandleId = to_result;
                 thready.fromHandleId = from_result;
+                
                 
                 NSString *silly_date = [result objectForKey:@"startDate"];
                 NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];

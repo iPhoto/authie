@@ -70,12 +70,12 @@
                                 <constraint firstAttribute="height" constant="30" id="ng3-8i-pDv"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 hours ago" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="138" translatesAutoresizingMaskIntoConstraints="NO" id="5zd-Wj-qXb" userLabel="ago">
-                            <rect key="frame" x="8" y="8" width="138" height="27"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 hours ago" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="162" translatesAutoresizingMaskIntoConstraints="NO" id="5zd-Wj-qXb" userLabel="ago">
+                            <rect key="frame" x="8" y="8" width="162" height="27"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="27" id="J9j-kW-VZ4"/>
-                                <constraint firstAttribute="width" constant="138" id="qQE-be-GZ2"/>
+                                <constraint firstAttribute="width" constant="162" id="qQE-be-GZ2"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
