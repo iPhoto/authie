@@ -102,6 +102,7 @@
     int photo_height = 400;
     
     [_items removeAllObjects];
+    [self.scroll setContentOffset:CGPointZero animated:YES];
     
     for(int i=0; i < [[RODItemStore sharedStore].dailyThreads count]; i++) {
         
