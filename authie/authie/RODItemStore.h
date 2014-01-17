@@ -50,6 +50,7 @@
 - (BOOL)uploadSnap:(NSString *)key;
 - (BOOL)addContact:(NSString *)handle;
 - (UIView *)generateHeaderView;
+- (UIView *)generateDailyView;
 - (UIBarButtonItem *)generateSettingsCog:(UIViewController *)target;
 
 @end

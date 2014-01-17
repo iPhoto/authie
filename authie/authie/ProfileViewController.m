@@ -49,7 +49,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-        
+            
     if(self.handle.name != [RODItemStore sharedStore].authie.handle.name) {
         
         // add trash can button to allow the user

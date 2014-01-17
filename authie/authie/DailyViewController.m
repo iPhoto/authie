@@ -37,7 +37,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [self.navigationItem setTitle:@"the daily"];
+    self.navigationItem.titleView = [[RODItemStore sharedStore] generateDailyView];
     
 }
 

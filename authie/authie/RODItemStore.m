@@ -1308,11 +1308,11 @@
 -(UIView *)generateDailyView
 {
     UIView *holder = [[UIView alloc] init];
-    [holder setFrame:CGRectMake(0, 0, 100, 35)];
+    [holder setFrame:CGRectMake(0, 0, 200, 35)];
     
     UIImage *image = [UIImage imageNamed:@"authie-logo-07-350px"];
     UIImageView *imageview = [[UIImageView alloc] initWithImage:image];
-    [imageview setFrame:CGRectMake(0, 2, 100, 18)];
+    [imageview setFrame:CGRectMake(0, 2, 200, 18)];
     [imageview setContentMode:UIViewContentModeScaleAspectFit];
     
     [holder addSubview:imageview];
@@ -1320,7 +1320,7 @@
     UILabel *handleLabel = [[UILabel alloc] init];
     handleLabel.text = @"today's prompt: post cats";
     [handleLabel setFont:[UIFont systemFontOfSize:10]];
-    [handleLabel setFrame:CGRectMake(0, 22, 100, 10)];
+    [handleLabel setFrame:CGRectMake(0, 22, 200, 10)];
     [handleLabel setTextAlignment:NSTextAlignmentCenter];
     
     [holder addSubview:handleLabel];
