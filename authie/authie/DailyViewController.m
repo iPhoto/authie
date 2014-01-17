@@ -108,14 +108,15 @@
         mini = [[MiniThreadViewController alloc] init];
         
         UIImage *image =[[RODImageStore sharedStore] imageForKey:thread.groupKey];
-        
+
         mini.view.frame = CGRectMake(0, yOffset, self.scroll.frame.size.width, photo_height);
+        [mini.view setClipsToBounds:YES];
+        
         [mini.snapView setContentMode:UIViewContentModeScaleAspectFill];
         [mini.snapView setImage:image];
         [mini.labelDate setText:[thread.startDate prettyDate]];
         
         [mini.heartsCount setText:[thread.hearts stringValue]];
-        
         
         [mini.heartsView setUserInteractionEnabled:YES];
         
@@ -149,16 +150,16 @@
             [mini.heartsView setTranslatesAutoresizingMaskIntoConstraints:YES];
             
             CGRect f = mini.heartsView.frame;
-            f.size.height -= 50;
+            f.size.height = 40;
             f.size.width = self.scroll.frame.size.width;
             
             [mini.heartsView setFrame:f];
-        } else if(mini.labelCaption.text.length < 20) {
+        } else if(mini.labelCaption.text.length < 100) {
             
             [mini.heartsView setTranslatesAutoresizingMaskIntoConstraints:YES];
             
             CGRect f = mini.heartsView.frame;
-            f.size.height -= 20;
+            f.size.height = 80;
             f.size.width = self.scroll.frame.size.width;
             
             [mini.heartsView setFrame:f];
