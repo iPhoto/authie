@@ -107,7 +107,8 @@
         [mini.snapView setImage:image];
         [mini.labelDate setText:[thread.startDate prettyDate]];
         
-        
+        [mini.heartsCount setText:[thread.hearts stringValue]];
+                
         if(thread.caption == (id)[NSNull null] || thread.caption.length == 0 ) {
             mini.labelCaption.text = @"";
         } else {

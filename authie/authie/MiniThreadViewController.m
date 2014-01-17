@@ -8,10 +8,6 @@
 
 #import "MiniThreadViewController.h"
 
-@interface MiniThreadViewController ()
-
-@end
-
 @implementation MiniThreadViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
