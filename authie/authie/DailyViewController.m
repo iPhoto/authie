@@ -13,6 +13,7 @@
 #import "RODThread.h"
 #import "NSDate+PrettyDate.h"
 #import <MRProgress/MRProgress.h>
+#import "RODAuthie.h"
 
 @implementation DailyViewController
 @synthesize contentSize;
@@ -115,7 +116,14 @@
             mini.labelCaption.text = thread.caption;
         }
         
+        [mini.heartsView setUserInteractionEnabled:YES];
         
+        UITapGestureRecognizer *tapHearts = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickedHeart:)];
+        [mini.heartsView addGestureRecognizer:tapHearts];
+        
+        int mini_tag = i*100;
+        mini.heartsView.tag = mini_tag;
+         
         [mini.view layoutSubviews];
         
         //photo_height = mini.snapView.image.size.height + 10;
@@ -130,5 +138,16 @@
     [self.scroll setContentSize:CGSizeMake(self.scroll.frame.size.width, self.contentSize)];
     
 }
+
+
+- (void)clickedHeart:(UITapGestureRecognizer *)tapGesture
+{
+    
+    int thread_index = [tapGesture.view tag] / 100;
+    RODThread *thread = [[RODItemStore sharedStore].dailyThreads objectAtIndex:thread_index];
+    NSLog(@"vote for guid: %@", thread.groupKey);
+    
+}
+
 
 @end
