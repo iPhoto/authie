@@ -10,6 +10,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ProfileViewController : UIViewController
+{
+    NSMutableArray *_items;
+}
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 @property (weak, nonatomic) IBOutlet UILabel *handleLabel;
 @property (weak, nonatomic) RODHandle *handle;
