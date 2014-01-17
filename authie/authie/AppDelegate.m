@@ -45,7 +45,7 @@
     }
     
     
-    [_window setTintColor:[UIColor blackColor]];
+    [_window setTintColor:[UIColor blueColor]];
     
     // test flighty
     [TestFlight takeOff:@"e0b1dd9c-b710-4223-8aa8-b68350a2da33"];
