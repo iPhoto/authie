@@ -44,6 +44,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:NO];
+    [self.snapView setImage:[UIImage alloc]];
+    
+}
+
 - (IBAction)tappedScreen:(id)sender {
     if(self.viewAuthorization.hidden == YES) {
         [self.viewAuthorization setHidden:NO];
