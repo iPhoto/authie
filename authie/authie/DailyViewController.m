@@ -115,12 +115,7 @@
         [mini.labelDate setText:[thread.startDate prettyDate]];
         
         [mini.heartsCount setText:[thread.hearts stringValue]];
-                
-        if(thread.caption == (id)[NSNull null] || thread.caption.length == 0 ) {
-            mini.labelCaption.text = @"";
-        } else {
-            mini.labelCaption.text = thread.caption;
-        }
+        
         
         [mini.heartsView setUserInteractionEnabled:YES];
         
@@ -143,7 +138,34 @@
         mini.snapView.tag = imageview_tag;
         mini.reportView.tag = report_tag;
         
+        if(thread.caption == (id)[NSNull null] || thread.caption.length == 0 ) {
+            mini.labelCaption.text = @"";
+        } else {
+            mini.labelCaption.text = thread.caption;
+        }
+
+        if(mini.labelCaption.text.length == 0) {
+            
+            [mini.heartsView setTranslatesAutoresizingMaskIntoConstraints:YES];
+            
+            CGRect f = mini.heartsView.frame;
+            f.size.height -= 50;
+            f.size.width = self.scroll.frame.size.width;
+            
+            [mini.heartsView setFrame:f];
+        } else if(mini.labelCaption.text.length < 20) {
+            
+            [mini.heartsView setTranslatesAutoresizingMaskIntoConstraints:YES];
+            
+            CGRect f = mini.heartsView.frame;
+            f.size.height -= 20;
+            f.size.width = self.scroll.frame.size.width;
+            
+            [mini.heartsView setFrame:f];
+        }
+                
         [mini.view layoutSubviews];
+        
         
         //photo_height = mini.snapView.image.size.height + 10;
         
@@ -190,9 +212,11 @@
     int thread_index = ([tapGesture.view tag] / 1000) - 100;
     
     MiniThreadViewController *lil_t = [_items objectAtIndex:thread_index];
-    if([lil_t.reportView isHidden] == YES) {
+    if([lil_t.heartsView isHidden] == YES) {
+        [lil_t.heartsView setHidden:NO];
         [lil_t.reportView setHidden:NO];
     } else {
+        [lil_t.heartsView setHidden:YES];
         [lil_t.reportView setHidden:YES];
     }
     

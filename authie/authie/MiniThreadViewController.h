@@ -11,11 +11,10 @@
 @interface MiniThreadViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *snapView;
 @property (weak, nonatomic) IBOutlet UILabel *labelDate;
-@property (weak, nonatomic) IBOutlet UILabel *labelCaption;
 @property (weak, nonatomic) IBOutlet UIView *heartsView;
 @property (weak, nonatomic) IBOutlet UILabel *heartsCount;
 @property (weak, nonatomic) IBOutlet UIView *reportView;
-
+@property (weak, nonatomic) IBOutlet UITextView *labelCaption;
 
 
 @end
