@@ -160,8 +160,19 @@
     MiniThreadViewController *lil_t = [_items objectAtIndex:thread_index];
     int more_hearts = [thread.hearts intValue] + 1;
     [lil_t.heartsCount setText:[NSString stringWithFormat:@"%i", more_hearts]];
+    thread.hearts = [NSNumber numberWithInt:more_hearts];
     
-    [[RODItemStore sharedStore] giveLove:thread.groupKey];
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+    dispatch_async(queue, ^{
+        // Perform async operation
+        
+        [[RODItemStore sharedStore] giveLove:thread.groupKey];
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            // Update UI
+        });
+    });
+    
     
 }
 

@@ -216,8 +216,12 @@
 
 - (void)giveLove:(NSString *)groupKey
 {
- 
+
     
+    NSError *error = nil;
+    NSData *localData = nil;
+    NSURLResponse *response;
+
     NSDictionary *checkDict = [[NSDictionary alloc] initWithObjectsAndKeys:
                                @"1", @"id",
                                @"1", @"fromHandleId",
@@ -227,17 +231,15 @@
                                @"", @"caption",
                                nil];
     
-    NSError *error = nil;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:checkDict options:kNilOptions error:&error];
     
-    NSURLResponse *response;
-    NSData *localData = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:checkDict options:kNilOptions error:&error];
     
     NSString *url = @"http://authie.me/api/heart";
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
     [request setHTTPMethod:@"POST"];
     
+        
     if(error == nil) {
         [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
         [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
@@ -264,7 +266,6 @@
         }
         
     }
-
     
 }
 
