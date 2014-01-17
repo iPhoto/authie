@@ -214,6 +214,60 @@
     return [documentDirectory stringByAppendingPathComponent:@"items.archive"];
 }
 
+- (void)giveLove:(NSString *)groupKey
+{
+ 
+    
+    NSDictionary *checkDict = [[NSDictionary alloc] initWithObjectsAndKeys:
+                               @"1", @"id",
+                               @"1", @"fromHandleId",
+                               @"1", @"toHandleId",
+                               groupKey, @"groupKey",
+                               @"1", @"active",
+                               @"", @"caption",
+                               nil];
+    
+    NSError *error = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:checkDict options:kNilOptions error:&error];
+    
+    NSURLResponse *response;
+    NSData *localData = nil;
+    
+    NSString *url = @"http://authie.me/api/heart";
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"POST"];
+    
+    if(error == nil) {
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        [request setHTTPBody:jsonData];
+        
+        //send the request and get the response
+        localData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        NSError *deserialize_error = nil;
+        
+        id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingAllowFragments error:&deserialize_error];
+        
+        if(deserialize_error == nil) {
+            
+            NSLog(@"results from heart: %@", object);
+            
+            //NSInteger response_result;
+            //response_result = [[object objectForKey:@"result"] integerValue];
+            
+            //NSString *message_result;
+            // this will contain our private key if we were successful
+            //message_result = [object objectForKey:@"message"];
+            
+        }
+        
+    }
+
+    
+}
+
 - (BOOL)login:(NSString *)handle privateKey:(NSString *)key;
 {
     BOOL logged_in = NO;

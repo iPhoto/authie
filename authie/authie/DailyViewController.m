@@ -24,6 +24,10 @@
     if (self) {
         // Custom initialization
         [self setEdgesForExtendedLayout:UIRectEdgeNone];
+
+        _items = [[NSMutableArray alloc] init];
+        
+        
     }
     return self;
 }
@@ -96,6 +100,8 @@
     
     int photo_height = 500;
     
+    [_items removeAllObjects];
+    
     for(int i=0; i < [[RODItemStore sharedStore].dailyThreads count]; i++) {
         
         RODThread *thread = [[RODItemStore sharedStore].dailyThreads objectAtIndex:i];
@@ -131,6 +137,7 @@
         yOffset = yOffset + photo_height;
         
         [self.scroll addSubview:mini.view];
+        [_items addObject:mini];
         
     }
     
@@ -146,6 +153,15 @@
     int thread_index = [tapGesture.view tag] / 100;
     RODThread *thread = [[RODItemStore sharedStore].dailyThreads objectAtIndex:thread_index];
     NSLog(@"vote for guid: %@", thread.groupKey);
+
+    
+    
+    // run update interface code before calling web service
+    MiniThreadViewController *lil_t = [_items objectAtIndex:thread_index];
+    int more_hearts = [thread.hearts intValue] + 1;
+    [lil_t.heartsCount setText:[NSString stringWithFormat:@"%i", more_hearts]];
+    
+    [[RODItemStore sharedStore] giveLove:thread.groupKey];
     
 }
 
