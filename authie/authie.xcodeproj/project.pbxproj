@@ -18,6 +18,7 @@
 		5D5A073318848B0F003848EA /* ConfirmSnapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A073118848B0F003848EA /* ConfirmSnapViewController.m */; };
 		5D5A073418848B0F003848EA /* ConfirmSnapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D5A073218848B0F003848EA /* ConfirmSnapViewController.xib */; };
 		5D6340B81888B470006538C5 /* heart-v2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D6340B71888B470006538C5 /* heart-v2.png */; };
+		5D6340BA188A16DC006538C5 /* heart-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D6340B9188A16DC006538C5 /* heart-blue.png */; };
 		5D8C1CD7187E38E300158AE5 /* ThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C1CD5187E38E300158AE5 /* ThreadViewController.m */; };
 		5D8C1CD8187E38E300158AE5 /* ThreadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C1CD6187E38E300158AE5 /* ThreadViewController.xib */; };
 		5D8C1CDB187F3ACA00158AE5 /* RODFollower.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C1CDA187F3ACA00158AE5 /* RODFollower.m */; };
@@ -103,6 +104,7 @@
 		5D5A073118848B0F003848EA /* ConfirmSnapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmSnapViewController.m; sourceTree = "<group>"; };
 		5D5A073218848B0F003848EA /* ConfirmSnapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfirmSnapViewController.xib; sourceTree = "<group>"; };
 		5D6340B71888B470006538C5 /* heart-v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart-v2.png"; sourceTree = "<group>"; };
+		5D6340B9188A16DC006538C5 /* heart-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart-blue.png"; sourceTree = "<group>"; };
 		5D8C1CD4187E38E300158AE5 /* ThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadViewController.h; sourceTree = "<group>"; };
 		5D8C1CD5187E38E300158AE5 /* ThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreadViewController.m; sourceTree = "<group>"; };
 		5D8C1CD6187E38E300158AE5 /* ThreadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThreadViewController.xib; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 			children = (
 				5D06B984187B0D4E00FC17F0 /* cog.png */,
 				5D5A072E18848A7C003848EA /* lock.png */,
+				5D6340B9188A16DC006538C5 /* heart-blue.png */,
 				5D8C1CDE18805AA000158AE5 /* heart.png */,
 				5D6340B71888B470006538C5 /* heart-v2.png */,
 				5D8C1CDC187F3EC000158AE5 /* cog-black.png */,
@@ -457,6 +460,7 @@
 				5DA64689187898B900F158E8 /* authie-logo-09-100px.png in Resources */,
 				5D8C1CDF18805AA000158AE5 /* heart.png in Resources */,
 				5D06B985187B0D4E00FC17F0 /* cog.png in Resources */,
+				5D6340BA188A16DC006538C5 /* heart-blue.png in Resources */,
 				5DEE7CA9185234E800F532B3 /* Images.xcassets in Resources */,
 				5D8C1CEE1880E0F200158AE5 /* InviteViewController.xib in Resources */,
 				5DF864A21874A8C9002DCCDC /* authie-logo-05-84px.png in Resources */,
