@@ -131,9 +131,7 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"trashed" message:@"Your message has been trashed." delegate:appDelegate.masterViewController cancelButtonTitle:@"ok" otherButtonTitles:nil];
-    
-    [UIApplication sharedApplication].keyWindow.tintColor = [UIColor blackColor];
-    
+        
     [appDelegate.masterViewController.navigationController popToRootViewControllerAnimated:YES];
     
     [alert show];

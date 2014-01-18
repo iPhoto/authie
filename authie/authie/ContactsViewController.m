@@ -225,13 +225,9 @@
     confirm.snap = image;
     confirm.key = key;
     confirm.handle = self.selected;
-
-
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.masterViewController];
-
-    [navigationController.navigationBar setTintColor:[UIColor blackColor]];
 
     [appDelegate.masterViewController.navigationController pushViewController:confirm animated:YES];
     self.frostedViewController.contentViewController = navigationController;

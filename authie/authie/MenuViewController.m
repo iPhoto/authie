@@ -80,31 +80,17 @@
         {
             
             
-            MRProgressOverlayView *progressView = [MRProgressOverlayView new];
-            progressView.titleLabelText = @"";
-            [progressView setTintColor:[UIColor blackColor]];
-            progressView.titleLabel.font = [UIFont systemFontOfSize:10];
+            //MRProgressOverlayView *progressView = [MRProgressOverlayView new];
+            //progressView.titleLabelText = @"";
+            //progressView.titleLabel.font = [UIFont systemFontOfSize:10];
 
             NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.masterViewController];
-            [navigationController.navigationBar setTintColor:[UIColor blackColor]];
+            
+            appDelegate.masterViewController.doGetThreadsOnView = YES;
+            
             self.frostedViewController.contentViewController = navigationController;
 
-            [appDelegate.masterViewController.view addSubview:progressView];
-            
-            
-//            [progressView show:YES];
-            
-            //dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
-            //dispatch_async(queue, ^{
-                // Perform async operation
-                [[RODItemStore sharedStore] loadThreads];
-                
-                //dispatch_sync(dispatch_get_main_queue(), ^{
-                    // Update UI
-                    //[progressView dismiss:YES];
-                //});
-            //});
-            
+            //[appDelegate.masterViewController.view addSubview:progressView];
             
             
         }
@@ -116,14 +102,12 @@
             
             NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.profileViewController];
             appDelegate.profileViewController.handle = [RODItemStore sharedStore].authie.handle;
-            [navigationController.navigationBar setTintColor:[UIColor blackColor]];
             self.frostedViewController.contentViewController = navigationController;
         }
             break;
         case 2: // contacts
         {
             NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.contactsViewController];
-            [navigationController.navigationBar setTintColor:[UIColor blackColor]];
             self.frostedViewController.contentViewController = navigationController;
         }
             break;
@@ -137,21 +121,18 @@
         case 4: // daily
         {
             NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.dailyViewController];
-            [navigationController.navigationBar setTintColor:[UIColor blackColor]];
             self.frostedViewController.contentViewController = navigationController;
         }
             break;
         case 5: // invite
         {
             NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.inviteViewController];
-            [navigationController.navigationBar setTintColor:[UIColor blackColor]];
             self.frostedViewController.contentViewController = navigationController;
         }
             break;
         case 6: // private key
         {
             NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.privateKeyViewController];
-            [navigationController.navigationBar setTintColor:[UIColor blackColor]];
             self.frostedViewController.contentViewController = navigationController;
         }
             break;

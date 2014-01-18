@@ -22,6 +22,7 @@
 @property (strong, nonatomic) NSString *captionToUpload;
 
 @property (nonatomic) BOOL doUploadOnView;
+@property (nonatomic) BOOL doGetThreadsOnView;
 
 - (void)doUpload;
 

@@ -97,7 +97,6 @@
     dailyViewController = daily;
     
     NavigationController *navController = [[NavigationController alloc] initWithRootViewController:masterViewController];
-    navController.navigationBar.tintColor = [UIColor blackColor];
     [navController.navigationBar setBackgroundColor:[UIColor whiteColor]];
     
     MenuViewController * leftDrawer = [[MenuViewController alloc] initWithStyle:UITableViewStylePlain];
