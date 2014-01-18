@@ -21,6 +21,7 @@
 @property (nonatomic) NSNumber *hearts;
 @property (nonatomic) NSNumber *authorizeRequest;
 @property (nonatomic) NSNumber *toHandleSeen;
+@property (nonatomic) Boolean successfulUpload;
 
 @property (nonatomic) RODHandle *fromHandle;
 @property (nonatomic) RODHandle *toHandle;
