@@ -20,6 +20,7 @@
 		5D6340B81888B470006538C5 /* heart-v2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D6340B71888B470006538C5 /* heart-v2.png */; };
 		5D6340BA188A16DC006538C5 /* heart-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D6340B9188A16DC006538C5 /* heart-blue.png */; };
 		5D6340BC188A187A006538C5 /* heart-blue-v2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D6340BB188A187A006538C5 /* heart-blue-v2.png */; };
+		5D860798188C4D6600963653 /* RODMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D860797188C4D6600963653 /* RODMessage.m */; };
 		5D8C1CD7187E38E300158AE5 /* ThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C1CD5187E38E300158AE5 /* ThreadViewController.m */; };
 		5D8C1CD8187E38E300158AE5 /* ThreadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C1CD6187E38E300158AE5 /* ThreadViewController.xib */; };
 		5D8C1CDB187F3ACA00158AE5 /* RODFollower.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C1CDA187F3ACA00158AE5 /* RODFollower.m */; };
@@ -107,6 +108,8 @@
 		5D6340B71888B470006538C5 /* heart-v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart-v2.png"; sourceTree = "<group>"; };
 		5D6340B9188A16DC006538C5 /* heart-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart-blue.png"; sourceTree = "<group>"; };
 		5D6340BB188A187A006538C5 /* heart-blue-v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart-blue-v2.png"; sourceTree = "<group>"; };
+		5D860796188C4D6600963653 /* RODMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RODMessage.h; sourceTree = "<group>"; };
+		5D860797188C4D6600963653 /* RODMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RODMessage.m; sourceTree = "<group>"; };
 		5D8C1CD4187E38E300158AE5 /* ThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadViewController.h; sourceTree = "<group>"; };
 		5D8C1CD5187E38E300158AE5 /* ThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreadViewController.m; sourceTree = "<group>"; };
 		5D8C1CD6187E38E300158AE5 /* ThreadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThreadViewController.xib; sourceTree = "<group>"; };
@@ -273,6 +276,8 @@
 				5DF86499186E1701002DCCDC /* RODHandle.m */,
 				5D9A453018765184008C45FD /* RODThread.h */,
 				5D9A453118765184008C45FD /* RODThread.m */,
+				5D860796188C4D6600963653 /* RODMessage.h */,
+				5D860797188C4D6600963653 /* RODMessage.m */,
 				5DEE7C99185234E800F532B3 /* AppDelegate.h */,
 				5DEE7C9A185234E800F532B3 /* AppDelegate.m */,
 				5D06B97F187B0C1F00FC17F0 /* MenuViewController.h */,
@@ -555,6 +560,7 @@
 				5DF86497186E0E7A002DCCDC /* RODResponseMessage.m in Sources */,
 				5D8C1CE818808FC000158AE5 /* SelectContactViewController.m in Sources */,
 				5DEE7CA7185234E800F532B3 /* DetailViewController.m in Sources */,
+				5D860798188C4D6600963653 /* RODMessage.m in Sources */,
 				5DBBDBE41881C8B6004446DE /* DailyViewController.m in Sources */,
 				5D06B982187B0C1F00FC17F0 /* MenuViewController.m in Sources */,
 				5D8C1CD7187E38E300158AE5 /* ThreadViewController.m in Sources */,

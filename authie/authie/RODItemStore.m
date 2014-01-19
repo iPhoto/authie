@@ -1106,6 +1106,12 @@
     return loaded_threads;
 }
 
+- (void)loadMessages:(NSString *)groupKey
+{
+    NSLog(@"loadMessages: %@", groupKey);
+    
+}
+
 - (void)loadDaily
 {
     
