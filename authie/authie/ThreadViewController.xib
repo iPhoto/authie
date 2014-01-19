@@ -19,10 +19,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Prc-H2-aVu">
-                    <rect key="frame" x="0.0" y="37" width="214" height="166"/>
+                    <rect key="frame" x="0.0" y="0.0" width="214" height="203"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K8V-m4-2TF">
+                <view alpha="0.79999999999999982" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K8V-m4-2TF">
                     <rect key="frame" x="0.0" y="0.0" width="214" height="39"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
@@ -32,15 +32,17 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="162" id="4i8-mC-UnJ"/>
+                                <constraint firstAttribute="height" constant="27" id="eU3-Mx-3r1"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="121" translatesAutoresizingMaskIntoConstraints="NO" id="utj-eQ-VKM">
-                            <rect key="frame" x="84" y="6" width="121" height="27"/>
+                            <rect key="frame" x="86" y="6" width="121" height="27"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstAttribute="height" constant="27" id="leK-jh-vfu"/>
                                 <constraint firstAttribute="width" constant="121" id="p3G-RX-Yt2"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
@@ -51,12 +53,10 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="wyz-qB-N7f" firstAttribute="leading" secondItem="K8V-m4-2TF" secondAttribute="leading" constant="5" id="0pT-MG-M2q"/>
-                        <constraint firstItem="utj-eQ-VKM" firstAttribute="top" secondItem="wyz-qB-N7f" secondAttribute="top" id="MoH-oN-8q6"/>
-                        <constraint firstItem="utj-eQ-VKM" firstAttribute="baseline" secondItem="wyz-qB-N7f" secondAttribute="baseline" id="PHp-Gy-Csk"/>
+                        <constraint firstAttribute="trailing" secondItem="utj-eQ-VKM" secondAttribute="trailing" constant="7" id="MEL-7x-XwG"/>
                         <constraint firstItem="wyz-qB-N7f" firstAttribute="top" secondItem="K8V-m4-2TF" secondAttribute="top" constant="6" id="Xmu-Ad-mea"/>
+                        <constraint firstItem="utj-eQ-VKM" firstAttribute="top" secondItem="K8V-m4-2TF" secondAttribute="top" constant="6" id="aiJ-sA-33K"/>
                         <constraint firstAttribute="height" constant="39" id="c7s-G5-KPl"/>
-                        <constraint firstAttribute="trailing" secondItem="utj-eQ-VKM" secondAttribute="trailing" constant="9" id="g1d-yM-QWG"/>
-                        <constraint firstItem="utj-eQ-VKM" firstAttribute="centerY" secondItem="K8V-m4-2TF" secondAttribute="centerY" id="jGK-rw-N1o"/>
                     </constraints>
                 </view>
             </subviews>
@@ -66,7 +66,7 @@
                 <constraint firstItem="Prc-H2-aVu" firstAttribute="leading" secondItem="D2N-GB-prs" secondAttribute="leading" id="2h0-gb-wFc"/>
                 <constraint firstItem="K8V-m4-2TF" firstAttribute="leading" secondItem="D2N-GB-prs" secondAttribute="leading" id="50i-5C-bis"/>
                 <constraint firstAttribute="bottom" secondItem="Prc-H2-aVu" secondAttribute="bottom" id="JHs-Va-LCo"/>
-                <constraint firstItem="Prc-H2-aVu" firstAttribute="top" secondItem="D2N-GB-prs" secondAttribute="top" constant="37" id="N6k-4y-iZe"/>
+                <constraint firstItem="Prc-H2-aVu" firstAttribute="top" secondItem="D2N-GB-prs" secondAttribute="top" id="N6k-4y-iZe"/>
                 <constraint firstAttribute="trailing" secondItem="K8V-m4-2TF" secondAttribute="trailing" id="Pgc-GS-yWN"/>
                 <constraint firstAttribute="trailing" secondItem="Prc-H2-aVu" secondAttribute="trailing" id="cho-xP-ViE"/>
                 <constraint firstItem="K8V-m4-2TF" firstAttribute="top" secondItem="D2N-GB-prs" secondAttribute="top" id="nki-ze-VKs"/>
