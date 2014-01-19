@@ -184,9 +184,7 @@
 }
 
 - (void)tappedReport:(UITapGestureRecognizer *)tapGesture
-{
-    NSLog(@"Tapped report.");
-    
+{    
     int thread_index = ([tapGesture.view tag] / 2000) - 900;
     RODThread *thread = [[RODItemStore sharedStore].dailyThreads objectAtIndex:thread_index];
 

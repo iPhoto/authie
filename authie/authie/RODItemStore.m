@@ -1387,7 +1387,7 @@
     [holder addSubview:imageview];
     
     UILabel *handleLabel = [[UILabel alloc] init];
-    handleLabel.text = @"today's prompt: post cats";
+    handleLabel.text = @"what's auth in the bay area?";
     [handleLabel setFont:[UIFont systemFontOfSize:10]];
     [handleLabel setFrame:CGRectMake(0, 22, 200, 10)];
     [handleLabel setTextAlignment:NSTextAlignmentCenter];
