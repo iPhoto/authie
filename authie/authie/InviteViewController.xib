@@ -18,13 +18,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xmo-uy-kPi" userLabel="email">
-                    <rect key="frame" x="109" y="120" width="122" height="30"/>
+                    <rect key="frame" x="109" y="113" width="122" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Tap to write a message." translatesAutoresizingMaskIntoConstraints="NO" id="RUJ-HX-THN" userLabel="message">
-                    <rect key="frame" x="27" y="158" width="204" height="61"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" text="Tap to write a message." translatesAutoresizingMaskIntoConstraints="NO" id="RUJ-HX-THN" userLabel="message">
+                    <rect key="frame" x="27" y="150" width="204" height="61"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -37,7 +37,7 @@
                     </connections>
                 </textView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BFF's email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGa-Ej-pDJ">
-                    <rect key="frame" x="27" y="124" width="76" height="21"/>
+                    <rect key="frame" x="27" y="114" width="76" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="76" id="CcM-a5-IvK"/>
@@ -45,14 +45,14 @@
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DD1-r1-j1W">
-                    <rect key="frame" x="20" y="4" width="219" height="114"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DD1-r1-j1W">
+                    <rect key="frame" x="20" y="-4" width="219" height="117"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="114" id="1X7-2R-XjX"/>
+                        <constraint firstAttribute="height" constant="117" id="1X7-2R-XjX"/>
                     </constraints>
-                    <string key="text">Invite someone to authie! authie is a "dark" social network, meaning that we purposely do not connect to other social networks in order to perserve privacy.</string>
+                    <string key="text">Invite a BFF to authie! authie is a "dark" social network, meaning that we purposely do not connect to other social networks in order to perserve privacy.</string>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
@@ -63,17 +63,25 @@
                 <constraint firstAttribute="trailing" secondItem="RUJ-HX-THN" secondAttribute="trailing" constant="28" id="Cix-rK-ITl"/>
                 <constraint firstItem="BGa-Ej-pDJ" firstAttribute="leading" secondItem="DlB-vS-NPY" secondAttribute="leading" constant="27" id="EcG-pa-H1r"/>
                 <constraint firstItem="RUJ-HX-THN" firstAttribute="leading" secondItem="BGa-Ej-pDJ" secondAttribute="leading" id="Ozi-pP-n7D"/>
-                <constraint firstItem="RUJ-HX-THN" firstAttribute="top" secondItem="DlB-vS-NPY" secondAttribute="top" constant="158" id="Vrn-tv-l0P"/>
+                <constraint firstItem="RUJ-HX-THN" firstAttribute="top" secondItem="DlB-vS-NPY" secondAttribute="top" constant="150" id="Vrn-tv-l0P"/>
                 <constraint firstItem="xmo-uy-kPi" firstAttribute="leading" secondItem="BGa-Ej-pDJ" secondAttribute="trailing" constant="6" id="W4o-sa-Txr"/>
-                <constraint firstItem="RUJ-HX-THN" firstAttribute="top" secondItem="xmo-uy-kPi" secondAttribute="bottom" constant="8" symbolic="YES" id="adn-fE-g1c"/>
-                <constraint firstItem="RUJ-HX-THN" firstAttribute="top" secondItem="BGa-Ej-pDJ" secondAttribute="bottom" constant="13" id="c8h-Oq-nia"/>
+                <constraint firstItem="RUJ-HX-THN" firstAttribute="top" secondItem="xmo-uy-kPi" secondAttribute="bottom" constant="7" id="adn-fE-g1c"/>
+                <constraint firstItem="RUJ-HX-THN" firstAttribute="top" secondItem="BGa-Ej-pDJ" secondAttribute="bottom" constant="15" id="c8h-Oq-nia"/>
                 <constraint firstItem="DD1-r1-j1W" firstAttribute="leading" secondItem="DlB-vS-NPY" secondAttribute="leading" constant="20" id="hFu-vQ-Wnn"/>
                 <constraint firstAttribute="trailing" secondItem="DD1-r1-j1W" secondAttribute="trailing" constant="20" id="iCC-C5-2cX"/>
-                <constraint firstItem="BGa-Ej-pDJ" firstAttribute="top" secondItem="DlB-vS-NPY" secondAttribute="top" constant="124" id="p6l-Wj-FLJ"/>
+                <constraint firstItem="BGa-Ej-pDJ" firstAttribute="top" secondItem="DlB-vS-NPY" secondAttribute="top" constant="114" id="p6l-Wj-FLJ"/>
                 <constraint firstAttribute="trailing" secondItem="xmo-uy-kPi" secondAttribute="trailing" constant="28" id="q5G-md-UMy"/>
-                <constraint firstItem="DD1-r1-j1W" firstAttribute="top" secondItem="DlB-vS-NPY" secondAttribute="top" constant="4" id="uB8-uX-CI1"/>
+                <constraint firstItem="DD1-r1-j1W" firstAttribute="top" secondItem="DlB-vS-NPY" secondAttribute="top" constant="-4" id="uB8-uX-CI1"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="495-hF-9SL" appends="YES" id="EDx-fH-WbN"/>
+            </connections>
         </view>
+        <tapGestureRecognizer id="495-hF-9SL">
+            <connections>
+                <action selector="tappedScreen:" destination="-1" id="uBz-ID-GU3"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>

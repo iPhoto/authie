@@ -40,6 +40,12 @@
     
 }
 
+- (IBAction)tappedScreen:(id)sender {
+    [self.messageText resignFirstResponder];
+    [self.emailText resignFirstResponder];
+}
+
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
