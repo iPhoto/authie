@@ -28,7 +28,8 @@
 {
     [super viewDidLoad];
     
-    self.buttons = @[@"Inbox", @"Dark Profile", @"Contacts", @"Compose", @"The Daily", @"Invite", @"Private Key"];
+    self.buttons = @[@"Inbox", @"Dark Profile", @"Authors", @"Compose", @"The Daily", @"Invite", @"Private Key"];
+    self.subtitles = @[@"a list of all your authie messages", @"photos only your authors can see", @"your crew, they can send you messages", @"take a photo", @"public, 24hr disappearing photostream", @"invite a bff", @"its a password you can forget"];
     
     self.tableView = [[UITableView alloc] init]; // Frame will be automatically set
     self.tableView.separatorColor = [UIColor colorWithRed:150/255.0f green:161/255.0f blue:177/255.0f alpha:1.0f];
@@ -178,9 +179,12 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     
+    cell.detailTextLabel.textColor = [UIColor grayColor];
+    cell.detailTextLabel.font = [UIFont systemFontOfSize:10];
+    cell.detailTextLabel.text = self.subtitles[indexPath.row];
     cell.textLabel.text = self.buttons[indexPath.row];
     
     return cell;

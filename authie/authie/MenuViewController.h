@@ -14,6 +14,7 @@
 }
 
 @property (strong, nonatomic) NSArray *buttons;
+@property (strong, nonatomic) NSArray *subtitles;
 
 -(void)showSelectContact;
 
