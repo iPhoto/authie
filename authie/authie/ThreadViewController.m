@@ -76,6 +76,11 @@
     self.messageInputView.textView.placeHolder = @"New Message";
     
     [self setBackgroundColor:[UIColor clearColor]];
+    
+    [self.view setUserInteractionEnabled:YES];
+    
+    UITapGestureRecognizer *tapView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedImageView:)];
+    [self.view addGestureRecognizer:tapView];
 
 
     self.messages = [[NSMutableArray alloc] init];
@@ -91,16 +96,14 @@
 - (void)tappedImageView:(UITapGestureRecognizer *)tapGesture
 {
 
-//    if(self.tableView.hidden == YES) {
-//        [self.tableView setHidden:NO];
-//        [self.viewDetails setHidden:YES];
-//    } else {
-//        [self.tableView setHidden:YES];
-//        [self.viewDetails setHidden:NO];
-//    }
-        
-        
-    NSLog(@"Hello friends i am here");
+    if(self.tableView.hidden == YES) {
+        [self.tableView setHidden:NO];
+        [self.messageInputView setHidden:NO];
+    } else {
+        [self.tableView setHidden:YES];
+        [self.messageInputView endEditing:YES];
+        [self.messageInputView setHidden:YES];
+    }
     
 }
 
@@ -159,6 +162,8 @@
     
     [self.timestamps addObject:[NSDate date]];
 
+    [self.tableView setHidden:NO];
+    
     [self.subtitles addObject:[RODItemStore sharedStore].authie.handle.name];
     
     [self finishSend];
