@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "RODThread.h"
+#import <JSMessagesViewController/JSMessagesViewController.h>
 
-@interface ThreadViewController : UIViewController <UIScrollViewDelegate>
+@interface ThreadViewController : JSMessagesViewController <UIScrollViewDelegate, JSMessagesViewDataSource, JSMessagesViewDelegate>
 {
     int loadRow;
 }
@@ -19,6 +20,11 @@
 @property (weak, nonatomic) IBOutlet UIImageView *snapView;
 @property (strong, nonatomic) RODThread *thread;
 @property (weak, nonatomic) IBOutlet UILabel *snapCaption;
+
+@property (strong, nonatomic) NSMutableArray *messages;
+@property (strong, nonatomic) NSMutableArray *timestamps;
+@property (strong, nonatomic) NSMutableArray *subtitles;
+@property (strong, nonatomic) NSDictionary *avatars;
 
 - (void)setThread:(RODThread *)new_thread;
 - (void)loadThread:(int)row;

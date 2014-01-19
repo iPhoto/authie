@@ -1,16 +1,22 @@
 PODS:
   - GoogleAnalytics-iOS-SDK (3.0.2)
+  - JSMessagesViewController (3.4.4):
+    - JSQSystemSoundPlayer
+  - JSQSystemSoundPlayer (1.4.0)
   - MRProgress (0.2.2)
   - REFrostedViewController (2.4.1)
 
 DEPENDENCIES:
   - GoogleAnalytics-iOS-SDK
+  - JSMessagesViewController
   - MRProgress (~> 0.2.2)
   - REFrostedViewController (~> 2.4.1)
 
 SPEC CHECKSUMS:
   GoogleAnalytics-iOS-SDK: 86393b99f7328ae8d8e975fcaa8632a39dafafe8
+  JSMessagesViewController: 309de7324fbf48b7da924b002ef6017d5d2ce026
+  JSQSystemSoundPlayer: 28ccd01a92a0cebc6de6361e8499011b4cb6dab7
   MRProgress: 51af562344c3fe38ce3c0617fd064f6f1ce55cd5
   REFrostedViewController: 56f6b2dc7ae02968be251fcd379bc283696f310d
 
-COCOAPODS: 0.26.1
+COCOAPODS: 0.29.0
