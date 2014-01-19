@@ -40,6 +40,9 @@
     
 }
 
+- (IBAction)tappedScreen:(id)sender {
+    NSLog(@"Do stuffed.");
+}
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
@@ -73,7 +76,8 @@
     self.messageInputView.textView.placeHolder = @"New Message";
     
     [self setBackgroundColor:[UIColor clearColor]];
-    
+
+
     self.messages = [[NSMutableArray alloc] init];
     
     self.timestamps = [[NSMutableArray alloc] init];
@@ -83,6 +87,23 @@
     self.avatars = [[NSDictionary alloc] init];
     
 }
+
+- (void)tappedImageView:(UITapGestureRecognizer *)tapGesture
+{
+
+//    if(self.tableView.hidden == YES) {
+//        [self.tableView setHidden:NO];
+//        [self.viewDetails setHidden:YES];
+//    } else {
+//        [self.tableView setHidden:YES];
+//        [self.viewDetails setHidden:NO];
+//    }
+        
+        
+    NSLog(@"Hello friends i am here");
+    
+}
+
 
 -(void)removeThread:(id)sender
 {
@@ -107,8 +128,15 @@
     if(self.thread.caption == (id)[NSNull null] || self.thread.caption.length == 0 ) {
         self.snapCaption.text = @"";
     } else {
-        self.snapCaption.text = self.thread.caption;
+
+        [self.timestamps addObject:self.thread.startDate];
+        [self.messages addObject:self.thread.caption];
+        [self.subtitles addObject:self.thread.fromHandleId];
+        [self finishSend];
+        [self scrollToBottomAnimated:YES];
+        
     }
+    
     
     loadRow = row;
 }
@@ -139,16 +167,16 @@
 
 - (JSBubbleMessageType)messageTypeForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return (indexPath.row % 2) ? JSBubbleMessageTypeIncoming : JSBubbleMessageTypeOutgoing;
+    return JSBubbleMessageTypeOutgoing;
 }
 
 - (UIImageView *)bubbleImageViewWithType:(JSBubbleMessageType)type
                        forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row % 2) {
-        return [JSBubbleImageViewFactory bubbleImageViewForType:type
-                                                          color:[UIColor js_bubbleLightGrayColor]];
-    }
+//    if(indexPath.row % 2) {
+//        return [JSBubbleImageViewFactory bubbleImageViewForType:type
+//                                                          color:[UIColor js_bubbleLightGrayColor]];
+//    }
     
     return [JSBubbleImageViewFactory bubbleImageViewForType:type
                                                       color:[UIColor js_bubbleBlueColor]];
@@ -161,7 +189,7 @@
 
 - (JSMessagesViewAvatarPolicy)avatarPolicy
 {
-    return JSMessagesViewAvatarPolicyAll;
+    return JSMessagesViewAvatarPolicyNone;
 }
 
 - (JSMessagesViewSubtitlePolicy)subtitlePolicy

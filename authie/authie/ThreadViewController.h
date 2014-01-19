@@ -15,6 +15,7 @@
     int loadRow;
 }
 @property (weak, nonatomic) IBOutlet UILabel *snapDate;
+@property (weak, nonatomic) IBOutlet UIView *viewDetails;
 
 @property (weak, nonatomic) IBOutlet UILabel *threadFrom;
 @property (weak, nonatomic) IBOutlet UIImageView *snapView;
