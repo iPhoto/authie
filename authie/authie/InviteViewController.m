@@ -20,7 +20,10 @@
     if (self) {
         // Custom initialization
         [self setEdgesForExtendedLayout:UIRectEdgeNone];
-        placeholderText = self.messageText.text;
+        
+        UIBarButtonItem *inviteButton = [[UIBarButtonItem alloc] initWithTitle:@"invite" style:UIBarButtonItemStylePlain target:self action:@selector(sendInvite:)];
+        
+        self.navigationItem.rightBarButtonItem = inviteButton;
         
     }
     return self;
@@ -32,6 +35,8 @@
     // Do any additional setup after loading the view from its nib.
     
     self.navigationItem.titleView = [[RODItemStore sharedStore] generateHeaderView];
+
+    placeholderText = self.messageText.text;
     
 }
 
@@ -51,11 +56,13 @@
 
 -(void)textViewDidBeginEditing:(UITextView *)textView
 {
+    NSLog(@"Hello: %@", textView.text);
     if([textView.text isEqualToString:placeholderText]) {
         [textView setText:@""];
     }
 }
 
 - (IBAction)sendInvite:(id)sender {
+    [[RODItemStore sharedStore] invite:self.emailText.text message:self.messageText.text];
 }
 @end

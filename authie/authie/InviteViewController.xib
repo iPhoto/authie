@@ -14,38 +14,17 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="DlB-vS-NPY">
-            <rect key="frame" x="0.0" y="0.0" width="245" height="341"/>
+            <rect key="frame" x="0.0" y="0.0" width="259" height="335"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0DE-QM-gTe">
-                    <rect key="frame" x="0.0" y="0.0" width="245" height="123"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="123" id="l7C-27-2cv"/>
-                    </constraints>
-                    <string key="text">Invite someone to authie! authie is a "dark" social network, meaning that we do not connect to other social networks. Instead of adding your entire FB friends list, we'd like to ask for your BFF's email.</string>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M3o-W1-9o1">
-                    <rect key="frame" x="26" y="234" width="47" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Invite">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="sendInvite:" destination="-1" eventType="touchUpInside" id="y4I-m4-aBV"/>
-                    </connections>
-                </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xmo-uy-kPi">
-                    <rect key="frame" x="110" y="127" width="108" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xmo-uy-kPi" userLabel="email">
+                    <rect key="frame" x="109" y="120" width="122" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Tap to write a custom message." translatesAutoresizingMaskIntoConstraints="NO" id="RUJ-HX-THN">
-                    <rect key="frame" x="28" y="165" width="190" height="61"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Tap to write a message." translatesAutoresizingMaskIntoConstraints="NO" id="RUJ-HX-THN" userLabel="message">
+                    <rect key="frame" x="27" y="158" width="204" height="61"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -58,7 +37,7 @@
                     </connections>
                 </textView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BFF's email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGa-Ej-pDJ">
-                    <rect key="frame" x="28" y="131" width="76" height="21"/>
+                    <rect key="frame" x="27" y="124" width="76" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="76" id="CcM-a5-IvK"/>
@@ -66,25 +45,33 @@
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DD1-r1-j1W">
+                    <rect key="frame" x="20" y="4" width="219" height="114"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="114" id="1X7-2R-XjX"/>
+                    </constraints>
+                    <string key="text">Invite someone to authie! authie is a "dark" social network, meaning that we purposely do not connect to other social networks in order to perserve privacy.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstItem="M3o-W1-9o1" firstAttribute="top" secondItem="RUJ-HX-THN" secondAttribute="bottom" constant="8" symbolic="YES" id="3Rc-Iy-JBd"/>
-                <constraint firstItem="BGa-Ej-pDJ" firstAttribute="leading" secondItem="DlB-vS-NPY" secondAttribute="leading" constant="28" id="EcG-pa-H1r"/>
-                <constraint firstItem="M3o-W1-9o1" firstAttribute="leading" secondItem="DlB-vS-NPY" secondAttribute="leading" constant="26" id="FQL-w1-LPL"/>
-                <constraint firstItem="0DE-QM-gTe" firstAttribute="leading" secondItem="DlB-vS-NPY" secondAttribute="leading" id="LWy-bY-TXY"/>
-                <constraint firstItem="BGa-Ej-pDJ" firstAttribute="top" secondItem="0DE-QM-gTe" secondAttribute="bottom" constant="8" id="Lpn-Q4-uKU"/>
-                <constraint firstAttribute="trailing" secondItem="0DE-QM-gTe" secondAttribute="trailing" id="LxV-xV-4Ys"/>
+                <constraint firstAttribute="trailing" secondItem="RUJ-HX-THN" secondAttribute="trailing" constant="28" id="Cix-rK-ITl"/>
+                <constraint firstItem="BGa-Ej-pDJ" firstAttribute="leading" secondItem="DlB-vS-NPY" secondAttribute="leading" constant="27" id="EcG-pa-H1r"/>
                 <constraint firstItem="RUJ-HX-THN" firstAttribute="leading" secondItem="BGa-Ej-pDJ" secondAttribute="leading" id="Ozi-pP-n7D"/>
-                <constraint firstItem="RUJ-HX-THN" firstAttribute="centerX" secondItem="0DE-QM-gTe" secondAttribute="centerX" id="Rwz-vP-fRs"/>
+                <constraint firstItem="RUJ-HX-THN" firstAttribute="top" secondItem="DlB-vS-NPY" secondAttribute="top" constant="158" id="Vrn-tv-l0P"/>
                 <constraint firstItem="xmo-uy-kPi" firstAttribute="leading" secondItem="BGa-Ej-pDJ" secondAttribute="trailing" constant="6" id="W4o-sa-Txr"/>
-                <constraint firstItem="xmo-uy-kPi" firstAttribute="top" secondItem="0DE-QM-gTe" secondAttribute="bottom" constant="4" id="aLp-38-zBV"/>
                 <constraint firstItem="RUJ-HX-THN" firstAttribute="top" secondItem="xmo-uy-kPi" secondAttribute="bottom" constant="8" symbolic="YES" id="adn-fE-g1c"/>
                 <constraint firstItem="RUJ-HX-THN" firstAttribute="top" secondItem="BGa-Ej-pDJ" secondAttribute="bottom" constant="13" id="c8h-Oq-nia"/>
-                <constraint firstItem="M3o-W1-9o1" firstAttribute="centerX" secondItem="BGa-Ej-pDJ" secondAttribute="centerX" constant="-16.5" id="dY2-Sb-bvJ"/>
-                <constraint firstAttribute="trailing" secondItem="xmo-uy-kPi" secondAttribute="trailing" constant="27" id="q5G-md-UMy"/>
-                <constraint firstItem="0DE-QM-gTe" firstAttribute="top" secondItem="DlB-vS-NPY" secondAttribute="top" id="sVn-HM-McH"/>
+                <constraint firstItem="DD1-r1-j1W" firstAttribute="leading" secondItem="DlB-vS-NPY" secondAttribute="leading" constant="20" id="hFu-vQ-Wnn"/>
+                <constraint firstAttribute="trailing" secondItem="DD1-r1-j1W" secondAttribute="trailing" constant="20" id="iCC-C5-2cX"/>
+                <constraint firstItem="BGa-Ej-pDJ" firstAttribute="top" secondItem="DlB-vS-NPY" secondAttribute="top" constant="124" id="p6l-Wj-FLJ"/>
+                <constraint firstAttribute="trailing" secondItem="xmo-uy-kPi" secondAttribute="trailing" constant="28" id="q5G-md-UMy"/>
+                <constraint firstItem="DD1-r1-j1W" firstAttribute="top" secondItem="DlB-vS-NPY" secondAttribute="top" constant="4" id="uB8-uX-CI1"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
