@@ -29,7 +29,7 @@
         UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addContact:)];
         self.navigationItem.rightBarButtonItem = addButton;
         
-        self.navigationItem.title = @"Contacts";
+        self.navigationItem.title = @"Authors";
         
     }
     return self;
