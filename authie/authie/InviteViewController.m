@@ -20,6 +20,8 @@
     if (self) {
         // Custom initialization
         [self setEdgesForExtendedLayout:UIRectEdgeNone];
+        placeholderText = self.messageText.text;
+        
     }
     return self;
 }
@@ -47,4 +49,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)textViewDidBeginEditing:(UITextView *)textView
+{
+    if([textView.text isEqualToString:placeholderText]) {
+        [textView setText:@""];
+    }
+}
+
+- (IBAction)sendInvite:(id)sender {
+}
 @end

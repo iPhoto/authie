@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface InviteViewController : UIViewController
+@interface InviteViewController : UIViewController <UITextViewDelegate>
+{
+    NSString *placeholderText;
+}
+- (IBAction)sendInvite:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextView *messageText;
+@property (weak, nonatomic) IBOutlet UITextField *emailText;
 
 @end
