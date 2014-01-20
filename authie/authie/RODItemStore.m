@@ -264,6 +264,60 @@
 
 }
 
+- (void)sendChat:(NSString *)groupKey message:(NSString *)msg
+{
+    NSError *error = nil;
+    NSData *localData = nil;
+    NSURLResponse *response;
+
+    NSDictionary *threadDict = [[NSDictionary alloc] initWithObjectsAndKeys:
+                              groupKey, @"groupKey",
+                              nil];
+    
+    NSDictionary *chatDict = [[NSDictionary alloc] initWithObjectsAndKeys:
+                               @"1", @"id",
+                               @"1", @"fromHandleId",
+                               @"1", @"threadId",
+                              threadDict, @"thread",
+                               @"0", @"sentDate",
+                               @"1", @"active",
+                               @"0", @"anon",
+                               @"1", @"toHandleSeen",
+                               msg, @"messageText",
+                               nil];
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:chatDict options:kNilOptions error:&error];
+    
+    NSString *url = @"http://authie.me/api/message";
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"POST"];
+    
+    
+    if(error == nil) {
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        [request setHTTPBody:jsonData];
+        
+        //send the request and get the response
+        localData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        NSError *deserialize_error = nil;
+        
+        id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingAllowFragments error:&deserialize_error];
+        
+        if([object isKindOfClass:[NSDictionary class]] && deserialize_error == nil) {
+            
+            NSLog(@"results from send chat: %@", object);
+
+        }
+        
+    }
+    
+   
+}
+
+
 - (void)giveLove:(NSString *)groupKey
 {
     NSError *error = nil;
@@ -1141,77 +1195,50 @@
             
             for (NSDictionary *result in object) {
                 
-                NSLog(@"loadMessages: %@", result);
-                
                 RODMessage *message = [[RODMessage alloc] init];
                 
                 NSInteger id_result = [[result objectForKey:@"id"] integerValue];
                 message.id = [NSNumber numberWithInteger:id_result];
                 
-                NSInteger fromHandleId_result = [[result objectForKey:@"fromHandleId"] integerValue];
-                message.fromHandle = [NSNumber numberWithInteger:id_result];
-                
-                
-                
-                // replace them with the new ones
-                RODThread *thready = [[RODThread alloc] init];
-                thready.id = [NSNumber numberWithInteger:id_result];
-                
-                NSDictionary *inner_result = [result objectForKey:@"toHandle"];
-                NSString *to_result = [inner_result objectForKey:@"name"];
-                
-                NSDictionary *from_inner_result = [result objectForKey:@"fromHandle"];
-                NSString *from_result = [from_inner_result objectForKey:@"name"];
-                
-                NSString *to_publicKey = [inner_result objectForKey:@"publicKey"];
-                NSString *from_publicKey = [from_inner_result objectForKey:@"publicKey"];
+                NSDictionary *handle_result = [result objectForKey:@"handle"];
                 
                 RODHandle *fromHandle = [[RODHandle alloc] init];
-                fromHandle.name = from_result;
-                fromHandle.publicKey = from_publicKey;
                 
-                thready.fromHandle = fromHandle;
+                NSString *fromHandle_name = [handle_result objectForKey:@"name"];
                 
-                RODHandle *toHandle = [[RODHandle alloc] init];
-                toHandle.name = to_result;
-                toHandle.publicKey = to_publicKey;
+                NSString *fromHandle_publicKey = [handle_result objectForKey:@"publicKey"];
                 
-                thready.toHandle = toHandle;
+                fromHandle.publicKey = fromHandle_publicKey;
+                fromHandle.name = fromHandle_name;
+                message.fromHandle = fromHandle;
                 
+                NSString *message_text = [result objectForKey:@"messageText"];
+                message.messageText = message_text;
                 
-                NSString *caption_result = [result objectForKey:@"caption"];
-                thready.caption = caption_result;
+                NSString *message_date = [result objectForKey:@"sentDate"];
                 
-                NSInteger hearts = [[result objectForKey:@"hearts"] integerValue];
-                NSInteger authorizeRequest = [[result objectForKey:@"authorizeRequest"] integerValue];
-                
-                id toHandleSeen_result = [result objectForKey:@"toHandleSeen"];
-                if(toHandleSeen_result == [NSNull null]) {
-                    thready.toHandleSeen = 0;
-                } else {
-                    thready.toHandleSeen = [NSNumber numberWithInteger:[toHandleSeen_result integerValue]];
-                }
-                
-                thready.hearts = [NSNumber numberWithInteger:hearts];
-                thready.authorizeRequest = [NSNumber numberWithInteger:authorizeRequest];
-                
-                thready.groupKey = [result objectForKey:@"groupKey"];
-                thready.toHandleId = to_result;
-                thready.fromHandleId = from_result;
-                
-                
-                NSString *silly_date = [result objectForKey:@"startDate"];
                 NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
                 
                 //The Z at the end of your string represents Zulu which is UTC
                 [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
                 [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
                 
-                thready.startDate = [dateFormatter dateFromString:silly_date];
+                message.sentDate = [dateFormatter dateFromString:message_date];
                 
-                [self.dailyThreads addObject:thready];
                 
-                //[[RODImageStore sharedStore] downloadImage:thready.groupKey];
+                NSDictionary *thread_result = [result objectForKey:@"thread"];
+                
+                RODThread *thread = [[RODThread alloc] init];
+                
+                NSString *groupKey = [thread_result objectForKey:@"groupKey"];
+                
+                thread.groupKey = groupKey;
+
+                message.thread = thread;
+  
+                NSLog(@"Loaded message: '%@' from %@", message.messageText, message.fromHandle.name);
+                
+                [self.authie.allMessages addObject:message];
                 
             }
             
@@ -1255,7 +1282,7 @@
             
             for (NSDictionary *result in object) {
                 
-                NSLog(@"the daily: %@", result);
+                //NSLog(@"the daily: %@", result);
                 
                 NSInteger id_result = [[result objectForKey:@"id"] integerValue];
                 

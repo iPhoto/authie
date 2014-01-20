@@ -13,6 +13,7 @@
 #import "RODThread.h"
 #import "RODAuthie.h"
 #import "RODHandle.h"
+#import "RODMessage.h"
 #import "NSDate+PrettyDate.h"
 
 @implementation ThreadViewController
@@ -46,6 +47,10 @@
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
+    [self.messages removeAllObjects];
+    [self.subtitles removeAllObjects];
+    [self.timestamps removeAllObjects];
+    
     [self loadThread:loadRow];
     [self.snapView setNeedsUpdateConstraints];
 }
@@ -81,7 +86,6 @@
     
     UITapGestureRecognizer *tapView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedImageView:)];
     [self.view addGestureRecognizer:tapView];
-
 
     self.messages = [[NSMutableArray alloc] init];
     
@@ -128,18 +132,20 @@
     
     self.snapDate.text = [self.thread.startDate prettyDate];
     
-    if(self.thread.caption == (id)[NSNull null] || self.thread.caption.length == 0 ) {
-        self.snapCaption.text = @"";
-    } else {
-
-        [self.timestamps addObject:self.thread.startDate];
-        [self.messages addObject:self.thread.caption];
-        [self.subtitles addObject:self.thread.fromHandleId];
-        [self finishSend];
-        [self scrollToBottomAnimated:YES];
+    // now load all the messages that are associated with this thread
+    
+    for(int i = 0; i < [[RODItemStore sharedStore].authie.all_Messages count]; i++) {
+        
+        RODMessage *msg = [[RODItemStore sharedStore].authie.all_Messages objectAtIndex:i];
+        
+        [self.timestamps addObject:msg.sentDate];
+        [self.messages addObject:msg.messageText];
+        [self.subtitles addObject:msg.fromHandle.name];
         
     }
     
+    [self finishSend];
+    [self scrollToBottomAnimated:YES];
     
     loadRow = row;
 }
@@ -168,6 +174,8 @@
     
     [self finishSend];
     [self scrollToBottomAnimated:YES];
+    
+    [[RODItemStore sharedStore] sendChat:self.thread.groupKey message:text];
 }
 
 - (JSBubbleMessageType)messageTypeForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -40,6 +40,7 @@
 - (BOOL)login:(NSString *)handle privateKey:(NSString *)key;
 - (void)report:(NSString *)groupKey;
 - (void)giveLove:(NSString *)groupKey;
+- (void)sendChat:(NSString *)groupKey message:(NSString *)msg;
 - (void)invite:(NSString *)email message:(NSString *)msg;
 - (void)loadMessages;
 - (void)loadDaily;
