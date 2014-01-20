@@ -138,9 +138,11 @@
         
         RODMessage *msg = [[RODItemStore sharedStore].authie.all_Messages objectAtIndex:i];
         
-        [self.timestamps addObject:msg.sentDate];
-        [self.messages addObject:msg.messageText];
-        [self.subtitles addObject:msg.fromHandle.name];
+        if([msg.thread.groupKey isEqualToString:self.thread.groupKey]) {
+            [self.timestamps addObject:msg.sentDate];
+            [self.messages addObject:msg.messageText];
+            [self.subtitles addObject:msg.fromHandle.name];
+        }
         
     }
     
