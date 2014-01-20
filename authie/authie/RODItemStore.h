@@ -41,6 +41,7 @@
 - (void)report:(NSString *)groupKey;
 - (void)giveLove:(NSString *)groupKey;
 - (void)invite:(NSString *)email message:(NSString *)msg;
+- (void)loadMessages;
 - (void)loadDaily;
 - (BOOL)loadThreads;
 - (BOOL)loadContacts;

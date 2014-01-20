@@ -17,6 +17,7 @@
 #import "RODThread.h"
 #import "RODFollower.h"
 #import "MasterViewController.h"
+#import "RODMessage.h"
 
 @implementation RODItemStore
 @synthesize loadedThreadsFromAuthor;
@@ -60,6 +61,9 @@
         
         if(!_authie.allThreads)
             _authie.allThreads = [[NSMutableArray alloc] init];
+        
+        if(!_authie.allMessages)
+            _authie.allMessages = [[NSMutableArray alloc] init];
         
         if(!loadedThreadsFromAuthor)
             loadedThreadsFromAuthor = [[NSMutableArray alloc] init];
@@ -472,6 +476,7 @@
                 is_logged_in = YES;
                 [self loadThreads];
                 [self loadContacts];
+                [self loadMessages];
 
             }
             
@@ -1106,16 +1111,15 @@
     return loaded_threads;
 }
 
-- (void)loadMessages:(NSString *)groupKey
+- (void)loadMessages
 {
-    NSLog(@"loadMessages: %@", groupKey);
     
     NSError *error = nil;
     
     NSURLResponse *response;
     NSData *localData = nil;
     
-    NSString *url = [NSString stringWithFormat:@"http://authie.me/api/daily"];
+    NSString *url = [NSString stringWithFormat:@"http://authie.me/api/message"];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
     [request setHTTPMethod:@"GET"];
@@ -1132,14 +1136,22 @@
         id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingMutableContainers error:&deserialize_error];
         if([object isKindOfClass:[NSArray self]] && deserialize_error == nil) {
             
-            // clear out old threads
-            [self.dailyThreads removeAllObjects];
+            // clear out old messages
+            [self.authie.allMessages removeAllObjects];
             
             for (NSDictionary *result in object) {
                 
-                NSLog(@"the daily: %@", result);
+                NSLog(@"loadMessages: %@", result);
+                
+                RODMessage *message = [[RODMessage alloc] init];
                 
                 NSInteger id_result = [[result objectForKey:@"id"] integerValue];
+                message.id = [NSNumber numberWithInteger:id_result];
+                
+                NSInteger fromHandleId_result = [[result objectForKey:@"fromHandleId"] integerValue];
+                message.fromHandle = [NSNumber numberWithInteger:id_result];
+                
+                
                 
                 // replace them with the new ones
                 RODThread *thready = [[RODThread alloc] init];
