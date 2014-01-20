@@ -26,6 +26,9 @@
 #import "GAI.h"
 #import "SelectContactViewController.h"
 #import "AuthorizeContactViewController.h"
+#import "UAirship.h"
+#import "UAConfig.h"
+#import "UAPush.h"
 
 @implementation AppDelegate
 @synthesize masterViewController, threadViewController, contactsViewController, privateKeyViewController, inviteViewController, dailyViewController, profileViewController, loginViewController, registerViewController, selectContactViewController, authorizeContactViewController;
@@ -64,6 +67,24 @@
     
     tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-47064407-1"];
 
+    // urbanairship
+    // Populate AirshipConfig.plist with your app's info from https://go.urbanairship.com
+    // or set runtime properties here.
+    UAConfig *config = [UAConfig defaultConfig];
+    
+    // You can also programmatically override the plist values:
+    // config.developmentAppKey = @"YourKey";
+    // etc.
+    
+    // Call takeOff (which creates the UAirship singleton)
+    [UAirship takeOff:config];
+    
+    // Request a custom set of notification types
+    [UAPush shared].notificationTypes = (UIRemoteNotificationTypeBadge |
+                                         UIRemoteNotificationTypeSound |
+                                         UIRemoteNotificationTypeAlert);
+    
+    
     MasterViewController *master = [[MasterViewController alloc] init];
     masterViewController = master;
     
