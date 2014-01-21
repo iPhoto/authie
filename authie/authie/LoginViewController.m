@@ -65,9 +65,18 @@
                 [[RODItemStore sharedStore] loadThreads];
                 [[RODItemStore sharedStore] loadContacts];
                 [[RODItemStore sharedStore] loadMessages];
+                
+//                AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+//                appDelegate.dashViewController.doGetThreadsOnView = NO;
+//                [appDelegate.leftDrawer showDashboard];
+//                [appDelegate.dashViewController.navigationController popToViewController:appDelegate.dashViewController animated:NO];
+                // show the main screen?
+                //[self.navigationController popToRootViewControllerAnimated:YES];
+                
                 AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-                appDelegate.dashViewController.doGetThreadsOnView = NO;
-                [self.navigationController popToViewController:appDelegate.dashViewController animated:NO];
+                NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.dashViewController];
+                appDelegate.dashViewController.doGetThreadsOnView = YES;
+                appDelegate.leftDrawer.frostedViewController.contentViewController = navigationController;
             }
             
         });
