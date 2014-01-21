@@ -68,7 +68,7 @@
                 
                 AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
                 NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.dashViewController];
-                [appDelegate.dashViewController setDoGetThreadsOnView:NO];
+                [appDelegate.dashViewController setDoGetThreadsOnView:YES];
                 [appDelegate.drawer setContentViewController:navigationController];
                 
             }

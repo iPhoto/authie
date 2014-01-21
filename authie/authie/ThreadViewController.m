@@ -135,7 +135,7 @@
 
 -(void)removeThread:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:NO completion:nil];
     [[RODItemStore sharedStore] removeThread:self.thread];
 }
 
@@ -281,13 +281,11 @@
     if(cell.timestampLabel) {
         cell.timestampLabel.textColor = [UIColor whiteColor];
         cell.timestampLabel.shadowColor = [UIColor blackColor];
-        cell.subtitleLabel.layer.shadowOpacity = 1;
     }
     
     if(cell.subtitleLabel) {
         cell.subtitleLabel.textColor = [UIColor whiteColor];
         cell.subtitleLabel.shadowColor = [UIColor blackColor];
-        cell.subtitleLabel.layer.shadowOpacity = 1;
     }
 }
 
