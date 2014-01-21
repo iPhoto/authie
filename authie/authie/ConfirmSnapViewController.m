@@ -114,12 +114,12 @@
     }
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    appDelegate.masterViewController.imageToUpload = snap;
-    appDelegate.masterViewController.keyToUpload = key;
-    appDelegate.masterViewController.handleToUpload = handle;
-    appDelegate.masterViewController.captionToUpload = self.snapCaption.text;
-    [appDelegate.masterViewController setDoUploadOnView:true];
-    [appDelegate.masterViewController.navigationController popToRootViewControllerAnimated:YES];
+    appDelegate.dashViewController.imageToUpload = snap;
+    appDelegate.dashViewController.keyToUpload = key;
+    appDelegate.dashViewController.handleToUpload = handle;
+    appDelegate.dashViewController.captionToUpload = self.snapCaption.text;
+    [appDelegate.dashViewController setDoUploadOnView:true];
+    [appDelegate.dashViewController.navigationController popToRootViewControllerAnimated:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 
 }

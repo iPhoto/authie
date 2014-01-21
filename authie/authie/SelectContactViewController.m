@@ -62,7 +62,7 @@
 {
     NSLog(@"bye.");
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [appDelegate.masterViewController.navigationController popToRootViewControllerAnimated:YES];
+    [appDelegate.dashViewController.navigationController popToRootViewControllerAnimated:YES];
     
 }
 
@@ -150,7 +150,7 @@
 
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"trashed" message:@"Your message has been trashed." delegate:appDelegate.masterViewController cancelButtonTitle:@"ok" otherButtonTitles:nil];
 
-    [appDelegate.masterViewController.navigationController popToRootViewControllerAnimated:YES];
+    [appDelegate.dashViewController.navigationController popToRootViewControllerAnimated:YES];
 
     [alert show];
     

@@ -17,6 +17,7 @@
 #import "InviteViewController.h"
 #import "PrivateKeyViewController.h"
 #import "SelectContactViewController.h"
+#import "DashViewController.h"
 #import "RODHandle.h"
 #import "RODAuthie.h"
 #import <MRProgress/MRProgress.h>
@@ -79,8 +80,8 @@
     switch (indexPath.row) {
         case 0: // dash
         {
-            NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.masterViewController];
-            appDelegate.masterViewController.doGetThreadsOnView = YES;
+            NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.dashViewController];
+            appDelegate.dashViewController.doGetThreadsOnView = YES;
             self.frostedViewController.contentViewController = navigationController;
         }
             break;

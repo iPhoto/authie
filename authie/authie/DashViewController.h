@@ -18,6 +18,14 @@
 @property (weak, nonatomic) RODHandle *handle;
 @property (nonatomic) int contentSize;
 @property (nonatomic) BOOL doGetThreadsOnView;
+@property (nonatomic) BOOL doUploadOnView;
+
+
+@property (strong, nonatomic) UIImage *imageToUpload;
+@property (strong, nonatomic) NSString *keyToUpload;
+@property (strong, nonatomic) RODHandle *handleToUpload;
+@property (strong, nonatomic) NSString *captionToUpload;
+
 
 - (void)populateScrollView;
 

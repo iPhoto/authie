@@ -257,38 +257,4 @@
     
 }
 
-- (void)doUpload
-{
-
-    // Block whole window
-
-    MRProgressOverlayView *progressView = [MRProgressOverlayView new];
-    progressView.titleLabelText = @"uploading, pls chill a moment";
-    progressView.titleLabel.font = [UIFont systemFontOfSize:10];
-    
-    [self.navigationController.view.window addSubview:progressView];
-    
-    [progressView show:YES];
-
-    [[RODImageStore sharedStore] setImage:self.imageToUpload forKey:self.keyToUpload];
-    NSLog(@"Created key: %@", self.keyToUpload);
-    [[RODItemStore sharedStore] createSelfie:self.keyToUpload];
-    
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
-    dispatch_async(queue, ^{
-        // Perform async operation
-        [[RODItemStore sharedStore] startThread:self.handleToUpload.publicKey forKey:self.keyToUpload withCaption:self.captionToUpload];
-
-        
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            // Update UI
-            [self resetUploadVariables];
-            [[RODItemStore sharedStore] loadThreads];
-            [progressView dismiss:YES];
-            
-        });
-    });
-
-}
-
 @end
