@@ -31,7 +31,7 @@
 #import "UAPush.h"
 
 @implementation AppDelegate
-@synthesize masterViewController, threadViewController, contactsViewController, privateKeyViewController, inviteViewController, dailyViewController, profileViewController, loginViewController, registerViewController, selectContactViewController, authorizeContactViewController, notificationDelegate;
+@synthesize masterViewController, threadViewController, contactsViewController, privateKeyViewController, inviteViewController, dailyViewController, dashViewController, loginViewController, registerViewController, selectContactViewController, authorizeContactViewController, notificationDelegate;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -106,8 +106,8 @@
     InviteViewController *invite = [[InviteViewController alloc] init];
     inviteViewController = invite;
     
-    ProfileViewController *profile = [[ProfileViewController alloc] init];
-    profileViewController = profile;
+    DashViewController *dash = [[DashViewController alloc] init];
+    dashViewController = dash;
     
     LoginViewController *login = [[LoginViewController alloc] init];
     loginViewController = login;

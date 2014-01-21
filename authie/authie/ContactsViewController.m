@@ -12,7 +12,7 @@
 #import "RODAuthie.h"
 #import "RODFollower.h"
 #import "RODItemStore.h"
-#import "ProfileViewController.h"
+#import "DashViewController.h"
 #import "ConfirmSnapViewController.h"
 #import "RODItemStore.h"
 
@@ -115,11 +115,11 @@
     RODHandle *handle = [[RODItemStore sharedStore].authie.all_Contacts objectAtIndex:indexPath.row];
         
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    ProfileViewController *pvc = [[ProfileViewController alloc] init];
-    appDelegate.profileViewController = pvc;
+    //ProfileViewController *pvc = [[ProfileViewController alloc] init];
+    //appDelegate.profileViewController = pvc;
     
-    pvc.handle = handle;
-    [self.navigationController pushViewController:pvc animated:YES];
+    //pvc.handle = handle;
+    //[self.navigationController pushViewController:pvc animated:YES];
     
 }
 

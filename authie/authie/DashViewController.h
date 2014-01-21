@@ -9,7 +9,7 @@
 @class RODHandle;
 #import <UIKit/UIKit.h>
 
-@interface ProfileViewController : UIViewController
+@interface DashViewController : UIViewController
 {
     NSMutableArray *_items;
 }

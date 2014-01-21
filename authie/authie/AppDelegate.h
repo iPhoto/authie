@@ -16,7 +16,7 @@
 #import "InviteViewController.h"
 #import "PrivateKeyViewController.h"
 #import "DailyViewController.h"
-#import "ProfileViewController.h"
+#import "DashViewController.h"
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
 #import "SelectContactViewController.h"
@@ -33,7 +33,7 @@
 @property (strong, nonatomic) InviteViewController *inviteViewController;
 @property (strong, nonatomic) PrivateKeyViewController *privateKeyViewController;
 @property (strong, nonatomic) DailyViewController *dailyViewController;
-@property (strong, nonatomic) ProfileViewController *profileViewController;
+@property (strong, nonatomic) DashViewController *dashViewController;
 @property (strong, nonatomic) LoginViewController *loginViewController;
 @property (strong, nonatomic) RegisterViewController *registerViewController;
 @property (strong, nonatomic) SelectContactViewController *selectContactViewController;

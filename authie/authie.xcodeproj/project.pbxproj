@@ -99,8 +99,8 @@
 		5D8C1CEE1880E0F200158AE5 /* InviteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C1CEC1880E0F200158AE5 /* InviteViewController.xib */; };
 		5D8C1CF21880E45600158AE5 /* PrivateKeyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C1CF01880E45500158AE5 /* PrivateKeyViewController.m */; };
 		5D8C1CF31880E45600158AE5 /* PrivateKeyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C1CF11880E45500158AE5 /* PrivateKeyViewController.xib */; };
-		5D8C1CF71880E8B800158AE5 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C1CF51880E8B800158AE5 /* ProfileViewController.m */; };
-		5D8C1CF81880E8B800158AE5 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C1CF61880E8B800158AE5 /* ProfileViewController.xib */; };
+		5D8C1CF71880E8B800158AE5 /* DashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C1CF51880E8B800158AE5 /* DashViewController.m */; };
+		5D8C1CF81880E8B800158AE5 /* DashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C1CF61880E8B800158AE5 /* DashViewController.xib */; };
 		5D8C1CFC1880EEB900158AE5 /* MiniThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C1CFA1880EEB900158AE5 /* MiniThreadViewController.m */; };
 		5D8C1CFD1880EEB900158AE5 /* MiniThreadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C1CFB1880EEB900158AE5 /* MiniThreadViewController.xib */; };
 		5D9A453218765184008C45FD /* RODThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9A453118765184008C45FD /* RODThread.m */; };
@@ -335,9 +335,9 @@
 		5D8C1CEF1880E45500158AE5 /* PrivateKeyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivateKeyViewController.h; sourceTree = "<group>"; };
 		5D8C1CF01880E45500158AE5 /* PrivateKeyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivateKeyViewController.m; sourceTree = "<group>"; };
 		5D8C1CF11880E45500158AE5 /* PrivateKeyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrivateKeyViewController.xib; sourceTree = "<group>"; };
-		5D8C1CF41880E8B800158AE5 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
-		5D8C1CF51880E8B800158AE5 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
-		5D8C1CF61880E8B800158AE5 /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		5D8C1CF41880E8B800158AE5 /* DashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashViewController.h; sourceTree = "<group>"; };
+		5D8C1CF51880E8B800158AE5 /* DashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashViewController.m; sourceTree = "<group>"; };
+		5D8C1CF61880E8B800158AE5 /* DashViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashViewController.xib; sourceTree = "<group>"; };
 		5D8C1CF91880EEB900158AE5 /* MiniThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiniThreadViewController.h; sourceTree = "<group>"; };
 		5D8C1CFA1880EEB900158AE5 /* MiniThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiniThreadViewController.m; sourceTree = "<group>"; };
 		5D8C1CFB1880EEB900158AE5 /* MiniThreadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MiniThreadViewController.xib; sourceTree = "<group>"; };
@@ -809,9 +809,9 @@
 				5D8C1CF91880EEB900158AE5 /* MiniThreadViewController.h */,
 				5D8C1CFA1880EEB900158AE5 /* MiniThreadViewController.m */,
 				5D8C1CFB1880EEB900158AE5 /* MiniThreadViewController.xib */,
-				5D8C1CF41880E8B800158AE5 /* ProfileViewController.h */,
-				5D8C1CF51880E8B800158AE5 /* ProfileViewController.m */,
-				5D8C1CF61880E8B800158AE5 /* ProfileViewController.xib */,
+				5D8C1CF41880E8B800158AE5 /* DashViewController.h */,
+				5D8C1CF51880E8B800158AE5 /* DashViewController.m */,
+				5D8C1CF61880E8B800158AE5 /* DashViewController.xib */,
 				5D8C1CEF1880E45500158AE5 /* PrivateKeyViewController.h */,
 				5D8C1CF01880E45500158AE5 /* PrivateKeyViewController.m */,
 				5D8C1CF11880E45500158AE5 /* PrivateKeyViewController.xib */,
@@ -966,7 +966,7 @@
 				5D21CA38188DAF6800330F78 /* bottom-detail@2x.png in Resources */,
 				5D21CA3C188DAF6800330F78 /* top-detail@2x.png in Resources */,
 				5D21CA28188DAF6800330F78 /* up.png in Resources */,
-				5D8C1CF81880E8B800158AE5 /* ProfileViewController.xib in Resources */,
+				5D8C1CF81880E8B800158AE5 /* DashViewController.xib in Resources */,
 				5D8C1CD8187E38E300158AE5 /* ThreadViewController.xib in Resources */,
 				5DEE7CA1185234E800F532B3 /* Main_iPad.storyboard in Resources */,
 				5DBBDBED18822C80004446DE /* README.md in Resources */,
@@ -1091,7 +1091,7 @@
 				5D9DEE9D185242E300F80413 /* RODSelfie.m in Sources */,
 				5D8C1CDB187F3ACA00158AE5 /* RODFollower.m in Sources */,
 				5D21CA2D188DAF6800330F78 /* UAPushMoreSettingsViewController.m in Sources */,
-				5D8C1CF71880E8B800158AE5 /* ProfileViewController.m in Sources */,
+				5D8C1CF71880E8B800158AE5 /* DashViewController.m in Sources */,
 				5DF86493185F75CA002DCCDC /* RegisterViewController.m in Sources */,
 				5D1B7BC5188EEF6A00D4DCBD /* UACustomPushNotificationDelegate.m in Sources */,
 				5D21CA34188DAF6800330F78 /* UAPushSettingsUserInfoViewController.m in Sources */,
