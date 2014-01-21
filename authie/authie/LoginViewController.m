@@ -9,6 +9,9 @@
 #import "LoginViewController.h"
 #import "RODItemStore.h"
 #import "AppDelegate.h"
+#import <MRProgress/MRProgress.h>
+#import "RODAuthie.h"
+
 
 @implementation LoginViewController
 
@@ -35,7 +38,41 @@
 
 - (IBAction)doLogin:(id)sender {
     
-    [[RODItemStore sharedStore] login:self.textHandle.text privateKey:self.textKey.text];
+    // Block whole window
+    
+    MRProgressOverlayView *progressView = [MRProgressOverlayView new];
+    progressView.titleLabelText = @"syncing, pls chill a moment";
+    progressView.titleLabel.font = [UIFont systemFontOfSize:10];
+    
+    [self.navigationController.view.window addSubview:progressView];
+
+    [self.textHandle resignFirstResponder];
+    [self.textKey resignFirstResponder];
+    
+    [progressView show:YES];
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+    dispatch_async(queue, ^{
+        // Perform async operation
+        [[RODItemStore sharedStore] login:self.textHandle.text privateKey:self.textKey.text];
+       
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            // Update UI
+            [progressView dismiss:YES];
+            
+            if([RODItemStore sharedStore].authie.registered == 1) {
+                [[RODItemStore sharedStore] loadThreads];
+                [[RODItemStore sharedStore] loadContacts];
+                [[RODItemStore sharedStore] loadMessages];
+                AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+                appDelegate.dashViewController.doGetThreadsOnView = NO;
+                [self.navigationController popToViewController:appDelegate.dashViewController animated:NO];
+            }
+            
+        });
+    });
+    
 }
 
 - (IBAction)cancel:(id)sender {

@@ -17,5 +17,6 @@
 @property (strong, nonatomic) NSArray *subtitles;
 
 -(void)showSelectContact;
+-(void)showDashboard;
 
 @end

@@ -616,8 +616,11 @@
                                 
                 [self saveChanges];
                 
-                [self loadThreads];
-                [self loadContacts];
+                //[self loadThreads];
+                //[self loadContacts];
+
+                //AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+                //[appDelegate.leftDrawer showDashboard];
                 
             } else {
                 got = NO;

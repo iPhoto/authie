@@ -78,9 +78,7 @@
     switch (indexPath.row) {
         case 0: // dash
         {
-            NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.dashViewController];
-            appDelegate.dashViewController.doGetThreadsOnView = YES;
-            self.frostedViewController.contentViewController = navigationController;
+            [self showDashboard];
         }
             break;
 //        case 1: // profile
@@ -136,6 +134,15 @@
     
     [appDelegate.dashViewController.navigationController pushViewController:appDelegate.selectContactViewController animated:YES];
     
+    self.frostedViewController.contentViewController = navigationController;
+    
+}
+
+- (void)showDashboard
+{
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.dashViewController];
+    appDelegate.dashViewController.doGetThreadsOnView = YES;
     self.frostedViewController.contentViewController = navigationController;
     
 }
