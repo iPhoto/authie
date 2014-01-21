@@ -31,7 +31,7 @@
 #import "UAPush.h"
 
 @implementation AppDelegate
-@synthesize masterViewController, threadViewController, contactsViewController, privateKeyViewController, inviteViewController, dailyViewController, profileViewController, loginViewController, registerViewController, selectContactViewController, authorizeContactViewController;
+@synthesize masterViewController, threadViewController, contactsViewController, privateKeyViewController, inviteViewController, dailyViewController, profileViewController, loginViewController, registerViewController, selectContactViewController, authorizeContactViewController, notificationDelegate;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -114,6 +114,10 @@
     
     DailyViewController *daily = [[DailyViewController alloc] init];
     dailyViewController = daily;
+    
+    UACustomPushNotificationDelegate *notes = [[UACustomPushNotificationDelegate alloc] init];
+    notificationDelegate = notes;
+    [UAPush shared].pushNotificationDelegate = notificationDelegate;
     
     NavigationController *navController = [[NavigationController alloc] initWithRootViewController:masterViewController];
     [navController.navigationBar setBackgroundColor:[UIColor whiteColor]];
