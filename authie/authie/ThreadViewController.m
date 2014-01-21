@@ -40,6 +40,9 @@
     [super viewWillAppear:animated];
     
     //[[RODItemStore sharedStore] loadMessages];
+    
+    NSLog(@"viewWillAppear, thread");
+    [self reloadThread];
 }
 
 - (IBAction)tappedScreen:(id)sender {
@@ -52,6 +55,8 @@
     if(loadRow != -1) {
         [self resetChatObjects];
         [self loadThread:loadRow];
+        [self.snapView setNeedsUpdateConstraints];
+
     }
 }
 
@@ -90,9 +95,7 @@
     [super viewDidLoad];
     
     [[JSBubbleView appearance] setFont:[UIFont systemFontOfSize:16.0f]];
-    
-    self.title = @"Messages";
-    
+        
     self.messageInputView.textView.placeHolder = @"New Message";
     
     [self setBackgroundColor:[UIColor clearColor]];
@@ -135,6 +138,8 @@
 
 -(void)loadThread:(int)row
 {
+    
+    NSLog(@"loadThread: %i", row);
     
     [self resetChatObjects];
     

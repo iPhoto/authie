@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *handleLabel;
 @property (weak, nonatomic) RODHandle *handle;
 @property (nonatomic) int contentSize;
+@property (nonatomic) BOOL doGetThreadsOnView;
 
 - (void)populateScrollView;
 

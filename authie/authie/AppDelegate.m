@@ -119,7 +119,7 @@
     notificationDelegate = notes;
     [UAPush shared].pushNotificationDelegate = notificationDelegate;
     
-    NavigationController *navController = [[NavigationController alloc] initWithRootViewController:masterViewController];
+    NavigationController *navController = [[NavigationController alloc] initWithRootViewController:dashViewController];
     [navController.navigationBar setBackgroundColor:[UIColor whiteColor]];
     
     MenuViewController * leftDrawer = [[MenuViewController alloc] initWithStyle:UITableViewStylePlain];

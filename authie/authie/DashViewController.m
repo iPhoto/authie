@@ -15,6 +15,8 @@
 #import "RODThread.h"
 #import "RODAuthie.h"
 #import "NSDate+PrettyDate.h"
+#import "NavigationController.h"
+#import "AppDelegate.h"
 
 @implementation DashViewController
 @synthesize handle, contentSize;
@@ -36,11 +38,21 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    [self.navigationItem setTitle:handle.name];
+
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(sendSnap:)];
+    self.navigationItem.rightBarButtonItem = addButton;
+    self.navigationItem.titleView = [[RODItemStore sharedStore] generateHeaderView];
     
     [self getThreads];
 
+}
+
+- (void)sendSnap:(id)sender
+{
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [self.navigationController pushViewController:appDelegate.selectContactViewController animated:YES];
+    
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
@@ -51,23 +63,21 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-            
-    if(self.handle.name != [RODItemStore sharedStore].authie.handle.name) {
-        
-        // add trash can button to allow the user
-        // to remove a contact
-        UIBarButtonItem *edit = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(removeContact:)];
-        
-        self.navigationItem.rightBarButtonItem = edit;
-        
-    } else {
 
-        // this happens when they are viewing their own profile
-        self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateSettingsCog:self];
-
-        
-    }
+    UIButton *button_menu = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button_menu setFrame:CGRectMake(0, 0, 40, 40)];
+    [button_menu setImage:[UIImage imageNamed:@"cog-black.png"] forState:UIControlStateNormal];
+    [button_menu addTarget:(NavigationController *)self.navigationController action:@selector(showMenu:) forControlEvents:UIControlEventTouchUpInside];
     
+    UIBarButtonItem *leftDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_menu];
+    self.navigationItem.leftBarButtonItem = leftDrawerButton;
+        
+    if(self.doGetThreadsOnView)
+    {
+        [[RODItemStore sharedStore] loadThreads];
+        self.doGetThreadsOnView = NO;
+    }
+        
 }
 
 - (void)didReceiveMemoryWarning
@@ -149,9 +159,11 @@
 
     [_items removeAllObjects];
 
-    for(int i=0; i < [[RODItemStore sharedStore].loadedThreadsFromAuthor count]; i++) {
+    for(int i=0; i < [[RODItemStore sharedStore].authie.all_Threads count]; i++) {
         
-        RODThread *thread = [[RODItemStore sharedStore].loadedThreadsFromAuthor objectAtIndex:i];
+        if(i > 10) break;
+        
+        RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:i];
         mini = [[MiniThreadViewController alloc] init];
 
         UIImage *image =[[RODImageStore sharedStore] imageForKey:thread.groupKey];
@@ -234,12 +246,55 @@
     
     int thread_index = ([tapGesture.view tag] / 1000) - 100;
     
-    MiniThreadViewController *lil_t = [_items objectAtIndex:thread_index];
-    if([lil_t.heartsView isHidden] == YES) {
-        [lil_t.heartsView setHidden:NO];
+    //MiniThreadViewController *lil_t = [_items objectAtIndex:thread_index];
+
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    
+    RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:thread_index];
+    
+    Boolean is_authorize_request = NO;
+    
+    if([thread.authorizeRequest isEqualToNumber:[NSNumber numberWithInt:1]])
+    {
+        
+        appDelegate.authorizeContactViewController = [[AuthorizeContactViewController alloc] init];
+        [appDelegate.dashViewController.navigationController pushViewController:appDelegate.authorizeContactViewController animated:YES];
+        is_authorize_request = YES;
+        
     } else {
-        [lil_t.heartsView setHidden:YES];
+        
+        appDelegate.threadViewController = [[ThreadViewController alloc] init];        
+        [appDelegate.dashViewController.navigationController pushViewController:appDelegate.threadViewController animated:YES];
+        
     }
+    
+    // Block whole window
+    
+    MRProgressOverlayView *progressView = [MRProgressOverlayView new];
+    [progressView setTitleLabelText:@""];
+    [self.view.window addSubview:progressView];
+    [progressView show:YES];
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+    dispatch_async(queue, ^{
+        
+        [[RODImageStore sharedStore] preloadImageAndShowScreen:thread_index];
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            // Update UI
+            // Example:
+            // self.myLabel.text = result;
+            if(is_authorize_request == YES) {
+                [appDelegate.authorizeContactViewController loadThread:thread_index];
+            } else {
+                [appDelegate.threadViewController loadThread:thread_index];
+            }
+            
+            [progressView dismiss:YES];
+            
+            
+        });
+    });
     
 }
 
