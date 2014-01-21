@@ -167,12 +167,14 @@
         [mini.snapView setImage:image];
 
         
-        [mini.labelDate setText:[thread.startDate prettyDate]];
+        [mini.labelDate setText:[NSString stringWithFormat:@"snapped by %@ %@", thread.fromHandle.name, [thread.startDate prettyDate]]];
         
         [mini.heartsView setUserInteractionEnabled:YES];
         
         UITapGestureRecognizer *tapHearts = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickedHeart:)];
         [mini.heartsView addGestureRecognizer:tapHearts];
+        
+        
         
         [mini.snapView setUserInteractionEnabled:YES];
         
@@ -194,25 +196,6 @@
         
         mini.heartsCount.text = [NSString stringWithFormat:@"%i", [thread.hearts intValue]];
         
-        if(mini.labelCaption.text.length == 0) {
-            
-            [mini.heartsView setTranslatesAutoresizingMaskIntoConstraints:YES];
-            
-            CGRect f = mini.heartsView.frame;
-            f.size.height = 40;
-            f.size.width = self.scroll.frame.size.width;
-            
-            [mini.heartsView setFrame:f];
-        } else if(mini.labelCaption.text.length < 100) {
-            
-            [mini.heartsView setTranslatesAutoresizingMaskIntoConstraints:YES];
-            
-            CGRect f = mini.heartsView.frame;
-            f.size.height = 80;
-            f.size.width = self.scroll.frame.size.width;
-            
-            [mini.heartsView setFrame:f];
-        }
         
         [mini.reportView setHidden:YES];
 
@@ -293,6 +276,8 @@
 
 - (void)clickedHeart:(UITapGestureRecognizer *)tapGesture
 {
+ 
+    NSLog(@"clicked heart...");
     
     int thread_index = [tapGesture.view tag] / 100;
     RODThread *thread = [[RODItemStore sharedStore].loadedThreadsFromAuthor objectAtIndex:thread_index];
@@ -308,7 +293,6 @@
         // Perform async operation
         
         [[RODItemStore sharedStore] giveLove:thread.groupKey];
-        
         dispatch_sync(dispatch_get_main_queue(), ^{
             // Update UI
         });

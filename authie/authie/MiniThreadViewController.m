@@ -15,6 +15,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
+        self.labelCaption.layer.shadowColor = (__bridge CGColorRef)([UIColor blackColor]);
     }
     return self;
 }
