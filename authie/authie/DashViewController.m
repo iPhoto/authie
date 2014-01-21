@@ -196,6 +196,8 @@
         
         mini.heartsCount.text = [NSString stringWithFormat:@"%i", [thread.hearts intValue]];
         
+        [mini.heartsCount setHidden:YES];
+        [mini.heartsImage setHidden:YES];
         
         [mini.reportView setHidden:YES];
 

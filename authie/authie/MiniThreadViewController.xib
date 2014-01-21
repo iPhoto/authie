@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MiniThreadViewController">
             <connections>
                 <outlet property="heartsCount" destination="dxu-Tk-6F6" id="Szt-jS-f4w"/>
+                <outlet property="heartsImage" destination="Cr4-Ts-tCs" id="ejV-VV-5l5"/>
                 <outlet property="heartsView" destination="Mnj-jO-Rbq" id="raO-55-TBw"/>
                 <outlet property="labelCaption" destination="aJu-qE-Pni" id="16j-XO-LzT"/>
                 <outlet property="labelDate" destination="5zd-Wj-qXb" id="Sch-LX-1Fc"/>
