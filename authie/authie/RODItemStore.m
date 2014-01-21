@@ -58,6 +58,8 @@
         
         // Sets the alias. It will be sent to the server on registration.
         [UAPush shared].alias = self.authie.handle.publicKey;
+        [[UAPush shared] updateRegistration];
+        
         
         if(!_authie.allContacts)
             _authie.allContacts = [[NSMutableArray alloc] init];
