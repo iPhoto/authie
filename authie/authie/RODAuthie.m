@@ -39,16 +39,10 @@
     
     RODHandle *everyone = [[RODHandle alloc] init];
     everyone.id = [NSNumber numberWithInt:1];
-    everyone.name = @"profile";
+    everyone.name = @"dark profile";
     everyone.publicKey = @"1";
 
-    RODHandle *daily = [[RODHandle alloc] init];
-    daily.id = [NSNumber numberWithInt:2];
-    daily.name = @"the daily";
-    daily.publicKey = @"2";
-
     [before insertObject:everyone atIndex:0];
-    [before insertObject:daily atIndex:1];
     
     return before;
 }

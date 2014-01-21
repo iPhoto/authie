@@ -99,8 +99,12 @@
         bool registered = [[RODItemStore sharedStore] registerHandle:self.handle];
         
         if(registered == YES) {
-            // show the main screen?
-            [self.navigationController popToRootViewControllerAnimated:YES];
+            
+            // show the main screen
+            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.dashViewController];
+            [appDelegate.dashViewController setDoGetThreadsOnView:YES];
+            [appDelegate.drawer setContentViewController:navigationController];
             
         } else {
             
