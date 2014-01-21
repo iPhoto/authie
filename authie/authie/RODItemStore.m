@@ -18,6 +18,9 @@
 #import "RODFollower.h"
 #import "MasterViewController.h"
 #import "RODMessage.h"
+#import "UAirship.h"
+#import "UAConfig.h"
+#import "UAPush.h"
 
 @implementation RODItemStore
 @synthesize loadedThreadsFromAuthor;
@@ -52,6 +55,9 @@
         }
         
         NSLog(@"current authie: registered: %i, authieKey: %@, selfies: %lu, id: %@, name: %@", self.authie.registered, self.authie.privateKey, (unsigned long)[self.authie.allSelfies count], self.authie.handle.id, self.authie.handle.name);
+        
+        // Sets the alias. It will be sent to the server on registration.
+        [UAPush shared].alias = self.authie.handle.publicKey;
         
         if(!_authie.allContacts)
             _authie.allContacts = [[NSMutableArray alloc] init];
