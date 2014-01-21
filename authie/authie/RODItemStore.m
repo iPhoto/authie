@@ -16,7 +16,6 @@
 #import "RODHandle.h"
 #import "RODThread.h"
 #import "RODFollower.h"
-#import "MasterViewController.h"
 #import "RODMessage.h"
 #import "UAirship.h"
 #import "UAConfig.h"
@@ -197,9 +196,9 @@
             if(response_result == 1) {
                 [self loadThreads];
                 AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-                [appDelegate.masterViewController.navigationController popToRootViewControllerAnimated:YES];
+                [appDelegate.dashViewController.navigationController popToRootViewControllerAnimated:YES];
 
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"bye" message:@"This thread has been trashed." delegate:appDelegate.masterViewController cancelButtonTitle:@"ok" otherButtonTitles:nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"bye" message:@"This thread has been trashed." delegate:appDelegate.dashViewController cancelButtonTitle:@"ok" otherButtonTitles:nil];
 
                 [alert show];
                 
@@ -614,10 +613,7 @@
                 [self.authie.handle setPublicKey:publicKey];
                 
                 NSLog(@"id: %lu, privateKey: %@, publicKey: %@", [self.authie.handle.id longValue], self.authie.privateKey, self.authie.handle.publicKey);
-                
-                AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-                [appDelegate.masterViewController.navigationController popToRootViewControllerAnimated:YES];
-                
+                                
                 [self saveChanges];
                 
                 [self loadThreads];
@@ -896,7 +892,7 @@
             if(result == 1) {
 
                 AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-                [appDelegate.masterViewController.navigationController popToRootViewControllerAnimated:YES];
+                [appDelegate.dashViewController.navigationController popToRootViewControllerAnimated:YES];
                 
                 [self loadThreads];
                 [self loadContacts];
@@ -1510,7 +1506,7 @@
                 NSLog(@"id: %lu, privateKey: %@, publicKey: %@", [self.authie.handle.id longValue], self.authie.handle.privateKey, self.authie.handle.publicKey);
                                 
                 AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-                [appDelegate.masterViewController.navigationController popToRootViewControllerAnimated:YES];
+                [appDelegate.dashViewController.navigationController popToRootViewControllerAnimated:YES];
                 
                 [self saveChanges];
             } else {

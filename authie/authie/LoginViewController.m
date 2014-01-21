@@ -41,7 +41,7 @@
 - (IBAction)cancel:(id)sender {
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [appDelegate.masterViewController.navigationController popToViewController:appDelegate.registerViewController animated:YES];
+    [appDelegate.dashViewController.navigationController popToViewController:appDelegate.registerViewController animated:YES];
     
 }
 

@@ -11,7 +11,6 @@
 #import "RODAuthie.h"
 #import "RODHandle.h"
 #import "AppDelegate.h"
-#import "MasterViewController.h"
 #import "RODImageStore.h"
 #import "ConfirmSnapViewController.h"
 
@@ -148,7 +147,7 @@
 
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"trashed" message:@"Your message has been trashed." delegate:appDelegate.masterViewController cancelButtonTitle:@"ok" otherButtonTitles:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"trashed" message:@"Your message has been trashed." delegate:appDelegate.dashViewController cancelButtonTitle:@"ok" otherButtonTitles:nil];
 
     [appDelegate.dashViewController.navigationController popToRootViewControllerAnimated:YES];
 

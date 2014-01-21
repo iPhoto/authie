@@ -227,9 +227,9 @@
     confirm.handle = self.selected;
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.masterViewController];
+    NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.dashViewController];
 
-    [appDelegate.masterViewController.navigationController pushViewController:confirm animated:YES];
+    [appDelegate.dashViewController.navigationController pushViewController:confirm animated:YES];
     self.frostedViewController.contentViewController = navigationController;
     
     
@@ -242,7 +242,7 @@
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"trashed" message:@"Your message has been trashed." delegate:appDelegate.masterViewController cancelButtonTitle:@"ok" otherButtonTitles:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"trashed" message:@"Your message has been trashed." delegate:appDelegate.dashViewController cancelButtonTitle:@"ok" otherButtonTitles:nil];
     
     [appDelegate.contactsViewController.navigationController popToRootViewControllerAnimated:YES];
     

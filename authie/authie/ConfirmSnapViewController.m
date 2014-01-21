@@ -8,7 +8,6 @@
 
 #import "ConfirmSnapViewController.h"
 #import "AppDelegate.h"
-#import "MasterViewController.h"
 #import "RODHandle.h"
 #import "RODItemStore.h"
 
@@ -131,9 +130,9 @@
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"trashed" message:@"Your message has been trashed." delegate:appDelegate.masterViewController cancelButtonTitle:@"ok" otherButtonTitles:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"trashed" message:@"Your message has been trashed." delegate:appDelegate.dashViewController cancelButtonTitle:@"ok" otherButtonTitles:nil];
         
-    [appDelegate.masterViewController.navigationController popToRootViewControllerAnimated:YES];
+    [appDelegate.dashViewController.navigationController popToRootViewControllerAnimated:YES];
     
     [alert show];
 }

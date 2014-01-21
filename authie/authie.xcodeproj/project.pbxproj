@@ -127,7 +127,6 @@
 		5DEE7C9B185234E800F532B3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DEE7C9A185234E800F532B3 /* AppDelegate.m */; };
 		5DEE7C9E185234E800F532B3 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DEE7C9C185234E800F532B3 /* Main_iPhone.storyboard */; };
 		5DEE7CA1185234E800F532B3 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DEE7C9F185234E800F532B3 /* Main_iPad.storyboard */; };
-		5DEE7CA4185234E800F532B3 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DEE7CA3185234E800F532B3 /* MasterViewController.m */; };
 		5DEE7CA9185234E800F532B3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DEE7CA8185234E800F532B3 /* Images.xcassets */; };
 		5DEE7CB0185234E800F532B3 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DEE7CAF185234E800F532B3 /* XCTest.framework */; };
 		5DEE7CB1185234E800F532B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DEE7C8A185234E700F532B3 /* Foundation.framework */; };
@@ -379,8 +378,6 @@
 		5DEE7C9A185234E800F532B3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5DEE7C9D185234E800F532B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		5DEE7CA0185234E800F532B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		5DEE7CA2185234E800F532B3 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		5DEE7CA3185234E800F532B3 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		5DEE7CA8185234E800F532B3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5DEE7CAE185234E800F532B3 /* authieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = authieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DEE7CAF185234E800F532B3 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -791,8 +788,6 @@
 				5D8C1CEA1880E0F200158AE5 /* InviteViewController.h */,
 				5D8C1CEB1880E0F200158AE5 /* InviteViewController.m */,
 				5D8C1CEC1880E0F200158AE5 /* InviteViewController.xib */,
-				5DEE7CA2185234E800F532B3 /* MasterViewController.h */,
-				5DEE7CA3185234E800F532B3 /* MasterViewController.m */,
 				5D8C1CD4187E38E300158AE5 /* ThreadViewController.h */,
 				5D8C1CD5187E38E300158AE5 /* ThreadViewController.m */,
 				5D8C1CD6187E38E300158AE5 /* ThreadViewController.xib */,
@@ -1081,7 +1076,6 @@
 				5D5A0728188271C4003848EA /* NSDate+PrettyDate.m in Sources */,
 				5D21CA17188DAF6800330F78 /* UAInboxMessageViewController.m in Sources */,
 				5D556A631882384100C5B6FB /* LoginViewController.m in Sources */,
-				5DEE7CA4185234E800F532B3 /* MasterViewController.m in Sources */,
 				5DF8648B185BEA60002DCCDC /* RODAuthie.m in Sources */,
 				5D9DEE9D185242E300F80413 /* RODSelfie.m in Sources */,
 				5D8C1CDB187F3ACA00158AE5 /* RODFollower.m in Sources */,

@@ -117,7 +117,7 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     LoginViewController *lvc = [[LoginViewController alloc] init];
     appDelegate.loginViewController = lvc;
-    [appDelegate.masterViewController.navigationController pushViewController:lvc animated:YES];    
+    [appDelegate.dashViewController.navigationController pushViewController:lvc animated:YES];
 }
 
 - (IBAction)authieHandleChanged:(id)sender {

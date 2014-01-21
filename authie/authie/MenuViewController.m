@@ -11,7 +11,6 @@
 #import "AppDelegate.h"
 #import <REFrostedViewController.h>
 #import "UIViewController+REFrostedViewController.h"
-#import "MasterViewController.h"
 #import "ContactsViewController.h"
 #import "InviteViewController.h"
 #import "PrivateKeyViewController.h"
@@ -133,9 +132,9 @@
 {
 
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.masterViewController];
+    NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.dashViewController];
     
-    [appDelegate.masterViewController.navigationController pushViewController:appDelegate.selectContactViewController animated:YES];
+    [appDelegate.dashViewController.navigationController pushViewController:appDelegate.selectContactViewController animated:YES];
     
     self.frostedViewController.contentViewController = navigationController;
     

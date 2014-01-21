@@ -14,7 +14,6 @@
 #import "AppDelegate.h"
 #import "MenuViewController.h"
 #import "NavigationController.h"
-#import "MasterViewController.h"
 #import <REFrostedViewController.h>
 #import "ThreadViewController.h"
 #import "RODItemStore.h"
@@ -30,7 +29,7 @@
 #import "UAPush.h"
 
 @implementation AppDelegate
-@synthesize masterViewController, threadViewController, contactsViewController, privateKeyViewController, inviteViewController, dailyViewController, dashViewController, loginViewController, registerViewController, selectContactViewController, authorizeContactViewController, notificationDelegate;
+@synthesize threadViewController, contactsViewController, privateKeyViewController, inviteViewController, dailyViewController, dashViewController, loginViewController, registerViewController, selectContactViewController, authorizeContactViewController, notificationDelegate;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -83,9 +82,6 @@
                                          UIRemoteNotificationTypeSound |
                                          UIRemoteNotificationTypeAlert);
     
-    
-    MasterViewController *master = [[MasterViewController alloc] init];
-    masterViewController = master;
     
     ThreadViewController *thread = [[ThreadViewController alloc] init];
     threadViewController = thread;
@@ -145,7 +141,7 @@
 
         RegisterViewController *rvc = [[RegisterViewController alloc] init];
         registerViewController = rvc;
-        [self.masterViewController.navigationController pushViewController:rvc animated:YES];
+        [self.dashViewController.navigationController pushViewController:rvc animated:YES];
         
     } else {
         // check login status
