@@ -9,7 +9,7 @@
 @class RODHandle;
 #import <UIKit/UIKit.h>
 
-@interface DashViewController : UIViewController
+@interface DashViewController : UIViewController <UIImagePickerControllerDelegate>
 {
     NSMutableArray *_items;
 }

@@ -423,12 +423,7 @@
     confirm.key = key;
     confirm.handle = self.selected;
     
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.dashViewController];
-    
-    [appDelegate.dashViewController.navigationController pushViewController:confirm animated:YES];
-    self.frostedViewController.contentViewController = navigationController;
-    
+    [self.navigationController pushViewController:confirm animated:YES];
     
 }
 
