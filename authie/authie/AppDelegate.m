@@ -202,7 +202,17 @@
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 
     // clear badge count on all app opens
-    application.applicationIconBadgeNumber = 0;
+    [[UAPush shared] resetBadge];
+    
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    
+    NSLog(@"didReceiveRemoteNotification");
+    
+    // Optionally provide a delegate that will be used to handle notifications received while the app is running
+    // [UAPush shared].pushNotificationDelegate = your custom push delegate class conforming to the UAPushNotificationDelegate protocol
+    [[RODItemStore sharedStore] loadMessages];
     
 }
 

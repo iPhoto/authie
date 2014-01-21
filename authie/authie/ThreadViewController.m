@@ -39,18 +39,32 @@
 {
     [super viewWillAppear:animated];
     
-    [[RODItemStore sharedStore] loadMessages];    
+    //[[RODItemStore sharedStore] loadMessages];
 }
 
 - (IBAction)tappedScreen:(id)sender {
     NSLog(@"Do stuffed.");
 }
 
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+- (void)reloadThread
+{
+    NSLog(@"reload thread....");
+    if(loadRow != -1) {
+        [self resetChatObjects];
+        [self loadThread:loadRow];
+    }
+}
+
+- (void)resetChatObjects
 {
     [self.messages removeAllObjects];
     [self.subtitles removeAllObjects];
     [self.timestamps removeAllObjects];
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    [self resetChatObjects];
     
     [self loadThread:loadRow];
     [self.snapView setNeedsUpdateConstraints];
@@ -121,6 +135,9 @@
 
 -(void)loadThread:(int)row
 {
+    
+    [self resetChatObjects];
+    
     RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:row];
     [self.snapView setImage:[[RODImageStore sharedStore] imageForKey:thread.groupKey]];
     self.thread = thread;

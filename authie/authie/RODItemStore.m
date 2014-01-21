@@ -1254,6 +1254,10 @@
             NSLog(@"loadMessages error: %@", object);
         }
         
+        
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        [appDelegate.threadViewController reloadThread];
+        
     }
     
 
