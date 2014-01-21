@@ -114,7 +114,7 @@
             break;
         case 2: // add
         {
-            appDelegate.dashViewController.ad
+            [appDelegate.dashViewController addContact];
         }
             break;
         case 3: // private key

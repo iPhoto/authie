@@ -29,4 +29,11 @@
 
 - (void)populateScrollView;
 
+@property (strong, nonatomic) UIImagePickerController *imagePicker;
+@property (strong, nonatomic) RODHandle *selected;
+
+- (void)showAuthorizationRequestImagePicker;
+- (void)addContact;
+
+
 @end
