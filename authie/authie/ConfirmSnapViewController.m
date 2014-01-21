@@ -118,7 +118,8 @@
     appDelegate.dashViewController.keyToUpload = key;
     appDelegate.dashViewController.handleToUpload = handle;
     appDelegate.dashViewController.captionToUpload = self.snapCaption.text;
-    [appDelegate.dashViewController setDoUploadOnView:true];
+    [appDelegate.dashViewController setDoGetThreadsOnView:YES];
+    [appDelegate.dashViewController setDoUploadOnView:YES];
     [appDelegate.dashViewController.navigationController popToRootViewControllerAnimated:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 

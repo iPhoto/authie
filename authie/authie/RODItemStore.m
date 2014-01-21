@@ -1070,8 +1070,7 @@
             }
             
             AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-            [appDelegate.masterViewController.tableView reloadData];
-            [appDelegate.masterViewController.refreshControl endRefreshing];
+            [appDelegate.dashViewController populateScrollView];
             
             loaded_convos = YES;
             
