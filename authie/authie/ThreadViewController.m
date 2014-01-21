@@ -65,6 +65,7 @@
     [self.messages removeAllObjects];
     [self.subtitles removeAllObjects];
     [self.timestamps removeAllObjects];
+    [self.messageType removeAllObjects];
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
@@ -112,6 +113,8 @@
     self.subtitles = [[NSMutableArray alloc] init];
     
     self.avatars = [[NSDictionary alloc] init];
+    
+    self.messageType = [[NSMutableArray alloc] init];
     
 }
 
@@ -165,6 +168,15 @@
             [self.timestamps addObject:msg.sentDate];
             [self.messages addObject:msg.messageText];
             [self.subtitles addObject:msg.fromHandle.name];
+            
+            if([msg.fromHandle.name isEqualToString:[RODItemStore sharedStore].authie.handle.name])
+            {
+                // indicates outgoing
+                [self.messageType addObject:@"1"];
+            } else {
+                // incoming
+                [self.messageType addObject:@"0"];
+            }
         }
         
     }
@@ -192,6 +204,8 @@
     [self.messages addObject:text];
     
     [self.timestamps addObject:[NSDate date]];
+    
+    [self.messageType addObject:@"1"];
 
     [self.tableView setHidden:NO];
     
@@ -205,24 +219,30 @@
 
 - (JSBubbleMessageType)messageTypeForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return JSBubbleMessageTypeOutgoing;
+    
+    if([[self.messageType objectAtIndex:indexPath.row] isEqualToString:@"1"]) {
+        return JSBubbleMessageTypeOutgoing;
+    } else {
+        return JSBubbleMessageTypeIncoming;
+    }
 }
 
 - (UIImageView *)bubbleImageViewWithType:(JSBubbleMessageType)type
                        forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    if(indexPath.row % 2) {
-//        return [JSBubbleImageViewFactory bubbleImageViewForType:type
-//                                                          color:[UIColor js_bubbleLightGrayColor]];
-//    }
+    if([[self.messageType objectAtIndex:indexPath.row] isEqualToString:@"0"]) {
+        return [JSBubbleImageViewFactory bubbleImageViewForType:type
+                                                          color:[UIColor js_bubbleLightGrayColor]];
+    } else {
+        return [JSBubbleImageViewFactory bubbleImageViewForType:type
+                                                          color:[UIColor js_bubbleBlueColor]];
+    }
     
-    return [JSBubbleImageViewFactory bubbleImageViewForType:type
-                                                      color:[UIColor js_bubbleBlueColor]];
 }
 
 - (JSMessagesViewTimestampPolicy)timestampPolicy
 {
-    return JSMessagesViewTimestampPolicyEveryThree;
+    return JSMessagesViewTimestampPolicyEveryFive;
 }
 
 - (JSMessagesViewAvatarPolicy)avatarPolicy
@@ -259,12 +279,15 @@
     }
     
     if(cell.timestampLabel) {
-        cell.timestampLabel.textColor = [UIColor lightGrayColor];
-        cell.timestampLabel.shadowOffset = CGSizeZero;
+        cell.timestampLabel.textColor = [UIColor whiteColor];
+        cell.timestampLabel.shadowColor = [UIColor blackColor];
+        cell.subtitleLabel.layer.shadowOpacity = 1;
     }
     
     if(cell.subtitleLabel) {
-        cell.subtitleLabel.textColor = [UIColor lightGrayColor];
+        cell.subtitleLabel.textColor = [UIColor whiteColor];
+        cell.subtitleLabel.shadowColor = [UIColor blackColor];
+        cell.subtitleLabel.layer.shadowOpacity = 1;
     }
 }
 

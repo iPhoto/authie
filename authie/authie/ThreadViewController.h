@@ -26,6 +26,7 @@
 @property (strong, nonatomic) NSMutableArray *timestamps;
 @property (strong, nonatomic) NSMutableArray *subtitles;
 @property (strong, nonatomic) NSDictionary *avatars;
+@property (strong, nonatomic) NSMutableArray *messageType;
 
 - (void)setThread:(RODThread *)new_thread;
 - (void)loadThread:(int)row;
