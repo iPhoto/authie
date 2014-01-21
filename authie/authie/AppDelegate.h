@@ -37,5 +37,6 @@
 @property (strong, nonatomic) SelectContactViewController *selectContactViewController;
 @property (strong, nonatomic) AuthorizeContactViewController *authorizeContactViewController;
 @property (strong, nonatomic) UACustomPushNotificationDelegate *notificationDelegate;
+@property (strong, nonatomic) REFrostedViewController *drawer;
 
 @end

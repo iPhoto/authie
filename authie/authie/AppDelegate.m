@@ -29,7 +29,7 @@
 #import "UAPush.h"
 
 @implementation AppDelegate
-@synthesize threadViewController, contactsViewController, privateKeyViewController, inviteViewController, dailyViewController, dashViewController, loginViewController, registerViewController, selectContactViewController, authorizeContactViewController, notificationDelegate;
+@synthesize threadViewController, contactsViewController, privateKeyViewController, inviteViewController, dailyViewController, dashViewController, loginViewController, registerViewController, selectContactViewController, authorizeContactViewController, notificationDelegate, drawer;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -134,6 +134,8 @@
     drawerController.direction = REFrostedViewControllerDirectionLeft;
     drawerController.liveBlurBackgroundStyle = REFrostedViewControllerLiveBackgroundStyleLight;
     drawerController.delegate = self;
+    drawer = drawerController;
+    
     [self.window setRootViewController:drawerController];
     
     if([RODItemStore sharedStore].authie.registered == 0) {
