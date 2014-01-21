@@ -28,8 +28,8 @@
 {
     [super viewDidLoad];
     
-    self.buttons = @[@"Inbox", @"Dark Profile", @"Authors", @"Compose", @"The Daily", @"Invite", @"Private Key"];
-    self.subtitles = @[@"a list of all your authie messages", @"photos only your authors can see", @"your crew, they can send you messages", @"take a photo", @"public, 24hr disappearing photostream", @"invite a bff", @"its a password you can forget"];
+    self.buttons = @[@"Dashboard", @"Invite", @"Private Key"];
+    self.subtitles = @[@"your snaps", @"invite a bff", @"its a password you can forget"];
     
     self.tableView = [[UITableView alloc] init]; // Frame will be automatically set
     self.tableView.separatorColor = [UIColor colorWithRed:150/255.0f green:161/255.0f blue:177/255.0f alpha:1.0f];
@@ -77,61 +77,45 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     switch (indexPath.row) {
-        case 0: // inbox
+        case 0: // dash
         {
-            
-            
-            //MRProgressOverlayView *progressView = [MRProgressOverlayView new];
-            //progressView.titleLabelText = @"";
-            //progressView.titleLabel.font = [UIFont systemFontOfSize:10];
-
             NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.masterViewController];
-            
             appDelegate.masterViewController.doGetThreadsOnView = YES;
-            
-            self.frostedViewController.contentViewController = navigationController;
-
-            //[appDelegate.masterViewController.view addSubview:progressView];
-            
-            
-        }
-            break;
-        case 1: // profile
-        {
-                        
-            appDelegate.profileViewController = [[ProfileViewController alloc] init];
-            
-            NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.profileViewController];
-            appDelegate.profileViewController.handle = [RODItemStore sharedStore].authie.handle;
             self.frostedViewController.contentViewController = navigationController;
         }
             break;
-        case 2: // contacts
-        {
-            NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.contactsViewController];
-            self.frostedViewController.contentViewController = navigationController;
-        }
-            break;
-        case 3: // compose
-        {
-            
-            [self showSelectContact];
-            
-        }
-            break;
-        case 4: // daily
-        {
-            NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.dailyViewController];
-            self.frostedViewController.contentViewController = navigationController;
-        }
-            break;
-        case 5: // invite
+//        case 1: // profile
+//        {
+//            appDelegate.profileViewController = [[ProfileViewController alloc] init];
+//            NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.profileViewController];
+//            appDelegate.profileViewController.handle = [RODItemStore sharedStore].authie.handle;
+//            self.frostedViewController.contentViewController = navigationController;
+//        }
+//            break;
+//        case 2: // contacts
+//        {
+//            NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.contactsViewController];
+//            self.frostedViewController.contentViewController = navigationController;
+//        }
+//            break;
+//        case 3: // compose
+//        {
+//            [self showSelectContact];
+//        }
+//            break;
+//        case 4: // daily
+//        {
+//            NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.dailyViewController];
+//            self.frostedViewController.contentViewController = navigationController;
+//        }
+//            break;
+        case 1: // invite
         {
             NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.inviteViewController];
             self.frostedViewController.contentViewController = navigationController;
         }
             break;
-        case 6: // private key
+        case 2: // private key
         {
             NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.privateKeyViewController];
             self.frostedViewController.contentViewController = navigationController;
