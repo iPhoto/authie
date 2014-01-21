@@ -47,7 +47,6 @@
     [super viewWillAppear:animated];
     self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateSettingsCog:self];
     
-    [self getThreads];
 }
 
 - (void)didReceiveMemoryWarning

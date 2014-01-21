@@ -107,6 +107,7 @@
     
     DashViewController *dash = [[DashViewController alloc] init];
     dashViewController = dash;
+    dashViewController.doGetThreadsOnView = YES;
     
     LoginViewController *login = [[LoginViewController alloc] init];
     loginViewController = login;
