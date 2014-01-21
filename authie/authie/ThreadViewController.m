@@ -39,6 +39,7 @@
 {
     [super viewWillAppear:animated];
     
+    [[RODItemStore sharedStore] loadMessages];    
 }
 
 - (IBAction)tappedScreen:(id)sender {
