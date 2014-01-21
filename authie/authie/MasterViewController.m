@@ -7,7 +7,6 @@
 //
 
 #import "MasterViewController.h"
-#import "DetailViewController.h"
 #import "RODItemStore.h"
 #import "RODImageStore.h"
 #import "RKPostSelfie.h"

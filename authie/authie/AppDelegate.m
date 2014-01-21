@@ -13,7 +13,6 @@
 #define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
 #import "AppDelegate.h"
 #import "MenuViewController.h"
-#import "DetailViewController.h"
 #import "NavigationController.h"
 #import "MasterViewController.h"
 #import <REFrostedViewController.h>

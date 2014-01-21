@@ -11,7 +11,6 @@
 #import "AppDelegate.h"
 #import <REFrostedViewController.h>
 #import "UIViewController+REFrostedViewController.h"
-#import "DetailViewController.h"
 #import "MasterViewController.h"
 #import "ContactsViewController.h"
 #import "InviteViewController.h"
