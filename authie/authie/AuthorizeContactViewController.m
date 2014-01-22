@@ -14,6 +14,7 @@
 #import "RODHandle.h"
 
 @implementation AuthorizeContactViewController
+@synthesize snapView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,6 +45,33 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.snapView setImage:[[RODImageStore sharedStore] imageForKey:self.thread.groupKey]];
+
+    
+    if([[RODItemStore sharedStore].authie.handle.name isEqualToString:self.thread.toHandle.name]) {
+        // sent TO them, so display controls
+        self.labelRequestDetails.text = [NSString stringWithFormat:@"You have received an authorization request from %@.", self.thread.fromHandleId];
+        [self.btnAccept setHidden:NO];
+        [self.btnDeny setHidden:NO];
+        [self.btnBlock setHidden:NO];
+        
+        [self.navigationItem setTitle:self.thread.fromHandleId];
+        
+    } else {
+        // sent FROM them, so hide controls
+        
+        [self.navigationItem setTitle:[NSString stringWithFormat:@"sent to %@", self.thread.toHandleId]];
+        
+        
+        self.labelRequestDetails.text = [NSString stringWithFormat:@"You sent an authorization request to %@.", self.thread.toHandle.name];
+        [self.btnAccept setHidden:YES];
+        [self.btnDeny setHidden:YES];
+        [self.btnBlock setHidden:YES];
+    }
+}
 
 -(void)viewWillDisappear:(BOOL)animated
 {
@@ -85,31 +113,10 @@
 -(void)loadThread:(int)row
 {
     RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:row];
-    [self.snapView setImage:[[RODImageStore sharedStore] imageForKey:thread.groupKey]];
     self.thread = thread;
     
-    NSLog(@"thread: %@", thread.toHandleId);
+    NSLog(@"thread: %@", self.thread.fromHandle.name);
     
-    if([[RODItemStore sharedStore].authie.handle.name isEqualToString:thread.toHandleId]) {
-        // sent TO them, so display controls
-        self.labelRequestDetails.text = [NSString stringWithFormat:@"You have received an authorization request from %@.", self.thread.fromHandleId];
-        [self.btnAccept setHidden:NO];
-        [self.btnDeny setHidden:NO];
-        [self.btnBlock setHidden:NO];    
-
-        [self.navigationItem setTitle:self.thread.fromHandleId];
-        
-    } else {
-        // sent FROM them, so hide controls
-
-        [self.navigationItem setTitle:[NSString stringWithFormat:@"sent to %@", self.thread.toHandleId]];
-
-        
-        self.labelRequestDetails.text = [NSString stringWithFormat:@"You sent an authorization request to %@.", self.thread.toHandle.name];
-        [self.btnAccept setHidden:YES];
-        [self.btnDeny setHidden:YES];
-        [self.btnBlock setHidden:YES];
-    }
     
 }
 @end

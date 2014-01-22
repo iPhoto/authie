@@ -235,6 +235,7 @@
     {
         
         appDelegate.authorizeContactViewController = [[AuthorizeContactViewController alloc] init];
+        [appDelegate.authorizeContactViewController loadThread:thread_index];
         [appDelegate.dashViewController.navigationController pushViewController:appDelegate.authorizeContactViewController animated:YES];
         is_authorize_request = YES;
         
