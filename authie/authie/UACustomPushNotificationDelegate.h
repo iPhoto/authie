@@ -14,4 +14,6 @@
 
 @interface UACustomPushNotificationDelegate : NSObject <UAPushNotificationDelegate>
 
+@property (strong, nonatomic) NSString *received_thread_key;
+
 @end
