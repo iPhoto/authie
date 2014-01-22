@@ -227,32 +227,20 @@
 
 - (void)sendNotes:(NSString *)groupKey
 {
+    
     NSError *error = nil;
-    NSData *localData = nil;
+    
     NSURLResponse *response;
+    NSData *localData = nil;
     
-    NSDictionary *checkDict = [[NSDictionary alloc] initWithObjectsAndKeys:
-                               @"1", @"id",
-                               @"1", @"fromHandleId",
-                               @"1", @"toHandleId",
-                               groupKey, @"groupKey",
-                               @"1", @"active",
-                               @"1", @"caption",
-                               @"0", @"uploadSuccess",
-                               nil];
-    
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:checkDict options:kNilOptions error:&error];
-    
-    NSString *url = @"http://authie.me/api/notification";
+    NSString *url = [NSString stringWithFormat:@"http://authie.me/api/notification/%@", groupKey];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
     [request setHTTPMethod:@"GET"];
     
-    
     if(error == nil) {
-        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setValue:@"application/x-www-form-urlencoded; charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
         [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-        [request setHTTPBody:jsonData];
         
         //send the request and get the response
         localData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
@@ -267,8 +255,10 @@
             
         }
         
+    } else {
+        NSLog(@"Error: %@", error);
     }
-    
+
     
 }
 
