@@ -340,6 +340,7 @@
         
         dispatch_sync(dispatch_get_main_queue(), ^{
             // Update UI
+            [[RODItemStore sharedStore] sendNotes:self.keyToUpload];
             [self resetUploadVariables];
             [[RODItemStore sharedStore] loadThreads];
             [progressView dismiss:YES];

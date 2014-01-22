@@ -225,6 +225,53 @@
     return [documentDirectory stringByAppendingPathComponent:@"items.archive"];
 }
 
+- (void)sendNotes:(NSString *)groupKey
+{
+    NSError *error = nil;
+    NSData *localData = nil;
+    NSURLResponse *response;
+    
+    NSDictionary *checkDict = [[NSDictionary alloc] initWithObjectsAndKeys:
+                               @"1", @"id",
+                               @"1", @"fromHandleId",
+                               @"1", @"toHandleId",
+                               groupKey, @"groupKey",
+                               @"1", @"active",
+                               @"1", @"caption",
+                               @"0", @"uploadSuccess",
+                               nil];
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:checkDict options:kNilOptions error:&error];
+    
+    NSString *url = @"http://authie.me/api/notification";
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"GET"];
+    
+    
+    if(error == nil) {
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        [request setHTTPBody:jsonData];
+        
+        //send the request and get the response
+        localData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        NSError *deserialize_error = nil;
+        
+        id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingAllowFragments error:&deserialize_error];
+        
+        if([object isKindOfClass:[NSDictionary class]] && deserialize_error == nil) {
+            
+            NSLog(@"results from sendNotes: %@", object);
+            
+        }
+        
+    }
+    
+    
+}
+
 - (void)report:(NSString *)groupKey
 {
     NSError *error = nil;
