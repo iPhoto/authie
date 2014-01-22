@@ -1240,7 +1240,7 @@
 
                 message.thread = thread;
   
-                NSLog(@"Loaded message: '%@' from %@", message.messageText, message.fromHandle.name);
+                //NSLog(@"Loaded message: '%@' from %@", message.messageText, message.fromHandle.name);
                 
                 [self.authie.allMessages addObject:message];
                 

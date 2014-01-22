@@ -41,7 +41,6 @@
     
     //[[RODItemStore sharedStore] loadMessages];
     
-    NSLog(@"viewWillAppear, thread");
     [self reloadThread];
 }
 
@@ -51,7 +50,7 @@
 
 - (void)reloadThread
 {
-    NSLog(@"reload thread....");
+    
     if(loadRow != -1) {
         [self resetChatObjects];
         [self loadThread:loadRow];
@@ -141,8 +140,6 @@
 
 -(void)loadThread:(int)row
 {
-    
-    NSLog(@"loadThread: %i", row);
     
     [self resetChatObjects];
     
