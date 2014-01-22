@@ -147,7 +147,7 @@
 {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.dashViewController];
-    appDelegate.dashViewController.doGetThreadsOnView = YES;
+    [appDelegate.dashViewController getThreads];
     self.frostedViewController.contentViewController = navigationController;
     
 }

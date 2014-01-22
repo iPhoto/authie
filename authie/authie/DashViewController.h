@@ -27,6 +27,7 @@
 @property (strong, nonatomic) NSString *captionToUpload;
 
 
+- (void)getThreads;
 - (void)populateScrollView;
 
 @property (strong, nonatomic) UIImagePickerController *imagePicker;

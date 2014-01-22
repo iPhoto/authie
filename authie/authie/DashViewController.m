@@ -110,6 +110,7 @@
 - (void)getThreads
 {
     
+    NSLog(@"Get threads ran.");
     // Block whole window
     
     MRProgressOverlayView *progressView = [MRProgressOverlayView new];

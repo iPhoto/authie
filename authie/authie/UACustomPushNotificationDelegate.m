@@ -113,6 +113,8 @@
 
 - (void)receivedBackgroundNotification:(NSDictionary *)notification
 {
+    
+    NSLog(@"Received background push.");
 
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
