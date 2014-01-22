@@ -198,20 +198,38 @@
 
 - (void)didSendText:(NSString *)text
 {
+    
     [self.messages addObject:text];
     
     [self.timestamps addObject:[NSDate date]];
     
     [self.messageType addObject:@"1"];
-
+    
     [self.tableView setHidden:NO];
     
     [self.subtitles addObject:[RODItemStore sharedStore].authie.handle.name];
     
+
     [self finishSend];
     [self scrollToBottomAnimated:YES];
+
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+    dispatch_async(queue, ^{
+        // Perform async operation
+        
+        [[RODItemStore sharedStore] sendChat:self.thread.groupKey message:text];
+
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            // Update UI
+            
+            // nothing?
+        });
+    });
     
-    [[RODItemStore sharedStore] sendChat:self.thread.groupKey message:text];
+    
+    
+    
 }
 
 - (JSBubbleMessageType)messageTypeForRowAtIndexPath:(NSIndexPath *)indexPath
