@@ -70,11 +70,7 @@
     if(self.doUploadOnView) {
         [self doUpload];
     }
-    
-    if(self.doGetThreadsOnView) {
-        [self getThreads];
-        self.doGetThreadsOnView = NO;
-    }
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -88,6 +84,12 @@
     
     UIBarButtonItem *leftDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_menu];
     self.navigationItem.leftBarButtonItem = leftDrawerButton;
+
+    if(self.doGetThreadsOnView) {
+        [self getThreads];
+        self.doGetThreadsOnView = NO;
+    }
+
     
 }
 
