@@ -68,6 +68,27 @@
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+    dispatch_async(queue, ^{
+        // Perform async operation
+        // Call your method/function here
+        // Example:
+        // NSString *result = [anObject calculateSomething];
+        
+        NSLog(@"foreground notification says load messages/threads");
+        
+        [[RODItemStore sharedStore] loadThreads];
+        [[RODItemStore sharedStore] loadMessages];
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            // Update UI
+            // trash the dash
+            // recreate it, do it better this time
+            [appDelegate.dashViewController populateScrollView];
+            
+        });
+    });
+    
     if([appDelegate.dashViewController.navigationController.topViewController class] != [ThreadViewController class]) {
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"new chat" message:alertMessage delegate:self cancelButtonTitle:@"ok" otherButtonTitles:@"go to thread", nil];
@@ -88,26 +109,6 @@
         
     }
     
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
-    dispatch_async(queue, ^{
-        // Perform async operation
-        // Call your method/function here
-        // Example:
-        // NSString *result = [anObject calculateSomething];
-
-        NSLog(@"foreground notification says load messages/threads");
-        
-        [[RODItemStore sharedStore] loadThreads];
-        [[RODItemStore sharedStore] loadMessages];
-        
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            // Update UI
-            // trash the dash
-            // recreate it, do it better this time
-            [appDelegate.dashViewController populateScrollView];
-            
-        });
-    });
     
 }
 
