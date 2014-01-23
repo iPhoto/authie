@@ -72,7 +72,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[RODItemStore sharedStore].authie.all_ContactsWithEverybody count];
+    return [[RODItemStore sharedStore].authie.all_Contacts count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -84,7 +84,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
     }
     
-    RODHandle *handle = [[RODItemStore sharedStore].authie.all_ContactsWithEverybody objectAtIndex:indexPath.row];
+    RODHandle *handle = [[RODItemStore sharedStore].authie.all_Contacts objectAtIndex:indexPath.row];
     
     cell.textLabel.text = handle.name;
     return cell;
@@ -92,7 +92,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RODHandle *handle = [[RODItemStore sharedStore].authie.all_ContactsWithEverybody objectAtIndex:indexPath.row];
+    RODHandle *handle = [[RODItemStore sharedStore].authie.all_Contacts objectAtIndex:indexPath.row];
     
     self.selected = handle;
         

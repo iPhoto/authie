@@ -22,7 +22,6 @@
 @property (nonatomic) int registered;
 
 - (NSArray *)all_Messages;
-- (NSArray *)all_ContactsWithEverybody;
 - (NSArray *)all_Contacts;
 - (NSArray *)all_Selfies;
 - (NSArray *)all_Threads;
