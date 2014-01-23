@@ -30,7 +30,7 @@
 #import <SignalR-ObjC/SignalR.h>
 
 @implementation AppDelegate
-@synthesize threadViewController, contactsViewController, privateKeyViewController, inviteViewController, dailyViewController, dashViewController, loginViewController, registerViewController, selectContactViewController, authorizeContactViewController, notificationDelegate, drawer;
+@synthesize threadViewController, contactsViewController, privateKeyViewController, inviteViewController, dailyViewController, dashViewController, loginViewController, registerViewController, selectContactViewController, authorizeContactViewController, notificationDelegate, drawer, mostRecentGroupKey;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -160,7 +160,11 @@
     SRHubConnection *hubConnection = [SRHubConnection connectionWithURL:@"http://authie.me"];
     // Create a proxy to the chat service
     SRHubProxy *chat = [hubConnection createHubProxy:@"AuthHub"];
-    [chat on:@"addMessage" perform:self selector:@selector(addMessage:)];
+    
+    SEL myAddMessageSelector = @selector(addMessage:message:groupKey:);
+    
+    [chat on:@"addMessage" perform:self selector:myAddMessageSelector];
+    
     // Start the connection
     [hubConnection start];
     
@@ -168,11 +172,33 @@
     return YES;
 }
 
-- (void)addMessage:(NSString *)message {
-    NSLog(@"Message received: %@", message);
+- (void)addMessage:(NSString *)user message:(NSString *)msg groupKey:(NSString *)key {
+    NSString *s = [NSString stringWithFormat:@"%@ said: %@", user, msg];
     // Print the message when it comes in
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"new auth" message:message delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
-    [alert show];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"new auth" message:s delegate:self cancelButtonTitle:@"ok" otherButtonTitles:@"go to thread", nil];
+    
+    if([dashViewController.navigationController.topViewController class] != [ThreadViewController class]) {
+        // looking at dash, invite, private key, compose
+        self.mostRecentGroupKey = key;
+        [alert show];
+    } else {
+        
+        // looking at a thread, may be the one we need to update
+        
+        NSLog(@"Toplevel was a threadviewcontroller.");
+        NSString *current_group_key = threadViewController.thread.groupKey;
+        
+        if([current_group_key isEqualToString:key]) {
+            // reload the current messages..??????
+        } else {
+            self.mostRecentGroupKey = key;
+        }
+        
+        [alert show];
+        
+    }
+    
 }
 
 - (void)frostedViewController:(REFrostedViewController *)frostedViewController didRecognizePanGesture:(UIPanGestureRecognizer *)recognizer
@@ -239,6 +265,22 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)SRConnectionDidClose:(SRConnection *)connection
+{
+    NSLog(@"SRConnectionDidClose.");
+    
+}
+
+- (void)SRConnectionDidOpen:(SRConnection *)connection
+{
+    NSLog(@"SRConnectionDidOpen.");
+}
+
+- (void)SRConnectionDidReconnect:(SRConnection *)connection
+{
+    NSLog(@"SRConnectionDidReconnect");
 }
 
 @end

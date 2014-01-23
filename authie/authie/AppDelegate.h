@@ -21,8 +21,9 @@
 #import "SelectContactViewController.h"
 #import "AuthorizeContactViewController.h"
 #import "UACustomPushNotificationDelegate.h"
+#import <SignalR-ObjC/SignalR.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, REFrostedViewControllerDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, REFrostedViewControllerDelegate, SRConnectionDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) ThreadViewController *threadViewController;
@@ -38,5 +39,7 @@
 @property (strong, nonatomic) AuthorizeContactViewController *authorizeContactViewController;
 @property (strong, nonatomic) UACustomPushNotificationDelegate *notificationDelegate;
 @property (strong, nonatomic) REFrostedViewController *drawer;
+
+@property (strong, nonatomic) NSString *mostRecentGroupKey;
 
 @end

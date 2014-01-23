@@ -89,25 +89,6 @@
         });
     });
     
-    if([appDelegate.dashViewController.navigationController.topViewController class] != [ThreadViewController class]) {
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"new chat" message:alertMessage delegate:self cancelButtonTitle:@"ok" otherButtonTitles:@"go to thread", nil];
-        self.received_thread_key = notificationGroupKey;
-        [alert show];
-        return;
-    } else {
-        NSLog(@"Toplevel was a threadviewcontroller.");
-        NSString *current_group_key = appDelegate.threadViewController.thread.groupKey;
-        
-        if([current_group_key isEqualToString:notificationGroupKey]) {
-            // reload the current messages..??????
-        } else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"new chat" message:alertMessage delegate:self cancelButtonTitle:@"ok" otherButtonTitles:@"go to thread", nil];
-            [alert show];
-            self.received_thread_key = notificationGroupKey;
-        }
-        
-    }
     
     
 }
@@ -116,13 +97,7 @@
 {
     
     NSLog(@"Received background push.");
-
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    [[RODItemStore sharedStore] loadThreads];
-    [[RODItemStore sharedStore] loadMessages];
-    appDelegate.dashViewController.doGetThreadsOnView = NO;
-        
 }
 
 @end
