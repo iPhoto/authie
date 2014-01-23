@@ -43,6 +43,7 @@
 - (void)giveLove:(NSString *)groupKey;
 - (void)sendChat:(NSString *)groupKey message:(NSString *)msg;
 - (void)invite:(NSString *)email message:(NSString *)msg;
+- (void)join;
 - (void)loadMessages;
 - (void)loadDaily;
 - (BOOL)loadThreads;

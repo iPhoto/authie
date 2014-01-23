@@ -262,6 +262,15 @@
     
 }
 
+- (void)join
+{
+    
+    NSLog(@"called join");
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.hubProxy invoke:@"Join" withArgs:[NSArray arrayWithObjects: [RODItemStore sharedStore].authie.handle.name,nil]];
+
+}
+
 - (void)report:(NSString *)groupKey
 {
     NSError *error = nil;

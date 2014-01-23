@@ -170,11 +170,14 @@
     // Start the connection
     [hubConnection start];
     
+    [hubConnection setDelegate:self];
+    
     // Override point for customization after application launch.
     return YES;
 }
 
 - (void)addMessage:(NSString *)user message:(NSString *)msg groupKey:(NSString *)key {
+    NSLog(@"addMessage: %@, %@, %@", user, msg, key);
     NSString *s = [NSString stringWithFormat:@"%@ said: %@", user, msg];
     // Print the message when it comes in
     
@@ -278,11 +281,17 @@
 - (void)SRConnectionDidOpen:(SRConnection *)connection
 {
     NSLog(@"SRConnectionDidOpen.");
+    
+    // register with the server for new messages/threads events
+    [[RODItemStore sharedStore] join];
+    
 }
 
 - (void)SRConnectionDidReconnect:(SRConnection *)connection
 {
     NSLog(@"SRConnectionDidReconnect");
+    [[RODItemStore sharedStore] join];
+
 }
 
 @end
