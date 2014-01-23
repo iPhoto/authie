@@ -310,6 +310,16 @@
 
 - (void)sendChat:(NSString *)groupKey message:(NSString *)msg
 {
+    // new shit
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    [appDelegate.hubProxy invoke:@"Send" withArgs:[NSArray arrayWithObjects: [RODItemStore sharedStore].authie.handle.name, msg, groupKey,nil]];
+    
+    return;
+    
+    
+    // old stuff
     NSError *error = nil;
     NSData *localData = nil;
     NSURLResponse *response;
