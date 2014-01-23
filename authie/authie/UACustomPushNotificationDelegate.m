@@ -22,39 +22,9 @@
     NSString *notificationGroupKey = [notification objectForKey:@"threadKey"];
     NSLog(@"Launched from notification...%@", notificationGroupKey );
     
-    [self pushThreadWithGroupKey:notificationGroupKey];
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == 1) {
-        // push find thread with groupKey = self.received_group_key,
-        // push that...
-        [self pushThreadWithGroupKey:self.received_thread_key];
-        self.received_thread_key = @"";
-        
-    }
-}
-
-- (void)pushThreadWithGroupKey:(NSString *)group_key
-{
-    NSLog(@"pushThreadWithGroupKey:");
-    RODThread *thread;
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-    for(int i = 0; i< [[RODItemStore sharedStore].authie.all_Threads count]; i++)
-    {
-        thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:i];
-        if([thread.groupKey isEqualToString:group_key]) {
-            
-            appDelegate.threadViewController = [[ThreadViewController alloc] init];
-            [appDelegate.threadViewController loadThread:i];
-            [appDelegate.dashViewController.navigationController pushViewController:appDelegate.threadViewController animated:YES];
-            
-            break;
-        }
-    }
-    
+
+    [appDelegate pushThreadWithGroupKey:notificationGroupKey];
 }
 
 - (void)receivedForegroundNotification:(NSDictionary *)notification

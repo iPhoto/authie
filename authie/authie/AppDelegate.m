@@ -294,4 +294,35 @@
 
 }
 
+- (void)pushThreadWithGroupKey:(NSString *)group_key
+{
+    NSLog(@"pushThreadWithGroupKey:");
+    RODThread *thread;
+    
+    for(int i = 0; i< [[RODItemStore sharedStore].authie.all_Threads count]; i++)
+    {
+        thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:i];
+        if([thread.groupKey isEqualToString:group_key]) {
+            
+            threadViewController = [[ThreadViewController alloc] init];
+            [threadViewController loadThread:i];
+            [dashViewController.navigationController pushViewController:threadViewController animated:YES];
+            
+            break;
+        }
+    }
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        // push find thread with groupKey = self.received_group_key,
+        // push that...
+        [self pushThreadWithGroupKey:self.mostRecentGroupKey];
+        self.mostRecentGroupKey = @"";
+        
+    }
+}
+
 @end

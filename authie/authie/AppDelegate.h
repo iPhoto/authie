@@ -45,4 +45,7 @@
 
 @property (strong, nonatomic) NSString *mostRecentGroupKey;
 
+- (void)pushThreadWithGroupKey:(NSString *)group_key;
+
+
 @end
