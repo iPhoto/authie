@@ -27,6 +27,7 @@
 #import "UAirship.h"
 #import "UAConfig.h"
 #import "UAPush.h"
+#import <SignalR-ObjC/SignalR.h>
 
 @implementation AppDelegate
 @synthesize threadViewController, contactsViewController, privateKeyViewController, inviteViewController, dailyViewController, dashViewController, loginViewController, registerViewController, selectContactViewController, authorizeContactViewController, notificationDelegate, drawer;
@@ -153,8 +154,25 @@
         
     }
     
+    
+    // connect to signalr for realtime
+    // Connect to the service
+    SRHubConnection *hubConnection = [SRHubConnection connectionWithURL:@"http://authie.me"];
+    // Create a proxy to the chat service
+    SRHubProxy *chat = [hubConnection createHubProxy:@"AuthHub"];
+    [chat on:@"addMessage" perform:self selector:@selector(addMessage:)];
+    // Start the connection
+    [hubConnection start];
+    
     // Override point for customization after application launch.
     return YES;
+}
+
+- (void)addMessage:(NSString *)message {
+    NSLog(@"Message received: %@", message);
+    // Print the message when it comes in
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"new auth" message:message delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+    [alert show];
 }
 
 - (void)frostedViewController:(REFrostedViewController *)frostedViewController didRecognizePanGesture:(UIPanGestureRecognizer *)recognizer
