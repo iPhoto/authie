@@ -38,6 +38,7 @@
 
 - (void)pushThreadWithGroupKey:(NSString *)group_key
 {
+    NSLog(@"pushThreadWithGroupKey:");
     RODThread *thread;
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     

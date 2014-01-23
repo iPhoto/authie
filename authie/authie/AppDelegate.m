@@ -30,7 +30,7 @@
 #import <SignalR-ObjC/SignalR.h>
 
 @implementation AppDelegate
-@synthesize threadViewController, contactsViewController, privateKeyViewController, inviteViewController, dailyViewController, dashViewController, loginViewController, registerViewController, selectContactViewController, authorizeContactViewController, notificationDelegate, drawer, mostRecentGroupKey;
+@synthesize threadViewController, contactsViewController, privateKeyViewController, inviteViewController, dailyViewController, dashViewController, loginViewController, registerViewController, selectContactViewController, authorizeContactViewController, notificationDelegate, drawer, mostRecentGroupKey, hubConnection, hubProxy;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -157,12 +157,14 @@
     
     // connect to signalr for realtime
     // Connect to the service
-    SRHubConnection *hubConnection = [SRHubConnection connectionWithURL:@"http://authie.me"];
+    SRHubConnection *hC = [SRHubConnection connectionWithURL:@"http://authie.me"];
+    self.hubConnection = hC;
+    
     // Create a proxy to the chat service
-    SRHubProxy *chat = [hubConnection createHubProxy:@"AuthHub"];
+    SRHubProxy *chat = [self.hubConnection createHubProxy:@"AuthHub"];
+    self.hubProxy = chat;
     
     SEL myAddMessageSelector = @selector(addMessage:message:groupKey:);
-    
     [chat on:@"addMessage" perform:self selector:myAddMessageSelector];
     
     // Start the connection
