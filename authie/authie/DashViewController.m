@@ -48,6 +48,39 @@
     
     self.imagePicker = [[UIImagePickerController alloc] init];
 
+    [[RODItemStore sharedStore].hubConnection disconnect];
+    
+    
+    // connect to signalr for realtime
+    // Connect to the service
+    [RODItemStore sharedStore].hubConnection = [SRHubConnection connectionWithURL:@"http://authie.me/"];
+    
+    [RODItemStore sharedStore].hubConnection.delegate = [[RODItemStore sharedStore] self];
+    
+    // Create a proxy to the chat service
+    [RODItemStore sharedStore].hubProxy = [[RODItemStore sharedStore].hubConnection createHubProxy:@"authhub"];
+    
+    [RODItemStore sharedStore].hubConnection.received = ^(NSString * data) {
+        NSLog(@"receieved: %@", data);
+    };
+    
+    [RODItemStore sharedStore].hubConnection.started = ^{
+        
+        [[RODItemStore sharedStore].hubProxy invoke:@"join" withArgs:[NSArray arrayWithObject:@"ok"]];
+        [[RODItemStore sharedStore].hubProxy on:@"addMessage" perform:self selector:@selector(addMessage:message:groupKey:)];
+        
+        //[[RODItemStore sharedStore].hubProxy invoke:@"join" withArgs:[NSArray arrayWithObjects: [RODItemStore sharedStore].authie.handle.name,nil]];
+        NSLog(@"Started.");
+        
+    };
+    
+    [RODItemStore sharedStore].hubConnection.error = ^(NSError *__strong err){
+        NSLog(@"there was an error...: %@", err);
+    };
+    
+    // Start the connection
+    [[RODItemStore sharedStore].hubConnection start];
+    
 }
 
 - (void)sendSnap:(id)sender
@@ -66,7 +99,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-        
+    
     if(self.doUploadOnView) {
         [self doUpload];
     }
@@ -90,42 +123,12 @@
         self.doGetThreadsOnView = NO;
     }
 
-    [[RODItemStore sharedStore].hubConnection disconnect];
-
-    
-    // connect to signalr for realtime
-    // Connect to the service
-    [RODItemStore sharedStore].hubConnection = [SRHubConnection connectionWithURL:@"http://authie.me/"];
-
-    [RODItemStore sharedStore].hubConnection.delegate = [[RODItemStore sharedStore] self];
-    
-    // Create a proxy to the chat service
-    [RODItemStore sharedStore].hubProxy = [[RODItemStore sharedStore].hubConnection createHubProxy:@"authhub"];
-    
-    [RODItemStore sharedStore].hubConnection.received = ^(NSString * data) {
-        NSLog(@"receieved: %@", data);
-    };
-    
-    [RODItemStore sharedStore].hubConnection.started = ^{
-
-        [[RODItemStore sharedStore].hubProxy on:@"addMessage" perform:self selector:@selector(addMessage:message:groupKey:)];
-
-        //[[RODItemStore sharedStore].hubProxy invoke:@"join" withArgs:[NSArray arrayWithObjects: [RODItemStore sharedStore].authie.handle.name,nil]];
-        NSLog(@"Started.");
-        
-    };
-    
-    [RODItemStore sharedStore].hubConnection.error = ^(NSError *__strong err){
-        NSLog(@"there was an error...");
-    };
-    
-    // Start the connection
-    [[RODItemStore sharedStore].hubConnection start];
     
 }
 
 - (void)addMessage:(NSString *)user message:(NSString *)msg groupKey:(NSString *)key {
     NSLog(@"addMessage, dashy: %@, %@, %@, %i", user, msg, key, [RODItemStore sharedStore].hubConnection.state);
+    [[RODItemStore sharedStore] addChat:user message:msg groupKey:key];
     
     //NSString *s = [NSString stringWithFormat:@"%@ said: %@", user, msg];
     // Print the message when it comes in

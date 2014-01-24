@@ -1685,6 +1685,44 @@
     }
 }
 
+- (void)addChat:(NSString *)user message:(NSString *)message groupKey:(NSString *)groupKey;
+{
+    RODMessage *msg = [[RODMessage alloc] init];
+    
+    RODHandle *from = [[RODHandle alloc] init];
+    RODHandle *to = [[RODHandle alloc] init];
+
+    msg.sentDate = [NSDate date];
+    
+    RODThread *t;
+    for(int i = 0; i<[self.authie.all_Threads count]; i++) {
+        t = [self.authie.all_Threads objectAtIndex:i];
+        if([t.groupKey isEqualToString:groupKey]) {
+            break;
+        }
+    }
+    
+    if([user isEqualToString:self.authie.handle.name]) {
+        from.name = self.authie.handle.name;
+        to.name = user;
+    } else {
+        from.name = user;
+        to.name = self.authie.handle.name;
+    }
+
+    
+    msg.messageText = message;
+    msg.fromHandle = from;
+    msg.thread = t;
+    
+    [self.authie.allMessages addObject:msg];
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.threadViewController reloadThread];
+    
+    NSLog(@"Chat added.");
+}
+
 - (void)addMessage:(NSString *)user message:(NSString *)msg groupKey:(NSString *)key {
     NSLog(@"addMessage: %@, %@, %@", user, msg, key);
     NSString *s = [NSString stringWithFormat:@"%@ said: %@", user, msg];
