@@ -20,7 +20,7 @@
 #import "ConfirmSnapViewController.h"
 
 @implementation DashViewController
-@synthesize handle, contentSize, imageToUpload, keyToUpload, handleToUpload, captionToUpload, doUploadOnView, imagePicker, selected;
+@synthesize handle, contentSize, imageToUpload, keyToUpload, handleToUpload, captionToUpload, doUploadOnView, imagePicker, selected, mostRecentGroupKey;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -90,6 +90,72 @@
         self.doGetThreadsOnView = NO;
     }
 
+    [[RODItemStore sharedStore].hubConnection disconnect];
+
+    
+    // connect to signalr for realtime
+    // Connect to the service
+    [RODItemStore sharedStore].hubConnection = [SRHubConnection connectionWithURL:@"http://authie.me/"];
+
+    [RODItemStore sharedStore].hubConnection.delegate = [[RODItemStore sharedStore] self];
+    
+    // Create a proxy to the chat service
+    [RODItemStore sharedStore].hubProxy = [[RODItemStore sharedStore].hubConnection createHubProxy:@"authhub"];
+    
+    [RODItemStore sharedStore].hubConnection.received = ^(NSString * data) {
+        NSLog(@"receieved: %@", data);
+    };
+    
+    [RODItemStore sharedStore].hubConnection.started = ^{
+
+        [[RODItemStore sharedStore].hubProxy on:@"addMessage" perform:self selector:@selector(addMessage:message:groupKey:)];
+
+        //[[RODItemStore sharedStore].hubProxy invoke:@"join" withArgs:[NSArray arrayWithObjects: [RODItemStore sharedStore].authie.handle.name,nil]];
+        NSLog(@"Started.");
+        
+    };
+    
+    [RODItemStore sharedStore].hubConnection.error = ^(NSError *__strong err){
+        NSLog(@"there was an error...");
+    };
+    
+    // Start the connection
+    [[RODItemStore sharedStore].hubConnection start];
+    
+}
+
+- (void)addMessage:(NSString *)user message:(NSString *)msg groupKey:(NSString *)key {
+    NSLog(@"addMessage, dashy: %@, %@, %@, %i", user, msg, key, [RODItemStore sharedStore].hubConnection.state);
+    
+    //NSString *s = [NSString stringWithFormat:@"%@ said: %@", user, msg];
+    // Print the message when it comes in
+    
+    //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"new auth" message:s delegate:self cancelButtonTitle:@"ok" otherButtonTitles:@"go to thread", nil];
+    //[alert show];
+    //self.mostRecentGroupKey = key;
+    
+    //
+    //
+    //    if([dashViewController.navigationController.topViewController class] != [ThreadViewController class]) {
+    //        // looking at dash, invite, private key, compose
+    //        self.mostRecentGroupKey = key;
+    //        [alert show];
+    //    } else {
+    //
+    //        // looking at a thread, may be the one we need to update
+    //
+    //        NSLog(@"Toplevel was a threadviewcontroller.");
+    //        NSString *current_group_key = threadViewController.thread.groupKey;
+    //
+    //        if([current_group_key isEqualToString:key]) {
+    //            // reload the current messages..??????
+    //        } else {
+    //            self.mostRecentGroupKey = key;
+    //        }
+    //
+    //        [alert show];
+    //
+    //    }
     
 }
 

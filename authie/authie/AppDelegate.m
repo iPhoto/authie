@@ -6,11 +6,6 @@
 //  Copyright (c) 2013 bitwise. All rights reserved.
 //
 
-#define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
-#define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
-#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
-#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
-#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
 #import "AppDelegate.h"
 #import "MenuViewController.h"
 #import "NavigationController.h"
@@ -28,9 +23,10 @@
 #import "UAConfig.h"
 #import "UAPush.h"
 #import <SignalR-ObjC/SignalR.h>
+#import "RODHandle.h"
 
 @implementation AppDelegate
-@synthesize threadViewController, contactsViewController, privateKeyViewController, inviteViewController, dailyViewController, dashViewController, loginViewController, registerViewController, selectContactViewController, authorizeContactViewController, notificationDelegate, drawer, mostRecentGroupKey, hubConnection, hubProxy;
+@synthesize threadViewController, contactsViewController, privateKeyViewController, inviteViewController, dailyViewController, dashViewController, loginViewController, registerViewController, selectContactViewController, authorizeContactViewController, notificationDelegate, drawer;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -39,11 +35,6 @@
         UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
         UINavigationController *znavigationController = [splitViewController.viewControllers lastObject];
         splitViewController.delegate = (id)znavigationController.topViewController;
-    }
-    
-
-    if(SYSTEM_VERSION_GREATER_THAN(@"7.0") ) { 
-        [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
     }
     
         
@@ -77,6 +68,7 @@
     
     // Call takeOff (which creates the UAirship singleton)
     [UAirship takeOff:config];
+    [UAirship setLogLevel:UALogLevelNone];
     
     // Request a custom set of notification types
     [UAPush shared].notificationTypes = (UIRemoteNotificationTypeBadge |
@@ -155,56 +147,11 @@
     }
     
     
-    // connect to signalr for realtime
-    // Connect to the service
-    SRHubConnection *hC = [SRHubConnection connectionWithURL:@"http://authie.me"];
-    self.hubConnection = hC;
-    
-    // Create a proxy to the chat service
-    SRHubProxy *chat = [self.hubConnection createHubProxy:@"AuthHub"];
-    self.hubProxy = chat;
-    
-    SEL myAddMessageSelector = @selector(addMessage:message:groupKey:);
-    [chat on:@"addMessage" perform:self selector:myAddMessageSelector];
-    
-    // Start the connection
-    [hubConnection start];
-    
-    [hubConnection setDelegate:self];
     
     // Override point for customization after application launch.
     return YES;
 }
 
-- (void)addMessage:(NSString *)user message:(NSString *)msg groupKey:(NSString *)key {
-    NSLog(@"addMessage: %@, %@, %@", user, msg, key);
-    NSString *s = [NSString stringWithFormat:@"%@ said: %@", user, msg];
-    // Print the message when it comes in
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"new auth" message:s delegate:self cancelButtonTitle:@"ok" otherButtonTitles:@"go to thread", nil];
-    
-    if([dashViewController.navigationController.topViewController class] != [ThreadViewController class]) {
-        // looking at dash, invite, private key, compose
-        self.mostRecentGroupKey = key;
-        [alert show];
-    } else {
-        
-        // looking at a thread, may be the one we need to update
-        
-        NSLog(@"Toplevel was a threadviewcontroller.");
-        NSString *current_group_key = threadViewController.thread.groupKey;
-        
-        if([current_group_key isEqualToString:key]) {
-            // reload the current messages..??????
-        } else {
-            self.mostRecentGroupKey = key;
-        }
-        
-        [alert show];
-        
-    }
-    
-}
 
 - (void)frostedViewController:(REFrostedViewController *)frostedViewController didRecognizePanGesture:(UIPanGestureRecognizer *)recognizer
 {
@@ -263,7 +210,6 @@
     
     // Optionally provide a delegate that will be used to handle notifications received while the app is running
     // [UAPush shared].pushNotificationDelegate = your custom push delegate class conforming to the UAPushNotificationDelegate protocol
-    [[RODItemStore sharedStore] loadMessages];
     
 }
 
@@ -272,57 +218,5 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-- (void)SRConnectionDidClose:(SRConnection *)connection
-{
-    NSLog(@"SRConnectionDidClose.");
-    
-}
-
-- (void)SRConnectionDidOpen:(SRConnection *)connection
-{
-    NSLog(@"SRConnectionDidOpen.");
-    
-    // register with the server for new messages/threads events
-    [[RODItemStore sharedStore] join];
-    
-}
-
-- (void)SRConnectionDidReconnect:(SRConnection *)connection
-{
-    NSLog(@"SRConnectionDidReconnect");
-    [[RODItemStore sharedStore] join];
-
-}
-
-- (void)pushThreadWithGroupKey:(NSString *)group_key
-{
-    NSLog(@"pushThreadWithGroupKey:");
-    RODThread *thread;
-    
-    for(int i = 0; i< [[RODItemStore sharedStore].authie.all_Threads count]; i++)
-    {
-        thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:i];
-        if([thread.groupKey isEqualToString:group_key]) {
-            
-            threadViewController = [[ThreadViewController alloc] init];
-            [threadViewController loadThread:i];
-            [dashViewController.navigationController pushViewController:threadViewController animated:YES];
-            
-            break;
-        }
-    }
-    
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == 1) {
-        // push find thread with groupKey = self.received_group_key,
-        // push that...
-        [self pushThreadWithGroupKey:self.mostRecentGroupKey];
-        self.mostRecentGroupKey = @"";
-        
-    }
-}
 
 @end

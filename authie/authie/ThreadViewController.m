@@ -115,6 +115,36 @@
     
     self.messageType = [[NSMutableArray alloc] init];
     
+    
+    [[RODItemStore sharedStore].hubConnection disconnect];
+    // connect to signalr for realtime
+    // Connect to the service
+    [RODItemStore sharedStore].hubConnection = [SRHubConnection connectionWithURL:@"http://authie.me/"];
+    
+    [RODItemStore sharedStore].hubConnection.delegate = [[RODItemStore sharedStore] self];
+    
+    // Create a proxy to the chat service
+    [RODItemStore sharedStore].hubProxy = [[RODItemStore sharedStore].hubConnection createHubProxy:@"authhub"];
+    
+    [RODItemStore sharedStore].hubConnection.received = ^(NSString * data) {
+        NSLog(@"receieved: %@", data);
+    };
+    
+    [RODItemStore sharedStore].hubConnection.started = ^{
+        
+        [[RODItemStore sharedStore].hubProxy on:@"addMessage" perform:self selector:@selector(addMessage:message:groupKey:)];
+        
+        NSLog(@"Started.");
+        
+    };
+    
+    [RODItemStore sharedStore].hubConnection.error = ^(NSError *__strong err){
+        NSLog(@"there was an error...");
+    };
+    
+    // Start the connection
+    [[RODItemStore sharedStore].hubConnection start];
+    
 }
 
 - (void)tappedImageView:(UITapGestureRecognizer *)tapGesture
@@ -219,7 +249,7 @@
         
         [[RODItemStore sharedStore] sendChat:self.thread.groupKey message:text];
 
-        
+        NSLog(@"state: %i", [RODItemStore sharedStore].hubConnection.state);
         dispatch_sync(dispatch_get_main_queue(), ^{
             // Update UI
             

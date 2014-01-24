@@ -22,9 +22,7 @@
     NSString *notificationGroupKey = [notification objectForKey:@"threadKey"];
     NSLog(@"Launched from notification...%@", notificationGroupKey );
     
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-
-    [appDelegate pushThreadWithGroupKey:notificationGroupKey];
+    [[RODItemStore sharedStore] pushThreadWithGroupKey:notificationGroupKey];
 }
 
 - (void)receivedForegroundNotification:(NSDictionary *)notification

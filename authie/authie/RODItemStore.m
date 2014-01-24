@@ -22,7 +22,7 @@
 #import "UAPush.h"
 
 @implementation RODItemStore
-@synthesize loadedThreadsFromAuthor;
+@synthesize loadedThreadsFromAuthor, hubConnection, hubProxy, mostRecentGroupKey;
 
 - (id)init
 {
@@ -262,15 +262,6 @@
     
 }
 
-- (void)join
-{
-    
-    NSLog(@"called join");
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [appDelegate.hubProxy invoke:@"Join" withArgs:[NSArray arrayWithObjects: [RODItemStore sharedStore].authie.handle.name,nil]];
-
-}
-
 - (void)report:(NSString *)groupKey
 {
     NSError *error = nil;
@@ -320,10 +311,7 @@
 - (void)sendChat:(NSString *)groupKey message:(NSString *)msg
 {
     // new shit
-    
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-    [appDelegate.hubProxy invoke:@"Send" withArgs:[NSArray arrayWithObjects: [RODItemStore sharedStore].authie.handle.name, msg, groupKey,nil]];
+    [self.hubProxy invoke:@"Send" withArgs:[NSArray arrayWithObjects: [RODItemStore sharedStore].authie.handle.name, msg, groupKey,nil]];
     
     return;
     
@@ -1640,6 +1628,95 @@
     UIBarButtonItem *leftDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_menu];
 
     return leftDrawerButton;
+}
+
+
+- (void)SRConnectionDidClose:(SRConnection *)connection
+{
+    NSLog(@"SRConnectionDidClose.");
+    
+}
+
+- (void)SRConnectionDidOpen:(SRConnection *)connection
+{
+    NSLog(@"SRConnectionDidOpen.");
+    
+    // register with the server for new messages/threads events
+    
+    
+}
+
+- (void)SRConnectionDidReconnect:(SRConnection *)connection
+{
+    NSLog(@"SRConnectionDidReconnect");
+    
+}
+
+- (void)pushThreadWithGroupKey:(NSString *)group_key
+{
+    NSLog(@"pushThreadWithGroupKey:");
+    RODThread *thread;
+    
+    for(int i = 0; i< [[RODItemStore sharedStore].authie.all_Threads count]; i++)
+    {
+        thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:i];
+        if([thread.groupKey isEqualToString:group_key]) {
+            
+            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            
+            appDelegate.threadViewController = [[ThreadViewController alloc] init];
+            [appDelegate.threadViewController loadThread:i];
+            [appDelegate.dashViewController.navigationController pushViewController:appDelegate.threadViewController animated:YES];
+            
+            break;
+        }
+    }
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        // push find thread with groupKey = self.received_group_key,
+        // push that...
+        [self pushThreadWithGroupKey:self.mostRecentGroupKey];
+        self.mostRecentGroupKey = @"";
+        
+    }
+}
+
+- (void)addMessage:(NSString *)user message:(NSString *)msg groupKey:(NSString *)key {
+    NSLog(@"addMessage: %@, %@, %@", user, msg, key);
+    NSString *s = [NSString stringWithFormat:@"%@ said: %@", user, msg];
+    // Print the message when it comes in
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"new auth" message:s delegate:self cancelButtonTitle:@"ok" otherButtonTitles:@"go to thread", nil];
+    [alert show];
+    self.mostRecentGroupKey = key;
+    
+    //
+    //
+    //    if([dashViewController.navigationController.topViewController class] != [ThreadViewController class]) {
+    //        // looking at dash, invite, private key, compose
+    //        self.mostRecentGroupKey = key;
+    //        [alert show];
+    //    } else {
+    //
+    //        // looking at a thread, may be the one we need to update
+    //
+    //        NSLog(@"Toplevel was a threadviewcontroller.");
+    //        NSString *current_group_key = threadViewController.thread.groupKey;
+    //
+    //        if([current_group_key isEqualToString:key]) {
+    //            // reload the current messages..??????
+    //        } else {
+    //            self.mostRecentGroupKey = key;
+    //        }
+    //
+    //        [alert show];
+    //
+    //    }
+    
 }
 
 + (RODItemStore *)sharedStore

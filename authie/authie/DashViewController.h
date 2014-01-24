@@ -8,8 +8,9 @@
 
 @class RODHandle;
 #import <UIKit/UIKit.h>
+#import <SignalR-ObjC/SignalR.h>
 
-@interface DashViewController : UIViewController <UIImagePickerControllerDelegate>
+@interface DashViewController : UIViewController <UIImagePickerControllerDelegate, SRConnectionDelegate>
 {
     NSMutableArray *_items;
 }
@@ -33,6 +34,7 @@
 @property (strong, nonatomic) UIImagePickerController *imagePicker;
 @property (strong, nonatomic) RODHandle *selected;
 
+@property (strong, nonatomic) NSString *mostRecentGroupKey;
 - (void)showAuthorizationRequestImagePicker;
 - (void)addContact;
 

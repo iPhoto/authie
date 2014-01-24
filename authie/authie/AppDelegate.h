@@ -40,12 +40,6 @@
 @property (strong, nonatomic) UACustomPushNotificationDelegate *notificationDelegate;
 @property (strong, nonatomic) REFrostedViewController *drawer;
 
-@property (strong, nonatomic) SRHubConnection *hubConnection;
-@property (strong, nonatomic) SRHubProxy *hubProxy;
-
-@property (strong, nonatomic) NSString *mostRecentGroupKey;
-
-- (void)pushThreadWithGroupKey:(NSString *)group_key;
 
 
 @end

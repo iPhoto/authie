@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <SignalR-ObjC/SignalR.h>
 
 @class RODSelfie;
 @class RODAuthie;
@@ -14,7 +15,7 @@
 @class RODHandle;
 @class NavigationController;
 
-@interface RODItemStore : NSObject
+@interface RODItemStore : NSObject <SRConnectionDelegate>
 {
     RODAuthie *_authie;
 }
@@ -43,7 +44,6 @@
 - (void)giveLove:(NSString *)groupKey;
 - (void)sendChat:(NSString *)groupKey message:(NSString *)msg;
 - (void)invite:(NSString *)email message:(NSString *)msg;
-- (void)join;
 - (void)loadMessages;
 - (void)loadDaily;
 - (BOOL)loadThreads;
@@ -57,6 +57,14 @@
 - (UIView *)generateHeaderView;
 - (UIView *)generateDailyView;
 - (UIBarButtonItem *)generateSettingsCog:(UIViewController *)target;
+
+@property (strong, nonatomic) SRHubConnection *hubConnection;
+@property (strong, nonatomic) SRHubProxy *hubProxy;
+
+@property (strong, nonatomic) NSString *mostRecentGroupKey;
+- (void)pushThreadWithGroupKey:(NSString *)group_key;
+- (void)addMessage:(NSString *)user message:(NSString *)msg groupKey:(NSString *)key;
+
 
 @end
 
