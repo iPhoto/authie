@@ -113,8 +113,6 @@
 		5D9DEE9D185242E300F80413 /* RODSelfie.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DEE99185242E300F80413 /* RODSelfie.m */; };
 		5DA646871878980900F158E8 /* authie-logo-08-200px.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DA646861878980900F158E8 /* authie-logo-08-200px.png */; };
 		5DA64689187898B900F158E8 /* authie-logo-09-100px.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DA64688187898B900F158E8 /* authie-logo-09-100px.png */; };
-		5DBBDBE41881C8B6004446DE /* DailyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DBBDBE21881C8B6004446DE /* DailyViewController.m */; };
-		5DBBDBE51881C8B6004446DE /* DailyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DBBDBE31881C8B6004446DE /* DailyViewController.xib */; };
 		5DBBDBEC18822C80004446DE /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBBDBE618822C80004446DE /* libTestFlight.a */; };
 		5DBBDBED18822C80004446DE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5DBBDBE718822C80004446DE /* README.md */; };
 		5DBBDBEE18822C80004446DE /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 5DBBDBE818822C80004446DE /* release_notes.md */; };
@@ -356,9 +354,6 @@
 		5D9DEE99185242E300F80413 /* RODSelfie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RODSelfie.m; sourceTree = "<group>"; };
 		5DA646861878980900F158E8 /* authie-logo-08-200px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "authie-logo-08-200px.png"; sourceTree = "<group>"; };
 		5DA64688187898B900F158E8 /* authie-logo-09-100px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "authie-logo-09-100px.png"; sourceTree = "<group>"; };
-		5DBBDBE11881C8B6004446DE /* DailyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyViewController.h; sourceTree = "<group>"; };
-		5DBBDBE21881C8B6004446DE /* DailyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyViewController.m; sourceTree = "<group>"; };
-		5DBBDBE31881C8B6004446DE /* DailyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DailyViewController.xib; sourceTree = "<group>"; };
 		5DBBDBE618822C80004446DE /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		5DBBDBE718822C80004446DE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		5DBBDBE818822C80004446DE /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
@@ -805,9 +800,6 @@
 				5D8C1CEF1880E45500158AE5 /* PrivateKeyViewController.h */,
 				5D8C1CF01880E45500158AE5 /* PrivateKeyViewController.m */,
 				5D8C1CF11880E45500158AE5 /* PrivateKeyViewController.xib */,
-				5DBBDBE11881C8B6004446DE /* DailyViewController.h */,
-				5DBBDBE21881C8B6004446DE /* DailyViewController.m */,
-				5DBBDBE31881C8B6004446DE /* DailyViewController.xib */,
 				5D5A072918848A4F003848EA /* AuthorizeContactViewController.h */,
 				5D5A072A18848A4F003848EA /* AuthorizeContactViewController.m */,
 				5D5A072B18848A4F003848EA /* AuthorizeContactViewController.xib */,
@@ -1010,7 +1002,6 @@
 				5DEE7C95185234E800F532B3 /* InfoPlist.strings in Resources */,
 				5D21CA25188DAF6800330F78 /* UAInboxMessageViewController.xib in Resources */,
 				5D21CA24188DAF6800330F78 /* UAInboxMessageListController.xib in Resources */,
-				5DBBDBE51881C8B6004446DE /* DailyViewController.xib in Resources */,
 				5D21CA47188DAF6800330F78 /* UAPushSettingsView.xib in Resources */,
 				5D8C1CE918808FC000158AE5 /* SelectContactViewController.xib in Resources */,
 				5D5A073418848B0F003848EA /* ConfirmSnapViewController.xib in Resources */,
@@ -1105,7 +1096,6 @@
 				5D21CA32188DAF6800330F78 /* UAPushSettingsTagsViewController.m in Sources */,
 				5D21CA35188DAF6800330F78 /* UAPushSettingsViewController.m in Sources */,
 				5D860798188C4D6600963653 /* RODMessage.m in Sources */,
-				5DBBDBE41881C8B6004446DE /* DailyViewController.m in Sources */,
 				5D21CA12188DAF6800330F78 /* UABeveledLoadingIndicator.m in Sources */,
 				5D21CA16188DAF6800330F78 /* UAInboxMessageListController.m in Sources */,
 				5D06B982187B0C1F00FC17F0 /* MenuViewController.m in Sources */,
