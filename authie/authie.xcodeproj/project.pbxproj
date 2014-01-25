@@ -113,6 +113,7 @@
 		5D9DEE9D185242E300F80413 /* RODSelfie.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DEE99185242E300F80413 /* RODSelfie.m */; };
 		5DA646871878980900F158E8 /* authie-logo-08-200px.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DA646861878980900F158E8 /* authie-logo-08-200px.png */; };
 		5DA64689187898B900F158E8 /* authie-logo-09-100px.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DA64688187898B900F158E8 /* authie-logo-09-100px.png */; };
+		5DB549A318943DC900E03D9D /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DB549A218943DC900E03D9D /* Main_iPhone.storyboard */; };
 		5DBBDBEC18822C80004446DE /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBBDBE618822C80004446DE /* libTestFlight.a */; };
 		5DBBDBED18822C80004446DE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5DBBDBE718822C80004446DE /* README.md */; };
 		5DBBDBEE18822C80004446DE /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 5DBBDBE818822C80004446DE /* release_notes.md */; };
@@ -353,6 +354,7 @@
 		5D9DEE99185242E300F80413 /* RODSelfie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RODSelfie.m; sourceTree = "<group>"; };
 		5DA646861878980900F158E8 /* authie-logo-08-200px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "authie-logo-08-200px.png"; sourceTree = "<group>"; };
 		5DA64688187898B900F158E8 /* authie-logo-09-100px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "authie-logo-09-100px.png"; sourceTree = "<group>"; };
+		5DB549A218943DC900E03D9D /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
 		5DBBDBE618822C80004446DE /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		5DBBDBE718822C80004446DE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		5DBBDBE818822C80004446DE /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
@@ -819,6 +821,7 @@
 				5D21C97B188DAF6800330F78 /* Airship */,
 				5D06B984187B0D4E00FC17F0 /* cog.png */,
 				5D5A072E18848A7C003848EA /* lock.png */,
+				5DB549A218943DC900E03D9D /* Main_iPhone.storyboard */,
 				5D6340B9188A16DC006538C5 /* heart-blue.png */,
 				5D6340BB188A187A006538C5 /* heart-blue-v2.png */,
 				5D8C1CDE18805AA000158AE5 /* heart.png */,
@@ -970,6 +973,7 @@
 				5D06B985187B0D4E00FC17F0 /* cog.png in Resources */,
 				5D6340BA188A16DC006538C5 /* heart-blue.png in Resources */,
 				5D21CA20188DAF6800330F78 /* overlayCloseBtn.png in Resources */,
+				5DB549A318943DC900E03D9D /* Main_iPhone.storyboard in Resources */,
 				5DEE7CA9185234E800F532B3 /* Images.xcassets in Resources */,
 				5D21CA44188DAF6800330F78 /* UAPushSettingsTagsViewController.xib in Resources */,
 				5D8C1CEE1880E0F200158AE5 /* InviteViewController.xib in Resources */,
