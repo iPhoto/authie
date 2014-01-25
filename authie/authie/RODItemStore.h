@@ -47,6 +47,7 @@
 
 - (void)addChat:(NSString *)user message:(NSString *)message groupKey:(NSString *)groupKey;
 - (void)loadMessages;
+- (void)loadMessagesForThread:(NSString *)key;
 - (void)loadDaily;
 - (BOOL)loadThreads;
 - (BOOL)loadContacts;

@@ -79,6 +79,7 @@
             self.dailyThreads = [[NSMutableArray alloc] init];
         }
         
+        
     }
     
     return self;
@@ -578,6 +579,9 @@
                 is_logged_in = NO;
             } else {
                 //[self loadThreads];
+                
+                
+                
                 is_logged_in = YES;
                 [self loadThreads];
                 [self loadContacts];
@@ -1213,6 +1217,111 @@
     return loaded_threads;
 }
 
+- (void)loadMessagesForThread:(NSString *)key;
+{
+    
+    NSError *error = nil;
+    
+    NSURLResponse *response;
+    NSData *localData = nil;
+    
+    NSString *url = [NSString stringWithFormat:@"http://authie.me/api/message/%@", key];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"GET"];
+    
+    if(error == nil) {
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        
+        //send the request and get the response
+        localData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        NSError *deserialize_error = nil;
+        
+        id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingMutableContainers error:&deserialize_error];
+        if([object isKindOfClass:[NSArray self]] && deserialize_error == nil) {
+            
+            // clear out old messages
+            // ONLY ONES WITH THIS PUBLIC KEY!!!
+            //[self.authie.allMessages removeAllObjects];
+            
+            
+            for(int i = [self.authie.allMessages count] - 1; i >0; i--) {
+                
+                RODMessage *m = [self.authie.allMessages objectAtIndex:i];
+                if([m.thread.groupKey isEqualToString:key]) {
+                    [self.authie.allMessages removeObjectAtIndex:i];
+                }
+                
+            }
+            
+            
+            for (NSDictionary *result in object) {
+                
+                RODMessage *message = [[RODMessage alloc] init];
+                
+                NSInteger id_result = [[result objectForKey:@"id"] integerValue];
+                message.id = [NSNumber numberWithInteger:id_result];
+                
+                NSDictionary *handle_result = [result objectForKey:@"handle"];
+                
+                RODHandle *fromHandle = [[RODHandle alloc] init];
+                
+                NSString *fromHandle_name = [handle_result objectForKey:@"name"];
+                
+                NSString *fromHandle_publicKey = [handle_result objectForKey:@"publicKey"];
+                
+                fromHandle.publicKey = fromHandle_publicKey;
+                fromHandle.name = fromHandle_name;
+                message.fromHandle = fromHandle;
+                
+                NSString *message_text = [result objectForKey:@"messageText"];
+                message.messageText = message_text;
+                
+                NSString *message_date = [result objectForKey:@"sentDate"];
+                
+                NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+                
+                //The Z at the end of your string represents Zulu which is UTC
+                [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
+                [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
+                
+                message.sentDate = [dateFormatter dateFromString:message_date];
+                
+                
+                NSDictionary *thread_result = [result objectForKey:@"thread"];
+                
+                RODThread *thread = [[RODThread alloc] init];
+                
+                NSString *groupKey = [thread_result objectForKey:@"groupKey"];
+                
+                thread.groupKey = groupKey;
+                
+                message.thread = thread;
+                
+                //NSLog(@"Loaded message: '%@' from %@", message.messageText, message.fromHandle.name);
+                
+                [self.authie.allMessages addObject:message];
+                
+            }
+            
+        } else {
+            NSLog(@"loadMessagesFromThread error: %@", object);
+        }
+        
+        
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        [appDelegate.threadViewController reloadThread];
+        
+    }
+    
+    
+    
+    
+    
+}
+
 - (void)loadMessages
 {
     
@@ -1644,6 +1753,7 @@
     // register with the server for new messages/threads events
     
     
+    
 }
 
 - (void)SRConnectionDidReconnect:(SRConnection *)connection
@@ -1723,14 +1833,17 @@
     NSLog(@"Chat added.");
 }
 
-- (void)addMessage:(NSString *)user message:(NSString *)msg groupKey:(NSString *)key {
-    NSLog(@"addMessage: %@, %@, %@", user, msg, key);
-    NSString *s = [NSString stringWithFormat:@"%@ said: %@", user, msg];
+- (void)addMessage:(NSString *)user message:(NSString *)msg groupKey:(NSString *)key
+{
+    NSLog(@"addMessage, dashy: %@, %@, %@, %i", user, msg, key, [RODItemStore sharedStore].hubConnection.state);
+    [[RODItemStore sharedStore] addChat:user message:msg groupKey:key];
+    
+    //NSString *s = [NSString stringWithFormat:@"%@ said: %@", user, msg];
     // Print the message when it comes in
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"new auth" message:s delegate:self cancelButtonTitle:@"ok" otherButtonTitles:@"go to thread", nil];
-    [alert show];
-    self.mostRecentGroupKey = key;
+    //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"new auth" message:s delegate:self cancelButtonTitle:@"ok" otherButtonTitles:@"go to thread", nil];
+    //[alert show];
+    //self.mostRecentGroupKey = key;
     
     //
     //
