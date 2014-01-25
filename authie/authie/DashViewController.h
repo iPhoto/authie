@@ -30,6 +30,7 @@
 
 - (void)getThreads;
 - (void)populateScrollView;
+- (void)clearScrollView;
 
 @property (strong, nonatomic) UIImagePickerController *imagePicker;
 @property (strong, nonatomic) RODHandle *selected;
@@ -37,6 +38,7 @@
 @property (strong, nonatomic) NSString *mostRecentGroupKey;
 - (void)showAuthorizationRequestImagePicker;
 - (void)addContact;
+
 
 
 @end

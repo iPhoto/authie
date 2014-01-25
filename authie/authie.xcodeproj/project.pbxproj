@@ -123,7 +123,6 @@
 		5DEE7C95185234E800F532B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DEE7C93185234E800F532B3 /* InfoPlist.strings */; };
 		5DEE7C97185234E800F532B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DEE7C96185234E800F532B3 /* main.m */; };
 		5DEE7C9B185234E800F532B3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DEE7C9A185234E800F532B3 /* AppDelegate.m */; };
-		5DEE7C9E185234E800F532B3 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DEE7C9C185234E800F532B3 /* Main_iPhone.storyboard */; };
 		5DEE7CA1185234E800F532B3 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DEE7C9F185234E800F532B3 /* Main_iPad.storyboard */; };
 		5DEE7CA9185234E800F532B3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DEE7CA8185234E800F532B3 /* Images.xcassets */; };
 		5DEE7CB0185234E800F532B3 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DEE7CAF185234E800F532B3 /* XCTest.framework */; };
@@ -371,7 +370,6 @@
 		5DEE7C98185234E800F532B3 /* authie-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "authie-Prefix.pch"; sourceTree = "<group>"; };
 		5DEE7C99185234E800F532B3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5DEE7C9A185234E800F532B3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5DEE7C9D185234E800F532B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		5DEE7CA0185234E800F532B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		5DEE7CA8185234E800F532B3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5DEE7CAE185234E800F532B3 /* authieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = authieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -772,7 +770,6 @@
 				5D06B980187B0C1F00FC17F0 /* MenuViewController.m */,
 				5D9C7C55187DE25200BE2D42 /* NavigationController.h */,
 				5D9C7C56187DE25200BE2D42 /* NavigationController.m */,
-				5DEE7C9C185234E800F532B3 /* Main_iPhone.storyboard */,
 				5DEE7C9F185234E800F532B3 /* Main_iPad.storyboard */,
 				5DF86490185F75CA002DCCDC /* RegisterViewController.h */,
 				5DF86491185F75CA002DCCDC /* RegisterViewController.m */,
@@ -988,7 +985,6 @@
 				5D9A453418771D0F008C45FD /* authie-logo-07-350px.png in Resources */,
 				5D21CA1E188DAF6800330F78 /* down.png in Resources */,
 				5D556A641882384100C5B6FB /* LoginViewController.xib in Resources */,
-				5DEE7C9E185234E800F532B3 /* Main_iPhone.storyboard in Resources */,
 				5D8C1CDD187F3EC000158AE5 /* cog-black.png in Resources */,
 				5DA646871878980900F158E8 /* authie-logo-08-200px.png in Resources */,
 				5D21CA21188DAF6800330F78 /* overlayCloseBtn@2x.png in Resources */,
@@ -1135,14 +1131,6 @@
 				5DEE7C94185234E800F532B3 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		5DEE7C9C185234E800F532B3 /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5DEE7C9D185234E800F532B3 /* Base */,
-			);
-			name = Main_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
 		5DEE7C9F185234E800F532B3 /* Main_iPad.storyboard */ = {

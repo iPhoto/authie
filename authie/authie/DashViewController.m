@@ -83,6 +83,13 @@
     
 }
 
+- (void)clearScrollView
+{
+    NSArray *viewsToRemove = [self.scroll subviews];
+    for (UIView *v in viewsToRemove) [v removeFromSuperview];
+   
+}
+
 - (void)sendSnap:(id)sender
 {
     
