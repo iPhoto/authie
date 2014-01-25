@@ -78,6 +78,13 @@
         [self doUpload];
     }
 
+    if(self.doGetThreadsOnView) {
+        
+        
+        [self getThreads];
+        self.doGetThreadsOnView = NO;
+    }
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -91,12 +98,6 @@
     
     UIBarButtonItem *leftDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_menu];
     self.navigationItem.leftBarButtonItem = leftDrawerButton;
-
-    if(self.doGetThreadsOnView) {
-        [self getThreads];
-        self.doGetThreadsOnView = NO;
-    }
-
     
 }
 
@@ -153,31 +154,28 @@
 - (void)getThreads
 {
     
-    NSLog(@"Get threads ran.");
-    // Block whole window
     
     MRProgressOverlayView *progressView = [MRProgressOverlayView new];
-    progressView.titleLabelText = @"downloading, pls chill a moment";
+    progressView.titleLabelText = @"syncing threads";
     progressView.titleLabel.font = [UIFont systemFontOfSize:10];
+    
     [self.view.window addSubview:progressView];
     
     [progressView show:YES];
-    [[RODItemStore sharedStore] loadThreads];
-    [self populateScrollView];
-    [progressView dismiss:YES];
     
-//    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
-//    dispatch_async(queue, ^{
-//        // Perform async operation
-//
-//        [[RODItemStore sharedStore] loadThreads];
-//        
-//        dispatch_sync(dispatch_get_main_queue(), ^{
-//            // Update UI
-//            [self populateScrollView];
-//            [progressView dismiss:YES];
-//        });
-//    });
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+    dispatch_async(queue, ^{
+        // Perform async operation
+
+        [[RODItemStore sharedStore] loadThreads];
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            // Update UI
+            [self populateScrollView];
+            [progressView dismiss:YES];
+            
+        });
+    });
     
 }
 

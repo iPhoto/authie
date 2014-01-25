@@ -1114,8 +1114,9 @@
                 
             }
             
-            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-            [appDelegate.dashViewController populateScrollView];
+            // disabling this so entire thread can run on background thread with no black camera issues
+            //AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            //[appDelegate.dashViewController populateScrollView];
             
             loaded_convos = YES;
             
