@@ -249,7 +249,8 @@
     [self.tableView setHidden:NO];
     
     [self.subtitles addObject:[RODItemStore sharedStore].authie.handle.name];
-    
+
+    [[RODItemStore sharedStore] addChat:[RODItemStore sharedStore].authie.handle.name message:text groupKey:self.thread.groupKey];    
 
     [self finishSend];
     [self scrollToBottomAnimated:YES];

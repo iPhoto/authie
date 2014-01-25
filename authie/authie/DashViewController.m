@@ -192,23 +192,18 @@
     MRProgressOverlayView *progressView = [MRProgressOverlayView new];
     progressView.titleLabelText = @"downloading, pls chill a moment";
     progressView.titleLabel.font = [UIFont systemFontOfSize:10];
-    [self.navigationController.view.window addSubview:progressView];
+    [self.view.window addSubview:progressView];
     
     [progressView show:YES];
     
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
     dispatch_async(queue, ^{
         // Perform async operation
-        // Call your method/function here
-        // Example:
-        // NSString *result = [anObject calculateSomething];
 
-        [[RODItemStore sharedStore] getThreadsFromHandle:handle.publicKey];
+        [[RODItemStore sharedStore] loadThreads];
         
         dispatch_sync(dispatch_get_main_queue(), ^{
             // Update UI
-            // Example:
-            // self.myLabel.text = result;
             [self populateScrollView];
             [progressView dismiss:YES];
         });
