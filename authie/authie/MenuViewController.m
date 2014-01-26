@@ -42,7 +42,6 @@
     
     [self.tableView setSeparatorInset:UIEdgeInsetsZero];
     [self.tableView setSeparatorColor:[UIColor clearColor]];
-    [self.tableView setFrame:CGRectMake(0, 0, 200, self.view.window.frame.size.height)];
     
     
 }
@@ -55,7 +54,7 @@
     cell.backgroundColor = [UIColor clearColor];
     cell.textLabel.textColor = [UIColor colorWithRed:62/255.0f green:68/255.0f blue:75/255.0f alpha:1.0f];
     cell.textLabel.font = [UIFont fontWithName:@"Courier" size:18];
-    cell.detailTextLabel.font = [UIFont fontWithName:@"Courier" size:10];
+    cell.detailTextLabel.font = [UIFont fontWithName:@"Courier" size:9];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)sectionIndex
