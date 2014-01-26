@@ -44,7 +44,7 @@
     self.navigationItem.rightBarButtonItem = addButton;
     self.navigationItem.titleView = [[RODItemStore sharedStore] generateHeaderView];
     
-    self.navigationItem.title = @"Dashboard";
+    self.navigationItem.title = @"Dash";
     
     self.imagePicker = [[UIImagePickerController alloc] init];
 
@@ -93,7 +93,7 @@
 
     UIButton *button_menu = [UIButton buttonWithType:UIButtonTypeCustom];
     [button_menu setFrame:CGRectMake(0, 0, 40, 40)];
-    [button_menu setImage:[UIImage imageNamed:@"cog-black.png"] forState:UIControlStateNormal];
+    [button_menu setImage:[UIImage imageNamed:@"home.png"] forState:UIControlStateNormal];
     [button_menu addTarget:(NavigationController *)self.navigationController action:@selector(showMenu:) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *leftDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_menu];

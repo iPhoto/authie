@@ -112,6 +112,7 @@
 		5D9DEE9C185242E300F80413 /* RODItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DEE97185242E300F80413 /* RODItemStore.m */; };
 		5D9DEE9D185242E300F80413 /* RODSelfie.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DEE99185242E300F80413 /* RODSelfie.m */; };
 		5DB549A318943DC900E03D9D /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DB549A218943DC900E03D9D /* Main_iPhone.storyboard */; };
+		5DB549A5189585F700E03D9D /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DB549A4189585F700E03D9D /* home.png */; };
 		5DBBDBEC18822C80004446DE /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBBDBE618822C80004446DE /* libTestFlight.a */; };
 		5DBBDBED18822C80004446DE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5DBBDBE718822C80004446DE /* README.md */; };
 		5DBBDBEE18822C80004446DE /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 5DBBDBE818822C80004446DE /* release_notes.md */; };
@@ -349,6 +350,7 @@
 		5D9DEE98185242E300F80413 /* RODSelfie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RODSelfie.h; sourceTree = "<group>"; };
 		5D9DEE99185242E300F80413 /* RODSelfie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RODSelfie.m; sourceTree = "<group>"; };
 		5DB549A218943DC900E03D9D /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
+		5DB549A4189585F700E03D9D /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 		5DBBDBE618822C80004446DE /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		5DBBDBE718822C80004446DE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		5DBBDBE818822C80004446DE /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
@@ -814,6 +816,7 @@
 				5D06B984187B0D4E00FC17F0 /* cog.png */,
 				5D5A072E18848A7C003848EA /* lock.png */,
 				5DB549A218943DC900E03D9D /* Main_iPhone.storyboard */,
+				5DB549A4189585F700E03D9D /* home.png */,
 				5D6340B9188A16DC006538C5 /* heart-blue.png */,
 				5D6340BB188A187A006538C5 /* heart-blue-v2.png */,
 				5D8C1CDE18805AA000158AE5 /* heart.png */,
@@ -981,6 +984,7 @@
 				5D21CA3F188DAF6800330F78 /* UAPushLocalization.bundle in Resources */,
 				5D21CA1D188DAF6800330F78 /* check@2x.png in Resources */,
 				5D21CA1F188DAF6800330F78 /* down@2x.png in Resources */,
+				5DB549A5189585F700E03D9D /* home.png in Resources */,
 				5D6340BC188A187A006538C5 /* heart-blue-v2.png in Resources */,
 				5D5A072F18848A7C003848EA /* lock.png in Resources */,
 				5DEE7C95185234E800F532B3 /* InfoPlist.strings in Resources */,
