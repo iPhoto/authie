@@ -35,6 +35,11 @@
     return self;
 }
 
+- (void)setThreadIndex:(int)row;
+{
+    loadRow = row;
+}
+
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -54,6 +59,7 @@
     if(loadRow != -1) {
         [self resetChatObjects];
         [self loadThread:loadRow];
+        NSLog(@"Reloaded thread.");
         [self.snapView setNeedsUpdateConstraints];
 
     }
@@ -187,11 +193,11 @@
     RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:row];
     [self.snapView setImage:[[RODImageStore sharedStore] imageForKey:thread.groupKey]];
     self.thread = thread;
-    
-    if([self.thread.toHandleId isEqualToString:@"profile"]) {
-        self.navigationItem.title = @"profile snap";
+        
+    if([thread.toHandle.name isEqualToString:[RODItemStore sharedStore].authie.handle.name]) {
+        self.navigationItem.title = [NSString stringWithFormat:@"chat with %@", thread.fromHandleId];
     } else {
-        self.navigationItem.title = [NSString stringWithFormat:@"to: %@, from: %@", thread.toHandleId, thread.fromHandleId];
+        self.navigationItem.title = [NSString stringWithFormat:@"chat with %@", thread.toHandleId];
     }
     
     self.snapDate.text = [self.thread.startDate prettyDate];
@@ -224,6 +230,7 @@
     [self scrollToBottomAnimated:YES];
                                                                                                                                                                                                        
     self.messageInputView.textView.text = currentMessage;
+
     
     loadRow = row;
 }

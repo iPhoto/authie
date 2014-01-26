@@ -52,7 +52,7 @@
 
 - (void)addMessage:(NSString *)user message:(NSString *)msg groupKey:(NSString *)key
 {
-    NSLog(@"addMessage, dashy: %@, %@, %@, %i", user, msg, key, [RODItemStore sharedStore].hubConnection.state);
+    NSLog(@"addMessage, nav: %@, %@, %@, %i", user, msg, key, [RODItemStore sharedStore].hubConnection.state);
     [[RODItemStore sharedStore] addChat:user message:msg groupKey:key];
     
     //NSString *s = [NSString stringWithFormat:@"%@ said: %@", user, msg];

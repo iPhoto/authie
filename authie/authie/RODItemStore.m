@@ -60,8 +60,9 @@
         [[UAPush shared] updateRegistration];
         
         
-        if(!_authie.allContacts)
+        if(!_authie.allContacts) {
             _authie.allContacts = [[NSMutableArray alloc] init];
+        }
         
         if(!_authie.allSelfies)
             _authie.allSelfies = [[NSMutableArray alloc] init];

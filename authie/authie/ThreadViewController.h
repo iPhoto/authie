@@ -31,5 +31,6 @@
 - (void)setThread:(RODThread *)new_thread;
 - (void)loadThread:(int)row;
 - (void)reloadThread;
+- (void)setThreadIndex:(int)row;
 
 @end

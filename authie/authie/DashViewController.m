@@ -47,7 +47,7 @@
     self.navigationItem.title = @"Dash";
     
     self.imagePicker = [[UIImagePickerController alloc] init];
-
+    
 }
 
 - (void)clearScrollView
@@ -98,6 +98,7 @@
     
     UIBarButtonItem *leftDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_menu];
     self.navigationItem.leftBarButtonItem = leftDrawerButton;
+        
     
 }
 
@@ -272,7 +273,6 @@
     RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:thread_index];
     
     Boolean is_authorize_request = NO;
-    
     if([thread.authorizeRequest isEqualToNumber:[NSNumber numberWithInt:1]])
     {
         
@@ -283,7 +283,7 @@
         
     } else {
         
-        appDelegate.threadViewController = [[ThreadViewController alloc] init];        
+        appDelegate.threadViewController = [[ThreadViewController alloc] init];
         [appDelegate.dashViewController.navigationController pushViewController:appDelegate.threadViewController animated:YES];
         
     }
@@ -298,16 +298,21 @@
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
     dispatch_async(queue, ^{
         
+        
+        
         [[RODImageStore sharedStore] preloadImageAndShowScreen:thread_index];
         
         dispatch_sync(dispatch_get_main_queue(), ^{
             // Update UI
             // Example:
             // self.myLabel.text = result;
+            
+            
             if(is_authorize_request == YES) {
                 [appDelegate.authorizeContactViewController loadThread:thread_index];
             } else {
-                [appDelegate.threadViewController loadThread:thread_index];
+//                [appDelegate.threadViewController loadThread:thread_index];
+                [appDelegate.threadViewController setThreadIndex:thread_index];
             }
             
             [progressView dismiss:YES];
