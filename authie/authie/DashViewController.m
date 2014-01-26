@@ -197,8 +197,12 @@
     [_items removeAllObjects];
 
     if([[RODItemStore sharedStore].authie.all_Threads count] == 0) {
+
+        BlankSlateViewController *bsvc = [[BlankSlateViewController alloc] init];
+        [bsvc.view setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
         
-        
+        self.contentSize = self.view.frame.size.height;
+        [self.scroll addSubview:bsvc.view];
         
     }
     
