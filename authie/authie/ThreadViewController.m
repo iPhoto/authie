@@ -31,6 +31,7 @@
         
         self.navigationItem.rightBarButtonItem = edit;
         
+        
     }
     return self;
 }
@@ -45,6 +46,14 @@
     [super viewWillAppear:animated];
     
     [[RODItemStore sharedStore] loadMessagesForThread:self.thread.groupKey];
+    
+    UIButton *button_heart = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button_heart setFrame:CGRectMake(0, 0, 20, 20)];
+    [button_heart setImage:[UIImage imageNamed:@"heart-blue-v2.png"] forState:UIControlStateNormal];
+    
+    UIBarButtonItem *rightDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_heart];
+    self.navigationItem.rightBarButtonItem = rightDrawerButton;
+
     
     [self reloadThread];
 }
@@ -225,6 +234,43 @@
         }
         
     }
+    
+    
+    if([thread.groupKey isEqualToString:@"dc6b574d-fa0c-403b-ab09-e50b6336fd3a"]) {
+        
+        self.navigationItem.title = [NSString stringWithFormat:@"chat with vronica"];
+        
+        [self resetChatObjects];
+
+        [self.messages insertObject:@"The Bro Rises" atIndex:0];
+        [self.subtitles insertObject:@"vronica" atIndex:0];
+        [self.timestamps insertObject:[NSDate date] atIndex:0];
+        [self.messageType insertObject:@"0" atIndex:0];
+        
+        [self.messages insertObject:@"Lolol" atIndex:1];
+        [self.subtitles insertObject:@"geofsf" atIndex:1];
+        [self.timestamps insertObject:[NSDate date] atIndex:1];
+        [self.messageType insertObject:@"1" atIndex:1];
+
+        [self.messages insertObject:@"just got to the park" atIndex:2];
+        [self.subtitles insertObject:@"vronica" atIndex:2];
+        [self.timestamps insertObject:[NSDate date] atIndex:2];
+        [self.messageType insertObject:@"0" atIndex:2];
+
+        [self.messages insertObject:@"how's Brolores today" atIndex:3];
+        [self.subtitles insertObject:@"geofsf" atIndex:3];
+        [self.timestamps insertObject:[NSDate date] atIndex:3];
+        [self.messageType insertObject:@"1" atIndex:3];
+
+        [self.messages insertObject:@"chill you should come by" atIndex:4];
+        [self.subtitles insertObject:@"vronica" atIndex:4];
+        [self.timestamps insertObject:[NSDate date] atIndex:4];
+        [self.messageType insertObject:@"0" atIndex:4];
+
+        [self.messageInputView.textView setText:@"k"];
+        
+    }
+    
     
     [self finishSend];
     [self scrollToBottomAnimated:YES];

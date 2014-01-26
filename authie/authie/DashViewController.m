@@ -18,6 +18,7 @@
 #import "NavigationController.h"
 #import "AppDelegate.h"
 #import "ConfirmSnapViewController.h"
+#import "BlankSlateViewController.h"
 
 @implementation DashViewController
 @synthesize handle, contentSize, imageToUpload, keyToUpload, handleToUpload, captionToUpload, doUploadOnView, imagePicker, selected, mostRecentGroupKey;
@@ -92,9 +93,10 @@
     [super viewWillAppear:animated];
 
     UIButton *button_menu = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button_menu setFrame:CGRectMake(0, 0, 40, 40)];
+    [button_menu setFrame:CGRectMake(0, 0, 30, 30)];
     [button_menu setImage:[UIImage imageNamed:@"home.png"] forState:UIControlStateNormal];
     [button_menu addTarget:(NavigationController *)self.navigationController action:@selector(showMenu:) forControlEvents:UIControlEventTouchUpInside];
+
     
     UIBarButtonItem *leftDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_menu];
     self.navigationItem.leftBarButtonItem = leftDrawerButton;
@@ -194,6 +196,14 @@
 
     [_items removeAllObjects];
 
+    if([[RODItemStore sharedStore].authie.all_Threads count] == 0) {
+        
+        
+        
+    }
+    
+    
+    
     for(int i=0; i < [[RODItemStore sharedStore].authie.all_Threads count]; i++) {
         
         if(i > 10) break;

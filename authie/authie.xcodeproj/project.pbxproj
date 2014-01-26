@@ -113,6 +113,8 @@
 		5D9DEE9D185242E300F80413 /* RODSelfie.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DEE99185242E300F80413 /* RODSelfie.m */; };
 		5DB549A318943DC900E03D9D /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DB549A218943DC900E03D9D /* Main_iPhone.storyboard */; };
 		5DB549A5189585F700E03D9D /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DB549A4189585F700E03D9D /* home.png */; };
+		5DB549A91895BA1500E03D9D /* BlankSlateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB549A71895BA1500E03D9D /* BlankSlateViewController.m */; };
+		5DB549AA1895BA1500E03D9D /* BlankSlateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DB549A81895BA1500E03D9D /* BlankSlateViewController.xib */; };
 		5DBBDBEC18822C80004446DE /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBBDBE618822C80004446DE /* libTestFlight.a */; };
 		5DBBDBED18822C80004446DE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5DBBDBE718822C80004446DE /* README.md */; };
 		5DBBDBEE18822C80004446DE /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 5DBBDBE818822C80004446DE /* release_notes.md */; };
@@ -351,6 +353,9 @@
 		5D9DEE99185242E300F80413 /* RODSelfie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RODSelfie.m; sourceTree = "<group>"; };
 		5DB549A218943DC900E03D9D /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
 		5DB549A4189585F700E03D9D /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
+		5DB549A61895BA1500E03D9D /* BlankSlateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlankSlateViewController.h; sourceTree = "<group>"; };
+		5DB549A71895BA1500E03D9D /* BlankSlateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlankSlateViewController.m; sourceTree = "<group>"; };
+		5DB549A81895BA1500E03D9D /* BlankSlateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlankSlateViewController.xib; sourceTree = "<group>"; };
 		5DBBDBE618822C80004446DE /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		5DBBDBE718822C80004446DE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		5DBBDBE818822C80004446DE /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
@@ -789,6 +794,9 @@
 				5D8C1CFB1880EEB900158AE5 /* MiniThreadViewController.xib */,
 				5D8C1CF41880E8B800158AE5 /* DashViewController.h */,
 				5D8C1CF51880E8B800158AE5 /* DashViewController.m */,
+				5DB549A61895BA1500E03D9D /* BlankSlateViewController.h */,
+				5DB549A71895BA1500E03D9D /* BlankSlateViewController.m */,
+				5DB549A81895BA1500E03D9D /* BlankSlateViewController.xib */,
 				5D8C1CF61880E8B800158AE5 /* DashViewController.xib */,
 				5D8C1CEF1880E45500158AE5 /* PrivateKeyViewController.h */,
 				5D8C1CF01880E45500158AE5 /* PrivateKeyViewController.m */,
@@ -951,6 +959,7 @@
 				5D21CA22188DAF6800330F78 /* UAInboxLocalization.bundle in Resources */,
 				5D21CA5D188DB0AB00330F78 /* AirshipConfig.plist in Resources */,
 				5D21CA26188DAF6800330F78 /* uncheck.png in Resources */,
+				5DB549AA1895BA1500E03D9D /* BlankSlateViewController.xib in Resources */,
 				5D21CA27188DAF6800330F78 /* uncheck@2x.png in Resources */,
 				5D21CA39188DAF6800330F78 /* middle-detail.png in Resources */,
 				5DF86494185F75CA002DCCDC /* RegisterViewController.xib in Resources */,
@@ -1049,6 +1058,7 @@
 				5D21CA2F188DAF6800330F78 /* UAPushSettingsAddTagViewController.m in Sources */,
 				5D9A453218765184008C45FD /* RODThread.m in Sources */,
 				5D9C7C5C187E0F0400BE2D42 /* ContactsViewController.m in Sources */,
+				5DB549A91895BA1500E03D9D /* BlankSlateViewController.m in Sources */,
 				5D9DEE9C185242E300F80413 /* RODItemStore.m in Sources */,
 				5D21CA15188DAF6800330F78 /* UAInboxMessageListCell.m in Sources */,
 				5DEE7C9B185234E800F532B3 /* AppDelegate.m in Sources */,
