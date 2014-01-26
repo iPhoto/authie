@@ -27,8 +27,8 @@
 {
     [super viewDidLoad];
     
-    self.buttons = @[@"Dashboard", @"Invite", @"Add", @"Private Key"];
-    self.subtitles = @[@"your snaps", @"invite a bff", @"add a bff's handle", @"its a password you can forget"];
+    self.buttons = @[@"Dash", @"Add", @"Private Key"];
+    self.subtitles = @[@"your snaps", @"add a bff's handle", @"its a password you can forget"];
     
     self.tableView = [[UITableView alloc] init]; // Frame will be automatically set
     self.tableView.separatorColor = [UIColor colorWithRed:150/255.0f green:161/255.0f blue:177/255.0f alpha:1.0f];
@@ -39,9 +39,11 @@
     self.tableView.backgroundColor = [UIColor clearColor];
         
     [self.tableView reloadData];
-
+    
     [self.tableView setSeparatorInset:UIEdgeInsetsZero];
     [self.tableView setSeparatorColor:[UIColor clearColor]];
+    [self.tableView setFrame:CGRectMake(0, 0, 200, self.view.window.frame.size.height)];
+    
     
 }
 
@@ -52,7 +54,8 @@
 {
     cell.backgroundColor = [UIColor clearColor];
     cell.textLabel.textColor = [UIColor colorWithRed:62/255.0f green:68/255.0f blue:75/255.0f alpha:1.0f];
-    cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:17];
+    cell.textLabel.font = [UIFont fontWithName:@"Courier" size:18];
+    cell.detailTextLabel.font = [UIFont fontWithName:@"Courier" size:10];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)sectionIndex
@@ -106,18 +109,18 @@
 //            self.frostedViewController.contentViewController = navigationController;
 //        }
 //            break;
-        case 1: // invite
-        {
-            NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.inviteViewController];
-            self.frostedViewController.contentViewController = navigationController;
-        }
-            break;
-        case 2: // add
+//        case 1: // invite
+//        {
+//            NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.inviteViewController];
+//            self.frostedViewController.contentViewController = navigationController;
+//        }
+//            break;
+        case 1: // add
         {
             [appDelegate.dashViewController addContact];
         }
             break;
-        case 3: // private key
+        case 2: // private key
         {
             NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.privateKeyViewController];
             self.frostedViewController.contentViewController = navigationController;
@@ -156,7 +159,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 40;
+    return 60;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

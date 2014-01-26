@@ -27,7 +27,7 @@
 
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self.view addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognized:)]];
-    
+ 
     
 }
 

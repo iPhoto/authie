@@ -123,6 +123,7 @@
     drawerController = [[REFrostedViewController alloc] initWithContentViewController:navController menuViewController:self.leftDrawer];
     drawerController.direction = REFrostedViewControllerDirectionLeft;
     drawerController.liveBlurBackgroundStyle = REFrostedViewControllerLiveBackgroundStyleLight;
+    drawerController.menuViewSize = CGSizeMake(200, self.window.frame.size.height);
     drawerController.delegate = self;
     drawer = drawerController;
     
