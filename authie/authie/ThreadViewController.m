@@ -180,6 +180,8 @@
 -(void)loadThread:(int)row
 {
     
+    NSString *currentMessage = self.messageInputView.textView.text;
+    
     [self resetChatObjects];
     
     RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:row];
@@ -202,8 +204,6 @@
         
         if([msg.thread.groupKey isEqualToString:self.thread.groupKey]) {
             
-            NSLog(@"adding items...");
-            
             [self.timestamps addObject:msg.sentDate];
             [self.messages addObject:msg.messageText];
             [self.subtitles addObject:msg.fromHandle.name];
@@ -222,6 +222,8 @@
     
     [self finishSend];
     [self scrollToBottomAnimated:YES];
+                                                                                                                                                                                                       
+    self.messageInputView.textView.text = currentMessage;
     
     loadRow = row;
 }

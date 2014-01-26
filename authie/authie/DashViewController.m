@@ -292,7 +292,7 @@
     
     MRProgressOverlayView *progressView = [MRProgressOverlayView new];
     [progressView setTitleLabelText:@""];
-    [self.view.window addSubview:progressView];
+    [self.navigationController.view.window addSubview:progressView];
     [progressView show:YES];
     
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
