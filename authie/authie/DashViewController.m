@@ -188,8 +188,13 @@
     MiniThreadViewController *mini;
     int yOffset = 0;
     
-    int request_height = 100;
     int photo_height = 400;
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        // The device is an iPad running iOS 3.2 or later.
+        photo_height = 800;
+    }
 
     // remove the threads that were there before
     [[self.scroll subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
