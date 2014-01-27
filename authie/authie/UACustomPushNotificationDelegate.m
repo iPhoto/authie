@@ -29,13 +29,25 @@
 {
     NSLog(@"recieved forground notification: %@", notification);
 
-//    NSString *alertMessage;
-//    NSString *notificationGroupKey = [notification objectForKey:@"threadKey"];
-//    
-//    NSDictionary *aps = [notification objectForKey:@"aps"];
-//    alertMessage = [aps objectForKey:@"alert"];
-//    
-//    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSString *alertMessage;
+    NSString *notificationGroupKey = [notification objectForKey:@"threadKey"];
+    
+    NSDictionary *aps = [notification objectForKey:@"aps"];
+    alertMessage = [aps objectForKey:@"alert"];
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    
+    if([appDelegate.threadViewController.thread.groupKey isEqualToString:notificationGroupKey]) {
+        // do nothing, they are viewing this thread
+        
+    } else {
+        UIAlertView *al = [[UIAlertView alloc] initWithTitle:@"new auth" message:alertMessage delegate:self cancelButtonTitle:@"ok" otherButtonTitles:@"go to thread", nil];
+        [al show];
+        self.received_thread_key = notificationGroupKey;
+        
+    }
+    
 //    
 //    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
 //    dispatch_async(queue, ^{
@@ -60,6 +72,17 @@
     
     
     
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    self.received_thread_key = @"";
+
+    if (buttonIndex == 1) {
+        // push find thread with groupKey = self.received_group_key,
+        // push that...
+        [[RODItemStore sharedStore] pushThreadWithGroupKey:self.received_thread_key];
+    }
 }
 
 - (void)receivedBackgroundNotification:(NSDictionary *)notification

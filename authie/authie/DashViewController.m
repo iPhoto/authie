@@ -224,7 +224,15 @@
         [mini.snapView setImage:image];
 
         
-        [mini.labelDate setText:[NSString stringWithFormat:@"snapped by %@ %@", thread.fromHandle.name, [thread.startDate prettyDate]]];
+        NSString *what;
+        if([thread.toHandleId isEqualToString:@"dash"]) {
+            what = @"posted to the dash";
+        } else {
+            what = @"sent direct";
+            
+        }
+        
+        [mini.labelDate setText:[NSString stringWithFormat:@"snapped by %@, %@ %@", thread.fromHandle.name, what, [thread.startDate prettyDate]]];
         
         [mini.heartsView setUserInteractionEnabled:YES];
         
