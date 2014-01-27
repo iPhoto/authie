@@ -188,6 +188,7 @@
     MiniThreadViewController *mini;
     int yOffset = 0;
     
+    int request_height = 100;
     int photo_height = 400;
 
     // remove the threads that were there before
@@ -217,30 +218,50 @@
 
         UIImage *image =[[RODImageStore sharedStore] imageForKey:thread.groupKey];
 
-        mini.view.frame = CGRectMake(0, yOffset, self.scroll.frame.size.width, photo_height);
         [mini.view setClipsToBounds:YES];
 
         [mini.snapView setContentMode:UIViewContentModeScaleAspectFill];
         [mini.snapView setImage:image];
-
         
-        NSString *what;
-        if([thread.toHandleId isEqualToString:@"dash"]) {
-            what = @"posted to the dash";
-        } else {
-            what = @"sent direct";
+        if([thread.authorizeRequest isEqualToNumber:[NSNumber numberWithInt:1]]) {
             
+            mini.view.frame = CGRectMake(0, yOffset, self.scroll.frame.size.width, request_height);
+            
+            //
+            // authorization request
+
+            mini.snapView.layer.opacity = 0.5f;
+            
+            mini.labelDate.text = [NSString stringWithFormat:@"authorization request from %@", thread.fromHandle.name];
+
+            mini.labelCaption.text = thread.caption;
+            
+            yOffset = yOffset + request_height;
+            
+        } else {
+            
+            mini.view.frame = CGRectMake(0, yOffset, self.scroll.frame.size.width, photo_height);
+
+            
+            NSString *what;
+            if([thread.toHandleId isEqualToString:@"dash"]) {
+                what = @"posted to the dash";
+            } else {
+                what = @"sent direct";
+                
+            }
+            
+            [mini.labelDate setText:[NSString stringWithFormat:@"snapped by %@, %@ %@", thread.fromHandle.name, what, [thread.startDate prettyDate]]];
+            
+            [mini.heartsView setUserInteractionEnabled:YES];
+            
+            UITapGestureRecognizer *tapHearts = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickedHeart:)];
+            [mini.heartsView addGestureRecognizer:tapHearts];
+
+            yOffset = yOffset + photo_height;
+
         }
-        
-        [mini.labelDate setText:[NSString stringWithFormat:@"snapped by %@, %@ %@", thread.fromHandle.name, what, [thread.startDate prettyDate]]];
-        
-        [mini.heartsView setUserInteractionEnabled:YES];
-        
-        UITapGestureRecognizer *tapHearts = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickedHeart:)];
-        [mini.heartsView addGestureRecognizer:tapHearts];
-        
-        
-        
+
         [mini.snapView setUserInteractionEnabled:YES];
         
         UITapGestureRecognizer *tapView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedImageView:)];
@@ -269,8 +290,6 @@
         [mini.view layoutSubviews];
         
         //photo_height = mini.snapView.image.size.height + 10;
-        
-        yOffset = yOffset + photo_height;
         
         [_items addObject:mini];
         
