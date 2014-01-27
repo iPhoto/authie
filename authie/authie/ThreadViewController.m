@@ -236,35 +236,37 @@
     }
     
     
-    if([thread.groupKey isEqualToString:@"dc6b574d-fa0c-403b-ab09-e50b6336fd3a"]) {
+    if([thread.groupKey isEqualToString:@"2fde7af1-b92b-4642-b3e8-aef43f57ed31"]) {
         
         self.navigationItem.title = [NSString stringWithFormat:@"chat with vronica"];
         
         [self resetChatObjects];
 
+        NSDate *newDate = [[NSDate date] dateByAddingTimeInterval:-3600*6];
+        
         [self.messages insertObject:@"The Bro Rises" atIndex:0];
         [self.subtitles insertObject:@"vronica" atIndex:0];
-        [self.timestamps insertObject:[NSDate date] atIndex:0];
+        [self.timestamps insertObject:newDate atIndex:0];
         [self.messageType insertObject:@"0" atIndex:0];
         
         [self.messages insertObject:@"Lolol" atIndex:1];
         [self.subtitles insertObject:@"geofsf" atIndex:1];
-        [self.timestamps insertObject:[NSDate date] atIndex:1];
+        [self.timestamps insertObject:newDate atIndex:1];
         [self.messageType insertObject:@"1" atIndex:1];
 
         [self.messages insertObject:@"just got to the park" atIndex:2];
         [self.subtitles insertObject:@"vronica" atIndex:2];
-        [self.timestamps insertObject:[NSDate date] atIndex:2];
+        [self.timestamps insertObject:newDate atIndex:2];
         [self.messageType insertObject:@"0" atIndex:2];
 
         [self.messages insertObject:@"how's Brolores today" atIndex:3];
         [self.subtitles insertObject:@"geofsf" atIndex:3];
-        [self.timestamps insertObject:[NSDate date] atIndex:3];
+        [self.timestamps insertObject:newDate atIndex:3];
         [self.messageType insertObject:@"1" atIndex:3];
 
         [self.messages insertObject:@"chill you should come by" atIndex:4];
         [self.subtitles insertObject:@"vronica" atIndex:4];
-        [self.timestamps insertObject:[NSDate date] atIndex:4];
+        [self.timestamps insertObject:newDate atIndex:4];
         [self.messageType insertObject:@"0" atIndex:4];
 
         [self.messageInputView.textView setText:@"k"];

@@ -282,6 +282,10 @@
             mini.labelCaption.text = @"";
         } else {
             mini.labelCaption.text = thread.caption;
+            mini.labelCaption.layer.shadowOpacity = 0.4;
+            mini.labelCaption.layer.shadowColor = [UIColor blackColor].CGColor;
+//            mini.labelCaption.layer.shadowRadius = 1;
+            
         }
         
         mini.heartsCount.text = [NSString stringWithFormat:@"%i", [thread.hearts intValue]];

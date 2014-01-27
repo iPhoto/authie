@@ -18,11 +18,11 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="cvM-xy-QNk" userLabel="miniControl" customClass="UIControl">
-            <rect key="frame" x="0.0" y="0.0" width="200" height="455"/>
+            <rect key="frame" x="0.0" y="0.0" width="203" height="455"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mnk-5Y-nSR" userLabel="snapView">
-                    <rect key="frame" x="0.0" y="0.0" width="200" height="455"/>
+                    <rect key="frame" x="0.0" y="0.0" width="203" height="455"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <gestureRecognizers/>
                     <connections>
@@ -56,11 +56,11 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mnj-jO-Rbq" userLabel="heartsView">
-                    <rect key="frame" x="0.0" y="0.0" width="200" height="60"/>
+                    <rect key="frame" x="0.0" y="0.0" width="203" height="60"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 hours ago" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="182" translatesAutoresizingMaskIntoConstraints="NO" id="5zd-Wj-qXb" userLabel="ago">
-                            <rect key="frame" x="8" y="0.0" width="182" height="27"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 hours ago" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="185" translatesAutoresizingMaskIntoConstraints="NO" id="5zd-Wj-qXb" userLabel="ago">
+                            <rect key="frame" x="8" y="0.0" width="185" height="27"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="27" id="J9j-kW-VZ4"/>
@@ -79,13 +79,14 @@
                         <constraint firstAttribute="trailing" secondItem="5zd-Wj-qXb" secondAttribute="trailing" constant="10" id="YUJ-pZ-cZZ"/>
                     </constraints>
                 </view>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 hours ago" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="10" preferredMaxLayoutWidth="152" translatesAutoresizingMaskIntoConstraints="NO" id="aJu-qE-Pni" userLabel="caption">
-                    <rect key="frame" x="28" y="167" width="152" height="119"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Bro Rises" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="10" preferredMaxLayoutWidth="155" translatesAutoresizingMaskIntoConstraints="NO" id="aJu-qE-Pni" userLabel="caption">
+                    <rect key="frame" x="28" y="167" width="155" height="119"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="18"/>
+                    <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="38"/>
                     <color key="textColor" red="0.98431378599999997" green="0.99215692280000001" blue="0.97647064920000004" alpha="1" colorSpace="deviceRGB"/>
                     <nil key="highlightedColor"/>
                     <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <size key="shadowOffset" width="0.0" height="0.0"/>
                 </label>
             </subviews>
             <gestureRecognizers/>

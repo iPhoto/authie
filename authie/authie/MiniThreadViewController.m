@@ -16,7 +16,6 @@
     if (self) {
         // Custom initialization
         
-        self.labelCaption.layer.shadowColor = (__bridge CGColorRef)([UIColor blackColor]);
     }
     return self;
 }
@@ -25,6 +24,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
 }
 
 - (void)didReceiveMemoryWarning
