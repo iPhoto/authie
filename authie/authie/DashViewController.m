@@ -225,18 +225,21 @@
         
         if([thread.authorizeRequest isEqualToNumber:[NSNumber numberWithInt:1]]) {
             
-            mini.view.frame = CGRectMake(0, yOffset, self.scroll.frame.size.width, request_height);
+            mini.view.frame = CGRectMake(0, yOffset, self.scroll.frame.size.width, photo_height);
             
             //
             // authorization request
 
-            mini.snapView.layer.opacity = 0.5f;
+            UIView *theDarkness = [[UIView alloc] initWithFrame:mini.view.frame];
+            theDarkness.backgroundColor = [UIColor blackColor];
+            theDarkness.layer.opacity = 0.6f;
+            [mini.snapView addSubview:theDarkness];
             
             mini.labelDate.text = [NSString stringWithFormat:@"authorization request from %@", thread.fromHandle.name];
 
             mini.labelCaption.text = thread.caption;
             
-            yOffset = yOffset + request_height;
+            yOffset = yOffset + photo_height;
             
         } else {
             
@@ -261,6 +264,9 @@
             yOffset = yOffset + photo_height;
 
         }
+
+        [mini.view setNeedsUpdateConstraints];
+        
 
         [mini.snapView setUserInteractionEnabled:YES];
         

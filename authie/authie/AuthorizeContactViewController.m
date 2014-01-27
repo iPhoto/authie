@@ -12,6 +12,7 @@
 #import "RODItemStore.h"
 #import "RODAuthie.h"
 #import "RODHandle.h"
+#import "AppDelegate.h"
 
 @implementation AuthorizeContactViewController
 @synthesize snapView;
