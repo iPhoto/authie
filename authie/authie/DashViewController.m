@@ -236,8 +236,6 @@
             [mini.snapView addSubview:theDarkness];
             
             mini.labelDate.text = [NSString stringWithFormat:@"authorization request from %@", thread.fromHandle.name];
-
-            mini.labelCaption.text = thread.caption;
             
             yOffset = yOffset + photo_height;
             

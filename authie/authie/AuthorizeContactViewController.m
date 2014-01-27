@@ -54,7 +54,7 @@
     
     if([[RODItemStore sharedStore].authie.handle.name isEqualToString:self.thread.toHandle.name]) {
         // sent TO them, so display controls
-        self.labelRequestDetails.text = [NSString stringWithFormat:@"You have received an authorization request from %@. If you accept this request, %@, will be able to see snaps you've sent to the dash.", self.thread.fromHandleId, self.thread.fromHandleId];
+        self.labelRequestDetails.text = [NSString stringWithFormat:@"You have received an authorization request from %@. If you accept this request %@ will be able to see snaps you've sent to the dash.", self.thread.fromHandleId, self.thread.fromHandleId];
         [self.btnAccept setHidden:NO];
         [self.btnDeny setHidden:NO];
         [self.btnBlock setHidden:NO];
