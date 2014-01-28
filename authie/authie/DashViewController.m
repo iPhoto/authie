@@ -100,7 +100,6 @@
     
     UIBarButtonItem *leftDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_menu];
     self.navigationItem.leftBarButtonItem = leftDrawerButton;
-        
     
 }
 
@@ -196,8 +195,12 @@
         photo_height = 800;
     }
 
+    // scroll to top
+    [self.scroll setContentOffset:CGPointZero animated:NO];
+    
     // remove the threads that were there before
     [[self.scroll subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+
     
 
     [_items removeAllObjects];
