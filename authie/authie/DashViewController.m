@@ -253,8 +253,7 @@
             if([thread.toHandleId isEqualToString:@"dash"]) {
                 what = @"posted to the dash";
             } else {
-                what = @"sent direct";
-                
+                what = [NSString stringWithFormat:@"sent direct to %@", thread.toHandleId];
             }
             
             [mini.labelDate setText:[NSString stringWithFormat:@"snapped by %@, %@ %@", thread.fromHandle.name, what, [thread.startDate prettyDate]]];
@@ -269,6 +268,7 @@
         }
 
         [mini.view setNeedsUpdateConstraints];
+        
         
 
         [mini.snapView setUserInteractionEnabled:YES];

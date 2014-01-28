@@ -82,7 +82,7 @@
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Bro Rises" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="10" preferredMaxLayoutWidth="155" translatesAutoresizingMaskIntoConstraints="NO" id="aJu-qE-Pni" userLabel="caption">
                     <rect key="frame" x="28" y="167" width="155" height="119"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="38"/>
+                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="24"/>
                     <color key="textColor" red="0.98431378599999997" green="0.99215692280000001" blue="0.97647064920000004" alpha="1" colorSpace="deviceRGB"/>
                     <nil key="highlightedColor"/>
                     <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
