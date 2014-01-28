@@ -1736,7 +1736,7 @@
 {
     UIButton *button_menu = [UIButton buttonWithType:UIButtonTypeCustom];
     [button_menu setFrame:CGRectMake(0, 0, 40, 40)];
-    [button_menu setImage:[UIImage imageNamed:@"home.png"] forState:UIControlStateNormal];
+    [button_menu setImage:[UIImage imageNamed:@"house-v2.png"] forState:UIControlStateNormal];
     [button_menu addTarget:target.navigationController action:@selector(showMenu:) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *leftDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_menu];

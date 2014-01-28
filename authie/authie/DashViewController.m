@@ -94,7 +94,7 @@
 
     UIButton *button_menu = [UIButton buttonWithType:UIButtonTypeCustom];
     [button_menu setFrame:CGRectMake(0, 0, 30, 30)];
-    [button_menu setImage:[UIImage imageNamed:@"home.png"] forState:UIControlStateNormal];
+    [button_menu setImage:[UIImage imageNamed:@"house-v2.png"] forState:UIControlStateNormal];
     [button_menu addTarget:(NavigationController *)self.navigationController action:@selector(showMenu:) forControlEvents:UIControlEventTouchUpInside];
 
     

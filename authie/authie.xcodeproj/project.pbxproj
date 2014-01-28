@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5D06B982187B0C1F00FC17F0 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D06B980187B0C1F00FC17F0 /* MenuViewController.m */; };
 		5D06B985187B0D4E00FC17F0 /* cog.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D06B984187B0D4E00FC17F0 /* cog.png */; };
+		5D0DC37118980A8F00E8CA81 /* house-v2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0DC37018980A8F00E8CA81 /* house-v2.png */; };
 		5D1B7BC5188EEF6A00D4DCBD /* UACustomPushNotificationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1B7BC4188EEF6A00D4DCBD /* UACustomPushNotificationDelegate.m */; };
 		5D21CA0F188DAF6800330F78 /* libUAirship-3.0.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D21C9AC188DAF6800330F78 /* libUAirship-3.0.2.a */; };
 		5D21CA11188DAF6800330F78 /* UABarButtonSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D21C9B9188DAF6800330F78 /* UABarButtonSegmentedControl.m */; };
@@ -155,6 +156,7 @@
 		5D06B97F187B0C1F00FC17F0 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		5D06B980187B0C1F00FC17F0 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		5D06B984187B0D4E00FC17F0 /* cog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cog.png; sourceTree = "<group>"; };
+		5D0DC37018980A8F00E8CA81 /* house-v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "house-v2.png"; sourceTree = "<group>"; };
 		5D1B7BC3188EEF6A00D4DCBD /* UACustomPushNotificationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UACustomPushNotificationDelegate.h; sourceTree = "<group>"; };
 		5D1B7BC4188EEF6A00D4DCBD /* UACustomPushNotificationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UACustomPushNotificationDelegate.m; sourceTree = "<group>"; };
 		5D21C97D188DAF6800330F78 /* NSJSONSerialization+UAAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSJSONSerialization+UAAdditions.h"; sourceTree = "<group>"; };
@@ -824,6 +826,7 @@
 				5D06B984187B0D4E00FC17F0 /* cog.png */,
 				5D5A072E18848A7C003848EA /* lock.png */,
 				5DB549A218943DC900E03D9D /* Main_iPhone.storyboard */,
+				5D0DC37018980A8F00E8CA81 /* house-v2.png */,
 				5DB549A4189585F700E03D9D /* home.png */,
 				5D6340B9188A16DC006538C5 /* heart-blue.png */,
 				5D6340BB188A187A006538C5 /* heart-blue-v2.png */,
@@ -992,6 +995,7 @@
 				5D21CA40188DAF6800330F78 /* UAPushMoreSettingsView.xib in Resources */,
 				5D21CA3F188DAF6800330F78 /* UAPushLocalization.bundle in Resources */,
 				5D21CA1D188DAF6800330F78 /* check@2x.png in Resources */,
+				5D0DC37118980A8F00E8CA81 /* house-v2.png in Resources */,
 				5D21CA1F188DAF6800330F78 /* down@2x.png in Resources */,
 				5DB549A5189585F700E03D9D /* home.png in Resources */,
 				5D6340BC188A187A006538C5 /* heart-blue-v2.png in Resources */,
