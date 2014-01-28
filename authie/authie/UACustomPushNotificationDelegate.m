@@ -22,6 +22,7 @@
     NSString *notificationGroupKey = [notification objectForKey:@"threadKey"];
     NSLog(@"Launched from notification...%@", notificationGroupKey );
     
+    [[RODItemStore sharedStore] loadMessagesForThread:notificationGroupKey];
     [[RODItemStore sharedStore] pushThreadWithGroupKey:notificationGroupKey];
 }
 
@@ -36,6 +37,7 @@
     alertMessage = [aps objectForKey:@"alert"];
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [[RODItemStore sharedStore] loadMessagesForThread:notificationGroupKey];
     
     
     if([appDelegate.threadViewController.thread.groupKey isEqualToString:notificationGroupKey]) {

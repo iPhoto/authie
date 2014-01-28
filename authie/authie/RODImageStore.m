@@ -110,6 +110,9 @@
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
     [conn start];
+    
+    [[RODItemStore sharedStore] loadMessagesForThread:groupKey];
+
 }
 
 - (UIImage *)imageForKey:(NSString *)s
