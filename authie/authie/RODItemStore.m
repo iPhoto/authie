@@ -1180,36 +1180,32 @@
 {
     
     if(key == nil) {
-        
         NSLog(@"loadMessagesForThread tried to load a null key.");
         return;
     }
-    
-    NSError *error = nil;
-    
-    NSURLResponse *response;
-    NSData *localData = nil;
     
     NSString *url = [NSString stringWithFormat:@"http://authie.me/api/message/%@", key];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLCacheStorageAllowed timeoutInterval:5];
     [request setHTTPMethod:@"GET"];
         
-    if(error == nil) {
-        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    
+    //send the request and get the response
+    
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
         
-        //send the request and get the response
-        localData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-        
-        if(localData == nil) {
-            NSLog(@"loadMessages error: %@", error);            
+        if(data == nil) {
+            NSLog(@"loadMessages error: %@", error);
             return;
         }
-        
+
         NSError *deserialize_error = nil;
         
-        id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingMutableContainers error:&deserialize_error];
+        id object = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&deserialize_error];
         if([object isKindOfClass:[NSArray self]] && deserialize_error == nil) {
             
             // clear out old messages
@@ -1283,12 +1279,9 @@
         
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         [appDelegate.threadViewController reloadThread];
+
         
-    }
-    
-    
-    
-    
+    }];
     
 }
 
