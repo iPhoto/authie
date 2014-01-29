@@ -15,13 +15,17 @@
 @class RODHandle;
 @class NavigationController;
 
-@interface RODItemStore : NSObject <SRConnectionDelegate>
+@interface RODItemStore : NSObject <SRConnectionDelegate, NSURLConnectionDataDelegate>
 {
     RODAuthie *_authie;
 }
 
 @property (strong, nonatomic) NSMutableArray *loadedThreadsFromAuthor;
 @property (strong, nonatomic) NSMutableArray *dailyThreads;
+@property (strong, nonatomic) SRHubConnection *hubConnection;
+@property (strong, nonatomic) SRHubProxy *hubProxy;
+@property (strong, nonatomic) NSString *mostRecentGroupKey;
+@property (retain, nonatomic) NSURLConnection *urlConnection;
 
 + (RODItemStore *)sharedStore;
 
@@ -48,7 +52,6 @@
 - (void)addChat:(NSString *)user message:(NSString *)message groupKey:(NSString *)groupKey;
 - (void)loadMessages;
 - (void)loadMessagesForThread:(NSString *)key;
-- (void)loadDaily;
 - (BOOL)loadThreads;
 - (BOOL)loadContacts;
 - (BOOL)checkLoginStatus;
@@ -61,10 +64,6 @@
 - (UIView *)generateDailyView;
 - (UIBarButtonItem *)generateSettingsCog:(UIViewController *)target;
 
-@property (strong, nonatomic) SRHubConnection *hubConnection;
-@property (strong, nonatomic) SRHubProxy *hubProxy;
-
-@property (strong, nonatomic) NSString *mostRecentGroupKey;
 - (void)pushThreadWithGroupKey:(NSString *)group_key;
 - (void)addMessage:(NSString *)user message:(NSString *)msg groupKey:(NSString *)key;
 

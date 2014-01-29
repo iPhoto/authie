@@ -22,7 +22,7 @@
 #import "UAPush.h"
 
 @implementation RODItemStore
-@synthesize loadedThreadsFromAuthor, hubConnection, hubProxy, mostRecentGroupKey;
+@synthesize loadedThreadsFromAuthor, hubConnection, hubProxy, mostRecentGroupKey, urlConnection;
 
 - (id)init
 {
@@ -31,6 +31,8 @@
         
         NSString *path = [self itemArchivePath];
 
+        
+        
         _authie = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
                 
         if(!_authie) {
@@ -1183,7 +1185,7 @@
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLCacheStorageAllowed timeoutInterval:5];
     [request setHTTPMethod:@"GET"];
-    
+        
     if(error == nil) {
         [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
         [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
@@ -1601,6 +1603,11 @@
     return leftDrawerButton;
 }
 
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    NSLog(@"connection failed withError: %@", error);
+    
+}
 
 - (void)SRConnectionDidClose:(SRConnection *)connection
 {
