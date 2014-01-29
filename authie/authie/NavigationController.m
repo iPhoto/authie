@@ -24,7 +24,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+ 
+    [self.view setOpaque:NO];
+    [self.view.layer setOpacity:1.0];
     
+    [self.view setBackgroundColor:[UIColor whiteColor]];
     [self.view addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognized:)]];
 }
 
