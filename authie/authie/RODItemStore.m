@@ -22,7 +22,7 @@
 #import "UAPush.h"
 
 @implementation RODItemStore
-@synthesize loadedThreadsFromAuthor, hubConnection, hubProxy, mostRecentGroupKey, urlConnection;
+@synthesize loadedThreadsFromAuthor, hubConnection, hubProxy, mostRecentGroupKey;
 
 - (id)init
 {
@@ -984,6 +984,7 @@
     NSString *url = @"http://authie.me/api/thread";
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLCacheStorageAllowed timeoutInterval:5];
+    
     [request setHTTPMethod:@"GET"];
     
     if(error == nil) {
@@ -995,8 +996,10 @@
         
         if(localData == nil) {
             // how do we get out of this gracefully?
+            NSLog(@"loadThreads error: %@", error);
             return false;
         }
+
         
         NSError *deserialize_error = nil;
         
@@ -1176,6 +1179,12 @@
 - (void)loadMessagesForThread:(NSString *)key;
 {
     
+    if(key == nil) {
+        
+        NSLog(@"loadMessagesForThread tried to load a null key.");
+        return;
+    }
+    
     NSError *error = nil;
     
     NSURLResponse *response;
@@ -1194,7 +1203,7 @@
         localData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
         
         if(localData == nil) {
-            NSLog(@"loadMessages NIL NIL NIL NIL NLINILNILNIL");
+            NSLog(@"loadMessages error: %@", error);            
             return;
         }
         
