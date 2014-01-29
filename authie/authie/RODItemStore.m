@@ -925,7 +925,7 @@
     
     NSString *url = @"http://authie.me/api/follower";
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLCacheStorageAllowed timeoutInterval:5];
     [request setHTTPMethod:@"GET"];
     
     if(error == nil) {
@@ -934,6 +934,12 @@
         
         //send the request and get the response
         localData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        if(localData == nil) {
+            // error
+            NSLog(@"loadContacts error: %@", error);
+            return false;             
+        }
         
         NSError *deserialize_error = nil;
         
