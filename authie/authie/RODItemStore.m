@@ -315,59 +315,6 @@
     // new shit
     [self.hubProxy invoke:@"Send" withArgs:[NSArray arrayWithObjects: [RODItemStore sharedStore].authie.handle.name, msg, groupKey,nil]];
     
-    return;
-    
-    
-    // old stuff
-    NSError *error = nil;
-    NSData *localData = nil;
-    NSURLResponse *response;
-
-    NSDictionary *threadDict = [[NSDictionary alloc] initWithObjectsAndKeys:
-                              groupKey, @"groupKey",
-                              nil];
-    
-    NSDictionary *chatDict = [[NSDictionary alloc] initWithObjectsAndKeys:
-                               @"1", @"id",
-                               @"1", @"fromHandleId",
-                               @"1", @"threadId",
-                              threadDict, @"thread",
-                               @"0", @"sentDate",
-                               @"1", @"active",
-                               @"0", @"anon",
-                               @"1", @"toHandleSeen",
-                               msg, @"messageText",
-                               nil];
-    
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:chatDict options:kNilOptions error:&error];
-    
-    NSString *url = @"http://authie.me/api/message";
-    
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
-    [request setHTTPMethod:@"POST"];
-    
-    
-    if(error == nil) {
-        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-        [request setHTTPBody:jsonData];
-        
-        //send the request and get the response
-        localData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-        
-        NSError *deserialize_error = nil;
-        
-        id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingAllowFragments error:&deserialize_error];
-        
-        if([object isKindOfClass:[NSDictionary class]] && deserialize_error == nil) {
-            
-            NSLog(@"results from send chat: %@", object);
-
-        }
-        
-    }
-    
-   
 }
 
 
@@ -1034,7 +981,7 @@
     
     NSString *url = @"http://authie.me/api/thread";
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLCacheStorageAllowed timeoutInterval:5];
     [request setHTTPMethod:@"GET"];
     
     if(error == nil) {
@@ -1043,6 +990,11 @@
         
         //send the request and get the response
         localData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        if(localData == nil) {
+            // how do we get out of this gracefully?
+            return false;
+        }
         
         NSError *deserialize_error = nil;
         
@@ -1349,6 +1301,11 @@
         //send the request and get the response
         localData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
         
+        if(localData == nil) {
+            // bail out...
+            return;
+        }
+        
         NSError *deserialize_error = nil;
         
         id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingMutableContainers error:&deserialize_error];
@@ -1616,7 +1573,7 @@
     
     UIImage *image = [UIImage imageNamed:@"authie-logo-07-350px"];
     UIImageView *imageview = [[UIImageView alloc] initWithImage:image];
-    [imageview setFrame:CGRectMake(0, 2, 100, 18)];
+    [imageview setFrame:CGRectMake(0, 5, 100, 18)];
     [imageview setContentMode:UIViewContentModeScaleAspectFit];
     
     [holder addSubview:imageview];
