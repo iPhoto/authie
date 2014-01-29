@@ -280,7 +280,7 @@
         [mini.snapView addGestureRecognizer:tapView];
         
         int mini_tag = i*100;
-        int imageview_tag = (i+100)*1000;
+        int imageview_tag = i*1000;
         int report_tag = (i+900)*2000;
         mini.heartsView.tag = mini_tag;
         mini.snapView.tag = imageview_tag;
@@ -321,14 +321,16 @@
 - (void)tappedImageView:(UITapGestureRecognizer *)tapGesture
 {
     
-    int thread_index = ([tapGesture.view tag] / 1000) - 100;
+    NSLog(@"tappedImageView.");
+    
+    
+    int thread_index = ([tapGesture.view tag] / 1000);
     
     //MiniThreadViewController *lil_t = [_items objectAtIndex:thread_index];
 
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     
     RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:thread_index];
-    
     Boolean is_authorize_request = NO;
     if([thread.authorizeRequest isEqualToNumber:[NSNumber numberWithInt:1]])
     {
@@ -349,7 +351,7 @@
     
     MRProgressOverlayView *progressView = [MRProgressOverlayView new];
     [progressView setTitleLabelText:@""];
-    [self.navigationController.view.window addSubview:progressView];
+    [self.view addSubview:progressView];
     [progressView show:YES];
     
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);

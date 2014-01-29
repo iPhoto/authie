@@ -105,7 +105,7 @@
 {
     
     NSString *websiteUrl = [NSString stringWithFormat:@"http://authie.me/api/snap/500/%@", groupKey];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:websiteUrl]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:websiteUrl] cachePolicy:NSURLCacheStorageAllowed timeoutInterval:5];
     
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     

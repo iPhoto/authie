@@ -153,13 +153,19 @@
         NSLog(@"Started.");
         
     };
-    
+
     [RODItemStore sharedStore].hubConnection.error = ^(NSError *__strong err){
-        NSLog(@"there was an error...");
+        NSLog(@"there was an error... go back home...");
+
+        [self dismissViewControllerAnimated:NO completion:nil];
+
+        
     };
     
     // Start the connection
     [[RODItemStore sharedStore].hubConnection start];
+    
+    
     
 }
 
