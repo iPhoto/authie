@@ -349,6 +349,7 @@
     
     // Block whole window
     
+    
     MRProgressOverlayView *progressView = [MRProgressOverlayView new];
     [progressView setTitleLabelText:@""];
     [self.view addSubview:progressView];
@@ -364,15 +365,15 @@
             // Example:
             // self.myLabel.text = result;
             
-            
             if(is_authorize_request == YES) {
                 [appDelegate.authorizeContactViewController loadThread:thread_index];
             } else {
-//                [appDelegate.threadViewController loadThread:thread_index];
+                //                [appDelegate.threadViewController loadThread:thread_index];
                 [appDelegate.threadViewController setThreadIndex:thread_index];
             }
             
             [progressView dismiss:YES];
+            
             
             
         });

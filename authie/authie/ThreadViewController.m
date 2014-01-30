@@ -208,7 +208,7 @@
     RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:row];
     [self.snapView setImage:[[RODImageStore sharedStore] imageForKey:thread.groupKey]];
     self.thread = thread;
-        
+    
     if([thread.toHandle.name isEqualToString:[RODItemStore sharedStore].authie.handle.name]) {
         self.navigationItem.title = [NSString stringWithFormat:@"chat with %@", thread.fromHandleId];
     } else {
