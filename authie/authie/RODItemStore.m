@@ -1205,7 +1205,7 @@
     [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
         
         if(data == nil) {
-            NSLog(@"loadMessages error: %@", error);
+            NSLog(@"loadMessagesForThread error: %@", error);
             return;
         }
 

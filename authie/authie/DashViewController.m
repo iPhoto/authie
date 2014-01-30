@@ -322,6 +322,12 @@
 {
     
     NSLog(@"tappedImageView.");
+
+    // Block whole window
+    MRProgressOverlayView *progressView = [MRProgressOverlayView new];
+    [progressView setTitleLabelText:@""];
+    [self.view addSubview:progressView];
+    [progressView show:YES];
     
     
     int thread_index = ([tapGesture.view tag] / 1000);
@@ -343,20 +349,14 @@
     } else {
         
         appDelegate.threadViewController = [[ThreadViewController alloc] init];
-        [appDelegate.dashViewController.navigationController pushViewController:appDelegate.threadViewController animated:YES];
-        
+        [appDelegate.threadViewController loadThread:thread_index];
+        [appDelegate.dashViewController.navigationController pushViewController:appDelegate.threadViewController animated:YES];        
     }
-    
-    // Block whole window
-    
-    
-    MRProgressOverlayView *progressView = [MRProgressOverlayView new];
-    [progressView setTitleLabelText:@""];
-    [self.view addSubview:progressView];
-    [progressView show:YES];
     
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
     dispatch_async(queue, ^{
+     
+        NSLog(@"preloadImage");
         
         [[RODImageStore sharedStore] preloadImageAndShowScreen:thread_index];
         
@@ -365,12 +365,6 @@
             // Example:
             // self.myLabel.text = result;
             
-            if(is_authorize_request == YES) {
-                [appDelegate.authorizeContactViewController loadThread:thread_index];
-            } else {
-                //                [appDelegate.threadViewController loadThread:thread_index];
-                [appDelegate.threadViewController setThreadIndex:thread_index];
-            }
             
             [progressView dismiss:YES];
             

@@ -24,6 +24,17 @@
     if (self) {
 
         [self setEdgesForExtendedLayout:UIRectEdgeNone];
+
+        self.messages = [[NSMutableArray alloc] init];
+        
+        self.timestamps = [[NSMutableArray alloc] init];
+        
+        self.subtitles = [[NSMutableArray alloc] init];
+        
+        self.avatars = [[NSDictionary alloc] init];
+        
+        self.messageType = [[NSMutableArray alloc] init];
+        
         
         loadRow = -1;
         
@@ -45,17 +56,13 @@
 {
     [super viewWillAppear:animated];
     
-    [[RODItemStore sharedStore] loadMessagesForThread:self.thread.groupKey];
-    
     UIButton *button_heart = [UIButton buttonWithType:UIButtonTypeCustom];
     [button_heart setFrame:CGRectMake(0, 0, 20, 20)];
     [button_heart setImage:[UIImage imageNamed:@"heart-blue-v2.png"] forState:UIControlStateNormal];
     
     UIBarButtonItem *rightDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_heart];
     self.navigationItem.rightBarButtonItem = rightDrawerButton;
-
     
-    [self reloadThread];
 }
 
 - (IBAction)tappedScreen:(id)sender {
@@ -66,9 +73,9 @@
 {
     
     if(loadRow != -1) {
+        NSLog(@"Reloaded thread.");
         [self resetChatObjects];
         [self loadThread:loadRow];
-        NSLog(@"Reloaded thread.");
         [self.snapView setNeedsUpdateConstraints];
 
     }
@@ -119,17 +126,6 @@
     
     UITapGestureRecognizer *tapView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedImageView:)];
     [self.view addGestureRecognizer:tapView];
-
-    self.messages = [[NSMutableArray alloc] init];
-    
-    self.timestamps = [[NSMutableArray alloc] init];
-    
-    self.subtitles = [[NSMutableArray alloc] init];
-    
-    self.avatars = [[NSDictionary alloc] init];
-    
-    self.messageType = [[NSMutableArray alloc] init];
-    
     
     [[RODItemStore sharedStore].hubConnection disconnect];
     // connect to signalr for realtime
@@ -164,8 +160,14 @@
     
     // Start the connection
     [[RODItemStore sharedStore].hubConnection start];
+        
+
+    NSLog(@"About to reload.");
     
-    
+    [self reloadThread];
+    [[RODItemStore sharedStore] loadMessagesForThread:self.thread.groupKey];
+
+    NSLog(@"Reload.");
     
 }
 
@@ -200,7 +202,8 @@
 
 -(void)loadThread:(int)row
 {
-    
+ 
+    NSLog(@"loadThread");
     NSString *currentMessage = self.messageInputView.textView.text;
     
     [self resetChatObjects];
@@ -208,7 +211,7 @@
     RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:row];
     [self.snapView setImage:[[RODImageStore sharedStore] imageForKey:thread.groupKey]];
     self.thread = thread;
-    
+     
     if([thread.toHandle.name isEqualToString:[RODItemStore sharedStore].authie.handle.name]) {
         self.navigationItem.title = [NSString stringWithFormat:@"chat with %@", thread.fromHandleId];
     } else {
