@@ -66,7 +66,7 @@
     
     UIBarButtonItem *rightDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_menu];
     self.navigationItem.rightBarButtonItem = rightDrawerButton;
-
+    
     [[RODItemStore sharedStore] loadMessagesForThread:self.thread.groupKey];
 
     
@@ -180,6 +180,9 @@
 - (void)tappedImageView:(UITapGestureRecognizer *)tapGesture
 {
 
+    [self reloadThread];
+    
+
     if(self.tableView.hidden == YES) {
         [self.tableView setHidden:NO];
         [self.messageInputView setHidden:NO];
@@ -232,16 +235,25 @@
     if([thread.toHandle.name isEqualToString:[RODItemStore sharedStore].authie.handle.name]) {
         self.navigationItem.title = [NSString stringWithFormat:@"chat with %@", thread.fromHandleId];
     } else {
-        self.navigationItem.title = [NSString stringWithFormat:@"chat with %@", thread.toHandleId];
+        
+        
+        if([thread.toHandle.name isEqualToString:@"dash"]) {
+            self.navigationItem.title = [NSString stringWithFormat:@"%@'s dash snap", thread.fromHandleId];
+        } else {
+            self.navigationItem.title = [NSString stringWithFormat:@"chat with %@", thread.toHandleId];
+        }
+        
     }
     
     self.snapDate.text = [self.thread.startDate prettyDate];
     
     // now load all the messages that are associated with this thread
     
-    for(int i = 0; i < [[RODItemStore sharedStore].authie.all_Messages count]; i++) {
+    NSLog(@"allMessages count: %i", [[RODItemStore sharedStore].authie.allMessages count]);
+    
+    for(int i = 0; i < [[RODItemStore sharedStore].authie.allMessages count]; i++) {
         
-        RODMessage *msg = [[RODItemStore sharedStore].authie.all_Messages objectAtIndex:i];
+        RODMessage *msg = [[RODItemStore sharedStore].authie.allMessages objectAtIndex:i];
         
         if([msg.thread.groupKey isEqualToString:self.thread.groupKey]) {
             

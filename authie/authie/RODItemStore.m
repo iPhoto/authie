@@ -717,6 +717,10 @@
             
         } else {
             NSLog(@"uploadSnap timed out.");
+            
+            UIAlertView *upload_failed = [[UIAlertView alloc] initWithTitle:@"upload failed :(" message:@"oh no, the snap didn't make it to the server. do you want to try to upload this again?" delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"try upload again", nil];
+            [upload_failed show];
+            
         }
         
     }
@@ -1235,21 +1239,6 @@
         id object = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&deserialize_error];
         if([object isKindOfClass:[NSArray self]] && deserialize_error == nil) {
             
-            // clear out old messages
-            // ONLY ONES WITH THIS PUBLIC KEY!!!
-            //[self.authie.allMessages removeAllObjects];
-            
-            
-            for(int i = [self.authie.allMessages count] - 1; i >0; i--) {
-                
-                RODMessage *m = [self.authie.allMessages objectAtIndex:i];
-                if([m.thread.groupKey isEqualToString:key]) {
-                    [self.authie.allMessages removeObjectAtIndex:i];
-                }
-                
-            }
-            
-            
             for (NSDictionary *result in object) {
                 
                 RODMessage *message = [[RODMessage alloc] init];
@@ -1293,7 +1282,16 @@
                 
                 message.thread = thread;
                 
-                NSLog(@"Loaded message: '%@' from %@", message.messageText, message.fromHandle.name);
+                NSLog(@"Loaded message %@: '%@' from %@", message.id, message.messageText, message.fromHandle.name);
+                
+                for(RODMessage *r in self.authie.allMessages) {
+                    if([r.id isEqualToNumber:message.id]) {
+                        NSLog(@"Removed old object.");
+                        [self.authie.allMessages removeObject:r];
+                        break;
+                    }
+                }
+
                 
                 [self.authie.allMessages addObject:message];
                 
@@ -1399,12 +1397,14 @@
                 // remove tha tone...
                 
                 for(RODMessage *r in self.authie.allMessages) {
-                    if(r.id == thread.id) {
+                    if([r.id isEqualToNumber:message.id]) {
                         NSLog(@"Removed old object.");
                         [self.authie.allMessages removeObject:r];
                         break;
                     }
                 }
+
+                NSLog(@"Loaded message %@: '%@' from %@", message.id, message.messageText, message.fromHandle.name);
                 
                 [self.authie.allMessages addObject:message];
                 
