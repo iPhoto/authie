@@ -63,6 +63,7 @@
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [[RODItemStore sharedStore] loadMessagesForThread:notificationGroupKey];
+    [[RODItemStore sharedStore] loadThreads];
     
     
     if([appDelegate.threadViewController.thread.groupKey isEqualToString:notificationGroupKey]) {
