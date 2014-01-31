@@ -85,7 +85,7 @@
     RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:row];
     UIImage *result = [dictionary objectForKey:thread.groupKey];
     
-    if(!result) {
+    if(!result && thread.successfulUpload == YES) {
         
         downloadingSnapRow = row;
         downloadingSnapKey = thread.groupKey;
