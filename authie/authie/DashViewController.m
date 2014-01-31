@@ -243,7 +243,7 @@
             theDarkness.layer.opacity = 0.6f;
             [mini.snapView addSubview:theDarkness];
             
-            mini.labelDate.text = [NSString stringWithFormat:@"authorization request from %@", thread.fromHandle.name];
+            mini.labelDate.text = [NSString stringWithFormat:@"authorization request from %@ to %@", thread.fromHandle.name, thread.toHandle.name];
             
             yOffset = yOffset + photo_height;
             
