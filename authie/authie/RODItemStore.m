@@ -1239,6 +1239,20 @@
         id object = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&deserialize_error];
         if([object isKindOfClass:[NSArray self]] && deserialize_error == nil) {
             
+            // first, we want to remove all messages
+            // that do not have an id set, these are messages
+            // that are place holders, put there after the
+            // message has been sent on the users side
+            NSMutableArray *tempMessages = [NSMutableArray arrayWithArray:self.authie.allMessages  ];
+            
+            for(RODMessage *m in tempMessages) {
+                if([m.thread.groupKey isEqualToString:key]) {
+                    if(m.id == [NSNumber numberWithInt:0]) {
+                        [self.authie.allMessages removeObject:m];
+                    }
+                }
+            }
+            
             for (NSDictionary *result in object) {
                 
                 RODMessage *message = [[RODMessage alloc] init];
@@ -1395,8 +1409,20 @@
                 // now, efore we add it, we need to check to see if there
                 // is an existing message in the database, if so, we want to
                 // remove tha tone...
+                // first, we want to remove all messages
+                // that do not have an id set, these are messages
+                // that are place holders, put there after the
+                // message has been sent on the users side
+                NSMutableArray *tempMessages = [NSMutableArray arrayWithArray:self.authie.allMessages  ];
                 
-                for(RODMessage *r in self.authie.allMessages) {
+                for(RODMessage *r in tempMessages) {
+                    if([r.thread.groupKey isEqualToString:groupKey]) {
+                        if(r.id == [NSNumber numberWithInt:0]) {
+                            [self.authie.allMessages removeObject:r];
+                            break;
+                        }
+                    }
+                    
                     if([r.id isEqualToNumber:message.id]) {
                         NSLog(@"Removed old object.");
                         [self.authie.allMessages removeObject:r];
