@@ -35,13 +35,16 @@
         
         self.messageType = [[NSMutableArray alloc] init];
         
+        UIButton *button_heart = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button_heart setFrame:CGRectMake(0, 0, 20, 20)];
+        [button_heart setImage:[UIImage imageNamed:@"heart-blue-v2.png"] forState:UIControlStateNormal];
+        
+        UIBarButtonItem *rightDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_heart];
+        rightDrawerButton.target = self;
+        rightDrawerButton.action = @selector(sendLove:);
+        self.navigationItem.rightBarButtonItem = rightDrawerButton;
         
         loadRow = -1;
-        
-        UIBarButtonItem *edit = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(removeThread:)];
-        
-        self.navigationItem.rightBarButtonItem = edit;
-        
         
     }
     return self;
@@ -56,11 +59,12 @@
 {
     [super viewWillAppear:animated];
     
-    UIButton *button_heart = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button_heart setFrame:CGRectMake(0, 0, 20, 20)];
-    [button_heart setImage:[UIImage imageNamed:@"heart-blue-v2.png"] forState:UIControlStateNormal];
+    UIButton *button_menu = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button_menu setFrame:CGRectMake(0, 0, 25, 25)];
+    [button_menu setImage:[UIImage imageNamed:@"heart-blue-v2.png"] forState:UIControlStateNormal];
+    [button_menu addTarget:self action:@selector(sendLove:) forControlEvents:UIControlEventTouchUpInside];
     
-    UIBarButtonItem *rightDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_heart];
+    UIBarButtonItem *rightDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_menu];
     self.navigationItem.rightBarButtonItem = rightDrawerButton;
 
     [[RODItemStore sharedStore] loadMessagesForThread:self.thread.groupKey];
@@ -196,10 +200,14 @@
     [self reloadThread];
 }
 
--(void)removeThread:(id)sender
+-(void)sendLove:(id)sender
 {
-    [self dismissViewControllerAnimated:NO completion:nil];
-    [[RODItemStore sharedStore] removeThread:self.thread];
+    NSLog(@"Send love.");
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"<3>" message:@"<3<3<3<3" delegate:self cancelButtonTitle:@"<3" otherButtonTitles:@"<3<3", nil];
+    [alert show];
+    
+//    [self dismissViewControllerAnimated:NO completion:nil];
+//    [[RODItemStore sharedStore] removeThread:self.thread];
 }
 
 -(void)loadThread:(int)row
@@ -344,7 +352,6 @@
         
         [[RODItemStore sharedStore] sendChat:self.thread.groupKey message:text];
 
-        NSLog(@"state: %i", [RODItemStore sharedStore].hubConnection.state);
         dispatch_sync(dispatch_get_main_queue(), ^{
             // Update UI
             
