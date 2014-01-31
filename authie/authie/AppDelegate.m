@@ -26,7 +26,8 @@
 #import "RODHandle.h"
 
 @implementation AppDelegate
-@synthesize threadViewController, contactsViewController, privateKeyViewController, inviteViewController, dashViewController, loginViewController, registerViewController, selectContactViewController, authorizeContactViewController, notificationDelegate, drawer;
+@synthesize threadViewController, contactsViewController, privateKeyViewController, inviteViewController, dashViewController, loginViewController, registerViewController, selectContactViewController, authorizeContactViewController, notificationDelegate,
+    aboutViewController, drawer;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -100,6 +101,9 @@
     
     LoginViewController *login = [[LoginViewController alloc] init];
     loginViewController = login;
+    
+    AboutViewController *about = [[AboutViewController alloc] init];
+    aboutViewController = about;
     
     UACustomPushNotificationDelegate *notes = [[UACustomPushNotificationDelegate alloc] init];
     notificationDelegate = notes;

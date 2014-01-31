@@ -10,6 +10,8 @@
 		5D06B982187B0C1F00FC17F0 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D06B980187B0C1F00FC17F0 /* MenuViewController.m */; };
 		5D06B985187B0D4E00FC17F0 /* cog.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D06B984187B0D4E00FC17F0 /* cog.png */; };
 		5D0DC37118980A8F00E8CA81 /* house-v2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0DC37018980A8F00E8CA81 /* house-v2.png */; };
+		5D0DC375189C325600E8CA81 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0DC373189C325600E8CA81 /* AboutViewController.m */; };
+		5D0DC376189C325600E8CA81 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D0DC374189C325600E8CA81 /* AboutViewController.xib */; };
 		5D1B7BC5188EEF6A00D4DCBD /* UACustomPushNotificationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1B7BC4188EEF6A00D4DCBD /* UACustomPushNotificationDelegate.m */; };
 		5D21CA0F188DAF6800330F78 /* libUAirship-3.0.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D21C9AC188DAF6800330F78 /* libUAirship-3.0.2.a */; };
 		5D21CA11188DAF6800330F78 /* UABarButtonSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D21C9B9188DAF6800330F78 /* UABarButtonSegmentedControl.m */; };
@@ -157,6 +159,9 @@
 		5D06B980187B0C1F00FC17F0 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		5D06B984187B0D4E00FC17F0 /* cog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cog.png; sourceTree = "<group>"; };
 		5D0DC37018980A8F00E8CA81 /* house-v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "house-v2.png"; sourceTree = "<group>"; };
+		5D0DC372189C325600E8CA81 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		5D0DC373189C325600E8CA81 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		5D0DC374189C325600E8CA81 /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
 		5D1B7BC3188EEF6A00D4DCBD /* UACustomPushNotificationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UACustomPushNotificationDelegate.h; sourceTree = "<group>"; };
 		5D1B7BC4188EEF6A00D4DCBD /* UACustomPushNotificationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UACustomPushNotificationDelegate.m; sourceTree = "<group>"; };
 		5D21C97D188DAF6800330F78 /* NSJSONSerialization+UAAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSJSONSerialization+UAAdditions.h"; sourceTree = "<group>"; };
@@ -809,6 +814,9 @@
 				5D5A073018848B0F003848EA /* ConfirmSnapViewController.h */,
 				5D5A073118848B0F003848EA /* ConfirmSnapViewController.m */,
 				5D5A073218848B0F003848EA /* ConfirmSnapViewController.xib */,
+				5D0DC372189C325600E8CA81 /* AboutViewController.h */,
+				5D0DC373189C325600E8CA81 /* AboutViewController.m */,
+				5D0DC374189C325600E8CA81 /* AboutViewController.xib */,
 				5D1B7BC3188EEF6A00D4DCBD /* UACustomPushNotificationDelegate.h */,
 				5D1B7BC4188EEF6A00D4DCBD /* UACustomPushNotificationDelegate.m */,
 				5DEE7CA8185234E800F532B3 /* Images.xcassets */,
@@ -977,6 +985,7 @@
 				5D21CA20188DAF6800330F78 /* overlayCloseBtn.png in Resources */,
 				5DB549A318943DC900E03D9D /* Main_iPhone.storyboard in Resources */,
 				5DEE7CA9185234E800F532B3 /* Images.xcassets in Resources */,
+				5D0DC376189C325600E8CA81 /* AboutViewController.xib in Resources */,
 				5D21CA44188DAF6800330F78 /* UAPushSettingsTagsViewController.xib in Resources */,
 				5D8C1CEE1880E0F200158AE5 /* InviteViewController.xib in Resources */,
 				5D21CA46188DAF6800330F78 /* UAPushSettingsUserInfoView.xib in Resources */,
@@ -1080,6 +1089,7 @@
 				5D21CA13188DAF6800330F78 /* UADateUtils.m in Sources */,
 				5D21CA2E188DAF6800330F78 /* UAPushNotificationHandler.m in Sources */,
 				5D21CA18188DAF6800330F78 /* UAInboxNavUI.m in Sources */,
+				5D0DC375189C325600E8CA81 /* AboutViewController.m in Sources */,
 				5DEE7C97185234E800F532B3 /* main.m in Sources */,
 				5D9DEE9B185242E300F80413 /* RODImageStore.m in Sources */,
 				5D8C1CFC1880EEB900158AE5 /* MiniThreadViewController.m in Sources */,

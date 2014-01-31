@@ -16,6 +16,7 @@
 #import "PrivateKeyViewController.h"
 #import "DashViewController.h"
 #import "LoginViewController.h"
+#import "AboutViewController.h"
 #import "RegisterViewController.h"
 #import "SelectContactViewController.h"
 #import "AuthorizeContactViewController.h"
@@ -35,6 +36,7 @@
 @property (strong, nonatomic) RegisterViewController *registerViewController;
 @property (strong, nonatomic) SelectContactViewController *selectContactViewController;
 @property (strong, nonatomic) AuthorizeContactViewController *authorizeContactViewController;
+@property (strong, nonatomic) AboutViewController *aboutViewController;
 @property (strong, nonatomic) UACustomPushNotificationDelegate *notificationDelegate;
 @property (strong, nonatomic) REFrostedViewController *drawer;
 

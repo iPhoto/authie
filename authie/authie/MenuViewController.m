@@ -27,8 +27,8 @@
 {
     [super viewDidLoad];
     
-    self.buttons = @[@"Dash", @"Add", @"Private Key"];
-    self.subtitles = @[@"your snaps", @"add a bff's handle", @"its a password you can forget"];
+    self.buttons = @[@"Dash", @"Add", @"Private Key", @"About"];
+    self.subtitles = @[@"your snaps", @"add a bff's handle", @"its a password you can forget", @"what is authie?"];
     
     self.tableView = [[UITableView alloc] init]; // Frame will be automatically set
     self.tableView.separatorColor = [UIColor colorWithRed:150/255.0f green:161/255.0f blue:177/255.0f alpha:1.0f];
@@ -125,6 +125,14 @@
             self.frostedViewController.contentViewController = navigationController;
         }
             break;
+        case 3: // about
+        {
+
+            NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.aboutViewController];
+            self.frostedViewController.contentViewController = navigationController;
+        }
+            break;
+            
     }
     
     [self.frostedViewController hideMenuViewController];
