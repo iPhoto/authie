@@ -1219,6 +1219,9 @@
         
         if(data == nil) {
             NSLog(@"loadMessagesForThread error: %@", error);
+            
+            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            [MRProgressOverlayView dismissAllOverlaysForView:appDelegate.dashViewController.view animated:YES];
             return;
         }
 
@@ -1327,6 +1330,9 @@
         
         if(localData == nil) {
             // bail out...
+            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            [MRProgressOverlayView dismissAllOverlaysForView:appDelegate.dashViewController.view animated:YES];
+            
             return;
         }
         
