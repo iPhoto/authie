@@ -1020,9 +1020,6 @@
         
         id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingMutableContainers error:&deserialize_error];
         if([object isKindOfClass:[NSArray self]] && deserialize_error == nil) {
-
-            // clear all other threads
-            [self.authie.allThreads removeAllObjects];
             
             for (NSDictionary *result in object) {
                 
@@ -1085,6 +1082,14 @@
                 [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
                 
                 thready.startDate = [dateFormatter dateFromString:silly_date];
+                
+                // remove thread with existing groupKey
+                for(RODThread *t in self.authie.allThreads) {
+                    if([t.groupKey isEqualToString:thready.groupKey]) {
+                        [self.authie.allThreads removeObject:t];
+                        break;                        
+                    }
+                }
                 
                 [self.authie.allThreads addObject:thready];
                 
