@@ -169,7 +169,7 @@
         // Perform async operation
 
         [[RODItemStore sharedStore] loadThreads];
-
+        
         dispatch_sync(dispatch_get_main_queue(), ^{
             // Update UI
             [self populateScrollView];

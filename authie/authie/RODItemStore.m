@@ -539,8 +539,8 @@
             } else {
                 
                 is_logged_in = YES;
-                [self loadThreads];
                 [self loadContacts];
+                [self loadMessages];
 
             }
             
@@ -1196,6 +1196,7 @@
 
 - (void)loadMessagesForThread:(NSString *)key;
 {
+    NSLog(@"loadMessagesForThread: %@", key);
     
     if(key == nil) {
         NSLog(@"loadMessagesForThread tried to load a null key.");
@@ -1284,7 +1285,7 @@
                 
                 message.thread = thread;
                 
-                //NSLog(@"Loaded message: '%@' from %@", message.messageText, message.fromHandle.name);
+                NSLog(@"Loaded message: '%@' from %@", message.messageText, message.fromHandle.name);
                 
                 [self.authie.allMessages addObject:message];
                 
@@ -1335,7 +1336,7 @@
         if([object isKindOfClass:[NSArray self]] && deserialize_error == nil) {
             
             // clear out old messages.. is this what we really want to do?
-            [self.authie.allMessages removeAllObjects];
+            //[self.authie.allMessages removeAllObjects];
             
             for (NSDictionary *result in object) {
                 
@@ -1381,6 +1382,18 @@
                 message.thread = thread;
   
                 //NSLog(@"Loaded message: '%@' from %@", message.messageText, message.fromHandle.name);
+                
+                // now, efore we add it, we need to check to see if there
+                // is an existing message in the database, if so, we want to
+                // remove tha tone...
+                
+                for(RODMessage *r in self.authie.allMessages) {
+                    if(r.id == thread.id) {
+                        NSLog(@"Removed old object.");
+                        [self.authie.allMessages removeObject:r];
+                        break;
+                    }
+                }
                 
                 [self.authie.allMessages addObject:message];
                 

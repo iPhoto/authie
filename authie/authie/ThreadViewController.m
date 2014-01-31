@@ -62,6 +62,9 @@
     
     UIBarButtonItem *rightDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_heart];
     self.navigationItem.rightBarButtonItem = rightDrawerButton;
+
+    [[RODItemStore sharedStore] loadMessagesForThread:self.thread.groupKey];
+
     
 }
 
@@ -126,6 +129,8 @@
     
     UITapGestureRecognizer *tapView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedImageView:)];
     [self.view addGestureRecognizer:tapView];
+
+    [self reloadThread];
     
     [[RODItemStore sharedStore].hubConnection disconnect];
     // connect to signalr for realtime
@@ -166,8 +171,6 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
-    [self reloadThread];
 }
 
 - (void)tappedImageView:(UITapGestureRecognizer *)tapGesture
@@ -313,6 +316,12 @@
 
 - (void)didSendText:(NSString *)text
 {
+    
+    if([RODItemStore sharedStore].hubConnection.state != 1) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Wifi" message:@"Unable to connect to chat server to send message. Please try again." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
     
     [self.messages addObject:text];
     
