@@ -55,6 +55,7 @@
         [self setHandle:[aDecoder decodeObjectForKey:@"handle"]];
         allSelfies = [aDecoder decodeObjectForKey:@"allSelfies"];
         allContacts = [aDecoder decodeObjectForKey:@"allContacts"];
+        allMessages = [aDecoder decodeObjectForKey:@"allMessages"];
     }
     return self;
 }

@@ -507,7 +507,7 @@
     
     NSString *url = @"http://authie.me/api/login";
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLCacheStorageAllowed timeoutInterval:5];
     [request setHTTPMethod:@"GET"];
     
     if(error == nil) {
@@ -516,6 +516,14 @@
         
         //send the request and get the response
         localData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        if(localData == nil)
+        {
+            // uhhmm.. what do we do in this situation?
+            
+            return false;
+            
+        }
         
         NSError *deserialize_error = nil;
         
@@ -1051,6 +1059,9 @@
                 NSString *caption_result = [result objectForKey:@"caption"];
                 thready.caption = caption_result;
                 
+                Boolean uploadSuccessful = (Boolean)[result objectForKey:@"uploadSuccess"];
+                thready.successfulUpload = uploadSuccessful;
+                
                 NSInteger hearts = [[result objectForKey:@"hearts"] integerValue];
                 NSInteger authorizeRequest = [[result objectForKey:@"authorizeRequest"] integerValue];
                 
@@ -1282,6 +1293,7 @@
             NSLog(@"loadMessagesFromThread error: %@", object);
         }
         
+        [self saveChanges];
         
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         [appDelegate.threadViewController reloadThread];

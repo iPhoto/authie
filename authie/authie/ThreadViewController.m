@@ -160,15 +160,14 @@
     
     // Start the connection
     [[RODItemStore sharedStore].hubConnection start];
-        
+    
+}
 
-    NSLog(@"About to reload.");
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     
     [self reloadThread];
-    [[RODItemStore sharedStore] loadMessagesForThread:self.thread.groupKey];
-
-    NSLog(@"Reload.");
-    
 }
 
 - (void)tappedImageView:(UITapGestureRecognizer *)tapGesture
@@ -203,12 +202,19 @@
 -(void)loadThread:(int)row
 {
  
-    NSLog(@"loadThread");
     NSString *currentMessage = self.messageInputView.textView.text;
     
     [self resetChatObjects];
     
     RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:row];
+    
+//    if(thread.successfulUpload == NO) {
+//        
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"failed upload :(" message:@"This image failed to upload -- would you like to try again?" delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"reupload", nil];
+//        [alert show];
+//        
+//    }
+    
     [self.snapView setImage:[[RODImageStore sharedStore] imageForKey:thread.groupKey]];
     self.thread = thread;
      
@@ -290,6 +296,7 @@
 
     
     loadRow = row;
+    
 }
 
 - (void)didReceiveMemoryWarning
