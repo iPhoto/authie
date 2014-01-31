@@ -20,6 +20,7 @@
 #import "UAirship.h"
 #import "UAConfig.h"
 #import "UAPush.h"
+#import <MRProgressOverlayView.h>
 
 @implementation RODItemStore
 @synthesize loadedThreadsFromAuthor, hubConnection, hubProxy, mostRecentGroupKey;
@@ -536,14 +537,10 @@
             if(response_result == 0) {
                 is_logged_in = NO;
             } else {
-                //[self loadThreads];
-                
-                
                 
                 is_logged_in = YES;
                 [self loadThreads];
                 [self loadContacts];
-                [self loadMessages];
 
             }
             
@@ -1011,6 +1008,10 @@
         if(localData == nil) {
             // how do we get out of this gracefully?
             NSLog(@"loadThreads error: %@", error);
+            
+            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            [MRProgressOverlayView dismissAllOverlaysForView:appDelegate.dashViewController.view animated:YES];
+            
             return false;
         }
 
@@ -1333,7 +1334,7 @@
         id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingMutableContainers error:&deserialize_error];
         if([object isKindOfClass:[NSArray self]] && deserialize_error == nil) {
             
-            // clear out old messages
+            // clear out old messages.. is this what we really want to do?
             [self.authie.allMessages removeAllObjects];
             
             for (NSDictionary *result in object) {

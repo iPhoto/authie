@@ -156,7 +156,6 @@
 - (void)getThreads
 {
     
-    
     MRProgressOverlayView *progressView = [MRProgressOverlayView new];
     progressView.titleLabelText = @"syncing threads";
     progressView.titleLabel.font = [UIFont systemFontOfSize:10];
