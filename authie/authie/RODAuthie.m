@@ -41,6 +41,7 @@
     [aCoder encodeObject:allSelfies forKey:@"allSelfies"];
     [aCoder encodeObject:allContacts forKey:@"allContacts"];
     [aCoder encodeObject:allMessages forKey:@"allMessages"];
+    [aCoder encodeObject:allThreads forKey:@"allThreads"];
     
     [aCoder encodeObject:handle forKey:@"handle"];
 }
@@ -56,6 +57,7 @@
         allSelfies = [aDecoder decodeObjectForKey:@"allSelfies"];
         allContacts = [aDecoder decodeObjectForKey:@"allContacts"];
         allMessages = [aDecoder decodeObjectForKey:@"allMessages"];
+        allThreads = [aDecoder decodeObjectForKey:@"allThreads"];
     }
     return self;
 }

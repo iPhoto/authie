@@ -199,13 +199,19 @@
             response_result = [[object objectForKey:@"result"] integerValue];
             
             if(response_result == 1) {
-                [self loadThreads];
-                AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-                [appDelegate.dashViewController.navigationController popToRootViewControllerAnimated:YES];
-
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"bye" message:@"This thread has been trashed." delegate:appDelegate.dashViewController cancelButtonTitle:@"ok" otherButtonTitles:nil];
-
-                [alert show];
+                
+                // remove thread with existing groupKey
+                NSMutableArray *tempThreads = [NSMutableArray arrayWithArray:self.authie.allThreads];
+                for(RODThread *t in tempThreads) {
+                    if([t.groupKey isEqualToString:thread.groupKey]) {
+                        NSLog(@"Found the key to remove, threads: %i", [self.authie.allThreads count]);
+                        [self.authie.allThreads removeObject:t];
+                        [self saveChanges];
+                        [self loadThreads];
+                        NSLog(@"Found the key to remove, threads: %i", [self.authie.allThreads count]);
+                        break;
+                    }
+                }
                 
             }
             
@@ -988,7 +994,6 @@
 
 - (BOOL)loadThreads
 {
-    NSLog(@"loadThreads called");
     BOOL loaded_convos = NO;
     
     NSError *error = nil;
@@ -998,7 +1003,7 @@
     
     NSString *url = @"http://authie.me/api/thread";
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLCacheStorageNotAllowed timeoutInterval:5];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5];
     
     [request setHTTPMethod:@"GET"];
     
@@ -1101,9 +1106,13 @@
                     }
                 }
                 
+                NSLog(@"added thread from %@ to %@, %@", thready.fromHandleId, thready.toHandleId, thready.groupKey);
+                
                 [self.authie.allThreads addObject:thready];
                 
             }
+            
+            [self saveChanges];
             
             // disabling this so entire thread can run on background thread with no black camera issues
             //AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -1430,13 +1439,13 @@
                     }
                     
                     if([r.id isEqualToNumber:message.id]) {
-                        NSLog(@"Removed old object.");
+                        //NSLog(@"Removed old object.");
                         [self.authie.allMessages removeObject:r];
                         break;
                     }
                 }
 
-                NSLog(@"Loaded message %@: '%@' from %@", message.id, message.messageText, message.fromHandle.name);
+                //NSLog(@"Loaded message %@: '%@' from %@", message.id, message.messageText, message.fromHandle.name);
                 
                 [self.authie.allMessages addObject:message];
                 
@@ -1759,6 +1768,11 @@
     NSLog(@"addMessage, dashy: %@, %@, %@, %i", user, msg, key, [RODItemStore sharedStore].hubConnection.state);
     [[RODItemStore sharedStore] addChat:user message:msg groupKey:key];
     
+}
+
+- (NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse
+{
+    return nil;
 }
 
 + (RODItemStore *)sharedStore

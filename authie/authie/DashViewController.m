@@ -371,10 +371,16 @@
         [imageView setContentMode:UIViewContentModeScaleAspectFit];
         imageView.backgroundColor = [UIColor clearColor];
         alertView.contentView = imageView;
-
+        alertView.tag = 101;
         
         [alertView addButtonWithTitle:@"delete" type:CXAlertViewButtonTypeDefault handler:^(CXAlertView *alertView, CXAlertButtonItem *button) {
+            [[RODItemStore sharedStore] removeThread:t];
             [alertView dismiss];
+            
+            //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"bye" message:@"This thread has been trashed." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+            
+            //[alert show];
+            
         }];
         
         [alertView show];
@@ -522,6 +528,7 @@
                                           cancelButtonTitle:@"Cancel"
                                           otherButtonTitles:@"take image", nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    alert.tag = 2;
     [alert show];
     
 }
@@ -544,9 +551,13 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 1) {
-        NSString *name = [alertView textFieldAtIndex:0].text;
-        [[RODItemStore sharedStore] addContact:name];
+    NSLog(@"alertView clickedButtonAtIndex");
+
+    if(alertView.tag == 2) {
+        if (buttonIndex == 1) {
+            NSString *name = [alertView textFieldAtIndex:0].text;
+            [[RODItemStore sharedStore] addContact:name];
+        }
     }
 }
 

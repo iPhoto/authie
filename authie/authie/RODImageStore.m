@@ -148,6 +148,8 @@
 
 - (void)deleteImageForKey:(NSString *)s
 {
+    NSLog(@"Delete image: %@", s);
+    
     if (!s)
         return;
     [dictionary removeObjectForKey:s];
