@@ -275,6 +275,8 @@
             
             [mini.labelDate setText:[NSString stringWithFormat:@"snapped by %@, %@ %@", thread.fromHandle.name, what, [thread.startDate prettyDate]]];
             
+
+            
             [mini.heartsView setUserInteractionEnabled:YES];
             
             UITapGestureRecognizer *tapHearts = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickedHeart:)];
@@ -286,7 +288,11 @@
 
         [mini.view setNeedsUpdateConstraints];
         
-        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        {
+            // The device is an iPad running iOS 3.2 or later.
+            [mini.labelDate setFont:[UIFont systemFontOfSize:20]];
+        }
 
         [mini.snapView setUserInteractionEnabled:YES];
         
