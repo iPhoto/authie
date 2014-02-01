@@ -362,6 +362,14 @@
         
         RODThread *t = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:thread_index];
         
+        if(t.fromHandle.id == [RODItemStore sharedStore].authie.handle.id || t.toHandle.id == [RODItemStore sharedStore].authie.handle.id) {
+            
+        } else {
+            
+            NSLog(@"Can't delete this one.");
+            return;
+        }
+        
         // This is a demo for changing content at realtime.
         CXAlertView *alertView = [[CXAlertView alloc] initWithTitle:@"delete thread?" message:@"you want to delete this thread?" cancelButtonTitle:@"cancel"];
         // This is a demo for changing content at realtime.
