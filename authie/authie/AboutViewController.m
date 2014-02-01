@@ -25,8 +25,6 @@
     [super viewDidLoad];
     
     self.navigationItem.titleView = [[RODItemStore sharedStore] generateHeaderView];
-    // Do any additional setup after loading the view from its nib.
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://authie.me/appabout"]]];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -41,6 +39,10 @@
     
     UIBarButtonItem *leftDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_menu];
     self.navigationItem.leftBarButtonItem = leftDrawerButton;
+
+    // Do any additional setup after loading the view from its nib.
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://authie.me/appabout"]]];
+
     
 }
 
