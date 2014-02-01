@@ -521,7 +521,7 @@
         if(localData == nil)
         {
             // uhhmm.. what do we do in this situation?
-            
+            NSLog(@"checkLoginStatus FAILED...");
             return false;
             
         }
@@ -541,6 +541,7 @@
                 is_logged_in = YES;
                 [self loadContacts];
                 [self loadMessages];
+                [self loadThreads];
 
             }
             
@@ -619,8 +620,8 @@
                                 
                 [self saveChanges];
                 
-                //[self loadThreads];
-                //[self loadContacts];
+                [self loadThreads];
+                [self loadContacts];
 
                 //AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
                 //[appDelegate.leftDrawer showDashboard];
@@ -989,6 +990,7 @@
 
 - (BOOL)loadThreads
 {
+    NSLog(@"loadThreads called");
     BOOL loaded_convos = NO;
     
     NSError *error = nil;
@@ -998,7 +1000,7 @@
     
     NSString *url = @"http://authie.me/api/thread";
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLCacheStorageAllowed timeoutInterval:5];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLCacheStorageNotAllowed timeoutInterval:5];
     
     [request setHTTPMethod:@"GET"];
     
@@ -1018,12 +1020,19 @@
             
             return false;
         }
+        
+        if([localData length] == 0)
+        {
+            NSLog(@"Length was zero...");
+        }
 
         
         NSError *deserialize_error = nil;
         
         id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingMutableContainers error:&deserialize_error];
         if([object isKindOfClass:[NSArray self]] && deserialize_error == nil) {
+            
+            NSLog(@"OK: %@", object);
             
             for (NSDictionary *result in object) {
                 
@@ -1088,12 +1097,15 @@
                 thready.startDate = [dateFormatter dateFromString:silly_date];
                 
                 // remove thread with existing groupKey
-                for(RODThread *t in self.authie.allThreads) {
+                NSMutableArray *tempThreads = [NSMutableArray arrayWithArray:self.authie.allThreads];
+                for(RODThread *t in tempThreads) {
                     if([t.groupKey isEqualToString:thready.groupKey]) {
                         [self.authie.allThreads removeObject:t];
-                        break;                        
+                        //break;
                     }
                 }
+                
+                NSLog(@"thread added: %@", thready.fromHandleId);
                 
                 [self.authie.allThreads addObject:thready];
                 
@@ -1106,7 +1118,7 @@
             loaded_convos = YES;
             
         } else {
-            NSLog(@"Not that kind of object: %@, deserialize_error: %@", object, deserialize_error);
+            NSLog(@"loadThreads: %@, deserialize_error: %@", object, deserialize_error);
         }
         
     }

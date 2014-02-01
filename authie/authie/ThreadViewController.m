@@ -270,9 +270,11 @@
     
     NSLog(@"allMessages count: %i", [[RODItemStore sharedStore].authie.allMessages count]);
     
-    for(int i = 0; i < [[RODItemStore sharedStore].authie.allMessages count]; i++) {
+    NSMutableArray *tempMessages = [NSMutableArray arrayWithArray:[RODItemStore sharedStore].authie.allMessages];
+    
+    for(int i = 0; i < [tempMessages count]; i++) {
         
-        RODMessage *msg = [[RODItemStore sharedStore].authie.allMessages objectAtIndex:i];
+        RODMessage *msg = [tempMessages objectAtIndex:i];
         
         if([msg.thread.groupKey isEqualToString:self.thread.groupKey]) {
             

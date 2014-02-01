@@ -109,6 +109,13 @@
     notificationDelegate = notes;
     [UAPush shared].pushNotificationDelegate = notificationDelegate;
     
+    
+    // set font for all nav controllers
+    NSMutableDictionary *titleBarAttributes = [NSMutableDictionary dictionaryWithDictionary: [[UINavigationBar appearance] titleTextAttributes]];
+    [titleBarAttributes setValue:[UIFont systemFontOfSize:12] forKey:NSFontAttributeName];
+    [[UINavigationBar appearance] setTitleTextAttributes:titleBarAttributes];
+    
+    
     NavigationController *navController = [[NavigationController alloc] initWithRootViewController:dashViewController];
     [navController.navigationBar setBackgroundColor:[UIColor whiteColor]];
     
@@ -132,10 +139,7 @@
     drawer = drawerController;
     
     
-    // set font for all nav controllers
-    NSMutableDictionary *titleBarAttributes = [NSMutableDictionary dictionaryWithDictionary: [[UINavigationBar appearance] titleTextAttributes]];
-    [titleBarAttributes setValue:[UIFont systemFontOfSize:12] forKey:NSFontAttributeName];
-    [[UINavigationBar appearance] setTitleTextAttributes:titleBarAttributes];
+
     
     [self.window setRootViewController:drawerController];
     
