@@ -25,8 +25,9 @@
 {
     [super viewDidLoad];
  
-    [self.view setOpaque:NO];
-    [self.view.layer setOpacity:1.0];
+
+    [self.navigationBar setTranslucent:NO];
+    [self.navigationBar setBackgroundColor:[UIColor whiteColor]];
     
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self.view addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognized:)]];
