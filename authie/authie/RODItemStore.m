@@ -445,6 +445,55 @@
     return logged_in;
 }
 
+- (void)getPrivateKey
+{
+    
+    NSError *error = nil;
+    
+    NSURLResponse *response;
+    NSData *localData = nil;
+    
+    NSString *url = @"http://authie.me/api/privatekey";
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLCacheStorageNotAllowed timeoutInterval:5];
+    [request setHTTPMethod:@"GET"];
+    
+    if(error == nil) {
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        
+        //send the request and get the response
+        localData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        if(localData == nil)
+        {
+            // uhhmm.. what do we do in this situation?
+            NSLog(@"getPrivateKey FAILED...");
+            return;
+        }
+        
+        NSError *deserialize_error = nil;
+        
+        id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingAllowFragments error:&deserialize_error];
+        if([object isKindOfClass:[NSDictionary class]] && deserialize_error == nil) {
+            
+            NSInteger response_result;
+            response_result = [[object objectForKey:@"result"] integerValue];
+            
+            if(response_result == 1) {
+                
+                self.authie.privateKey = [object objectForKey:@"message"];
+                [self saveChanges];
+                
+            }
+            
+        }
+        
+    }
+    
+}
+
+
 - (BOOL)checkLoginStatus
 {
     

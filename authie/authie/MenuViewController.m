@@ -120,6 +120,7 @@
             break;
         case 2: // private key
         {
+            [[RODItemStore sharedStore] getPrivateKey];
             NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.privateKeyViewController];
             self.frostedViewController.contentViewController = navigationController;
         }
