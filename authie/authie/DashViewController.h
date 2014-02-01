@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 #import <SignalR-ObjC/SignalR.h>
 
-@interface DashViewController : UIViewController <UIImagePickerControllerDelegate, SRConnectionDelegate>
+@interface DashViewController : UIViewController <UIImagePickerControllerDelegate, SRConnectionDelegate, UIScrollViewDelegate>
 {
     NSMutableArray *_items;
 }

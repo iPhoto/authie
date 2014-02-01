@@ -49,6 +49,10 @@
     
     self.imagePicker = [[UIImagePickerController alloc] init];
     
+    UIPanGestureRecognizer *swipeView = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(swipedImageView:)];
+    [swipeView setMinimumNumberOfTouches:1];
+    [self.view addGestureRecognizer:swipeView];
+
 }
 
 - (void)clearScrollView
@@ -230,7 +234,6 @@
     }
     
     
-    
     for(int i=0; i < [[RODItemStore sharedStore].authie.all_Threads count]; i++) {
         
         if(i > 10) break;
@@ -275,8 +278,6 @@
             
             [mini.labelDate setText:[NSString stringWithFormat:@"snapped by %@, %@ %@", thread.fromHandle.name, what, [thread.startDate prettyDate]]];
             
-
-            
             [mini.heartsView setUserInteractionEnabled:YES];
             
             UITapGestureRecognizer *tapHearts = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickedHeart:)];
@@ -298,6 +299,8 @@
         
         UITapGestureRecognizer *tapView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedImageView:)];
         [mini.snapView addGestureRecognizer:tapView];
+        
+        
         
         int mini_tag = i*100;
         int imageview_tag = i*1000;
@@ -335,6 +338,25 @@
 
     self.contentSize = yOffset;
     [self.scroll setContentSize:CGSizeMake(self.scroll.frame.size.width, self.contentSize)];
+    
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+//    NSLog(@"Swiped.");
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"delete?" message:@"do you want to delete this message?" delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"delete", nil];
+//    [alert show];
+}
+
+- (void)swipedImageView:(UIPanGestureRecognizer *)swipeGesture
+{
+    
+    if(swipeGesture.state == UIGestureRecognizerStateEnded) {
+        NSLog(@"Swiped.");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"delete?" message:@"do you want to delete this message?" delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"delete", nil];
+        [alert show];
+    }
+    
     
 }
 
