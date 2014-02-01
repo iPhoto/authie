@@ -131,6 +131,12 @@
     drawerController.delegate = self;
     drawer = drawerController;
     
+    
+    // set font for all nav controllers
+    NSMutableDictionary *titleBarAttributes = [NSMutableDictionary dictionaryWithDictionary: [[UINavigationBar appearance] titleTextAttributes]];
+    [titleBarAttributes setValue:[UIFont systemFontOfSize:12] forKey:NSFontAttributeName];
+    [[UINavigationBar appearance] setTitleTextAttributes:titleBarAttributes];
+    
     [self.window setRootViewController:drawerController];
     
     if([RODItemStore sharedStore].authie.registered == 0) {
