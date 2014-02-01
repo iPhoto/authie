@@ -38,6 +38,7 @@
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [[RODItemStore sharedStore] loadMessagesForThread:notificationGroupKey];
+    [[RODItemStore sharedStore] loadThreads];
         
     if([appDelegate.threadViewController.thread.groupKey isEqualToString:notificationGroupKey]) {
         // do nothing, they are viewing this thread

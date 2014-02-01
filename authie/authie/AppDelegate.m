@@ -210,6 +210,8 @@
     
     NSLog(@"didReceiveRemoteNotification");
     
+    [[RODItemStore sharedStore] loadThreads];
+    
     // Optionally provide a delegate that will be used to handle notifications received while the app is running
     // [UAPush shared].pushNotificationDelegate = your custom push delegate class conforming to the UAPushNotificationDelegate protocol
     
