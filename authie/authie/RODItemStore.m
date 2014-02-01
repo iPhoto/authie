@@ -1030,8 +1030,6 @@
         id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingMutableContainers error:&deserialize_error];
         if([object isKindOfClass:[NSArray self]] && deserialize_error == nil) {
             
-            NSLog(@"OK: %@", object);
-            
             for (NSDictionary *result in object) {
                 
                 //NSLog(@"loadThreads: %@", result);
@@ -1102,8 +1100,6 @@
                         //break;
                     }
                 }
-                
-                NSLog(@"thread added: %@", thready.fromHandleId);
                 
                 [self.authie.allThreads addObject:thready];
                 

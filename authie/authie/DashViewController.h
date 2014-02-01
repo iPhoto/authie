@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *handleLabel;
 @property (weak, nonatomic) RODHandle *handle;
 @property (nonatomic) int contentSize;
+@property (nonatomic) int photoHeight;
 @property (nonatomic) BOOL doGetThreadsOnView;
 @property (nonatomic) BOOL doUploadOnView;
 
@@ -26,7 +27,6 @@
 @property (strong, nonatomic) NSString *keyToUpload;
 @property (strong, nonatomic) RODHandle *handleToUpload;
 @property (strong, nonatomic) NSString *captionToUpload;
-
 
 - (void)getThreads;
 - (void)populateScrollView;

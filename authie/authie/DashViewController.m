@@ -19,9 +19,10 @@
 #import "AppDelegate.h"
 #import "ConfirmSnapViewController.h"
 #import "BlankSlateViewController.h"
+#import <CXAlertView/CXAlertView.h>
 
 @implementation DashViewController
-@synthesize handle, contentSize, imageToUpload, keyToUpload, handleToUpload, captionToUpload, doUploadOnView, imagePicker, selected, mostRecentGroupKey;
+@synthesize handle, contentSize, imageToUpload, keyToUpload, handleToUpload, captionToUpload, doUploadOnView, imagePicker, selected, mostRecentGroupKey, photoHeight;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -205,12 +206,12 @@
     MiniThreadViewController *mini;
     int yOffset = 0;
     
-    int photo_height = 400;
+    self.photoHeight = 400;
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
     {
         // The device is an iPad running iOS 3.2 or later.
-        photo_height = 800;
+        self.photoHeight = 800;
     }
 
     // scroll to top
@@ -250,7 +251,7 @@
         
         if([thread.authorizeRequest isEqualToNumber:[NSNumber numberWithInt:1]]) {
             
-            mini.view.frame = CGRectMake(0, yOffset, self.scroll.frame.size.width, photo_height);
+            mini.view.frame = CGRectMake(0, yOffset, self.scroll.frame.size.width, self.photoHeight);
             
             //
             // authorization request
@@ -262,11 +263,11 @@
             
             mini.labelDate.text = [NSString stringWithFormat:@"authorization request from %@ to %@", thread.fromHandle.name, thread.toHandle.name];
             
-            yOffset = yOffset + photo_height;
+            yOffset = yOffset + self.photoHeight;
             
         } else {
             
-            mini.view.frame = CGRectMake(0, yOffset, self.scroll.frame.size.width, photo_height);
+            mini.view.frame = CGRectMake(0, yOffset, self.scroll.frame.size.width, self.photoHeight);
 
             
             NSString *what;
@@ -283,7 +284,7 @@
             UITapGestureRecognizer *tapHearts = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickedHeart:)];
             [mini.heartsView addGestureRecognizer:tapHearts];
 
-            yOffset = yOffset + photo_height;
+            yOffset = yOffset + self.photoHeight;
 
         }
 
@@ -352,9 +353,31 @@
 {
     
     if(swipeGesture.state == UIGestureRecognizerStateEnded) {
-        NSLog(@"Swiped.");
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"delete?" message:@"do you want to delete this message?" delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"delete", nil];
-        [alert show];
+        // try to determine which thread was swiped...
+        
+        CGPoint pointInView = [swipeGesture locationInView:self.scroll];
+        
+        int thread_index = ceilf(pointInView.y / self.photoHeight);
+        thread_index = thread_index - 1;
+        
+        RODThread *t = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:thread_index];
+        
+        // This is a demo for changing content at realtime.
+        CXAlertView *alertView = [[CXAlertView alloc] initWithTitle:@"delete thread?" message:@"you want to delete this thread?" cancelButtonTitle:@"cancel"];
+        // This is a demo for changing content at realtime.
+
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
+        [imageView setImage:[[RODImageStore sharedStore] imageForKey:t.groupKey]];
+        [imageView setContentMode:UIViewContentModeScaleAspectFit];
+        imageView.backgroundColor = [UIColor clearColor];
+        alertView.contentView = imageView;
+
+        
+        [alertView addButtonWithTitle:@"delete" type:CXAlertViewButtonTypeDefault handler:^(CXAlertView *alertView, CXAlertButtonItem *button) {
+            [alertView dismiss];
+        }];
+        
+        [alertView show];
     }
     
     

@@ -17,6 +17,7 @@ PODS:
   - AFNetworking/Serialization (2.1.0)
   - AFNetworking/UIKit (2.1.0):
     - AFNetworking/NSURLConnection
+  - CXAlertView (1.0.1)
   - GoogleAnalytics-iOS-SDK (3.0.2)
   - JSMessagesViewController (3.4.4):
     - JSQSystemSoundPlayer
@@ -29,6 +30,7 @@ PODS:
   - SocketRocket (0.3.1-beta2)
 
 DEPENDENCIES:
+  - CXAlertView
   - GoogleAnalytics-iOS-SDK
   - JSMessagesViewController
   - MRProgress (~> 0.2.2)
@@ -37,6 +39,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: c7d7901a83f631414c7eda1737261f696101a5cd
+  CXAlertView: 59e8305700c59a27730c636765cb76311d311b88
   GoogleAnalytics-iOS-SDK: 86393b99f7328ae8d8e975fcaa8632a39dafafe8
   JSMessagesViewController: 309de7324fbf48b7da924b002ef6017d5d2ce026
   JSQSystemSoundPlayer: 28ccd01a92a0cebc6de6361e8499011b4cb6dab7
