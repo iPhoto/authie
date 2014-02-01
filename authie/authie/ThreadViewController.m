@@ -197,6 +197,7 @@
 
 - (void)addMessage:(NSString *)user message:(NSString *)msg groupKey:(NSString *)key
 {
+
     NSLog(@"addMessage, thread: %@, %@, %@, %i", user, msg, key, [RODItemStore sharedStore].hubConnection.state);
     [[RODItemStore sharedStore] addChat:user message:msg groupKey:key];
 
@@ -205,12 +206,30 @@
 
 -(void)sendLove:(id)sender
 {
-    NSLog(@"Send love.");
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"<3>" message:@"<3<3<3<3" delegate:self cancelButtonTitle:@"<3" otherButtonTitles:@"<3<3", nil];
-    [alert show];
+
+    [self.messages addObject:@"<3"];
+    [self.timestamps addObject:[NSDate date]];
+    [self.messageType addObject:@"1"];
+    [self.tableView setHidden:NO];
+    [self.subtitles addObject:[RODItemStore sharedStore].authie.handle.name];
     
-//    [self dismissViewControllerAnimated:NO completion:nil];
-//    [[RODItemStore sharedStore] removeThread:self.thread];
+    [[RODItemStore sharedStore] addChat:[RODItemStore sharedStore].authie.handle.name message:@"<3" groupKey:self.thread.groupKey];
+    
+    [self finishSend];
+    [self scrollToBottomAnimated:YES];
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+    dispatch_async(queue, ^{
+        // Perform async operation
+        
+        [[RODItemStore sharedStore] sendChat:self.thread.groupKey message:@"<3"];
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            // Update UI
+            
+            // nothing?
+        });
+    });
 }
 
 -(void)loadThread:(int)row
