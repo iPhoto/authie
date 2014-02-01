@@ -374,57 +374,6 @@
     
 }
 
-- (void)invite:(NSString *)email message:(NSString *)msg
-{
-    NSError *error = nil;
-    NSData *localData = nil;
-    NSURLResponse *response;
-    
-    NSDictionary *checkDict = [[NSDictionary alloc] initWithObjectsAndKeys:
-                               email, @"email",
-                               msg, @"message",
-                               [RODItemStore sharedStore].authie.handle.name, @"handle",
-                               nil];
-    
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:checkDict options:kNilOptions error:&error];
-    
-    NSString *url = @"http://authie.me/api/invite";
-    
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLCacheStorageNotAllowed timeoutInterval:5];
-    [request setHTTPMethod:@"POST"];
-    
-    
-    if(error == nil) {
-        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-        [request setHTTPBody:jsonData];
-        
-        //send the request and get the response
-        localData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-        
-        NSError *deserialize_error = nil;
-        
-        id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingAllowFragments error:&deserialize_error];
-        
-        if([object isKindOfClass:[NSDictionary class]] && deserialize_error == nil) {
-            
-            NSLog(@"results from invite: %@", object);
-            
-            NSInteger response_result;
-            response_result = [[object objectForKey:@"result"] integerValue];
-
-            NSString *response_message;
-            response_message = [object objectForKey:@"message"];
-            
-            UIAlertView *invite_result = [[UIAlertView alloc] initWithTitle:@"invite" message:[NSString stringWithFormat:@"r: %i, m: %@", response_result, response_message] delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
-            
-            [invite_result show];
-            
-        }
-        
-    }
-
-}
 
 - (BOOL)login:(NSString *)handle privateKey:(NSString *)key;
 {
@@ -1681,8 +1630,6 @@
     
     // register with the server for new messages/threads events
     
-    
-    
 }
 
 - (void)SRConnectionDidReconnect:(SRConnection *)connection
@@ -1766,36 +1713,6 @@
 {
     NSLog(@"addMessage, dashy: %@, %@, %@, %i", user, msg, key, [RODItemStore sharedStore].hubConnection.state);
     [[RODItemStore sharedStore] addChat:user message:msg groupKey:key];
-    
-    //NSString *s = [NSString stringWithFormat:@"%@ said: %@", user, msg];
-    // Print the message when it comes in
-    
-    //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"new auth" message:s delegate:self cancelButtonTitle:@"ok" otherButtonTitles:@"go to thread", nil];
-    //[alert show];
-    //self.mostRecentGroupKey = key;
-    
-    //
-    //
-    //    if([dashViewController.navigationController.topViewController class] != [ThreadViewController class]) {
-    //        // looking at dash, invite, private key, compose
-    //        self.mostRecentGroupKey = key;
-    //        [alert show];
-    //    } else {
-    //
-    //        // looking at a thread, may be the one we need to update
-    //
-    //        NSLog(@"Toplevel was a threadviewcontroller.");
-    //        NSString *current_group_key = threadViewController.thread.groupKey;
-    //
-    //        if([current_group_key isEqualToString:key]) {
-    //            // reload the current messages..??????
-    //        } else {
-    //            self.mostRecentGroupKey = key;
-    //        }
-    //
-    //        [alert show];
-    //
-    //    }
     
 }
 

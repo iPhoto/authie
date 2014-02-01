@@ -26,7 +26,7 @@
 #import "RODHandle.h"
 
 @implementation AppDelegate
-@synthesize threadViewController, contactsViewController, privateKeyViewController, inviteViewController, dashViewController, loginViewController, registerViewController, selectContactViewController, authorizeContactViewController, notificationDelegate,
+@synthesize threadViewController, contactsViewController, privateKeyViewController, dashViewController, loginViewController, registerViewController, selectContactViewController, authorizeContactViewController, notificationDelegate,
     aboutViewController, drawer;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -91,9 +91,6 @@
     
     PrivateKeyViewController *private = [[PrivateKeyViewController alloc] init];
     privateKeyViewController = private;
-    
-    InviteViewController *invite = [[InviteViewController alloc] init];
-    inviteViewController = invite;
     
     DashViewController *dash = [[DashViewController alloc] init];
     dashViewController = dash;

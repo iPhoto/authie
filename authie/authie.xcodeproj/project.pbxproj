@@ -98,8 +98,6 @@
 		5D8C1CDF18805AA000158AE5 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C1CDE18805AA000158AE5 /* heart.png */; };
 		5D8C1CE818808FC000158AE5 /* SelectContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C1CE618808FC000158AE5 /* SelectContactViewController.m */; };
 		5D8C1CE918808FC000158AE5 /* SelectContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C1CE718808FC000158AE5 /* SelectContactViewController.xib */; };
-		5D8C1CED1880E0F200158AE5 /* InviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C1CEB1880E0F200158AE5 /* InviteViewController.m */; };
-		5D8C1CEE1880E0F200158AE5 /* InviteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C1CEC1880E0F200158AE5 /* InviteViewController.xib */; };
 		5D8C1CF21880E45600158AE5 /* PrivateKeyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C1CF01880E45500158AE5 /* PrivateKeyViewController.m */; };
 		5D8C1CF31880E45600158AE5 /* PrivateKeyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C1CF11880E45500158AE5 /* PrivateKeyViewController.xib */; };
 		5D8C1CF71880E8B800158AE5 /* DashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C1CF51880E8B800158AE5 /* DashViewController.m */; };
@@ -331,9 +329,6 @@
 		5D8C1CE518808FC000158AE5 /* SelectContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectContactViewController.h; sourceTree = "<group>"; };
 		5D8C1CE618808FC000158AE5 /* SelectContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectContactViewController.m; sourceTree = "<group>"; };
 		5D8C1CE718808FC000158AE5 /* SelectContactViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectContactViewController.xib; sourceTree = "<group>"; };
-		5D8C1CEA1880E0F200158AE5 /* InviteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteViewController.h; sourceTree = "<group>"; };
-		5D8C1CEB1880E0F200158AE5 /* InviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteViewController.m; sourceTree = "<group>"; };
-		5D8C1CEC1880E0F200158AE5 /* InviteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InviteViewController.xib; sourceTree = "<group>"; };
 		5D8C1CEF1880E45500158AE5 /* PrivateKeyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivateKeyViewController.h; sourceTree = "<group>"; };
 		5D8C1CF01880E45500158AE5 /* PrivateKeyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivateKeyViewController.m; sourceTree = "<group>"; };
 		5D8C1CF11880E45500158AE5 /* PrivateKeyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrivateKeyViewController.xib; sourceTree = "<group>"; };
@@ -785,9 +780,6 @@
 				5D556A601882384100C5B6FB /* LoginViewController.h */,
 				5D556A611882384100C5B6FB /* LoginViewController.m */,
 				5D556A621882384100C5B6FB /* LoginViewController.xib */,
-				5D8C1CEA1880E0F200158AE5 /* InviteViewController.h */,
-				5D8C1CEB1880E0F200158AE5 /* InviteViewController.m */,
-				5D8C1CEC1880E0F200158AE5 /* InviteViewController.xib */,
 				5D8C1CD4187E38E300158AE5 /* ThreadViewController.h */,
 				5D8C1CD5187E38E300158AE5 /* ThreadViewController.m */,
 				5D8C1CD6187E38E300158AE5 /* ThreadViewController.xib */,
@@ -987,7 +979,6 @@
 				5DEE7CA9185234E800F532B3 /* Images.xcassets in Resources */,
 				5D0DC376189C325600E8CA81 /* AboutViewController.xib in Resources */,
 				5D21CA44188DAF6800330F78 /* UAPushSettingsTagsViewController.xib in Resources */,
-				5D8C1CEE1880E0F200158AE5 /* InviteViewController.xib in Resources */,
 				5D21CA46188DAF6800330F78 /* UAPushSettingsUserInfoView.xib in Resources */,
 				5D5A072D18848A4F003848EA /* AuthorizeContactViewController.xib in Resources */,
 				5D21CA4A188DAF7500330F78 /* CHANGELOG in Resources */,
@@ -1096,7 +1087,6 @@
 				5D21CA14188DAF6800330F78 /* UAInboxAlertHandler.m in Sources */,
 				5D21CA2B188DAF6800330F78 /* UALocationSettingsViewController.m in Sources */,
 				5D21CA2A188DAF6800330F78 /* UALocationDemoAnnotation.m in Sources */,
-				5D8C1CED1880E0F200158AE5 /* InviteViewController.m in Sources */,
 				5D5A073318848B0F003848EA /* ConfirmSnapViewController.m in Sources */,
 				5D21CA2C188DAF6800330F78 /* UAMapPresentationController.m in Sources */,
 				5D21CA11188DAF6800330F78 /* UABarButtonSegmentedControl.m in Sources */,

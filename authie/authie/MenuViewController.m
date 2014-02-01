@@ -12,7 +12,6 @@
 #import <REFrostedViewController.h>
 #import "UIViewController+REFrostedViewController.h"
 #import "ContactsViewController.h"
-#import "InviteViewController.h"
 #import "PrivateKeyViewController.h"
 #import "SelectContactViewController.h"
 #import "DashViewController.h"
