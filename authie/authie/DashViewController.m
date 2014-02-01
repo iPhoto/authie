@@ -375,6 +375,7 @@
         
         [alertView addButtonWithTitle:@"delete" type:CXAlertViewButtonTypeDefault handler:^(CXAlertView *alertView, CXAlertButtonItem *button) {
             [[RODItemStore sharedStore] removeThread:t];
+            [self populateScrollView];
             [alertView dismiss];
             
             //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"bye" message:@"This thread has been trashed." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
