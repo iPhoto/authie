@@ -160,6 +160,14 @@
     progressView.titleLabelText = @"syncing threads";
     progressView.titleLabel.font = [UIFont systemFontOfSize:10];
     
+    // overlay dead man's switch
+    [NSTimer scheduledTimerWithTimeInterval:30.0
+                                     target:self
+                                   selector:@selector(removeOverlays:)
+                                   userInfo:nil
+                                    repeats:NO];
+    
+    
     [self.view.window addSubview:progressView];
     
     [progressView show:YES];
@@ -179,6 +187,12 @@
         });
     });
     
+}
+
+- (void)removeOverlays:(NSTimer *)timer
+{
+    NSLog(@"Dead Man's switch fired. clear all overlays.");
+    [MRProgressOverlayView dismissAllOverlaysForView:self.view.window animated:YES];
 }
 
 - (void)populateScrollView
@@ -420,7 +434,7 @@
     progressView.titleLabelText = @"uploading, pls chill a moment";
     progressView.titleLabel.font = [UIFont systemFontOfSize:10];
     
-    [self.navigationController.view.window addSubview:progressView];
+    [self.view.window addSubview:progressView];
     
     [progressView show:YES];
     
