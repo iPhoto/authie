@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "RODImageStore.h"
 #import "ConfirmSnapViewController.h"
+#import "RODThread.h"
 
 @implementation SelectContactViewController
 @synthesize imagePicker, contactsTable;
@@ -33,8 +34,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [self.contactsTable setSeparatorInset:UIEdgeInsetsZero];
-
+    [self.contactsTable setRowHeight:75];
+    [self.contactsTable setSeparatorInset:UIEdgeInsetsMake(25, 25, 25, 25)];
+    
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -81,12 +84,28 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
     }
     
     RODHandle *handle = [[RODItemStore sharedStore].authie.all_Contacts objectAtIndex:indexPath.row];
     
     cell.textLabel.text = handle.name;
+    
+    UIImage *mostRecent = [UIImage imageNamed:@"heart-v2.png"];
+    
+    // ok, now we actually find the most recent from this user
+    NSMutableArray *tempThreads = [NSMutableArray arrayWithArray:[RODItemStore sharedStore].authie.allThreads];
+    for (RODThread *t in [RODItemStore sharedStore].authie.allThreads) {
+        if([t.fromHandle.id isEqualToNumber:handle.id]) {
+            
+            
+        }
+    }
+    
+    [cell.imageView setImage:mostRecent];
+    
+
+    
     return cell;
 }
 
