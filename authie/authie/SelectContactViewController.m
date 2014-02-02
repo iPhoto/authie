@@ -14,6 +14,7 @@
 #import "RODImageStore.h"
 #import "ConfirmSnapViewController.h"
 #import "RODThread.h"
+#import "ContactItemCell.h"
 
 @implementation SelectContactViewController
 @synthesize imagePicker, contactsTable;
@@ -33,9 +34,11 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+
+    UINib *nib = [UINib nibWithNibName:@"ContactItemCell" bundle:nil];
+    [self.contactsTable registerNib:nib forCellReuseIdentifier:@"ContactItemCell"];
     
-    [self.contactsTable setRowHeight:75];
-    [self.contactsTable setSeparatorInset:UIEdgeInsetsMake(25, 25, 25, 25)];
+    [self.contactsTable setRowHeight:100];
     
     
 }
@@ -81,28 +84,26 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
-    }
-    
     RODHandle *handle = [[RODItemStore sharedStore].authie.all_Contacts objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = handle.name;
+    ContactItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ContactItemCell"];
+    
+    [cell.contactName setText:handle.name];
     
     UIImage *mostRecent = [UIImage alloc];
 
     if(handle.mostRecentSnap == (id)[NSNull null] || handle.mostRecentSnap.length == 0) {
         // nothing
         
+        mostRecent = [UIImage imageNamed:@"heart-blue-v2.png"];
+        
         
     } else {
         mostRecent = [[RODImageStore sharedStore] imageForKey:handle.mostRecentSnap];
     }
 
+    [cell.imageView setContentMode:UIViewContentModeScaleAspectFit];
     [cell.imageView setImage:mostRecent];
-    
     
     return cell;
 }

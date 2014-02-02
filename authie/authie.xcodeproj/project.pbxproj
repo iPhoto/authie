@@ -106,6 +106,8 @@
 		5D8C1CFD1880EEB900158AE5 /* MiniThreadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C1CFB1880EEB900158AE5 /* MiniThreadViewController.xib */; };
 		5D95C2E3189EC2EE00C8155D /* PagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D95C2E1189EC2EE00C8155D /* PagerViewController.m */; };
 		5D95C2E4189EC2EE00C8155D /* PagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D95C2E2189EC2EE00C8155D /* PagerViewController.xib */; };
+		5D95C2E7189F048A00C8155D /* ContactItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D95C2E6189F048A00C8155D /* ContactItemCell.m */; };
+		5D95C2EB189F04DC00C8155D /* ContactItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D95C2EA189F04DB00C8155D /* ContactItemCell.xib */; };
 		5D9A453218765184008C45FD /* RODThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9A453118765184008C45FD /* RODThread.m */; };
 		5D9A453418771D0F008C45FD /* authie-logo-07-350px.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9A453318771D0F008C45FD /* authie-logo-07-350px.png */; };
 		5D9C7C57187DE25200BE2D42 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C7C56187DE25200BE2D42 /* NavigationController.m */; };
@@ -343,6 +345,9 @@
 		5D95C2E0189EC2EE00C8155D /* PagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagerViewController.h; sourceTree = "<group>"; };
 		5D95C2E1189EC2EE00C8155D /* PagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagerViewController.m; sourceTree = "<group>"; };
 		5D95C2E2189EC2EE00C8155D /* PagerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PagerViewController.xib; sourceTree = "<group>"; };
+		5D95C2E5189F048A00C8155D /* ContactItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactItemCell.h; sourceTree = "<group>"; };
+		5D95C2E6189F048A00C8155D /* ContactItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactItemCell.m; sourceTree = "<group>"; };
+		5D95C2EA189F04DB00C8155D /* ContactItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactItemCell.xib; sourceTree = "<group>"; };
 		5D9A453018765184008C45FD /* RODThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RODThread.h; sourceTree = "<group>"; };
 		5D9A453118765184008C45FD /* RODThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RODThread.m; sourceTree = "<group>"; };
 		5D9A453318771D0F008C45FD /* authie-logo-07-350px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "authie-logo-07-350px.png"; sourceTree = "<group>"; };
@@ -819,6 +824,9 @@
 				5D95C2E0189EC2EE00C8155D /* PagerViewController.h */,
 				5D95C2E1189EC2EE00C8155D /* PagerViewController.m */,
 				5D95C2E2189EC2EE00C8155D /* PagerViewController.xib */,
+				5D95C2E5189F048A00C8155D /* ContactItemCell.h */,
+				5D95C2E6189F048A00C8155D /* ContactItemCell.m */,
+				5D95C2EA189F04DB00C8155D /* ContactItemCell.xib */,
 				5DEE7CA8185234E800F532B3 /* Images.xcassets */,
 				5DEE7C91185234E800F532B3 /* Supporting Files */,
 				5D5A0726188271C4003848EA /* NSDate+PrettyDate.h */,
@@ -987,6 +995,7 @@
 				5D21CA3E188DAF6800330F78 /* UAMapPresentationViewController.xib in Resources */,
 				5D8C1CDF18805AA000158AE5 /* heart.png in Resources */,
 				5D95C2E4189EC2EE00C8155D /* PagerViewController.xib in Resources */,
+				5D95C2EB189F04DC00C8155D /* ContactItemCell.xib in Resources */,
 				5D21CA3B188DAF6800330F78 /* top-detail.png in Resources */,
 				5D06B985187B0D4E00FC17F0 /* cog.png in Resources */,
 				5D6340BA188A16DC006538C5 /* heart-blue.png in Resources */,
@@ -1112,6 +1121,7 @@
 				5D21CA31188DAF6800330F78 /* UAPushSettingsSoundsViewController.m in Sources */,
 				5DF86497186E0E7A002DCCDC /* RODResponseMessage.m in Sources */,
 				5D8C1CE818808FC000158AE5 /* SelectContactViewController.m in Sources */,
+				5D95C2E7189F048A00C8155D /* ContactItemCell.m in Sources */,
 				5D21CA32188DAF6800330F78 /* UAPushSettingsTagsViewController.m in Sources */,
 				5D21CA35188DAF6800330F78 /* UAPushSettingsViewController.m in Sources */,
 				5D860798188C4D6600963653 /* RODMessage.m in Sources */,
