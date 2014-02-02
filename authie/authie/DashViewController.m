@@ -362,10 +362,11 @@
         
         RODThread *t = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:thread_index];
         
-        if(t.fromHandle.id == [RODItemStore sharedStore].authie.handle.id || t.toHandle.id == [RODItemStore sharedStore].authie.handle.id) {
+        if([t.fromHandleId isEqualToString:[RODItemStore sharedStore].authie.handle.name] || [t.toHandleId isEqualToString:[RODItemStore sharedStore].authie.handle.name]) {
             
         } else {
             
+            NSLog(@"t.fromHandle.id: %@, t.toHandle.id: %@", t.fromHandleId, t.toHandleId);
             NSLog(@"Can't delete this one.");
             return;
         }
