@@ -25,6 +25,7 @@
 @property (strong, nonatomic) SRHubConnection *hubConnection;
 @property (strong, nonatomic) SRHubProxy *hubProxy;
 @property (strong, nonatomic) NSString *mostRecentGroupKey;
+@property (nonatomic) int currentPage;
 
 + (RODItemStore *)sharedStore;
 

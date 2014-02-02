@@ -20,6 +20,7 @@
 #import "ConfirmSnapViewController.h"
 #import "BlankSlateViewController.h"
 #import <CXAlertView/CXAlertView.h>
+#import "PagerViewController.h"
 
 @implementation DashViewController
 @synthesize handle, contentSize, imageToUpload, keyToUpload, handleToUpload, captionToUpload, doUploadOnView, imagePicker, selected, mostRecentGroupKey, photoHeight;
@@ -336,10 +337,45 @@
         [self.scroll addSubview:mini.view];
         
     }
+    
+    // now add the pager control
+    PagerViewController *pager = [[PagerViewController alloc] init];
+    pager.view.frame = CGRectMake(0, yOffset, self.view.bounds.size.width, pager.view.frame.size.height);
+    
+    if([[RODItemStore sharedStore] currentPage] > 1) {
+        [pager.buttonBack setHidden:false];
+        [pager.buttonBack addTarget:self action:@selector(backButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        
+    } else {
+        [pager.buttonBack setHidden:true];
+    }
+    
+    [pager.buttonNext addTarget:self action:@selector(nextButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    
+    pager.view.tag = 7;
+    yOffset = yOffset + pager.view.frame.size.height;
+    
+    [self.scroll addSubview:pager.view];
 
     self.contentSize = yOffset;
     [self.scroll setContentSize:CGSizeMake(self.scroll.frame.size.width, self.contentSize)];
     
+}
+
+- (void)nextButtonClicked:(UIButton *)button
+{
+    [RODItemStore sharedStore].currentPage++;
+    [[RODItemStore sharedStore] loadThreads];
+    [self populateScrollView];
+}
+
+-(void)backButtonClicked:(UIButton *)button
+{
+    if([[RODItemStore sharedStore] currentPage] > 1) {
+        [RODItemStore sharedStore].currentPage--;
+        [[RODItemStore sharedStore] loadThreads];
+        [self populateScrollView];
+    }
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView

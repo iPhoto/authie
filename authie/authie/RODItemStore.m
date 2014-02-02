@@ -23,7 +23,7 @@
 #import <MRProgressOverlayView.h>
 
 @implementation RODItemStore
-@synthesize loadedThreadsFromAuthor, hubConnection, hubProxy, mostRecentGroupKey;
+@synthesize loadedThreadsFromAuthor, hubConnection, hubProxy, mostRecentGroupKey, currentPage;
 
 - (id)init
 {
@@ -33,6 +33,7 @@
         NSString *path = [self itemArchivePath];
 
         
+        currentPage = 1;
         
         _authie = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
                 
@@ -1001,7 +1002,7 @@
     NSURLResponse *response;
     NSData *localData = nil;
     
-    NSString *url = @"http://authie.me/api/thread";
+    NSString *url = [NSString stringWithFormat:@"http://authie.me/api/thread/%i", self.currentPage];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5];
     
@@ -1034,6 +1035,9 @@
         
         id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingMutableContainers error:&deserialize_error];
         if([object isKindOfClass:[NSArray self]] && deserialize_error == nil) {
+            
+            // lol now we want to clear everything...
+            [self.authie.allThreads removeAllObjects];
             
             for (NSDictionary *result in object) {
                 

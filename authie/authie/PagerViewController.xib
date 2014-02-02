@@ -6,6 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PagerViewController">
             <connections>
+                <outlet property="buttonBack" destination="3Ou-8m-ebW" id="iV7-Jh-k0H"/>
+                <outlet property="buttonNext" destination="GXQ-qm-yga" id="qCT-Sm-j2S"/>
                 <outlet property="view" destination="tJK-bl-a9Q" id="tWr-EK-WKz"/>
             </connections>
         </placeholder>
