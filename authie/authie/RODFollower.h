@@ -15,6 +15,7 @@
 @property (nonatomic) NSNumber *followerId;
 @property (nonatomic) NSNumber *followeeId;
 @property (nonatomic) NSNumber *active;
+@property (nonatomic) NSString *mostRecentSnap;
 
 @property (nonatomic) RODHandle *followeeHandle;
 @property (nonatomic) RODHandle *followerHandle;

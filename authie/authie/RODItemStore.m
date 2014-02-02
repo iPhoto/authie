@@ -974,6 +974,10 @@
                 followeeHandle.name = [from_result objectForKey:@"name"];
                 followeeHandle.publicKey = [from_result objectForKey:@"publicKey"];
                 
+                NSString *mRS = [result objectForKey:@"mostRecentSnap"];
+                
+                followeeHandle.mostRecentSnap = mRS;
+                                
                 [self.authie.allContacts addObject:followeeHandle];
                 
             }

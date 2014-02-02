@@ -16,6 +16,7 @@
     [aCoder encodeObject:self.followerId forKey:@"followerId"];
     [aCoder encodeObject:self.followeeId forKey:@"followeeId"];
     [aCoder encodeObject:self.active forKey:@"active"];
+    [aCoder encodeObject:self.mostRecentSnap forKey:@"mostRecentSnap"];
 }
 
 - (id) initWithCoder:(NSCoder *)aDecoder
@@ -26,7 +27,7 @@
         [self setFollowerId:[NSNumber numberWithInteger:[[aDecoder decodeObjectForKey:@"followerId"] integerValue]]];
         [self setFolloweeId:[NSNumber numberWithInteger:[[aDecoder decodeObjectForKey:@"followeeId"] integerValue]]];
         [self setActive:[NSNumber numberWithInteger:[[aDecoder decodeObjectForKey:@"active"] integerValue]]];
-        
+        [self setMostRecentSnap:[aDecoder decodeObjectForKey:@"mostRecentSnap"]];
     }
     return self;
 }

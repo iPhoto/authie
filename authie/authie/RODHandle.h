@@ -16,5 +16,6 @@
 @property (nonatomic) NSString *userGuid;
 @property (nonatomic) NSString *publicKey;
 @property (nonatomic) NSString *privateKey;
+@property (nonatomic) NSString *mostRecentSnap;
 
 @end

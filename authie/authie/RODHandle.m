@@ -19,6 +19,7 @@
     [aCoder encodeObject:self.userGuid forKey:@"userGuid"];
     [aCoder encodeObject:self.privateKey forKey:@"privateKey"];
     [aCoder encodeObject:self.publicKey forKey:@"publicKey"];
+    [aCoder encodeObject:self.mostRecentSnap forKey:@"mostRecentSnap"];
 }
 
 - (id) initWithCoder:(NSCoder *)aDecoder
@@ -31,6 +32,7 @@
         [self setUserGuid:[aDecoder decodeObjectForKey:@"userGuid"]];
         [self setPrivateKey:[aDecoder decodeObjectForKey:@"privateKey"]];
         [self setPublicKey:[aDecoder decodeObjectForKey:@"publicKey"]];
+        [self setMostRecentSnap:[aDecoder decodeObjectForKey:@"mostRecentSnap"]];
     }
     return self;
 }

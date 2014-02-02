@@ -91,20 +91,18 @@
     
     cell.textLabel.text = handle.name;
     
-    UIImage *mostRecent = [UIImage imageNamed:@"heart-v2.png"];
-    
-    // ok, now we actually find the most recent from this user
-    NSMutableArray *tempThreads = [NSMutableArray arrayWithArray:[RODItemStore sharedStore].authie.allThreads];
-    for (RODThread *t in [RODItemStore sharedStore].authie.allThreads) {
-        if([t.fromHandle.id isEqualToNumber:handle.id]) {
-            
-            
-        }
+    UIImage *mostRecent = [UIImage alloc];
+
+    if(handle.mostRecentSnap == (id)[NSNull null] || handle.mostRecentSnap.length == 0) {
+        // nothing
+        
+        
+    } else {
+        mostRecent = [[RODImageStore sharedStore] imageForKey:handle.mostRecentSnap];
     }
-    
+
     [cell.imageView setImage:mostRecent];
     
-
     
     return cell;
 }
