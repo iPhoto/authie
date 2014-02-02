@@ -977,9 +977,9 @@
                 
             }
 
-            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-            [appDelegate.contactsViewController.tableView reloadData];
-            [appDelegate.contactsViewController.refreshControl endRefreshing];
+            //AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            //[appDelegate.contactsViewController.tableView reloadData];
+            //[appDelegate.contactsViewController.refreshControl endRefreshing];
                         
             loaded_contacts = YES;
             
@@ -1313,7 +1313,9 @@
                 
                 NSLog(@"Loaded message %@: '%@' from %@", message.id, message.messageText, message.fromHandle.name);
                 
-                for(RODMessage *r in self.authie.allMessages) {
+                NSMutableArray *tempMessages = [NSMutableArray arrayWithArray:self.authie.allMessages];
+                
+                for(RODMessage *r in tempMessages) {
                     if([r.id isEqualToNumber:message.id]) {
                         NSLog(@"Removed old object.");
                         [self.authie.allMessages removeObject:r];

@@ -916,6 +916,13 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = bitwise;
 				TargetAttributes = {
+					5DEE7C86185234E700F532B3 = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
 					5DEE7CAD185234E800F532B3 = {
 						TestTargetID = 5DEE7C86185234E700F532B3;
 					};
