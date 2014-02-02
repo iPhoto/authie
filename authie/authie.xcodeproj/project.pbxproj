@@ -104,6 +104,8 @@
 		5D8C1CF81880E8B800158AE5 /* DashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C1CF61880E8B800158AE5 /* DashViewController.xib */; };
 		5D8C1CFC1880EEB900158AE5 /* MiniThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C1CFA1880EEB900158AE5 /* MiniThreadViewController.m */; };
 		5D8C1CFD1880EEB900158AE5 /* MiniThreadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C1CFB1880EEB900158AE5 /* MiniThreadViewController.xib */; };
+		5D95C2E3189EC2EE00C8155D /* PagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D95C2E1189EC2EE00C8155D /* PagerViewController.m */; };
+		5D95C2E4189EC2EE00C8155D /* PagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D95C2E2189EC2EE00C8155D /* PagerViewController.xib */; };
 		5D9A453218765184008C45FD /* RODThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9A453118765184008C45FD /* RODThread.m */; };
 		5D9A453418771D0F008C45FD /* authie-logo-07-350px.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9A453318771D0F008C45FD /* authie-logo-07-350px.png */; };
 		5D9C7C57187DE25200BE2D42 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C7C56187DE25200BE2D42 /* NavigationController.m */; };
@@ -338,6 +340,9 @@
 		5D8C1CF91880EEB900158AE5 /* MiniThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiniThreadViewController.h; sourceTree = "<group>"; };
 		5D8C1CFA1880EEB900158AE5 /* MiniThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiniThreadViewController.m; sourceTree = "<group>"; };
 		5D8C1CFB1880EEB900158AE5 /* MiniThreadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MiniThreadViewController.xib; sourceTree = "<group>"; };
+		5D95C2E0189EC2EE00C8155D /* PagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagerViewController.h; sourceTree = "<group>"; };
+		5D95C2E1189EC2EE00C8155D /* PagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagerViewController.m; sourceTree = "<group>"; };
+		5D95C2E2189EC2EE00C8155D /* PagerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PagerViewController.xib; sourceTree = "<group>"; };
 		5D9A453018765184008C45FD /* RODThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RODThread.h; sourceTree = "<group>"; };
 		5D9A453118765184008C45FD /* RODThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RODThread.m; sourceTree = "<group>"; };
 		5D9A453318771D0F008C45FD /* authie-logo-07-350px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "authie-logo-07-350px.png"; sourceTree = "<group>"; };
@@ -811,6 +816,9 @@
 				5D0DC374189C325600E8CA81 /* AboutViewController.xib */,
 				5D1B7BC3188EEF6A00D4DCBD /* UACustomPushNotificationDelegate.h */,
 				5D1B7BC4188EEF6A00D4DCBD /* UACustomPushNotificationDelegate.m */,
+				5D95C2E0189EC2EE00C8155D /* PagerViewController.h */,
+				5D95C2E1189EC2EE00C8155D /* PagerViewController.m */,
+				5D95C2E2189EC2EE00C8155D /* PagerViewController.xib */,
 				5DEE7CA8185234E800F532B3 /* Images.xcassets */,
 				5DEE7C91185234E800F532B3 /* Supporting Files */,
 				5D5A0726188271C4003848EA /* NSDate+PrettyDate.h */,
@@ -978,6 +986,7 @@
 				5D21CA41188DAF6800330F78 /* UAPushSettingsAddTagViewController.xib in Resources */,
 				5D21CA3E188DAF6800330F78 /* UAMapPresentationViewController.xib in Resources */,
 				5D8C1CDF18805AA000158AE5 /* heart.png in Resources */,
+				5D95C2E4189EC2EE00C8155D /* PagerViewController.xib in Resources */,
 				5D21CA3B188DAF6800330F78 /* top-detail.png in Resources */,
 				5D06B985187B0D4E00FC17F0 /* cog.png in Resources */,
 				5D6340BA188A16DC006538C5 /* heart-blue.png in Resources */,
@@ -1077,6 +1086,7 @@
 				5D21CA17188DAF6800330F78 /* UAInboxMessageViewController.m in Sources */,
 				5D556A631882384100C5B6FB /* LoginViewController.m in Sources */,
 				5DF8648B185BEA60002DCCDC /* RODAuthie.m in Sources */,
+				5D95C2E3189EC2EE00C8155D /* PagerViewController.m in Sources */,
 				5D9DEE9D185242E300F80413 /* RODSelfie.m in Sources */,
 				5D8C1CDB187F3ACA00158AE5 /* RODFollower.m in Sources */,
 				5D21CA2D188DAF6800330F78 /* UAPushMoreSettingsViewController.m in Sources */,
