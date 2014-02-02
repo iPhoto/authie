@@ -9,7 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface ContactItemCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
+
+@property (weak, nonatomic) IBOutlet UIImageView *mostRecentSnap;
+
 @property (weak, nonatomic) IBOutlet UILabel *contactName;
 
 @end

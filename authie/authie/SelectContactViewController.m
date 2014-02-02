@@ -40,6 +40,7 @@
     
     [self.contactsTable setRowHeight:100];
     
+    self.navigationItem.title = @"send snap to:";
     
 }
 
@@ -70,6 +71,7 @@
     [appDelegate.dashViewController.navigationController popToRootViewControllerAnimated:YES];
     
 }
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -102,8 +104,7 @@
         mostRecent = [[RODImageStore sharedStore] imageForKey:handle.mostRecentSnap];
     }
 
-    [cell.imageView setContentMode:UIViewContentModeScaleAspectFit];
-    [cell.imageView setImage:mostRecent];
+    [cell.mostRecentSnap setImage:mostRecent];
     
     return cell;
 }

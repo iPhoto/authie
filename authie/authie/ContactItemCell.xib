@@ -13,24 +13,28 @@
                 <rect key="frame" x="0.0" y="0.0" width="387" height="99"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart-blue-v2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Xb2-cU-x4o">
-                        <rect key="frame" x="20" y="8" width="93" height="78"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart-blue-v2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Xb2-cU-x4o">
+                        <rect key="frame" x="20" y="20" width="65" height="61"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="78" id="3zJ-Ug-9jq"/>
-                            <constraint firstAttribute="width" constant="93" id="yon-7a-NbG"/>
+                            <constraint firstAttribute="height" constant="61" id="3zJ-Ug-9jq"/>
+                            <constraint firstAttribute="width" constant="65" id="yon-7a-NbG"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hDa-df-P2l">
                         <rect key="frame" x="133" y="33" width="247" height="31"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="27"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="31" id="QSQ-gB-I6C"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="19"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
-                    <constraint firstItem="Xb2-cU-x4o" firstAttribute="top" secondItem="4zc-HA-cNL" secondAttribute="top" constant="8" id="5aF-5E-TKb"/>
+                    <constraint firstItem="Xb2-cU-x4o" firstAttribute="top" secondItem="4zc-HA-cNL" secondAttribute="top" constant="20" id="5aF-5E-TKb"/>
                     <constraint firstAttribute="bottom" secondItem="hDa-df-P2l" secondAttribute="bottom" constant="35" id="ESR-qM-5y0"/>
                     <constraint firstItem="Xb2-cU-x4o" firstAttribute="leading" secondItem="4zc-HA-cNL" secondAttribute="leading" constant="20" id="UGd-U4-TGP"/>
                     <constraint firstAttribute="trailing" secondItem="hDa-df-P2l" secondAttribute="trailing" constant="7" id="ZoE-fL-MrP"/>
@@ -39,7 +43,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="contactName" destination="hDa-df-P2l" id="cs5-1D-BdF"/>
-                <outlet property="imageView" destination="Xb2-cU-x4o" id="WWB-UV-Xkj"/>
+                <outlet property="mostRecentSnap" destination="Xb2-cU-x4o" id="Skb-jQ-vyg"/>
             </connections>
         </tableViewCell>
     </objects>
