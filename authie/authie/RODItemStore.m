@@ -1494,7 +1494,7 @@
     
     NSString *url = @"http://authie.me/api/checkhandle";
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLCacheStorageNotAllowed timeoutInterval:5];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5];
     [request setHTTPMethod:@"POST"];
     
     if(error == nil) {
@@ -1513,7 +1513,7 @@
             
             NSInteger response_result;
             response_result = [[object objectForKey:@"result"] integerValue];
-
+            
             if(response_result == 0) {
                 is_available = NO;
             } else {
