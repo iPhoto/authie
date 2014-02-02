@@ -1708,6 +1708,7 @@
             
             appDelegate.threadViewController = [[ThreadViewController alloc] init];
             [appDelegate.threadViewController loadThread:i];
+            [appDelegate.threadViewController reloadThread];
             [appDelegate.dashViewController.navigationController pushViewController:appDelegate.threadViewController animated:YES];
             
             break;

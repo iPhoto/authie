@@ -54,7 +54,7 @@
 
 - (void)receivedForegroundNotification:(NSDictionary *)notification
 {
-    NSLog(@"recieved forground notification: %@", notification);
+    NSLog(@"recieved foreground notification: %@", notification);
 
     NSString *alertMessage;
     NSString *notificationGroupKey = [notification objectForKey:@"threadKey"];
@@ -69,6 +69,7 @@
     
     if([appDelegate.threadViewController.thread.groupKey isEqualToString:notificationGroupKey]) {
         // do nothing, they are viewing this thread
+        [appDelegate.threadViewController reloadThread];
         
     } else {
         UIAlertView *al = [[UIAlertView alloc] initWithTitle:@"new auth" message:alertMessage delegate:self cancelButtonTitle:@"ok" otherButtonTitles:@"go to thread", nil];
