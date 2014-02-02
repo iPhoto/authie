@@ -68,7 +68,7 @@
     self.navigationItem.rightBarButtonItem = rightDrawerButton;
     
     [[RODItemStore sharedStore] loadMessagesForThread:self.thread.groupKey];
-
+    [self reloadThread];
     
 }
 
