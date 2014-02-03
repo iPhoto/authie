@@ -138,7 +138,14 @@
     drawer = drawerController;
     
     
-
+    
+//    UIColor *appTint = self.window.tintColor;
+//    
+//    [UIButton appearance].tintColor = appTint;
+//    [[UIButton appearance] setTitleColor:appTint
+//                                forState:UIControlStateNormal];
+//    [UISwitch appearance].tintColor = appTint;
+//    [UISwitch appearance].onTintColor = appTint;
     
     [self.window setRootViewController:drawerController];
     

@@ -28,6 +28,7 @@
         // Custom initialization
         [self setEdgesForExtendedLayout:UIRectEdgeNone];
         
+        
     }
     return self;
 }
@@ -44,6 +45,7 @@
     
     self.navigationItem.title = @"send snap to:";
     
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -53,9 +55,16 @@
     // this happens when they are viewing their own profile
     self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateSettingsCog:self];
     
-    self.imagePicker = [[UIImagePickerController alloc] init];
-    
     [self.contactsTable deselectRowAtIndexPath:[self.contactsTable indexPathForSelectedRow] animated:animated];
+
+    self.cameraView.savePicturesToLibrary = YES;
+    self.cameraView.backgroundColor = [UIColor whiteColor];
+    self.cameraView.highlightColor = [UIColor blackColor];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
+    
+    [self.cameraView setAlpha:1.0f];
+    [self.cameraView setOpaque:NO];
+
     
 }
 
@@ -122,9 +131,7 @@
     
     // Configure the camera view
     //self.cameraView.shouldAutoRotateView = YES;
-    self.cameraView.savePicturesToLibrary = YES;
-    self.cameraView.backgroundColor = [UIColor whiteColor];
-    self.cameraView.highlightColor = [UIColor whiteColor];
+
     
     //self.cameraView.targetResolution = CGSizeMake(640.0, 640.0); // The minimum resolution we want
     self.cameraView.keepFrontCameraPicturesMirrored = YES;
@@ -138,8 +145,12 @@
 //            NSMutableArray * tmp = [NSMutableArray arrayWithArray:_slideView.objectArray];
 //            [tmp insertObject:thumbnail atIndex:0];
 //            _slideView.objectArray = tmp;
+        } else {
+            
+            NSLog(@"Error occurred: %@", error);
         }
     };
+    
     self.cameraView.flashButtonConfigurationBlock = [self.cameraView buttonConfigurationBlockWithTitleFrom:
                                                      @[@"Flash Off", @"Flash On", @"Flash Auto"]];
     self.cameraView.focusButtonConfigurationBlock = [self.cameraView buttonConfigurationBlockWithTitleFrom:
@@ -161,17 +172,30 @@
         // *** Do something with the image and its URL ***
     };
 
-    self.cameraView.opaque = false;
+    
 
     [NBUImagePickerController startPickerWithTarget:self
-                                            options:(NBUImagePickerOptionReturnMediaInfo | NBUImagePickerOptionDisableConfirmation |
-                                                NBUImagePickerOptionSingleImage |
-                                                NBUImagePickerOptionDisableFilters
+                                            options:(NBUImagePickerOptionReturnMediaInfo |    NBUImagePickerOptionDisableConfirmation |
+                                                     NBUImagePickerOptionSingleImage |
+                                                     NBUImagePickerOptionDisableFilters |
+                                                     NBUImagePickerOptionDisableCrop
                                                      )
                                             nibName:nil
                                         resultBlock:^(NSArray * mediaInfos)
      {
          NSLog(@"Picker finished with media info: %@", mediaInfos);
+         
+         if(mediaInfos == nil) {
+             
+             AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+             
+             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"trashed" message:@"Your message has been trashed." delegate:appDelegate.dashViewController cancelButtonTitle:@"ok" otherButtonTitles:nil];
+             
+             [self.navigationController popViewControllerAnimated:YES];
+             
+             [alert show];
+             return;
+         }
          
          NBUMediaInfo *m = mediaInfos[0];
          
@@ -211,47 +235,6 @@
     
 }
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-    [self dismissViewControllerAnimated:NO completion:nil];
-    self.imagePicker = nil;
-    
-    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    
-    CFUUIDRef newUniqueID = CFUUIDCreate(kCFAllocatorDefault);
-    CFStringRef newUniqueIDString = CFUUIDCreateString(kCFAllocatorDefault, newUniqueID);
-    
-    NSString *key = (__bridge NSString *)newUniqueIDString;
 
-    CFRelease(newUniqueIDString);
-    CFRelease(newUniqueID);
-    
-    // now push to confirm snap
-    
-    ConfirmSnapViewController *confirm = [[ConfirmSnapViewController alloc] init];
-    confirm.snap = image;
-    confirm.key = key;
-    confirm.handle = self.selected;
-    
-    // old
-    [self.navigationController pushViewController:confirm animated:YES];
-
-    
-}
-
--(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-{
-    [self dismissViewControllerAnimated:NO completion:nil];
-    self.imagePicker = nil;
-
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"trashed" message:@"Your message has been trashed." delegate:appDelegate.dashViewController cancelButtonTitle:@"ok" otherButtonTitles:nil];
-
-    [appDelegate.dashViewController.navigationController popToRootViewControllerAnimated:YES];
-
-    [alert show];
-    
-}
 
 @end
