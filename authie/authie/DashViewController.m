@@ -365,16 +365,14 @@
 - (void)nextButtonClicked:(UIButton *)button
 {
     [RODItemStore sharedStore].currentPage++;
-    [[RODItemStore sharedStore] loadThreads];
-    [self populateScrollView];
+    [self getThreads];
 }
 
 -(void)backButtonClicked:(UIButton *)button
 {
     if([[RODItemStore sharedStore] currentPage] > 1) {
         [RODItemStore sharedStore].currentPage--;
-        [[RODItemStore sharedStore] loadThreads];
-        [self populateScrollView];
+        [self getThreads];
     }
 }
 
