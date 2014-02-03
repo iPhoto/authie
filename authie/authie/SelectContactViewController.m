@@ -16,6 +16,7 @@
 #import "RODThread.h"
 #import "ContactItemCell.h"
 #import <NBUImagePicker/NBUImagePickerController.h>
+#import <NBUImagePicker/NBUMediaInfo.h>
 
 @implementation SelectContactViewController
 @synthesize imagePicker, contactsTable;
@@ -163,6 +164,29 @@
                                         resultBlock:^(NSArray * mediaInfos)
      {
          NSLog(@"Picker finished with media info: %@", mediaInfos);
+         
+         NBUMediaInfo *m = mediaInfos[0];
+         
+         [self dismissViewControllerAnimated:NO completion:nil];
+         
+         UIImage *image = m.editedImage;
+         CFUUIDRef newUniqueID = CFUUIDCreate(kCFAllocatorDefault);
+         CFStringRef newUniqueIDString = CFUUIDCreateString(kCFAllocatorDefault, newUniqueID);
+         
+         NSString *key = (__bridge NSString *)newUniqueIDString;
+         
+         CFRelease(newUniqueIDString);
+         CFRelease(newUniqueID);
+         
+         // now push to confirm snap
+         
+         ConfirmSnapViewController *confirm = [[ConfirmSnapViewController alloc] init];
+         confirm.snap = image;
+         confirm.key = key;
+         confirm.handle = self.selected;
+         
+         // old
+         [self.navigationController pushViewController:confirm animated:YES];
          
      }];
     
