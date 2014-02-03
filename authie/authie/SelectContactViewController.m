@@ -122,8 +122,11 @@
     
     // Configure the camera view
     //self.cameraView.shouldAutoRotateView = YES;
-    //self.cameraView.savePicturesToLibrary = YES;
-    self.cameraView.targetResolution = CGSizeMake(640.0, 640.0); // The minimum resolution we want
+    self.cameraView.savePicturesToLibrary = YES;
+    self.cameraView.backgroundColor = [UIColor whiteColor];
+    self.cameraView.highlightColor = [UIColor whiteColor];
+    
+    //self.cameraView.targetResolution = CGSizeMake(640.0, 640.0); // The minimum resolution we want
     self.cameraView.keepFrontCameraPicturesMirrored = YES;
     self.cameraView.captureResultBlock = ^(UIImage * image,
                                            NSError * error)
@@ -148,7 +151,7 @@
     
     // Configure for video
     //self.cameraView.targetMovieFolder = [UIApplication sharedApplication].temporaryDirectory;
-    
+        
     // Optionally auto-save pictures to the library
     self.cameraView.saveResultBlock = ^(UIImage * image,
                                         NSDictionary * metadata,
@@ -157,9 +160,14 @@
     {
         // *** Do something with the image and its URL ***
     };
-    
+
+    self.cameraView.opaque = false;
+
     [NBUImagePickerController startPickerWithTarget:self
-                                            options:(NBUImagePickerOptionReturnMediaInfo | NBUImagePickerOptionDisableConfirmation | NBUImagePickerOptionSingleImage)
+                                            options:(NBUImagePickerOptionReturnMediaInfo | NBUImagePickerOptionDisableConfirmation |
+                                                NBUImagePickerOptionSingleImage |
+                                                NBUImagePickerOptionDisableFilters
+                                                     )
                                             nibName:nil
                                         resultBlock:^(NSArray * mediaInfos)
      {
