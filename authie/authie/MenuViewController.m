@@ -36,7 +36,12 @@
     self.tableView.dataSource = self;
     self.tableView.opaque = NO;
     self.tableView.backgroundColor = [UIColor clearColor];
-        
+    
+    self.tableView.tableHeaderView = ({
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 29.0f)];
+        view;
+    });
+
     [self.tableView reloadData];
     
     [self.tableView setSeparatorInset:UIEdgeInsetsZero];

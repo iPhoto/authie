@@ -159,7 +159,7 @@
     };
     
     [NBUImagePickerController startPickerWithTarget:self
-                                            options:(NBUImagePickerOptionReturnMediaInfo)
+                                            options:(NBUImagePickerOptionReturnMediaInfo | NBUImagePickerOptionDisableConfirmation | NBUImagePickerOptionSingleImage)
                                             nibName:nil
                                         resultBlock:^(NSArray * mediaInfos)
      {
