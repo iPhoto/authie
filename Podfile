@@ -7,3 +7,7 @@ pod 'GoogleAnalytics-iOS-SDK'
 pod 'SignalR-ObjC'
 pod 'JSMessagesViewController'
 pod 'CXAlertView'
+
+# Recommended to keep GPUImage up-to-date
+pod 'GPUImage', :head
+pod 'NBUImagePicker'

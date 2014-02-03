@@ -19,10 +19,93 @@ PODS:
     - AFNetworking/NSURLConnection
   - CXAlertView (1.0.1)
   - GoogleAnalytics-iOS-SDK (3.0.2)
+  - GPUImage (HEAD based on 0.1.2)
   - JSMessagesViewController (3.4.4):
     - JSQSystemSoundPlayer
   - JSQSystemSoundPlayer (1.4.0)
+  - Lockbox (1.4.6)
+  - MotionOrientation@PTEz (1.0.0)
   - MRProgress (0.2.2)
+  - NBUCore (2.0.0)
+  - NBUImagePicker (1.0.0):
+    - NBUImagePicker/Assets
+    - NBUImagePicker/Base
+    - NBUImagePicker/Camera
+    - NBUImagePicker/Filters
+    - NBUImagePicker/Gallery
+    - NBUImagePicker/Image
+    - NBUImagePicker/MediaInfo
+    - NBUImagePicker/Picker
+    - NBUImagePicker/Resources
+    - NBUKit (>= 2.0.1)
+  - NBUImagePicker/Assets (1.0.0):
+    - NBUImagePicker/Base
+    - NBUKit (>= 2.0.1)
+  - NBUImagePicker/Base (1.0.0):
+    - NBUKit (>= 2.0.1)
+  - NBUImagePicker/Camera (1.0.0):
+    - NBUImagePicker/Assets
+    - NBUKit (>= 2.0.1)
+    - RBVolumeButtons
+  - NBUImagePicker/Filters (1.0.0):
+    - GPUImage (>= 0.1.2)
+    - NBUImagePicker/Base
+    - NBUKit (>= 2.0.1)
+  - NBUImagePicker/Gallery (1.0.0):
+    - NBUImagePicker/Assets
+    - NBUImagePicker/MediaInfo
+    - NBUKit (>= 2.0.1)
+  - NBUImagePicker/Image (1.0.0):
+    - NBUImagePicker/Filters
+    - NBUImagePicker/MediaInfo
+    - NBUKit (>= 2.0.1)
+  - NBUImagePicker/MediaInfo (1.0.0):
+    - NBUImagePicker/Assets
+    - NBUKit (>= 2.0.1)
+  - NBUImagePicker/Picker (1.0.0):
+    - NBUImagePicker/Camera
+    - NBUImagePicker/Gallery
+    - NBUImagePicker/Image
+    - NBUKit (>= 2.0.1)
+  - NBUImagePicker/Resources (1.0.0):
+    - NBUKit (>= 2.0.1)
+  - NBUKit (2.0.1):
+    - Lockbox (>= 1.4.6)
+    - NBUCore (>= 2.0.0)
+    - NBUKit/Additions
+    - NBUKit/Base
+    - NBUKit/Library
+    - NBUKit/UI
+  - NBUKit/Additions (2.0.1):
+    - Lockbox (>= 1.4.6)
+    - NBUCore (>= 2.0.0)
+    - NBUKit/Base
+  - NBUKit/Base (2.0.1):
+    - Lockbox (>= 1.4.6)
+    - NBUCore (>= 2.0.0)
+  - NBUKit/Library (2.0.1):
+    - Lockbox (>= 1.4.6)
+    - NBUCore (>= 2.0.0)
+    - NBUKit/Base
+    - NBUKit/Library/NBUCompatibility
+    - NBUKit/Library/RestKit Support
+  - NBUKit/Library/NBUCompatibility (2.0.1):
+    - Lockbox (>= 1.4.6)
+    - NBUCore (>= 2.0.0)
+    - NBUKit/Base
+    - NBUKit/UI
+  - NBUKit/Library/RestKit Support (2.0.1):
+    - Lockbox (>= 1.4.6)
+    - NBUCore (>= 2.0.0)
+    - NBUKit/Base
+  - NBUKit/UI (2.0.1):
+    - Lockbox (>= 1.4.6)
+    - MotionOrientation@PTEz (>= 1.0.0)
+    - NBUCore (>= 2.0.0)
+    - NBUKit/Additions
+    - NBUKit/Library/NBUCompatibility
+    - NBUKit/Library/RestKit Support
+  - RBVolumeButtons (0.0.1)
   - REFrostedViewController (2.4.1)
   - SignalR-ObjC (2.0.0.alpha1):
     - AFNetworking (~> 2.0)
@@ -32,8 +115,10 @@ PODS:
 DEPENDENCIES:
   - CXAlertView
   - GoogleAnalytics-iOS-SDK
+  - GPUImage (HEAD)
   - JSMessagesViewController
   - MRProgress (~> 0.2.2)
+  - NBUImagePicker
   - REFrostedViewController (~> 2.4.1)
   - SignalR-ObjC
 
@@ -41,9 +126,16 @@ SPEC CHECKSUMS:
   AFNetworking: c7d7901a83f631414c7eda1737261f696101a5cd
   CXAlertView: 59e8305700c59a27730c636765cb76311d311b88
   GoogleAnalytics-iOS-SDK: 86393b99f7328ae8d8e975fcaa8632a39dafafe8
+  GPUImage: 007145faa0e27f1ddbcab93e07f026c9776e2fa2
   JSMessagesViewController: 309de7324fbf48b7da924b002ef6017d5d2ce026
   JSQSystemSoundPlayer: 28ccd01a92a0cebc6de6361e8499011b4cb6dab7
+  Lockbox: 56ac5c11e51d46baa4408960a5a35b355a32840e
+  MotionOrientation@PTEz: 0b987d39639b13ce2769f6dc6f96f59783ca8786
   MRProgress: 51af562344c3fe38ce3c0617fd064f6f1ce55cd5
+  NBUCore: 66e33f9426cbefb5ca88f3228cfc2dd36eac6e71
+  NBUImagePicker: 9e16842451e59f9b3ba887a69c8b87154513c1c8
+  NBUKit: 79753017e76910f5b100910307aa06132ee38130
+  RBVolumeButtons: 8fc67cc874d6dfa1808f61c91e9931ccabe52ae0
   REFrostedViewController: 56f6b2dc7ae02968be251fcd379bc283696f310d
   SignalR-ObjC: 5790e7749e29e4e0ed67e0986893de54a35a5a5c
   SocketRocket: 7ac946bcce46287a791dfff3c1f8daa692821dae
