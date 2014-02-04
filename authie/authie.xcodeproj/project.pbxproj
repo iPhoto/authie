@@ -124,6 +124,7 @@
 		5DBBDBED18822C80004446DE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5DBBDBE718822C80004446DE /* README.md */; };
 		5DBBDBEE18822C80004446DE /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 5DBBDBE818822C80004446DE /* release_notes.md */; };
 		5DBBDBF018822D51004446DE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBBDBEF18822D51004446DE /* libz.dylib */; };
+		5DBBF9BD18A15D6900F761D9 /* logo-640px.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DBBF9BC18A15D6900F761D9 /* logo-640px.png */; };
 		5DEE7C8B185234E700F532B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DEE7C8A185234E700F532B3 /* Foundation.framework */; };
 		5DEE7C8D185234E700F532B3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DEE7C8C185234E700F532B3 /* CoreGraphics.framework */; };
 		5DEE7C8F185234E800F532B3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DEE7C8E185234E700F532B3 /* UIKit.framework */; };
@@ -375,6 +376,7 @@
 		5DBBDBEA18822C80004446DE /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
 		5DBBDBEB18822C80004446DE /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		5DBBDBEF18822D51004446DE /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		5DBBF9BC18A15D6900F761D9 /* logo-640px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-640px.png"; sourceTree = "<group>"; };
 		5DEE7C87185234E700F532B3 /* authie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = authie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DEE7C8A185234E700F532B3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5DEE7C8C185234E700F532B3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -841,6 +843,7 @@
 				5D21C97B188DAF6800330F78 /* Airship */,
 				5D06B984187B0D4E00FC17F0 /* cog.png */,
 				5D5A072E18848A7C003848EA /* lock.png */,
+				5DBBF9BC18A15D6900F761D9 /* logo-640px.png */,
 				5DB549A218943DC900E03D9D /* Main_iPhone.storyboard */,
 				5D0DC37018980A8F00E8CA81 /* house-v2.png */,
 				5DB549A4189585F700E03D9D /* home.png */,
@@ -1001,6 +1004,7 @@
 				5D6340BA188A16DC006538C5 /* heart-blue.png in Resources */,
 				5D21CA20188DAF6800330F78 /* overlayCloseBtn.png in Resources */,
 				5DB549A318943DC900E03D9D /* Main_iPhone.storyboard in Resources */,
+				5DBBF9BD18A15D6900F761D9 /* logo-640px.png in Resources */,
 				5DEE7CA9185234E800F532B3 /* Images.xcassets in Resources */,
 				5D0DC376189C325600E8CA81 /* AboutViewController.xib in Resources */,
 				5D21CA44188DAF6800330F78 /* UAPushSettingsTagsViewController.xib in Resources */,

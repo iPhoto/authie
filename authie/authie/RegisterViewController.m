@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "RODImageStore.h"
 #import "RODItemStore.h"
 #import "RegisterViewController.h"
 #import "LoginViewController.h"
@@ -38,8 +39,11 @@
     // Do any additional setup after loading the view from its nib.
     
     [self.navigationController setNavigationBarHidden:YES];
-    [self.authieHandle becomeFirstResponder];
-                                           }
+    //[self.authieHandle becomeFirstResponder];
+    
+    [self.backgroundImage setImage:[[RODImageStore sharedStore] imageForKey:@"E455F7B0-EFC0-4103-82A3-646B5A60AEA1"]];
+    
+}
 
 - (void)didReceiveMemoryWarning
 {
