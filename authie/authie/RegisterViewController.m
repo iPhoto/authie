@@ -38,11 +38,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [self.navigationController setNavigationBarHidden:YES];
     //[self.authieHandle becomeFirstResponder];
     
     [self.backgroundImage setImage:[[RODImageStore sharedStore] imageForKey:@"E455F7B0-EFC0-4103-82A3-646B5A60AEA1"]];
     
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -126,6 +131,13 @@
     LoginViewController *lvc = [[LoginViewController alloc] init];
     appDelegate.loginViewController = lvc;
     [appDelegate.dashViewController.navigationController pushViewController:lvc animated:YES];
+}
+
+- (IBAction)waitWhat:(id)sender {
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.dashViewController.navigationController pushViewController:appDelegate.aboutViewController animated:YES];
+
 }
 
 - (IBAction)authieHandleChanged:(id)sender {

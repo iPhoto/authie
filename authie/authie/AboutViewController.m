@@ -23,27 +23,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.navigationItem.titleView = [[RODItemStore sharedStore] generateHeaderView];
+        
+    self.navigationItem.title = @"what is authie?";
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
-    UIButton *button_menu = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button_menu setFrame:CGRectMake(0, 0, 30, 30)];
-    [button_menu setImage:[UIImage imageNamed:@"house-v2.png"] forState:UIControlStateNormal];
-    [button_menu addTarget:(NavigationController *)self.navigationController action:@selector(showMenu:) forControlEvents:UIControlEventTouchUpInside];
-    
-    
-    UIBarButtonItem *leftDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_menu];
-    self.navigationItem.leftBarButtonItem = leftDrawerButton;
-
     // Do any additional setup after loading the view from its nib.
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://authie.me/appabout"]]];
 
-    
+    [self.navigationController setNavigationBarHidden:NO];
+
 }
 
 - (void)didReceiveMemoryWarning

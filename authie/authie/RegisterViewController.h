@@ -17,6 +17,7 @@
 - (IBAction)tappedScreen:(id)sender;
 - (IBAction)registerHandle:(id)sender;
 - (IBAction)loginWithPrivateKey:(id)sender;
+- (IBAction)waitWhat:(id)sender;
 
 - (IBAction)authieHandleChanged:(id)sender;
 - (void)checkHandleAvailability;

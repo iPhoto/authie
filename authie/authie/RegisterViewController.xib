@@ -22,7 +22,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="269" height="448"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SG9-1b-hRM">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SG9-1b-hRM">
                     <rect key="frame" x="197" y="155" width="52" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
@@ -35,7 +35,7 @@
                         <action selector="registerHandle:" destination="-1" eventType="touchUpInside" id="hSs-n3-8Hp"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="handle" minimumFontSize="32" translatesAutoresizingMaskIntoConstraints="NO" id="K0f-pb-hdp">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="handle" minimumFontSize="32" translatesAutoresizingMaskIntoConstraints="NO" id="K0f-pb-hdp">
                     <rect key="frame" x="24" y="155" width="159" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -49,11 +49,11 @@
                         <outlet property="delegate" destination="-1" id="7gM-gg-XWB"/>
                     </connections>
                 </textField>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="234" translatesAutoresizingMaskIntoConstraints="NO" id="ssY-d0-Zsd">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="234" translatesAutoresizingMaskIntoConstraints="NO" id="ssY-d0-Zsd">
                     <rect key="frame" x="24" y="52" width="234" height="98"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="78" id="2iX-cw-TV4"/>
+                        <constraint firstAttribute="height" constant="98" id="2iX-cw-TV4"/>
                     </constraints>
                     <string key="text">welcome, please choose your handle. this is how people send you messages. it's the only thing we need for signup (no email or whatever.) you can change this later.</string>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
@@ -75,7 +75,7 @@
                         <constraint firstAttribute="height" constant="48" id="pQI-3N-fub"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DPr-7t-uJo">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DPr-7t-uJo">
                     <rect key="frame" x="40" y="196" width="201" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
@@ -89,7 +89,7 @@
                         <action selector="loginWithPrivateKey:" destination="-1" eventType="touchUpInside" id="3T6-7B-CuA"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PmG-kh-WuG">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PmG-kh-WuG">
                     <rect key="frame" x="40" y="234" width="201" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
@@ -99,36 +99,39 @@
                     <state key="normal" title="wait, what is authie?">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="waitWhat:" destination="-1" eventType="touchUpInside" id="JeD-pC-j2q"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstItem="K0f-pb-hdp" firstAttribute="leading" secondItem="hzn-bz-8eH" secondAttribute="leading" id="046-8o-j31"/>
+                <constraint firstItem="K0f-pb-hdp" firstAttribute="leading" secondItem="hzn-bz-8eH" secondAttribute="leading" constant="-6" id="046-8o-j31"/>
                 <constraint firstItem="PmG-kh-WuG" firstAttribute="top" secondItem="DPr-7t-uJo" secondAttribute="bottom" constant="8" id="0Tz-mM-EVI"/>
                 <constraint firstAttribute="trailing" secondItem="hzn-bz-8eH" secondAttribute="trailing" constant="45" id="3Mn-Cb-Pws"/>
                 <constraint firstItem="PmG-kh-WuG" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="40" id="5mM-r8-Ism"/>
-                <constraint firstItem="PmG-kh-WuG" firstAttribute="top" secondItem="1" secondAttribute="top" constant="226" id="A5Q-bu-JJt"/>
+                <constraint firstItem="PmG-kh-WuG" firstAttribute="top" secondItem="1" secondAttribute="top" constant="234" id="A5Q-bu-JJt"/>
                 <constraint firstItem="ssY-d0-Zsd" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="24" id="Ba6-7V-V99"/>
-                <constraint firstItem="SG9-1b-hRM" firstAttribute="leading" secondItem="K0f-pb-hdp" secondAttribute="trailing" constant="8" symbolic="YES" id="C4m-5a-X52"/>
+                <constraint firstItem="SG9-1b-hRM" firstAttribute="leading" secondItem="K0f-pb-hdp" secondAttribute="trailing" constant="14" id="C4m-5a-X52"/>
                 <constraint firstAttribute="trailing" secondItem="KPf-tW-n1F" secondAttribute="trailing" constant="-2" id="F0u-uE-0Bn"/>
                 <constraint firstItem="27K-o8-d8W" firstAttribute="top" secondItem="1" secondAttribute="top" id="FLF-71-c08"/>
-                <constraint firstItem="ssY-d0-Zsd" firstAttribute="top" secondItem="KPf-tW-n1F" secondAttribute="bottom" constant="-5" id="IVE-6U-m6y"/>
-                <constraint firstItem="K0f-pb-hdp" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="30" id="Lo1-Vs-X3c"/>
-                <constraint firstItem="K0f-pb-hdp" firstAttribute="top" secondItem="ssY-d0-Zsd" secondAttribute="bottom" constant="8" symbolic="YES" id="ORE-Y7-A5d"/>
-                <constraint firstItem="DPr-7t-uJo" firstAttribute="top" secondItem="hzn-bz-8eH" secondAttribute="bottom" constant="8" symbolic="YES" id="Pv3-Cn-v4V"/>
+                <constraint firstItem="ssY-d0-Zsd" firstAttribute="top" secondItem="KPf-tW-n1F" secondAttribute="bottom" constant="-9" id="IVE-6U-m6y"/>
+                <constraint firstItem="K0f-pb-hdp" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="24" id="Lo1-Vs-X3c"/>
+                <constraint firstItem="K0f-pb-hdp" firstAttribute="top" secondItem="ssY-d0-Zsd" secondAttribute="bottom" constant="5" id="ORE-Y7-A5d"/>
+                <constraint firstItem="DPr-7t-uJo" firstAttribute="top" secondItem="hzn-bz-8eH" secondAttribute="bottom" constant="16" id="Pv3-Cn-v4V"/>
                 <constraint firstAttribute="trailing" secondItem="SG9-1b-hRM" secondAttribute="trailing" constant="20" symbolic="YES" id="R1Z-la-HRc"/>
                 <constraint firstItem="KPf-tW-n1F" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="RWB-ol-6DA"/>
                 <constraint firstItem="KPf-tW-n1F" firstAttribute="top" secondItem="1" secondAttribute="top" constant="13" id="U4k-PW-wVD"/>
-                <constraint firstItem="SG9-1b-hRM" firstAttribute="top" secondItem="ssY-d0-Zsd" secondAttribute="bottom" constant="8" symbolic="YES" id="XaL-YX-KTd"/>
-                <constraint firstAttribute="trailing" secondItem="ssY-d0-Zsd" secondAttribute="trailing" constant="12" id="anT-B5-Zqw"/>
+                <constraint firstItem="SG9-1b-hRM" firstAttribute="top" secondItem="ssY-d0-Zsd" secondAttribute="bottom" constant="5" id="XaL-YX-KTd"/>
+                <constraint firstAttribute="trailing" secondItem="ssY-d0-Zsd" secondAttribute="trailing" constant="11" id="anT-B5-Zqw"/>
                 <constraint firstItem="DPr-7t-uJo" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="40" id="bbe-3g-Gva"/>
                 <constraint firstItem="27K-o8-d8W" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="cLy-VK-vC8"/>
                 <constraint firstItem="PmG-kh-WuG" firstAttribute="width" secondItem="DPr-7t-uJo" secondAttribute="width" id="cnC-y0-cCv"/>
                 <constraint firstAttribute="trailing" secondItem="27K-o8-d8W" secondAttribute="trailing" id="dx6-IA-GuM"/>
                 <constraint firstAttribute="bottom" secondItem="27K-o8-d8W" secondAttribute="bottom" id="iSE-pC-b20"/>
                 <constraint firstItem="DPr-7t-uJo" firstAttribute="centerX" secondItem="ssY-d0-Zsd" secondAttribute="centerX" id="jO4-x4-5ST"/>
-                <constraint firstItem="hzn-bz-8eH" firstAttribute="top" secondItem="K0f-pb-hdp" secondAttribute="bottom" constant="8" symbolic="YES" id="qqq-Og-Ps5"/>
+                <constraint firstItem="hzn-bz-8eH" firstAttribute="top" secondItem="K0f-pb-hdp" secondAttribute="bottom" constant="-5" id="qqq-Og-Ps5"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
