@@ -106,7 +106,7 @@ PODS:
     - NBUKit/Library/NBUCompatibility
     - NBUKit/Library/RestKit Support
   - RBVolumeButtons (0.0.1)
-  - REFrostedViewController (2.4.1)
+  - REMenu (1.8)
   - SignalR-ObjC (2.0.0.alpha1):
     - AFNetworking (~> 2.0)
     - SocketRocket (= 0.3.1-beta2)
@@ -119,7 +119,7 @@ DEPENDENCIES:
   - JSMessagesViewController
   - MRProgress (~> 0.2.2)
   - NBUImagePicker
-  - REFrostedViewController (~> 2.4.1)
+  - REMenu (~> 1.8)
   - SignalR-ObjC
 
 SPEC CHECKSUMS:
@@ -136,7 +136,7 @@ SPEC CHECKSUMS:
   NBUImagePicker: 9e16842451e59f9b3ba887a69c8b87154513c1c8
   NBUKit: 79753017e76910f5b100910307aa06132ee38130
   RBVolumeButtons: 8fc67cc874d6dfa1808f61c91e9931ccabe52ae0
-  REFrostedViewController: 56f6b2dc7ae02968be251fcd379bc283696f310d
+  REMenu: 40bb965c968b298c3f36d36067a15dd3f2c52473
   SignalR-ObjC: 5790e7749e29e4e0ed67e0986893de54a35a5a5c
   SocketRocket: 7ac946bcce46287a791dfff3c1f8daa692821dae
 

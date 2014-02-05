@@ -227,7 +227,8 @@
     NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.dashViewController];
 
     [appDelegate.dashViewController.navigationController pushViewController:confirm animated:YES];
-    self.frostedViewController.contentViewController = navigationController;
+        
+    //self.frostedViewController.contentViewController = navigationController;
     
     
 }

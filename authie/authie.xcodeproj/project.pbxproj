@@ -79,6 +79,7 @@
 		5D21CA57188DB00F00330F78 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D21CA56188DB00F00330F78 /* CoreTelephony.framework */; };
 		5D21CA59188DB01A00330F78 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D21CA58188DB01A00330F78 /* CoreLocation.framework */; };
 		5D21CA5D188DB0AB00330F78 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D21CA5C188DB0AB00330F78 /* AirshipConfig.plist */; };
+		5D2F711A18A2C5F800EDC1E4 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F711918A2C5F800EDC1E4 /* NavigationViewController.m */; };
 		5D556A631882384100C5B6FB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D556A611882384100C5B6FB /* LoginViewController.m */; };
 		5D556A641882384100C5B6FB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D556A621882384100C5B6FB /* LoginViewController.xib */; };
 		5D5A0728188271C4003848EA /* NSDate+PrettyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A0727188271C4003848EA /* NSDate+PrettyDate.m */; };
@@ -307,6 +308,8 @@
 		5D21CA56188DB00F00330F78 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		5D21CA58188DB01A00330F78 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5D21CA5C188DB0AB00330F78 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
+		5D2F711818A2C5F800EDC1E4 /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
+		5D2F711918A2C5F800EDC1E4 /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
 		5D556A601882384100C5B6FB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		5D556A611882384100C5B6FB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		5D556A621882384100C5B6FB /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -781,6 +784,8 @@
 				5D860797188C4D6600963653 /* RODMessage.m */,
 				5DEE7C99185234E800F532B3 /* AppDelegate.h */,
 				5DEE7C9A185234E800F532B3 /* AppDelegate.m */,
+				5D2F711818A2C5F800EDC1E4 /* NavigationViewController.h */,
+				5D2F711918A2C5F800EDC1E4 /* NavigationViewController.m */,
 				5D06B97F187B0C1F00FC17F0 /* MenuViewController.h */,
 				5D06B980187B0C1F00FC17F0 /* MenuViewController.m */,
 				5D9C7C55187DE25200BE2D42 /* NavigationController.h */,
@@ -1118,6 +1123,7 @@
 				5D21CA2B188DAF6800330F78 /* UALocationSettingsViewController.m in Sources */,
 				5D21CA2A188DAF6800330F78 /* UALocationDemoAnnotation.m in Sources */,
 				5D5A073318848B0F003848EA /* ConfirmSnapViewController.m in Sources */,
+				5D2F711A18A2C5F800EDC1E4 /* NavigationViewController.m in Sources */,
 				5D21CA2C188DAF6800330F78 /* UAMapPresentationController.m in Sources */,
 				5D21CA11188DAF6800330F78 /* UABarButtonSegmentedControl.m in Sources */,
 				5D21CA1A188DAF6800330F78 /* UAInboxUI.m in Sources */,

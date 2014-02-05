@@ -9,8 +9,6 @@
 #import "MenuViewController.h"
 #import "RODItemStore.h"
 #import "AppDelegate.h"
-#import <REFrostedViewController.h>
-#import "UIViewController+REFrostedViewController.h"
 #import "ContactsViewController.h"
 #import "PrivateKeyViewController.h"
 #import "SelectContactViewController.h"
@@ -126,21 +124,21 @@
         case 2: // private key
         {
             [[RODItemStore sharedStore] getPrivateKey];
-            NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.privateKeyViewController];
-            self.frostedViewController.contentViewController = navigationController;
+//            NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.privateKeyViewController];
+//            self.frostedViewController.contentViewController = navigationController;
         }
             break;
         case 3: // about
         {
 
-            NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.aboutViewController];
-            self.frostedViewController.contentViewController = navigationController;
+//            NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.aboutViewController];
+//            self.frostedViewController.contentViewController = navigationController;
         }
             break;
             
     }
     
-    [self.frostedViewController hideMenuViewController];
+//    [self.frostedViewController hideMenuViewController];
 }
 
 #pragma mark -
@@ -150,22 +148,22 @@
 {
 
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.dashViewController];
+//    NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.dashViewController];
     
     [appDelegate.dashViewController.navigationController pushViewController:appDelegate.selectContactViewController animated:YES];
     
-    self.frostedViewController.contentViewController = navigationController;
-    
+//    self.frostedViewController.contentViewController = navigationController;
+//    
 }
 
 - (void)showDashboard
 {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.dashViewController];
+    //NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.dashViewController];
     
     [appDelegate.dashViewController clearScrollView];
     [appDelegate.dashViewController getThreads];
-    self.frostedViewController.contentViewController = navigationController;
+    //self.frostedViewController.contentViewController = navigationController;
     
 }
 

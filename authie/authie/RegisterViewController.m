@@ -116,9 +116,8 @@
         if(registered == YES) {
             
             // show the main screen
-            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-            NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.dashViewController];
-            self.frostedViewController.contentViewController = navigationController;
+            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];            
+            [appDelegate.navigationViewController pushViewController:appDelegate.dashViewController animated:YES];
             
             
         } else {

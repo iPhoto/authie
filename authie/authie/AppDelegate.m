@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 #import "MenuViewController.h"
 #import "NavigationController.h"
-#import <REFrostedViewController.h>
 #import "ThreadViewController.h"
 #import "RODItemStore.h"
 #import "RODAuthie.h"
@@ -25,10 +24,10 @@
 #import <SignalR-ObjC/SignalR.h>
 #import "RODHandle.h"
 #import <GAITrackedViewController.h>
+#import "NavigationViewController.h"
 
 @implementation AppDelegate
-@synthesize threadViewController, contactsViewController, privateKeyViewController, dashViewController, loginViewController, registerViewController, selectContactViewController, authorizeContactViewController, notificationDelegate,
-    aboutViewController, drawer;
+@synthesize threadViewController, contactsViewController, privateKeyViewController, dashViewController, loginViewController, registerViewController, selectContactViewController, authorizeContactViewController, notificationDelegate, aboutViewController, navigationViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -119,9 +118,6 @@
     NavigationController *navController = [[NavigationController alloc] initWithRootViewController:dashViewController];
     [navController.navigationBar setBackgroundColor:[UIColor whiteColor]];
     
-    MenuViewController * leftDrawer = [[MenuViewController alloc] initWithStyle:UITableViewStylePlain];
-    self.leftDrawer = leftDrawer;
-    
     NSDictionary *new_font = [NSDictionary dictionaryWithObjectsAndKeys:
                               [UIColor blackColor], NSForegroundColorAttributeName,
                               [UIFont systemFontOfSize:12.0], NSFontAttributeName, nil];
@@ -129,26 +125,14 @@
     [navController.navigationBar setTitleTextAttributes:new_font];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     
+    
+    NavigationViewController *nav = [[NavigationViewController alloc] initWithRootViewController:dashViewController];
+    navigationViewController = nav;
+    
+    self.window.rootViewController = navigationViewController;
 
-    REFrostedViewController *drawerController;
-    drawerController = [[REFrostedViewController alloc] initWithContentViewController:navController menuViewController:self.leftDrawer];
-    drawerController.direction = REFrostedViewControllerDirectionLeft;
-    drawerController.liveBlurBackgroundStyle = REFrostedViewControllerLiveBackgroundStyleLight;
-    drawerController.menuViewSize = CGSizeMake(200, self.window.frame.size.height);
-    drawerController.delegate = self;
-    drawer = drawerController;
     
-    
-    
-//    UIColor *appTint = self.window.tintColor;
-//    
-//    [UIButton appearance].tintColor = appTint;
-//    [[UIButton appearance] setTitleColor:appTint
-//                                forState:UIControlStateNormal];
-//    [UISwitch appearance].tintColor = appTint;
-//    [UISwitch appearance].onTintColor = appTint;
-    
-    [self.window setRootViewController:drawerController];
+//    [self.window setRootViewController:drawerController];
     
     if([RODItemStore sharedStore].authie.registered == 0) {
         // show register handle screen
@@ -169,32 +153,6 @@
     
     // Override point for customization after application launch.
     return YES;
-}
-
-
-- (void)frostedViewController:(REFrostedViewController *)frostedViewController didRecognizePanGesture:(UIPanGestureRecognizer *)recognizer
-{
-    
-}
-
-- (void)frostedViewController:(REFrostedViewController *)frostedViewController willShowMenuViewController:(UIViewController *)menuViewController
-{
-//    NSLog(@"willShowMenuViewController");
-}
-
-- (void)frostedViewController:(REFrostedViewController *)frostedViewController didShowMenuViewController:(UIViewController *)menuViewController
-{
-//    NSLog(@"didShowMenuViewController");
-}
-
-- (void)frostedViewController:(REFrostedViewController *)frostedViewController willHideMenuViewController:(UIViewController *)menuViewController
-{
-//    NSLog(@"willHideMenuViewController");
-}
-
-- (void)frostedViewController:(REFrostedViewController *)frostedViewController didHideMenuViewController:(UIViewController *)menuViewController
-{
-//    NSLog(@"didHideMenuViewController");
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

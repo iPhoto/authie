@@ -85,9 +85,9 @@
                 [[RODItemStore sharedStore] loadMessages];
                 
                 AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-                NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:appDelegate.dashViewController];
                 [appDelegate.dashViewController setDoGetThreadsOnView:YES];
-                [appDelegate.drawer setContentViewController:navigationController];
+                
+                [appDelegate.navigationViewController pushViewController:appDelegate.dashViewController animated:YES];
                 
             }
             

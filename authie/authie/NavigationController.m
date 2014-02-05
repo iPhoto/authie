@@ -7,7 +7,6 @@
 //
 
 #import "NavigationController.h"
-#import <REFrostedViewController.h>
 #import "MenuViewController.h"
 #import "RODItemStore.h"
 #import <SignalR-ObjC/SignalR.h>
@@ -41,7 +40,7 @@
 
 - (IBAction)showMenu:(id)sender
 {
-    [self.frostedViewController presentMenuViewController];
+//[self.frostedViewController presentMenuViewController];
 }
 
 - (void)panGestureRecognized:(UIPanGestureRecognizer *)sender

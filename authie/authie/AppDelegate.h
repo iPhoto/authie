@@ -7,9 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <REFrostedViewController.h>
-#import "NavigationController.h"
-#import "MenuViewController.h"
 #import "ThreadViewController.h"
 #import "ContactsViewController.h"
 #import "PrivateKeyViewController.h"
@@ -21,12 +18,12 @@
 #import "AuthorizeContactViewController.h"
 #import "UACustomPushNotificationDelegate.h"
 #import <SignalR-ObjC/SignalR.h>
+#import "NavigationViewController.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, REFrostedViewControllerDelegate, SRConnectionDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, SRConnectionDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) ThreadViewController *threadViewController;
-@property (strong, nonatomic) MenuViewController *leftDrawer;
 @property (strong, nonatomic) ContactsViewController *contactsViewController;
 @property (strong, nonatomic) PrivateKeyViewController *privateKeyViewController;
 @property (strong, nonatomic) DashViewController *dashViewController;
@@ -36,8 +33,7 @@
 @property (strong, nonatomic) AuthorizeContactViewController *authorizeContactViewController;
 @property (strong, nonatomic) AboutViewController *aboutViewController;
 @property (strong, nonatomic) UACustomPushNotificationDelegate *notificationDelegate;
-@property (strong, nonatomic) REFrostedViewController *drawer;
-
+@property (strong, nonatomic) NavigationViewController *navigationViewController;
 
 
 @end
