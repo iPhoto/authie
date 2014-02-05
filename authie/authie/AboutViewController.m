@@ -35,6 +35,8 @@
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://authie.me/appabout"]]];
 
     [self.navigationController setNavigationBarHidden:NO];
+    
+    self.screenName = @"About";
 
 }
 

@@ -50,6 +50,12 @@
     [self.navigationController setNavigationBarHidden:YES];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    self.screenName = @"Register";
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

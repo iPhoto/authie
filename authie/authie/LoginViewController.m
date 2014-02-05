@@ -11,7 +11,7 @@
 #import "AppDelegate.h"
 #import <MRProgress/MRProgress.h>
 #import "RODAuthie.h"
-
+#import <GAITrackedViewController.h>
 
 @implementation LoginViewController
 
@@ -30,6 +30,12 @@
     // Do any additional setup after loading the view from its nib.
     
     [self setEdgesForExtendedLayout:UIRectEdgeNone];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    self.screenName = @"Login";
 }
 
 - (void)viewWillAppear:(BOOL)animated

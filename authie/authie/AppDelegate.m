@@ -24,6 +24,7 @@
 #import "UAPush.h"
 #import <SignalR-ObjC/SignalR.h>
 #import "RODHandle.h"
+#import <GAITrackedViewController.h>
 
 @implementation AppDelegate
 @synthesize threadViewController, contactsViewController, privateKeyViewController, dashViewController, loginViewController, registerViewController, selectContactViewController, authorizeContactViewController, notificationDelegate,

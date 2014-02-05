@@ -9,8 +9,9 @@
 @class RODHandle;
 #import <UIKit/UIKit.h>
 #import <SignalR-ObjC/SignalR.h>
+#import <GAITrackedViewController.h>
 
-@interface DashViewController : UIViewController <UIImagePickerControllerDelegate, SRConnectionDelegate, UIScrollViewDelegate>
+@interface DashViewController : GAITrackedViewController <UIImagePickerControllerDelegate, SRConnectionDelegate, UIScrollViewDelegate>
 {
     NSMutableArray *_items;
 }

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <GAITrackedViewController.h>
 
-@interface LoginViewController : UIViewController
+@interface LoginViewController : GAITrackedViewController
 - (IBAction)doLogin:(id)sender;
 - (IBAction)cancel:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *textHandle;

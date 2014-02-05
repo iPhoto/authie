@@ -8,8 +8,9 @@
 @class RODThread;
 
 #import <UIKit/UIKit.h>
+#import <GAITrackedViewController.h>
 
-@interface AuthorizeContactViewController : UIViewController
+@interface AuthorizeContactViewController : GAITrackedViewController
 @property (weak, nonatomic) IBOutlet UILabel *labelRequestDetails;
 - (IBAction)acceptAuthorization:(id)sender;
 - (IBAction)denyAuthorization:(id)sender;

@@ -31,6 +31,11 @@
     
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.screenName = @"ConfirmSnap";
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

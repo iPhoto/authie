@@ -80,6 +80,8 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+
+    self.screenName = @"Dash";
     
     if(self.doUploadOnView) {
         [self doUpload];
