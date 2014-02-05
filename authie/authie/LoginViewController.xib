@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
             <connections>
+                <outlet property="backgroundImage" destination="zW4-ly-ppH" id="ge7-5x-Qid"/>
                 <outlet property="labelResults" destination="FjH-4y-GiQ" id="PLT-nT-ep8"/>
                 <outlet property="textHandle" destination="Lp2-Wd-tJP" id="f1q-JS-kPF"/>
                 <outlet property="textKey" destination="z6l-t2-KJP" id="ZMc-ko-mNQ"/>
@@ -14,17 +15,21 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="qwO-ai-maq">
-            <rect key="frame" x="0.0" y="0.0" width="191" height="398"/>
+            <rect key="frame" x="0.0" y="0.0" width="192" height="417"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zW4-ly-ppH">
+                    <rect key="frame" x="1" y="0.0" width="191" height="417"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="handle" minimumFontSize="32" translatesAutoresizingMaskIntoConstraints="NO" id="Lp2-Wd-tJP">
-                    <rect key="frame" x="21" y="68" width="150" height="31"/>
+                    <rect key="frame" x="21" y="68" width="151" height="31"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                     <textInputTraits key="textInputTraits" returnKeyType="next"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="private key" minimumFontSize="32" translatesAutoresizingMaskIntoConstraints="NO" id="z6l-t2-KJP">
-                    <rect key="frame" x="21" y="107" width="150" height="30"/>
+                    <rect key="frame" x="21" y="107" width="151" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="Puv-8W-LOa"/>
@@ -32,8 +37,8 @@
                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                     <textInputTraits key="textInputTraits" returnKeyType="next"/>
                 </textField>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="142" translatesAutoresizingMaskIntoConstraints="NO" id="FjH-4y-GiQ">
-                    <rect key="frame" x="20" y="174" width="142" height="37"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="143" translatesAutoresizingMaskIntoConstraints="NO" id="FjH-4y-GiQ">
+                    <rect key="frame" x="20" y="174" width="143" height="37"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="37" id="Iwj-z2-2KC"/>
@@ -43,7 +48,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Qq-Y6-yrP">
-                    <rect key="frame" x="128" y="145" width="43" height="21"/>
+                    <rect key="frame" x="129" y="145" width="43" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="43" id="65I-Gd-rgH"/>
@@ -56,15 +61,15 @@
                         <action selector="doLogin:" destination="-1" eventType="touchUpInside" id="ZEL-yX-X3m"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="authie-logo-07-350px.png" translatesAutoresizingMaskIntoConstraints="NO" id="xP0-4U-srW">
-                    <rect key="frame" x="-24" y="9" width="239" height="35"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-640px.png" translatesAutoresizingMaskIntoConstraints="NO" id="xP0-4U-srW">
+                    <rect key="frame" x="21" y="6" width="151" height="74"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="35" id="PMw-Pk-MBo"/>
+                        <constraint firstAttribute="height" constant="74" id="PMw-Pk-MBo"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dUz-0k-Kh8">
-                    <rect key="frame" x="21" y="145" width="56" height="21"/>
+                    <rect key="frame" x="21" y="145" width="57" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="pve-DT-WX0"/>
@@ -81,6 +86,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <gestureRecognizers/>
             <constraints>
+                <constraint firstItem="zW4-ly-ppH" firstAttribute="leading" secondItem="qwO-ai-maq" secondAttribute="leading" constant="1" id="241-Lc-klb"/>
                 <constraint firstItem="Lp2-Wd-tJP" firstAttribute="leading" secondItem="qwO-ai-maq" secondAttribute="leading" constant="21" id="4B6-Nn-ThH"/>
                 <constraint firstAttribute="trailing" secondItem="FjH-4y-GiQ" secondAttribute="trailing" constant="29" id="C1n-VT-Qua"/>
                 <constraint firstItem="FjH-4y-GiQ" firstAttribute="top" secondItem="5Qq-Y6-yrP" secondAttribute="bottom" constant="8" symbolic="YES" id="EPc-si-pZG"/>
@@ -91,19 +97,22 @@
                 <constraint firstAttribute="trailing" secondItem="Lp2-Wd-tJP" secondAttribute="trailing" constant="20" symbolic="YES" id="WHf-QN-cuf"/>
                 <constraint firstItem="xP0-4U-srW" firstAttribute="centerX" secondItem="qwO-ai-maq" secondAttribute="centerX" id="WZk-75-Cil"/>
                 <constraint firstItem="5Qq-Y6-yrP" firstAttribute="top" secondItem="z6l-t2-KJP" secondAttribute="bottom" constant="8" symbolic="YES" id="XMY-Ig-RFo"/>
+                <constraint firstItem="zW4-ly-ppH" firstAttribute="top" secondItem="qwO-ai-maq" secondAttribute="top" id="Z2z-hH-GOa"/>
                 <constraint firstItem="Lp2-Wd-tJP" firstAttribute="trailing" secondItem="z6l-t2-KJP" secondAttribute="trailing" id="bNb-55-R9T"/>
-                <constraint firstItem="Lp2-Wd-tJP" firstAttribute="top" secondItem="xP0-4U-srW" secondAttribute="bottom" constant="24" id="fg8-I1-yRq"/>
+                <constraint firstItem="Lp2-Wd-tJP" firstAttribute="top" secondItem="xP0-4U-srW" secondAttribute="bottom" constant="-12" id="fg8-I1-yRq"/>
                 <constraint firstItem="5Qq-Y6-yrP" firstAttribute="leading" secondItem="dUz-0k-Kh8" secondAttribute="trailing" constant="51" id="jCs-Op-U3H"/>
                 <constraint firstItem="dUz-0k-Kh8" firstAttribute="top" secondItem="z6l-t2-KJP" secondAttribute="bottom" constant="8" symbolic="YES" id="mzV-kb-FJt"/>
                 <constraint firstItem="z6l-t2-KJP" firstAttribute="leading" secondItem="Lp2-Wd-tJP" secondAttribute="leading" id="oQh-Tk-xJi"/>
-                <constraint firstItem="xP0-4U-srW" firstAttribute="top" secondItem="qwO-ai-maq" secondAttribute="top" constant="9" id="pn8-ep-c14"/>
+                <constraint firstAttribute="trailing" secondItem="zW4-ly-ppH" secondAttribute="trailing" id="p7E-bE-a2O"/>
+                <constraint firstItem="xP0-4U-srW" firstAttribute="top" secondItem="qwO-ai-maq" secondAttribute="top" constant="6" id="pn8-ep-c14"/>
                 <constraint firstItem="z6l-t2-KJP" firstAttribute="trailing" secondItem="5Qq-Y6-yrP" secondAttribute="trailing" id="pyy-cQ-INB"/>
-                <constraint firstItem="xP0-4U-srW" firstAttribute="leading" secondItem="qwO-ai-maq" secondAttribute="leading" constant="-24" id="yMj-6O-NS9"/>
+                <constraint firstAttribute="bottom" secondItem="zW4-ly-ppH" secondAttribute="bottom" id="vIc-0C-Jtq"/>
+                <constraint firstItem="xP0-4U-srW" firstAttribute="leading" secondItem="qwO-ai-maq" secondAttribute="leading" constant="21" id="yMj-6O-NS9"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
     <resources>
-        <image name="authie-logo-07-350px.png" width="350" height="77"/>
+        <image name="logo-640px.png" width="640" height="197"/>
     </resources>
 </document>

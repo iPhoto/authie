@@ -44,6 +44,7 @@
     self.privateKey.text = [[RODItemStore sharedStore].authie.privateKey substringToIndex:5];
     
     self.screenName = @"PrivateKey";
+    
 }
 
 

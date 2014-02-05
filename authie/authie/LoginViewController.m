@@ -12,6 +12,7 @@
 #import <MRProgress/MRProgress.h>
 #import "RODAuthie.h"
 #import <GAITrackedViewController.h>
+#import "RODImageStore.h"
 
 @implementation LoginViewController
 
@@ -42,6 +43,9 @@
 {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO];
+    
+    [self.backgroundImage setImage:[[RODImageStore sharedStore] imageForKey:@"B14253A0-E5D0-43DB-A1E1-629EED91FCBE"]];
+    
 }
 
 - (void)didReceiveMemoryWarning
