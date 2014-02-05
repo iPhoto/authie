@@ -568,10 +568,10 @@
 - (void)addContact
 {
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"request authorization"
-                                                    message:@"if you want to add someone, you will need to send verification. we suggest a selfie. enter their handle to begin."
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"add"
+                                                    message:@"to add a friend, enter their handle and send a snap (for example, a selfie) so they know it's you."
                                                    delegate:self
-                                          cancelButtonTitle:@"Cancel"
+                                          cancelButtonTitle:@"cancel"
                                           otherButtonTitles:@"take image", nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
     alert.tag = 2;
