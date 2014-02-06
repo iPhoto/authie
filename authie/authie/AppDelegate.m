@@ -25,9 +25,10 @@
 #import "RODHandle.h"
 #import <GAITrackedViewController.h>
 #import "NavigationViewController.h"
+#import "MessagesViewController.h"
 
 @implementation AppDelegate
-@synthesize threadViewController, contactsViewController, privateKeyViewController, dashViewController, loginViewController, registerViewController, selectContactViewController, authorizeContactViewController, notificationDelegate, aboutViewController, navigationViewController;
+@synthesize threadViewController, contactsViewController, privateKeyViewController, dashViewController, loginViewController, registerViewController, selectContactViewController, authorizeContactViewController, notificationDelegate, aboutViewController, navigationViewController, messagesViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -103,6 +104,9 @@
     
     AboutViewController *about = [[AboutViewController alloc] init];
     aboutViewController = about;
+    
+    MessagesViewController *messages = [[MessagesViewController alloc] init];
+    messagesViewController = messages;
     
     UACustomPushNotificationDelegate *notes = [[UACustomPushNotificationDelegate alloc] init];
     notificationDelegate = notes;

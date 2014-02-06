@@ -19,6 +19,7 @@
 #import "UACustomPushNotificationDelegate.h"
 #import <SignalR-ObjC/SignalR.h>
 #import "NavigationViewController.h"
+#import "MessagesViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, SRConnectionDelegate>
 
@@ -34,6 +35,7 @@
 @property (strong, nonatomic) AboutViewController *aboutViewController;
 @property (strong, nonatomic) UACustomPushNotificationDelegate *notificationDelegate;
 @property (strong, nonatomic) NavigationViewController *navigationViewController;
+@property (strong, nonatomic) MessagesViewController *messagesViewController;
 
 
 @end

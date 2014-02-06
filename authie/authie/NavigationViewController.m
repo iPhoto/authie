@@ -15,6 +15,7 @@
 #import "AppDelegate.h"
 #import "RODItemStore.h"
 #import "RODAuthie.h"
+#import "MessagesViewController.h"
 
 @interface NavigationViewController ()
 
@@ -58,7 +59,7 @@
                                                highlightedImage:nil
                                                          action:^(REMenuItem *item) {
                                                              NSLog(@"Item: %@", item);
-                                                             PrivateKeyViewController *controller = appDelegate.privateKeyViewController;
+                                                             MessagesViewController *controller = appDelegate.messagesViewController;
                                                              [weakSelf setViewControllers:@[controller] animated:NO];
                                                          }];
     messagesItem.badge = [NSString stringWithFormat:@"%i", [[RODItemStore sharedStore].authie.allMessages count]];

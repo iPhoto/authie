@@ -1236,6 +1236,8 @@
         return;
     }
     
+    NSURLResponse *response;
+    
     NSString *url = [NSString stringWithFormat:@"http://authie.me/api/message/%@", key];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5];
@@ -1245,109 +1247,106 @@
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     
     //send the request and get the response
-    
-    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-    
-    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
-        
-        if(data == nil) {
-            NSLog(@"loadMessagesForThread error: %@", error);
-            
-            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-            [MRProgressOverlayView dismissAllOverlaysForView:appDelegate.dashViewController.view animated:YES];
-            return;
-        }
+    NSData *localData = nil;
+    NSError *error = nil;
 
-        NSError *deserialize_error = nil;
+    localData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    if(localData == nil) {
+        NSLog(@"loadMessagesForThread error: %@", error);
         
-        id object = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&deserialize_error];
-        if([object isKindOfClass:[NSArray self]] && deserialize_error == nil) {
-            
-            // first, we want to remove all messages
-            // that do not have an id set, these are messages
-            // that are place holders, put there after the
-            // message has been sent on the users side
-            NSMutableArray *tempMessages = [NSMutableArray arrayWithArray:self.authie.allMessages  ];
-            
-            for(RODMessage *m in tempMessages) {
-                if([m.thread.groupKey isEqualToString:key]) {
-                    if(m.id == [NSNumber numberWithInt:0]) {
-                        [self.authie.allMessages removeObject:m];
-                    }
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        [MRProgressOverlayView dismissAllOverlaysForView:appDelegate.dashViewController.view animated:YES];
+        return;
+    }
+
+    NSError *deserialize_error = nil;
+    
+    id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingMutableContainers error:&deserialize_error];
+    if([object isKindOfClass:[NSArray self]] && deserialize_error == nil) {
+        
+        // first, we want to remove all messages
+        // that do not have an id set, these are messages
+        // that are place holders, put there after the
+        // message has been sent on the users side
+        NSMutableArray *tempMessages = [NSMutableArray arrayWithArray:self.authie.allMessages  ];
+        
+        for(RODMessage *m in tempMessages) {
+            if([m.thread.groupKey isEqualToString:key]) {
+                if(m.id == [NSNumber numberWithInt:0]) {
+                    [self.authie.allMessages removeObject:m];
                 }
             }
-            
-            for (NSDictionary *result in object) {
-                
-                RODMessage *message = [[RODMessage alloc] init];
-                
-                NSInteger id_result = [[result objectForKey:@"id"] integerValue];
-                message.id = [NSNumber numberWithInteger:id_result];
-                
-                NSDictionary *handle_result = [result objectForKey:@"handle"];
-                
-                RODHandle *fromHandle = [[RODHandle alloc] init];
-                
-                NSString *fromHandle_name = [handle_result objectForKey:@"name"];
-                
-                NSString *fromHandle_publicKey = [handle_result objectForKey:@"publicKey"];
-                
-                fromHandle.publicKey = fromHandle_publicKey;
-                fromHandle.name = fromHandle_name;
-                message.fromHandle = fromHandle;
-                
-                NSString *message_text = [result objectForKey:@"messageText"];
-                message.messageText = message_text;
-                
-                NSString *message_date = [result objectForKey:@"sentDate"];
-                
-                NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-                
-                //The Z at the end of your string represents Zulu which is UTC
-                [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
-                [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
-                
-                message.sentDate = [dateFormatter dateFromString:message_date];
-                
-                
-                NSDictionary *thread_result = [result objectForKey:@"thread"];
-                
-                RODThread *thread = [[RODThread alloc] init];
-                
-                NSString *groupKey = [thread_result objectForKey:@"groupKey"];
-                
-                thread.groupKey = groupKey;
-                
-                message.thread = thread;
-                
-                NSLog(@"Loaded message %@: '%@' from %@", message.id, message.messageText, message.fromHandle.name);
-                
-                NSMutableArray *tempMessages = [NSMutableArray arrayWithArray:self.authie.allMessages];
-                
-                for(RODMessage *r in tempMessages) {
-                    if([r.id isEqualToNumber:message.id]) {
-                        NSLog(@"Removed old object.");
-                        [self.authie.allMessages removeObject:r];
-                        break;
-                    }
-                }
-
-                
-                [self.authie.allMessages addObject:message];
-                
-            }
-            
-        } else {
-            NSLog(@"loadMessagesFromThread error: %@", object);
         }
         
-        [self saveChanges];
-        
-        //AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        //[appDelegate.threadViewController reloadThread];
+        for (NSDictionary *result in object) {
+            
+            RODMessage *message = [[RODMessage alloc] init];
+            
+            NSInteger id_result = [[result objectForKey:@"id"] integerValue];
+            message.id = [NSNumber numberWithInteger:id_result];
+            
+            NSDictionary *handle_result = [result objectForKey:@"handle"];
+            
+            RODHandle *fromHandle = [[RODHandle alloc] init];
+            
+            NSString *fromHandle_name = [handle_result objectForKey:@"name"];
+            
+            NSString *fromHandle_publicKey = [handle_result objectForKey:@"publicKey"];
+            
+            fromHandle.publicKey = fromHandle_publicKey;
+            fromHandle.name = fromHandle_name;
+            message.fromHandle = fromHandle;
+            
+            NSString *message_text = [result objectForKey:@"messageText"];
+            message.messageText = message_text;
+            
+            NSString *message_date = [result objectForKey:@"sentDate"];
+            
+            NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+            
+            //The Z at the end of your string represents Zulu which is UTC
+            [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
+            
+            message.sentDate = [dateFormatter dateFromString:message_date];
+            
+            
+            NSDictionary *thread_result = [result objectForKey:@"thread"];
+            
+            RODThread *thread = [[RODThread alloc] init];
+            
+            NSString *groupKey = [thread_result objectForKey:@"groupKey"];
+            
+            thread.groupKey = groupKey;
+            
+            message.thread = thread;
+            
+            NSLog(@"Loaded message %@: '%@' from %@", message.id, message.messageText, message.fromHandle.name);
+            
+            NSMutableArray *tempMessages = [NSMutableArray arrayWithArray:self.authie.allMessages];
+            
+            for(RODMessage *r in tempMessages) {
+                if([r.id isEqualToNumber:message.id]) {
+                    NSLog(@"Removed old object.");
+                    [self.authie.allMessages removeObject:r];
+                    break;
+                }
+            }
 
+            
+            [self.authie.allMessages addObject:message];
+            
+        }
         
-    }];
+    } else {
+        NSLog(@"loadMessagesFromThread error: %@", object);
+    }
+    
+    [self saveChanges];
+    
+    //AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    //[appDelegate.threadViewController reloadThread];
     
 }
 

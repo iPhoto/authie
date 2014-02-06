@@ -94,12 +94,13 @@
 		5D2F713218A3293000EDC1E4 /* house-v5-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F713018A3293000EDC1E4 /* house-v5-white@2x.png */; };
 		5D2F713518A32C2A00EDC1E4 /* about-v3-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F713318A32C2A00EDC1E4 /* about-v3-white.png */; };
 		5D2F713618A32C2A00EDC1E4 /* about-v3-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F713418A32C2A00EDC1E4 /* about-v3-white@2x.png */; };
-		5D2F713918A32C4500EDC1E4 /* messages-v1-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F713718A32C4500EDC1E4 /* messages-v1-white@2x.png */; };
+		5D2F713918A32C4500EDC1E4 /* messages-white-v1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F713718A32C4500EDC1E4 /* messages-white-v1@2x.png */; };
 		5D2F713A18A32C4500EDC1E4 /* messages-white-v1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F713818A32C4500EDC1E4 /* messages-white-v1.png */; };
 		5D2F713D18A32E3600EDC1E4 /* key-v2-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F713B18A32E3600EDC1E4 /* key-v2-white.png */; };
 		5D2F713E18A32E3600EDC1E4 /* key-v2-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F713C18A32E3600EDC1E4 /* key-v2-white@2x.png */; };
 		5D2F714518A3FB5100EDC1E4 /* key-v3-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F714318A3FB5100EDC1E4 /* key-v3-white.png */; };
 		5D2F714618A3FB5100EDC1E4 /* key-v3-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F714418A3FB5100EDC1E4 /* key-v3-white@2x.png */; };
+		5D2F714918A40C8A00EDC1E4 /* MessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F714818A40C8A00EDC1E4 /* MessagesViewController.m */; };
 		5D556A631882384100C5B6FB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D556A611882384100C5B6FB /* LoginViewController.m */; };
 		5D556A641882384100C5B6FB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D556A621882384100C5B6FB /* LoginViewController.xib */; };
 		5D5A0728188271C4003848EA /* NSDate+PrettyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A0727188271C4003848EA /* NSDate+PrettyDate.m */; };
@@ -343,12 +344,14 @@
 		5D2F713018A3293000EDC1E4 /* house-v5-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "house-v5-white@2x.png"; sourceTree = "<group>"; };
 		5D2F713318A32C2A00EDC1E4 /* about-v3-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about-v3-white.png"; sourceTree = "<group>"; };
 		5D2F713418A32C2A00EDC1E4 /* about-v3-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about-v3-white@2x.png"; sourceTree = "<group>"; };
-		5D2F713718A32C4500EDC1E4 /* messages-v1-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "messages-v1-white@2x.png"; sourceTree = "<group>"; };
+		5D2F713718A32C4500EDC1E4 /* messages-white-v1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "messages-white-v1@2x.png"; sourceTree = "<group>"; };
 		5D2F713818A32C4500EDC1E4 /* messages-white-v1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "messages-white-v1.png"; sourceTree = "<group>"; };
 		5D2F713B18A32E3600EDC1E4 /* key-v2-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "key-v2-white.png"; sourceTree = "<group>"; };
 		5D2F713C18A32E3600EDC1E4 /* key-v2-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "key-v2-white@2x.png"; sourceTree = "<group>"; };
 		5D2F714318A3FB5100EDC1E4 /* key-v3-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "key-v3-white.png"; sourceTree = "<group>"; };
 		5D2F714418A3FB5100EDC1E4 /* key-v3-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "key-v3-white@2x.png"; sourceTree = "<group>"; };
+		5D2F714718A40C8A00EDC1E4 /* MessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagesViewController.h; sourceTree = "<group>"; };
+		5D2F714818A40C8A00EDC1E4 /* MessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagesViewController.m; sourceTree = "<group>"; };
 		5D556A601882384100C5B6FB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		5D556A611882384100C5B6FB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		5D556A621882384100C5B6FB /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -814,6 +817,8 @@
 				5D0DC372189C325600E8CA81 /* AboutViewController.h */,
 				5D0DC373189C325600E8CA81 /* AboutViewController.m */,
 				5D0DC374189C325600E8CA81 /* AboutViewController.xib */,
+				5D2F714718A40C8A00EDC1E4 /* MessagesViewController.h */,
+				5D2F714818A40C8A00EDC1E4 /* MessagesViewController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -930,7 +935,7 @@
 				5D2F713C18A32E3600EDC1E4 /* key-v2-white@2x.png */,
 				5D2F714318A3FB5100EDC1E4 /* key-v3-white.png */,
 				5D2F714418A3FB5100EDC1E4 /* key-v3-white@2x.png */,
-				5D2F713718A32C4500EDC1E4 /* messages-v1-white@2x.png */,
+				5D2F713718A32C4500EDC1E4 /* messages-white-v1@2x.png */,
 				5D2F713818A32C4500EDC1E4 /* messages-white-v1.png */,
 				5D2F712918A30C2B00EDC1E4 /* about-v2.png */,
 				5D2F712A18A30C2B00EDC1E4 /* about-v2@2x.png */,
@@ -1075,7 +1080,7 @@
 				5D2F711E18A3054D00EDC1E4 /* about-v1.png in Resources */,
 				5D2F711C18A300EE00EDC1E4 /* key.png in Resources */,
 				5D21CA3C188DAF6800330F78 /* top-detail@2x.png in Resources */,
-				5D2F713918A32C4500EDC1E4 /* messages-v1-white@2x.png in Resources */,
+				5D2F713918A32C4500EDC1E4 /* messages-white-v1@2x.png in Resources */,
 				5D21CA28188DAF6800330F78 /* up.png in Resources */,
 				5D2F713218A3293000EDC1E4 /* house-v5-white@2x.png in Resources */,
 				5D8C1CF81880E8B800158AE5 /* DashViewController.xib in Resources */,
@@ -1233,6 +1238,7 @@
 				5D5A073318848B0F003848EA /* ConfirmSnapViewController.m in Sources */,
 				5D2F711A18A2C5F800EDC1E4 /* NavigationViewController.m in Sources */,
 				5D21CA2C188DAF6800330F78 /* UAMapPresentationController.m in Sources */,
+				5D2F714918A40C8A00EDC1E4 /* MessagesViewController.m in Sources */,
 				5D21CA11188DAF6800330F78 /* UABarButtonSegmentedControl.m in Sources */,
 				5D21CA1A188DAF6800330F78 /* UAInboxUI.m in Sources */,
 				5D8C1CF21880E45600158AE5 /* PrivateKeyViewController.m in Sources */,
