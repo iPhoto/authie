@@ -60,7 +60,7 @@
 - (BOOL)uploadSnap:(NSString *)key;
 - (BOOL)addContact:(NSString *)handle;
 - (UIView *)generateHeaderView;
-- (UIBarButtonItem *)generateSettingsCog:(UIViewController *)target;
+- (UIBarButtonItem *)generateMenuItem:(NSString *)menu;
 
 - (void)pushThreadWithGroupKey:(NSString *)group_key;
 - (void)addMessage:(NSString *)user message:(NSString *)msg groupKey:(NSString *)key;

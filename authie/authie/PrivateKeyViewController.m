@@ -37,14 +37,14 @@
 {
     [super viewWillAppear:animated];
 
-    self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateSettingsCog:self];
-
     NSLog(@"Will appear: %@",[RODItemStore sharedStore].authie.privateKey);
     
     self.privateKey.text = [[RODItemStore sharedStore].authie.privateKey substringToIndex:5];
     
     self.screenName = @"PrivateKey";
-    
+
+    self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateMenuItem:@"key-v1.png"];
+
 }
 
 

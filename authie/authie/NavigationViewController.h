@@ -14,5 +14,6 @@
 @property (strong, readonly, nonatomic) REMenu *menu;
 
 - (void)toggleMenu;
+- (void)showMenu:(id)sender;
 
 @end

@@ -37,8 +37,8 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     REMenuItem *homeItem = [[REMenuItem alloc] initWithTitle:@"Dash"
-                                                    subtitle:@"Return to the Dash"
-                                                       image:[UIImage imageNamed:@"Icon_Home"]
+                                                    subtitle:@"return to the dash"
+                                                       image:[UIImage imageNamed:@"house-v5.png"]
                                             highlightedImage:nil
                                                       action:^(REMenuItem *item) {
                                                           NSLog(@"Item: %@", item);
@@ -47,8 +47,8 @@
                                                       }];
     
     REMenuItem *exploreItem = [[REMenuItem alloc] initWithTitle:@"Private Key"
-                                                       subtitle:@"Explore 47 additional options"
-                                                          image:[UIImage imageNamed:@"Icon_Explore"]
+                                                       subtitle:@"it's a password you can forget"
+                                                          image:[UIImage imageNamed:@"key-v1.png"]
                                                highlightedImage:nil
                                                          action:^(REMenuItem *item) {
                                                              NSLog(@"Item: %@", item);
@@ -57,8 +57,8 @@
                                                          }];
     
     REMenuItem *activityItem = [[REMenuItem alloc] initWithTitle:@"About"
-                                                        subtitle:@"Perform 3 additional activities"
-                                                           image:[UIImage imageNamed:@"Icon_Activity"]
+                                                        subtitle:@"a few words about authie"
+                                                           image:[UIImage imageNamed:@"about-v2.png"]
                                                 highlightedImage:nil
                                                           action:^(REMenuItem *item) {
                                                               NSLog(@"Item: %@", item);
@@ -67,15 +67,6 @@
                                                           }];
     
     activityItem.badge = @"12";
-    
-    REMenuItem *profileItem = [[REMenuItem alloc] initWithTitle:@"Profile"
-                                                          image:[UIImage imageNamed:@"Icon_Profile"]
-                                               highlightedImage:nil
-                                                         action:^(REMenuItem *item) {
-                                                             NSLog(@"Item: %@", item);
-                                                             AboutViewController *controller = appDelegate.aboutViewController;
-                                                             [weakSelf setViewControllers:@[controller] animated:NO];
-                                                         }];
     
     // You can also assign a custom view for any particular item
     // Uncomment the code below and add `customViewItem` to `initWithItems` array, for example:
@@ -93,9 +84,8 @@
     homeItem.tag = 0;
     exploreItem.tag = 1;
     activityItem.tag = 2;
-    profileItem.tag = 3;
-    
-    self.menu = [[REMenu alloc] initWithItems:@[homeItem, exploreItem, activityItem, profileItem]];
+ 
+    self.menu = [[REMenu alloc] initWithItems:@[homeItem, exploreItem, activityItem]];
     
     // Background view
     //
@@ -103,6 +93,8 @@
     //self.menu.backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     //self.menu.backgroundView.backgroundColor = [UIColor colorWithWhite:0.000 alpha:0.600];
 
+    //self.menu.backgroundColor = [UIColor colorWithWhite:0.8 alpha:1.0];
+    
     //self.menu.imageAlignment = REMenuImageAlignmentRight;
     //self.menu.closeOnSelection = NO;
     //self.menu.appearsBehindNavigationBar = NO; // Affects only iOS 7
@@ -126,6 +118,11 @@
         badgeLabel.backgroundColor = [UIColor colorWithRed:0 green:179/255.0 blue:134/255.0 alpha:1];
         badgeLabel.layer.borderColor = [UIColor colorWithRed:0.000 green:0.648 blue:0.507 alpha:1.000].CGColor;
     };
+}
+
+- (void)showMenu:(id)sender
+{
+    [self toggleMenu];
 }
 
 - (void)toggleMenu

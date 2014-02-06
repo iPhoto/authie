@@ -8,6 +8,7 @@
 
 #import "AboutViewController.h"
 #import "RODItemStore.h"
+#import "RODAuthie.h"
 
 @implementation AboutViewController
 
@@ -37,6 +38,10 @@
     [self.navigationController setNavigationBarHidden:NO];
     
     self.screenName = @"About";
+    
+    if([RODItemStore sharedStore].authie.registered == 1) {
+        self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateMenuItem:@"about-v2.png"];
+    }
 
 }
 

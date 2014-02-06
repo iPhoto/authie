@@ -24,7 +24,6 @@
     self = [super initWithStyle:style];
     if (self) {
 
-        self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateSettingsCog:self];
         
         UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addContact:)];
         self.navigationItem.rightBarButtonItem = addButton;

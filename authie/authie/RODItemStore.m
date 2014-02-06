@@ -21,6 +21,7 @@
 #import "UAConfig.h"
 #import "UAPush.h"
 #import <MRProgressOverlayView.h>
+#import "NavigationViewController.h"
 
 @implementation RODItemStore
 @synthesize loadedThreadsFromAuthor, hubConnection, hubProxy, mostRecentGroupKey, currentPage;
@@ -1641,12 +1642,25 @@
     return [NSKeyedArchiver archiveRootObject:_authie toFile:path];
 }
 
+- (UIBarButtonItem *)generateMenuItem:(NSString *)image
+{
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    UIButton *button_menu = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button_menu setFrame:CGRectMake(0, 0, 30, 30)];
+    [button_menu setImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
+    [button_menu addTarget:appDelegate.navigationViewController action:@selector(showMenu:) forControlEvents:UIControlEventTouchUpInside];
+
+    UIBarButtonItem *leftDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_menu];
+    
+    return leftDrawerButton;
+}
+
 -(UIView *)generateHeaderView
 {
     UIView *holder = [[UIView alloc] init];
     [holder setFrame:CGRectMake(0, 0, 100, 40)];
     
-    UIImage *image = [UIImage imageNamed:@"authie-logo-07-350px"];
+    UIImage *image = [UIImage imageNamed:@"logo-640px"];
     UIImageView *imageview = [[UIImageView alloc] initWithImage:image];
     [imageview setFrame:CGRectMake(0, 4, 100, 18)];
     [imageview setContentMode:UIViewContentModeScaleAspectFit];
@@ -1664,17 +1678,6 @@
     return holder;
 }
 
-- (UIBarButtonItem *)generateSettingsCog:(UIViewController *)target
-{
-    UIButton *button_menu = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button_menu setFrame:CGRectMake(0, 0, 40, 40)];
-    [button_menu setImage:[UIImage imageNamed:@"house-v2.png"] forState:UIControlStateNormal];
-    [button_menu addTarget:target.navigationController action:@selector(showMenu:) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIBarButtonItem *leftDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_menu];
-
-    return leftDrawerButton;
-}
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {

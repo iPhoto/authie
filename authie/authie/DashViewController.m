@@ -21,6 +21,7 @@
 #import "BlankSlateViewController.h"
 #import <CXAlertView/CXAlertView.h>
 #import "PagerViewController.h"
+#import <REMenu/REMenu.h>
 
 @implementation DashViewController
 @synthesize handle, contentSize, imageToUpload, keyToUpload, handleToUpload, captionToUpload, doUploadOnView, imagePicker, selected, mostRecentGroupKey, photoHeight;
@@ -98,17 +99,15 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
-
-    UIButton *button_menu = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button_menu setFrame:CGRectMake(0, 0, 30, 30)];
-    [button_menu setImage:[UIImage imageNamed:@"house-v2.png"] forState:UIControlStateNormal];
-    [button_menu addTarget:(NavigationController *)self.navigationController action:@selector(showMenu:) forControlEvents:UIControlEventTouchUpInside];
-
+    [super viewWillAppear:animated];    
+    self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateMenuItem:@"house-v5.png"];
     
-    UIBarButtonItem *leftDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_menu];
-    self.navigationItem.leftBarButtonItem = leftDrawerButton;
-    
+}
+
+- (void) toggleMenu:(id)sender
+{
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.navigationViewController toggleMenu];    
 }
 
 - (void)addMessage:(NSString *)user message:(NSString *)msg groupKey:(NSString *)key {

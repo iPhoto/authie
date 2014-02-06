@@ -19,18 +19,20 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zW4-ly-ppH">
-                    <rect key="frame" x="1" y="0.0" width="191" height="417"/>
+                    <rect key="frame" x="-3" y="-2" width="197" height="421"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="handle" minimumFontSize="32" translatesAutoresizingMaskIntoConstraints="NO" id="Lp2-Wd-tJP">
                     <rect key="frame" x="21" y="68" width="151" height="31"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                     <textInputTraits key="textInputTraits" returnKeyType="next"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="private key" minimumFontSize="32" translatesAutoresizingMaskIntoConstraints="NO" id="z6l-t2-KJP">
                     <rect key="frame" x="21" y="107" width="151" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="Puv-8W-LOa"/>
                     </constraints>
@@ -86,7 +88,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstItem="zW4-ly-ppH" firstAttribute="leading" secondItem="qwO-ai-maq" secondAttribute="leading" constant="1" id="241-Lc-klb"/>
+                <constraint firstItem="zW4-ly-ppH" firstAttribute="leading" secondItem="qwO-ai-maq" secondAttribute="leading" constant="-3" id="241-Lc-klb"/>
                 <constraint firstItem="Lp2-Wd-tJP" firstAttribute="leading" secondItem="qwO-ai-maq" secondAttribute="leading" constant="21" id="4B6-Nn-ThH"/>
                 <constraint firstAttribute="trailing" secondItem="FjH-4y-GiQ" secondAttribute="trailing" constant="29" id="C1n-VT-Qua"/>
                 <constraint firstItem="FjH-4y-GiQ" firstAttribute="top" secondItem="5Qq-Y6-yrP" secondAttribute="bottom" constant="8" symbolic="YES" id="EPc-si-pZG"/>
@@ -97,16 +99,16 @@
                 <constraint firstAttribute="trailing" secondItem="Lp2-Wd-tJP" secondAttribute="trailing" constant="20" symbolic="YES" id="WHf-QN-cuf"/>
                 <constraint firstItem="xP0-4U-srW" firstAttribute="centerX" secondItem="qwO-ai-maq" secondAttribute="centerX" id="WZk-75-Cil"/>
                 <constraint firstItem="5Qq-Y6-yrP" firstAttribute="top" secondItem="z6l-t2-KJP" secondAttribute="bottom" constant="8" symbolic="YES" id="XMY-Ig-RFo"/>
-                <constraint firstItem="zW4-ly-ppH" firstAttribute="top" secondItem="qwO-ai-maq" secondAttribute="top" id="Z2z-hH-GOa"/>
+                <constraint firstItem="zW4-ly-ppH" firstAttribute="top" secondItem="qwO-ai-maq" secondAttribute="top" constant="-2" id="Z2z-hH-GOa"/>
                 <constraint firstItem="Lp2-Wd-tJP" firstAttribute="trailing" secondItem="z6l-t2-KJP" secondAttribute="trailing" id="bNb-55-R9T"/>
                 <constraint firstItem="Lp2-Wd-tJP" firstAttribute="top" secondItem="xP0-4U-srW" secondAttribute="bottom" constant="-12" id="fg8-I1-yRq"/>
                 <constraint firstItem="5Qq-Y6-yrP" firstAttribute="leading" secondItem="dUz-0k-Kh8" secondAttribute="trailing" constant="51" id="jCs-Op-U3H"/>
                 <constraint firstItem="dUz-0k-Kh8" firstAttribute="top" secondItem="z6l-t2-KJP" secondAttribute="bottom" constant="8" symbolic="YES" id="mzV-kb-FJt"/>
                 <constraint firstItem="z6l-t2-KJP" firstAttribute="leading" secondItem="Lp2-Wd-tJP" secondAttribute="leading" id="oQh-Tk-xJi"/>
-                <constraint firstAttribute="trailing" secondItem="zW4-ly-ppH" secondAttribute="trailing" id="p7E-bE-a2O"/>
+                <constraint firstAttribute="trailing" secondItem="zW4-ly-ppH" secondAttribute="trailing" constant="-2" id="p7E-bE-a2O"/>
                 <constraint firstItem="xP0-4U-srW" firstAttribute="top" secondItem="qwO-ai-maq" secondAttribute="top" constant="6" id="pn8-ep-c14"/>
                 <constraint firstItem="z6l-t2-KJP" firstAttribute="trailing" secondItem="5Qq-Y6-yrP" secondAttribute="trailing" id="pyy-cQ-INB"/>
-                <constraint firstAttribute="bottom" secondItem="zW4-ly-ppH" secondAttribute="bottom" id="vIc-0C-Jtq"/>
+                <constraint firstAttribute="bottom" secondItem="zW4-ly-ppH" secondAttribute="bottom" constant="-2" id="vIc-0C-Jtq"/>
                 <constraint firstItem="xP0-4U-srW" firstAttribute="leading" secondItem="qwO-ai-maq" secondAttribute="leading" constant="21" id="yMj-6O-NS9"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

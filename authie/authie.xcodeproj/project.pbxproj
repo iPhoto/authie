@@ -80,6 +80,15 @@
 		5D21CA59188DB01A00330F78 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D21CA58188DB01A00330F78 /* CoreLocation.framework */; };
 		5D21CA5D188DB0AB00330F78 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D21CA5C188DB0AB00330F78 /* AirshipConfig.plist */; };
 		5D2F711A18A2C5F800EDC1E4 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F711918A2C5F800EDC1E4 /* NavigationViewController.m */; };
+		5D2F711C18A300EE00EDC1E4 /* key.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F711B18A300EE00EDC1E4 /* key.png */; };
+		5D2F711E18A3054D00EDC1E4 /* about-v1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F711D18A3054D00EDC1E4 /* about-v1.png */; };
+		5D2F712018A3056200EDC1E4 /* house-v3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F711F18A3056200EDC1E4 /* house-v3.png */; };
+		5D2F712318A309FC00EDC1E4 /* house-v5.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F712118A309FC00EDC1E4 /* house-v5.png */; };
+		5D2F712418A309FC00EDC1E4 /* house-v5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F712218A309FC00EDC1E4 /* house-v5@2x.png */; };
+		5D2F712718A30AB500EDC1E4 /* key-v1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F712518A30AB500EDC1E4 /* key-v1.png */; };
+		5D2F712818A30AB500EDC1E4 /* key-v1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F712618A30AB500EDC1E4 /* key-v1@2x.png */; };
+		5D2F712B18A30C2B00EDC1E4 /* about-v2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F712918A30C2B00EDC1E4 /* about-v2.png */; };
+		5D2F712C18A30C2B00EDC1E4 /* about-v2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F712A18A30C2B00EDC1E4 /* about-v2@2x.png */; };
 		5D556A631882384100C5B6FB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D556A611882384100C5B6FB /* LoginViewController.m */; };
 		5D556A641882384100C5B6FB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D556A621882384100C5B6FB /* LoginViewController.xib */; };
 		5D5A0728188271C4003848EA /* NSDate+PrettyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A0727188271C4003848EA /* NSDate+PrettyDate.m */; };
@@ -110,7 +119,6 @@
 		5D95C2E7189F048A00C8155D /* ContactItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D95C2E6189F048A00C8155D /* ContactItemCell.m */; };
 		5D95C2EB189F04DC00C8155D /* ContactItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D95C2EA189F04DB00C8155D /* ContactItemCell.xib */; };
 		5D9A453218765184008C45FD /* RODThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9A453118765184008C45FD /* RODThread.m */; };
-		5D9A453418771D0F008C45FD /* authie-logo-07-350px.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9A453318771D0F008C45FD /* authie-logo-07-350px.png */; };
 		5D9C7C57187DE25200BE2D42 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C7C56187DE25200BE2D42 /* NavigationController.m */; };
 		5D9C7C5C187E0F0400BE2D42 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C7C5B187E0F0400BE2D42 /* ContactsViewController.m */; };
 		5D9DEE9A185242E300F80413 /* RKPostSelfie.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DEE93185242E300F80413 /* RKPostSelfie.m */; };
@@ -310,6 +318,15 @@
 		5D21CA5C188DB0AB00330F78 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		5D2F711818A2C5F800EDC1E4 /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
 		5D2F711918A2C5F800EDC1E4 /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
+		5D2F711B18A300EE00EDC1E4 /* key.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = key.png; sourceTree = "<group>"; };
+		5D2F711D18A3054D00EDC1E4 /* about-v1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about-v1.png"; sourceTree = "<group>"; };
+		5D2F711F18A3056200EDC1E4 /* house-v3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "house-v3.png"; sourceTree = "<group>"; };
+		5D2F712118A309FC00EDC1E4 /* house-v5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "house-v5.png"; sourceTree = "<group>"; };
+		5D2F712218A309FC00EDC1E4 /* house-v5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "house-v5@2x.png"; sourceTree = "<group>"; };
+		5D2F712518A30AB500EDC1E4 /* key-v1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "key-v1.png"; sourceTree = "<group>"; };
+		5D2F712618A30AB500EDC1E4 /* key-v1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "key-v1@2x.png"; sourceTree = "<group>"; };
+		5D2F712918A30C2B00EDC1E4 /* about-v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about-v2.png"; sourceTree = "<group>"; };
+		5D2F712A18A30C2B00EDC1E4 /* about-v2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about-v2@2x.png"; sourceTree = "<group>"; };
 		5D556A601882384100C5B6FB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		5D556A611882384100C5B6FB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		5D556A621882384100C5B6FB /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -354,7 +371,6 @@
 		5D95C2EA189F04DB00C8155D /* ContactItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactItemCell.xib; sourceTree = "<group>"; };
 		5D9A453018765184008C45FD /* RODThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RODThread.h; sourceTree = "<group>"; };
 		5D9A453118765184008C45FD /* RODThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RODThread.m; sourceTree = "<group>"; };
-		5D9A453318771D0F008C45FD /* authie-logo-07-350px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "authie-logo-07-350px.png"; sourceTree = "<group>"; };
 		5D9C7C55187DE25200BE2D42 /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
 		5D9C7C56187DE25200BE2D42 /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
 		5D9C7C5A187E0F0400BE2D42 /* ContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsViewController.h; sourceTree = "<group>"; };
@@ -845,21 +861,29 @@
 		5DEE7C91185234E800F532B3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5D2F711F18A3056200EDC1E4 /* house-v3.png */,
 				5D21C97B188DAF6800330F78 /* Airship */,
 				5D06B984187B0D4E00FC17F0 /* cog.png */,
 				5D5A072E18848A7C003848EA /* lock.png */,
+				5D2F712118A309FC00EDC1E4 /* house-v5.png */,
+				5D2F712218A309FC00EDC1E4 /* house-v5@2x.png */,
+				5D2F712518A30AB500EDC1E4 /* key-v1.png */,
+				5D2F712618A30AB500EDC1E4 /* key-v1@2x.png */,
+				5D2F712918A30C2B00EDC1E4 /* about-v2.png */,
+				5D2F712A18A30C2B00EDC1E4 /* about-v2@2x.png */,
 				5DBBF9BC18A15D6900F761D9 /* logo-640px.png */,
+				5D2F711D18A3054D00EDC1E4 /* about-v1.png */,
 				5DB549A218943DC900E03D9D /* Main_iPhone.storyboard */,
 				5D0DC37018980A8F00E8CA81 /* house-v2.png */,
 				5DB549A4189585F700E03D9D /* home.png */,
 				5D6340B9188A16DC006538C5 /* heart-blue.png */,
 				5D6340BB188A187A006538C5 /* heart-blue-v2.png */,
 				5D8C1CDE18805AA000158AE5 /* heart.png */,
+				5D2F711B18A300EE00EDC1E4 /* key.png */,
 				5D6340B71888B470006538C5 /* heart-v2.png */,
 				5D8C1CDC187F3EC000158AE5 /* cog-black.png */,
 				5DEE7C92185234E800F532B3 /* authie-Info.plist */,
 				5D21CA5C188DB0AB00330F78 /* AirshipConfig.plist */,
-				5D9A453318771D0F008C45FD /* authie-logo-07-350px.png */,
 				5DEE7C93185234E800F532B3 /* InfoPlist.strings */,
 				5DEE7C96185234E800F532B3 /* main.m */,
 				5DEE7C98185234E800F532B3 /* authie-Prefix.pch */,
@@ -976,9 +1000,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D2F712418A309FC00EDC1E4 /* house-v5@2x.png in Resources */,
 				5D21CA29188DAF6800330F78 /* up@2x.png in Resources */,
 				5D21CA37188DAF6800330F78 /* bottom-detail.png in Resources */,
 				5D21CA38188DAF6800330F78 /* bottom-detail@2x.png in Resources */,
+				5D2F712018A3056200EDC1E4 /* house-v3.png in Resources */,
+				5D2F711E18A3054D00EDC1E4 /* about-v1.png in Resources */,
+				5D2F711C18A300EE00EDC1E4 /* key.png in Resources */,
 				5D21CA3C188DAF6800330F78 /* top-detail@2x.png in Resources */,
 				5D21CA28188DAF6800330F78 /* up.png in Resources */,
 				5D8C1CF81880E8B800158AE5 /* DashViewController.xib in Resources */,
@@ -987,6 +1015,7 @@
 				5DBBDBED18822C80004446DE /* README.md in Resources */,
 				5D21CA23188DAF6800330F78 /* UAInboxMessageListCell.xib in Resources */,
 				5D21CA3D188DAF6800330F78 /* UALocationSettingsViewController.xib in Resources */,
+				5D2F712818A30AB500EDC1E4 /* key-v1@2x.png in Resources */,
 				5D21CA3A188DAF6800330F78 /* middle-detail@2x.png in Resources */,
 				5D21CA42188DAF6800330F78 /* UAPushSettingsAliasView.xib in Resources */,
 				5DBBDBEE18822C80004446DE /* release_notes.md in Resources */,
@@ -1018,11 +1047,12 @@
 				5D21CA4A188DAF7500330F78 /* CHANGELOG in Resources */,
 				5D21CA43188DAF6800330F78 /* UAPushSettingsSoundsViewController.xib in Resources */,
 				5D8C1CF31880E45600158AE5 /* PrivateKeyViewController.xib in Resources */,
+				5D2F712718A30AB500EDC1E4 /* key-v1.png in Resources */,
 				5D6340B81888B470006538C5 /* heart-v2.png in Resources */,
 				5D21CA45188DAF6800330F78 /* UAPushSettingsTokenView.xib in Resources */,
 				5D21CA4B188DAF7500330F78 /* LICENSE in Resources */,
-				5D9A453418771D0F008C45FD /* authie-logo-07-350px.png in Resources */,
 				5D21CA1E188DAF6800330F78 /* down.png in Resources */,
+				5D2F712C18A30C2B00EDC1E4 /* about-v2@2x.png in Resources */,
 				5D556A641882384100C5B6FB /* LoginViewController.xib in Resources */,
 				5D8C1CDD187F3EC000158AE5 /* cog-black.png in Resources */,
 				5D21CA21188DAF6800330F78 /* overlayCloseBtn@2x.png in Resources */,
@@ -1038,8 +1068,10 @@
 				5D21CA25188DAF6800330F78 /* UAInboxMessageViewController.xib in Resources */,
 				5D21CA24188DAF6800330F78 /* UAInboxMessageListController.xib in Resources */,
 				5D21CA47188DAF6800330F78 /* UAPushSettingsView.xib in Resources */,
+				5D2F712318A309FC00EDC1E4 /* house-v5.png in Resources */,
 				5D8C1CE918808FC000158AE5 /* SelectContactViewController.xib in Resources */,
 				5D5A073418848B0F003848EA /* ConfirmSnapViewController.xib in Resources */,
+				5D2F712B18A30C2B00EDC1E4 /* about-v2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
