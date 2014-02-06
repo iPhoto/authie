@@ -451,14 +451,14 @@
     {
         
         appDelegate.authorizeContactViewController = [[AuthorizeContactViewController alloc] init];
-        [appDelegate.authorizeContactViewController loadThread:thread_index];
+        //[appDelegate.authorizeContactViewController loadThread:thread_index];
         [appDelegate.dashViewController.navigationController pushViewController:appDelegate.authorizeContactViewController animated:YES];
         is_authorize_request = YES;
         
     } else {
         
         appDelegate.threadViewController = [[ThreadViewController alloc] init];
-        [appDelegate.threadViewController loadThread:thread_index];
+        //[appDelegate.threadViewController loadThread:thread_index];
         [appDelegate.dashViewController.navigationController pushViewController:appDelegate.threadViewController animated:YES];        
     }
     
@@ -474,6 +474,12 @@
             // Example:
             // self.myLabel.text = result;
             
+            if([thread.authorizeRequest isEqualToNumber:[NSNumber numberWithInt:1]])
+            {
+                [appDelegate.authorizeContactViewController loadThread:thread_index];
+            } else {
+                [appDelegate.threadViewController loadThread:thread_index];
+            }
             
             [progressView dismiss:YES];
             

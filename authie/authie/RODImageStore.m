@@ -111,7 +111,7 @@
     
     [conn start];
     
-    //[[RODItemStore sharedStore] loadMessagesForThread:groupKey];
+    [[RODItemStore sharedStore] loadMessagesForThread:groupKey];
 
 }
 
