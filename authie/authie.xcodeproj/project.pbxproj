@@ -98,6 +98,8 @@
 		5D2F713A18A32C4500EDC1E4 /* messages-white-v1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F713818A32C4500EDC1E4 /* messages-white-v1.png */; };
 		5D2F713D18A32E3600EDC1E4 /* key-v2-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F713B18A32E3600EDC1E4 /* key-v2-white.png */; };
 		5D2F713E18A32E3600EDC1E4 /* key-v2-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F713C18A32E3600EDC1E4 /* key-v2-white@2x.png */; };
+		5D2F714518A3FB5100EDC1E4 /* key-v3-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F714318A3FB5100EDC1E4 /* key-v3-white.png */; };
+		5D2F714618A3FB5100EDC1E4 /* key-v3-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F714418A3FB5100EDC1E4 /* key-v3-white@2x.png */; };
 		5D556A631882384100C5B6FB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D556A611882384100C5B6FB /* LoginViewController.m */; };
 		5D556A641882384100C5B6FB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D556A621882384100C5B6FB /* LoginViewController.xib */; };
 		5D5A0728188271C4003848EA /* NSDate+PrettyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A0727188271C4003848EA /* NSDate+PrettyDate.m */; };
@@ -345,6 +347,8 @@
 		5D2F713818A32C4500EDC1E4 /* messages-white-v1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "messages-white-v1.png"; sourceTree = "<group>"; };
 		5D2F713B18A32E3600EDC1E4 /* key-v2-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "key-v2-white.png"; sourceTree = "<group>"; };
 		5D2F713C18A32E3600EDC1E4 /* key-v2-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "key-v2-white@2x.png"; sourceTree = "<group>"; };
+		5D2F714318A3FB5100EDC1E4 /* key-v3-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "key-v3-white.png"; sourceTree = "<group>"; };
+		5D2F714418A3FB5100EDC1E4 /* key-v3-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "key-v3-white@2x.png"; sourceTree = "<group>"; };
 		5D556A601882384100C5B6FB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		5D556A611882384100C5B6FB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		5D556A621882384100C5B6FB /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -753,6 +757,103 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
+		5D2F713F18A3FA7600EDC1E4 /* ROD */ = {
+			isa = PBXGroup;
+			children = (
+				5D9DEE94185242E300F80413 /* RODImageStore.h */,
+				5D9DEE95185242E300F80413 /* RODImageStore.m */,
+				5D9DEE96185242E300F80413 /* RODItemStore.h */,
+				5D9DEE97185242E300F80413 /* RODItemStore.m */,
+				5D8C1CD9187F3ACA00158AE5 /* RODFollower.h */,
+				5D8C1CDA187F3ACA00158AE5 /* RODFollower.m */,
+				5D9DEE98185242E300F80413 /* RODSelfie.h */,
+				5D9DEE99185242E300F80413 /* RODSelfie.m */,
+				5DF86489185BEA60002DCCDC /* RODAuthie.h */,
+				5DF8648A185BEA60002DCCDC /* RODAuthie.m */,
+				5DF86495186E0E7A002DCCDC /* RODResponseMessage.h */,
+				5DF86496186E0E7A002DCCDC /* RODResponseMessage.m */,
+				5DF86498186E1701002DCCDC /* RODHandle.h */,
+				5DF86499186E1701002DCCDC /* RODHandle.m */,
+				5D9A453018765184008C45FD /* RODThread.h */,
+				5D9A453118765184008C45FD /* RODThread.m */,
+				5D860796188C4D6600963653 /* RODMessage.h */,
+				5D860797188C4D6600963653 /* RODMessage.m */,
+			);
+			name = ROD;
+			sourceTree = "<group>";
+		};
+		5D2F714018A3FA8C00EDC1E4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5D2F711818A2C5F800EDC1E4 /* NavigationViewController.h */,
+				5D2F711918A2C5F800EDC1E4 /* NavigationViewController.m */,
+				5DF86490185F75CA002DCCDC /* RegisterViewController.h */,
+				5DF86491185F75CA002DCCDC /* RegisterViewController.m */,
+				5DF86492185F75CA002DCCDC /* RegisterViewController.xib */,
+				5D556A601882384100C5B6FB /* LoginViewController.h */,
+				5D556A611882384100C5B6FB /* LoginViewController.m */,
+				5D556A621882384100C5B6FB /* LoginViewController.xib */,
+				5D8C1CD4187E38E300158AE5 /* ThreadViewController.h */,
+				5D8C1CD5187E38E300158AE5 /* ThreadViewController.m */,
+				5D8C1CD6187E38E300158AE5 /* ThreadViewController.xib */,
+				5D8C1CE518808FC000158AE5 /* SelectContactViewController.h */,
+				5D8C1CE618808FC000158AE5 /* SelectContactViewController.m */,
+				5D8C1CE718808FC000158AE5 /* SelectContactViewController.xib */,
+				5D8C1CF41880E8B800158AE5 /* DashViewController.h */,
+				5D8C1CF51880E8B800158AE5 /* DashViewController.m */,
+				5D8C1CF61880E8B800158AE5 /* DashViewController.xib */,
+				5D8C1CEF1880E45500158AE5 /* PrivateKeyViewController.h */,
+				5D8C1CF01880E45500158AE5 /* PrivateKeyViewController.m */,
+				5D8C1CF11880E45500158AE5 /* PrivateKeyViewController.xib */,
+				5D5A072918848A4F003848EA /* AuthorizeContactViewController.h */,
+				5D5A072A18848A4F003848EA /* AuthorizeContactViewController.m */,
+				5D5A072B18848A4F003848EA /* AuthorizeContactViewController.xib */,
+				5D5A073018848B0F003848EA /* ConfirmSnapViewController.h */,
+				5D5A073118848B0F003848EA /* ConfirmSnapViewController.m */,
+				5D5A073218848B0F003848EA /* ConfirmSnapViewController.xib */,
+				5D0DC372189C325600E8CA81 /* AboutViewController.h */,
+				5D0DC373189C325600E8CA81 /* AboutViewController.m */,
+				5D0DC374189C325600E8CA81 /* AboutViewController.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		5D2F714118A3FAA700EDC1E4 /* Outdated */ = {
+			isa = PBXGroup;
+			children = (
+				5DEE7C9F185234E800F532B3 /* Main_iPad.storyboard */,
+				5DB549A218943DC900E03D9D /* Main_iPhone.storyboard */,
+				5D9C7C55187DE25200BE2D42 /* NavigationController.h */,
+				5D9C7C56187DE25200BE2D42 /* NavigationController.m */,
+				5D06B97F187B0C1F00FC17F0 /* MenuViewController.h */,
+				5D06B980187B0C1F00FC17F0 /* MenuViewController.m */,
+				5D9C7C5A187E0F0400BE2D42 /* ContactsViewController.h */,
+				5D9C7C5B187E0F0400BE2D42 /* ContactsViewController.m */,
+				5D9DEE92185242E300F80413 /* RKPostSelfie.h */,
+				5D9DEE93185242E300F80413 /* RKPostSelfie.m */,
+			);
+			name = Outdated;
+			sourceTree = "<group>";
+		};
+		5D2F714218A3FAF900EDC1E4 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				5D8C1CF91880EEB900158AE5 /* MiniThreadViewController.h */,
+				5D8C1CFA1880EEB900158AE5 /* MiniThreadViewController.m */,
+				5D8C1CFB1880EEB900158AE5 /* MiniThreadViewController.xib */,
+				5DB549A61895BA1500E03D9D /* BlankSlateViewController.h */,
+				5DB549A71895BA1500E03D9D /* BlankSlateViewController.m */,
+				5DB549A81895BA1500E03D9D /* BlankSlateViewController.xib */,
+				5D95C2E0189EC2EE00C8155D /* PagerViewController.h */,
+				5D95C2E1189EC2EE00C8155D /* PagerViewController.m */,
+				5D95C2E2189EC2EE00C8155D /* PagerViewController.xib */,
+				5D95C2E5189F048A00C8155D /* ContactItemCell.h */,
+				5D95C2E6189F048A00C8155D /* ContactItemCell.m */,
+				5D95C2EA189F04DB00C8155D /* ContactItemCell.xib */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
 		5DEE7C7E185234E700F532B3 = {
 			isa = PBXGroup;
 			children = (
@@ -796,78 +897,14 @@
 		5DEE7C90185234E800F532B3 /* authie */ = {
 			isa = PBXGroup;
 			children = (
-				5D9DEE92185242E300F80413 /* RKPostSelfie.h */,
-				5D9DEE93185242E300F80413 /* RKPostSelfie.m */,
-				5D9DEE94185242E300F80413 /* RODImageStore.h */,
-				5D9DEE95185242E300F80413 /* RODImageStore.m */,
-				5D9DEE96185242E300F80413 /* RODItemStore.h */,
-				5D9DEE97185242E300F80413 /* RODItemStore.m */,
-				5D8C1CD9187F3ACA00158AE5 /* RODFollower.h */,
-				5D8C1CDA187F3ACA00158AE5 /* RODFollower.m */,
-				5D9DEE98185242E300F80413 /* RODSelfie.h */,
-				5D9DEE99185242E300F80413 /* RODSelfie.m */,
-				5DF86489185BEA60002DCCDC /* RODAuthie.h */,
-				5DF8648A185BEA60002DCCDC /* RODAuthie.m */,
-				5DF86495186E0E7A002DCCDC /* RODResponseMessage.h */,
-				5DF86496186E0E7A002DCCDC /* RODResponseMessage.m */,
-				5DF86498186E1701002DCCDC /* RODHandle.h */,
-				5DF86499186E1701002DCCDC /* RODHandle.m */,
-				5D9A453018765184008C45FD /* RODThread.h */,
-				5D9A453118765184008C45FD /* RODThread.m */,
-				5D860796188C4D6600963653 /* RODMessage.h */,
-				5D860797188C4D6600963653 /* RODMessage.m */,
 				5DEE7C99185234E800F532B3 /* AppDelegate.h */,
 				5DEE7C9A185234E800F532B3 /* AppDelegate.m */,
-				5D2F711818A2C5F800EDC1E4 /* NavigationViewController.h */,
-				5D2F711918A2C5F800EDC1E4 /* NavigationViewController.m */,
-				5D9C7C55187DE25200BE2D42 /* NavigationController.h */,
-				5D9C7C56187DE25200BE2D42 /* NavigationController.m */,
-				5D06B97F187B0C1F00FC17F0 /* MenuViewController.h */,
-				5D06B980187B0C1F00FC17F0 /* MenuViewController.m */,
-				5DEE7C9F185234E800F532B3 /* Main_iPad.storyboard */,
-				5DF86490185F75CA002DCCDC /* RegisterViewController.h */,
-				5DF86491185F75CA002DCCDC /* RegisterViewController.m */,
-				5DF86492185F75CA002DCCDC /* RegisterViewController.xib */,
-				5D556A601882384100C5B6FB /* LoginViewController.h */,
-				5D556A611882384100C5B6FB /* LoginViewController.m */,
-				5D556A621882384100C5B6FB /* LoginViewController.xib */,
-				5D8C1CD4187E38E300158AE5 /* ThreadViewController.h */,
-				5D8C1CD5187E38E300158AE5 /* ThreadViewController.m */,
-				5D8C1CD6187E38E300158AE5 /* ThreadViewController.xib */,
-				5D9C7C5A187E0F0400BE2D42 /* ContactsViewController.h */,
-				5D9C7C5B187E0F0400BE2D42 /* ContactsViewController.m */,
-				5D8C1CE518808FC000158AE5 /* SelectContactViewController.h */,
-				5D8C1CE618808FC000158AE5 /* SelectContactViewController.m */,
-				5D8C1CE718808FC000158AE5 /* SelectContactViewController.xib */,
-				5D8C1CF91880EEB900158AE5 /* MiniThreadViewController.h */,
-				5D8C1CFA1880EEB900158AE5 /* MiniThreadViewController.m */,
-				5D8C1CFB1880EEB900158AE5 /* MiniThreadViewController.xib */,
-				5D8C1CF41880E8B800158AE5 /* DashViewController.h */,
-				5D8C1CF51880E8B800158AE5 /* DashViewController.m */,
-				5D8C1CF61880E8B800158AE5 /* DashViewController.xib */,
-				5DB549A61895BA1500E03D9D /* BlankSlateViewController.h */,
-				5DB549A71895BA1500E03D9D /* BlankSlateViewController.m */,
-				5DB549A81895BA1500E03D9D /* BlankSlateViewController.xib */,
-				5D8C1CEF1880E45500158AE5 /* PrivateKeyViewController.h */,
-				5D8C1CF01880E45500158AE5 /* PrivateKeyViewController.m */,
-				5D8C1CF11880E45500158AE5 /* PrivateKeyViewController.xib */,
-				5D5A072918848A4F003848EA /* AuthorizeContactViewController.h */,
-				5D5A072A18848A4F003848EA /* AuthorizeContactViewController.m */,
-				5D5A072B18848A4F003848EA /* AuthorizeContactViewController.xib */,
-				5D5A073018848B0F003848EA /* ConfirmSnapViewController.h */,
-				5D5A073118848B0F003848EA /* ConfirmSnapViewController.m */,
-				5D5A073218848B0F003848EA /* ConfirmSnapViewController.xib */,
-				5D0DC372189C325600E8CA81 /* AboutViewController.h */,
-				5D0DC373189C325600E8CA81 /* AboutViewController.m */,
-				5D0DC374189C325600E8CA81 /* AboutViewController.xib */,
+				5D2F713F18A3FA7600EDC1E4 /* ROD */,
+				5D2F714018A3FA8C00EDC1E4 /* Views */,
+				5D2F714118A3FAA700EDC1E4 /* Outdated */,
+				5D2F714218A3FAF900EDC1E4 /* Components */,
 				5D1B7BC3188EEF6A00D4DCBD /* UACustomPushNotificationDelegate.h */,
 				5D1B7BC4188EEF6A00D4DCBD /* UACustomPushNotificationDelegate.m */,
-				5D95C2E0189EC2EE00C8155D /* PagerViewController.h */,
-				5D95C2E1189EC2EE00C8155D /* PagerViewController.m */,
-				5D95C2E2189EC2EE00C8155D /* PagerViewController.xib */,
-				5D95C2E5189F048A00C8155D /* ContactItemCell.h */,
-				5D95C2E6189F048A00C8155D /* ContactItemCell.m */,
-				5D95C2EA189F04DB00C8155D /* ContactItemCell.xib */,
 				5DEE7CA8185234E800F532B3 /* Images.xcassets */,
 				5DEE7C91185234E800F532B3 /* Supporting Files */,
 				5D5A0726188271C4003848EA /* NSDate+PrettyDate.h */,
@@ -891,6 +928,8 @@
 				5D2F712618A30AB500EDC1E4 /* key-v1@2x.png */,
 				5D2F713B18A32E3600EDC1E4 /* key-v2-white.png */,
 				5D2F713C18A32E3600EDC1E4 /* key-v2-white@2x.png */,
+				5D2F714318A3FB5100EDC1E4 /* key-v3-white.png */,
+				5D2F714418A3FB5100EDC1E4 /* key-v3-white@2x.png */,
 				5D2F713718A32C4500EDC1E4 /* messages-v1-white@2x.png */,
 				5D2F713818A32C4500EDC1E4 /* messages-white-v1.png */,
 				5D2F712918A30C2B00EDC1E4 /* about-v2.png */,
@@ -900,7 +939,6 @@
 				5DBBF9BC18A15D6900F761D9 /* logo-640px.png */,
 				5D2F712D18A31E3E00EDC1E4 /* logo-white-640px.png */,
 				5D2F711D18A3054D00EDC1E4 /* about-v1.png */,
-				5DB549A218943DC900E03D9D /* Main_iPhone.storyboard */,
 				5D0DC37018980A8F00E8CA81 /* house-v2.png */,
 				5DB549A4189585F700E03D9D /* home.png */,
 				5D6340B9188A16DC006538C5 /* heart-blue.png */,
@@ -1082,6 +1120,7 @@
 				5D21CA4A188DAF7500330F78 /* CHANGELOG in Resources */,
 				5D21CA43188DAF6800330F78 /* UAPushSettingsSoundsViewController.xib in Resources */,
 				5D8C1CF31880E45600158AE5 /* PrivateKeyViewController.xib in Resources */,
+				5D2F714618A3FB5100EDC1E4 /* key-v3-white@2x.png in Resources */,
 				5D2F712718A30AB500EDC1E4 /* key-v1.png in Resources */,
 				5D6340B81888B470006538C5 /* heart-v2.png in Resources */,
 				5D21CA45188DAF6800330F78 /* UAPushSettingsTokenView.xib in Resources */,
@@ -1089,6 +1128,7 @@
 				5D21CA1E188DAF6800330F78 /* down.png in Resources */,
 				5D2F712C18A30C2B00EDC1E4 /* about-v2@2x.png in Resources */,
 				5D556A641882384100C5B6FB /* LoginViewController.xib in Resources */,
+				5D2F714518A3FB5100EDC1E4 /* key-v3-white.png in Resources */,
 				5D8C1CDD187F3EC000158AE5 /* cog-black.png in Resources */,
 				5D21CA21188DAF6800330F78 /* overlayCloseBtn@2x.png in Resources */,
 				5D21CA40188DAF6800330F78 /* UAPushMoreSettingsView.xib in Resources */,

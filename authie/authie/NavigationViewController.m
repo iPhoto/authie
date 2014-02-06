@@ -61,7 +61,7 @@
     
     REMenuItem *privateKeyItem = [[REMenuItem alloc] initWithTitle:@"Private Key"
                                                        subtitle:nil
-                                                          image:[UIImage imageNamed:@"key-v2-white.png"]
+                                                          image:[UIImage imageNamed:@"key-v3-white.png"]
                                                highlightedImage:nil
                                                          action:^(REMenuItem *item) {
                                                              NSLog(@"Item: %@", item);
