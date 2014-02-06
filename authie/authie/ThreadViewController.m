@@ -37,7 +37,7 @@
         
         UIButton *button_heart = [UIButton buttonWithType:UIButtonTypeCustom];
         [button_heart setFrame:CGRectMake(0, 0, 20, 20)];
-        [button_heart setImage:[UIImage imageNamed:@"heart-blue-v2.png"] forState:UIControlStateNormal];
+        [button_heart setImage:[UIImage imageNamed:@"heart-white-v1"] forState:UIControlStateNormal];
         
         UIBarButtonItem *rightDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_heart];
         rightDrawerButton.target = self;
@@ -61,7 +61,7 @@
     
     UIButton *button_menu = [UIButton buttonWithType:UIButtonTypeCustom];
     [button_menu setFrame:CGRectMake(0, 0, 25, 25)];
-    [button_menu setImage:[UIImage imageNamed:@"heart-blue-v2.png"] forState:UIControlStateNormal];
+    [button_menu setImage:[UIImage imageNamed:@"heart-white-v1"] forState:UIControlStateNormal];
     [button_menu addTarget:self action:@selector(sendLove:) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *rightDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_menu];

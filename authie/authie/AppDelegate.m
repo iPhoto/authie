@@ -70,7 +70,7 @@
     
     // Call takeOff (which creates the UAirship singleton)
     [UAirship takeOff:config];
-    [UAirship setLogLevel:UALogLevelNone];
+    //[UAirship setLogLevel:UALogLevelNone];
     
     //config.detectProvisioningMode = YES;
     
