@@ -40,7 +40,7 @@
     
     REMenuItem *homeItem = [[REMenuItem alloc] initWithTitle:@"Dash"
                                                     subtitle:nil
-                                                       image:[UIImage imageNamed:@"house-v5-white.png"]
+                                                       image:[UIImage imageNamed:@"house-v5-white"]
                                             highlightedImage:nil
                                                       action:^(REMenuItem *item) {
                                                           NSLog(@"Item: %@", item);
@@ -54,7 +54,7 @@
 
     REMenuItem *messagesItem = [[REMenuItem alloc] initWithTitle:@"Messages"
                                                        subtitle:nil
-                                                          image:[UIImage imageNamed:@"messages-v1-white.png"]
+                                                          image:[UIImage imageNamed:@"messages-v1-white"]
                                                highlightedImage:nil
                                                          action:^(REMenuItem *item) {
                                                              NSLog(@"Item: %@", item);
@@ -65,7 +65,7 @@
     
     REMenuItem *privateKeyItem = [[REMenuItem alloc] initWithTitle:@"Private Key"
                                                        subtitle:nil
-                                                          image:[UIImage imageNamed:@"key-v3-white.png"]
+                                                          image:[UIImage imageNamed:@"key-v3-white"]
                                                highlightedImage:nil
                                                          action:^(REMenuItem *item) {
                                                              NSLog(@"Item: %@", item);
@@ -75,7 +75,7 @@
     
     REMenuItem *aboutItem = [[REMenuItem alloc] initWithTitle:@"About"
                                                         subtitle:nil
-                                                           image:[UIImage imageNamed:@"about-v3-white.png"]
+                                                           image:[UIImage imageNamed:@"about-v3-white"]
                                                 highlightedImage:nil
                                                           action:^(REMenuItem *item) {
                                                               NSLog(@"Item: %@", item);

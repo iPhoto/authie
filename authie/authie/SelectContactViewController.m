@@ -53,7 +53,7 @@
     [super viewWillAppear:animated];
     
     // this happens when they are viewing their own profile
-    self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateMenuItem:@"house-v5.png"];
+    self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateMenuItem:@"house-v5-white"];
     
     
     [self.contactsTable deselectRowAtIndexPath:[self.contactsTable indexPathForSelectedRow] animated:animated];
