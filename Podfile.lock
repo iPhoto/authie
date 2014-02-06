@@ -111,6 +111,7 @@ PODS:
     - AFNetworking (~> 2.0)
     - SocketRocket (= 0.3.1-beta2)
   - SocketRocket (0.3.1-beta2)
+  - UIImage-Helpers (0.0.1)
 
 DEPENDENCIES:
   - CXAlertView
@@ -121,6 +122,7 @@ DEPENDENCIES:
   - NBUImagePicker
   - REMenu (~> 1.8)
   - SignalR-ObjC
+  - UIImage-Helpers (~> 0.0.1)
 
 SPEC CHECKSUMS:
   AFNetworking: c7d7901a83f631414c7eda1737261f696101a5cd
@@ -139,5 +141,6 @@ SPEC CHECKSUMS:
   REMenu: 40bb965c968b298c3f36d36067a15dd3f2c52473
   SignalR-ObjC: 5790e7749e29e4e0ed67e0986893de54a35a5a5c
   SocketRocket: 7ac946bcce46287a791dfff3c1f8daa692821dae
+  UIImage-Helpers: 1a0141077f52b199135dc6999ce603dc5a31ae28
 
 COCOAPODS: 0.29.0

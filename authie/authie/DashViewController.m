@@ -22,6 +22,7 @@
 #import <CXAlertView/CXAlertView.h>
 #import "PagerViewController.h"
 #import <REMenu/REMenu.h>
+#import <UIImage+Blur.h>
 
 @implementation DashViewController
 @synthesize handle, contentSize, imageToUpload, keyToUpload, handleToUpload, captionToUpload, doUploadOnView, imagePicker, selected, mostRecentGroupKey, photoHeight;
