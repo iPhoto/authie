@@ -326,24 +326,30 @@
         
     }
     
-    // now add the pager control
-    PagerViewController *pager = [[PagerViewController alloc] init];
-    pager.view.frame = CGRectMake(0, yOffset, self.view.bounds.size.width, pager.view.frame.size.height);
+    // now add the pager control if there 1 or more snaps
     
-    if([[RODItemStore sharedStore] currentPage] > 1) {
-        [pager.buttonBack setHidden:false];
-        [pager.buttonBack addTarget:self action:@selector(backButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    if([[RODItemStore sharedStore].authie.allThreads count] > 10) {
+
+        PagerViewController *pager = [[PagerViewController alloc] init];
+        pager.view.frame = CGRectMake(0, yOffset, self.view.bounds.size.width, pager.view.frame.size.height);
         
-    } else {
-        [pager.buttonBack setHidden:true];
+        if([[RODItemStore sharedStore] currentPage] > 1) {
+            [pager.buttonBack setHidden:false];
+            [pager.buttonBack addTarget:self action:@selector(backButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+            
+        } else {
+            [pager.buttonBack setHidden:true];
+        }
+        
+        [pager.buttonNext addTarget:self action:@selector(nextButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        
+        pager.view.tag = 7;
+        yOffset = yOffset + pager.view.frame.size.height;
+        
+        [self.scroll addSubview:pager.view];
+
+        
     }
-    
-    [pager.buttonNext addTarget:self action:@selector(nextButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    
-    pager.view.tag = 7;
-    yOffset = yOffset + pager.view.frame.size.height;
-    
-    [self.scroll addSubview:pager.view];
 
     self.contentSize = yOffset;
     [self.scroll setContentSize:CGSizeMake(self.scroll.frame.size.width, self.contentSize)];
