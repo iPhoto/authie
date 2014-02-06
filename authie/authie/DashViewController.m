@@ -114,37 +114,7 @@
 - (void)addMessage:(NSString *)user message:(NSString *)msg groupKey:(NSString *)key {
     NSLog(@"addMessage, dashy: %@, %@, %@, %i", user, msg, key, [RODItemStore sharedStore].hubConnection.state);
     [[RODItemStore sharedStore] addChat:user message:msg groupKey:key];
-    
-    //NSString *s = [NSString stringWithFormat:@"%@ said: %@", user, msg];
-    // Print the message when it comes in
-    
-    //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"new auth" message:s delegate:self cancelButtonTitle:@"ok" otherButtonTitles:@"go to thread", nil];
-    //[alert show];
-    //self.mostRecentGroupKey = key;
-    
-    //
-    //
-    //    if([dashViewController.navigationController.topViewController class] != [ThreadViewController class]) {
-    //        // looking at dash, invite, private key, compose
-    //        self.mostRecentGroupKey = key;
-    //        [alert show];
-    //    } else {
-    //
-    //        // looking at a thread, may be the one we need to update
-    //
-    //        NSLog(@"Toplevel was a threadviewcontroller.");
-    //        NSString *current_group_key = threadViewController.thread.groupKey;
-    //
-    //        if([current_group_key isEqualToString:key]) {
-    //            // reload the current messages..??????
-    //        } else {
-    //            self.mostRecentGroupKey = key;
-    //        }
-    //
-    //        [alert show];
-    //
-    //    }
-    
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -306,12 +276,6 @@
             UIImage *blurredImage = [[UIImage imageWithData:imageData] blurredImage:blurred];
             mini.snapView.image = blurredImage;
             
-            // add a layer over the image that obscures it
-            // this will encourage more users to move into the chat
-//            UIView *theDarkness = [[UIView alloc] initWithFrame:mini.snapView.frame];
-//            [theDarkness setBackgroundColor:[UIColor blackColor]];
-//            [theDarkness setAlpha:0.5];
-//            [mini.view addSubview:theDarkness];
             
         }
         
