@@ -87,7 +87,7 @@
                 AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
                 [appDelegate.dashViewController setDoGetThreadsOnView:YES];
                 
-                [appDelegate.navigationViewController pushViewController:appDelegate.dashViewController animated:YES];
+                [appDelegate.navigationViewController popToRootViewControllerAnimated:NO];
                 
             }
             
