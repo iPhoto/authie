@@ -277,6 +277,13 @@
                 what = @"posted to the dash";
             } else {
                 what = [NSString stringWithFormat:@"sent direct to %@", thread.toHandleId];
+                
+                // add a layer over the image that obscures it
+                // this will encourage more users to move into the chat
+                UIView *theDarkness = [[UIView alloc] initWithFrame:mini.snapView.frame];
+                [theDarkness setBackgroundColor:[UIColor blackColor]];
+                [theDarkness setAlpha:0.5];
+                [mini.view addSubview:theDarkness];
             }
             
             [mini.labelDate setText:[NSString stringWithFormat:@"snapped by %@, %@ %@", thread.fromHandle.name, what, [thread.startDate prettyDate]]];
