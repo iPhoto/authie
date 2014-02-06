@@ -275,7 +275,7 @@
             NSData *imageData = UIImageJPEGRepresentation([mini.snapView image], quality);
             UIImage *blurredImage = [[UIImage imageWithData:imageData] blurredImage:blurred];
             mini.snapView.image = blurredImage;
-            
+            [mini.snapView setNeedsLayout];
             
         }
         

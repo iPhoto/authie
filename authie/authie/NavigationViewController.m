@@ -45,7 +45,11 @@
                                                       action:^(REMenuItem *item) {
                                                           NSLog(@"Item: %@", item);
                                                           DashViewController *controller = appDelegate.dashViewController;
+                                                          
                                                           [weakSelf setViewControllers:@[controller] animated:NO];
+                                                          
+                                                          [controller getThreads];
+                                                          
                                                       }];
 
     REMenuItem *messagesItem = [[REMenuItem alloc] initWithTitle:@"Messages"
@@ -124,6 +128,8 @@
     //self.menu.liveBlur = YES;
     //self.menu.liveBlurBackgroundStyle = REMenuLiveBackgroundStyleDark;
     //self.menu.liveBlurTintColor = [UIColor redColor];
+    
+    [self.menu setTextColor:[UIColor whiteColor]];
     
     //self.menu.imageOffset = CGSizeMake(5, -1);
     self.menu.waitUntilAnimationIsComplete = NO;
