@@ -40,7 +40,7 @@
     self.screenName = @"About";
     
     if([RODItemStore sharedStore].authie.registered == 1) {
-        self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateMenuItem:@"about-v2.png"];
+        self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateMenuItem:@"about-v3-white.png"];
     }
 
 }
