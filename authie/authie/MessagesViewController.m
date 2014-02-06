@@ -34,6 +34,7 @@
 
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
+    [self.navigationItem setTitle:@"messages"];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
