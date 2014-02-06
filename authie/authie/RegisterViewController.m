@@ -116,8 +116,8 @@
         if(registered == YES) {
             
             // show the main screen
-            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-            [appDelegate.navigationViewController popToRootViewControllerAnimated:NO];            
+            [self.navigationController setNavigationBarHidden:NO];
+            [self.navigationController popToRootViewControllerAnimated:NO];
             
         } else {
             
