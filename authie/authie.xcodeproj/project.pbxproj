@@ -89,6 +89,7 @@
 		5D2F712818A30AB500EDC1E4 /* key-v1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F712618A30AB500EDC1E4 /* key-v1@2x.png */; };
 		5D2F712B18A30C2B00EDC1E4 /* about-v2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F712918A30C2B00EDC1E4 /* about-v2.png */; };
 		5D2F712C18A30C2B00EDC1E4 /* about-v2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F712A18A30C2B00EDC1E4 /* about-v2@2x.png */; };
+		5D2F712E18A31E3E00EDC1E4 /* logo-white-640px.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F712D18A31E3E00EDC1E4 /* logo-white-640px.png */; };
 		5D556A631882384100C5B6FB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D556A611882384100C5B6FB /* LoginViewController.m */; };
 		5D556A641882384100C5B6FB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D556A621882384100C5B6FB /* LoginViewController.xib */; };
 		5D5A0728188271C4003848EA /* NSDate+PrettyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A0727188271C4003848EA /* NSDate+PrettyDate.m */; };
@@ -327,6 +328,7 @@
 		5D2F712618A30AB500EDC1E4 /* key-v1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "key-v1@2x.png"; sourceTree = "<group>"; };
 		5D2F712918A30C2B00EDC1E4 /* about-v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about-v2.png"; sourceTree = "<group>"; };
 		5D2F712A18A30C2B00EDC1E4 /* about-v2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about-v2@2x.png"; sourceTree = "<group>"; };
+		5D2F712D18A31E3E00EDC1E4 /* logo-white-640px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-white-640px.png"; sourceTree = "<group>"; };
 		5D556A601882384100C5B6FB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		5D556A611882384100C5B6FB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		5D556A621882384100C5B6FB /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -872,6 +874,7 @@
 				5D2F712918A30C2B00EDC1E4 /* about-v2.png */,
 				5D2F712A18A30C2B00EDC1E4 /* about-v2@2x.png */,
 				5DBBF9BC18A15D6900F761D9 /* logo-640px.png */,
+				5D2F712D18A31E3E00EDC1E4 /* logo-white-640px.png */,
 				5D2F711D18A3054D00EDC1E4 /* about-v1.png */,
 				5DB549A218943DC900E03D9D /* Main_iPhone.storyboard */,
 				5D0DC37018980A8F00E8CA81 /* house-v2.png */,
@@ -1011,6 +1014,7 @@
 				5D21CA28188DAF6800330F78 /* up.png in Resources */,
 				5D8C1CF81880E8B800158AE5 /* DashViewController.xib in Resources */,
 				5D8C1CD8187E38E300158AE5 /* ThreadViewController.xib in Resources */,
+				5D2F712E18A31E3E00EDC1E4 /* logo-white-640px.png in Resources */,
 				5DEE7CA1185234E800F532B3 /* Main_iPad.storyboard in Resources */,
 				5DBBDBED18822C80004446DE /* README.md in Resources */,
 				5D21CA23188DAF6800330F78 /* UAInboxMessageListCell.xib in Resources */,

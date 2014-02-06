@@ -57,6 +57,7 @@
                     </constraints>
                     <string key="text">welcome, please choose your handle. this is how people send you messages. it's the only thing we need for signup (no email or whatever.) you can change this later.</string>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="this handle is available." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hzn-bz-8eH">
@@ -68,7 +69,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-640px.png" translatesAutoresizingMaskIntoConstraints="NO" id="KPf-tW-n1F">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-white-640px.png" translatesAutoresizingMaskIntoConstraints="NO" id="KPf-tW-n1F">
                     <rect key="frame" x="0.0" y="13" width="271" height="48"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
@@ -145,6 +146,6 @@
         </tapGestureRecognizer>
     </objects>
     <resources>
-        <image name="logo-640px.png" width="640" height="197"/>
+        <image name="logo-white-640px.png" width="640" height="197"/>
     </resources>
 </document>
