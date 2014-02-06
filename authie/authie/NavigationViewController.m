@@ -13,6 +13,8 @@
 #import "PrivateKeyViewController.h"
 #import "AboutViewController.h"
 #import "AppDelegate.h"
+#import "RODItemStore.h"
+#import "RODAuthie.h"
 
 @interface NavigationViewController ()
 
@@ -55,11 +57,11 @@
                                                              PrivateKeyViewController *controller = appDelegate.privateKeyViewController;
                                                              [weakSelf setViewControllers:@[controller] animated:NO];
                                                          }];
-    messagesItem.badge = @"12";
+    messagesItem.badge = [NSString stringWithFormat:@"%i", [[RODItemStore sharedStore].authie.allMessages count]];
     
     REMenuItem *privateKeyItem = [[REMenuItem alloc] initWithTitle:@"Private Key"
                                                        subtitle:nil
-                                                          image:[UIImage imageNamed:@"messages-v1-white.png"]
+                                                          image:[UIImage imageNamed:@"key-v2-white.png"]
                                                highlightedImage:nil
                                                          action:^(REMenuItem *item) {
                                                              NSLog(@"Item: %@", item);

@@ -43,7 +43,7 @@
     
     self.screenName = @"PrivateKey";
 
-    self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateMenuItem:@"messages-v1-white.png"];
+    self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateMenuItem:@"key-v2-white.png"];
 
 }
 
