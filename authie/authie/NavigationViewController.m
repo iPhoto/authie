@@ -55,7 +55,7 @@
 
     REMenuItem *messagesItem = [[REMenuItem alloc] initWithTitle:@"Messages"
                                                        subtitle:nil
-                                                          image:[UIImage imageNamed:@"messages-v1-white"]
+                                                          image:[UIImage imageNamed:@"messages-white-v1"]
                                                highlightedImage:nil
                                                          action:^(REMenuItem *item) {
                                                              NSLog(@"Item: %@", item);

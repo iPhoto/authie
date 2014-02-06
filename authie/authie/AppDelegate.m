@@ -72,7 +72,7 @@
     [UAirship takeOff:config];
     [UAirship setLogLevel:UALogLevelNone];
     
-    config.detectProvisioningMode = YES;
+    //config.detectProvisioningMode = YES;
     
     // Request a custom set of notification types
     [UAPush shared].notificationTypes = (UIRemoteNotificationTypeBadge |
