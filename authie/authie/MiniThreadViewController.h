@@ -18,5 +18,4 @@
 @property (weak, nonatomic) IBOutlet UIImageView *heartsImage;
 @property (weak, nonatomic) IBOutlet UILabel *labelCaption;
 
-
 @end

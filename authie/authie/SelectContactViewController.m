@@ -19,7 +19,7 @@
 #import <NBUImagePicker/NBUMediaInfo.h>
 
 @implementation SelectContactViewController
-@synthesize imagePicker, contactsTable;
+@synthesize imagePicker, contactsTable, editingContacts;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,7 +27,6 @@
     if (self) {
         // Custom initialization
         [self setEdgesForExtendedLayout:UIRectEdgeNone];
-        
         
     }
     return self;
@@ -64,7 +63,33 @@
     
     [self.cameraView setAlpha:1.0f];
     [self.cameraView setOpaque:NO];
+    
+    UIBarButtonItem *rightDrawerButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(enableBlocking:)];
+    self.navigationItem.rightBarButtonItem = rightDrawerButton;
+    
+    editingContacts = NO;
+    
+}
 
+-(void)enableBlocking:(UIBarButtonItem *)btn
+{
+    
+    UIBarButtonItem *rightDrawerButton;
+    
+    if(editingContacts == YES) {
+        NSLog(@"block.");
+        rightDrawerButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(enableBlocking:)];
+        self.navigationItem.rightBarButtonItem = rightDrawerButton;
+        [self setEditingContacts:NO];
+    } else {
+        NSLog(@"block.");
+        rightDrawerButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(enableBlocking:)];
+        self.navigationItem.rightBarButtonItem = rightDrawerButton;
+        [self setEditingContacts:YES];
+    }
+    
+    [self.contactsTable reloadData];
+    
     
 }
 
@@ -114,14 +139,53 @@
     } else {
         mostRecent = [[RODImageStore sharedStore] imageForKey:handle.mostRecentSnap];
     }
+    
+    if(editingContacts == YES && indexPath.row > 0) {
+        [cell.buttonBlock setHidden:NO];
+        [cell.buttonRemove setHidden:NO];
+        
+        UITapGestureRecognizer *tapBlock = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapBlock:)];
+        [cell.buttonBlock addGestureRecognizer:tapBlock];
+
+        UITapGestureRecognizer *tapRemove = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapRemove:)];
+        [cell.buttonRemove addGestureRecognizer:tapRemove];
+        
+        [cell.buttonRemove setTag:(indexPath.row * 1000)];
+        [cell.buttonBlock setTag:(indexPath.row * 1000) + 500000];
+
+        
+    } else {
+        [cell.buttonBlock setHidden:YES];
+        [cell.buttonRemove setHidden:YES];
+    }
 
     [cell.mostRecentSnap setImage:mostRecent];
     
     return cell;
 }
 
+- (void)tapBlock:(UITapGestureRecognizer *)tapGesture
+{
+    int row = (tapGesture.view.tag - 500000) / 1000;
+    RODHandle *handle = [[RODItemStore sharedStore].authie.all_Contacts objectAtIndex:row];
+    NSLog(@"clicked block on contact %@",handle.name);
+}
+
+- (void)tapRemove:(UITapGestureRecognizer *)tapGesture
+{
+    int row = (tapGesture.view.tag) / 1000;
+    RODHandle *handle = [[RODItemStore sharedStore].authie.all_Contacts objectAtIndex:row];
+    NSLog(@"clicked remove on contact %@",handle.name);
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    if(editingContacts == YES) {
+        [tableView deselectRowAtIndexPath:indexPath animated:NO];
+        return;
+    }
+    
     RODHandle *handle = [[RODItemStore sharedStore].authie.all_Contacts objectAtIndex:indexPath.row];
     
     self.selected = handle;

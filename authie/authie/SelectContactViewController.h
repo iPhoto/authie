@@ -15,4 +15,6 @@
 @property (strong, nonatomic) RODHandle *selected;
 @property (weak, nonatomic) IBOutlet UITableView *contactsTable;
 
+@property (nonatomic) bool editingContacts;
+
 @end

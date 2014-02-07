@@ -9,5 +9,12 @@
 #import "ContactItemCell.h"
 
 @implementation ContactItemCell
+@synthesize handle;
 
+
+- (IBAction)btnRemove:(id)sender {
+}
+
+- (IBAction)btnBlock:(id)sender {
+}
 @end
