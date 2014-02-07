@@ -168,15 +168,44 @@
 {
     int row = (tapGesture.view.tag - 500000) / 1000;
     RODHandle *handle = [[RODItemStore sharedStore].authie.all_Contacts objectAtIndex:row];
-    NSLog(@"clicked block on contact %@",handle.name);
+    
+    UIAlertView *a = [[UIAlertView alloc] initWithTitle:@"block" message:[NSString stringWithFormat:@"block %@? they will be unable to send you snaps.", handle.name] delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"block", nil];
+    a.tag = 200;
+    [a show];
+    
 }
 
 - (void)tapRemove:(UITapGestureRecognizer *)tapGesture
 {
     int row = (tapGesture.view.tag) / 1000;
     RODHandle *handle = [[RODItemStore sharedStore].authie.all_Contacts objectAtIndex:row];
-    NSLog(@"clicked remove on contact %@",handle.name);
+    
+    UIAlertView *a = [[UIAlertView alloc] initWithTitle:@"remove" message:[NSString stringWithFormat:@"remove %@ as a contact?", handle.name] delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"remove", nil];
+    a.tag = 100;
+    [a show];
+    
 }
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+
+    if(buttonIndex == 0) {
+        // cancel button
+        return;
+    }
+    
+    // figure out if it's a remove or a block
+    switch(alertView.tag) {
+        case 100:
+            NSLog(@"clicked remove");
+            break;
+        case 200:
+            NSLog(@"clicked block");
+            break;
+    }
+    
+}
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
