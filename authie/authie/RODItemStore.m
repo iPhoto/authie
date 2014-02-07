@@ -932,6 +932,16 @@
     
 }
 
+- (void)addBlock:(NSString *)publicKey
+{
+    NSLog(@"addBlock: %@", publicKey);
+}
+
+- (void)loadBlocks
+{
+    NSLog(@"loadBlocks called.");
+}
+
 - (BOOL)loadContacts
 {
     
@@ -1668,7 +1678,7 @@
     
     UIImage *image = [UIImage imageNamed:@"logo-white-640px"];
     UIImageView *imageview = [[UIImageView alloc] initWithImage:image];
-    [imageview setFrame:CGRectMake(0, 4, 100, 18)];
+    [imageview setFrame:CGRectMake(0, 0, 100, 18)];
     [imageview setContentMode:UIViewContentModeScaleAspectFit];
     
     [holder addSubview:imageview];

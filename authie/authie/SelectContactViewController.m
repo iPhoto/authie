@@ -45,7 +45,6 @@
     
     self.navigationItem.title = @"send snap to:";
     
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated

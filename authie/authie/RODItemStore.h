@@ -49,6 +49,8 @@
 - (void)sendChat:(NSString *)groupKey message:(NSString *)msg;
 - (void)getPrivateKey;
 - (void)addChat:(NSString *)user message:(NSString *)message groupKey:(NSString *)groupKey;
+- (void)addBlock:(NSString *)publicKey;
+- (void)loadBlocks;
 - (void)loadMessages;
 - (void)loadMessagesForThread:(NSString *)key;
 - (BOOL)loadThreads;

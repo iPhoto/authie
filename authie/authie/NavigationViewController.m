@@ -34,7 +34,7 @@
     } else {
         self.navigationBar.tintColor = [UIColor colorWithRed:0 green:196/255.0 blue:147/255.0 alpha:1];
     }
-    
+        
     __typeof (self) __weak weakSelf = self;
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
