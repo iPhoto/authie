@@ -13,7 +13,7 @@
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "touch-icon-iphone-retina.png",
+      "filename" : "Icon-60@2x.png",
       "scale" : "2x"
     },
     {
@@ -39,13 +39,13 @@
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "touch-icon-ipad.png",
+      "filename" : "Icon-76.png",
       "scale" : "1x"
     },
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "touch-icon-ipad-retina.png",
+      "filename" : "Icon-76@2x.png",
       "scale" : "2x"
     }
   ],

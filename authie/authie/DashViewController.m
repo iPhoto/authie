@@ -193,7 +193,7 @@
     // remove the threads that were there before
     [[self.scroll subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
 
-    
+    UIFont *lucidaTypewriter = [UIFont fontWithName:@"LucidaTypewriter" size:20.0f];
 
     [_items removeAllObjects];
 
@@ -302,6 +302,7 @@
         if(thread.caption == (id)[NSNull null] || thread.caption.length == 0 ) {
             mini.labelCaption.text = @"";
         } else {
+            [mini.labelCaption setFont:lucidaTypewriter];
             mini.labelCaption.text = thread.caption;
             mini.labelCaption.layer.shadowOpacity = 0.4;
             mini.labelCaption.layer.shadowColor = [UIColor blackColor].CGColor;
@@ -328,7 +329,7 @@
     
     // now add the pager control if there 1 or more snaps
     
-    if([[RODItemStore sharedStore].authie.allThreads count] > 10) {
+    if([[RODItemStore sharedStore].authie.allThreads count] > 1) {
 
         PagerViewController *pager = [[PagerViewController alloc] init];
         pager.view.frame = CGRectMake(0, yOffset, self.view.bounds.size.width, pager.view.frame.size.height);

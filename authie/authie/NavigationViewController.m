@@ -153,4 +153,9 @@
     [self.menu showFromNavigationController:self];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:NO];
+}
+
 @end

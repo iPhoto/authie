@@ -103,6 +103,7 @@
 		5D2F714918A40C8A00EDC1E4 /* MessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F714818A40C8A00EDC1E4 /* MessagesViewController.m */; };
 		5D2F714C18A443A200EDC1E4 /* heart-white-v1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F714A18A443A200EDC1E4 /* heart-white-v1.png */; };
 		5D2F714D18A443A200EDC1E4 /* heart-white-v1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F714B18A443A200EDC1E4 /* heart-white-v1@2x.png */; };
+		5D2F714F18A56AEF00EDC1E4 /* LucidaTypewriter.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F714E18A5693E00EDC1E4 /* LucidaTypewriter.ttf */; };
 		5D556A631882384100C5B6FB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D556A611882384100C5B6FB /* LoginViewController.m */; };
 		5D556A641882384100C5B6FB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D556A621882384100C5B6FB /* LoginViewController.xib */; };
 		5D5A0728188271C4003848EA /* NSDate+PrettyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A0727188271C4003848EA /* NSDate+PrettyDate.m */; };
@@ -356,6 +357,7 @@
 		5D2F714818A40C8A00EDC1E4 /* MessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagesViewController.m; sourceTree = "<group>"; };
 		5D2F714A18A443A200EDC1E4 /* heart-white-v1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart-white-v1.png"; sourceTree = "<group>"; };
 		5D2F714B18A443A200EDC1E4 /* heart-white-v1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart-white-v1@2x.png"; sourceTree = "<group>"; };
+		5D2F714E18A5693E00EDC1E4 /* LucidaTypewriter.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LucidaTypewriter.ttf; sourceTree = "<group>"; };
 		5D556A601882384100C5B6FB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		5D556A611882384100C5B6FB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		5D556A621882384100C5B6FB /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -925,6 +927,7 @@
 		5DEE7C91185234E800F532B3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5D2F714E18A5693E00EDC1E4 /* LucidaTypewriter.ttf */,
 				5D2F711F18A3056200EDC1E4 /* house-v3.png */,
 				5D21C97B188DAF6800330F78 /* Airship */,
 				5D06B984187B0D4E00FC17F0 /* cog.png */,
@@ -1115,6 +1118,7 @@
 				5D21CA1C188DAF6800330F78 /* check.png in Resources */,
 				5D8C1CFD1880EEB900158AE5 /* MiniThreadViewController.xib in Resources */,
 				5D21CA41188DAF6800330F78 /* UAPushSettingsAddTagViewController.xib in Resources */,
+				5D2F714F18A56AEF00EDC1E4 /* LucidaTypewriter.ttf in Resources */,
 				5D21CA3E188DAF6800330F78 /* UAMapPresentationViewController.xib in Resources */,
 				5D8C1CDF18805AA000158AE5 /* heart.png in Resources */,
 				5D95C2E4189EC2EE00C8155D /* PagerViewController.xib in Resources */,
