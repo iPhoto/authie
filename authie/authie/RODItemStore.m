@@ -438,6 +438,11 @@
             } else {
                 logged_in = YES;
                 
+                // Sets the alias. It will be sent to the server on registration.
+                [UAPush shared].alias = self.authie.handle.publicKey;
+                [[UAPush shared] updateRegistration];
+
+                
                 [RODItemStore sharedStore].authie.handle.privateKey = message_result;
                 [RODItemStore sharedStore].authie.privateKey = message_result;
                 [[RODItemStore sharedStore] saveChanges];
@@ -1614,6 +1619,10 @@
                 
                 
                 [self.authie setPrivateKey:privateKey];
+                
+                // Sets the alias. It will be sent to the server on registration.
+                [UAPush shared].alias = self.authie.handle.publicKey;
+                [[UAPush shared] updateRegistration];
                 
                 [self loadContacts];
                 
