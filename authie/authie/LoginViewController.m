@@ -72,12 +72,11 @@
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
     dispatch_async(queue, ^{
         // Perform async operation
-        [[RODItemStore sharedStore] login:self.textHandle.text privateKey:self.textKey.text];
+        NSString *results = [[RODItemStore sharedStore] login:self.textHandle.text privateKey:self.textKey.text];
        
         
         dispatch_sync(dispatch_get_main_queue(), ^{
             // Update UI
-            [progressView dismiss:YES];
             
             if([RODItemStore sharedStore].authie.registered == 1) {
                 [[RODItemStore sharedStore] loadThreads];
@@ -89,7 +88,12 @@
                 
                 [appDelegate.navigationViewController popToRootViewControllerAnimated:NO];
                 
+            } else {
+                [self.labelResults setText:results];                
             }
+            
+            [progressView dismiss:YES];
+
             
         });
     });

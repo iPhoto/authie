@@ -383,9 +383,9 @@
 }
 
 
-- (BOOL)login:(NSString *)handle privateKey:(NSString *)key;
+- (NSString *)login:(NSString *)handle privateKey:(NSString *)key;
 {
-    BOOL logged_in = NO;
+    NSString *logged_in = @"NO";
     
     NSDictionary *checkDict = [[NSDictionary alloc] initWithObjectsAndKeys:
                                @"1", @"id",
@@ -430,13 +430,10 @@
             // this will contain our private key if we were successful
             message_result = [object objectForKey:@"message"];
             
-            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-            
             if(response_result == 0) {
-                logged_in = NO;
-                [appDelegate.loginViewController.labelResults setText:message_result];
+                logged_in = message_result;
             } else {
-                logged_in = YES;
+                logged_in = @"YES";
                 
                 
                 [RODItemStore sharedStore].authie.handle.privateKey = message_result;
