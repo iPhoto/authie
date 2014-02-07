@@ -1679,7 +1679,7 @@
     UIImage *image = [UIImage imageNamed:@"logo-white-640px"];
     UIImageView *imageview = [[UIImageView alloc] initWithImage:image];
     [imageview setFrame:CGRectMake(0, 0, 100, 18)];
-    [imageview setContentMode:UIViewContentModeScaleAspectFit];
+    [imageview setContentMode:UIViewContentModeScaleAspectFill];
     
     [holder addSubview:imageview];
     
