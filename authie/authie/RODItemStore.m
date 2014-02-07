@@ -1666,7 +1666,7 @@
     UIView *holder = [[UIView alloc] init];
     [holder setFrame:CGRectMake(0, 0, 100, 40)];
     
-    UIImage *image = [UIImage imageNamed:@"logo-640px"];
+    UIImage *image = [UIImage imageNamed:@"logo-white-640px"];
     UIImageView *imageview = [[UIImageView alloc] initWithImage:image];
     [imageview setFrame:CGRectMake(0, 4, 100, 18)];
     [imageview setContentMode:UIViewContentModeScaleAspectFit];
@@ -1678,6 +1678,7 @@
     [handleLabel setFont:[UIFont systemFontOfSize:10]];
     [handleLabel setFrame:CGRectMake(0, 18, 100, 20)];
     [handleLabel setTextAlignment:NSTextAlignmentCenter];
+    [handleLabel setTextColor:[UIColor whiteColor]];
     
     [holder addSubview:handleLabel];
     

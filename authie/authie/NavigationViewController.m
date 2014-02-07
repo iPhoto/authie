@@ -32,7 +32,7 @@
         [self.navigationBar performSelector:@selector(setBarTintColor:) withObject:[UIColor colorWithRed:0/255.0 green:213/255.0 blue:161/255.0 alpha:1]];
         self.navigationBar.tintColor = [UIColor whiteColor];
     } else {
-        self.navigationBar.tintColor = [UIColor colorWithRed:0 green:179/255.0 blue:134/255.0 alpha:1];
+        self.navigationBar.tintColor = [UIColor colorWithRed:0 green:196/255.0 blue:147/255.0 alpha:1];
     }
     
     __typeof (self) __weak weakSelf = self;
@@ -138,6 +138,11 @@
         badgeLabel.backgroundColor = [UIColor colorWithRed:0 green:179/255.0 blue:134/255.0 alpha:1];
         badgeLabel.layer.borderColor = [UIColor colorWithRed:0.000 green:0.648 blue:0.507 alpha:1.000].CGColor;
     };
+}
+
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 
 - (void)showMenu:(id)sender

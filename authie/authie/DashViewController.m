@@ -56,6 +56,8 @@
     UIPanGestureRecognizer *swipeView = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(swipedImageView:)];
     [swipeView setMinimumNumberOfTouches:1];
     [self.view addGestureRecognizer:swipeView];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
 }
 
