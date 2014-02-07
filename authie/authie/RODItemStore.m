@@ -438,10 +438,6 @@
             } else {
                 logged_in = YES;
                 
-                // Sets the alias. It will be sent to the server on registration.
-                [UAPush shared].alias = self.authie.handle.publicKey;
-                [[UAPush shared] updateRegistration];
-
                 
                 [RODItemStore sharedStore].authie.handle.privateKey = message_result;
                 [RODItemStore sharedStore].authie.privateKey = message_result;
@@ -628,7 +624,12 @@
                 [self.authie.handle setPublicKey:publicKey];
                 
                 NSLog(@"id: %lu, privateKey: %@, publicKey: %@", [self.authie.handle.id longValue], self.authie.privateKey, self.authie.handle.publicKey);
-                                
+                
+                // Sets the alias. It will be sent to the server on registration.
+                [UAPush shared].alias = self.authie.handle.publicKey;
+                [[UAPush shared] updateRegistration];
+
+                
                 [self saveChanges];
                 
                 [self loadThreads];
