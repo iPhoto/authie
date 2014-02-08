@@ -16,6 +16,7 @@
 #import "AppDelegate.h"
 
 @implementation MessagesViewController
+@synthesize sortedMessages;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -47,6 +48,15 @@
 {
     [super viewWillAppear:animated];
     self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateMenuItem:@"messages-white-v1"];
+
+
+    NSSortDescriptor *sortDescriptor;
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"sentDate"
+                                                 ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    NSArray *oldestToNewestMessages = [[RODItemStore sharedStore].authie.allMessages sortedArrayUsingDescriptors:sortDescriptors];
+    
+    sortedMessages = [[oldestToNewestMessages reverseObjectEnumerator] allObjects];
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,7 +76,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [[RODItemStore sharedStore].authie.allMessages count];
+    return [sortedMessages count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -80,7 +90,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
     }
     
-    RODMessage *msg = [[RODItemStore sharedStore].authie.allMessages objectAtIndex:indexPath.row];
+    RODMessage *msg = [sortedMessages objectAtIndex:indexPath.row];
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@ said: %@",msg.fromHandle.name, msg.messageText];
         
@@ -89,7 +99,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RODMessage *msg = [[RODItemStore sharedStore].authie.allMessages objectAtIndex:indexPath.row];
+    RODMessage *msg = [sortedMessages objectAtIndex:indexPath.row];
     NSLog(@"Message: %@", msg.thread.groupKey);
     
     RODThread *thread;

@@ -10,4 +10,6 @@
 
 @interface MessagesViewController : UITableViewController
 
+@property (strong, nonatomic) NSArray *sortedMessages;
+
 @end

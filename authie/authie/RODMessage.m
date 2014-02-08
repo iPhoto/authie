@@ -41,5 +41,8 @@
     return self;
 }
 
+- (NSComparisonResult)compare:(RODMessage *)otherObject {
+    return [self.sentDate compare:otherObject.sentDate];
+}
 
 @end
