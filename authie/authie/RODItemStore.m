@@ -1048,6 +1048,7 @@
                 followeeHandle.mostRecentSnap = mRS;
                                 
                 [self.authie.allContacts addObject:followeeHandle];
+                NSLog(@"add contact: %@", followeeHandle.name);
                 
             }
 

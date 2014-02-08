@@ -72,6 +72,7 @@
 {
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [[RODItemStore sharedStore] loadContacts];
     [self.navigationController pushViewController:appDelegate.selectContactViewController animated:YES];
     
 }

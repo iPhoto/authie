@@ -68,6 +68,8 @@
     self.navigationItem.rightBarButtonItem = rightDrawerButton;
     
     editingContacts = NO;
+
+    [self.contactsTable reloadData];
     
 }
 
