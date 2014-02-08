@@ -63,6 +63,19 @@
                                                              [weakSelf setViewControllers:@[controller] animated:NO];
                                                          }];
     messagesItem.badge = [NSString stringWithFormat:@"%i", [[RODItemStore sharedStore].authie.allMessages count]];
+
+    REMenuItem *addItem = [[REMenuItem alloc] initWithTitle:@"Add"
+                                                        subtitle:nil
+                                                           image:[UIImage imageNamed:@"messages-white-v1"]
+                                                highlightedImage:nil
+                                                          action:^(REMenuItem *item) {
+
+                                                              DashViewController *controller = appDelegate.dashViewController;
+                                                              
+                                                              [weakSelf setViewControllers:@[controller] animated:NO];
+                                                              
+                                                              [controller addContact];
+                                                          }];
     
     REMenuItem *privateKeyItem = [[REMenuItem alloc] initWithTitle:@"Private Key"
                                                        subtitle:nil
@@ -100,10 +113,11 @@
     
     homeItem.tag = 0;
     messagesItem.tag = 1;
-    privateKeyItem.tag = 2;
-    aboutItem.tag = 3;
+    addItem.tag = 2;
+    privateKeyItem.tag = 3;
+    aboutItem.tag = 4;
  
-    self.menu = [[REMenu alloc] initWithItems:@[homeItem, messagesItem, privateKeyItem, aboutItem]];
+    self.menu = [[REMenu alloc] initWithItems:@[homeItem, messagesItem, addItem, privateKeyItem, aboutItem]];
     
     // Background view
     //
