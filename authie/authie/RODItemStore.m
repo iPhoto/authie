@@ -145,9 +145,9 @@
             response_result = [[object objectForKey:@"result"] integerValue];
             
             if(response_result == 1) {
+                
+                [self.authie.allContacts removeObject:handle];
                 [self loadContacts];
-                AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-                [appDelegate.contactsViewController.navigationController popToRootViewControllerAnimated:YES];
                 
             }
             

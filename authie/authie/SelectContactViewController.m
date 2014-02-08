@@ -170,6 +170,10 @@
     RODHandle *handle = [[RODItemStore sharedStore].authie.all_Contacts objectAtIndex:row];
     
     UIAlertView *a = [[UIAlertView alloc] initWithTitle:@"block" message:[NSString stringWithFormat:@"block %@? they will be unable to send you snaps.", handle.name] delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"block", nil];
+    
+    self.selected = handle;
+
+    
     a.tag = 200;
     [a show];
     
@@ -179,6 +183,8 @@
 {
     int row = (tapGesture.view.tag) / 1000;
     RODHandle *handle = [[RODItemStore sharedStore].authie.all_Contacts objectAtIndex:row];
+    
+    self.selected = handle;
     
     UIAlertView *a = [[UIAlertView alloc] initWithTitle:@"remove" message:[NSString stringWithFormat:@"remove %@ as a contact?", handle.name] delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"remove", nil];
     a.tag = 100;
@@ -197,7 +203,9 @@
     // figure out if it's a remove or a block
     switch(alertView.tag) {
         case 100:
-            NSLog(@"clicked remove");
+            NSLog(@"clicked remove: %@", self.selected.name);
+            [[RODItemStore sharedStore] removeContact:self.selected];
+            [self.contactsTable reloadData];
             break;
         case 200:
             NSLog(@"clicked block");
@@ -216,7 +224,6 @@
     }
     
     RODHandle *handle = [[RODItemStore sharedStore].authie.all_Contacts objectAtIndex:indexPath.row];
-    
     self.selected = handle;
         
     //self.imagePicker = nil;
