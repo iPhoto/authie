@@ -451,20 +451,7 @@
     
     RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:thread_index];
     Boolean is_authorize_request = NO;
-    if([thread.authorizeRequest isEqualToNumber:[NSNumber numberWithInt:1]])
-    {
-        
-        appDelegate.authorizeContactViewController = [[AuthorizeContactViewController alloc] init];
-        //[appDelegate.authorizeContactViewController loadThread:thread_index];
-        [appDelegate.dashViewController.navigationController pushViewController:appDelegate.authorizeContactViewController animated:YES];
-        is_authorize_request = YES;
-        
-    } else {
-        
-        appDelegate.threadViewController = [[ThreadViewController alloc] init];
-        //[appDelegate.threadViewController loadThread:thread_index];
-        [appDelegate.dashViewController.navigationController pushViewController:appDelegate.threadViewController animated:YES];        
-    }
+
     
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
     dispatch_async(queue, ^{
@@ -477,17 +464,23 @@
             // Update UI
             // Example:
             // self.myLabel.text = result;
-            
+
             if([thread.authorizeRequest isEqualToNumber:[NSNumber numberWithInt:1]])
             {
+                
+                appDelegate.authorizeContactViewController = [[AuthorizeContactViewController alloc] init];
+                //[appDelegate.authorizeContactViewController loadThread:thread_index];
+                [appDelegate.dashViewController.navigationController pushViewController:appDelegate.authorizeContactViewController animated:YES];
                 [appDelegate.authorizeContactViewController loadThread:thread_index];
+                
             } else {
-                [appDelegate.threadViewController loadThread:thread_index];
+                
+                appDelegate.threadViewController = [[ThreadViewController alloc] init];
+                [appDelegate.threadViewController setLoadRow:thread_index];
+                [appDelegate.dashViewController.navigationController pushViewController:appDelegate.threadViewController animated:YES];
             }
-            
+                        
             [progressView dismiss:YES];
-            
-            
             
         });
     });

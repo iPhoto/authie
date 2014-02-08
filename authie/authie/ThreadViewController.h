@@ -11,9 +11,7 @@
 #import <JSMessagesViewController/JSMessagesViewController.h>
 
 @interface ThreadViewController : JSMessagesViewController <UIScrollViewDelegate, JSMessagesViewDataSource, JSMessagesViewDelegate>
-{
-    int loadRow;
-}
+
 @property (weak, nonatomic) IBOutlet UILabel *snapDate;
 @property (weak, nonatomic) IBOutlet UIView *viewDetails;
 
@@ -27,6 +25,8 @@
 @property (strong, nonatomic) NSMutableArray *subtitles;
 @property (strong, nonatomic) NSDictionary *avatars;
 @property (strong, nonatomic) NSMutableArray *messageType;
+
+@property (nonatomic) int loadRow;
 
 - (void)setThread:(RODThread *)new_thread;
 - (void)loadThread:(int)row;

@@ -17,6 +17,7 @@
 #import "NSDate+PrettyDate.h"
 
 @implementation ThreadViewController
+@synthesize loadRow;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -236,6 +237,8 @@
 {
  
     NSString *currentMessage = self.messageInputView.textView.text;
+    loadRow = row;
+    
     
     [self resetChatObjects];
     
@@ -338,8 +341,6 @@
                                                                                                                                                                                                        
     self.messageInputView.textView.text = currentMessage;
 
-    
-    loadRow = row;
     
 }
 

@@ -104,6 +104,8 @@
 		5D2F714C18A443A200EDC1E4 /* heart-white-v1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F714A18A443A200EDC1E4 /* heart-white-v1.png */; };
 		5D2F714D18A443A200EDC1E4 /* heart-white-v1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F714B18A443A200EDC1E4 /* heart-white-v1@2x.png */; };
 		5D2F714F18A56AEF00EDC1E4 /* LucidaTypewriter.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F714E18A5693E00EDC1E4 /* LucidaTypewriter.ttf */; };
+		5D2F715218A6A56000EDC1E4 /* add-v1-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F715018A6A56000EDC1E4 /* add-v1-white.png */; };
+		5D2F715318A6A56000EDC1E4 /* add-v1-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F715118A6A56000EDC1E4 /* add-v1-white@2x.png */; };
 		5D556A631882384100C5B6FB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D556A611882384100C5B6FB /* LoginViewController.m */; };
 		5D556A641882384100C5B6FB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D556A621882384100C5B6FB /* LoginViewController.xib */; };
 		5D5A0728188271C4003848EA /* NSDate+PrettyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A0727188271C4003848EA /* NSDate+PrettyDate.m */; };
@@ -358,6 +360,8 @@
 		5D2F714A18A443A200EDC1E4 /* heart-white-v1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart-white-v1.png"; sourceTree = "<group>"; };
 		5D2F714B18A443A200EDC1E4 /* heart-white-v1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart-white-v1@2x.png"; sourceTree = "<group>"; };
 		5D2F714E18A5693E00EDC1E4 /* LucidaTypewriter.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LucidaTypewriter.ttf; sourceTree = "<group>"; };
+		5D2F715018A6A56000EDC1E4 /* add-v1-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-v1-white.png"; sourceTree = "<group>"; };
+		5D2F715118A6A56000EDC1E4 /* add-v1-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-v1-white@2x.png"; sourceTree = "<group>"; };
 		5D556A601882384100C5B6FB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		5D556A611882384100C5B6FB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		5D556A621882384100C5B6FB /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -936,6 +940,8 @@
 				5D2F712218A309FC00EDC1E4 /* house-v5@2x.png */,
 				5D2F712F18A3293000EDC1E4 /* house-v5-white.png */,
 				5D2F713018A3293000EDC1E4 /* house-v5-white@2x.png */,
+				5D2F715018A6A56000EDC1E4 /* add-v1-white.png */,
+				5D2F715118A6A56000EDC1E4 /* add-v1-white@2x.png */,
 				5D2F712518A30AB500EDC1E4 /* key-v1.png */,
 				5D2F712618A30AB500EDC1E4 /* key-v1@2x.png */,
 				5D2F713B18A32E3600EDC1E4 /* key-v2-white.png */,
@@ -1081,6 +1087,7 @@
 			files = (
 				5D2F713518A32C2A00EDC1E4 /* about-v3-white.png in Resources */,
 				5D2F712418A309FC00EDC1E4 /* house-v5@2x.png in Resources */,
+				5D2F715218A6A56000EDC1E4 /* add-v1-white.png in Resources */,
 				5D21CA29188DAF6800330F78 /* up@2x.png in Resources */,
 				5D2F713E18A32E3600EDC1E4 /* key-v2-white@2x.png in Resources */,
 				5D21CA37188DAF6800330F78 /* bottom-detail.png in Resources */,
@@ -1161,6 +1168,7 @@
 				5D21CA25188DAF6800330F78 /* UAInboxMessageViewController.xib in Resources */,
 				5D21CA24188DAF6800330F78 /* UAInboxMessageListController.xib in Resources */,
 				5D21CA47188DAF6800330F78 /* UAPushSettingsView.xib in Resources */,
+				5D2F715318A6A56000EDC1E4 /* add-v1-white@2x.png in Resources */,
 				5D2F712318A309FC00EDC1E4 /* house-v5.png in Resources */,
 				5D8C1CE918808FC000158AE5 /* SelectContactViewController.xib in Resources */,
 				5D5A073418848B0F003848EA /* ConfirmSnapViewController.xib in Resources */,

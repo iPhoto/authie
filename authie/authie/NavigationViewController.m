@@ -66,7 +66,7 @@
 
     REMenuItem *addItem = [[REMenuItem alloc] initWithTitle:@"Add"
                                                         subtitle:nil
-                                                           image:[UIImage imageNamed:@"messages-white-v1"]
+                                                           image:[UIImage imageNamed:@"add-v1-white"]
                                                 highlightedImage:nil
                                                           action:^(REMenuItem *item) {
 
