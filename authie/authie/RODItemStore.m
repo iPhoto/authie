@@ -934,7 +934,62 @@
 
 - (void)addBlock:(NSString *)publicKey
 {
-    NSLog(@"addBlock: %@", publicKey);
+    
+    NSError *error = nil;
+    
+    NSURLResponse *response;
+    NSData *localData = nil;
+    
+    NSString *url = [NSString stringWithFormat:@"http://authie.me/api/block/%@", publicKey];
+    NSLog(@"addBlock: %@", url);
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5];
+    [request setHTTPMethod:@"POST"];
+    
+    if(error == nil) {
+        [request setValue:@"application/x-www-form-urlencoded; charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        
+        //send the request and get the response
+        localData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        NSError *deserialize_error = nil;
+        
+        id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingAllowFragments error:&deserialize_error];
+        
+        if([object isKindOfClass:[NSDictionary class]] && deserialize_error == nil) {
+            
+            NSLog(@"results from block: %@", object);
+            
+            NSInteger response_result;
+            response_result = [[object objectForKey:@"active"] integerValue];
+            
+            if(response_result == 1) {
+
+                NSMutableArray *tempContacts = [NSMutableArray arrayWithArray:self.authie.allContacts];
+                for(RODHandle *r in tempContacts) {
+                    if([r.publicKey isEqualToString:publicKey]) {
+                        [self.authie.allContacts removeObject:r];
+                        [self saveChanges];
+                        NSLog(@"Contact found and removed.");
+                        break;
+                    }
+                    
+                }
+                
+                [self loadContacts];
+                
+            }
+            
+            
+        }
+        
+    } else {
+        NSLog(@"Error: %@", error);
+    }
+    
+    [self saveChanges];
+    
 }
 
 - (void)loadBlocks

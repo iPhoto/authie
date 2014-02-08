@@ -199,16 +199,25 @@
         // cancel button
         return;
     }
-    
+
+    UIAlertView *bye;
+
     // figure out if it's a remove or a block
     switch(alertView.tag) {
         case 100:
             NSLog(@"clicked remove: %@", self.selected.name);
             [[RODItemStore sharedStore] removeContact:self.selected];
             [self.contactsTable reloadData];
+            bye = [[UIAlertView alloc] initWithTitle:@"bye" message:[NSString stringWithFormat:@"%@ is removed from your list.", self.selected.name] delegate:self cancelButtonTitle:@"good" otherButtonTitles:nil];
+            [bye show];
             break;
         case 200:
             NSLog(@"clicked block");
+            [[RODItemStore sharedStore] addBlock:self.selected.publicKey];
+            [self.contactsTable reloadData];
+            
+            bye = [[UIAlertView alloc] initWithTitle:@"bye" message:[NSString stringWithFormat:@"%@ is blocked.", self.selected.name] delegate:self cancelButtonTitle:@"good" otherButtonTitles:nil];
+            [bye show];
             break;
     }
     
