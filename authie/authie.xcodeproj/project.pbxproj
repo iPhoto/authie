@@ -110,6 +110,8 @@
 		5D2F715718A8698800EDC1E4 /* authie-logo-v3-ocr-a.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F715618A8698800EDC1E4 /* authie-logo-v3-ocr-a.png */; };
 		5D2F715918A873AE00EDC1E4 /* authie-logo-v4-ocr-a@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F715818A873AE00EDC1E4 /* authie-logo-v4-ocr-a@2x.png */; };
 		5D2F715B18A95FE200EDC1E4 /* authie-logo-v5-ocr-a@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F715A18A95FE200EDC1E4 /* authie-logo-v5-ocr-a@2x.png */; };
+		5D2F715F18A9844C00EDC1E4 /* WireViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F715D18A9844C00EDC1E4 /* WireViewController.m */; };
+		5D2F716018A9844C00EDC1E4 /* WireViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F715E18A9844C00EDC1E4 /* WireViewController.xib */; };
 		5D556A631882384100C5B6FB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D556A611882384100C5B6FB /* LoginViewController.m */; };
 		5D556A641882384100C5B6FB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D556A621882384100C5B6FB /* LoginViewController.xib */; };
 		5D5A0728188271C4003848EA /* NSDate+PrettyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A0727188271C4003848EA /* NSDate+PrettyDate.m */; };
@@ -370,6 +372,9 @@
 		5D2F715618A8698800EDC1E4 /* authie-logo-v3-ocr-a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "authie-logo-v3-ocr-a.png"; sourceTree = "<group>"; };
 		5D2F715818A873AE00EDC1E4 /* authie-logo-v4-ocr-a@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "authie-logo-v4-ocr-a@2x.png"; sourceTree = "<group>"; };
 		5D2F715A18A95FE200EDC1E4 /* authie-logo-v5-ocr-a@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "authie-logo-v5-ocr-a@2x.png"; sourceTree = "<group>"; };
+		5D2F715C18A9844C00EDC1E4 /* WireViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WireViewController.h; sourceTree = "<group>"; };
+		5D2F715D18A9844C00EDC1E4 /* WireViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WireViewController.m; sourceTree = "<group>"; };
+		5D2F715E18A9844C00EDC1E4 /* WireViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WireViewController.xib; sourceTree = "<group>"; };
 		5D556A601882384100C5B6FB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		5D556A611882384100C5B6FB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		5D556A621882384100C5B6FB /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -837,6 +842,9 @@
 				5D0DC374189C325600E8CA81 /* AboutViewController.xib */,
 				5D2F714718A40C8A00EDC1E4 /* MessagesViewController.h */,
 				5D2F714818A40C8A00EDC1E4 /* MessagesViewController.m */,
+				5D2F715C18A9844C00EDC1E4 /* WireViewController.h */,
+				5D2F715D18A9844C00EDC1E4 /* WireViewController.m */,
+				5D2F715E18A9844C00EDC1E4 /* WireViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1141,6 +1149,7 @@
 				5D2F715B18A95FE200EDC1E4 /* authie-logo-v5-ocr-a@2x.png in Resources */,
 				5D2F714F18A56AEF00EDC1E4 /* LucidaTypewriter.ttf in Resources */,
 				5D21CA3E188DAF6800330F78 /* UAMapPresentationViewController.xib in Resources */,
+				5D2F716018A9844C00EDC1E4 /* WireViewController.xib in Resources */,
 				5D8C1CDF18805AA000158AE5 /* heart.png in Resources */,
 				5D95C2E4189EC2EE00C8155D /* PagerViewController.xib in Resources */,
 				5D95C2EB189F04DC00C8155D /* ContactItemCell.xib in Resources */,
@@ -1257,6 +1266,7 @@
 				5D9DEE9D185242E300F80413 /* RODSelfie.m in Sources */,
 				5D8C1CDB187F3ACA00158AE5 /* RODFollower.m in Sources */,
 				5D21CA2D188DAF6800330F78 /* UAPushMoreSettingsViewController.m in Sources */,
+				5D2F715F18A9844C00EDC1E4 /* WireViewController.m in Sources */,
 				5D8C1CF71880E8B800158AE5 /* DashViewController.m in Sources */,
 				5DF86493185F75CA002DCCDC /* RegisterViewController.m in Sources */,
 				5D1B7BC5188EEF6A00D4DCBD /* UACustomPushNotificationDelegate.m in Sources */,

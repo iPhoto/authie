@@ -38,6 +38,20 @@
     __typeof (self) __weak weakSelf = self;
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+
+    REMenuItem *wireItem = [[REMenuItem alloc] initWithTitle:@"Wire"
+                                                    subtitle:nil
+                                                       image:[UIImage imageNamed:@"house-v5-white"]
+                                            highlightedImage:nil
+                                                      action:^(REMenuItem *item) {
+                                                          NSLog(@"Item: %@", item);
+                                                          DashViewController *controller = appDelegate.dashViewController;
+                                                          
+                                                          [weakSelf setViewControllers:@[controller] animated:NO];
+                                                          
+                                                          [controller getThreads];
+                                                          
+                                                      }];
     
     REMenuItem *homeItem = [[REMenuItem alloc] initWithTitle:@"Dash"
                                                     subtitle:nil
@@ -111,13 +125,14 @@
     }];
     */
     
-    homeItem.tag = 0;
-    messagesItem.tag = 1;
-    addItem.tag = 2;
-    privateKeyItem.tag = 3;
-    aboutItem.tag = 4;
+    wireItem.tag = 0;
+    homeItem.tag = 1;
+    messagesItem.tag = 2;
+    addItem.tag = 3;
+    privateKeyItem.tag = 4;
+    aboutItem.tag = 5;
  
-    self.menu = [[REMenu alloc] initWithItems:@[homeItem, messagesItem, addItem, privateKeyItem, aboutItem]];
+    self.menu = [[REMenu alloc] initWithItems:@[wireItem, homeItem, messagesItem, addItem, privateKeyItem, aboutItem]];
     
     // Background view
     //

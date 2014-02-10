@@ -8,6 +8,8 @@ pod 'JSMessagesViewController'
 pod 'CXAlertView'
 pod 'REMenu', '~> 1.8'
 pod 'UIImage-Helpers', '~> 0.0.1'
+pod 'SVPullToRefresh'
+
 
 # Recommended to keep GPUImage up-to-date
 pod 'GPUImage', :head
