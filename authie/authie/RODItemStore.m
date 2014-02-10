@@ -1732,10 +1732,10 @@
     UIView *holder = [[UIView alloc] init];
     [holder setFrame:CGRectMake(0, 0, 100, 40)];
     
-    UIImage *image = [UIImage imageNamed:@"authie-logo-v3-ocr-a"];
+    UIImage *image = [UIImage imageNamed:@"authie-logo-v4-ocr-a"];
     UIImageView *imageview = [[UIImageView alloc] initWithImage:image];
-    [imageview setFrame:CGRectMake(0, 0, 100, 20)];
-    [imageview setContentMode:UIViewContentModeScaleAspectFill];
+    [imageview setFrame:CGRectMake(0, 5, 100, 15)];
+    [imageview setContentMode:UIViewContentModeScaleAspectFit];
     
     [holder addSubview:imageview];
     
