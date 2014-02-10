@@ -36,6 +36,7 @@
         [self setEdgesForExtendedLayout:UIRectEdgeNone];
         _items = [[NSMutableArray alloc] init];
         
+        
     }
     return self;
 }
@@ -58,7 +59,7 @@
     [self.view addGestureRecognizer:swipeView];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-
+    
 }
 
 - (void)clearScrollView
@@ -176,6 +177,32 @@
     [MRProgressOverlayView dismissAllOverlaysForView:self.view.window animated:YES];
 }
 
+- (void)testRefresh:(UIRefreshControl *)refreshControl
+{
+    refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Refreshing data..."];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        [[RODItemStore sharedStore] loadThreads];
+        [[RODItemStore sharedStore] loadMessages];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"MMM d, h:mm a"];
+            NSString *lastUpdate = [NSString stringWithFormat:@"Last updated on %@", [formatter stringFromDate:[NSDate date]]];
+            
+            refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:lastUpdate];
+            
+            [refreshControl endRefreshing];
+            
+            [self populateScrollView];
+            
+            NSLog(@"refresh end");
+        });
+    });
+}
+
 - (void)populateScrollView
 {
     
@@ -196,6 +223,11 @@
     // remove the threads that were there before
     [[self.scroll subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
 
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(testRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.scroll addSubview:refreshControl];
+
+    
     UIFont *lucidaTypewriter = [UIFont fontWithName:@"LucidaTypewriter" size:20.0f];
 
     [_items removeAllObjects];

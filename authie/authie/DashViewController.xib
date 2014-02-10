@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="142" height="222"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nmP-NO-jhZ" userLabel="dashScroll">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nmP-NO-jhZ" userLabel="dashScroll">
                     <rect key="frame" x="0.0" y="0.0" width="142" height="222"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <connections>
