@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AuthorizeContactViewController">
             <connections>
                 <outlet property="btnAccept" destination="uBY-f8-VbB" id="iha-K7-DhI"/>
+                <outlet property="btnBlock" destination="Co6-j3-oqB" id="igV-q2-93o"/>
                 <outlet property="btnDeny" destination="hDb-p3-VOD" id="Q7a-JM-2fw"/>
                 <outlet property="labelRequestDetails" destination="dEW-8v-Vpd" id="F1i-W1-ePf"/>
                 <outlet property="snapView" destination="wwE-Ty-AP2" id="DLK-TY-ogR"/>

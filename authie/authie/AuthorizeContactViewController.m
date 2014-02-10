@@ -117,8 +117,7 @@
     [[RODItemStore sharedStore] addBlock:self.thread.fromHandle.publicKey];
     UIAlertView *bye = [[UIAlertView alloc] initWithTitle:@"bye" message:[NSString stringWithFormat:@"%@ is blocked.", self.thread.fromHandle.name] delegate:self cancelButtonTitle:@"good" otherButtonTitles:nil];
     [bye show];
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-    
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 -(void)loadThread:(int)row
