@@ -37,6 +37,8 @@
 {
     [super viewWillAppear:animated];
 
+    [[RODItemStore sharedStore] getPrivateKey];
+    
     NSLog(@"Will appear: %@",[RODItemStore sharedStore].authie.privateKey);
     
     self.privateKey.text = [[RODItemStore sharedStore].authie.privateKey substringToIndex:5];

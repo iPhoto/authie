@@ -1691,11 +1691,12 @@
                 [self loadContacts];
                 
                 NSLog(@"id: %lu, privateKey: %@, publicKey: %@", [self.authie.handle.id longValue], self.authie.handle.privateKey, self.authie.handle.publicKey);
-                                
+                
+                [self saveChanges];
+                
                 AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
                 [appDelegate.dashViewController.navigationController popToRootViewControllerAnimated:YES];
                 
-                [self saveChanges];
             } else {
                 registered_result = NO;
             }
