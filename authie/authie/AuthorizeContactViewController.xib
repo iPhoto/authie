@@ -16,19 +16,19 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="D7I-pV-RUv">
-            <rect key="frame" x="0.0" y="0.0" width="376" height="417"/>
+            <rect key="frame" x="0.0" y="0.0" width="369" height="417"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wwE-Ty-AP2">
-                    <rect key="frame" x="0.0" y="0.0" width="377" height="417"/>
+                    <rect key="frame" x="0.0" y="0.0" width="370" height="417"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <view alpha="0.79999999999999982" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="okb-iq-2Ys">
-                    <rect key="frame" x="0.0" y="294" width="376" height="123"/>
+                    <rect key="frame" x="0.0" y="294" width="369" height="123"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="334" translatesAutoresizingMaskIntoConstraints="NO" id="dEW-8v-Vpd">
-                            <rect key="frame" x="22" y="3" width="334" height="73"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="327" translatesAutoresizingMaskIntoConstraints="NO" id="dEW-8v-Vpd">
+                            <rect key="frame" x="22" y="3" width="327" height="73"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="73" id="Ycj-1K-s0B"/>
@@ -37,7 +37,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDb-p3-VOD">
-                            <rect key="frame" x="298" y="78" width="54" height="30"/>
+                            <rect key="frame" x="291" y="78" width="54" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="54" id="qIl-kN-s1s"/>
@@ -59,11 +59,28 @@
                                 <action selector="acceptAuthorization:" destination="-1" eventType="touchUpInside" id="NF2-gC-UcY"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Co6-j3-oqB">
+                            <rect key="frame" x="229" y="78" width="54" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="54" id="03k-ZL-GBI"/>
+                                <constraint firstAttribute="width" constant="54" id="cHo-iO-92h"/>
+                                <constraint firstAttribute="height" constant="30" id="znA-eK-gTr"/>
+                            </constraints>
+                            <state key="normal" title="Block">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="blockHandle:" destination="-1" eventType="touchUpInside" id="5BA-VI-SGq"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="uBY-f8-VbB" firstAttribute="leading" secondItem="okb-iq-2Ys" secondAttribute="leading" constant="22" id="4XW-EC-GnM"/>
+                        <constraint firstAttribute="bottom" secondItem="Co6-j3-oqB" secondAttribute="bottom" constant="15" id="6Ge-oq-6V0"/>
                         <constraint firstAttribute="bottom" secondItem="hDb-p3-VOD" secondAttribute="bottom" constant="15" id="870-gc-9sL"/>
+                        <constraint firstAttribute="trailing" secondItem="Co6-j3-oqB" secondAttribute="trailing" constant="86" id="8vI-do-kVi"/>
                         <constraint firstAttribute="height" constant="123" id="9Ds-pK-ShW"/>
                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dEW-8v-Vpd" secondAttribute="trailing" constant="7" id="FXd-uv-5V3"/>
                         <constraint firstAttribute="trailing" secondItem="hDb-p3-VOD" secondAttribute="trailing" constant="24" id="J5m-cQ-xQh"/>

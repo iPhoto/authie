@@ -13,6 +13,7 @@
 #import "RODAuthie.h"
 #import "RODHandle.h"
 #import "AppDelegate.h"
+#import "RODItemStore.h"
 
 @implementation AuthorizeContactViewController
 @synthesize snapView;
@@ -109,6 +110,15 @@
 - (IBAction)block:(id)sender {
     UIAlertView *block = [[UIAlertView alloc] initWithTitle:@"block" message:@"block is not implemented yet." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
     [block show];
+}
+
+- (IBAction)blockHandle:(id)sender {    
+    
+    [[RODItemStore sharedStore] addBlock:self.thread.fromHandle.publicKey];
+    UIAlertView *bye = [[UIAlertView alloc] initWithTitle:@"bye" message:[NSString stringWithFormat:@"%@ is blocked.", self.thread.fromHandle.name] delegate:self cancelButtonTitle:@"good" otherButtonTitles:nil];
+    [bye show];
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
 -(void)loadThread:(int)row

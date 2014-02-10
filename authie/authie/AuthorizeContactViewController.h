@@ -15,6 +15,8 @@
 - (IBAction)acceptAuthorization:(id)sender;
 - (IBAction)denyAuthorization:(id)sender;
 - (IBAction)block:(id)sender;
+- (IBAction)blockHandle:(id)sender;
+
 @property (weak, nonatomic) IBOutlet UIImageView *snapView;
 @property (strong, nonatomic) RODThread *thread;
 @property (weak, nonatomic) IBOutlet UIView *viewAuthorization;
