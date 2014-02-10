@@ -109,6 +109,7 @@
 		5D2F715518A864F200EDC1E4 /* authie-logo-v2-ocr-a.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F715418A864F200EDC1E4 /* authie-logo-v2-ocr-a.png */; };
 		5D2F715718A8698800EDC1E4 /* authie-logo-v3-ocr-a.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F715618A8698800EDC1E4 /* authie-logo-v3-ocr-a.png */; };
 		5D2F715918A873AE00EDC1E4 /* authie-logo-v4-ocr-a@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F715818A873AE00EDC1E4 /* authie-logo-v4-ocr-a@2x.png */; };
+		5D2F715B18A95FE200EDC1E4 /* authie-logo-v5-ocr-a@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F715A18A95FE200EDC1E4 /* authie-logo-v5-ocr-a@2x.png */; };
 		5D556A631882384100C5B6FB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D556A611882384100C5B6FB /* LoginViewController.m */; };
 		5D556A641882384100C5B6FB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D556A621882384100C5B6FB /* LoginViewController.xib */; };
 		5D5A0728188271C4003848EA /* NSDate+PrettyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A0727188271C4003848EA /* NSDate+PrettyDate.m */; };
@@ -368,6 +369,7 @@
 		5D2F715418A864F200EDC1E4 /* authie-logo-v2-ocr-a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "authie-logo-v2-ocr-a.png"; sourceTree = "<group>"; };
 		5D2F715618A8698800EDC1E4 /* authie-logo-v3-ocr-a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "authie-logo-v3-ocr-a.png"; sourceTree = "<group>"; };
 		5D2F715818A873AE00EDC1E4 /* authie-logo-v4-ocr-a@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "authie-logo-v4-ocr-a@2x.png"; sourceTree = "<group>"; };
+		5D2F715A18A95FE200EDC1E4 /* authie-logo-v5-ocr-a@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "authie-logo-v5-ocr-a@2x.png"; sourceTree = "<group>"; };
 		5D556A601882384100C5B6FB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		5D556A611882384100C5B6FB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		5D556A621882384100C5B6FB /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -941,6 +943,7 @@
 				5D2F715418A864F200EDC1E4 /* authie-logo-v2-ocr-a.png */,
 				5D2F715618A8698800EDC1E4 /* authie-logo-v3-ocr-a.png */,
 				5D2F715818A873AE00EDC1E4 /* authie-logo-v4-ocr-a@2x.png */,
+				5D2F715A18A95FE200EDC1E4 /* authie-logo-v5-ocr-a@2x.png */,
 				5D2F711F18A3056200EDC1E4 /* house-v3.png */,
 				5D21C97B188DAF6800330F78 /* Airship */,
 				5D06B984187B0D4E00FC17F0 /* cog.png */,
@@ -1135,6 +1138,7 @@
 				5D21CA1C188DAF6800330F78 /* check.png in Resources */,
 				5D8C1CFD1880EEB900158AE5 /* MiniThreadViewController.xib in Resources */,
 				5D21CA41188DAF6800330F78 /* UAPushSettingsAddTagViewController.xib in Resources */,
+				5D2F715B18A95FE200EDC1E4 /* authie-logo-v5-ocr-a@2x.png in Resources */,
 				5D2F714F18A56AEF00EDC1E4 /* LucidaTypewriter.ttf in Resources */,
 				5D21CA3E188DAF6800330F78 /* UAMapPresentationViewController.xib in Resources */,
 				5D8C1CDF18805AA000158AE5 /* heart.png in Resources */,
