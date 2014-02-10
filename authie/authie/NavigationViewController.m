@@ -29,7 +29,7 @@
 {
     [super viewDidLoad];
     if (REUIKitIsFlatMode()) {
-        [self.navigationBar performSelector:@selector(setBarTintColor:) withObject:[UIColor colorWithRed:0/255.0 green:60/255.0 blue:45/255.0 alpha:1]];
+        [self.navigationBar performSelector:@selector(setBarTintColor:) withObject:[UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:1]];
         self.navigationBar.tintColor = [UIColor whiteColor];
     } else {
         self.navigationBar.tintColor = [UIColor colorWithRed:0 green:196/255.0 blue:147/255.0 alpha:1];
