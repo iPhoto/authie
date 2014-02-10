@@ -304,7 +304,7 @@
         
         [self resetChatObjects];
 
-        NSDate *newDate = [[NSDate date] dateByAddingTimeInterval:3600*1];
+        NSDate *newDate = [[NSDate date] dateByAddingTimeInterval:-100];
         
         [self.messages insertObject:@"The Bro Rises" atIndex:0];
         [self.subtitles insertObject:@"vronica" atIndex:0];
