@@ -64,8 +64,11 @@
     [self.cameraView setAlpha:1.0f];
     [self.cameraView setOpaque:NO];
     
-    UIBarButtonItem *rightDrawerButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(enableBlocking:)];
-    self.navigationItem.rightBarButtonItem = rightDrawerButton;
+    
+    if([[RODItemStore sharedStore].authie.all_Contacts count] > 2) {
+        UIBarButtonItem *rightDrawerButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(enableBlocking:)];
+        self.navigationItem.rightBarButtonItem = rightDrawerButton;        
+    }
     
     editingContacts = NO;
 
