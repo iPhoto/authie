@@ -227,6 +227,8 @@
     [refreshControl addTarget:self action:@selector(testRefresh:) forControlEvents:UIControlEventValueChanged];
     [self.scroll addSubview:refreshControl];
 
+    [self.scroll setAlwaysBounceVertical:YES];
+    
     
     UIFont *lucidaTypewriter = [UIFont fontWithName:@"LucidaTypewriter" size:20.0f];
 

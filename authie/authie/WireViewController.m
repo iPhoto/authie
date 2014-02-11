@@ -7,10 +7,7 @@
 //
 
 #import "WireViewController.h"
-
-@interface WireViewController ()
-
-@end
+#import "RODItemStore.h"
 
 @implementation WireViewController
 
@@ -19,6 +16,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        [self setEdgesForExtendedLayout:UIRectEdgeNone];
+
     }
     return self;
 }
@@ -27,12 +26,28 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    self.navigationItem.titleView = [[RODItemStore sharedStore] generateHeaderView];
+
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateMenuItem:@"house-v5-white"];
+
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)getThreads
+{
+    NSLog(@"Get the Wire threads pls");
 }
 
 @end

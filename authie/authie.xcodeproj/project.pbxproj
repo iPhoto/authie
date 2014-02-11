@@ -112,6 +112,8 @@
 		5D2F715B18A95FE200EDC1E4 /* authie-logo-v5-ocr-a@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F715A18A95FE200EDC1E4 /* authie-logo-v5-ocr-a@2x.png */; };
 		5D2F715F18A9844C00EDC1E4 /* WireViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F715D18A9844C00EDC1E4 /* WireViewController.m */; };
 		5D2F716018A9844C00EDC1E4 /* WireViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F715E18A9844C00EDC1E4 /* WireViewController.xib */; };
+		5D2F716318A9A0F400EDC1E4 /* eye-white-v1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F716118A9A0F400EDC1E4 /* eye-white-v1.png */; };
+		5D2F716418A9A0F400EDC1E4 /* eye-white-v1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F716218A9A0F400EDC1E4 /* eye-white-v1@2x.png */; };
 		5D556A631882384100C5B6FB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D556A611882384100C5B6FB /* LoginViewController.m */; };
 		5D556A641882384100C5B6FB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D556A621882384100C5B6FB /* LoginViewController.xib */; };
 		5D5A0728188271C4003848EA /* NSDate+PrettyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A0727188271C4003848EA /* NSDate+PrettyDate.m */; };
@@ -375,6 +377,8 @@
 		5D2F715C18A9844C00EDC1E4 /* WireViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WireViewController.h; sourceTree = "<group>"; };
 		5D2F715D18A9844C00EDC1E4 /* WireViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WireViewController.m; sourceTree = "<group>"; };
 		5D2F715E18A9844C00EDC1E4 /* WireViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WireViewController.xib; sourceTree = "<group>"; };
+		5D2F716118A9A0F400EDC1E4 /* eye-white-v1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eye-white-v1.png"; sourceTree = "<group>"; };
+		5D2F716218A9A0F400EDC1E4 /* eye-white-v1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eye-white-v1@2x.png"; sourceTree = "<group>"; };
 		5D556A601882384100C5B6FB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		5D556A611882384100C5B6FB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		5D556A621882384100C5B6FB /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -956,6 +960,8 @@
 				5D21C97B188DAF6800330F78 /* Airship */,
 				5D06B984187B0D4E00FC17F0 /* cog.png */,
 				5D5A072E18848A7C003848EA /* lock.png */,
+				5D2F716118A9A0F400EDC1E4 /* eye-white-v1.png */,
+				5D2F716218A9A0F400EDC1E4 /* eye-white-v1@2x.png */,
 				5D2F712118A309FC00EDC1E4 /* house-v5.png */,
 				5D2F712218A309FC00EDC1E4 /* house-v5@2x.png */,
 				5D2F712F18A3293000EDC1E4 /* house-v5-white.png */,
@@ -1107,6 +1113,7 @@
 			files = (
 				5D2F713518A32C2A00EDC1E4 /* about-v3-white.png in Resources */,
 				5D2F712418A309FC00EDC1E4 /* house-v5@2x.png in Resources */,
+				5D2F716418A9A0F400EDC1E4 /* eye-white-v1@2x.png in Resources */,
 				5D2F715218A6A56000EDC1E4 /* add-v1-white.png in Resources */,
 				5D21CA29188DAF6800330F78 /* up@2x.png in Resources */,
 				5D2F713E18A32E3600EDC1E4 /* key-v2-white@2x.png in Resources */,
@@ -1169,6 +1176,7 @@
 				5D8C1CF31880E45600158AE5 /* PrivateKeyViewController.xib in Resources */,
 				5D2F714618A3FB5100EDC1E4 /* key-v3-white@2x.png in Resources */,
 				5D2F712718A30AB500EDC1E4 /* key-v1.png in Resources */,
+				5D2F716318A9A0F400EDC1E4 /* eye-white-v1.png in Resources */,
 				5D6340B81888B470006538C5 /* heart-v2.png in Resources */,
 				5D21CA45188DAF6800330F78 /* UAPushSettingsTokenView.xib in Resources */,
 				5D21CA4B188DAF7500330F78 /* LICENSE in Resources */,

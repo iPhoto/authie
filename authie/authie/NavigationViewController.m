@@ -16,6 +16,7 @@
 #import "RODItemStore.h"
 #import "RODAuthie.h"
 #import "MessagesViewController.h"
+#import "WireViewController.h"
 
 @interface NavigationViewController ()
 
@@ -45,7 +46,7 @@
                                             highlightedImage:nil
                                                       action:^(REMenuItem *item) {
                                                           NSLog(@"Item: %@", item);
-                                                          DashViewController *controller = appDelegate.dashViewController;
+                                                          WireViewController *controller = appDelegate.wireViewController;
                                                           
                                                           [weakSelf setViewControllers:@[controller] animated:NO];
                                                           

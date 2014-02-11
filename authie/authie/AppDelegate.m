@@ -28,7 +28,7 @@
 #import "MessagesViewController.h"
 
 @implementation AppDelegate
-@synthesize threadViewController, contactsViewController, privateKeyViewController, dashViewController, loginViewController, registerViewController, selectContactViewController, authorizeContactViewController, notificationDelegate, aboutViewController, navigationViewController, messagesViewController;
+@synthesize threadViewController, contactsViewController, privateKeyViewController, dashViewController, loginViewController, registerViewController, selectContactViewController, authorizeContactViewController, notificationDelegate, aboutViewController, navigationViewController, messagesViewController, wireViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -107,6 +107,9 @@
     
     MessagesViewController *messages = [[MessagesViewController alloc] init];
     messagesViewController = messages;
+    
+    WireViewController *wire = [[WireViewController alloc] init];
+    wireViewController = wire;
     
     UACustomPushNotificationDelegate *notes = [[UACustomPushNotificationDelegate alloc] init];
     notificationDelegate = notes;

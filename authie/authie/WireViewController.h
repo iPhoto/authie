@@ -10,4 +10,6 @@
 
 @interface WireViewController : UIViewController
 
+-(void) getThreads;
+
 @end
