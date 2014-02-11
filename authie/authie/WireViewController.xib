@@ -6,7 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WireViewController">
             <connections>
-                <outlet property="view" destination="2OI-ub-BVJ" id="zLz-jo-BO9"/>
+                <outlet property="scroll" destination="2OI-ub-BVJ" id="YbG-qh-0Ua"/>
+                <outlet property="view" destination="XSJ-xc-MGb" id="SOO-D5-mfb"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

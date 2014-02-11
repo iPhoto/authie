@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface WireViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 
 -(void) getThreads;
 -(void) populateScrollView;

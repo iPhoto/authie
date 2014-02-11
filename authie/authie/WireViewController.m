@@ -8,6 +8,7 @@
 
 #import "WireViewController.h"
 #import "RODItemStore.h"
+#import "BlankWireViewController.h"
 
 @implementation WireViewController
 
@@ -50,15 +51,23 @@
 - (void)getThreads
 {
     NSLog(@"Get the Wire threads pls");
+    [self populateScrollView];
 }
 
 - (void)populateScrollView
 {
 
-    if([[RODItemStore sharedStore].wireThreads count] < 1) {
-        
-        
-        
+    // scroll to top
+    [self.scroll setContentOffset:CGPointZero animated:NO];
+    
+    // remove the threads that were there before
+    [[self.scroll subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    
+    if([[RODItemStore sharedStore].wireThreads count] == 0) {
+        NSLog(@"0 wire threads.");
+        BlankWireViewController *bvc = [[BlankWireViewController alloc] init];
+        [bvc.view setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+        [self.scroll addSubview:bvc.view];
     }
     
 }
