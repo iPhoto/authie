@@ -38,10 +38,13 @@
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [[RODItemStore sharedStore] loadMessagesForThread:notificationGroupKey];
-    [[RODItemStore sharedStore] loadThreads];
+    [[RODItemStore sharedStore] loadThreads:false];
         
     if([appDelegate.threadViewController.thread.groupKey isEqualToString:notificationGroupKey]) {
         // do nothing, they are viewing this thread
+        // RELOAD THE THREAD
+        
+        [appDelegate.threadViewController reloadThread];
         
     } else {
         UIAlertView *al = [[UIAlertView alloc] initWithTitle:@"new auth" message:alertMessage delegate:self cancelButtonTitle:@"ok" otherButtonTitles:@"go to thread", nil];
@@ -64,7 +67,7 @@
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [[RODItemStore sharedStore] loadMessagesForThread:notificationGroupKey];
-    [[RODItemStore sharedStore] loadThreads];
+    [[RODItemStore sharedStore] loadThreads:false];
     
     
     if([appDelegate.threadViewController.thread.groupKey isEqualToString:notificationGroupKey]) {

@@ -51,9 +51,10 @@
 - (void)addChat:(NSString *)user message:(NSString *)message groupKey:(NSString *)groupKey;
 - (void)addBlock:(NSString *)publicKey;
 - (void)loadBlocks;
+- (void)loadWire;
 - (void)loadMessages;
 - (void)loadMessagesForThread:(NSString *)key;
-- (BOOL)loadThreads;
+- (BOOL)loadThreads:(bool)isWire;
 - (BOOL)loadContacts;
 - (BOOL)checkLoginStatus;
 - (BOOL)getHandleInformation;

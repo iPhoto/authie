@@ -79,7 +79,7 @@
             // Update UI
             
             if([RODItemStore sharedStore].authie.registered == 1) {
-                [[RODItemStore sharedStore] loadThreads];
+                [[RODItemStore sharedStore] loadThreads:false];
                 [[RODItemStore sharedStore] loadContacts];
                 [[RODItemStore sharedStore] loadMessages];
                 

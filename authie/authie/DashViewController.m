@@ -158,7 +158,7 @@
     dispatch_async(queue, ^{
         // Perform async operation
 
-        [[RODItemStore sharedStore] loadThreads];
+        [[RODItemStore sharedStore] loadThreads:false];
         [[RODItemStore sharedStore] loadMessages];
         
         dispatch_sync(dispatch_get_main_queue(), ^{
@@ -183,7 +183,7 @@
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
-        [[RODItemStore sharedStore] loadThreads];
+        [[RODItemStore sharedStore] loadThreads:false];
         [[RODItemStore sharedStore] loadMessages];
         
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -484,8 +484,6 @@
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     
     RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:thread_index];
-    Boolean is_authorize_request = NO;
-
     
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
     dispatch_async(queue, ^{
@@ -584,7 +582,7 @@
             // Update UI
             [[RODItemStore sharedStore] sendNotes:self.keyToUpload];
             [self resetUploadVariables];
-            [[RODItemStore sharedStore] loadThreads];
+            [[RODItemStore sharedStore] loadThreads:false];
             [progressView dismiss:YES];
             
         });

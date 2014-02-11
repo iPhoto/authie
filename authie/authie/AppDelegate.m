@@ -192,7 +192,7 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
 
-    [[RODItemStore sharedStore] loadThreads];
+    [[RODItemStore sharedStore] loadThreads:false];
     
     
 }

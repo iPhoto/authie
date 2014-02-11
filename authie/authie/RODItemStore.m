@@ -209,7 +209,7 @@
                         NSLog(@"Found the key to remove, threads: %i", [self.authie.allThreads count]);
                         [self.authie.allThreads removeObject:t];
                         [self saveChanges];
-                        [self loadThreads];
+                        [self loadThreads:false];
                         NSLog(@"Found the key to remove, threads: %i", [self.authie.allThreads count]);
                         break;
                     }
@@ -545,7 +545,7 @@
                 is_logged_in = YES;
                 [self loadContacts];
                 [self loadMessages];
-                [self loadThreads];
+                [self loadThreads:false];
 
             }
             
@@ -629,7 +629,7 @@
                 
                 [self saveChanges];
                 
-                [self loadThreads];
+                [self loadThreads:false];
                 [self loadContacts];
 
                 //AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -720,7 +720,7 @@
                 
                 NSLog(@"results from postfile: %@", object);
                 
-                [self loadThreads];
+                [self loadThreads:false];
                 upload_success = YES;
                 
             }
@@ -912,7 +912,7 @@
                 AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
                 [appDelegate.dashViewController.navigationController popToRootViewControllerAnimated:YES];
                 
-                [self loadThreads];
+                [self loadThreads:false];
                 [self loadContacts];
                 
             } else {
@@ -1067,7 +1067,7 @@
     return loaded_contacts;
 }
 
-- (BOOL)loadThreads
+- (BOOL)loadThreads:(bool)isWire
 {
     BOOL loaded_convos = NO;
     
@@ -1076,7 +1076,14 @@
     NSURLResponse *response;
     NSData *localData = nil;
     
-    NSString *url = [NSString stringWithFormat:@"http://authie.me/api/thread/%i", self.currentPage];
+    
+    NSString *url;
+    
+    if(isWire == NO) {
+        url = [NSString stringWithFormat:@"http://authie.me/api/thread/%i", self.currentPage];
+    } else {
+        url = @"http://authie.me/api/wire";
+    }
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5];
     
