@@ -40,7 +40,7 @@
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 
-    REMenuItem *wireItem = [[REMenuItem alloc] initWithTitle:@"Wire"
+    REMenuItem *wireItem = [[REMenuItem alloc] initWithTitle:@"The Wire"
                                                     subtitle:nil
                                                        image:[UIImage imageNamed:@"eye-white-v1"]
                                             highlightedImage:nil

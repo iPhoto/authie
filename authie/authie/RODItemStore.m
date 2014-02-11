@@ -1511,7 +1511,7 @@
                 
                 for(RODMessage *r in tempMessages) {
                     if([r.thread.groupKey isEqualToString:groupKey]) {
-                        if(r.id == [NSNumber numberWithInt:0]) {
+                        if(r.id == [NSNumber numberWithInt:-1]) {
                             [self.authie.allMessages removeObject:r];
                             break;
                         }
@@ -1820,6 +1820,7 @@
     RODHandle *from = [[RODHandle alloc] init];
     RODHandle *to = [[RODHandle alloc] init];
 
+    msg.id = [NSNumber numberWithInt:-1];
     msg.sentDate = [NSDate date];
     
     RODThread *t;
