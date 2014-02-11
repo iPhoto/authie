@@ -1204,6 +1204,7 @@
 
                 if(isWire ==  YES) {
                     [self.wireThreads addObject:thready];
+                    [[RODImageStore sharedStore] imageForKey:thready.groupKey];
                 } else {
                     [self.authie.allThreads addObject:thready];
                 }

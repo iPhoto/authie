@@ -66,7 +66,7 @@
     //dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
     //dispatch_async(queue, ^{
         
-        NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://authie.me/api/snap/500/%@", groupKey]]];
+        NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://authie.me/api/snap/640/%@", groupKey]]];
         result = [UIImage imageWithData:data];
         
         //dispatch_sync(dispatch_get_main_queue(), ^{

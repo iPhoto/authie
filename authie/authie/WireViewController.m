@@ -47,7 +47,20 @@
     
     self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateMenuItem:@"eye-white-v1"];
 
+    [[RODItemStore sharedStore] loadThreads:true];
 }
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self populateScrollView];
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    [self populateScrollView];
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -64,6 +77,18 @@
 - (void)populateScrollView
 {
 
+    MiniThreadViewController *mini;
+    int yOffset = 0;
+    
+    self.photoHeight = 400;
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        // The device is an iPad running iOS 3.2 or later.
+        self.photoHeight = 800;
+    }
+    
+    
     // scroll to top
     [self.scroll setContentOffset:CGPointZero animated:NO];
     
@@ -86,17 +111,7 @@
         [self.scroll addSubview:bvc.view];
     }
     
-    MiniThreadViewController *mini;
-    int yOffset = 0;
-    
-    self.photoHeight = 400;
-    
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-    {
-        // The device is an iPad running iOS 3.2 or later.
-        self.photoHeight = 800;
-    }
-    
+
     UIFont *lucidaTypewriter = [UIFont fontWithName:@"LucidaTypewriter" size:20.0f];
     
     [_items removeAllObjects];
@@ -129,6 +144,7 @@
         
         yOffset = yOffset + self.photoHeight;
         
+        [mini.view setNeedsLayout];
         [mini.view setNeedsUpdateConstraints];
         
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
