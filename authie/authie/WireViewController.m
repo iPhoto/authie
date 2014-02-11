@@ -247,6 +247,7 @@
         [m.heartsCount setTextColor:[UIColor colorWithRed:0.0/255 green:103.0/255 blue:0.0/255 alpha:1.0f]];
         [m.heartsImage setImage:[UIImage imageNamed:@"heart-green-filled-v1"]];
         thread.hearts = [NSNumber numberWithInt:[thread.hearts intValue] + 1];
+        [[RODItemStore sharedStore] giveLove:thread.groupKey];
         [m setVoted:YES];
     } else {
         [m.heartsCount setTextColor:[UIColor whiteColor]];

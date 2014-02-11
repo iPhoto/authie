@@ -349,7 +349,7 @@
     
     NSString *url = @"http://authie.me/api/heart";
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLCacheStorageNotAllowed timeoutInterval:5];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5];
     [request setHTTPMethod:@"POST"];
     
         
@@ -1200,7 +1200,7 @@
                     }
                 }
                 
-                NSLog(@"added thread from %@ to %@, %@", thready.fromHandleId, thready.toHandleId, thready.groupKey);
+                NSLog(@"added thread from %@ to %@, %@, %@<3", thready.fromHandleId, thready.toHandleId, thready.groupKey, thready.hearts);
 
                 if(isWire ==  YES) {
                     [self.wireThreads addObject:thready];
