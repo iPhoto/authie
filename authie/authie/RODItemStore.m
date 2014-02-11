@@ -1117,8 +1117,12 @@
         id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingMutableContainers error:&deserialize_error];
         if([object isKindOfClass:[NSArray self]] && deserialize_error == nil) {
             
-            // lol now we want to clear everything...
-            [self.authie.allThreads removeAllObjects];
+            if(isWire == YES) {
+                [self.wireThreads removeAllObjects];
+            } else {
+                // lol now we want to clear everything...
+                [self.authie.allThreads removeAllObjects];
+            }
             
             for (NSDictionary *result in object) {
                 
@@ -1186,14 +1190,23 @@
                 NSMutableArray *tempThreads = [NSMutableArray arrayWithArray:self.authie.allThreads];
                 for(RODThread *t in tempThreads) {
                     if([t.groupKey isEqualToString:thready.groupKey]) {
-                        [self.authie.allThreads removeObject:t];
+                        
+                        if(isWire == YES) {
+                            [self.wireThreads removeObject:t];
+                        } else {
+                            [self.authie.allThreads removeObject:t];
+                        }
                         //break;
                     }
                 }
                 
                 NSLog(@"added thread from %@ to %@, %@", thready.fromHandleId, thready.toHandleId, thready.groupKey);
-                
-                [self.authie.allThreads addObject:thready];
+
+                if(isWire ==  YES) {
+                    [self.wireThreads addObject:thready];
+                } else {
+                    [self.authie.allThreads addObject:thready];
+                }
                 
             }
             

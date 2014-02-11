@@ -48,7 +48,7 @@
 
 - (void)getThreads
 {
-    NSLog(@"Get the Wire threads pls");
+    [[RODItemStore sharedStore] loadThreads:true];
     [self populateScrollView];
 }
 
