@@ -114,6 +114,8 @@
 		5D2F716018A9844C00EDC1E4 /* WireViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F715E18A9844C00EDC1E4 /* WireViewController.xib */; };
 		5D2F716318A9A0F400EDC1E4 /* eye-white-v1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F716118A9A0F400EDC1E4 /* eye-white-v1.png */; };
 		5D2F716418A9A0F400EDC1E4 /* eye-white-v1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F716218A9A0F400EDC1E4 /* eye-white-v1@2x.png */; };
+		5D2F716818A9B04F00EDC1E4 /* BlankWireViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F716618A9B04F00EDC1E4 /* BlankWireViewController.m */; };
+		5D2F716918A9B04F00EDC1E4 /* BlankWireViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F716718A9B04F00EDC1E4 /* BlankWireViewController.xib */; };
 		5D556A631882384100C5B6FB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D556A611882384100C5B6FB /* LoginViewController.m */; };
 		5D556A641882384100C5B6FB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D556A621882384100C5B6FB /* LoginViewController.xib */; };
 		5D5A0728188271C4003848EA /* NSDate+PrettyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A0727188271C4003848EA /* NSDate+PrettyDate.m */; };
@@ -379,6 +381,9 @@
 		5D2F715E18A9844C00EDC1E4 /* WireViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WireViewController.xib; sourceTree = "<group>"; };
 		5D2F716118A9A0F400EDC1E4 /* eye-white-v1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eye-white-v1.png"; sourceTree = "<group>"; };
 		5D2F716218A9A0F400EDC1E4 /* eye-white-v1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eye-white-v1@2x.png"; sourceTree = "<group>"; };
+		5D2F716518A9B04F00EDC1E4 /* BlankWireViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlankWireViewController.h; sourceTree = "<group>"; };
+		5D2F716618A9B04F00EDC1E4 /* BlankWireViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlankWireViewController.m; sourceTree = "<group>"; };
+		5D2F716718A9B04F00EDC1E4 /* BlankWireViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlankWireViewController.xib; sourceTree = "<group>"; };
 		5D556A601882384100C5B6FB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		5D556A611882384100C5B6FB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		5D556A621882384100C5B6FB /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -885,6 +890,9 @@
 				5D95C2E5189F048A00C8155D /* ContactItemCell.h */,
 				5D95C2E6189F048A00C8155D /* ContactItemCell.m */,
 				5D95C2EA189F04DB00C8155D /* ContactItemCell.xib */,
+				5D2F716518A9B04F00EDC1E4 /* BlankWireViewController.h */,
+				5D2F716618A9B04F00EDC1E4 /* BlankWireViewController.m */,
+				5D2F716718A9B04F00EDC1E4 /* BlankWireViewController.xib */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -1121,6 +1129,7 @@
 				5D21CA38188DAF6800330F78 /* bottom-detail@2x.png in Resources */,
 				5D2F714D18A443A200EDC1E4 /* heart-white-v1@2x.png in Resources */,
 				5D2F712018A3056200EDC1E4 /* house-v3.png in Resources */,
+				5D2F716918A9B04F00EDC1E4 /* BlankWireViewController.xib in Resources */,
 				5D2F714C18A443A200EDC1E4 /* heart-white-v1.png in Resources */,
 				5D2F715918A873AE00EDC1E4 /* authie-logo-v4-ocr-a@2x.png in Resources */,
 				5D2F711E18A3054D00EDC1E4 /* about-v1.png in Resources */,
@@ -1307,6 +1316,7 @@
 				5D21CA16188DAF6800330F78 /* UAInboxMessageListController.m in Sources */,
 				5D06B982187B0C1F00FC17F0 /* MenuViewController.m in Sources */,
 				5D21CA36188DAF6800330F78 /* UAPushUI.m in Sources */,
+				5D2F716818A9B04F00EDC1E4 /* BlankWireViewController.m in Sources */,
 				5D8C1CD7187E38E300158AE5 /* ThreadViewController.m in Sources */,
 				5D9C7C57187DE25200BE2D42 /* NavigationController.m in Sources */,
 				5D9DEE9A185242E300F80413 /* RKPostSelfie.m in Sources */,

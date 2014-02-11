@@ -37,6 +37,8 @@
     
     self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateMenuItem:@"eye-white-v1"];
 
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,4 +52,14 @@
     NSLog(@"Get the Wire threads pls");
 }
 
+- (void)populateScrollView
+{
+
+    if([[RODItemStore sharedStore].wireThreads count] < 1) {
+        
+        
+        
+    }
+    
+}
 @end

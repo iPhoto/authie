@@ -1,5 +1,5 @@
 //
-//  WireViewController.h
+//  BlankWireViewController.h
 //  authie
 //
 //  Created by Seth Hayward on 2/10/14.
@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WireViewController : UIViewController
-
--(void) getThreads;
--(void) populateScrollView;
+@interface BlankWireViewController : UIViewController
 
 @end

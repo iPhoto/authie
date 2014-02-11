@@ -21,7 +21,7 @@
 }
 
 @property (strong, nonatomic) NSMutableArray *loadedThreadsFromAuthor;
-@property (strong, nonatomic) NSMutableArray *dailyThreads;
+@property (strong, nonatomic) NSMutableArray *wireThreads;
 @property (strong, nonatomic) SRHubConnection *hubConnection;
 @property (strong, nonatomic) SRHubProxy *hubProxy;
 @property (strong, nonatomic) NSString *mostRecentGroupKey;

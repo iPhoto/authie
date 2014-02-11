@@ -24,7 +24,7 @@
 #import "NavigationViewController.h"
 
 @implementation RODItemStore
-@synthesize loadedThreadsFromAuthor, hubConnection, hubProxy, mostRecentGroupKey, currentPage;
+@synthesize loadedThreadsFromAuthor, hubConnection, hubProxy, mostRecentGroupKey, currentPage, wireThreads;
 
 - (id)init
 {
@@ -81,8 +81,8 @@
         if(!loadedThreadsFromAuthor)
             loadedThreadsFromAuthor = [[NSMutableArray alloc] init];
         
-        if(!self.dailyThreads) {
-            self.dailyThreads = [[NSMutableArray alloc] init];
+        if(!self.wireThreads) {
+            self.wireThreads = [[NSMutableArray alloc] init];
         }
         
         
