@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MiniThreadViewController">
             <connections>
+                <outlet property="heartsCount" destination="RMw-Al-cxk" id="mhq-AG-Wne"/>
+                <outlet property="heartsImage" destination="8Oz-lT-1UE" id="Eow-J2-nl6"/>
                 <outlet property="heartsView" destination="Mnj-jO-Rbq" id="raO-55-TBw"/>
                 <outlet property="heartsVotingView" destination="gbY-iT-0CO" id="9pn-fs-VpR"/>
                 <outlet property="labelCaption" destination="aJu-qE-Pni" id="16j-XO-LzT"/>
@@ -22,7 +24,7 @@
             <rect key="frame" x="0.0" y="0.0" width="210" height="314"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mnk-5Y-nSR" userLabel="snapView">
+                <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mnk-5Y-nSR" userLabel="snapView">
                     <rect key="frame" x="0.0" y="0.0" width="210" height="315"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <gestureRecognizers/>
@@ -30,7 +32,7 @@
                         <outletCollection property="gestureRecognizers" destination="tWS-dW-nks" appends="YES" id="Qr9-f8-BRv"/>
                     </connections>
                 </imageView>
-                <view hidden="YES" alpha="0.70000001192092887" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ohn-3k-6rm" userLabel="reportView">
+                <view hidden="YES" alpha="0.70000001192092887" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ohn-3k-6rm" userLabel="reportView">
                     <rect key="frame" x="7" y="262" width="94" height="46"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
@@ -93,7 +95,7 @@
                     <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <size key="shadowOffset" width="0.0" height="0.0"/>
                 </label>
-                <view alpha="0.89999999999999991" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gbY-iT-0CO" userLabel="heartVotingView">
+                <view alpha="0.89999999999999991" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gbY-iT-0CO" userLabel="heartVotingView">
                     <rect key="frame" x="101" y="268" width="101" height="39"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
@@ -123,14 +125,14 @@
                 <constraint firstAttribute="trailing" secondItem="gbY-iT-0CO" secondAttribute="trailing" constant="8" id="ByO-Lm-Idc"/>
                 <constraint firstItem="Ohn-3k-6rm" firstAttribute="leading" secondItem="cvM-xy-QNk" secondAttribute="leading" constant="7" id="CFW-6R-ZfL"/>
                 <constraint firstAttribute="centerY" secondItem="aJu-qE-Pni" secondAttribute="centerY" id="E9J-jd-MPf"/>
-                <constraint firstAttribute="bottom" secondItem="gbY-iT-0CO" secondAttribute="bottom" constant="8" id="QKJ-QN-vD2"/>
+                <constraint firstAttribute="bottom" secondItem="gbY-iT-0CO" secondAttribute="bottom" constant="7" id="QKJ-QN-vD2"/>
                 <constraint firstAttribute="trailing" secondItem="Mnk-5Y-nSR" secondAttribute="trailing" id="Vfq-FJ-l5h"/>
                 <constraint firstItem="Mnj-jO-Rbq" firstAttribute="leading" secondItem="cvM-xy-QNk" secondAttribute="leading" id="iKx-Oz-uq5"/>
                 <constraint firstItem="Mnj-jO-Rbq" firstAttribute="top" secondItem="cvM-xy-QNk" secondAttribute="top" id="ita-tm-AHX"/>
                 <constraint firstItem="Mnk-5Y-nSR" firstAttribute="leading" secondItem="cvM-xy-QNk" secondAttribute="leading" id="kXi-ed-FRT"/>
-                <constraint firstAttribute="bottom" secondItem="Ohn-3k-6rm" secondAttribute="bottom" constant="7" id="r4H-V3-kft"/>
+                <constraint firstAttribute="bottom" secondItem="Ohn-3k-6rm" secondAttribute="bottom" constant="6" id="r4H-V3-kft"/>
                 <constraint firstAttribute="trailing" secondItem="aJu-qE-Pni" secondAttribute="trailing" constant="20" symbolic="YES" id="te7-HC-L3h"/>
-                <constraint firstAttribute="bottom" secondItem="Mnk-5Y-nSR" secondAttribute="bottom" id="yC5-cq-w4K"/>
+                <constraint firstAttribute="bottom" secondItem="Mnk-5Y-nSR" secondAttribute="bottom" constant="-1" id="yC5-cq-w4K"/>
                 <constraint firstItem="Mnk-5Y-nSR" firstAttribute="top" secondItem="cvM-xy-QNk" secondAttribute="top" id="zlO-eJ-UeG"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

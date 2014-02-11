@@ -9,13 +9,14 @@
 #import "MiniThreadViewController.h"
 
 @implementation MiniThreadViewController
+@synthesize voted;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        
+        voted = false;
     }
     return self;
 }

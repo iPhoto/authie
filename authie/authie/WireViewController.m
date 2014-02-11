@@ -194,14 +194,14 @@
         [mini.snapView setUserInteractionEnabled:YES];
         
         UITapGestureRecognizer *tapView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedImageView:)];
-        [mini.snapView addGestureRecognizer:tapView];
+        [mini.heartsVotingView addGestureRecognizer:tapView];
         
         [mini.view setNeedsUpdateConstraints];
         
         int mini_tag = i*100;
         int imageview_tag = i*1000;
         int report_tag = (i+900)*2000;
-        mini.heartsView.tag = mini_tag;
+        mini.heartsVotingView.tag = mini_tag;
         mini.snapView.tag = imageview_tag;
         mini.reportView.tag = report_tag;
         
@@ -217,9 +217,6 @@
         }
         
         mini.heartsCount.text = [NSString stringWithFormat:@"%i", [thread.hearts intValue]];
-        
-        [mini.heartsCount setHidden:YES];
-        [mini.heartsImage setHidden:YES];
         
         [mini.reportView setHidden:YES];
         
@@ -242,6 +239,17 @@
 {
     int thread_index = ([tapGesture.view tag] / 1000);
     RODThread *thread = [[RODItemStore sharedStore].wireThreads objectAtIndex:thread_index];
+    
+    
+    MiniThreadViewController *m = (MiniThreadViewController *)[_items objectAtIndex:thread_index];
+    
+    if(m.voted == false) {
+        [m.heartsImage setImage:[UIImage imageNamed:@"heart-green-filled-v1"]];
+        thread.hearts = [NSNumber numberWithInt:[thread.hearts intValue] + 1];
+    } else {
+        thread.hearts = [NSNumber numberWithInt:[thread.hearts intValue] - 1];
+        [m.heartsImage setImage:[UIImage imageNamed:@"heart-white-v1"]];
+    }
     NSLog(@"Tapped: %@", thread.caption);
 }
 

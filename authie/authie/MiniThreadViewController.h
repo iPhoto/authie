@@ -19,4 +19,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelCaption;
 @property (weak, nonatomic) IBOutlet UIView *heartsVotingView;
 
+@property (nonatomic) bool *voted;
+
 @end
