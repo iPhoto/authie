@@ -177,9 +177,9 @@
     [MRProgressOverlayView dismissAllOverlaysForView:self.view.window animated:YES];
 }
 
-- (void)testRefresh:(UIRefreshControl *)refreshControl
+- (void)doRefresh:(UIRefreshControl *)refreshControl
 {
-    refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Refreshing data..."];
+    refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"syncing threads..."];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
@@ -198,7 +198,6 @@
             
             [self populateScrollView];
             
-            NSLog(@"refresh end");
         });
     });
 }
@@ -224,11 +223,12 @@
     [[self.scroll subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
 
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    [refreshControl addTarget:self action:@selector(testRefresh:) forControlEvents:UIControlEventValueChanged];
+    [refreshControl setAttributedTitle:[[NSAttributedString alloc] initWithString:@"pull to sync"]];
+    [refreshControl addTarget:self action:@selector(doRefresh:) forControlEvents:UIControlEventValueChanged];
+    [refreshControl setContentVerticalAlignment:UIControlContentVerticalAlignmentBottom];
     [self.scroll addSubview:refreshControl];
-
-    [self.scroll setAlwaysBounceVertical:YES];
     
+    [self.scroll setAlwaysBounceVertical:YES];
     
     UIFont *lucidaTypewriter = [UIFont fontWithName:@"LucidaTypewriter" size:20.0f];
 
