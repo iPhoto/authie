@@ -9,7 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @interface WireViewController : UIViewController
+{
+    NSMutableArray *_items;
+}
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
+
+@property (nonatomic) int contentSize;
+@property (nonatomic) int photoHeight;
+
 
 -(void) getThreads;
 -(void) populateScrollView;

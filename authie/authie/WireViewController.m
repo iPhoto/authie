@@ -8,17 +8,26 @@
 
 #import "WireViewController.h"
 #import "RODItemStore.h"
+#import "RODImageStore.h"
+#import "RODThread.h"
+#import "RODHandle.h"
 #import "BlankWireViewController.h"
+#import "MiniThreadViewController.h"
+#import "NSDate+PrettyDate.h"
+#import "AppDelegate.h"
 
 @implementation WireViewController
+@synthesize photoHeight, contentSize;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        [self setEdgesForExtendedLayout:UIRectEdgeNone];
 
+        [self setEdgesForExtendedLayout:UIRectEdgeNone];
+        _items = [[NSMutableArray alloc] init];
+                
     }
     return self;
 }
@@ -77,6 +86,107 @@
         [self.scroll addSubview:bvc.view];
     }
     
+    MiniThreadViewController *mini;
+    int yOffset = 0;
+    
+    self.photoHeight = 400;
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        // The device is an iPad running iOS 3.2 or later.
+        self.photoHeight = 800;
+    }
+    
+    UIFont *lucidaTypewriter = [UIFont fontWithName:@"LucidaTypewriter" size:20.0f];
+    
+    [_items removeAllObjects];
+    
+    for(int i=0; i < [[RODItemStore sharedStore].wireThreads count]; i++) {
+        
+        if(i > 10) break;
+        
+        RODThread *thread = [[RODItemStore sharedStore].wireThreads objectAtIndex:i];
+        mini = [[MiniThreadViewController alloc] init];
+        
+        UIImage *image =[[RODImageStore sharedStore] imageForKey:thread.groupKey];
+        
+        [mini.view setClipsToBounds:YES];
+        
+        [mini.snapView setContentMode:UIViewContentModeScaleAspectFill];
+        [mini.snapView setImage:image];
+            
+        mini.view.frame = CGRectMake(0, yOffset, self.scroll.frame.size.width, self.photoHeight);
+        
+        NSString *what;
+        if([thread.toHandleId isEqualToString:@"dash"]) {
+            what = @"posted to the dash";
+        } else {
+            what = [NSString stringWithFormat:@"sent direct to %@", thread.toHandleId];
+            
+        }
+        
+        [mini.labelDate setText:[NSString stringWithFormat:@"snapped %@", [thread.startDate prettyDate]]];
+        
+        yOffset = yOffset + self.photoHeight;
+        
+        [mini.view setNeedsUpdateConstraints];
+        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        {
+            // The device is an iPad running iOS 3.2 or later.
+            [mini.labelDate setFont:[UIFont systemFontOfSize:20]];
+        }
+        
+        [mini.snapView setUserInteractionEnabled:YES];
+        
+        UITapGestureRecognizer *tapView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedImageView:)];
+        [mini.snapView addGestureRecognizer:tapView];
+        
+        int mini_tag = i*100;
+        int imageview_tag = i*1000;
+        int report_tag = (i+900)*2000;
+        mini.heartsView.tag = mini_tag;
+        mini.snapView.tag = imageview_tag;
+        mini.reportView.tag = report_tag;
+        
+        if(thread.caption == (id)[NSNull null] || thread.caption.length == 0 ) {
+            mini.labelCaption.text = @"";
+        } else {
+            [mini.labelCaption setFont:lucidaTypewriter];
+            mini.labelCaption.text = thread.caption;
+            mini.labelCaption.layer.shadowOpacity = 0.4;
+            mini.labelCaption.layer.shadowColor = [UIColor blackColor].CGColor;
+            //            mini.labelCaption.layer.shadowRadius = 1;
+            
+        }
+        
+        mini.heartsCount.text = [NSString stringWithFormat:@"%i", [thread.hearts intValue]];
+        
+        [mini.heartsCount setHidden:YES];
+        [mini.heartsImage setHidden:YES];
+        
+        [mini.reportView setHidden:YES];
+        
+        [mini.view layoutSubviews];
+        
+        //photo_height = mini.snapView.image.size.height + 10;
+        
+        [_items addObject:mini];
+        
+        [self.scroll addSubview:mini.view];
+        
+    }
+    
+    self.contentSize = yOffset;
+    [self.scroll setContentSize:CGSizeMake(self.scroll.frame.size.width, self.contentSize)];
+    
+}
+
+- (void)tappedImageView:(UITapGestureRecognizer *)tapGesture
+{
+    int thread_index = ([tapGesture.view tag] / 1000);
+    RODThread *thread = [[RODItemStore sharedStore].wireThreads objectAtIndex:thread_index];
+    NSLog(@"Tapped: %@", thread.caption);
 }
 
 - (void)doRefresh:(UIRefreshControl *)refreshControl
@@ -85,8 +195,7 @@
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
-        [[RODItemStore sharedStore] loadThreads:false];
-        [[RODItemStore sharedStore] loadMessages];
+        [[RODItemStore sharedStore] loadThreads:true];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             
