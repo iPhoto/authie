@@ -60,7 +60,6 @@
 
 -(UIImage *) getSnapFromWebsite:(NSString *)groupKey {
     
-    
     UIImage * result;
     
     //dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
@@ -98,6 +97,7 @@
 - (void)downloadImage:(NSString *)groupKey
 {
     showThreadAfterDownload = NO;
+    downloadingSnapKey = groupKey;
     [self downloadImageAndShowScreen:groupKey];
 }
 
@@ -119,12 +119,11 @@
 {
     
     UIImage __block *result;
-
     
-    NSLog(@"Image for key: %@", s);
     result = [dictionary objectForKey:s];
     
     if (!result) {
+        
         result = [UIImage imageWithContentsOfFile:[self imagePathForKey:s]];
         
         if (result) {
@@ -136,7 +135,7 @@
             
             if(result) {
                 [self setImage:result forKey:s];
-                NSLog(@"Called setImage after downloading...");
+                NSLog(@"Called setImage after downloading...size: %f, %@", result.size.height, s);
             }
             
         }
@@ -191,7 +190,7 @@
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    
+    NSLog(@"Connection fished.");
     UIImage *result;
     result = [UIImage imageWithData:_downloadingSnap];
     

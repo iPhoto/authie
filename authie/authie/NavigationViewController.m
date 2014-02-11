@@ -48,10 +48,10 @@
                                                           NSLog(@"Item: %@", item);
                                                           WireViewController *controller = appDelegate.wireViewController;
                                                           
+                                                          [controller setDoGetThreadsOnView:YES];
+                                                          
                                                           [weakSelf setViewControllers:@[controller] animated:NO];
-                                                          
-                                                          [controller getThreads];
-                                                          
+                                                                                                                    
                                                       }];
     
     REMenuItem *homeItem = [[REMenuItem alloc] initWithTitle:@"Dash"
@@ -60,12 +60,13 @@
                                             highlightedImage:nil
                                                       action:^(REMenuItem *item) {
                                                           NSLog(@"Item: %@", item);
+
                                                           DashViewController *controller = appDelegate.dashViewController;
                                                           
+                                                          [controller setDoGetThreadsOnView:YES];
+                                                          
                                                           [weakSelf setViewControllers:@[controller] animated:NO];
-                                                          
-                                                          [controller getThreads];
-                                                          
+                                                                                                                    
                                                       }];
 
     REMenuItem *messagesItem = [[REMenuItem alloc] initWithTitle:@"Messages"

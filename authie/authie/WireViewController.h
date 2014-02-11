@@ -16,7 +16,7 @@
 
 @property (nonatomic) int contentSize;
 @property (nonatomic) int photoHeight;
-
+@property (nonatomic) BOOL doGetThreadsOnView;
 
 -(void) getThreads;
 -(void) populateScrollView;

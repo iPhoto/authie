@@ -1204,7 +1204,6 @@
 
                 if(isWire ==  YES) {
                     [self.wireThreads addObject:thready];
-                    [[RODImageStore sharedStore] imageForKey:thready.groupKey];
                 } else {
                     [self.authie.allThreads addObject:thready];
                 }
@@ -1363,7 +1362,7 @@
         
         for(RODMessage *m in tempMessages) {
             if([m.thread.groupKey isEqualToString:key]) {
-                if(m.id == [NSNumber numberWithInt:0]) {
+                if([m.id isEqualToNumber:[NSNumber numberWithInt:-1]]) {
                     [self.authie.allMessages removeObject:m];
                 }
             }
@@ -1532,7 +1531,7 @@
                 
                 for(RODMessage *r in tempMessages) {
                     if([r.thread.groupKey isEqualToString:groupKey]) {
-                        if(r.id == [NSNumber numberWithInt:-1]) {
+                        if([r.id isEqualToNumber:[NSNumber numberWithInt:-1]]) {
                             [self.authie.allMessages removeObject:r];
                             break;
                         }

@@ -15,9 +15,10 @@
 #import "MiniThreadViewController.h"
 #import "NSDate+PrettyDate.h"
 #import "AppDelegate.h"
+#import <MRProgressOverlayView.h>
 
 @implementation WireViewController
-@synthesize photoHeight, contentSize;
+@synthesize photoHeight, contentSize, doGetThreadsOnView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -47,13 +48,18 @@
     
     self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateMenuItem:@"eye-white-v1"];
 
-    [[RODItemStore sharedStore] loadThreads:true];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self populateScrollView];
+    
+    
+    if(self.doGetThreadsOnView) {
+        [self getThreads];
+        self.doGetThreadsOnView = NO;
+    }
+    
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
@@ -70,8 +76,41 @@
 
 - (void)getThreads
 {
-    [[RODItemStore sharedStore] loadThreads:true];
-    [self populateScrollView];
+    MRProgressOverlayView *progressView = [MRProgressOverlayView new];
+    progressView.titleLabelText = @"syncing threads";
+    progressView.titleLabel.font = [UIFont systemFontOfSize:10];
+    
+    // overlay dead man's switch
+    [NSTimer scheduledTimerWithTimeInterval:30.0
+                                     target:self
+                                   selector:@selector(removeOverlays:)
+                                   userInfo:nil
+                                    repeats:NO];
+    
+    
+    [self.view.window addSubview:progressView];
+    
+    [progressView show:YES];
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+    dispatch_async(queue, ^{
+        // Perform async operation
+        
+        [[RODItemStore sharedStore] loadThreads:true];
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            // Update UI
+            [self populateScrollView];
+            [progressView dismiss:YES];
+            
+        });
+    });
+}
+
+- (void)removeOverlays:(NSTimer *)timer
+{
+    NSLog(@"Dead Man's switch fired. clear all overlays.");
+    [MRProgressOverlayView dismissAllOverlaysForView:self.view.window animated:YES];
 }
 
 - (void)populateScrollView
@@ -123,14 +162,16 @@
         RODThread *thread = [[RODItemStore sharedStore].wireThreads objectAtIndex:i];
         mini = [[MiniThreadViewController alloc] init];
         
+        [mini.heartsVotingView setHidden:NO];
+        
         UIImage *image =[[RODImageStore sharedStore] imageForKey:thread.groupKey];
         
         [mini.view setClipsToBounds:YES];
-        
+                
         [mini.snapView setContentMode:UIViewContentModeScaleAspectFill];
         [mini.snapView setImage:image];
-            
-        mini.view.frame = CGRectMake(0, yOffset, self.scroll.frame.size.width, self.photoHeight);
+        
+        [mini.view setFrame:CGRectMake(0, yOffset, self.scroll.frame.size.width, self.photoHeight)];
         
         NSString *what;
         if([thread.toHandleId isEqualToString:@"dash"]) {
@@ -144,9 +185,6 @@
         
         yOffset = yOffset + self.photoHeight;
         
-        [mini.view setNeedsLayout];
-        [mini.view setNeedsUpdateConstraints];
-        
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
         {
             // The device is an iPad running iOS 3.2 or later.
@@ -157,6 +195,8 @@
         
         UITapGestureRecognizer *tapView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedImageView:)];
         [mini.snapView addGestureRecognizer:tapView];
+        
+        [mini.view setNeedsUpdateConstraints];
         
         int mini_tag = i*100;
         int imageview_tag = i*1000;
@@ -184,8 +224,8 @@
         [mini.reportView setHidden:YES];
         
         [mini.view layoutSubviews];
-        
         //photo_height = mini.snapView.image.size.height + 10;
+        
         
         [_items addObject:mini];
         

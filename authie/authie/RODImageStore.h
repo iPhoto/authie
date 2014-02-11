@@ -24,6 +24,7 @@
 - (UIImage *)imageForKey:(NSString *)s;
 - (void)deleteImageForKey:(NSString *)s;
 -(void)preloadImageAndShowScreen:(int)row;
+-(UIImage *) getSnapFromWebsite:(NSString *)groupKey;
 
 - (NSString *)imagePathForKey:(NSString *)key;
 - (void)downloadImage:(NSString *)groupKey;
