@@ -35,7 +35,7 @@
 {
     [super viewWillAppear:animated];
     
-    self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateMenuItem:@"house-v5-white"];
+    self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateMenuItem:@"eye-white-v1"];
 
 }
 

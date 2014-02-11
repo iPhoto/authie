@@ -42,7 +42,7 @@
 
     REMenuItem *wireItem = [[REMenuItem alloc] initWithTitle:@"Wire"
                                                     subtitle:nil
-                                                       image:[UIImage imageNamed:@"house-v5-white"]
+                                                       image:[UIImage imageNamed:@"eye-white-v1"]
                                             highlightedImage:nil
                                                       action:^(REMenuItem *item) {
                                                           NSLog(@"Item: %@", item);
