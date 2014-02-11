@@ -237,19 +237,25 @@
 
 - (void)tappedImageView:(UITapGestureRecognizer *)tapGesture
 {
-    int thread_index = ([tapGesture.view tag] / 1000);
+    int thread_index = ([tapGesture.view tag] / 100);
     RODThread *thread = [[RODItemStore sharedStore].wireThreads objectAtIndex:thread_index];
     
     
     MiniThreadViewController *m = (MiniThreadViewController *)[_items objectAtIndex:thread_index];
     
     if(m.voted == false) {
+        [m.heartsCount setTextColor:[UIColor colorWithRed:0.0/255 green:103.0/255 blue:0.0/255 alpha:1.0f]];
         [m.heartsImage setImage:[UIImage imageNamed:@"heart-green-filled-v1"]];
         thread.hearts = [NSNumber numberWithInt:[thread.hearts intValue] + 1];
+        [m setVoted:YES];
     } else {
+        [m.heartsCount setTextColor:[UIColor whiteColor]];
         thread.hearts = [NSNumber numberWithInt:[thread.hearts intValue] - 1];
         [m.heartsImage setImage:[UIImage imageNamed:@"heart-white-v1"]];
+        [m setVoted:NO];
     }
+    
+    [m.heartsCount setText:[NSString stringWithFormat:@"%@", thread.hearts]];
     NSLog(@"Tapped: %@", thread.caption);
 }
 
