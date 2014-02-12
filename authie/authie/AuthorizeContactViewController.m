@@ -98,13 +98,25 @@
 
 - (IBAction)acceptAuthorization:(id)sender {
     [[RODItemStore sharedStore] authorizeContact:self.thread.fromHandle.publicKey];
-    [self dismissViewControllerAnimated:YES completion:nil];
+
+    [self deleteObject];
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.dashViewController setDoGetThreadsOnView:YES];
+    
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    
 }
 
 - (IBAction)denyAuthorization:(id)sender {
     // same as trashing it
     [[RODItemStore sharedStore] removeThread:self.thread];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self deleteObject];
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.dashViewController setDoGetThreadsOnView:YES];
+    
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (IBAction)blockHandle:(id)sender {    
@@ -113,6 +125,10 @@
     [[RODItemStore sharedStore] addBlock:self.thread.fromHandle.publicKey];
     UIAlertView *bye = [[UIAlertView alloc] initWithTitle:@"bye" message:[NSString stringWithFormat:@"%@ is blocked.", self.thread.fromHandle.name] delegate:self cancelButtonTitle:@"good" otherButtonTitles:nil];
     [bye show];
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.dashViewController setDoGetThreadsOnView:YES];
+    
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
