@@ -196,6 +196,10 @@
     if(unread > 0) {
         [homeItem setImage:[UIImage imageNamed:@"house-v6-white-new-msg"]];
         messagesItem.badge = [NSString stringWithFormat:@"%i", unread];
+        NSLog(@"Show menu called, unread: %i", unread);
+    } else {
+        [homeItem setImage:[UIImage imageNamed:@"house-v5-white"]];
+        messagesItem.badge = nil;
     }
     
     [self toggleMenu];

@@ -279,10 +279,12 @@
         
         RODMessage *msg = [tempMessages objectAtIndex:i];
         
-        RODMessage *set_as_read = [[RODItemStore sharedStore].authie.allMessages objectAtIndex:i];
-        set_as_read.seen = [NSNumber numberWithInt:1];
-                
         if([msg.thread.groupKey isEqualToString:self.thread.groupKey]) {
+            
+            RODMessage *set_as_read = [[RODItemStore sharedStore].authie.allMessages objectAtIndex:i];
+            set_as_read.seen = [NSNumber numberWithInt:1];
+            [[RODItemStore sharedStore].authie.allMessages setObject:set_as_read atIndexedSubscript:i];
+            
             
             [self.timestamps addObject:msg.sentDate];
             [self.messages addObject:msg.messageText];
