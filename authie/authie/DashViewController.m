@@ -279,13 +279,14 @@
             
             mini.view.frame = CGRectMake(0, yOffset, self.scroll.frame.size.width, self.photoHeight);
 
-            
+            NSLog(@"thread.toHandleId: %@", thread.toHandleId);
             NSString *what;
             if([thread.toHandleId isEqualToString:@"dash"]) {
                 what = @"posted to the dash";
+            } else if ([thread.toHandleId isEqualToString:@"the wire"]) {
+                what = @"sent secretly to the wire";
             } else {
                 what = [NSString stringWithFormat:@"sent direct to %@", thread.toHandleId];
-
             }
             
             [mini.labelDate setText:[NSString stringWithFormat:@"snapped by %@, %@ %@", thread.fromHandle.name, what, [thread.startDate prettyDate]]];
@@ -300,9 +301,12 @@
         }
 
         [mini.view setNeedsUpdateConstraints];
+
         
         if([thread.toHandleId isEqualToString:@"dash"]) {
-            
+            // don't blur pls
+        } else if ([thread.toHandleId isEqualToString:@"the wire"]) {
+            // don't blur pls
         } else {
             // blurry
             
