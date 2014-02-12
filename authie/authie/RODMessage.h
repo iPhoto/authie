@@ -17,7 +17,7 @@
 @property (nonatomic) NSDate *sentDate;
 @property (nonatomic) NSNumber *active;
 @property (nonatomic) NSNumber *anon;
-@property (nonatomic) NSNumber *toHandleSeen;
+@property (nonatomic) NSNumber *seen;
 @property (nonatomic) NSString *messageText;
 
 @property (nonatomic) RODHandle *fromHandle;
