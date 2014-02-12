@@ -1423,6 +1423,7 @@
             thread.groupKey = groupKey;
             
             message.thread = thread;
+            message.seen = [NSNumber numberWithInt:0];
             
             NSLog(@"Loaded message %@: '%@' from %@", message.id, message.messageText, message.fromHandle.name);
             
@@ -1535,6 +1536,7 @@
                 thread.groupKey = groupKey;
 
                 message.thread = thread;
+                message.seen = [NSNumber numberWithInt:0];
   
                 //NSLog(@"Loaded message: '%@' from %@", message.messageText, message.fromHandle.name);
                 

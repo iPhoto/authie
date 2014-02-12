@@ -279,6 +279,9 @@
         
         RODMessage *msg = [tempMessages objectAtIndex:i];
         
+        RODMessage *set_as_read = [[RODItemStore sharedStore].authie.allMessages objectAtIndex:i];
+        set_as_read.seen = [NSNumber numberWithInt:1];
+                
         if([msg.thread.groupKey isEqualToString:self.thread.groupKey]) {
             
             [self.timestamps addObject:msg.sentDate];
@@ -338,6 +341,9 @@
     
     [self finishSend];
     [self scrollToBottomAnimated:YES];
+    
+    // to perserve seen values
+    [[RODItemStore sharedStore] saveChanges];
                                                                                                                                                                                                        
     self.messageInputView.textView.text = currentMessage;
 
