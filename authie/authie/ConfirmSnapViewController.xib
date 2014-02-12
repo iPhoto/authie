@@ -6,6 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ConfirmSnapViewController">
             <connections>
+                <outlet property="locationView" destination="NXH-Ss-tzT" id="5mr-4f-adg"/>
+                <outlet property="placeName" destination="7RG-vL-afj" id="0JZ-Kw-qje"/>
                 <outlet property="snapCaption" destination="yi4-UR-zYn" id="L7z-qa-JYW"/>
                 <outlet property="snapView" destination="dWL-1z-ZJk" id="Kg5-04-ae7"/>
                 <outlet property="view" destination="rKg-55-J7c" id="rKO-kd-UYu"/>
@@ -24,7 +26,7 @@
                         <outletCollection property="gestureRecognizers" destination="ZCo-Cd-da8" appends="YES" id="6bz-Ne-ZGm"/>
                     </connections>
                 </imageView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.89999999999999991" contentMode="scaleToFill" text="Tap to caption..." translatesAutoresizingMaskIntoConstraints="NO" id="yi4-UR-zYn">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.5499999999999996" contentMode="scaleToFill" text="Tap to caption..." translatesAutoresizingMaskIntoConstraints="NO" id="yi4-UR-zYn">
                     <rect key="frame" x="0.0" y="0.0" width="311" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -37,6 +39,27 @@
                         <outlet property="delegate" destination="-1" id="aFQ-cz-4un"/>
                     </connections>
                 </textView>
+                <view hidden="YES" alpha="0.49999999999999961" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NXH-Ss-tzT">
+                    <rect key="frame" x="0.0" y="270" width="235" height="48"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="San Francisco" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7RG-vL-afj">
+                            <rect key="frame" x="52" y="13" width="130" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cog-black.png" translatesAutoresizingMaskIntoConstraints="NO" id="fRI-Wl-fxL">
+                            <rect key="frame" x="3" y="7" width="41" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="235" id="IKF-Ie-A5H"/>
+                        <constraint firstAttribute="height" constant="48" id="cac-SU-pDY"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <gestureRecognizers/>
@@ -46,9 +69,11 @@
                 <constraint firstItem="yi4-UR-zYn" firstAttribute="top" secondItem="rKg-55-J7c" secondAttribute="top" id="XEB-Wc-VtN"/>
                 <constraint firstAttribute="trailing" secondItem="dWL-1z-ZJk" secondAttribute="trailing" id="lWZ-bu-r51"/>
                 <constraint firstAttribute="trailing" secondItem="yi4-UR-zYn" secondAttribute="trailing" id="mSZ-Fa-976"/>
+                <constraint firstAttribute="bottom" secondItem="NXH-Ss-tzT" secondAttribute="bottom" id="n6f-l7-XuA"/>
                 <constraint firstItem="dWL-1z-ZJk" firstAttribute="top" secondItem="rKg-55-J7c" secondAttribute="top" id="pPz-eL-45q"/>
                 <constraint firstItem="dWL-1z-ZJk" firstAttribute="leading" secondItem="rKg-55-J7c" secondAttribute="leading" id="tmf-hw-aAg"/>
                 <constraint firstAttribute="bottom" secondItem="dWL-1z-ZJk" secondAttribute="bottom" id="xUY-DR-rkX"/>
+                <constraint firstItem="NXH-Ss-tzT" firstAttribute="leading" secondItem="rKg-55-J7c" secondAttribute="leading" id="zw8-wT-zC1"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
@@ -63,6 +88,7 @@
         </tapGestureRecognizer>
     </objects>
     <resources>
+        <image name="cog-black.png" width="150" height="150"/>
         <image name="heart.png" width="15" height="13"/>
     </resources>
 </document>

@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "RODHandle.h"
 #import "RODItemStore.h"
+#import <CoreLocation/CoreLocation.h>
 
 @implementation ConfirmSnapViewController
 @synthesize snap, key, handle;
@@ -51,17 +52,17 @@
     
     self.navigationItem.rightBarButtonItem = send;
 
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+
     UIView *holder = [[UIView alloc] init];
     [holder setFrame:CGRectMake(0, 0, 200, 35)];
     
     UILabel *handleLabel = [[UILabel alloc] init];
-    
-    
-    if([self.handle.id isEqualToNumber:[NSNumber numberWithInt:1]]) {
-        handleLabel.text = self.handle.name;
-    } else {
-        handleLabel.text = [NSString stringWithFormat:@"snap for %@", self.handle.name];
-    }
     
     [handleLabel setLineBreakMode:NSLineBreakByWordWrapping];
     [handleLabel setFont:[UIFont systemFontOfSize:10]];
@@ -72,6 +73,48 @@
     
     self.navigationItem.titleView = holder;
     
+    if([self.handle.id isEqualToNumber:[NSNumber numberWithInt:1]]) {
+        handleLabel.text = self.handle.name;
+    } else {
+        handleLabel.text = [NSString stringWithFormat:@"snap for %@", self.handle.name];
+    }
+    
+    NSLog(@"Current handle: %@", self.handle.id);    
+    
+    // dash post
+    if([self.handle.id isEqualToNumber:[NSNumber numberWithInt:2]]) {
+        
+        _locationManager = [[CLLocationManager alloc] init];
+        _locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
+        _locationManager.delegate = self;
+        [_locationManager startUpdatingLocation];
+        _currentLocation =  nil;
+        [self.locationView setHidden:NO];
+    }
+    
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    NSLog(@"Did update to location.");
+    
+    _currentLocation = locations[0];
+    
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+
+    if (!geocoder)
+        geocoder = [[CLGeocoder alloc] init];
+    
+    [geocoder reverseGeocodeLocation:_currentLocation completionHandler:
+     ^(NSArray* placemarks, NSError* error){
+         if ([placemarks count] > 0)
+         {
+             
+             CLPlacemark *p = [placemarks objectAtIndex:0];
+             [self.placeName setText:p.administrativeArea];
+             [_locationManager stopUpdatingLocation];
+             
+         }
+     }];
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
@@ -145,6 +188,11 @@
 - (IBAction)addCaption:(id)sender {
 //    [self.snapCaption setHidden:NO];
 //    [self.snapCaption becomeFirstResponder];
+    
+}
+
+- (IBAction)changePlaceName:(id)sender
+{
     
 }
 @end
