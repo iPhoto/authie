@@ -138,12 +138,14 @@
     if(handle.mostRecentSnap == (id)[NSNull null] || handle.mostRecentSnap.length == 0) {
         // nothing
         
-        mostRecent = [UIImage imageNamed:@"heart-blue-v2.png"];
+        mostRecent = [UIImage imageNamed:@"heart-white-v1"];
         
         
     } else {
         mostRecent = [[RODImageStore sharedStore] imageForKey:handle.mostRecentSnap];
     }
+    
+    NSLog(@"contact: %@, %@", handle.id, handle.name);
     
     if(editingContacts == YES && indexPath.row > 0) {
         [cell.buttonBlock setHidden:NO];
@@ -265,6 +267,7 @@
         }
     };
     
+    
     self.cameraView.flashButtonConfigurationBlock = [self.cameraView buttonConfigurationBlockWithTitleFrom:
                                                      @[@"Flash Off", @"Flash On", @"Flash Auto"]];
     self.cameraView.focusButtonConfigurationBlock = [self.cameraView buttonConfigurationBlockWithTitleFrom:
@@ -273,6 +276,8 @@
                                                         @[@"Exp Lckd", @"Exp Auto", @"Exp Cont"]];
     self.cameraView.whiteBalanceButtonConfigurationBlock = [self.cameraView buttonConfigurationBlockWithTitleFrom:
                                                             @[@"WB Lckd", @"WB Auto", @"WB Cont"]];
+    
+    [self.cameraView setSavePicturesToLibrary:YES];
     
     // Configure for video
     //self.cameraView.targetMovieFolder = [UIApplication sharedApplication].temporaryDirectory;
@@ -330,6 +335,8 @@
          confirm.snap = image;
          confirm.key = key;
          confirm.handle = self.selected;
+         
+         NSLog(@"Snap going to self.selected.id: %@", self.selected.id);
          
          // old
          [self.navigationController pushViewController:confirm animated:YES];

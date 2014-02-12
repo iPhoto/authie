@@ -35,6 +35,36 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     self.screenName = @"ConfirmSnap";
+    
+    
+    UIView *holder = [[UIView alloc] init];
+    [holder setFrame:CGRectMake(0, 0, 200, 35)];
+    
+    UILabel *handleLabel = [[UILabel alloc] init];
+    
+    [handleLabel setLineBreakMode:NSLineBreakByWordWrapping];
+    [handleLabel setFont:[UIFont systemFontOfSize:10]];
+    [handleLabel setFrame:CGRectMake(0, 5, 200, 30)];
+    [handleLabel setTextAlignment:NSTextAlignmentCenter];
+    
+    [holder addSubview:handleLabel];
+    
+    self.navigationItem.titleView = holder;
+    
+    // dash post
+    if([self.handle.name isEqualToString:@"dash"]) {
+        handleLabel.text = [NSString stringWithFormat:@"%@'s dash post", self.handle.name];
+    }     // wire post
+    else if([self.handle.name isEqualToString:@"the wire"]) {
+        handleLabel.text = nil;
+        _locationManager = [[CLLocationManager alloc] init];
+        _locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
+        _locationManager.delegate = self;
+        [_locationManager startUpdatingLocation];
+        _currentLocation =  nil;
+    } else {
+        handleLabel.text = [NSString stringWithFormat:@"snap for %@", self.handle.name];
+    }
 }
 
 - (void)viewDidLoad
@@ -58,39 +88,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-
-    UIView *holder = [[UIView alloc] init];
-    [holder setFrame:CGRectMake(0, 0, 200, 35)];
-    
-    UILabel *handleLabel = [[UILabel alloc] init];
-    
-    [handleLabel setLineBreakMode:NSLineBreakByWordWrapping];
-    [handleLabel setFont:[UIFont systemFontOfSize:10]];
-    [handleLabel setFrame:CGRectMake(0, 5, 200, 30)];
-    [handleLabel setTextAlignment:NSTextAlignmentCenter];
-    
-    [holder addSubview:handleLabel];
-    
-    self.navigationItem.titleView = holder;
-    
-    if([self.handle.id isEqualToNumber:[NSNumber numberWithInt:1]]) {
-        handleLabel.text = self.handle.name;
-    } else {
-        handleLabel.text = [NSString stringWithFormat:@"snap for %@", self.handle.name];
-    }
-    
-    NSLog(@"Current handle: %@", self.handle.id);    
-    
-    // dash post
-    if([self.handle.id isEqualToNumber:[NSNumber numberWithInt:2]]) {
-        
-        _locationManager = [[CLLocationManager alloc] init];
-        _locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
-        _locationManager.delegate = self;
-        [_locationManager startUpdatingLocation];
-        _currentLocation =  nil;
-        [self.locationView setHidden:NO];
-    }
     
 }
 
@@ -112,6 +109,8 @@
              CLPlacemark *p = [placemarks objectAtIndex:0];
              [self.placeName setText:p.administrativeArea];
              [_locationManager stopUpdatingLocation];
+
+             [self.locationView setHidden:NO];
              
          }
      }];
@@ -159,6 +158,8 @@
     if([self.snapCaption.text isEqualToString:@"Tap to caption..."]) {
         [self.snapCaption setText:@""];
     }
+
+    UIImageWriteToSavedPhotosAlbum(self.snap, nil, nil, nil);
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.dashViewController.imageToUpload = snap;
