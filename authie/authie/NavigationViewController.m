@@ -15,6 +15,7 @@
 #import "AppDelegate.h"
 #import "RODItemStore.h"
 #import "RODAuthie.h"
+#import "RODMessage.h"
 #import "MessagesViewController.h"
 #import "WireViewController.h"
 
@@ -22,9 +23,13 @@
 
 @property (strong, readwrite, nonatomic) REMenu *menu;
 
+@property (strong, nonatomic) REMenuItem *homeItem;
+@property (strong, nonatomic) REMenuItem *messagesItem;
+
 @end
 
 @implementation NavigationViewController
+@synthesize homeItem, messagesItem;
 
 - (void)viewDidLoad
 {
@@ -40,6 +45,8 @@
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 
+    int unread = [[RODItemStore sharedStore] unreadMessages];
+    
     REMenuItem *wireItem = [[REMenuItem alloc] initWithTitle:@"The Wire"
                                                     subtitle:nil
                                                        image:[UIImage imageNamed:@"eye-white-v1"]
@@ -54,7 +61,7 @@
                                                                                                                     
                                                       }];
     
-    REMenuItem *homeItem = [[REMenuItem alloc] initWithTitle:@"Dash"
+    homeItem = [[REMenuItem alloc] initWithTitle:@"Dash"
                                                     subtitle:nil
                                                        image:[UIImage imageNamed:@"house-v5-white"]
                                             highlightedImage:nil
@@ -68,8 +75,12 @@
                                                           [weakSelf setViewControllers:@[controller] animated:NO];
                                                                                                                     
                                                       }];
+    
+    if(unread > 0) {
+        [homeItem setImage:[UIImage imageNamed:@"house-v6-white-new-msg"]];
+    }
 
-    REMenuItem *messagesItem = [[REMenuItem alloc] initWithTitle:@"Messages"
+    messagesItem = [[REMenuItem alloc] initWithTitle:@"Messages"
                                                        subtitle:nil
                                                           image:[UIImage imageNamed:@"messages-white-v1"]
                                                highlightedImage:nil
@@ -78,7 +89,10 @@
                                                              MessagesViewController *controller = appDelegate.messagesViewController;
                                                              [weakSelf setViewControllers:@[controller] animated:NO];
                                                          }];
-    messagesItem.badge = [NSString stringWithFormat:@"%i", [[RODItemStore sharedStore].authie.allMessages count]];
+    
+
+    
+    messagesItem.badge = [NSString stringWithFormat:@"%i", unread];
 
     REMenuItem *addItem = [[REMenuItem alloc] initWithTitle:@"Add"
                                                         subtitle:nil
@@ -178,6 +192,12 @@
 
 - (void)showMenu:(id)sender
 {
+    int unread = [[RODItemStore sharedStore] unreadMessages];
+    if(unread > 0) {
+        [homeItem setImage:[UIImage imageNamed:@"house-v6-white-new-msg"]];
+        messagesItem.badge = [NSString stringWithFormat:@"%i", unread];
+    }
+    
     [self toggleMenu];
 }
 

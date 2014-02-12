@@ -997,6 +997,20 @@
     NSLog(@"loadBlocks called.");
 }
 
+- (int)unreadMessages
+{
+    // time to count the unread messages...
+    NSArray *tempMessages = [NSArray arrayWithArray:[RODItemStore sharedStore].authie.allMessages];
+    int unread = 0;
+    for (RODMessage *m in tempMessages) {
+        if([m.seen isEqualToNumber:[NSNumber numberWithInt:0]]) {
+            unread++;
+        }
+    }
+    
+    return unread;
+}
+
 - (BOOL)loadContacts
 {
     

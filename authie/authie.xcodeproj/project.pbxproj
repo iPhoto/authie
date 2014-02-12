@@ -118,6 +118,8 @@
 		5D2F716918A9B04F00EDC1E4 /* BlankWireViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F716718A9B04F00EDC1E4 /* BlankWireViewController.xib */; };
 		5D2F716C18AADDB400EDC1E4 /* heart-green-filled-v1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F716A18AADDB400EDC1E4 /* heart-green-filled-v1.png */; };
 		5D2F716D18AADDB400EDC1E4 /* heart-green-filled-v1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F716B18AADDB400EDC1E4 /* heart-green-filled-v1@2x.png */; };
+		5D2F717018AC018900EDC1E4 /* house-v6-white-new-msg.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F716E18AC018900EDC1E4 /* house-v6-white-new-msg.png */; };
+		5D2F717118AC018900EDC1E4 /* house-v6-white-new-msg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F716F18AC018900EDC1E4 /* house-v6-white-new-msg@2x.png */; };
 		5D556A631882384100C5B6FB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D556A611882384100C5B6FB /* LoginViewController.m */; };
 		5D556A641882384100C5B6FB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D556A621882384100C5B6FB /* LoginViewController.xib */; };
 		5D5A0728188271C4003848EA /* NSDate+PrettyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A0727188271C4003848EA /* NSDate+PrettyDate.m */; };
@@ -388,6 +390,8 @@
 		5D2F716718A9B04F00EDC1E4 /* BlankWireViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlankWireViewController.xib; sourceTree = "<group>"; };
 		5D2F716A18AADDB400EDC1E4 /* heart-green-filled-v1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart-green-filled-v1.png"; sourceTree = "<group>"; };
 		5D2F716B18AADDB400EDC1E4 /* heart-green-filled-v1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart-green-filled-v1@2x.png"; sourceTree = "<group>"; };
+		5D2F716E18AC018900EDC1E4 /* house-v6-white-new-msg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "house-v6-white-new-msg.png"; sourceTree = "<group>"; };
+		5D2F716F18AC018900EDC1E4 /* house-v6-white-new-msg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "house-v6-white-new-msg@2x.png"; sourceTree = "<group>"; };
 		5D556A601882384100C5B6FB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		5D556A611882384100C5B6FB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		5D556A621882384100C5B6FB /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -978,6 +982,8 @@
 				5D2F712218A309FC00EDC1E4 /* house-v5@2x.png */,
 				5D2F712F18A3293000EDC1E4 /* house-v5-white.png */,
 				5D2F713018A3293000EDC1E4 /* house-v5-white@2x.png */,
+				5D2F716E18AC018900EDC1E4 /* house-v6-white-new-msg.png */,
+				5D2F716F18AC018900EDC1E4 /* house-v6-white-new-msg@2x.png */,
 				5D2F715018A6A56000EDC1E4 /* add-v1-white.png */,
 				5D2F715118A6A56000EDC1E4 /* add-v1-white@2x.png */,
 				5D2F712518A30AB500EDC1E4 /* key-v1.png */,
@@ -1153,6 +1159,7 @@
 				5DBBDBED18822C80004446DE /* README.md in Resources */,
 				5D21CA23188DAF6800330F78 /* UAInboxMessageListCell.xib in Resources */,
 				5D21CA3D188DAF6800330F78 /* UALocationSettingsViewController.xib in Resources */,
+				5D2F717018AC018900EDC1E4 /* house-v6-white-new-msg.png in Resources */,
 				5D2F712818A30AB500EDC1E4 /* key-v1@2x.png in Resources */,
 				5D21CA3A188DAF6800330F78 /* middle-detail@2x.png in Resources */,
 				5D21CA42188DAF6800330F78 /* UAPushSettingsAliasView.xib in Resources */,
@@ -1192,6 +1199,7 @@
 				5D8C1CF31880E45600158AE5 /* PrivateKeyViewController.xib in Resources */,
 				5D2F714618A3FB5100EDC1E4 /* key-v3-white@2x.png in Resources */,
 				5D2F712718A30AB500EDC1E4 /* key-v1.png in Resources */,
+				5D2F717118AC018900EDC1E4 /* house-v6-white-new-msg@2x.png in Resources */,
 				5D2F716318A9A0F400EDC1E4 /* eye-white-v1.png in Resources */,
 				5D6340B81888B470006538C5 /* heart-v2.png in Resources */,
 				5D21CA45188DAF6800330F78 /* UAPushSettingsTokenView.xib in Resources */,

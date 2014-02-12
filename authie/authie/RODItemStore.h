@@ -64,6 +64,7 @@
 - (BOOL)addContact:(NSString *)handle;
 - (UIView *)generateHeaderView;
 - (UIBarButtonItem *)generateMenuItem:(NSString *)menu;
+- (int)unreadMessages;
 
 - (void)pushThreadWithGroupKey:(NSString *)group_key;
 - (void)addMessage:(NSString *)user message:(NSString *)msg groupKey:(NSString *)key;

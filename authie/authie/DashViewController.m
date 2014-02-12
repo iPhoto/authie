@@ -106,6 +106,15 @@
 {
     [super viewWillAppear:animated];    
     self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateMenuItem:@"house-v5-white"];
+
+    int unread = [[RODItemStore sharedStore] unreadMessages];
+    if(unread > 0) {
+        self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateMenuItem:@"house-v6-white-new-msg"];
+        
+    } else {
+        self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateMenuItem:@"house-v5-white"];
+    }
+    
     
 }
 
