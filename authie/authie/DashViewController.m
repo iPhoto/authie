@@ -279,7 +279,6 @@
             
             mini.view.frame = CGRectMake(0, yOffset, self.scroll.frame.size.width, self.photoHeight);
 
-            NSLog(@"thread.toHandleId: %@", thread.toHandleId);
             NSString *what;
             if([thread.toHandleId isEqualToString:@"dash"]) {
                 what = @"posted to the dash";

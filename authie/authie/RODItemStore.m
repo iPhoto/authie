@@ -1048,7 +1048,6 @@
                 followeeHandle.mostRecentSnap = mRS;
                                 
                 [self.authie.allContacts addObject:followeeHandle];
-                NSLog(@"add contact: %@", followeeHandle.name);
                 
             }
 
@@ -1417,7 +1416,12 @@
             
             for(RODMessage *r in tempMessages) {
                 if([r.id isEqualToNumber:message.id]) {
-                    NSLog(@"Removed old object.");
+                    
+                    // we do want to co py whether or not it was seen
+                    // before we remove the object
+                    message.seen = r.seen;
+                    
+                    NSLog(@"Removed old object, seen was: %@", r.seen);
                     [self.authie.allMessages removeObject:r];
                     break;
                 }
@@ -1539,6 +1543,9 @@
                     
                     if([r.id isEqualToNumber:message.id]) {
                         //NSLog(@"Removed old object.");
+                        
+                        message.seen = r.seen;
+                        
                         [self.authie.allMessages removeObject:r];
                         break;
                     }
