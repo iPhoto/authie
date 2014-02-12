@@ -103,7 +103,15 @@
     
     if(self.isAvailable == NO) {
     
-        alert = [[UIAlertView alloc] initWithTitle: @"Handle" message: @"Please choose an available handle." delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        NSString *msg = @"";
+        
+        if([self.handle length] > 0) {
+            msg = [NSString stringWithFormat:@"'%@' is not available, please choose another handle.", self.handle];
+        } else {
+            msg = @"Please choose a handle.";
+        }
+        
+        alert = [[UIAlertView alloc] initWithTitle: @"Handle" message:msg delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         
         [alert show];
         
