@@ -107,13 +107,9 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)block:(id)sender {
-    UIAlertView *block = [[UIAlertView alloc] initWithTitle:@"block" message:@"block is not implemented yet." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
-    [block show];
-}
-
 - (IBAction)blockHandle:(id)sender {    
     
+    [self deleteObject];
     [[RODItemStore sharedStore] addBlock:self.thread.fromHandle.publicKey];
     UIAlertView *bye = [[UIAlertView alloc] initWithTitle:@"bye" message:[NSString stringWithFormat:@"%@ is blocked.", self.thread.fromHandle.name] delegate:self cancelButtonTitle:@"good" otherButtonTitles:nil];
     [bye show];
@@ -127,6 +123,21 @@
     
     NSLog(@"thread: %@", self.thread.fromHandle.name);
     
+    
+}
+
+- (void)deleteObject
+{
+    NSMutableArray *tempThreads = [NSMutableArray arrayWithArray:[RODItemStore sharedStore].authie.allThreads];
+    for(RODThread *r in tempThreads) {
+        if([r.groupKey isEqualToString:self.thread.groupKey]) {
+            [[RODItemStore sharedStore].authie.allThreads removeObject:r];
+            [[RODItemStore sharedStore] saveChanges];
+            NSLog(@"Thread found and removed.");
+            break;
+        }
+        
+    }
     
 }
 @end
