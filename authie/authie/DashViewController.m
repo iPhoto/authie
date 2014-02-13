@@ -321,7 +321,13 @@
             [mini.heartsVotingView setHidden:YES];
         } else if ([thread.toHandleId isEqualToString:@"the wire"]) {
             // don't blur pls
-            NSLog(@"Wire post noted.");
+
+            if(thread.location == (id)[NSNull null] || thread.location.length == 0) {
+                [mini.labelLocation setText:@""];
+            } else {
+                [mini.labelLocation setText:thread.location];
+            }
+            
             [mini.heartsCount setText:[NSString stringWithFormat:@"%i", [thread.hearts intValue]]];
             [mini.heartsVotingView setHidden:NO];
         } else {

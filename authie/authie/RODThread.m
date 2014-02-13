@@ -9,7 +9,7 @@
 #import "RODThread.h"
 
 @implementation RODThread
-@synthesize authorizeRequest, hearts, toHandleSeen, caption, fromHandle, toHandle, successfulUpload, groupKey;
+@synthesize authorizeRequest, hearts, toHandleSeen, caption, fromHandle, toHandle, successfulUpload, groupKey, location;
 
 - (void) encodeWithCoder:(NSCoder *)aCoder
 {
@@ -19,6 +19,7 @@
     [aCoder encodeObject:self.groupKey forKey:@"groupKey"];
     [aCoder encodeObject:self.startDate forKey:@"startDate"];
     [aCoder encodeObject:self.caption forKey:@"caption"];
+    [aCoder encodeObject:self.location forKey:@"location"];
     [aCoder encodeObject:self.authorizeRequest forKey:@"authorizeRequest"];
     [aCoder encodeObject:self.hearts forKey:@"hearts"];
     [aCoder encodeBool:self.successfulUpload forKey:@"successfulUpload"];
@@ -34,6 +35,7 @@
         [self setGroupKey:[aDecoder decodeObjectForKey:@"groupKey"]];
         [self setStartDate:[aDecoder decodeObjectForKey:@"startDate"]];
         [self setCaption:[aDecoder decodeObjectForKey:@"caption"]];
+        [self setLocation:[aDecoder decodeObjectForKey:@"location"]];
         [self setSuccessfulUpload:[aDecoder decodeBoolForKey:@"successfulUpload"]];
         
         id hearts_result = [aDecoder decodeObjectForKey:@"hearts"];

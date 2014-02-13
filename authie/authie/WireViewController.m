@@ -173,12 +173,10 @@
         
         [mini.view setFrame:CGRectMake(0, yOffset, self.scroll.frame.size.width, self.photoHeight)];
         
-        NSString *what;
-        if([thread.toHandleId isEqualToString:@"dash"]) {
-            what = @"posted to the dash";
+        if(thread.location == (id)[NSNull null] || thread.location.length == 0) {
+            [mini.labelLocation setText:@""];
         } else {
-            what = [NSString stringWithFormat:@"sent direct to %@", thread.toHandleId];
-            
+            [mini.labelLocation setText:thread.location];
         }
         
         [mini.labelDate setText:[NSString stringWithFormat:@"snapped %@", [thread.startDate prettyDate]]];
@@ -205,6 +203,7 @@
         mini.snapView.tag = imageview_tag;
         mini.reportView.tag = report_tag;
         
+        
         if(thread.caption == (id)[NSNull null] || thread.caption.length == 0 ) {
             mini.labelCaption.text = @"";
         } else {
@@ -212,7 +211,6 @@
             mini.labelCaption.text = thread.caption;
             mini.labelCaption.layer.shadowOpacity = 0.4;
             mini.labelCaption.layer.shadowColor = [UIColor blackColor].CGColor;
-            //            mini.labelCaption.layer.shadowRadius = 1;
             
         }
         
@@ -221,8 +219,6 @@
         [mini.reportView setHidden:YES];
         
         [mini.view layoutSubviews];
-        //photo_height = mini.snapView.image.size.height + 10;
-        
         
         [_items addObject:mini];
         

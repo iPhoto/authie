@@ -18,6 +18,7 @@
 @property (nonatomic) NSString *groupKey;
 @property (nonatomic) NSDate *startDate;
 @property (nonatomic) NSString *caption;
+@property (nonatomic) NSString *location;
 @property (nonatomic) NSNumber *hearts;
 @property (nonatomic) NSNumber *authorizeRequest;
 @property (nonatomic) NSNumber *toHandleSeen;

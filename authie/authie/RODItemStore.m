@@ -1174,6 +1174,9 @@
                 NSString *caption_result = [result objectForKey:@"caption"];
                 thready.caption = caption_result;
                 
+                NSString *location_result = [result objectForKey:@"location"];
+                thready.location = location_result;
+                
                 Boolean uploadSuccessful = (Boolean)[result objectForKey:@"uploadSuccess"];
                 thready.successfulUpload = uploadSuccessful;
                 
