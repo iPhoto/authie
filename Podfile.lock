@@ -17,6 +17,7 @@ PODS:
   - AFNetworking/Serialization (2.1.0)
   - AFNetworking/UIKit (2.1.0):
     - AFNetworking/NSURLConnection
+  - BButton (3.2.3)
   - CXAlertView (1.0.1)
   - GoogleAnalytics-iOS-SDK (3.0.2)
   - GPUImage (HEAD based on 0.1.2)
@@ -114,6 +115,7 @@ PODS:
   - UIImage-Helpers (0.0.1)
 
 DEPENDENCIES:
+  - BButton
   - CXAlertView
   - GoogleAnalytics-iOS-SDK
   - GPUImage (HEAD)
@@ -126,6 +128,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: c7d7901a83f631414c7eda1737261f696101a5cd
+  BButton: b405745cd7ccc9444c696b8690fb79541623766a
   CXAlertView: 59e8305700c59a27730c636765cb76311d311b88
   GoogleAnalytics-iOS-SDK: 86393b99f7328ae8d8e975fcaa8632a39dafafe8
   GPUImage: 007145faa0e27f1ddbcab93e07f026c9776e2fa2
