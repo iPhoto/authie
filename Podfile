@@ -11,6 +11,7 @@ pod 'UIImage-Helpers', '~> 0.0.1'
 pod 'BButton'
 pod 'FBGlowLabel', :git => 'https://github.com/lyokato/FBGlowLabel.git'
 
+pod 'KxMenu', '~> 1'
 
 # Recommended to keep GPUImage up-to-date
 pod 'GPUImage', :head

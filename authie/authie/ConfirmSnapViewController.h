@@ -12,6 +12,7 @@
 @class RODHandle;
 
 @interface ConfirmSnapViewController : GAITrackedViewController <UITextViewDelegate, CLLocationManagerDelegate>
+@property (weak, nonatomic) IBOutlet UIImageView *cog;
 @property (weak, nonatomic) IBOutlet UILabel *placeName;
 @property (weak, nonatomic) IBOutlet UIView *locationView;
 @property (weak, nonatomic) IBOutlet UIImageView *snapView;
@@ -24,4 +25,8 @@
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLLocation *currentLocation;
+
+@property (strong, nonatomic) NSString *state;
+
+
 @end

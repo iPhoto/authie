@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ConfirmSnapViewController">
             <connections>
+                <outlet property="cog" destination="fRI-Wl-fxL" id="S2C-WA-Huv"/>
                 <outlet property="locationView" destination="NXH-Ss-tzT" id="5mr-4f-adg"/>
                 <outlet property="placeName" destination="7RG-vL-afj" id="0JZ-Kw-qje"/>
                 <outlet property="snapCaption" destination="yi4-UR-zYn" id="L7z-qa-JYW"/>

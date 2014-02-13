@@ -25,6 +25,7 @@ PODS:
   - JSMessagesViewController (3.4.4):
     - JSQSystemSoundPlayer
   - JSQSystemSoundPlayer (1.4.0)
+  - KxMenu (1)
   - Lockbox (1.4.6)
   - MotionOrientation@PTEz (1.0.0)
   - MRProgress (0.2.2)
@@ -122,6 +123,7 @@ DEPENDENCIES:
   - GoogleAnalytics-iOS-SDK
   - GPUImage (HEAD)
   - JSMessagesViewController
+  - KxMenu (~> 1)
   - MRProgress (~> 0.2.2)
   - NBUImagePicker
   - REMenu (~> 1.8)
@@ -141,6 +143,7 @@ SPEC CHECKSUMS:
   GPUImage: 007145faa0e27f1ddbcab93e07f026c9776e2fa2
   JSMessagesViewController: 309de7324fbf48b7da924b002ef6017d5d2ce026
   JSQSystemSoundPlayer: 28ccd01a92a0cebc6de6361e8499011b4cb6dab7
+  KxMenu: 99db7f9b685c3c8325d152df3fe5b7fdc8b8343e
   Lockbox: 56ac5c11e51d46baa4408960a5a35b355a32840e
   MotionOrientation@PTEz: 0b987d39639b13ce2769f6dc6f96f59783ca8786
   MRProgress: 51af562344c3fe38ce3c0617fd064f6f1ce55cd5

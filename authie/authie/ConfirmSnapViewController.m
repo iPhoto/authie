@@ -11,9 +11,10 @@
 #import "RODHandle.h"
 #import "RODItemStore.h"
 #import <CoreLocation/CoreLocation.h>
+#import <KxMenu/KxMenu.h>
 
 @implementation ConfirmSnapViewController
-@synthesize snap, key, handle;
+@synthesize snap, key, handle, state;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -62,6 +63,8 @@
         _locationManager.delegate = self;
         [_locationManager startUpdatingLocation];
         _currentLocation =  nil;
+        
+        
     } else {
         handleLabel.text = [NSString stringWithFormat:@"snap for %@", self.handle.name];
     }
@@ -83,6 +86,38 @@
     self.navigationItem.rightBarButtonItem = send;
 
     
+    UITapGestureRecognizer *tapView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedLocationView:)];
+    [self.locationView addGestureRecognizer:tapView];
+    
+}
+
+- (void)tappedLocationView:(UITapGestureRecognizer *)tapGesture
+{
+    
+    
+    [KxMenu showMenuInView:self.view
+                  fromRect:self.locationView.frame
+                 menuItems:@[
+                             [KxMenuItem menuItem:@"None"
+                                            image:[UIImage alloc]
+                                           target:self
+                                           action:@selector(menuItemAction:)],
+                             [KxMenuItem menuItem:self.state
+                                            image:[UIImage alloc]
+                                           target:self
+                                           action:@selector(menuItemAction:)]
+                             ]];
+
+}
+
+- (void)menuItemAction:(KxMenuItem *)item
+{
+    
+    if([item.title isEqualToString:@"None"]) {
+        [self.placeName setText:@""];
+    } else {
+        [self.placeName setText:item.title];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -109,16 +144,17 @@
              CLPlacemark *p = [placemarks objectAtIndex:0];
              [_locationManager stopUpdatingLocation];
 
-             NSString *state = p.administrativeArea;
+             NSString *foundState = p.administrativeArea;
 
              NSString *path = [[NSBundle mainBundle] pathForResource: @"USStateAbbreviations" ofType: @"plist"];
              NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile: path];
 
-             NSArray *temp = [dict allKeysForObject:state];
+             NSArray *temp = [dict allKeysForObject:foundState];
              NSString *stateKey = [temp lastObject];
              
              if([stateKey length] > 0) {
                  [self.placeName setText:[stateKey capitalizedString]];
+                 self.state = [stateKey capitalizedString];
              }
              
              [self.locationView setHidden:NO];
