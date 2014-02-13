@@ -58,11 +58,7 @@
 
     self.cameraView.savePicturesToLibrary = YES;
     self.cameraView.backgroundColor = [UIColor whiteColor];
-    self.cameraView.highlightColor = [UIColor blackColor];
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    
-    [self.cameraView setAlpha:1.0f];
-    [self.cameraView setOpaque:NO];
     
     
     if([[RODItemStore sharedStore].authie.all_Contacts count] > 2) {
@@ -248,6 +244,7 @@
     // Configure the camera view
     //self.cameraView.shouldAutoRotateView = YES;
 
+    [self.cameraView setBackgroundColor:[UIColor clearColor]];
     
     //self.cameraView.targetResolution = CGSizeMake(640.0, 640.0); // The minimum resolution we want
     self.cameraView.keepFrontCameraPicturesMirrored = YES;
@@ -291,9 +288,9 @@
         // *** Do something with the image and its URL ***
     };
 
-    
 
-    [NBUImagePickerController startPickerWithTarget:self
+
+    [NBUImagePickerController startPickerWithTarget:self.view
                                             options:(NBUImagePickerOptionReturnMediaInfo |    NBUImagePickerOptionDisableConfirmation |
                                                      NBUImagePickerOptionSingleImage |
                                                      NBUImagePickerOptionDisableFilters |

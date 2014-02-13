@@ -122,6 +122,8 @@
 		5D2F717118AC018900EDC1E4 /* house-v6-white-new-msg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F716F18AC018900EDC1E4 /* house-v6-white-new-msg@2x.png */; };
 		5D2F717318AC3EB400EDC1E4 /* USStateAbbreviations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F717218AC3EB400EDC1E4 /* USStateAbbreviations.plist */; };
 		5D2F717B18AC483B00EDC1E4 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2F717A18AC483B00EDC1E4 /* libTestFlight.a */; };
+		5D2F717F18AD58C000EDC1E4 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F717D18AD58C000EDC1E4 /* CameraViewController.m */; };
+		5D2F718018AD58C000EDC1E4 /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F717E18AD58C000EDC1E4 /* CameraViewController.xib */; };
 		5D556A631882384100C5B6FB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D556A611882384100C5B6FB /* LoginViewController.m */; };
 		5D556A641882384100C5B6FB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D556A621882384100C5B6FB /* LoginViewController.xib */; };
 		5D5A0728188271C4003848EA /* NSDate+PrettyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A0727188271C4003848EA /* NSDate+PrettyDate.m */; };
@@ -398,6 +400,9 @@
 		5D2F717818AC482800EDC1E4 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
 		5D2F717918AC482800EDC1E4 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		5D2F717A18AC483B00EDC1E4 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		5D2F717C18AD58C000EDC1E4 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		5D2F717D18AD58C000EDC1E4 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		5D2F717E18AD58C000EDC1E4 /* CameraViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
 		5D556A601882384100C5B6FB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		5D556A611882384100C5B6FB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		5D556A621882384100C5B6FB /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -864,6 +869,9 @@
 				5D0DC374189C325600E8CA81 /* AboutViewController.xib */,
 				5D2F714718A40C8A00EDC1E4 /* MessagesViewController.h */,
 				5D2F714818A40C8A00EDC1E4 /* MessagesViewController.m */,
+				5D2F717C18AD58C000EDC1E4 /* CameraViewController.h */,
+				5D2F717D18AD58C000EDC1E4 /* CameraViewController.m */,
+				5D2F717E18AD58C000EDC1E4 /* CameraViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1221,6 +1229,7 @@
 				5D0DC37118980A8F00E8CA81 /* house-v2.png in Resources */,
 				5D21CA1F188DAF6800330F78 /* down@2x.png in Resources */,
 				5D2F715718A8698800EDC1E4 /* authie-logo-v3-ocr-a.png in Resources */,
+				5D2F718018AD58C000EDC1E4 /* CameraViewController.xib in Resources */,
 				5DB549A5189585F700E03D9D /* home.png in Resources */,
 				5D6340BC188A187A006538C5 /* heart-blue-v2.png in Resources */,
 				5D5A072F18848A7C003848EA /* lock.png in Resources */,
@@ -1341,6 +1350,7 @@
 				5D9C7C57187DE25200BE2D42 /* NavigationController.m in Sources */,
 				5D9DEE9A185242E300F80413 /* RKPostSelfie.m in Sources */,
 				5D21CA30188DAF6800330F78 /* UAPushSettingsAliasViewController.m in Sources */,
+				5D2F717F18AD58C000EDC1E4 /* CameraViewController.m in Sources */,
 				5DF8649A186E1701002DCCDC /* RODHandle.m in Sources */,
 				5D21CA19188DAF6800330F78 /* UAInboxOverlayController.m in Sources */,
 				5D21CA33188DAF6800330F78 /* UAPushSettingsTokenViewController.m in Sources */,
