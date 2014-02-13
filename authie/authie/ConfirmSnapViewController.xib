@@ -40,25 +40,24 @@
                         <outlet property="delegate" destination="-1" id="aFQ-cz-4un"/>
                     </connections>
                 </textView>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NXH-Ss-tzT">
-                    <rect key="frame" x="0.0" y="270" width="235" height="48"/>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NXH-Ss-tzT" userLabel="locationView">
+                    <rect key="frame" x="0.0" y="285" width="311" height="33"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="San Francisco" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7RG-vL-afj">
-                            <rect key="frame" x="52" y="15" width="130" height="21"/>
+                            <rect key="frame" x="52" y="6" width="130" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cog-black.png" translatesAutoresizingMaskIntoConstraints="NO" id="fRI-Wl-fxL">
-                            <rect key="frame" x="3" y="7" width="41" height="37"/>
+                            <rect key="frame" x="3" y="-2" width="41" height="37"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="235" id="IKF-Ie-A5H"/>
-                        <constraint firstAttribute="height" constant="48" id="cac-SU-pDY"/>
+                        <constraint firstAttribute="height" constant="33" id="Mya-ou-66N"/>
                     </constraints>
                 </view>
             </subviews>
@@ -68,6 +67,7 @@
                 <constraint firstItem="yi4-UR-zYn" firstAttribute="leading" secondItem="rKg-55-J7c" secondAttribute="leading" id="IMh-WS-PBD"/>
                 <constraint firstAttribute="trailing" secondItem="yi4-UR-zYn" secondAttribute="trailing" id="XCh-wp-VuU"/>
                 <constraint firstItem="yi4-UR-zYn" firstAttribute="top" secondItem="rKg-55-J7c" secondAttribute="top" id="XEB-Wc-VtN"/>
+                <constraint firstAttribute="trailing" secondItem="NXH-Ss-tzT" secondAttribute="trailing" id="kTT-EZ-iyM"/>
                 <constraint firstAttribute="trailing" secondItem="dWL-1z-ZJk" secondAttribute="trailing" id="lWZ-bu-r51"/>
                 <constraint firstAttribute="trailing" secondItem="yi4-UR-zYn" secondAttribute="trailing" id="mSZ-Fa-976"/>
                 <constraint firstAttribute="bottom" secondItem="NXH-Ss-tzT" secondAttribute="bottom" id="n6f-l7-XuA"/>
