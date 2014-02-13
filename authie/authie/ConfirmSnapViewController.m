@@ -94,19 +94,37 @@
 - (void)tappedLocationView:(UITapGestureRecognizer *)tapGesture
 {
     
+    NSMutableArray *items = [[NSMutableArray alloc] init];
+
+    
+    KxMenuItem *none = [KxMenuItem menuItem:@"None"
+                                     image:[UIImage alloc]
+                                    target:self
+                                    action:@selector(menuItemAction:)];
+
+    KxMenuItem *cityItem = [KxMenuItem menuItem:self.city
+                                      image:[UIImage alloc]
+                                     target:self
+                                     action:@selector(menuItemAction:)];
+    
+    KxMenuItem *stateItem = [KxMenuItem menuItem:self.state
+                                      image:[UIImage alloc]
+                                     target:self
+                                     action:@selector(menuItemAction:)];
+    
+    [items insertObject:none atIndex:0];
+    
+    if(self.city.length > 0) {
+        [items insertObject:cityItem atIndex:1];
+    }
+    
+    if(self.state.length > 0) {
+        [items insertObject:stateItem atIndex:2];
+    }
     
     [KxMenu showMenuInView:self.view
                   fromRect:self.locationView.frame
-                 menuItems:@[
-                             [KxMenuItem menuItem:@"None"
-                                            image:[UIImage alloc]
-                                           target:self
-                                           action:@selector(menuItemAction:)],
-                             [KxMenuItem menuItem:self.state
-                                            image:[UIImage alloc]
-                                           target:self
-                                           action:@selector(menuItemAction:)]
-                             ]];
+                 menuItems:items];
 
 }
 
@@ -156,6 +174,13 @@
                  [self.placeName setText:[stateKey capitalizedString]];
                  self.state = [stateKey capitalizedString];
              }
+             
+             self.city = p.subAdministrativeArea;
+             
+//             NSLog(@"subAdministrativeArea: %@", p.subAdministrativeArea);
+//             NSLog(@"subLocalitly: %@", p.subLocality);
+//             NSLog(@"thoroughfare: %@", p.thoroughfare);
+//             NSLog(@"areas of interest: %@", p.areasOfInterest);
              
              [self.locationView setHidden:NO];
              
