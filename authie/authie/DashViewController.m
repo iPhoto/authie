@@ -313,8 +313,12 @@
         
         if([thread.toHandleId isEqualToString:@"dash"]) {
             // don't blur pls
+            [mini.heartsVotingView setHidden:YES];
         } else if ([thread.toHandleId isEqualToString:@"the wire"]) {
             // don't blur pls
+            NSLog(@"Wire post noted.");
+            [mini.heartsCount setText:[NSString stringWithFormat:@"%i", [thread.hearts intValue]]];
+            [mini.heartsVotingView setHidden:NO];
         } else {
             // blurry
             
@@ -325,6 +329,9 @@
             UIImage *blurredImage = [[UIImage imageWithData:imageData] blurredImage:blurred];
             mini.snapView.image = blurredImage;
             [mini.snapView setNeedsLayout];
+
+            [mini.heartsVotingView setHidden:YES];
+
             
         }
         
@@ -355,20 +362,13 @@
             mini.labelCaption.text = thread.caption;
             mini.labelCaption.layer.shadowOpacity = 0.4;
             mini.labelCaption.layer.shadowColor = [UIColor blackColor].CGColor;
-//            mini.labelCaption.layer.shadowRadius = 1;
             
         }
         
-        mini.heartsCount.text = [NSString stringWithFormat:@"%i", [thread.hearts intValue]];
-        
-        [mini.heartsCount setHidden:YES];
-        [mini.heartsImage setHidden:YES];
         
         [mini.reportView setHidden:YES];
 
         [mini.view layoutSubviews];
-        
-        //photo_height = mini.snapView.image.size.height + 10;
         
         [_items addObject:mini];
         
@@ -453,7 +453,7 @@
         CXAlertView *alertView = [[CXAlertView alloc] initWithTitle:@"delete thread?" message:@"you want to delete this thread?" cancelButtonTitle:@"cancel"];
         // This is a demo for changing content at realtime.
 
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
         [imageView setImage:[[RODImageStore sharedStore] imageForKey:t.groupKey]];
         [imageView setContentMode:UIViewContentModeScaleAspectFit];
         imageView.backgroundColor = [UIColor clearColor];
