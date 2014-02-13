@@ -39,7 +39,7 @@
                         <outlet property="delegate" destination="-1" id="aFQ-cz-4un"/>
                     </connections>
                 </textView>
-                <view hidden="YES" alpha="0.49999999999999961" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NXH-Ss-tzT">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NXH-Ss-tzT">
                     <rect key="frame" x="0.0" y="270" width="235" height="48"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
@@ -54,7 +54,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="235" id="IKF-Ie-A5H"/>
                         <constraint firstAttribute="height" constant="48" id="cac-SU-pDY"/>

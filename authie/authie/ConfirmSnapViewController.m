@@ -92,7 +92,6 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    NSLog(@"Did update to location.");
     
     _currentLocation = locations[0];
     
@@ -105,11 +104,23 @@
      ^(NSArray* placemarks, NSError* error){
          if ([placemarks count] > 0)
          {
+
              
              CLPlacemark *p = [placemarks objectAtIndex:0];
-             [self.placeName setText:p.administrativeArea];
              [_locationManager stopUpdatingLocation];
 
+             NSString *state = p.administrativeArea;
+
+             NSString *path = [[NSBundle mainBundle] pathForResource: @"USStateAbbreviations" ofType: @"plist"];
+             NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile: path];
+
+             NSArray *temp = [dict allKeysForObject:state];
+             NSString *stateKey = [temp lastObject];
+             
+             if([stateKey length] > 0) {
+                 [self.placeName setText:[stateKey capitalizedString]];
+             }
+             
              [self.locationView setHidden:NO];
              
          }

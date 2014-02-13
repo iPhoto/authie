@@ -120,6 +120,7 @@
 		5D2F716D18AADDB400EDC1E4 /* heart-green-filled-v1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F716B18AADDB400EDC1E4 /* heart-green-filled-v1@2x.png */; };
 		5D2F717018AC018900EDC1E4 /* house-v6-white-new-msg.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F716E18AC018900EDC1E4 /* house-v6-white-new-msg.png */; };
 		5D2F717118AC018900EDC1E4 /* house-v6-white-new-msg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F716F18AC018900EDC1E4 /* house-v6-white-new-msg@2x.png */; };
+		5D2F717318AC3EB400EDC1E4 /* USStateAbbreviations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F717218AC3EB400EDC1E4 /* USStateAbbreviations.plist */; };
 		5D556A631882384100C5B6FB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D556A611882384100C5B6FB /* LoginViewController.m */; };
 		5D556A641882384100C5B6FB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D556A621882384100C5B6FB /* LoginViewController.xib */; };
 		5D5A0728188271C4003848EA /* NSDate+PrettyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A0727188271C4003848EA /* NSDate+PrettyDate.m */; };
@@ -392,6 +393,7 @@
 		5D2F716B18AADDB400EDC1E4 /* heart-green-filled-v1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart-green-filled-v1@2x.png"; sourceTree = "<group>"; };
 		5D2F716E18AC018900EDC1E4 /* house-v6-white-new-msg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "house-v6-white-new-msg.png"; sourceTree = "<group>"; };
 		5D2F716F18AC018900EDC1E4 /* house-v6-white-new-msg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "house-v6-white-new-msg@2x.png"; sourceTree = "<group>"; };
+		5D2F717218AC3EB400EDC1E4 /* USStateAbbreviations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = USStateAbbreviations.plist; sourceTree = "<group>"; };
 		5D556A601882384100C5B6FB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		5D556A611882384100C5B6FB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		5D556A621882384100C5B6FB /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -1021,6 +1023,7 @@
 				5DBBDBE618822C80004446DE /* libTestFlight.a */,
 				5DBBDBE718822C80004446DE /* README.md */,
 				5DBBDBE818822C80004446DE /* release_notes.md */,
+				5D2F717218AC3EB400EDC1E4 /* USStateAbbreviations.plist */,
 				5DBBDBE918822C80004446DE /* TestFlight.h */,
 				5DBBDBEA18822C80004446DE /* TestFlight+AsyncLogging.h */,
 				5DBBDBEB18822C80004446DE /* TestFlight+ManualSessions.h */,
@@ -1194,6 +1197,7 @@
 				5D21CA44188DAF6800330F78 /* UAPushSettingsTagsViewController.xib in Resources */,
 				5D21CA46188DAF6800330F78 /* UAPushSettingsUserInfoView.xib in Resources */,
 				5D5A072D18848A4F003848EA /* AuthorizeContactViewController.xib in Resources */,
+				5D2F717318AC3EB400EDC1E4 /* USStateAbbreviations.plist in Resources */,
 				5D21CA4A188DAF7500330F78 /* CHANGELOG in Resources */,
 				5D21CA43188DAF6800330F78 /* UAPushSettingsSoundsViewController.xib in Resources */,
 				5D8C1CF31880E45600158AE5 /* PrivateKeyViewController.xib in Resources */,
