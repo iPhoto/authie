@@ -740,7 +740,7 @@
     return upload_success;
 }
 
-- (BOOL)startThread:(NSString *)toHandle forKey:(NSString *)key withCaption:(NSString *)caption;
+- (BOOL)startThread:(NSString *)toHandle forKey:(NSString *)key withCaption:(NSString *)caption withLocation:(NSString *)location;
 {
     
     BOOL start_convo_success = NO;
@@ -751,6 +751,7 @@
                                toHandle, @"toGuid",
                                key, @"groupKey",
                                caption, @"caption",
+                               location, @"location",
                                nil];
     
     NSError *error = nil;

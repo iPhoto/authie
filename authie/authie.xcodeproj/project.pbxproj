@@ -121,6 +121,7 @@
 		5D2F717018AC018900EDC1E4 /* house-v6-white-new-msg.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F716E18AC018900EDC1E4 /* house-v6-white-new-msg.png */; };
 		5D2F717118AC018900EDC1E4 /* house-v6-white-new-msg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F716F18AC018900EDC1E4 /* house-v6-white-new-msg@2x.png */; };
 		5D2F717318AC3EB400EDC1E4 /* USStateAbbreviations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F717218AC3EB400EDC1E4 /* USStateAbbreviations.plist */; };
+		5D2F717B18AC483B00EDC1E4 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2F717A18AC483B00EDC1E4 /* libTestFlight.a */; };
 		5D556A631882384100C5B6FB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D556A611882384100C5B6FB /* LoginViewController.m */; };
 		5D556A641882384100C5B6FB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D556A621882384100C5B6FB /* LoginViewController.xib */; };
 		5D5A0728188271C4003848EA /* NSDate+PrettyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A0727188271C4003848EA /* NSDate+PrettyDate.m */; };
@@ -161,7 +162,6 @@
 		5DB549A5189585F700E03D9D /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DB549A4189585F700E03D9D /* home.png */; };
 		5DB549A91895BA1500E03D9D /* BlankSlateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB549A71895BA1500E03D9D /* BlankSlateViewController.m */; };
 		5DB549AA1895BA1500E03D9D /* BlankSlateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DB549A81895BA1500E03D9D /* BlankSlateViewController.xib */; };
-		5DBBDBEC18822C80004446DE /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBBDBE618822C80004446DE /* libTestFlight.a */; };
 		5DBBDBED18822C80004446DE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5DBBDBE718822C80004446DE /* README.md */; };
 		5DBBDBEE18822C80004446DE /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 5DBBDBE818822C80004446DE /* release_notes.md */; };
 		5DBBDBF018822D51004446DE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBBDBEF18822D51004446DE /* libz.dylib */; };
@@ -394,6 +394,10 @@
 		5D2F716E18AC018900EDC1E4 /* house-v6-white-new-msg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "house-v6-white-new-msg.png"; sourceTree = "<group>"; };
 		5D2F716F18AC018900EDC1E4 /* house-v6-white-new-msg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "house-v6-white-new-msg@2x.png"; sourceTree = "<group>"; };
 		5D2F717218AC3EB400EDC1E4 /* USStateAbbreviations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = USStateAbbreviations.plist; sourceTree = "<group>"; };
+		5D2F717718AC482800EDC1E4 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		5D2F717818AC482800EDC1E4 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		5D2F717918AC482800EDC1E4 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		5D2F717A18AC483B00EDC1E4 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		5D556A601882384100C5B6FB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		5D556A611882384100C5B6FB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		5D556A621882384100C5B6FB /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -455,12 +459,8 @@
 		5DB549A61895BA1500E03D9D /* BlankSlateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlankSlateViewController.h; sourceTree = "<group>"; };
 		5DB549A71895BA1500E03D9D /* BlankSlateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlankSlateViewController.m; sourceTree = "<group>"; };
 		5DB549A81895BA1500E03D9D /* BlankSlateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlankSlateViewController.xib; sourceTree = "<group>"; };
-		5DBBDBE618822C80004446DE /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		5DBBDBE718822C80004446DE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		5DBBDBE818822C80004446DE /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
-		5DBBDBE918822C80004446DE /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
-		5DBBDBEA18822C80004446DE /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
-		5DBBDBEB18822C80004446DE /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		5DBBDBEF18822D51004446DE /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		5DBBF9BC18A15D6900F761D9 /* logo-640px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-640px.png"; sourceTree = "<group>"; };
 		5DEE7C87185234E700F532B3 /* authie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = authie.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -498,6 +498,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D21CA0F188DAF6800330F78 /* libUAirship-3.0.2.a in Frameworks */,
+				5D2F717B18AC483B00EDC1E4 /* libTestFlight.a in Frameworks */,
 				5D21CA59188DB01A00330F78 /* CoreLocation.framework in Frameworks */,
 				5D21CA57188DB00F00330F78 /* CoreTelephony.framework in Frameworks */,
 				5D21CA55188DB00200330F78 /* libsqlite3.dylib in Frameworks */,
@@ -506,7 +507,6 @@
 				5D21CA4F188DAFCB00330F78 /* MobileCoreServices.framework in Frameworks */,
 				5D21CA4D188DAFB700330F78 /* CFNetwork.framework in Frameworks */,
 				5DBBDBF018822D51004446DE /* libz.dylib in Frameworks */,
-				5DBBDBEC18822C80004446DE /* libTestFlight.a in Frameworks */,
 				5DEE7C8D185234E700F532B3 /* CoreGraphics.framework in Frameworks */,
 				5DEE7C8F185234E800F532B3 /* UIKit.framework in Frameworks */,
 				5DEE7C8B185234E700F532B3 /* Foundation.framework in Frameworks */,
@@ -1020,13 +1020,13 @@
 				5DEE7C93185234E800F532B3 /* InfoPlist.strings */,
 				5DEE7C96185234E800F532B3 /* main.m */,
 				5DEE7C98185234E800F532B3 /* authie-Prefix.pch */,
-				5DBBDBE618822C80004446DE /* libTestFlight.a */,
 				5DBBDBE718822C80004446DE /* README.md */,
 				5DBBDBE818822C80004446DE /* release_notes.md */,
 				5D2F717218AC3EB400EDC1E4 /* USStateAbbreviations.plist */,
-				5DBBDBE918822C80004446DE /* TestFlight.h */,
-				5DBBDBEA18822C80004446DE /* TestFlight+AsyncLogging.h */,
-				5DBBDBEB18822C80004446DE /* TestFlight+ManualSessions.h */,
+				5D2F717A18AC483B00EDC1E4 /* libTestFlight.a */,
+				5D2F717718AC482800EDC1E4 /* TestFlight.h */,
+				5D2F717818AC482800EDC1E4 /* TestFlight+AsyncLogging.h */,
+				5D2F717918AC482800EDC1E4 /* TestFlight+ManualSessions.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

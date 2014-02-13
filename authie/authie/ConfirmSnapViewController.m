@@ -177,6 +177,11 @@
     appDelegate.dashViewController.keyToUpload = key;
     appDelegate.dashViewController.handleToUpload = handle;
     appDelegate.dashViewController.captionToUpload = self.snapCaption.text;
+    
+    if([handle.name isEqualToString:@"the wire"]) {
+        appDelegate.dashViewController.locationToUpload = self.placeName.text;
+    }
+    
     [appDelegate.dashViewController setDoGetThreadsOnView:YES];
     [appDelegate.dashViewController setDoUploadOnView:YES];
     [appDelegate.dashViewController.navigationController popToRootViewControllerAnimated:YES];

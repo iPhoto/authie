@@ -28,6 +28,7 @@
 @property (strong, nonatomic) NSString *keyToUpload;
 @property (strong, nonatomic) RODHandle *handleToUpload;
 @property (strong, nonatomic) NSString *captionToUpload;
+@property (strong, nonatomic) NSString *locationToUpload;
 
 - (void)getThreads;
 - (void)populateScrollView;

@@ -58,7 +58,7 @@
 - (BOOL)loadContacts;
 - (BOOL)checkLoginStatus;
 - (BOOL)getHandleInformation;
-- (BOOL)startThread:(NSString *)toHandle forKey:(NSString *)key withCaption:(NSString *)caption;
+- (BOOL)startThread:(NSString *)toHandle forKey:(NSString *)key withCaption:(NSString *)caption withLocation:(NSString *)location;
 - (BOOL)getThreadsFromHandle:(NSString *)publicKey;
 - (BOOL)uploadSnap:(NSString *)key;
 - (BOOL)addContact:(NSString *)handle;
