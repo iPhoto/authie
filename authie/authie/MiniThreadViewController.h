@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FBGlowLabel/FBGlowLabel.h>
 
 @interface MiniThreadViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *snapView;
@@ -16,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIView *reportView;
 @property (weak, nonatomic) IBOutlet UIButton *reportButton;
 @property (weak, nonatomic) IBOutlet UIImageView *heartsImage;
-@property (weak, nonatomic) IBOutlet UILabel *labelCaption;
+@property (weak, nonatomic) IBOutlet FBGlowLabel *labelCaption;
 @property (weak, nonatomic) IBOutlet UIView *heartsVotingView;
 @property (weak, nonatomic) IBOutlet UILabel *labelLocation;
 

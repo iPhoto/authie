@@ -7,6 +7,7 @@
 //
 
 #import "MiniThreadViewController.h"
+#import <FBGlowLabel/FBGlowLabel.h>
 
 @implementation MiniThreadViewController
 @synthesize voted;

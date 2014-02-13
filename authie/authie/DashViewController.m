@@ -23,6 +23,7 @@
 #import "PagerViewController.h"
 #import <REMenu/REMenu.h>
 #import <UIImage+Blur.h>
+#import <FBGlowLabel/FBGlowLabel.h>
 
 @implementation DashViewController
 @synthesize handle, contentSize, imageToUpload, keyToUpload, handleToUpload, captionToUpload, doUploadOnView, imagePicker, selected, mostRecentGroupKey, photoHeight, locationToUpload;
@@ -363,13 +364,24 @@
         mini.snapView.tag = imageview_tag;
         mini.reportView.tag = report_tag;
         
+        [mini.view setNeedsDisplay];
+        
         if(thread.caption == (id)[NSNull null] || thread.caption.length == 0 ) {
             mini.labelCaption.text = @"";
         } else {
-            [mini.labelCaption setFont:lucidaTypewriter];
+            
             mini.labelCaption.text = thread.caption;
-            mini.labelCaption.layer.shadowOpacity = 0.4;
-            mini.labelCaption.layer.shadowColor = [UIColor blackColor].CGColor;
+            [mini.labelCaption setFont:lucidaTypewriter];
+            
+            mini.labelCaption.clipsToBounds = YES;
+            mini.labelCaption.alpha = 1.0;
+            mini.labelCaption.textColor = [UIColor whiteColor];
+            
+            mini.labelCaption.glowSize = 2;
+            mini.labelCaption.glowColor = [UIColor whiteColor];
+            
+            mini.labelCaption.innerGlowSize = 4;
+            mini.labelCaption.innerGlowColor = [UIColor whiteColor];
             
         }
         
@@ -377,6 +389,7 @@
         [mini.reportView setHidden:YES];
 
         [mini.view layoutSubviews];
+
         
         [_items addObject:mini];
         

@@ -84,7 +84,7 @@
                         <constraint firstAttribute="trailing" secondItem="5zd-Wj-qXb" secondAttribute="trailing" constant="10" id="YUJ-pZ-cZZ"/>
                     </constraints>
                 </view>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Bro Rises" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="10" preferredMaxLayoutWidth="167" translatesAutoresizingMaskIntoConstraints="NO" id="aJu-qE-Pni" userLabel="caption">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Bro Rises" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="10" preferredMaxLayoutWidth="167" translatesAutoresizingMaskIntoConstraints="NO" id="aJu-qE-Pni" userLabel="caption" customClass="FBGlowLabel">
                     <rect key="frame" x="20" y="95" width="167" height="119"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>

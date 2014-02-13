@@ -9,6 +9,8 @@ pod 'CXAlertView'
 pod 'REMenu', '~> 1.8'
 pod 'UIImage-Helpers', '~> 0.0.1'
 pod 'BButton'
+pod 'FBGlowLabel', :git => 'https://github.com/lyokato/FBGlowLabel.git'
+
 
 # Recommended to keep GPUImage up-to-date
 pod 'GPUImage', :head
