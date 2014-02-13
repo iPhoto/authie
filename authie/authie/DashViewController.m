@@ -310,9 +310,14 @@
 
         [mini.view setNeedsUpdateConstraints];
 
+        // only allow tapping on dash and direct posts
+        UITapGestureRecognizer *tapView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedImageView:)];
+
         
         if([thread.toHandleId isEqualToString:@"dash"]) {
             // don't blur pls
+            [mini.snapView addGestureRecognizer:tapView];
+            
             [mini.heartsVotingView setHidden:YES];
         } else if ([thread.toHandleId isEqualToString:@"the wire"]) {
             // don't blur pls
@@ -332,6 +337,7 @@
 
             [mini.heartsVotingView setHidden:YES];
 
+            [mini.snapView addGestureRecognizer:tapView];
             
         }
         
@@ -342,10 +348,6 @@
         }
 
         [mini.snapView setUserInteractionEnabled:YES];
-        
-        UITapGestureRecognizer *tapView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedImageView:)];
-        [mini.snapView addGestureRecognizer:tapView];
-        
         
         
         int mini_tag = i*100;
