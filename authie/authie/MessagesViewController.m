@@ -57,6 +57,16 @@
     NSArray *oldestToNewestMessages = [[RODItemStore sharedStore].authie.allMessages sortedArrayUsingDescriptors:sortDescriptors];
     
     sortedMessages = [[oldestToNewestMessages reverseObjectEnumerator] allObjects];
+    
+    // mark all messages as read
+    NSArray *tempMessages = [NSArray arrayWithArray:[RODItemStore sharedStore].authie.allMessages];
+    for (int i = 0; i<[tempMessages count]; i++) {
+        RODMessage *m = [tempMessages objectAtIndex:i];
+        m.seen = [NSNumber numberWithInt:1];
+        [[RODItemStore sharedStore].authie.allMessages setObject:m atIndexedSubscript:i];
+    }
+    [[RODItemStore sharedStore] saveChanges];
+    
 }
 
 - (void)didReceiveMemoryWarning
