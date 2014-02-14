@@ -98,8 +98,17 @@
     
     UITapGestureRecognizer *tapFont = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedFontView:)];
     [self.fontView addGestureRecognizer:tapFont];
-    
-    
+
+    [self.colorView setUserInteractionEnabled:YES];
+
+    UITapGestureRecognizer *tapColor = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedColorView:)];
+    [self.colorView addGestureRecognizer:tapColor];
+
+}
+
+- (void)tappedColorView:(UITapGestureRecognizer *)tapGesture
+{
+    NSLog(@"Tapped color view.");
 }
 
 - (void)tappedFontView:(UITapGestureRecognizer *)tapGesture
@@ -113,12 +122,12 @@
     KxMenuItem *lucida = [KxMenuItem menuItem:@"Lucida Typewriter"
                                       image:[UIImage alloc]
                                      target:self
-                                     action:@selector(menuItemAction:)];
+                                     action:@selector(fontMenuItemAction:)];
     
     KxMenuItem *futura = [KxMenuItem menuItem:@"Futura-Medium"
                                           image:[UIImage alloc]
                                          target:self
-                                         action:@selector(menuItemAction:)];
+                                         action:@selector(fontMenuItemAction:)];
     
     [items insertObject:lucida atIndex:0];
     [items insertObject:futura atIndex:1];
@@ -329,5 +338,9 @@
 - (IBAction)changePlaceName:(id)sender
 {
     
+}
+- (IBAction)btnCaption:(id)sender {
+}
+- (IBAction)addCaption:(id)sender {
 }
 @end

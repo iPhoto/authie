@@ -7,10 +7,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ConfirmSnapViewController">
             <connections>
                 <outlet property="cog" destination="fRI-Wl-fxL" id="S2C-WA-Huv"/>
+                <outlet property="colorView" destination="HGn-An-278" id="cZg-Rx-vYW"/>
                 <outlet property="fontView" destination="zSt-SX-Ib1" id="dpw-1q-0c3"/>
+                <outlet property="labelCaption" destination="VgL-ia-GHG" id="mSI-rV-if6"/>
                 <outlet property="locationView" destination="NXH-Ss-tzT" id="5mr-4f-adg"/>
-                <outlet property="placeName" destination="7RG-vL-afj" id="0JZ-Kw-qje"/>
-                <outlet property="snapCaption" destination="yi4-UR-zYn" id="L7z-qa-JYW"/>
                 <outlet property="snapView" destination="dWL-1z-ZJk" id="Kg5-04-ae7"/>
                 <outlet property="view" destination="rKg-55-J7c" id="rKO-kd-UYu"/>
             </connections>
@@ -28,19 +28,6 @@
                         <outletCollection property="gestureRecognizers" destination="ZCo-Cd-da8" appends="YES" id="6bz-Ne-ZGm"/>
                     </connections>
                 </imageView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.5499999999999996" contentMode="scaleToFill" text="Tap to caption..." translatesAutoresizingMaskIntoConstraints="NO" id="yi4-UR-zYn">
-                    <rect key="frame" x="0.0" y="0.0" width="311" height="44"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="44" id="a0M-w6-rC9"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="aFQ-cz-4un"/>
-                    </connections>
-                </textView>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NXH-Ss-tzT" userLabel="locationView">
                     <rect key="frame" x="0.0" y="285" width="311" height="33"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -62,28 +49,67 @@
                     </constraints>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="font-v1.png" translatesAutoresizingMaskIntoConstraints="NO" id="zSt-SX-Ib1">
-                    <rect key="frame" x="0.0" y="41" width="30" height="30"/>
+                    <rect key="frame" x="5" y="0.0" width="30" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="3pY-hH-uUn"/>
                         <constraint firstAttribute="width" constant="30" id="g4B-LI-Ei8"/>
                     </constraints>
                 </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="10" preferredMaxLayoutWidth="271" translatesAutoresizingMaskIntoConstraints="NO" id="VgL-ia-GHG" userLabel="caption" customClass="FBGlowLabel">
+                    <rect key="frame" x="20" y="99" width="271" height="119"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="119" id="JuE-gk-mBN"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="119" id="VcI-Mz-A5i"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="24"/>
+                    <color key="textColor" red="0.98431378599999997" green="0.99215692280000001" blue="0.97647064920000004" alpha="1" colorSpace="deviceRGB"/>
+                    <nil key="highlightedColor"/>
+                    <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5uj-jI-04Z">
+                    <rect key="frame" x="241" y="0.0" width="65" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="65" id="dGB-RE-OiM"/>
+                        <constraint firstAttribute="height" constant="30" id="dy8-Yh-MBb"/>
+                    </constraints>
+                    <state key="normal" title="caption">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnCaption:" destination="-1" eventType="touchUpInside" id="Gi5-u1-w7Y"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="color-v1.png" translatesAutoresizingMaskIntoConstraints="NO" id="HGn-An-278">
+                    <rect key="frame" x="38" y="0.0" width="30" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="mEx-IK-PiT"/>
+                        <constraint firstAttribute="height" constant="30" id="rqg-xL-GyC"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstItem="zSt-SX-Ib1" firstAttribute="leading" secondItem="rKg-55-J7c" secondAttribute="leading" id="69G-Im-qeE"/>
-                <constraint firstItem="yi4-UR-zYn" firstAttribute="leading" secondItem="rKg-55-J7c" secondAttribute="leading" id="IMh-WS-PBD"/>
-                <constraint firstAttribute="trailing" secondItem="yi4-UR-zYn" secondAttribute="trailing" id="XCh-wp-VuU"/>
-                <constraint firstItem="yi4-UR-zYn" firstAttribute="top" secondItem="rKg-55-J7c" secondAttribute="top" id="XEB-Wc-VtN"/>
+                <constraint firstAttribute="centerY" secondItem="VgL-ia-GHG" secondAttribute="centerY" id="02Q-Gw-cL8"/>
+                <constraint firstItem="HGn-An-278" firstAttribute="top" secondItem="rKg-55-J7c" secondAttribute="top" id="4P4-cs-Wfd"/>
+                <constraint firstItem="zSt-SX-Ib1" firstAttribute="leading" secondItem="rKg-55-J7c" secondAttribute="leading" constant="5" id="69G-Im-qeE"/>
+                <constraint firstAttribute="trailing" secondItem="5uj-jI-04Z" secondAttribute="trailing" constant="5" id="cfd-bE-Vdh"/>
                 <constraint firstAttribute="trailing" secondItem="NXH-Ss-tzT" secondAttribute="trailing" id="kTT-EZ-iyM"/>
                 <constraint firstAttribute="trailing" secondItem="dWL-1z-ZJk" secondAttribute="trailing" id="lWZ-bu-r51"/>
-                <constraint firstAttribute="trailing" secondItem="yi4-UR-zYn" secondAttribute="trailing" id="mSZ-Fa-976"/>
                 <constraint firstAttribute="bottom" secondItem="NXH-Ss-tzT" secondAttribute="bottom" id="n6f-l7-XuA"/>
                 <constraint firstItem="dWL-1z-ZJk" firstAttribute="top" secondItem="rKg-55-J7c" secondAttribute="top" id="pPz-eL-45q"/>
+                <constraint firstItem="VgL-ia-GHG" firstAttribute="leading" secondItem="rKg-55-J7c" secondAttribute="leading" constant="20" id="pXF-RW-Kro"/>
+                <constraint firstItem="5uj-jI-04Z" firstAttribute="top" secondItem="rKg-55-J7c" secondAttribute="top" id="pXt-GQ-2oi"/>
+                <constraint firstAttribute="trailing" secondItem="VgL-ia-GHG" secondAttribute="trailing" constant="20" id="sZt-8U-Jbs"/>
                 <constraint firstItem="dWL-1z-ZJk" firstAttribute="leading" secondItem="rKg-55-J7c" secondAttribute="leading" id="tmf-hw-aAg"/>
-                <constraint firstItem="zSt-SX-Ib1" firstAttribute="top" secondItem="rKg-55-J7c" secondAttribute="top" constant="41" id="x4O-bF-fVZ"/>
+                <constraint firstItem="HGn-An-278" firstAttribute="leading" secondItem="rKg-55-J7c" secondAttribute="leading" constant="38" id="wqo-a4-Jpg"/>
+                <constraint firstItem="zSt-SX-Ib1" firstAttribute="top" secondItem="rKg-55-J7c" secondAttribute="top" id="x4O-bF-fVZ"/>
                 <constraint firstAttribute="bottom" secondItem="dWL-1z-ZJk" secondAttribute="bottom" id="xUY-DR-rkX"/>
                 <constraint firstItem="NXH-Ss-tzT" firstAttribute="leading" secondItem="rKg-55-J7c" secondAttribute="leading" id="zw8-wT-zC1"/>
             </constraints>
@@ -101,6 +127,7 @@
     </objects>
     <resources>
         <image name="cog-black.png" width="150" height="150"/>
+        <image name="color-v1.png" width="60" height="60"/>
         <image name="font-v1.png" width="30" height="30"/>
         <image name="heart.png" width="15" height="13"/>
     </resources>
