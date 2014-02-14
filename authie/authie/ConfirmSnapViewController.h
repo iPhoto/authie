@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *placeName;
 @property (weak, nonatomic) IBOutlet UIView *locationView;
 @property (weak, nonatomic) IBOutlet UIImageView *snapView;
+@property (weak, nonatomic) IBOutlet UIImageView *fontView;
 @property (weak, nonatomic) IBOutlet UITextView *snapCaption;
 @property (strong, nonatomic) NSString *key;
 @property (strong, nonatomic) UIImage *snap;
@@ -28,6 +29,8 @@
 
 @property (strong, nonatomic) NSString *state;
 @property (strong, nonatomic) NSString *city;
+@property (strong, nonatomic) NSString *font;
+@property (strong, nonatomic) NSString *textColor;
 
 
 @end

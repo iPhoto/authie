@@ -22,6 +22,10 @@
     if (self) {
         // Custom initialization
         [self setEdgesForExtendedLayout:UIRectEdgeNone];
+        
+        self.font = @"LucidaTypewriter";
+        self.textColor = @"#FFFFFF";
+        
     }
     return self;
 }
@@ -89,7 +93,60 @@
     UITapGestureRecognizer *tapView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedLocationView:)];
     [self.locationView addGestureRecognizer:tapView];
     
+    
+    [self.fontView setUserInteractionEnabled:YES];
+    
+    UITapGestureRecognizer *tapFont = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedFontView:)];
+    [self.fontView addGestureRecognizer:tapFont];
+    
+    
 }
+
+- (void)tappedFontView:(UITapGestureRecognizer *)tapGesture
+{
+    
+    NSLog(@"TappedFontView.");
+
+    NSMutableArray *items = [[NSMutableArray alloc] init];
+    
+    
+    KxMenuItem *lucida = [KxMenuItem menuItem:@"Lucida Typewriter"
+                                      image:[UIImage alloc]
+                                     target:self
+                                     action:@selector(menuItemAction:)];
+    
+    KxMenuItem *futura = [KxMenuItem menuItem:@"Futura-Medium"
+                                          image:[UIImage alloc]
+                                         target:self
+                                         action:@selector(menuItemAction:)];
+    
+    [items insertObject:lucida atIndex:0];
+    [items insertObject:futura atIndex:1];
+    
+    
+    [KxMenu showMenuInView:self.view
+                  fromRect:self.fontView.frame
+                 menuItems:items];
+    
+}
+
+- (void)fontMenuItemAction:(KxMenuItem *)item
+{
+
+    if([item.title isEqualToString:@"Lucida Typewriter"]) {
+        UIFont *lucidaTypewriter = [UIFont fontWithName:@"LucidaTypewriter" size:20.0f];
+        [self.snapCaption setFont:lucidaTypewriter];
+        self.font = @"LucidaTypewriter";
+    }
+    
+    if([item.title isEqualToString:@"Futura-Medium"]) {
+        UIFont *lucidaTypewriter = [UIFont fontWithName:@"Futura-Medium" size:20.0f];
+        [self.snapCaption setFont:lucidaTypewriter];
+        self.font = @"Futura-Medium";
+    }
+    
+}
+
 
 - (void)tappedLocationView:(UITapGestureRecognizer *)tapGesture
 {
