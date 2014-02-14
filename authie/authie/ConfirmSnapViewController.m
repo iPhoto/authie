@@ -14,7 +14,7 @@
 #import <KxMenu/KxMenu.h>
 
 @implementation ConfirmSnapViewController
-@synthesize snap, key, handle, state;
+@synthesize snap, key, handle, state, selectedColor;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,6 +25,7 @@
         
         self.font = @"LucidaTypewriter";
         self.textColor = @"#FFFFFF";
+        self.selectedColor = NO;
         
     }
     return self;
@@ -89,6 +90,7 @@
     
     self.navigationItem.rightBarButtonItem = send;
 
+    [self.locationView setUserInteractionEnabled:YES];
     
     UITapGestureRecognizer *tapView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedLocationView:)];
     [self.locationView addGestureRecognizer:tapView];
@@ -109,7 +111,67 @@
 - (void)tappedColorView:(UITapGestureRecognizer *)tapGesture
 {
     NSLog(@"Tapped color view.");
+	
+    
+    // View that displays color picker (needs to be square)
+    _colorPicker = [[RSColorPickerView alloc] initWithFrame:CGRectMake(20.0, 10.0, 280.0, 280.0)];
+    
+    // Optionally set and force the picker to only draw a circle
+    //    [_colorPicker setCropToCircle:YES]; // Defaults to NO (you can set BG color)
+    
+    // Set the selection color - useful to present when the user had picked a color previously
+    //[_colorPicker setSelectionColor:[self randomColorOpaque:YES]];
+    
+    //    [_colorPicker setSelectionColor:[UIColor colorWithRed:1 green:0 blue:0.752941 alpha:1.000000]];
+    //    [_colorPicker setSelection:CGPointMake(269, 269)];
+    
+    // Set the delegate to receive events
+    [_colorPicker setDelegate:self];
+
+    self.selectedColor = NO;
+
+    [self.view addSubview:_colorPicker];
+    
 }
+
+- (void)colorPickerDidChangeSelection:(RSColorPickerView *)cp {
+    
+    // Get color data
+    UIColor *color = [cp selectionColor];
+    
+    CGFloat r, g, b, a;
+    [[cp selectionColor] getRed:&r green:&g blue:&b alpha:&a];
+    
+    // Update important UI
+    //_colorPatch.backgroundColor = color;
+    //_brightnessSlider.value = [cp brightness];
+    //_opacitySlider.value = [cp opacity];
+    
+    
+    // Debug
+    NSString *colorDesc = [NSString stringWithFormat:@"rgba: %f, %f, %f, %f", r, g, b, a];
+    NSLog(@"%@", colorDesc);
+    int ir = r * 255;
+    int ig = g * 255;
+    int ib = b * 255;
+    int ia = a * 255;
+    colorDesc = [NSString stringWithFormat:@"rgba: %d, %d, %d, %d", ir, ig, ib, ia];
+    NSLog(@"%@", colorDesc);
+    //_rgbLabel.text = colorDesc;
+
+    
+    if(self.selectedColor == YES) {
+        [_colorPicker removeFromSuperview];        
+    }
+    
+    self.selectedColor = YES;
+
+    
+    NSLog(@"%@", NSStringFromCGPoint(cp.selection));
+    
+    color = nil;
+}
+
 
 - (void)tappedFontView:(UITapGestureRecognizer *)tapGesture
 {
@@ -159,6 +221,8 @@
 
 - (void)tappedLocationView:(UITapGestureRecognizer *)tapGesture
 {
+    
+    NSLog(@"Tapped location view.");
     
     NSMutableArray *items = [[NSMutableArray alloc] init];
 
@@ -341,6 +405,5 @@
 }
 - (IBAction)btnCaption:(id)sender {
 }
-- (IBAction)addCaption:(id)sender {
-}
+
 @end

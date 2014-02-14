@@ -10,9 +10,15 @@
 #import <GAITrackedViewController.h>
 #import <CoreLocation/CoreLocation.h>
 #import <FBGlowLabel/FBGlowLabel.h>
+
+#import "ColorPickerClasses/RSColorPickerView.h"
+
+@class RSBrightnessSlider;
+@class RSOpacitySlider;
+
 @class RODHandle;
 
-@interface ConfirmSnapViewController : GAITrackedViewController <UITextViewDelegate, CLLocationManagerDelegate>
+@interface ConfirmSnapViewController : GAITrackedViewController <UITextViewDelegate, CLLocationManagerDelegate, RSColorPickerViewDelegate>
 - (IBAction)btnCaption:(id)sender;
 @property (weak, nonatomic) IBOutlet FBGlowLabel *labelCaption;
 @property (weak, nonatomic) IBOutlet UIImageView *cog;
@@ -36,6 +42,12 @@
 @property (strong, nonatomic) NSString *city;
 @property (strong, nonatomic) NSString *font;
 @property (strong, nonatomic) NSString *textColor;
+
+@property (nonatomic) bool selectedColor;
+
+@property (nonatomic) RSColorPickerView *colorPicker;
+@property (nonatomic) RSBrightnessSlider *brightnessSlider;
+@property (nonatomic) RSOpacitySlider *opacitySlider;
 
 
 @end
