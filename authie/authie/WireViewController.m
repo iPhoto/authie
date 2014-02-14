@@ -180,20 +180,7 @@
         if(thread.location == (id)[NSNull null] || thread.location.length == 0) {
             [mini.labelLocation setText:@""];
         } else {
-            
-            mini.labelCaption.text = thread.caption;
-            [mini.labelCaption setFont:lucidaTypewriter];
-            
-            mini.labelCaption.clipsToBounds = YES;
-            mini.labelCaption.alpha = 1.0;
-            mini.labelCaption.textColor = [UIColor whiteColor];
-            
-            mini.labelCaption.glowSize = 2;
-            mini.labelCaption.glowColor = [UIColor whiteColor];
-            
-            mini.labelCaption.innerGlowSize = 4;
-            mini.labelCaption.innerGlowColor = [UIColor whiteColor];
-            
+            mini.labelLocation.text = thread.location;
         }
         
         [mini.labelDate setText:[NSString stringWithFormat:@"snapped %@", [thread.startDate prettyDate]]];
@@ -226,8 +213,19 @@
         } else {
             [mini.labelCaption setFont:lucidaTypewriter];
             mini.labelCaption.text = thread.caption;
-            mini.labelCaption.layer.shadowOpacity = 0.4;
-            mini.labelCaption.layer.shadowColor = [UIColor blackColor].CGColor;
+
+            [mini.labelCaption setFont:lucidaTypewriter];
+            
+            mini.labelCaption.clipsToBounds = YES;
+            mini.labelCaption.alpha = 1.0;
+            mini.labelCaption.textColor = [UIColor whiteColor];
+            
+            mini.labelCaption.glowSize = 2;
+            mini.labelCaption.glowColor = [UIColor whiteColor];
+            
+            mini.labelCaption.innerGlowSize = 4;
+            mini.labelCaption.innerGlowColor = [UIColor whiteColor];
+
             
         }
         
