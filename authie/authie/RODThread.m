@@ -9,7 +9,8 @@
 #import "RODThread.h"
 
 @implementation RODThread
-@synthesize authorizeRequest, hearts, toHandleSeen, caption, fromHandle, toHandle, successfulUpload, groupKey, location;
+@synthesize authorizeRequest, hearts, toHandleSeen, caption, fromHandle, toHandle, successfulUpload,
+    groupKey, location, font, textColor;
 
 - (void) encodeWithCoder:(NSCoder *)aCoder
 {
@@ -23,6 +24,9 @@
     [aCoder encodeObject:self.authorizeRequest forKey:@"authorizeRequest"];
     [aCoder encodeObject:self.hearts forKey:@"hearts"];
     [aCoder encodeBool:self.successfulUpload forKey:@"successfulUpload"];
+    [aCoder encodeObject:self.font forKey:@"font"];
+    [aCoder encodeObject:self.textColor forKey:@"textColor"];
+    
 }
 
 - (id) initWithCoder:(NSCoder *)aDecoder
@@ -37,7 +41,9 @@
         [self setCaption:[aDecoder decodeObjectForKey:@"caption"]];
         [self setLocation:[aDecoder decodeObjectForKey:@"location"]];
         [self setSuccessfulUpload:[aDecoder decodeBoolForKey:@"successfulUpload"]];
-        
+        [self setFont:[aDecoder decodeObjectForKey:@"font"]];
+        [self setTextColor:[aDecoder decodeObjectForKey:@"textColor"]];
+
         id hearts_result = [aDecoder decodeObjectForKey:@"hearts"];
         if(hearts_result == [NSNull null]) {
             [self setHearts:[NSNumber numberWithInteger:0]];

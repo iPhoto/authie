@@ -23,6 +23,8 @@
 @property (nonatomic) NSNumber *authorizeRequest;
 @property (nonatomic) NSNumber *toHandleSeen;
 @property (nonatomic) Boolean successfulUpload;
+@property (nonatomic) NSString *font;
+@property (nonatomic) NSString *textColor;
 
 @property (nonatomic) RODHandle *fromHandle;
 @property (nonatomic) RODHandle *toHandle;

@@ -1169,6 +1169,8 @@
                 
                 thready.toHandle = toHandle;
                 
+                thready.textColor = [result objectForKey:@"textColor"];
+                thready.font = [result objectForKey:@"font"];
                 thready.groupKey = [result objectForKey:@"groupKey"];
                 thready.toHandleId = to_result;
                 thready.fromHandleId = from_result;
