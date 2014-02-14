@@ -97,12 +97,12 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
     }
     
     RODMessage *msg = [sortedMessages objectAtIndex:indexPath.row];
-    
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ said: %@",msg.fromHandle.name, msg.messageText];
+    cell.textLabel.text = msg.fromHandle.name;
+    cell.detailTextLabel.text = msg.messageText;
         
     return cell;
 }
