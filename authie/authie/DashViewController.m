@@ -378,7 +378,7 @@
             mini.labelCaption.textColor = [UIColor whiteColor];
             
             mini.labelCaption.glowSize = 2;
-            mini.labelCaption.glowColor = [UIColor whiteColor];
+            mini.labelCaption.glowColor = [UIColor grayColor];
             
             mini.labelCaption.innerGlowSize = 4;
             mini.labelCaption.innerGlowColor = [UIColor whiteColor];

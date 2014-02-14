@@ -102,6 +102,7 @@
     
     RODMessage *msg = [sortedMessages objectAtIndex:indexPath.row];
     cell.textLabel.text = msg.fromHandle.name;
+    [cell.textLabel setTextColor:[[RODItemStore sharedStore] colorFromHexString:@"#006700"]];
     cell.detailTextLabel.text = msg.messageText;
         
     return cell;

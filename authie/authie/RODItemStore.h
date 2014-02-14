@@ -28,6 +28,7 @@
 @property (nonatomic) int currentPage;
 
 + (RODItemStore *)sharedStore;
+- (UIColor *)colorFromHexString:(NSString *)hexString;
 
 - (RODAuthie *)authie;
 
