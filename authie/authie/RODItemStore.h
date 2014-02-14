@@ -51,7 +51,6 @@
 - (void)addChat:(NSString *)user message:(NSString *)message groupKey:(NSString *)groupKey;
 - (void)addBlock:(NSString *)publicKey;
 - (void)loadBlocks;
-- (void)loadWire;
 - (void)loadMessages;
 - (void)loadMessagesForThread:(NSString *)key;
 - (BOOL)loadThreads:(bool)isWire;
@@ -69,6 +68,7 @@
 - (void)pushThreadWithGroupKey:(NSString *)group_key;
 - (void)addMessage:(NSString *)user message:(NSString *)msg groupKey:(NSString *)key;
 
+- (void)testAES;
 
 @end
 

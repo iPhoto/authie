@@ -124,6 +124,13 @@
 		5D2F717B18AC483B00EDC1E4 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2F717A18AC483B00EDC1E4 /* libTestFlight.a */; };
 		5D2F717F18AD58C000EDC1E4 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F717D18AD58C000EDC1E4 /* CameraViewController.m */; };
 		5D2F718018AD58C000EDC1E4 /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F717E18AD58C000EDC1E4 /* CameraViewController.xib */; };
+		5D2F71AA18AD8D0E00EDC1E4 /* RNCryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F719D18AD8D0E00EDC1E4 /* RNCryptor.m */; };
+		5D2F71AB18AD8D0E00EDC1E4 /* RNCryptorEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F719F18AD8D0E00EDC1E4 /* RNCryptorEngine.m */; };
+		5D2F71AC18AD8D0E00EDC1E4 /* RNDecryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F71A118AD8D0E00EDC1E4 /* RNDecryptor.m */; };
+		5D2F71AD18AD8D0E00EDC1E4 /* RNEncryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F71A318AD8D0E00EDC1E4 /* RNEncryptor.m */; };
+		5D2F71AE18AD8D0E00EDC1E4 /* RNOpenSSLCryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F71A518AD8D0E00EDC1E4 /* RNOpenSSLCryptor.m */; };
+		5D2F71AF18AD8D0E00EDC1E4 /* RNOpenSSLDecryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F71A718AD8D0E00EDC1E4 /* RNOpenSSLDecryptor.m */; };
+		5D2F71B018AD8D0E00EDC1E4 /* RNOpenSSLEncryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F71A918AD8D0E00EDC1E4 /* RNOpenSSLEncryptor.m */; };
 		5D556A631882384100C5B6FB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D556A611882384100C5B6FB /* LoginViewController.m */; };
 		5D556A641882384100C5B6FB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D556A621882384100C5B6FB /* LoginViewController.xib */; };
 		5D5A0728188271C4003848EA /* NSDate+PrettyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A0727188271C4003848EA /* NSDate+PrettyDate.m */; };
@@ -403,6 +410,22 @@
 		5D2F717C18AD58C000EDC1E4 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 		5D2F717D18AD58C000EDC1E4 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		5D2F717E18AD58C000EDC1E4 /* CameraViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
+		5D2F719A18AD8D0E00EDC1E4 /* RNCryptor+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RNCryptor+Private.h"; sourceTree = "<group>"; };
+		5D2F719B18AD8D0E00EDC1E4 /* RNCryptor-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RNCryptor-Prefix.pch"; sourceTree = "<group>"; };
+		5D2F719C18AD8D0E00EDC1E4 /* RNCryptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNCryptor.h; sourceTree = "<group>"; };
+		5D2F719D18AD8D0E00EDC1E4 /* RNCryptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNCryptor.m; sourceTree = "<group>"; };
+		5D2F719E18AD8D0E00EDC1E4 /* RNCryptorEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNCryptorEngine.h; sourceTree = "<group>"; };
+		5D2F719F18AD8D0E00EDC1E4 /* RNCryptorEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNCryptorEngine.m; sourceTree = "<group>"; };
+		5D2F71A018AD8D0E00EDC1E4 /* RNDecryptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNDecryptor.h; sourceTree = "<group>"; };
+		5D2F71A118AD8D0E00EDC1E4 /* RNDecryptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNDecryptor.m; sourceTree = "<group>"; };
+		5D2F71A218AD8D0E00EDC1E4 /* RNEncryptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNEncryptor.h; sourceTree = "<group>"; };
+		5D2F71A318AD8D0E00EDC1E4 /* RNEncryptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNEncryptor.m; sourceTree = "<group>"; };
+		5D2F71A418AD8D0E00EDC1E4 /* RNOpenSSLCryptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNOpenSSLCryptor.h; sourceTree = "<group>"; };
+		5D2F71A518AD8D0E00EDC1E4 /* RNOpenSSLCryptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNOpenSSLCryptor.m; sourceTree = "<group>"; };
+		5D2F71A618AD8D0E00EDC1E4 /* RNOpenSSLDecryptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNOpenSSLDecryptor.h; sourceTree = "<group>"; };
+		5D2F71A718AD8D0E00EDC1E4 /* RNOpenSSLDecryptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNOpenSSLDecryptor.m; sourceTree = "<group>"; };
+		5D2F71A818AD8D0E00EDC1E4 /* RNOpenSSLEncryptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNOpenSSLEncryptor.h; sourceTree = "<group>"; };
+		5D2F71A918AD8D0E00EDC1E4 /* RNOpenSSLEncryptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNOpenSSLEncryptor.m; sourceTree = "<group>"; };
 		5D556A601882384100C5B6FB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		5D556A611882384100C5B6FB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		5D556A621882384100C5B6FB /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -915,6 +938,29 @@
 			name = Components;
 			sourceTree = "<group>";
 		};
+		5D2F719918AD8D0E00EDC1E4 /* RNCryptor */ = {
+			isa = PBXGroup;
+			children = (
+				5D2F719A18AD8D0E00EDC1E4 /* RNCryptor+Private.h */,
+				5D2F719B18AD8D0E00EDC1E4 /* RNCryptor-Prefix.pch */,
+				5D2F719C18AD8D0E00EDC1E4 /* RNCryptor.h */,
+				5D2F719D18AD8D0E00EDC1E4 /* RNCryptor.m */,
+				5D2F719E18AD8D0E00EDC1E4 /* RNCryptorEngine.h */,
+				5D2F719F18AD8D0E00EDC1E4 /* RNCryptorEngine.m */,
+				5D2F71A018AD8D0E00EDC1E4 /* RNDecryptor.h */,
+				5D2F71A118AD8D0E00EDC1E4 /* RNDecryptor.m */,
+				5D2F71A218AD8D0E00EDC1E4 /* RNEncryptor.h */,
+				5D2F71A318AD8D0E00EDC1E4 /* RNEncryptor.m */,
+				5D2F71A418AD8D0E00EDC1E4 /* RNOpenSSLCryptor.h */,
+				5D2F71A518AD8D0E00EDC1E4 /* RNOpenSSLCryptor.m */,
+				5D2F71A618AD8D0E00EDC1E4 /* RNOpenSSLDecryptor.h */,
+				5D2F71A718AD8D0E00EDC1E4 /* RNOpenSSLDecryptor.m */,
+				5D2F71A818AD8D0E00EDC1E4 /* RNOpenSSLEncryptor.h */,
+				5D2F71A918AD8D0E00EDC1E4 /* RNOpenSSLEncryptor.m */,
+			);
+			path = RNCryptor;
+			sourceTree = "<group>";
+		};
 		5DEE7C7E185234E700F532B3 = {
 			isa = PBXGroup;
 			children = (
@@ -983,6 +1029,7 @@
 				5D2F715818A873AE00EDC1E4 /* authie-logo-v4-ocr-a@2x.png */,
 				5D2F715A18A95FE200EDC1E4 /* authie-logo-v5-ocr-a@2x.png */,
 				5D2F711F18A3056200EDC1E4 /* house-v3.png */,
+				5D2F719918AD8D0E00EDC1E4 /* RNCryptor */,
 				5D21C97B188DAF6800330F78 /* Airship */,
 				5D06B984187B0D4E00FC17F0 /* cog.png */,
 				5D5A072E18848A7C003848EA /* lock.png */,
@@ -1296,15 +1343,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D5A072C18848A4F003848EA /* AuthorizeContactViewController.m in Sources */,
+				5D2F71AF18AD8D0E00EDC1E4 /* RNOpenSSLDecryptor.m in Sources */,
 				5D21CA1B188DAF6800330F78 /* UIWebView+UAAdditions.m in Sources */,
 				5D21CA2F188DAF6800330F78 /* UAPushSettingsAddTagViewController.m in Sources */,
 				5D9A453218765184008C45FD /* RODThread.m in Sources */,
+				5D2F71AE18AD8D0E00EDC1E4 /* RNOpenSSLCryptor.m in Sources */,
 				5D9C7C5C187E0F0400BE2D42 /* ContactsViewController.m in Sources */,
 				5DB549A91895BA1500E03D9D /* BlankSlateViewController.m in Sources */,
 				5D9DEE9C185242E300F80413 /* RODItemStore.m in Sources */,
+				5D2F71B018AD8D0E00EDC1E4 /* RNOpenSSLEncryptor.m in Sources */,
 				5D21CA15188DAF6800330F78 /* UAInboxMessageListCell.m in Sources */,
 				5DEE7C9B185234E800F532B3 /* AppDelegate.m in Sources */,
 				5D5A0728188271C4003848EA /* NSDate+PrettyDate.m in Sources */,
+				5D2F71AB18AD8D0E00EDC1E4 /* RNCryptorEngine.m in Sources */,
 				5D21CA17188DAF6800330F78 /* UAInboxMessageViewController.m in Sources */,
 				5D556A631882384100C5B6FB /* LoginViewController.m in Sources */,
 				5DF8648B185BEA60002DCCDC /* RODAuthie.m in Sources */,
@@ -1324,6 +1375,7 @@
 				5DEE7C97185234E800F532B3 /* main.m in Sources */,
 				5D9DEE9B185242E300F80413 /* RODImageStore.m in Sources */,
 				5D8C1CFC1880EEB900158AE5 /* MiniThreadViewController.m in Sources */,
+				5D2F71AA18AD8D0E00EDC1E4 /* RNCryptor.m in Sources */,
 				5D21CA14188DAF6800330F78 /* UAInboxAlertHandler.m in Sources */,
 				5D21CA2B188DAF6800330F78 /* UALocationSettingsViewController.m in Sources */,
 				5D21CA2A188DAF6800330F78 /* UALocationDemoAnnotation.m in Sources */,
@@ -1335,10 +1387,12 @@
 				5D21CA1A188DAF6800330F78 /* UAInboxUI.m in Sources */,
 				5D8C1CF21880E45600158AE5 /* PrivateKeyViewController.m in Sources */,
 				5D21CA31188DAF6800330F78 /* UAPushSettingsSoundsViewController.m in Sources */,
+				5D2F71AD18AD8D0E00EDC1E4 /* RNEncryptor.m in Sources */,
 				5DF86497186E0E7A002DCCDC /* RODResponseMessage.m in Sources */,
 				5D8C1CE818808FC000158AE5 /* SelectContactViewController.m in Sources */,
 				5D95C2E7189F048A00C8155D /* ContactItemCell.m in Sources */,
 				5D21CA32188DAF6800330F78 /* UAPushSettingsTagsViewController.m in Sources */,
+				5D2F71AC18AD8D0E00EDC1E4 /* RNDecryptor.m in Sources */,
 				5D21CA35188DAF6800330F78 /* UAPushSettingsViewController.m in Sources */,
 				5D860798188C4D6600963653 /* RODMessage.m in Sources */,
 				5D21CA12188DAF6800330F78 /* UABeveledLoadingIndicator.m in Sources */,

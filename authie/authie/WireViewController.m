@@ -76,9 +76,13 @@
 
 - (void)getThreads
 {
+    
+    
     MRProgressOverlayView *progressView = [MRProgressOverlayView new];
     progressView.titleLabelText = @"syncing threads";
     progressView.titleLabel.font = [UIFont systemFontOfSize:10];
+
+    //[[RODItemStore sharedStore] testAES];
     
     // overlay dead man's switch
     [NSTimer scheduledTimerWithTimeInterval:30.0

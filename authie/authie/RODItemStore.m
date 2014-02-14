@@ -22,6 +22,8 @@
 #import "UAPush.h"
 #import <MRProgressOverlayView.h>
 #import "NavigationViewController.h"
+#import "RNCryptor.h"
+#import "RNDecryptor.h"
 
 @implementation RODItemStore
 @synthesize loadedThreadsFromAuthor, hubConnection, hubProxy, mostRecentGroupKey, currentPage, wireThreads;
@@ -1460,6 +1462,57 @@
     //AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     //[appDelegate.threadViewController reloadThread];
     
+}
+
+- (void)testAES
+{
+    
+    NSLog(@"testAES started...");
+    NSError *error = nil;
+    
+    NSURLResponse *response;
+    NSData *localData = nil;
+    
+    NSString *url = [NSString stringWithFormat:@"http://authie.me/api/aes"];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5];
+    [request setHTTPMethod:@"GET"];
+    
+    if(error == nil) {
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        
+        //send the request and get the response
+        localData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        if(localData == nil) {
+            // bail out...
+            NSLog(@"Error. bail.");
+            return;
+        }
+        
+        NSError *deserialize_error = nil;
+        
+        id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingMutableContainers error:&deserialize_error];
+        
+        if([object isKindOfClass:[NSArray self]] && deserialize_error == nil) {
+            NSLog(@"Received: %@", object);
+        } else {
+            NSLog(@"localData: %@", localData);
+            NSLog(@"object: %@", object);
+            
+            
+//            NSString *encryptedText = [object valueForKey:@"message"];
+//            
+//            NSData *decryptedData = [RNDecryptor decryptData:encryptedText
+//                                                withPassword:@"SETHAwQFBgcICQoLDA0ODw=="
+//                                                       error:&error];
+//            NSString *decrypt = [[NSString alloc] initWithData:decryptedData encoding:NSUTF8StringEncoding];
+//            NSLog(@"decrypt: %@", decrypt);
+            
+        }
+    }
+
 }
 
 - (void)loadMessages
