@@ -62,6 +62,7 @@
 - (BOOL)uploadSnap:(NSString *)key;
 - (BOOL)addContact:(NSString *)handle;
 - (UIView *)generateHeaderView;
+- (UIView *)generateWireHeaderView;
 - (UIBarButtonItem *)generateMenuItem:(NSString *)menu;
 - (int)unreadMessages;
 

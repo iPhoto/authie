@@ -131,6 +131,8 @@
 		5D2F71AE18AD8D0E00EDC1E4 /* RNOpenSSLCryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F71A518AD8D0E00EDC1E4 /* RNOpenSSLCryptor.m */; };
 		5D2F71AF18AD8D0E00EDC1E4 /* RNOpenSSLDecryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F71A718AD8D0E00EDC1E4 /* RNOpenSSLDecryptor.m */; };
 		5D2F71B018AD8D0E00EDC1E4 /* RNOpenSSLEncryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F71A918AD8D0E00EDC1E4 /* RNOpenSSLEncryptor.m */; };
+		5D2F71B318AE7D5300EDC1E4 /* thewire-logo-v1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F71B118AE7D5300EDC1E4 /* thewire-logo-v1.png */; };
+		5D2F71B418AE7D5300EDC1E4 /* thewire-logo-v1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F71B218AE7D5300EDC1E4 /* thewire-logo-v1@2x.png */; };
 		5D556A631882384100C5B6FB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D556A611882384100C5B6FB /* LoginViewController.m */; };
 		5D556A641882384100C5B6FB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D556A621882384100C5B6FB /* LoginViewController.xib */; };
 		5D5A0728188271C4003848EA /* NSDate+PrettyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A0727188271C4003848EA /* NSDate+PrettyDate.m */; };
@@ -426,6 +428,8 @@
 		5D2F71A718AD8D0E00EDC1E4 /* RNOpenSSLDecryptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNOpenSSLDecryptor.m; sourceTree = "<group>"; };
 		5D2F71A818AD8D0E00EDC1E4 /* RNOpenSSLEncryptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNOpenSSLEncryptor.h; sourceTree = "<group>"; };
 		5D2F71A918AD8D0E00EDC1E4 /* RNOpenSSLEncryptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNOpenSSLEncryptor.m; sourceTree = "<group>"; };
+		5D2F71B118AE7D5300EDC1E4 /* thewire-logo-v1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thewire-logo-v1.png"; sourceTree = "<group>"; };
+		5D2F71B218AE7D5300EDC1E4 /* thewire-logo-v1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thewire-logo-v1@2x.png"; sourceTree = "<group>"; };
 		5D556A601882384100C5B6FB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		5D556A611882384100C5B6FB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		5D556A621882384100C5B6FB /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -1059,6 +1063,8 @@
 				5D2F712A18A30C2B00EDC1E4 /* about-v2@2x.png */,
 				5D2F713318A32C2A00EDC1E4 /* about-v3-white.png */,
 				5D2F713418A32C2A00EDC1E4 /* about-v3-white@2x.png */,
+				5D2F71B118AE7D5300EDC1E4 /* thewire-logo-v1.png */,
+				5D2F71B218AE7D5300EDC1E4 /* thewire-logo-v1@2x.png */,
 				5DBBF9BC18A15D6900F761D9 /* logo-640px.png */,
 				5D2F712D18A31E3E00EDC1E4 /* logo-white-640px.png */,
 				5D2F711D18A3054D00EDC1E4 /* about-v1.png */,
@@ -1258,6 +1264,7 @@
 				5D8C1CF31880E45600158AE5 /* PrivateKeyViewController.xib in Resources */,
 				5D2F714618A3FB5100EDC1E4 /* key-v3-white@2x.png in Resources */,
 				5D2F712718A30AB500EDC1E4 /* key-v1.png in Resources */,
+				5D2F71B418AE7D5300EDC1E4 /* thewire-logo-v1@2x.png in Resources */,
 				5D2F717118AC018900EDC1E4 /* house-v6-white-new-msg@2x.png in Resources */,
 				5D2F716318A9A0F400EDC1E4 /* eye-white-v1.png in Resources */,
 				5D6340B81888B470006538C5 /* heart-v2.png in Resources */,
@@ -1266,6 +1273,7 @@
 				5D21CA1E188DAF6800330F78 /* down.png in Resources */,
 				5D2F712C18A30C2B00EDC1E4 /* about-v2@2x.png in Resources */,
 				5D556A641882384100C5B6FB /* LoginViewController.xib in Resources */,
+				5D2F71B318AE7D5300EDC1E4 /* thewire-logo-v1.png in Resources */,
 				5D2F714518A3FB5100EDC1E4 /* key-v3-white.png in Resources */,
 				5D8C1CDD187F3EC000158AE5 /* cog-black.png in Resources */,
 				5D21CA21188DAF6800330F78 /* overlayCloseBtn@2x.png in Resources */,

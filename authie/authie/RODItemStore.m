@@ -1852,6 +1852,29 @@
     return holder;
 }
 
+-(UIView *)generateWireHeaderView
+{
+    UIView *holder = [[UIView alloc] init];
+    [holder setFrame:CGRectMake(0, 0, 100, 40)];
+    
+    UIImage *image = [UIImage imageNamed:@"thewire-logo-v1"];
+    UIImageView *imageview = [[UIImageView alloc] initWithImage:image];
+    [imageview setFrame:CGRectMake(0, 5, 100, 15)];
+    [imageview setContentMode:UIViewContentModeScaleAspectFit];
+    
+    [holder addSubview:imageview];
+    
+    UILabel *handleLabel = [[UILabel alloc] init];
+    handleLabel.text = @"global tunnel";
+    [handleLabel setFont:[UIFont systemFontOfSize:10]];
+    [handleLabel setFrame:CGRectMake(0, 18, 100, 20)];
+    [handleLabel setTextAlignment:NSTextAlignmentCenter];
+    [handleLabel setTextColor:[UIColor whiteColor]];
+    
+    [holder addSubview:handleLabel];
+    
+    return holder;
+}
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {

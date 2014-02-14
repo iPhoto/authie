@@ -38,7 +38,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.navigationItem.titleView = [[RODItemStore sharedStore] generateHeaderView];
+    self.navigationItem.titleView = [[RODItemStore sharedStore] generateWireHeaderView];
 
 }
 
