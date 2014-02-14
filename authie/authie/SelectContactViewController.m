@@ -134,16 +134,15 @@
     if(handle.mostRecentSnap == (id)[NSNull null] || handle.mostRecentSnap.length == 0) {
         // nothing
         
-        mostRecent = [UIImage imageNamed:@"heart-white-v1"];
+        mostRecent = [UIImage imageNamed:@"heart-green-filled-v1"];
         
         
     } else {
         mostRecent = [[RODImageStore sharedStore] imageForKey:handle.mostRecentSnap];
     }
     
-    NSLog(@"contact: %@, %@", handle.id, handle.name);
     
-    if(editingContacts == YES && indexPath.row > 0) {
+    if(editingContacts == YES && indexPath.row > 1) {
         [cell.buttonBlock setHidden:NO];
         [cell.buttonRemove setHidden:NO];
         
