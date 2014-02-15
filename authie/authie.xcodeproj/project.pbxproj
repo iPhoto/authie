@@ -157,6 +157,8 @@
 		5D2F726F18AEF7B900EDC1E4 /* UIColor+Expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F726E18AEF7B900EDC1E4 /* UIColor+Expanded.m */; };
 		5D2F727218AFD9C400EDC1E4 /* thewire-logo-v2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F727018AFD9C400EDC1E4 /* thewire-logo-v2.png */; };
 		5D2F727318AFD9C400EDC1E4 /* thewire-logo-v2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F727118AFD9C400EDC1E4 /* thewire-logo-v2@2x.png */; };
+		5D2F727618AFDA9B00EDC1E4 /* MessageItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F727518AFDA9A00EDC1E4 /* MessageItemCell.m */; };
+		5D2F727818AFDAC600EDC1E4 /* MessageItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F727718AFDAC600EDC1E4 /* MessageItemCell.xib */; };
 		5D556A631882384100C5B6FB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D556A611882384100C5B6FB /* LoginViewController.m */; };
 		5D556A641882384100C5B6FB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D556A621882384100C5B6FB /* LoginViewController.xib */; };
 		5D5A0728188271C4003848EA /* NSDate+PrettyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A0727188271C4003848EA /* NSDate+PrettyDate.m */; };
@@ -498,6 +500,9 @@
 		5D2F726E18AEF7B900EDC1E4 /* UIColor+Expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Expanded.m"; sourceTree = "<group>"; };
 		5D2F727018AFD9C400EDC1E4 /* thewire-logo-v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thewire-logo-v2.png"; sourceTree = "<group>"; };
 		5D2F727118AFD9C400EDC1E4 /* thewire-logo-v2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thewire-logo-v2@2x.png"; sourceTree = "<group>"; };
+		5D2F727418AFDA9A00EDC1E4 /* MessageItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageItemCell.h; sourceTree = "<group>"; };
+		5D2F727518AFDA9A00EDC1E4 /* MessageItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageItemCell.m; sourceTree = "<group>"; };
+		5D2F727718AFDAC600EDC1E4 /* MessageItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageItemCell.xib; sourceTree = "<group>"; };
 		5D556A601882384100C5B6FB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		5D556A611882384100C5B6FB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		5D556A621882384100C5B6FB /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -1003,6 +1008,9 @@
 				5D95C2E5189F048A00C8155D /* ContactItemCell.h */,
 				5D95C2E6189F048A00C8155D /* ContactItemCell.m */,
 				5D95C2EA189F04DB00C8155D /* ContactItemCell.xib */,
+				5D2F727418AFDA9A00EDC1E4 /* MessageItemCell.h */,
+				5D2F727518AFDA9A00EDC1E4 /* MessageItemCell.m */,
+				5D2F727718AFDAC600EDC1E4 /* MessageItemCell.xib */,
 				5D2F716518A9B04F00EDC1E4 /* BlankWireViewController.h */,
 				5D2F716618A9B04F00EDC1E4 /* BlankWireViewController.m */,
 				5D2F716718A9B04F00EDC1E4 /* BlankWireViewController.xib */,
@@ -1411,6 +1419,7 @@
 				5D21CA3B188DAF6800330F78 /* top-detail.png in Resources */,
 				5D06B985187B0D4E00FC17F0 /* cog.png in Resources */,
 				5D6340BA188A16DC006538C5 /* heart-blue.png in Resources */,
+				5D2F727818AFDAC600EDC1E4 /* MessageItemCell.xib in Resources */,
 				5D21CA20188DAF6800330F78 /* overlayCloseBtn.png in Resources */,
 				5DB549A318943DC900E03D9D /* Main_iPhone.storyboard in Resources */,
 				5DBBF9BD18A15D6900F761D9 /* logo-640px.png in Resources */,
@@ -1591,6 +1600,7 @@
 				5D2F726318AEDE7400EDC1E4 /* BitmapRotationManipulator.m in Sources */,
 				5D2F726118AEDE7400EDC1E4 /* BitmapCropManipulator.m in Sources */,
 				5D2F716818A9B04F00EDC1E4 /* BlankWireViewController.m in Sources */,
+				5D2F727618AFDA9B00EDC1E4 /* MessageItemCell.m in Sources */,
 				5D8C1CD7187E38E300158AE5 /* ThreadViewController.m in Sources */,
 				5D9C7C57187DE25200BE2D42 /* NavigationController.m in Sources */,
 				5D9DEE9A185242E300F80413 /* RKPostSelfie.m in Sources */,

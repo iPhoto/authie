@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="62" id="ycY-zQ-lvD" customClass="MessageItemCell">
+            <rect key="frame" x="0.0" y="0.0" width="389" height="62"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ycY-zQ-lvD" id="ZXu-Vf-6Nw">
+                <rect key="frame" x="0.0" y="0.0" width="389" height="61"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart-blue-v2.png" translatesAutoresizingMaskIntoConstraints="NO" id="mkE-5O-EhQ">
+                        <rect key="frame" x="-2" y="-3" width="66" height="68"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="66" id="Cw8-Ao-k5j"/>
+                            <constraint firstAttribute="height" constant="68" id="ZQH-dJ-uZT"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBE-j4-KDz">
+                        <rect key="frame" x="74" y="-1" width="315" height="31"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="31" id="Sia-Fp-L8i"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="16"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="315" translatesAutoresizingMaskIntoConstraints="NO" id="Jcv-4W-ymc">
+                        <rect key="frame" x="74" y="15" width="315" height="45"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="45" id="mF5-pB-kHb"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="mkE-5O-EhQ" firstAttribute="top" secondItem="ZXu-Vf-6Nw" secondAttribute="top" constant="-3" id="3GA-jA-fEU"/>
+                    <constraint firstAttribute="bottom" secondItem="Jcv-4W-ymc" secondAttribute="bottom" constant="1" id="5wk-mg-fuj"/>
+                    <constraint firstItem="Jcv-4W-ymc" firstAttribute="leading" secondItem="ZXu-Vf-6Nw" secondAttribute="leading" constant="74" id="Fqt-1v-2XB"/>
+                    <constraint firstAttribute="trailing" secondItem="GBE-j4-KDz" secondAttribute="trailing" id="H0A-Ih-fAK"/>
+                    <constraint firstItem="Jcv-4W-ymc" firstAttribute="top" secondItem="ZXu-Vf-6Nw" secondAttribute="top" constant="15" id="Vk9-q0-CVc"/>
+                    <constraint firstItem="GBE-j4-KDz" firstAttribute="leading" secondItem="ZXu-Vf-6Nw" secondAttribute="leading" constant="74" id="YK5-HE-hCA"/>
+                    <constraint firstItem="mkE-5O-EhQ" firstAttribute="leading" secondItem="ZXu-Vf-6Nw" secondAttribute="leading" constant="-2" id="jAQ-V2-PFp"/>
+                    <constraint firstItem="GBE-j4-KDz" firstAttribute="top" secondItem="ZXu-Vf-6Nw" secondAttribute="top" constant="-1" id="nGC-OU-IbS"/>
+                    <constraint firstAttribute="trailing" secondItem="Jcv-4W-ymc" secondAttribute="trailing" id="r0w-x8-Cc0"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="labelHandle" destination="GBE-j4-KDz" id="idK-wR-6rS"/>
+                <outlet property="labelMessage" destination="Jcv-4W-ymc" id="wde-zP-1Bh"/>
+                <outlet property="snapView" destination="mkE-5O-EhQ" id="Cjy-TV-Pz9"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="heart-blue-v2.png" width="35" height="35"/>
+    </resources>
+</document>

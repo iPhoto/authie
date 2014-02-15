@@ -8,12 +8,14 @@
 
 #import "MessagesViewController.h"
 #import "RODItemStore.h"
+#import "RODImageStore.h"
 #import "RODAuthie.h"
 #import "RODMessage.h"
 #import "RODHandle.h"
 #import "RODThread.h"
 #import "ThreadViewController.h"
 #import "AppDelegate.h"
+#import "MessageItemCell.h"
 
 @implementation MessagesViewController
 @synthesize sortedMessages;
@@ -42,6 +44,11 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    UINib *nib = [UINib nibWithNibName:@"MessageItemCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"MessageItemCell"];
+    [self.tableView setRowHeight:63];    
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -94,24 +101,32 @@
     
     // Configure the cell...
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
-    }
+    MessageItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MessageItemCell"];
     
     RODMessage *msg = [sortedMessages objectAtIndex:indexPath.row];
-    cell.textLabel.text = msg.fromHandle.name;
-    [cell.textLabel setTextColor:[[RODItemStore sharedStore] colorFromHexString:@"#006700"]];
-    cell.detailTextLabel.text = msg.messageText;
-        
+    [cell.labelHandle setText:msg.fromHandle.name];
+    [cell.labelHandle setTextColor:[[RODItemStore sharedStore] colorFromHexString:@"#006700"]];
+    [cell.labelMessage setText:msg.messageText];
+    
+    UIImage *thumb;
+    
+    if(msg.thread.groupKey == (id)[NSNull null] || msg.thread.groupKey.length == 0) {
+        // nothing
+        thumb = [UIImage imageNamed:@"heart-green-filled-v1"];
+    } else {
+        thumb = [[RODImageStore sharedStore] imageForKey:msg.thread.groupKey];
+    }
+
+    [cell.snapView setClipsToBounds:YES];
+    [cell.snapView setImage:thumb];
+    
+    
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     RODMessage *msg = [sortedMessages objectAtIndex:indexPath.row];
-    NSLog(@"Message: %@", msg.thread.groupKey);
     
     RODThread *thread;
     for(int i = 0; i< [[RODItemStore sharedStore].authie.all_Threads count]; i++)
