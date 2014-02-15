@@ -155,6 +155,8 @@
 		5D2F726918AEDE7400EDC1E4 /* RSGenerateOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F725618AEDE7400EDC1E4 /* RSGenerateOperation.m */; };
 		5D2F726A18AEDE7400EDC1E4 /* RSSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F725818AEDE7400EDC1E4 /* RSSelectionView.m */; };
 		5D2F726F18AEF7B900EDC1E4 /* UIColor+Expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F726E18AEF7B900EDC1E4 /* UIColor+Expanded.m */; };
+		5D2F727218AFD9C400EDC1E4 /* thewire-logo-v2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F727018AFD9C400EDC1E4 /* thewire-logo-v2.png */; };
+		5D2F727318AFD9C400EDC1E4 /* thewire-logo-v2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F727118AFD9C400EDC1E4 /* thewire-logo-v2@2x.png */; };
 		5D556A631882384100C5B6FB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D556A611882384100C5B6FB /* LoginViewController.m */; };
 		5D556A641882384100C5B6FB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D556A621882384100C5B6FB /* LoginViewController.xib */; };
 		5D5A0728188271C4003848EA /* NSDate+PrettyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A0727188271C4003848EA /* NSDate+PrettyDate.m */; };
@@ -494,6 +496,8 @@
 		5D2F726C18AEF7B900EDC1E4 /* ColorPack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPack.h; sourceTree = "<group>"; };
 		5D2F726D18AEF7B900EDC1E4 /* UIColor+Expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Expanded.h"; sourceTree = "<group>"; };
 		5D2F726E18AEF7B900EDC1E4 /* UIColor+Expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Expanded.m"; sourceTree = "<group>"; };
+		5D2F727018AFD9C400EDC1E4 /* thewire-logo-v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thewire-logo-v2.png"; sourceTree = "<group>"; };
+		5D2F727118AFD9C400EDC1E4 /* thewire-logo-v2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thewire-logo-v2@2x.png"; sourceTree = "<group>"; };
 		5D556A601882384100C5B6FB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		5D556A611882384100C5B6FB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		5D556A621882384100C5B6FB /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -1219,6 +1223,8 @@
 				5D2F713418A32C2A00EDC1E4 /* about-v3-white@2x.png */,
 				5D2F71B118AE7D5300EDC1E4 /* thewire-logo-v1.png */,
 				5D2F71B218AE7D5300EDC1E4 /* thewire-logo-v1@2x.png */,
+				5D2F727018AFD9C400EDC1E4 /* thewire-logo-v2.png */,
+				5D2F727118AFD9C400EDC1E4 /* thewire-logo-v2@2x.png */,
 				5DBBF9BC18A15D6900F761D9 /* logo-640px.png */,
 				5D2F712D18A31E3E00EDC1E4 /* logo-white-640px.png */,
 				5D2F711D18A3054D00EDC1E4 /* about-v1.png */,
@@ -1410,6 +1416,7 @@
 				5DBBF9BD18A15D6900F761D9 /* logo-640px.png in Resources */,
 				5DEE7CA9185234E800F532B3 /* Images.xcassets in Resources */,
 				5D0DC376189C325600E8CA81 /* AboutViewController.xib in Resources */,
+				5D2F727218AFD9C400EDC1E4 /* thewire-logo-v2.png in Resources */,
 				5D21CA44188DAF6800330F78 /* UAPushSettingsTagsViewController.xib in Resources */,
 				5D21CA46188DAF6800330F78 /* UAPushSettingsUserInfoView.xib in Resources */,
 				5D5A072D18848A4F003848EA /* AuthorizeContactViewController.xib in Resources */,
@@ -1417,6 +1424,7 @@
 				5D21CA4A188DAF7500330F78 /* CHANGELOG in Resources */,
 				5D21CA43188DAF6800330F78 /* UAPushSettingsSoundsViewController.xib in Resources */,
 				5D8C1CF31880E45600158AE5 /* PrivateKeyViewController.xib in Resources */,
+				5D2F727318AFD9C400EDC1E4 /* thewire-logo-v2@2x.png in Resources */,
 				5D2F714618A3FB5100EDC1E4 /* key-v3-white@2x.png in Resources */,
 				5D2F712718A30AB500EDC1E4 /* key-v1.png in Resources */,
 				5D2F71B418AE7D5300EDC1E4 /* thewire-logo-v1@2x.png in Resources */,
