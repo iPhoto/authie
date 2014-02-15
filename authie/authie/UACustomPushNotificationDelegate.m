@@ -66,9 +66,11 @@
     alertMessage = [aps objectForKey:@"alert"];
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        
     [[RODItemStore sharedStore] loadMessagesForThread:notificationGroupKey];
     [[RODItemStore sharedStore] loadThreads:false];
-    
+
+    [appDelegate.dashViewController updateDashHeader];
     
     if([appDelegate.threadViewController.thread.groupKey isEqualToString:notificationGroupKey]) {
         // do nothing, they are viewing this thread
