@@ -159,6 +159,7 @@
 		5D2F727318AFD9C400EDC1E4 /* thewire-logo-v2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F727118AFD9C400EDC1E4 /* thewire-logo-v2@2x.png */; };
 		5D2F727618AFDA9B00EDC1E4 /* MessageItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F727518AFDA9A00EDC1E4 /* MessageItemCell.m */; };
 		5D2F727818AFDAC600EDC1E4 /* MessageItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F727718AFDAC600EDC1E4 /* MessageItemCell.xib */; };
+		5D2F727A18AFE1DE00EDC1E4 /* cog-v1-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F727918AFE1DE00EDC1E4 /* cog-v1-white.png */; };
 		5D556A631882384100C5B6FB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D556A611882384100C5B6FB /* LoginViewController.m */; };
 		5D556A641882384100C5B6FB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D556A621882384100C5B6FB /* LoginViewController.xib */; };
 		5D5A0728188271C4003848EA /* NSDate+PrettyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A0727188271C4003848EA /* NSDate+PrettyDate.m */; };
@@ -503,6 +504,7 @@
 		5D2F727418AFDA9A00EDC1E4 /* MessageItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageItemCell.h; sourceTree = "<group>"; };
 		5D2F727518AFDA9A00EDC1E4 /* MessageItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageItemCell.m; sourceTree = "<group>"; };
 		5D2F727718AFDAC600EDC1E4 /* MessageItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageItemCell.xib; sourceTree = "<group>"; };
+		5D2F727918AFE1DE00EDC1E4 /* cog-v1-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cog-v1-white.png"; sourceTree = "<group>"; };
 		5D556A601882384100C5B6FB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		5D556A611882384100C5B6FB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		5D556A621882384100C5B6FB /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -1200,6 +1202,7 @@
 				5D2F719918AD8D0E00EDC1E4 /* RNCryptor */,
 				5D21C97B188DAF6800330F78 /* Airship */,
 				5D06B984187B0D4E00FC17F0 /* cog.png */,
+				5D2F727918AFE1DE00EDC1E4 /* cog-v1-white.png */,
 				5D5A072E18848A7C003848EA /* lock.png */,
 				5D2F71B518AEA7B900EDC1E4 /* font-v1.png */,
 				5D2F71B618AEA7B900EDC1E4 /* font-v1@2x.png */,
@@ -1461,6 +1464,7 @@
 				5D2F718018AD58C000EDC1E4 /* CameraViewController.xib in Resources */,
 				5DB549A5189585F700E03D9D /* home.png in Resources */,
 				5D6340BC188A187A006538C5 /* heart-blue-v2.png in Resources */,
+				5D2F727A18AFE1DE00EDC1E4 /* cog-v1-white.png in Resources */,
 				5D5A072F18848A7C003848EA /* lock.png in Resources */,
 				5DEE7C95185234E800F532B3 /* InfoPlist.strings in Resources */,
 				5D2F716C18AADDB400EDC1E4 /* heart-green-filled-v1.png in Resources */,

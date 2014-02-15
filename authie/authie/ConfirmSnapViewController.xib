@@ -41,8 +41,8 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cog-black.png" translatesAutoresizingMaskIntoConstraints="NO" id="fRI-Wl-fxL">
-                            <rect key="frame" x="3" y="-2" width="41" height="37"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cog-v1-white.png" translatesAutoresizingMaskIntoConstraints="NO" id="fRI-Wl-fxL">
+                            <rect key="frame" x="12" y="2" width="28" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                     </subviews>
@@ -141,7 +141,7 @@
         </tapGestureRecognizer>
     </objects>
     <resources>
-        <image name="cog-black.png" width="150" height="150"/>
+        <image name="cog-v1-white.png" width="200" height="200"/>
         <image name="color-v1.png" width="60" height="60"/>
         <image name="font-v1.png" width="30" height="30"/>
         <image name="heart.png" width="15" height="13"/>
