@@ -301,20 +301,35 @@
                                       image:[UIImage alloc]
                                      target:self
                                      action:@selector(menuItemAction:)];
+
+    KxMenuItem *sfItem = [KxMenuItem menuItem:@"San Francisco"
+                                          image:[UIImage alloc]
+                                         target:self
+                                         action:@selector(menuItemAction:)];
+    
     
     KxMenuItem *stateItem = [KxMenuItem menuItem:self.state
                                       image:[UIImage alloc]
                                      target:self
                                      action:@selector(menuItemAction:)];
     
-    [items insertObject:none atIndex:0];
+    [items addObject:none];
     
+    
+    CLLocation *sanFrancisco = [[CLLocation alloc] initWithLatitude:(CLLocationDegrees)37.7756 longitude:(CLLocationDegrees)-122.4193];
+    
+//    NSLog(@"Distance to San Francisco: %f", [sanFrancisco distanceFromLocation:_currentLocation]);
+    if([sanFrancisco distanceFromLocation:_currentLocation] < (60.0*1000) && ([self.city isEqualToString:@"San Francisco"] == false)) {
+        // within 40km
+        [items addObject:sfItem];
+    }
+
     if(self.city.length > 0) {
-        [items insertObject:cityItem atIndex:1];
+        [items addObject:cityItem];
     }
     
     if(self.state.length > 0) {
-        [items insertObject:stateItem atIndex:2];
+        [items addObject:stateItem];
     }
     
     [KxMenu showMenuInView:self.view
@@ -366,7 +381,7 @@
              NSString *stateKey = [temp lastObject];
              
              if([stateKey length] > 0) {
-                 [self.placeName setText:[stateKey capitalizedString]];
+                 [self.placeName setText:p.subAdministrativeArea];
                  self.state = [stateKey capitalizedString];
              }
              
