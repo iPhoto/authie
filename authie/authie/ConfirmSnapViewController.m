@@ -94,6 +94,7 @@
     
     UITapGestureRecognizer *tapView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedLocationView:)];
     [self.locationView addGestureRecognizer:tapView];
+    [self.placeName addGestureRecognizer:tapView];
     
     
     [self.fontView setUserInteractionEnabled:YES];
@@ -138,6 +139,8 @@
     
     // Get color data
     UIColor *color = [cp selectionColor];
+    
+    [self.labelCaption setTextColor:color];
     
     CGFloat r, g, b, a;
     [[cp selectionColor] getRed:&r green:&g blue:&b alpha:&a];
@@ -206,13 +209,13 @@
 
     if([item.title isEqualToString:@"Lucida Typewriter"]) {
         UIFont *lucidaTypewriter = [UIFont fontWithName:@"LucidaTypewriter" size:20.0f];
-        [self.snapCaption setFont:lucidaTypewriter];
+        [self.labelCaption setFont:lucidaTypewriter];
         self.font = @"LucidaTypewriter";
     }
     
     if([item.title isEqualToString:@"Futura-Medium"]) {
         UIFont *lucidaTypewriter = [UIFont fontWithName:@"Futura-Medium" size:20.0f];
-        [self.snapCaption setFont:lucidaTypewriter];
+        [self.labelCaption setFont:lucidaTypewriter];
         self.font = @"Futura-Medium";
     }
     
@@ -367,7 +370,7 @@
     appDelegate.dashViewController.imageToUpload = snap;
     appDelegate.dashViewController.keyToUpload = key;
     appDelegate.dashViewController.handleToUpload = handle;
-    appDelegate.dashViewController.captionToUpload = self.snapCaption.text;
+    appDelegate.dashViewController.captionToUpload = self.labelCaption.text;
     
     if([handle.name isEqualToString:@"the wire"]) {
         appDelegate.dashViewController.locationToUpload = self.placeName.text;
@@ -404,6 +407,22 @@
     
 }
 - (IBAction)btnCaption:(id)sender {
+    
+    UIAlertView *pop = [[UIAlertView alloc] initWithTitle:@"enter caption" message:nil delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"ok", nil];
+    [pop setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    
+    [pop show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+        
+    if(buttonIndex == 1) {
+        UITextField *t = [alertView textFieldAtIndex:0];
+        NSString *caption = t.text;
+        self.labelCaption.text = caption;
+    }
+    
 }
 
 @end
