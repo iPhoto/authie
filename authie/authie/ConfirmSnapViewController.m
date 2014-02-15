@@ -98,6 +98,10 @@
     UITapGestureRecognizer *tapView2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedLocationView:)];
     [self.placeName addGestureRecognizer:tapView2];
 
+    UITapGestureRecognizer *tapView3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedLocationView:)];
+    [self.cog addGestureRecognizer:tapView3];
+    [self.cog setUserInteractionEnabled:YES];
+    
     [self.fontView setUserInteractionEnabled:YES];
     
     UITapGestureRecognizer *tapFont = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedFontView:)];

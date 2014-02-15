@@ -197,6 +197,14 @@
         
         UITapGestureRecognizer *tapView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedImageView:)];
         [mini.heartsVotingView addGestureRecognizer:tapView];
+
+        UITapGestureRecognizer *tapView2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedImageView:)];
+        [mini.heartsImage addGestureRecognizer:tapView2];
+        [mini.heartsImage setUserInteractionEnabled:YES];
+        
+        UITapGestureRecognizer *tapView3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedImageView:)];
+        [mini.heartsCount addGestureRecognizer:tapView3];
+        
         
         [mini.view setNeedsUpdateConstraints];
         
