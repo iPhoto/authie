@@ -168,7 +168,6 @@
     colorDesc = [NSString stringWithFormat:@"rgba: %d, %d, %d, %d", ir, ig, ib, ia];
     NSLog(@"%@", colorDesc);
     //_rgbLabel.text = colorDesc;
-
     
     if(self.selectedColor == YES) {
         [_colorPicker removeFromSuperview];        
@@ -176,12 +175,7 @@
     
     self.selectedColor = YES;
 
-
-    self.textColor = [color hexStringValue];
-    NSLog(@"Hex found: %@", self.textColor);
-    
-    
-    NSLog(@"%@", NSStringFromCGPoint(cp.selection));
+    self.textColor = [NSString stringWithFormat:@"#%@", [color hexStringValue]];
     
     color = nil;
 }

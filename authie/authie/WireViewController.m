@@ -154,9 +154,6 @@
         [self.scroll addSubview:bvc.view];
     }
     
-
-    UIFont *lucidaTypewriter = [UIFont fontWithName:@"LucidaTypewriter" size:20.0f];
-    
     [_items removeAllObjects];
     
     for(int i=0; i < [[RODItemStore sharedStore].wireThreads count]; i++) {
@@ -219,21 +216,50 @@
         if(thread.caption == (id)[NSNull null] || thread.caption.length == 0 ) {
             mini.labelCaption.text = @"";
         } else {
-            [mini.labelCaption setFont:lucidaTypewriter];
+            
             mini.labelCaption.text = thread.caption;
-
-            [mini.labelCaption setFont:lucidaTypewriter];
             
             mini.labelCaption.clipsToBounds = YES;
             mini.labelCaption.alpha = 1.0;
-            mini.labelCaption.textColor = [UIColor whiteColor];
             
-            mini.labelCaption.glowSize = 2;
-            mini.labelCaption.glowColor = [UIColor whiteColor];
+            UIColor *c;
+            if(thread.textColor == (id)[NSNull null] || thread.textColor.length == 0 ) {
+                
+                c = [UIColor whiteColor];
+                
+                mini.labelCaption.textColor = c;
+                
+                mini.labelCaption.glowSize = 2;
+                mini.labelCaption.glowColor = [UIColor grayColor];
+                
+                mini.labelCaption.innerGlowSize = 4;
+                mini.labelCaption.innerGlowColor = [UIColor whiteColor];
+                
+            }
+            else {
+                                
+                c = [[RODItemStore sharedStore] colorFromHexString:thread.textColor];
+                
+                mini.labelCaption.textColor = c;
+                
+                mini.labelCaption.glowSize = 2;
+                mini.labelCaption.glowColor = c;
+                
+                mini.labelCaption.innerGlowSize = 4;
+                mini.labelCaption.innerGlowColor = c;
+                
+            }
+            mini.labelCaption.textColor = c;
             
-            mini.labelCaption.innerGlowSize = 4;
-            mini.labelCaption.innerGlowColor = [UIColor whiteColor];
-
+            UIFont *f;
+            if(thread.font == (id)[NSNull null] || thread.font.length == 0 ) {
+                f = [UIFont fontWithName:@"LucidaTypewriter" size:20.0f];
+            }
+            else {
+                f = [UIFont fontWithName:thread.font size:20.0f];
+            }
+            
+            [mini.labelCaption setFont:f];
             
         }
         
