@@ -26,7 +26,9 @@
 #import <FBGlowLabel/FBGlowLabel.h>
 
 @implementation DashViewController
-@synthesize handle, contentSize, imageToUpload, keyToUpload, handleToUpload, captionToUpload, doUploadOnView, imagePicker, selected, mostRecentGroupKey, photoHeight, locationToUpload;
+@synthesize handle, contentSize, imageToUpload, keyToUpload, handleToUpload, captionToUpload,
+            doUploadOnView, imagePicker, selected, mostRecentGroupKey, photoHeight,
+            locationToUpload, fontToUpload, textColorToUpload;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -587,6 +589,8 @@
     self.imageToUpload = [UIImage alloc];
     self.captionToUpload = @"";
     self.locationToUpload = @"";
+    self.textColorToUpload = @"";
+    self.fontToUpload = @"";
 }
 
 - (void)doUpload
@@ -609,8 +613,13 @@
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
     dispatch_async(queue, ^{
         // Perform async operation
-        [[RODItemStore sharedStore] startThread:self.handleToUpload.publicKey forKey:self.keyToUpload withCaption:self.captionToUpload withLocation:self.locationToUpload];
-        
+        [[RODItemStore sharedStore] startThread:self.handleToUpload.publicKey
+                                         forKey:self.keyToUpload
+                                    withCaption:self.captionToUpload
+                                   withLocation:self.locationToUpload
+                                       withFont:self.fontToUpload
+                                  withTextColor:self.textColorToUpload
+            ];
         
         dispatch_sync(dispatch_get_main_queue(), ^{
             // Update UI

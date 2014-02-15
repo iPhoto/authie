@@ -29,6 +29,8 @@
 @property (strong, nonatomic) RODHandle *handleToUpload;
 @property (strong, nonatomic) NSString *captionToUpload;
 @property (strong, nonatomic) NSString *locationToUpload;
+@property (strong, nonatomic) NSString *fontToUpload;
+@property (strong, nonatomic) NSString *textColorToUpload;
 
 - (void)getThreads;
 - (void)populateScrollView;

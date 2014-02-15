@@ -742,7 +742,7 @@
     return upload_success;
 }
 
-- (BOOL)startThread:(NSString *)toHandle forKey:(NSString *)key withCaption:(NSString *)caption withLocation:(NSString *)location;
+- (BOOL)startThread:(NSString *)toHandle forKey:(NSString *)key withCaption:(NSString *)caption withLocation:(NSString *)location withFont:(NSString *)font withTextColor:(NSString *)textColor
 {
     
     BOOL start_convo_success = NO;
@@ -754,6 +754,8 @@
                                key, @"groupKey",
                                caption, @"caption",
                                location, @"location",
+                               font, @"font",
+                               textColor, @"textColor",
                                nil];
     
     NSError *error = nil;
