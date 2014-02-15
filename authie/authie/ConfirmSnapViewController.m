@@ -12,6 +12,8 @@
 #import "RODItemStore.h"
 #import <CoreLocation/CoreLocation.h>
 #import <KxMenu/KxMenu.h>
+#import "UIColor+Expanded.h"
+#import "ColorPack.h"
 
 @implementation ConfirmSnapViewController
 @synthesize snap, key, handle, state, selectedColor;
@@ -174,6 +176,10 @@
     
     self.selectedColor = YES;
 
+
+    self.textColor = [color hexStringValue];
+    NSLog(@"Hex found: %@", self.textColor);
+    
     
     NSLog(@"%@", NSStringFromCGPoint(cp.selection));
     
@@ -184,12 +190,10 @@
 - (void)tappedFontView:(UITapGestureRecognizer *)tapGesture
 {
     
-    NSLog(@"TappedFontView.");
-
     NSMutableArray *items = [[NSMutableArray alloc] init];
     
     
-    KxMenuItem *lucida = [KxMenuItem menuItem:@"Lucida Typewriter"
+    KxMenuItem *lucida = [KxMenuItem menuItem:@"LucidaTypewriter"
                                       image:[UIImage alloc]
                                      target:self
                                      action:@selector(fontMenuItemAction:)];
@@ -198,10 +202,21 @@
                                           image:[UIImage alloc]
                                          target:self
                                          action:@selector(fontMenuItemAction:)];
+
+    KxMenuItem *avenir = [KxMenuItem menuItem:@"Avenir-Book"
+                                        image:[UIImage alloc]
+                                       target:self
+                                       action:@selector(fontMenuItemAction:)];
+
+    KxMenuItem *menlo = [KxMenuItem menuItem:@"Menlo-Bold"
+                                       image:[UIImage alloc]
+                                      target:self
+                                      action:@selector(fontMenuItemAction:)];
     
     [items insertObject:lucida atIndex:0];
     [items insertObject:futura atIndex:1];
-    
+    [items insertObject:avenir atIndex:2];
+    [items insertObject:menlo atIndex:3];
     
     [KxMenu showMenuInView:self.view
                   fromRect:self.fontView.frame
@@ -211,19 +226,9 @@
 
 - (void)fontMenuItemAction:(KxMenuItem *)item
 {
-
-    if([item.title isEqualToString:@"Lucida Typewriter"]) {
-        UIFont *lucidaTypewriter = [UIFont fontWithName:@"LucidaTypewriter" size:20.0f];
-        [self.labelCaption setFont:lucidaTypewriter];
-        self.font = @"LucidaTypewriter";
-    }
-    
-    if([item.title isEqualToString:@"Futura-Medium"]) {
-        UIFont *lucidaTypewriter = [UIFont fontWithName:@"Futura-Medium" size:20.0f];
-        [self.labelCaption setFont:lucidaTypewriter];
-        self.font = @"Futura-Medium";
-    }
-    
+    UIFont *selectedFont = [UIFont fontWithName:item.title size:20.0f];
+    [self.labelCaption setFont:selectedFont];
+    self.font = item.title;
 }
 
 
@@ -376,6 +381,8 @@
     appDelegate.dashViewController.keyToUpload = key;
     appDelegate.dashViewController.handleToUpload = handle;
     appDelegate.dashViewController.captionToUpload = self.labelCaption.text;
+    appDelegate.dashViewController.textColorToUpload = self.textColor;
+    appDelegate.dashViewController.fontToUpload = self.font;
     
     if([handle.name isEqualToString:@"the wire"]) {
         appDelegate.dashViewController.locationToUpload = self.placeName.text;

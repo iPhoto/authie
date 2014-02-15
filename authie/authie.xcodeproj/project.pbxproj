@@ -154,6 +154,7 @@
 		5D2F726818AEDE7400EDC1E4 /* RSColorPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F725418AEDE7400EDC1E4 /* RSColorPickerView.m */; };
 		5D2F726918AEDE7400EDC1E4 /* RSGenerateOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F725618AEDE7400EDC1E4 /* RSGenerateOperation.m */; };
 		5D2F726A18AEDE7400EDC1E4 /* RSSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F725818AEDE7400EDC1E4 /* RSSelectionView.m */; };
+		5D2F726F18AEF7B900EDC1E4 /* UIColor+Expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F726E18AEF7B900EDC1E4 /* UIColor+Expanded.m */; };
 		5D556A631882384100C5B6FB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D556A611882384100C5B6FB /* LoginViewController.m */; };
 		5D556A641882384100C5B6FB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D556A621882384100C5B6FB /* LoginViewController.xib */; };
 		5D5A0728188271C4003848EA /* NSDate+PrettyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A0727188271C4003848EA /* NSDate+PrettyDate.m */; };
@@ -490,6 +491,9 @@
 		5D2F725618AEDE7400EDC1E4 /* RSGenerateOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSGenerateOperation.m; sourceTree = "<group>"; };
 		5D2F725718AEDE7400EDC1E4 /* RSSelectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSelectionView.h; sourceTree = "<group>"; };
 		5D2F725818AEDE7400EDC1E4 /* RSSelectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSelectionView.m; sourceTree = "<group>"; };
+		5D2F726C18AEF7B900EDC1E4 /* ColorPack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPack.h; sourceTree = "<group>"; };
+		5D2F726D18AEF7B900EDC1E4 /* UIColor+Expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Expanded.h"; sourceTree = "<group>"; };
+		5D2F726E18AEF7B900EDC1E4 /* UIColor+Expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Expanded.m"; sourceTree = "<group>"; };
 		5D556A601882384100C5B6FB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		5D556A611882384100C5B6FB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		5D556A621882384100C5B6FB /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -1100,6 +1104,16 @@
 			path = Manipulators;
 			sourceTree = "<group>";
 		};
+		5D2F726B18AEF7B900EDC1E4 /* Color Pack */ = {
+			isa = PBXGroup;
+			children = (
+				5D2F726C18AEF7B900EDC1E4 /* ColorPack.h */,
+				5D2F726D18AEF7B900EDC1E4 /* UIColor+Expanded.h */,
+				5D2F726E18AEF7B900EDC1E4 /* UIColor+Expanded.m */,
+			);
+			path = "Color Pack";
+			sourceTree = "<group>";
+		};
 		5DEE7C7E185234E700F532B3 = {
 			isa = PBXGroup;
 			children = (
@@ -1169,6 +1183,7 @@
 				5D2F715A18A95FE200EDC1E4 /* authie-logo-v5-ocr-a@2x.png */,
 				5D2F71BB18AECCE100EDC1E4 /* color-v1.png */,
 				5D2F711F18A3056200EDC1E4 /* house-v3.png */,
+				5D2F726B18AEF7B900EDC1E4 /* Color Pack */,
 				5D2F723018AEDE7400EDC1E4 /* ColorPickerClasses */,
 				5D2F719918AD8D0E00EDC1E4 /* RNCryptor */,
 				5D21C97B188DAF6800330F78 /* Airship */,
@@ -1496,6 +1511,7 @@
 				5D2F71AF18AD8D0E00EDC1E4 /* RNOpenSSLDecryptor.m in Sources */,
 				5D21CA1B188DAF6800330F78 /* UIWebView+UAAdditions.m in Sources */,
 				5D21CA2F188DAF6800330F78 /* UAPushSettingsAddTagViewController.m in Sources */,
+				5D2F726F18AEF7B900EDC1E4 /* UIColor+Expanded.m in Sources */,
 				5D9A453218765184008C45FD /* RODThread.m in Sources */,
 				5D2F71AE18AD8D0E00EDC1E4 /* RNOpenSSLCryptor.m in Sources */,
 				5D9C7C5C187E0F0400BE2D42 /* ContactsViewController.m in Sources */,
