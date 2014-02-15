@@ -58,6 +58,19 @@
     [holder addSubview:handleLabel];
     
     self.navigationItem.titleView = holder;
+
+    UIColor *c = [UIColor whiteColor];
+    
+    self.labelCaption.textColor = c;
+    
+    self.labelCaption.glowSize = 2;
+    self.labelCaption.glowColor = [UIColor grayColor];
+    
+    self.labelCaption.innerGlowSize = 4;
+    self.labelCaption.innerGlowColor = [UIColor whiteColor];
+
+    UIFont *f = [UIFont fontWithName:@"LucidaTypewriter" size:20.0f];
+    [self.labelCaption setFont:f];
     
     // dash post
     if([self.handle.name isEqualToString:@"dash"]) {
@@ -148,6 +161,18 @@
     UIColor *color = [cp selectionColor];
     
     [self.labelCaption setTextColor:color];
+
+    UIColor *c = color;
+    
+    self.labelCaption.textColor = c;
+    
+    self.labelCaption.glowSize = 2;
+    self.labelCaption.glowColor = [UIColor grayColor];
+    
+    self.labelCaption.innerGlowSize = 4;
+    self.labelCaption.innerGlowColor = c;
+
+    
     
     CGFloat r, g, b, a;
     [[cp selectionColor] getRed:&r green:&g blue:&b alpha:&a];
