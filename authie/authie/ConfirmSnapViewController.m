@@ -14,6 +14,8 @@
 #import <KxMenu/KxMenu.h>
 #import "UIColor+Expanded.h"
 #import "ColorPack.h"
+#import "ColorPickerClasses/RSColorPickerView.h"
+
 
 @implementation ConfirmSnapViewController
 @synthesize snap, key, handle, state, selectedColor;
@@ -126,6 +128,17 @@
 
     UITapGestureRecognizer *tapColor = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedColorView:)];
     [self.colorView addGestureRecognizer:tapColor];
+    
+    // View that displays color picker (needs to be square)
+    _colorPicker = [[RSColorPickerView alloc] initWithFrame:CGRectMake(20.0, 10.0, 280.0, 280.0)];
+    [_colorPicker setDelegate:self];
+    [_colorPicker setHidden:YES];
+    [self.view addSubview:_colorPicker];
+    
+    [self.opacitySlider setHidden:YES];
+
+    
+    dragging = NO;
 
 }
 
@@ -134,25 +147,40 @@
     NSLog(@"Tapped color view.");
 	
     
-    // View that displays color picker (needs to be square)
-    _colorPicker = [[RSColorPickerView alloc] initWithFrame:CGRectMake(20.0, 10.0, 280.0, 280.0)];
     
     // Optionally set and force the picker to only draw a circle
     //    [_colorPicker setCropToCircle:YES]; // Defaults to NO (you can set BG color)
     
     // Set the selection color - useful to present when the user had picked a color previously
+
     //[_colorPicker setSelectionColor:[self randomColorOpaque:YES]];
     
-    //    [_colorPicker setSelectionColor:[UIColor colorWithRed:1 green:0 blue:0.752941 alpha:1.000000]];
+    dragging =  YES;
+    [_colorPicker setHidden:NO];
+    [self.opacitySlider setHidden:NO];
+    
+    //[_colorPicker setSelectionColor:[[RODItemStore sharedStore] colorFromHexString:self.textColor]];
     //    [_colorPicker setSelection:CGPointMake(269, 269)];
     
     // Set the delegate to receive events
-    [_colorPicker setDelegate:self];
 
     self.selectedColor = NO;
 
-    [self.view addSubview:_colorPicker];
     
+}
+
+-(void)colorPicker:(RSColorPickerView *)colorPicker touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    
+    dragging = NO;
+    [_colorPicker setHidden:YES];
+    [self.opacitySlider setHidden:YES];
+    
+}
+
+- (void)colorPicker:(RSColorPickerView *)colorPicker touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    dragging = YES;
 }
 
 - (void)colorPickerDidChangeSelection:(RSColorPickerView *)cp {
@@ -194,8 +222,13 @@
     NSLog(@"%@", colorDesc);
     //_rgbLabel.text = colorDesc;
     
-    if(self.selectedColor == YES) {
-        [_colorPicker removeFromSuperview];        
+    //if(self.selectedColor == YES) {
+    //    [_colorPicker removeFromSuperview];
+    //}
+
+    if(dragging == NO) {
+        [_colorPicker setHidden:YES];
+        [self.opacitySlider setHidden:YES];        
     }
     
     self.selectedColor = YES;
@@ -456,4 +489,9 @@
     
 }
 
+- (IBAction)brightnessSlider:(id)sender {
+    
+    [_colorPicker setBrightness:self.opacitySlider.value];
+    
+}
 @end

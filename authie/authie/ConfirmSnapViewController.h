@@ -19,6 +19,9 @@
 @class RODHandle;
 
 @interface ConfirmSnapViewController : GAITrackedViewController <UITextViewDelegate, CLLocationManagerDelegate, RSColorPickerViewDelegate>
+{
+    BOOL dragging;
+}
 - (IBAction)btnCaption:(id)sender;
 @property (weak, nonatomic) IBOutlet FBGlowLabel *labelCaption;
 @property (weak, nonatomic) IBOutlet UIImageView *cog;
@@ -44,10 +47,12 @@
 @property (strong, nonatomic) NSString *textColor;
 
 @property (nonatomic) bool selectedColor;
+- (IBAction)brightnessSlider:(id)sender;
 
 @property (nonatomic) RSColorPickerView *colorPicker;
-@property (nonatomic) RSBrightnessSlider *brightnessSlider;
-@property (nonatomic) RSOpacitySlider *opacitySlider;
+//@property (nonatomic) RSBrightnessSlider *brightnessSlider;
+//@property (nonatomic) RSOpacitySlider *opacitySlider;
+@property (weak, nonatomic) IBOutlet UISlider *opacitySlider;
 
 
 @end
