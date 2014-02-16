@@ -124,9 +124,15 @@
     self.dataSource = self;
     [super viewDidLoad];
     
-    [[JSBubbleView appearance] setFont:[UIFont systemFontOfSize:16.0f]];
-        
+    UIFont *f = [UIFont fontWithName:@"LucidaTypewriter" size:12.0f];
+    UIFont *fs16 = [UIFont fontWithName:@"LucidaTypewriter" size:14.0f];
+    
+    [[JSBubbleView appearance] setFont:f];
+   
+    [self.messageInputView.textView setFont:fs16];
+    
     self.messageInputView.textView.placeHolder = @"New Message";
+    [self.messageInputView.sendButton.titleLabel setFont:fs16];
     
     [self setBackgroundColor:[UIColor clearColor]];
     
