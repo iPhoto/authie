@@ -645,6 +645,18 @@
     
     [progressView show:YES];
     
+    if(self.locationToUpload == (id)[NSNull null] || self.locationToUpload.length == 0 ) {
+        self.locationToUpload = @"";
+    }
+
+    if(self.fontToUpload == (id)[NSNull null] || self.fontToUpload.length == 0 ) {
+        self.fontToUpload = @"";
+    }
+
+    if(self.textColorToUpload == (id)[NSNull null] || self.textColorToUpload.length == 0 ) {
+        self.textColorToUpload = @"";
+    }
+    
     [[RODImageStore sharedStore] setImage:self.imageToUpload forKey:self.keyToUpload];
     NSLog(@"Created key: %@", self.keyToUpload);
     [[RODItemStore sharedStore] createSelfie:self.keyToUpload];
@@ -652,6 +664,7 @@
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
     dispatch_async(queue, ^{
         // Perform async operation
+        NSLog(@"Sending font and color: %@, %@", self.fontToUpload, self.textColorToUpload);
         [[RODItemStore sharedStore] startThread:self.handleToUpload.publicKey
                                          forKey:self.keyToUpload
                                     withCaption:self.captionToUpload

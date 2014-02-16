@@ -748,7 +748,10 @@
     BOOL start_convo_success = NO;
     
 	// Create a new letter and POST it to the server
-        
+    
+    
+    
+    
     NSDictionary *checkDict = [[NSDictionary alloc] initWithObjectsAndKeys:
                                toHandle, @"toGuid",
                                key, @"groupKey",

@@ -225,6 +225,8 @@
     //if(self.selectedColor == YES) {
     //    [_colorPicker removeFromSuperview];
     //}
+    
+    NSString *newColor = [NSString stringWithFormat:@"#%@", [color hexStringValue]];
 
     if(dragging == NO) {
         [_colorPicker setHidden:YES];
@@ -233,7 +235,7 @@
     
     self.selectedColor = YES;
 
-    self.textColor = [NSString stringWithFormat:@"#%@", [color hexStringValue]];
+    self.textColor = newColor;
     
     color = nil;
 }
