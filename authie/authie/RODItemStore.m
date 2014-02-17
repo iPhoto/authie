@@ -1872,7 +1872,7 @@
     [holder addSubview:imageview];
     
     UILabel *handleLabel = [[UILabel alloc] init];
-    handleLabel.text = @"global network";
+    handleLabel.text = @"global auth network";
     [handleLabel setFont:[UIFont systemFontOfSize:10]];
     [handleLabel setFrame:CGRectMake(0, 18, 100, 20)];
     [handleLabel setTextAlignment:NSTextAlignmentCenter];
