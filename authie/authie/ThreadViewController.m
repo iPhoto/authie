@@ -372,7 +372,7 @@
 
 - (void)didSendText:(NSString *)text
 {
-    
+        
     if([RODItemStore sharedStore].hubConnection.state != 1) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Wifi" message:@"Unable to connect to chat server to send message. Please try again." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
         [alert show];

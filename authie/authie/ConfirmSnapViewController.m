@@ -213,13 +213,13 @@
     
     // Debug
     NSString *colorDesc = [NSString stringWithFormat:@"rgba: %f, %f, %f, %f", r, g, b, a];
-    NSLog(@"%@", colorDesc);
+    //NSLog(@"%@", colorDesc);
     int ir = r * 255;
     int ig = g * 255;
     int ib = b * 255;
     int ia = a * 255;
     colorDesc = [NSString stringWithFormat:@"rgba: %d, %d, %d, %d", ir, ig, ib, ia];
-    NSLog(@"%@", colorDesc);
+    //NSLog(@"%@", colorDesc);
     //_rgbLabel.text = colorDesc;
     
     //if(self.selectedColor == YES) {
