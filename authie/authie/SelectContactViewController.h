@@ -17,4 +17,6 @@
 
 @property (nonatomic) bool editingContacts;
 
+- (void)addContact:(id)sender;
+
 @end

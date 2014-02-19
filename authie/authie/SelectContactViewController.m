@@ -53,6 +53,10 @@
     // this happens when they are viewing their own profile
     self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateMenuItem:@"house-v5-white"];
     
+    UIBarButtonItem *one = [[RODItemStore sharedStore] generateMenuItem:@"house-v5-white"];
+    UIBarButtonItem *two = [[RODItemStore sharedStore] generateAddPersonMenuItem];
+    
+    self.navigationItem.leftBarButtonItems = @[ one, two ];
     
     [self.contactsTable deselectRowAtIndexPath:[self.contactsTable indexPathForSelectedRow] animated:animated];
 
@@ -66,9 +70,24 @@
         self.navigationItem.rightBarButtonItem = rightDrawerButton;        
     }
     
+    
     editingContacts = NO;
 
     [self.contactsTable reloadData];
+    
+}
+
+- (void)addContact:(id)sender
+{
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"add"
+                                                    message:@"to add a friend, enter their handle and send a snap (for example, a selfie) so they know it's you."
+                                                   delegate:self
+                                          cancelButtonTitle:@"cancel"
+                                          otherButtonTitles:@"take image", nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    alert.tag = 2;
+    [alert show];
     
 }
 

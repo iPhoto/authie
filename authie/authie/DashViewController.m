@@ -686,21 +686,6 @@
 }
 
 
-
-- (void)addContact
-{
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"add"
-                                                    message:@"to add a friend, enter their handle and send a snap (for example, a selfie) so they know it's you."
-                                                   delegate:self
-                                          cancelButtonTitle:@"cancel"
-                                          otherButtonTitles:@"take image", nil];
-    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-    alert.tag = 2;
-    [alert show];
-    
-}
-
 - (void)showAuthorizationRequestImagePicker
 {
     self.imagePicker = nil;

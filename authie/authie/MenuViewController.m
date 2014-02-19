@@ -116,10 +116,10 @@
 //            self.frostedViewController.contentViewController = navigationController;
 //        }
 //            break;
-        case 1: // add
-        {
-            [appDelegate.dashViewController addContact];
-        }
+//        case 1: // add
+//        {
+//            [appDelegate.dashViewController addContact];
+//        }
             break;
         case 2: // private key
         {

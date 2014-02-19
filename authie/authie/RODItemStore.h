@@ -65,6 +65,8 @@
 - (UIView *)generateHeaderView;
 - (UIView *)generateWireHeaderView;
 - (UIBarButtonItem *)generateMenuItem:(NSString *)menu;
+- (UIBarButtonItem *)generateAddPersonMenuItem;
+
 - (int)unreadMessages;
 
 - (void)pushThreadWithGroupKey:(NSString *)group_key;

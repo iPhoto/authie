@@ -1822,6 +1822,21 @@
     return [NSKeyedArchiver archiveRootObject:_authie toFile:path];
 }
 
+
+- (UIBarButtonItem *)generateAddPersonMenuItem
+{
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    UIButton *button_menu = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button_menu setFrame:CGRectMake(0, 0, 30, 30)];
+    [button_menu setImage:[UIImage imageNamed:@"add-person-v1"] forState:UIControlStateNormal];
+    [button_menu addTarget:appDelegate.selectContactViewController action:@selector(addContact:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *leftDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_menu];
+    
+    return leftDrawerButton;
+}
+
+
 - (UIBarButtonItem *)generateMenuItem:(NSString *)image
 {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];

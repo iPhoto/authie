@@ -95,18 +95,18 @@
     
     messagesItem.badge = [NSString stringWithFormat:@"%i", unread];
 
-    REMenuItem *addItem = [[REMenuItem alloc] initWithTitle:@"Add"
-                                                        subtitle:nil
-                                                           image:[UIImage imageNamed:@"add-v1-white"]
-                                                highlightedImage:nil
-                                                          action:^(REMenuItem *item) {
-
-                                                              DashViewController *controller = appDelegate.dashViewController;
-                                                              
-                                                              [weakSelf setViewControllers:@[controller] animated:NO];
-                                                              
-                                                              [controller addContact];
-                                                          }];
+//    REMenuItem *addItem = [[REMenuItem alloc] initWithTitle:@"Add"
+//                                                        subtitle:nil
+//                                                           image:[UIImage imageNamed:@"add-v1-white"]
+//                                                highlightedImage:nil
+//                                                          action:^(REMenuItem *item) {
+//
+//                                                              DashViewController *controller = appDelegate.dashViewController;
+//                                                              
+//                                                              [weakSelf setViewControllers:@[controller] animated:NO];
+//                                                              
+//                                                              [controller addContact];
+//                                                          }];
     
 
     REMenuItem *caItem = [[REMenuItem alloc] initWithTitle:@"Camera"
@@ -121,7 +121,7 @@
                                                          
                                                      }];
     
-    REMenuItem *privateKeyItem = [[REMenuItem alloc] initWithTitle:@"Private Key"
+    REMenuItem *privateKeyItem = [[REMenuItem alloc] initWithTitle:@"Settings"
                                                        subtitle:nil
                                                           image:[UIImage imageNamed:@"key-v3-white"]
                                                highlightedImage:nil
@@ -130,16 +130,6 @@
                                                              PrivateKeyViewController *controller = appDelegate.privateKeyViewController;
                                                              [weakSelf setViewControllers:@[controller] animated:NO];
                                                          }];
-    
-    REMenuItem *aboutItem = [[REMenuItem alloc] initWithTitle:@"About"
-                                                        subtitle:nil
-                                                           image:[UIImage imageNamed:@"about-v3-white"]
-                                                highlightedImage:nil
-                                                          action:^(REMenuItem *item) {
-                                                              NSLog(@"Item: %@", item);
-                                                              AboutViewController *controller = appDelegate.aboutViewController;
-                                                              [weakSelf setViewControllers:@[controller] animated:NO];
-                                                          }];
     
     
     // You can also assign a custom view for any particular item
@@ -158,11 +148,9 @@
     wireItem.tag = 0;
     homeItem.tag = 1;
     messagesItem.tag = 2;
-    addItem.tag = 3;
     privateKeyItem.tag = 4;
-    aboutItem.tag = 5;
  
-    self.menu = [[REMenu alloc] initWithItems:@[wireItem, homeItem, messagesItem, addItem, privateKeyItem, aboutItem]];
+    self.menu = [[REMenu alloc] initWithItems:@[wireItem, homeItem, messagesItem, privateKeyItem]];
     
     // Background view
     //
