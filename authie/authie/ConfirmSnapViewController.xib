@@ -11,7 +11,6 @@
                 <outlet property="fontView" destination="zSt-SX-Ib1" id="dpw-1q-0c3"/>
                 <outlet property="labelCaption" destination="VgL-ia-GHG" id="mSI-rV-if6"/>
                 <outlet property="locationView" destination="NXH-Ss-tzT" id="5mr-4f-adg"/>
-                <outlet property="opacitySlider" destination="PBE-aM-62h" id="yrJ-U9-jKa"/>
                 <outlet property="placeName" destination="7RG-vL-afj" id="jUM-OY-jOf"/>
                 <outlet property="snapView" destination="dWL-1z-ZJk" id="Kg5-04-ae7"/>
                 <outlet property="view" destination="rKg-55-J7c" id="rKO-kd-UYu"/>
@@ -95,16 +94,6 @@
                         <constraint firstAttribute="height" constant="30" id="rqg-xL-GyC"/>
                     </constraints>
                 </imageView>
-                <slider hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="PBE-aM-62h">
-                    <rect key="frame" x="29" y="292" width="247" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="243" id="JX2-Pc-Ok1"/>
-                    </constraints>
-                    <connections>
-                        <action selector="brightnessSlider:" destination="-1" eventType="valueChanged" id="fnP-pO-7b8"/>
-                    </connections>
-                </slider>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <gestureRecognizers/>
@@ -112,9 +101,7 @@
                 <constraint firstAttribute="centerY" secondItem="VgL-ia-GHG" secondAttribute="centerY" id="02Q-Gw-cL8"/>
                 <constraint firstItem="HGn-An-278" firstAttribute="top" secondItem="rKg-55-J7c" secondAttribute="top" constant="7" id="4P4-cs-Wfd"/>
                 <constraint firstItem="zSt-SX-Ib1" firstAttribute="leading" secondItem="rKg-55-J7c" secondAttribute="leading" constant="65" id="69G-Im-qeE"/>
-                <constraint firstItem="PBE-aM-62h" firstAttribute="top" secondItem="rKg-55-J7c" secondAttribute="top" constant="292" id="CMa-LF-GcZ"/>
                 <constraint firstItem="5uj-jI-04Z" firstAttribute="leading" secondItem="rKg-55-J7c" secondAttribute="leading" constant="1" id="VBU-eB-No6"/>
-                <constraint firstAttribute="centerX" secondItem="PBE-aM-62h" secondAttribute="centerX" id="efl-37-osX"/>
                 <constraint firstAttribute="trailing" secondItem="NXH-Ss-tzT" secondAttribute="trailing" id="kTT-EZ-iyM"/>
                 <constraint firstAttribute="trailing" secondItem="dWL-1z-ZJk" secondAttribute="trailing" id="lWZ-bu-r51"/>
                 <constraint firstAttribute="bottom" secondItem="NXH-Ss-tzT" secondAttribute="bottom" id="n6f-l7-XuA"/>

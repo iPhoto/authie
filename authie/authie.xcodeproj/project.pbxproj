@@ -160,6 +160,8 @@
 		5D2F727618AFDA9B00EDC1E4 /* MessageItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F727518AFDA9A00EDC1E4 /* MessageItemCell.m */; };
 		5D2F727818AFDAC600EDC1E4 /* MessageItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F727718AFDAC600EDC1E4 /* MessageItemCell.xib */; };
 		5D2F727A18AFE1DE00EDC1E4 /* cog-v1-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F727918AFE1DE00EDC1E4 /* cog-v1-white.png */; };
+		5D2F727E18B3128600EDC1E4 /* ColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F727C18B3128600EDC1E4 /* ColorViewController.m */; };
+		5D2F727F18B3128600EDC1E4 /* ColorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F727D18B3128600EDC1E4 /* ColorViewController.xib */; };
 		5D556A631882384100C5B6FB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D556A611882384100C5B6FB /* LoginViewController.m */; };
 		5D556A641882384100C5B6FB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D556A621882384100C5B6FB /* LoginViewController.xib */; };
 		5D5A0728188271C4003848EA /* NSDate+PrettyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A0727188271C4003848EA /* NSDate+PrettyDate.m */; };
@@ -505,6 +507,9 @@
 		5D2F727518AFDA9A00EDC1E4 /* MessageItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageItemCell.m; sourceTree = "<group>"; };
 		5D2F727718AFDAC600EDC1E4 /* MessageItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageItemCell.xib; sourceTree = "<group>"; };
 		5D2F727918AFE1DE00EDC1E4 /* cog-v1-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cog-v1-white.png"; sourceTree = "<group>"; };
+		5D2F727B18B3128600EDC1E4 /* ColorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorViewController.h; sourceTree = "<group>"; };
+		5D2F727C18B3128600EDC1E4 /* ColorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorViewController.m; sourceTree = "<group>"; };
+		5D2F727D18B3128600EDC1E4 /* ColorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorViewController.xib; sourceTree = "<group>"; };
 		5D556A601882384100C5B6FB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		5D556A611882384100C5B6FB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		5D556A621882384100C5B6FB /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -1016,6 +1021,9 @@
 				5D2F716518A9B04F00EDC1E4 /* BlankWireViewController.h */,
 				5D2F716618A9B04F00EDC1E4 /* BlankWireViewController.m */,
 				5D2F716718A9B04F00EDC1E4 /* BlankWireViewController.xib */,
+				5D2F727B18B3128600EDC1E4 /* ColorViewController.h */,
+				5D2F727C18B3128600EDC1E4 /* ColorViewController.m */,
+				5D2F727D18B3128600EDC1E4 /* ColorViewController.xib */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -1420,6 +1428,7 @@
 				5D95C2E4189EC2EE00C8155D /* PagerViewController.xib in Resources */,
 				5D95C2EB189F04DC00C8155D /* ContactItemCell.xib in Resources */,
 				5D21CA3B188DAF6800330F78 /* top-detail.png in Resources */,
+				5D2F727F18B3128600EDC1E4 /* ColorViewController.xib in Resources */,
 				5D06B985187B0D4E00FC17F0 /* cog.png in Resources */,
 				5D6340BA188A16DC006538C5 /* heart-blue.png in Resources */,
 				5D2F727818AFDAC600EDC1E4 /* MessageItemCell.xib in Resources */,
@@ -1536,6 +1545,7 @@
 				5D9A453218765184008C45FD /* RODThread.m in Sources */,
 				5D2F71AE18AD8D0E00EDC1E4 /* RNOpenSSLCryptor.m in Sources */,
 				5D9C7C5C187E0F0400BE2D42 /* ContactsViewController.m in Sources */,
+				5D2F727E18B3128600EDC1E4 /* ColorViewController.m in Sources */,
 				5DB549A91895BA1500E03D9D /* BlankSlateViewController.m in Sources */,
 				5D9DEE9C185242E300F80413 /* RODItemStore.m in Sources */,
 				5D2F726018AEDE7400EDC1E4 /* BitmapContextManipulator.m in Sources */,

@@ -15,6 +15,8 @@
 #import "UIColor+Expanded.h"
 #import "ColorPack.h"
 #import "ColorPickerClasses/RSColorPickerView.h"
+#import <CXAlertView/CXAlertView.h>
+#import "ColorViewController.h"
 
 
 @implementation ConfirmSnapViewController
@@ -146,6 +148,56 @@
 {
     NSLog(@"Tapped color view.");
 	
+    
+    
+    // This is a demo for changing content at realtime.
+    CXAlertView *alertView;
+    
+    // This is a demo for changing content at realtime.
+    
+
+    ColorViewController *cvc = [[ColorViewController alloc] init];
+    
+    
+    //RSColorPickerView *color = [[RSColorPickerView alloc] initWithFrame:CGRectMake(0, 0, 150.0, 150.0)];
+    //color.delegate = self;
+    
+    //[cvc.view addSubview:color];
+
+    //[alertView setContentScaleFactor:1.0f];
+    [cvc.view setBackgroundColor:[UIColor blueColor]];
+    
+    [cvc.view setFrame:CGRectMake(0, 0, 200, 100)];
+    [cvc.view setNeedsLayout];
+    [cvc.view setNeedsDisplay];
+    
+    
+    alertView = [[CXAlertView alloc] initWithTitle:@"color" contentView:cvc.view cancelButtonTitle:@"cancel"];
+
+    [alertView.contentView setAutoresizesSubviews:YES];
+
+    [alertView setShowBlurBackground:NO];
+    [alertView setScrollViewPadding:0.0f];
+    [alertView setContentMode:UIViewContentModeScaleToFill];
+    
+    [alertView.contentView setBackgroundColor:[UIColor redColor]];
+    
+    [alertView.contentView setContentMode:UIViewContentModeScaleToFill];
+    [alertView setContentScrollViewMaxHeight:300.0f];
+    [alertView setContentScrollViewMinHeight:100.0f];
+    [alertView setAutoresizesSubviews:YES];
+    
+    alertView.tag = 101;
+    
+    [alertView addButtonWithTitle:@"ok" type:CXAlertViewButtonTypeDefault handler:^(CXAlertView *alertView, CXAlertButtonItem *button) {
+        
+        [alertView dismiss];
+        
+    }];
+    
+    [alertView show];
+    
+    return;
     
     
     // Optionally set and force the picker to only draw a circle
