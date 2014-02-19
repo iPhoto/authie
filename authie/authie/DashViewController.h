@@ -11,7 +11,7 @@
 #import <SignalR-ObjC/SignalR.h>
 #import <GAITrackedViewController.h>
 
-@interface DashViewController : GAITrackedViewController <UIImagePickerControllerDelegate, SRConnectionDelegate, UIScrollViewDelegate>
+@interface DashViewController : GAITrackedViewController <SRConnectionDelegate, UIScrollViewDelegate>
 {
     NSMutableArray *_items;
 }

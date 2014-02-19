@@ -396,6 +396,49 @@
     
 }
 
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    
+    [self dismissViewControllerAnimated:NO completion:nil];
+    self.imagePicker = nil;
+    
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
+    CFUUIDRef newUniqueID = CFUUIDCreate(kCFAllocatorDefault);
+    CFStringRef newUniqueIDString = CFUUIDCreateString(kCFAllocatorDefault, newUniqueID);
+    
+    NSString *key = (__bridge NSString *)newUniqueIDString;
+    
+    CFRelease(newUniqueIDString);
+    CFRelease(newUniqueID);
+    
+    
+    // now push to confirm snap
+    //...
+    
+    ConfirmSnapViewController *confirm = [[ConfirmSnapViewController alloc] init];
+    confirm.snap = image;
+    confirm.key = key;
+    confirm.handle = self.selected;
+    
+    [self.navigationController pushViewController:confirm animated:YES];
+    
+}
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [self dismissViewControllerAnimated:NO completion:nil];
+    self.imagePicker = nil;
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"trashed" message:@"Your message has been trashed." delegate:appDelegate.dashViewController cancelButtonTitle:@"ok" otherButtonTitles:nil];
+    
+    [appDelegate.contactsViewController.navigationController popToRootViewControllerAnimated:YES];
+    
+    [alert show];
+    
+}
 
 
 @end
