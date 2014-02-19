@@ -86,10 +86,27 @@
                                           cancelButtonTitle:@"cancel"
                                           otherButtonTitles:@"take image", nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-    alert.tag = 2;
+    alert.tag = 311;
     [alert show];
     
 }
+
+- (void)showAuthorizationRequestImagePicker
+{
+    self.imagePicker = nil;
+    self.imagePicker = [[UIImagePickerController alloc] init];
+    
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        [self.imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+    } else {
+        [self.imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    }
+    
+    [self.imagePicker setDelegate:self];
+    
+    [self presentViewController:self.imagePicker animated:YES completion:nil];
+}
+
 
 -(void)enableBlocking:(UIBarButtonItem *)btn
 {
@@ -239,6 +256,14 @@
             
             bye = [[UIAlertView alloc] initWithTitle:@"bye" message:[NSString stringWithFormat:@"%@ is blocked.", self.selected.name] delegate:self cancelButtonTitle:@"good" otherButtonTitles:nil];
             [bye show];
+            break;
+        case 311:
+            // add contact
+            if (buttonIndex == 1) {
+                NSString *name = [alertView textFieldAtIndex:0].text;
+                [[RODItemStore sharedStore] addContact:name];
+            }
+
             break;
     }
     

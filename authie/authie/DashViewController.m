@@ -685,35 +685,6 @@
     
 }
 
-
-- (void)showAuthorizationRequestImagePicker
-{
-    self.imagePicker = nil;
-    self.imagePicker = [[UIImagePickerController alloc] init];
-    
-    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        [self.imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
-    } else {
-        [self.imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
-    }
-    
-    [self.imagePicker setDelegate:self];
-    
-    [self presentViewController:self.imagePicker animated:YES completion:nil];
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    NSLog(@"alertView clickedButtonAtIndex");
-
-    if(alertView.tag == 2) {
-        if (buttonIndex == 1) {
-            NSString *name = [alertView textFieldAtIndex:0].text;
-            [[RODItemStore sharedStore] addContact:name];
-        }
-    }
-}
-
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     

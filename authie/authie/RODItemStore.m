@@ -857,8 +857,8 @@
                 
                 // okay, now we show create screen
                 AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-                [appDelegate.dashViewController setSelected:new_contact];
-                [appDelegate.dashViewController showAuthorizationRequestImagePicker];
+                [appDelegate.selectContactViewController setSelected:new_contact];
+                [appDelegate.selectContactViewController showAuthorizationRequestImagePicker];
                 
                 
             } else {

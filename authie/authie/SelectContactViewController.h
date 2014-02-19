@@ -17,6 +17,7 @@
 
 @property (nonatomic) bool editingContacts;
 
+- (void)showAuthorizationRequestImagePicker;
 - (void)addContact:(id)sender;
 
 @end
