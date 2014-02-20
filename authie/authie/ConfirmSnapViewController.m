@@ -148,6 +148,78 @@
 {
     NSLog(@"Tapped color view.");
 	
+    NSMutableArray *items = [[NSMutableArray alloc] init];
+    
+    
+    KxMenuItem *black = [KxMenuItem menuItem:@"Black"
+                                        image:[UIImage imageNamed:@"black.png"]
+                                       target:self
+                                       action:@selector(colorMenuItemAction:)];
+
+    KxMenuItem *blue = [KxMenuItem menuItem:@"Blue"
+                                      image:[UIImage imageNamed:@"blue.png"]
+                                     target:self
+                                     action:@selector(colorMenuItemAction:)];
+
+    KxMenuItem *red = [KxMenuItem menuItem:@"Red"
+                                      image:[UIImage imageNamed:@"red.png"]
+                                     target:self
+                                     action:@selector(colorMenuItemAction:)];
+
+    KxMenuItem *orange = [KxMenuItem menuItem:@"Orange"
+                                     image:[UIImage imageNamed:@"orange.png"]
+                                    target:self
+                                    action:@selector(colorMenuItemAction:)];
+        
+    KxMenuItem *yellow = [KxMenuItem menuItem:@"Yellow"
+                                        image:[UIImage imageNamed:@"yellow.png"]
+                                       target:self
+                                       action:@selector(colorMenuItemAction:)];
+
+    KxMenuItem *greenYellow = [KxMenuItem menuItem:@"Green-Yellow"
+                                        image:[UIImage imageNamed:@"green-yellow.png"]
+                                       target:self
+                                       action:@selector(colorMenuItemAction:)];
+
+    KxMenuItem *green = [KxMenuItem menuItem:@"Green"
+                                             image:[UIImage imageNamed:@"green.png"]
+                                            target:self
+                                            action:@selector(colorMenuItemAction:)];
+
+    KxMenuItem *white = [KxMenuItem menuItem:@"White"
+                                       image:[UIImage imageNamed:@"white.png"]
+                                      target:self
+                                      action:@selector(colorMenuItemAction:)];
+    
+    KxMenuItem *other = [KxMenuItem menuItem:@"Other"
+                                      image:[UIImage alloc]
+                                     target:self
+                                     action:@selector(colorMenuItemAction:)];
+
+
+    
+    [items addObject:black];
+    [items addObject:blue];
+    [items addObject:red];
+    [items addObject:orange];
+    [items addObject:yellow];
+    [items addObject:greenYellow];
+    [items addObject:green];
+    
+    [items addObject:white];
+    [items addObject:other];
+    
+    [KxMenu showMenuInView:self.view
+                  fromRect:self.colorView.frame
+                 menuItems:items];
+    
+    
+    
+}
+
+- (void)selectOtherColor
+{
+    
     
     
     // This is a demo for changing content at realtime.
@@ -155,37 +227,42 @@
     
     // This is a demo for changing content at realtime.
     
-
+    
     ColorViewController *cvc = [[ColorViewController alloc] init];
     
     
-    RSColorPickerView *color = [[RSColorPickerView alloc] initWithFrame:CGRectMake(0, 0, 150.0, 150.0)];
-    color.delegate = self;
-    
-    //[cvc.view addSubview:color];
-
-    //[alertView setContentScaleFactor:1.0f];
     [cvc.view setBackgroundColor:[UIColor blueColor]];
     
-    [cvc.view setFrame:CGRectMake(0, 0, 50, 50)];
-    [cvc.view setNeedsLayout];
-    [cvc.view setNeedsDisplay];
+    
+    [cvc.colorPickerView setDelegate:self];
+    [cvc.view setFrame:CGRectMake(0, 0, 300, 200)];
+    
+    alertView = [[CXAlertView alloc] initWithTitle:@"choose color" contentView:cvc.view cancelButtonTitle:@"cancel"];
     
     
-    alertView = [[CXAlertView alloc] initWithTitle:@"color" contentView:cvc.view cancelButtonTitle:@"cancel"];
-
-    [alertView.contentView setAutoresizesSubviews:YES];
-
     [alertView setShowBlurBackground:NO];
     [alertView setScrollViewPadding:0.0f];
-    [alertView setContentMode:UIViewContentModeScaleToFill];
     
     [alertView.contentView setBackgroundColor:[UIColor redColor]];
+    [alertView.contentView setFrame:CGRectMake(0, 0, 300, 200)];
     
-    [alertView.contentView setContentMode:UIViewContentModeTopLeft];
-    [alertView setContentScrollViewMaxHeight:300.0f];
+    [alertView setContentScrollViewMaxHeight:200.0f];
     [alertView setContentScrollViewMinHeight:200.0f];
-    [alertView setAutoresizesSubviews:YES];
+    [alertView setContainerWidth:300.0f];
+    [alertView.contentView setContentMode:UIViewContentModeTopLeft];
+    
+    NSLog(@"size: alert %f", alertView.contentView.contentScaleFactor);
+    NSLog(@"Size: alert %f", alertView.contentView.frame.size.height);
+    
+    NSLog(@"Size: cvc.view.height: %f", cvc.view.bounds.size.height);
+    
+    NSLog(@"Size: alertview.ContentView: %f", alertView.contentView.bounds.size.height);
+    
+    //[cvc.view setNeedsLayout];
+    //[cvc.view setNeedsDisplay];
+    
+    
+    
     
     alertView.tag = 101;
     
@@ -204,7 +281,7 @@
     //    [_colorPicker setCropToCircle:YES]; // Defaults to NO (you can set BG color)
     
     // Set the selection color - useful to present when the user had picked a color previously
-
+    
     //[_colorPicker setSelectionColor:[self randomColorOpaque:YES]];
     
     dragging =  YES;
@@ -215,7 +292,7 @@
     //    [_colorPicker setSelection:CGPointMake(269, 269)];
     
     // Set the delegate to receive events
-
+    
     self.selectedColor = NO;
 
     
@@ -262,7 +339,6 @@
     //_brightnessSlider.value = [cp brightness];
     //_opacitySlider.value = [cp opacity];
     
-    
     // Debug
     NSString *colorDesc = [NSString stringWithFormat:@"rgba: %f, %f, %f, %f", r, g, b, a];
     //NSLog(@"%@", colorDesc);
@@ -285,8 +361,6 @@
         [self.opacitySlider setHidden:YES];        
     }
     
-    self.selectedColor = YES;
-
     self.textColor = newColor;
     
     color = nil;
@@ -336,6 +410,66 @@
     [self.labelCaption setFont:selectedFont];
     self.font = item.title;
 }
+
+- (void)colorMenuItemAction:(KxMenuItem *)item
+{
+    NSLog(@"Selected color menu: %@", item.title);
+    
+    if([item.title isEqualToString:@"Black"]) {
+        self.selectedColor = [UIColor blackColor];
+        self.textColor = @"#000000";
+    }
+    
+    if([item.title isEqualToString:@"White"]) {
+        self.selectedColor = [UIColor whiteColor];
+        self.textColor = @"#FFFFFF";
+    }
+    
+    if([item.title isEqualToString:@"Blue"]) {
+        self.selectedColor = [UIColor blueColor];
+        self.textColor = @"#0000FF";
+    }
+
+    if([item.title isEqualToString:@"Red"]) {
+        self.selectedColor = [UIColor redColor];
+        self.textColor = @"#FF0000";
+    }
+    
+    if([item.title isEqualToString:@"Orange"]) {
+        self.selectedColor = [UIColor orangeColor];
+        self.textColor = @"#FF7F00";
+    }
+    
+    if([item.title isEqualToString:@"Yellow"]) {
+        self.selectedColor = [[RODItemStore sharedStore] colorFromHexString:@"#FFFF00"];
+        self.textColor = @"#FFFF00";
+    }
+    
+    if([item.title isEqualToString:@"Green-Yellow"]) {
+        self.selectedColor = [[RODItemStore sharedStore] colorFromHexString:@"#7FFF00"];
+        self.textColor = @"#7FFF00";
+    }
+
+    if([item.title isEqualToString:@"Green"]) {
+        self.selectedColor = [UIColor greenColor];
+        self.textColor = @"#00FF00";
+    }
+    
+    if([item.title isEqualToString:@"Other"]) {
+        [self selectOtherColor];
+    }
+
+    UIColor *c = self.selectedColor;
+    
+    self.labelCaption.textColor = c;
+    
+    self.labelCaption.glowSize = 2;
+    self.labelCaption.glowColor = c;
+    
+    self.labelCaption.innerGlowSize = 4;
+    self.labelCaption.innerGlowColor = c;
+}
+
 
 
 - (void)tappedLocationView:(UITapGestureRecognizer *)tapGesture

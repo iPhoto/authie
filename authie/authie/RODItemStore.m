@@ -1887,7 +1887,7 @@
     [holder addSubview:imageview];
     
     UILabel *handleLabel = [[UILabel alloc] init];
-    handleLabel.text = @"global auth network";
+    handleLabel.text = @"recent auth";
     [handleLabel setFont:[UIFont systemFontOfSize:10]];
     [handleLabel setFrame:CGRectMake(0, 18, 100, 20)];
     [handleLabel setTextAlignment:NSTextAlignmentCenter];

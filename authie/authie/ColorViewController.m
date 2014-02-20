@@ -7,6 +7,7 @@
 //
 
 #import "ColorViewController.h"
+#import "RSColorPickerView.h"
 
 @interface ColorViewController ()
 
@@ -27,6 +28,11 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    RSColorPickerView *color = [[RSColorPickerView alloc] initWithFrame:self.colorView.frame];
+    //[color setFrame:CGRectMake(0, 0, 180, 180)];
+    self.colorPickerView = color;
+    [self.colorView addSubview:color];
 }
 
 - (void)didReceiveMemoryWarning

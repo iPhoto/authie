@@ -46,7 +46,7 @@
 @property (strong, nonatomic) NSString *font;
 @property (strong, nonatomic) NSString *textColor;
 
-@property (nonatomic) bool selectedColor;
+@property (nonatomic) UIColor *selectedColor;
 - (IBAction)brightnessSlider:(id)sender;
 
 @property (nonatomic) RSColorPickerView *colorPicker;
