@@ -159,15 +159,15 @@
     ColorViewController *cvc = [[ColorViewController alloc] init];
     
     
-    //RSColorPickerView *color = [[RSColorPickerView alloc] initWithFrame:CGRectMake(0, 0, 150.0, 150.0)];
-    //color.delegate = self;
+    RSColorPickerView *color = [[RSColorPickerView alloc] initWithFrame:CGRectMake(0, 0, 150.0, 150.0)];
+    color.delegate = self;
     
     //[cvc.view addSubview:color];
 
     //[alertView setContentScaleFactor:1.0f];
     [cvc.view setBackgroundColor:[UIColor blueColor]];
     
-    [cvc.view setFrame:CGRectMake(0, 0, 200, 100)];
+    [cvc.view setFrame:CGRectMake(0, 0, 50, 50)];
     [cvc.view setNeedsLayout];
     [cvc.view setNeedsDisplay];
     
@@ -182,9 +182,9 @@
     
     [alertView.contentView setBackgroundColor:[UIColor redColor]];
     
-    [alertView.contentView setContentMode:UIViewContentModeScaleToFill];
+    [alertView.contentView setContentMode:UIViewContentModeTopLeft];
     [alertView setContentScrollViewMaxHeight:300.0f];
-    [alertView setContentScrollViewMinHeight:100.0f];
+    [alertView setContentScrollViewMinHeight:200.0f];
     [alertView setAutoresizesSubviews:YES];
     
     alertView.tag = 101;

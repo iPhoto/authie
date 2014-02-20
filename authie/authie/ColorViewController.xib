@@ -6,16 +6,17 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ColorViewController">
             <connections>
+                <outlet property="slider" destination="6d1-U4-x66" id="btZ-Bt-UxB"/>
                 <outlet property="view" destination="rf0-hR-l4b" id="NCM-Ig-ezO"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="rf0-hR-l4b" userLabel="miniControl" customClass="UIControl">
-            <rect key="frame" x="0.0" y="0.0" width="66" height="76"/>
+            <rect key="frame" x="0.0" y="0.0" width="66" height="165"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="6d1-U4-x66">
-                    <rect key="frame" x="-2" y="31" width="70" height="34"/>
+                    <rect key="frame" x="-2" y="120" width="70" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="33" id="tep-hN-e79"/>

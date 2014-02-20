@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ColorViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UISlider *slider;
 
 @end
