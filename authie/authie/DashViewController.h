@@ -40,7 +40,6 @@
 @property (strong, nonatomic) RODHandle *selected;
 
 @property (strong, nonatomic) NSString *mostRecentGroupKey;
-- (void)showAuthorizationRequestImagePicker;
 - (void)updateDashHeader;
 
 

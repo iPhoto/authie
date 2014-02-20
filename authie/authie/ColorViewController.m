@@ -14,6 +14,7 @@
 @end
 
 @implementation ColorViewController
+@synthesize colorPickerView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,7 +31,7 @@
     // Do any additional setup after loading the view from its nib.
     
     RSColorPickerView *color = [[RSColorPickerView alloc] initWithFrame:self.colorView.frame];
-    //[color setFrame:CGRectMake(0, 0, 180, 180)];
+    [color setFrame:CGRectMake(0, 0, 180, 180)];
     self.colorPickerView = color;
     [self.colorView addSubview:color];
 }

@@ -227,18 +227,10 @@
     
     // This is a demo for changing content at realtime.
     
-    
     ColorViewController *cvc = [[ColorViewController alloc] init];
-    
-    
-    [cvc.view setBackgroundColor:[UIColor blueColor]];
-    
-    
-    [cvc.colorPickerView setDelegate:self];
     [cvc.view setFrame:CGRectMake(0, 0, 300, 200)];
     
     alertView = [[CXAlertView alloc] initWithTitle:@"choose color" contentView:cvc.view cancelButtonTitle:@"cancel"];
-    
     
     [alertView setShowBlurBackground:NO];
     [alertView setScrollViewPadding:0.0f];
@@ -246,10 +238,15 @@
     [alertView.contentView setBackgroundColor:[UIColor redColor]];
     [alertView.contentView setFrame:CGRectMake(0, 0, 300, 200)];
     
+    [alertView setVericalPadding:0];
     [alertView setContentScrollViewMaxHeight:200.0f];
     [alertView setContentScrollViewMinHeight:200.0f];
+    
     [alertView setContainerWidth:300.0f];
     [alertView.contentView setContentMode:UIViewContentModeTopLeft];
+
+    [cvc.colorPickerView setDelegate:self];
+
     
     NSLog(@"size: alert %f", alertView.contentView.contentScaleFactor);
     NSLog(@"Size: alert %f", alertView.contentView.frame.size.height);
@@ -260,7 +257,6 @@
     
     //[cvc.view setNeedsLayout];
     //[cvc.view setNeedsDisplay];
-    
     
     
     
