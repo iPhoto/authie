@@ -321,14 +321,24 @@
         // only allow tapping on dash and direct posts
         UITapGestureRecognizer *tapView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedImageView:)];
 
+
+        [mini.heartsCount setText:[NSString stringWithFormat:@"%i", [thread.hearts intValue]]];
+        [mini.heartsVotingView setHidden:NO];
+        
         
         if([thread.toHandleId isEqualToString:@"dash"]) {
             // don't blur pls
             [mini.snapView addGestureRecognizer:tapView];
             
-            [mini.heartsVotingView setHidden:YES];
+        
+            // add all of the convos here
+            for(int x = 0; x<5; x++) {
+                [self addConvo:mini withName:thread.toHandleId];
+            }
+
         } else if ([thread.toHandleId isEqualToString:@"the wire"]) {
             // don't blur pls
+            // no convos allowed here
 
             if(thread.location == (id)[NSNull null] || thread.location.length == 0) {
                 [mini.labelLocation setText:@""];
@@ -336,8 +346,6 @@
                 [mini.labelLocation setText:thread.location];
             }
             
-            [mini.heartsCount setText:[NSString stringWithFormat:@"%i", [thread.hearts intValue]]];
-            [mini.heartsVotingView setHidden:NO];
         } else {
             // blurry
             
@@ -352,6 +360,12 @@
             [mini.heartsVotingView setHidden:YES];
 
             [mini.snapView addGestureRecognizer:tapView];
+            
+            // add all of the convos here
+            for(int x = 0; x<4; x++) {
+                [self addConvo:mini withName:thread.toHandleId];
+            }
+
             
         }
         
@@ -397,7 +411,6 @@
                 
             }
             else {
-                NSLog(@"textColor: %@", thread.textColor);
                 c = [[RODItemStore sharedStore] colorFromHexString:thread.textColor];
                 
                 mini.labelCaption.textColor = c;
@@ -469,16 +482,23 @@
 }
 
 
-- (void)addConvo:(MiniThreadViewController *)mini
+- (void)addConvo:(MiniThreadViewController *)mini withName:(NSString *)name
 {
     
+    int startX = 10;
+    int startY = mini.view.frame.size.height - ((mini.convos * 40) + 40);
     
     // Create Label
-    UILabel *myLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 50, 200, 40)];
+    UILabel *myLabel = [[UILabel alloc]initWithFrame:CGRectMake(startX, startY, 200, 40)];
     [myLabel setBackgroundColor:[UIColor clearColor]];
-    [myLabel setText:@"Hi Label"];
-    [[self view] addSubview:myLabel];
+    [myLabel setTextColor:[UIColor whiteColor]];
+    [myLabel setText:name];
+    [myLabel setFont:[UIFont systemFontOfSize:10.0f]];
+    [[mini view] addSubview:myLabel];
+
+    mini.convos++;
     
+    NSLog(@"Total convos: %i", mini.convos);
     
 }
 
