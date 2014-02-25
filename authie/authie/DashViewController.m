@@ -468,6 +468,20 @@
     
 }
 
+
+- (void)addConvo:(MiniThreadViewController *)mini
+{
+    
+    
+    // Create Label
+    UILabel *myLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 50, 200, 40)];
+    [myLabel setBackgroundColor:[UIColor clearColor]];
+    [myLabel setText:@"Hi Label"];
+    [[self view] addSubview:myLabel];
+    
+    
+}
+
 - (void)nextButtonClicked:(UIButton *)button
 {
     [RODItemStore sharedStore].currentPage++;

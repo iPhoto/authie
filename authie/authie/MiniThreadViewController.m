@@ -10,7 +10,7 @@
 #import <FBGlowLabel/FBGlowLabel.h>
 
 @implementation MiniThreadViewController
-@synthesize voted;
+@synthesize voted, convos;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -18,6 +18,7 @@
     if (self) {
         // Custom initialization
         voted = false;
+        convos = 0;
     }
     return self;
 }

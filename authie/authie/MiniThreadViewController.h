@@ -22,5 +22,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelLocation;
 
 @property (nonatomic) bool voted;
+@property (nonatomic) int convos;
 
 @end

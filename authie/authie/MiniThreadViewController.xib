@@ -14,8 +14,6 @@
                 <outlet property="labelCaption" destination="aJu-qE-Pni" id="Nmb-Nn-Ctb"/>
                 <outlet property="labelDate" destination="5zd-Wj-qXb" id="Sch-LX-1Fc"/>
                 <outlet property="labelLocation" destination="tIs-4L-56p" id="D1m-tK-5WI"/>
-                <outlet property="reportButton" destination="lVj-wT-o5F" id="Hg5-UK-8Ni"/>
-                <outlet property="reportView" destination="Ohn-3k-6rm" id="7gx-zL-FBs"/>
                 <outlet property="snapView" destination="Mnk-5Y-nSR" id="73Z-rp-bVu"/>
                 <outlet property="view" destination="cvM-xy-QNk" id="LKQ-jQ-Wlc"/>
             </connections>
@@ -33,32 +31,6 @@
                         <outletCollection property="gestureRecognizers" destination="tWS-dW-nks" appends="YES" id="Qr9-f8-BRv"/>
                     </connections>
                 </imageView>
-                <view hidden="YES" alpha="0.70000001192092887" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ohn-3k-6rm" userLabel="reportView">
-                    <rect key="frame" x="7" y="257" width="94" height="46"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lVj-wT-o5F">
-                            <rect key="frame" x="0.0" y="0.0" width="94" height="46"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="46" id="Dur-cg-IH4"/>
-                                <constraint firstAttribute="width" constant="94" id="myb-Tl-qYP"/>
-                            </constraints>
-                            <state key="normal" title="Report">
-                                <color key="titleColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </state>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="46" id="8Bx-81-qKF"/>
-                        <constraint firstItem="lVj-wT-o5F" firstAttribute="top" secondItem="Ohn-3k-6rm" secondAttribute="top" id="e6P-3x-nNh"/>
-                        <constraint firstAttribute="width" constant="94" id="f2h-wO-Ptn"/>
-                        <constraint firstItem="lVj-wT-o5F" firstAttribute="leading" secondItem="Ohn-3k-6rm" secondAttribute="leading" id="v2Z-QH-LMy"/>
-                    </constraints>
-                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mnj-jO-Rbq" userLabel="heartsView">
                     <rect key="frame" x="0.0" y="0.0" width="207" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -131,14 +103,12 @@
                 <constraint firstAttribute="trailing" secondItem="Mnj-jO-Rbq" secondAttribute="trailing" id="2RB-QQ-meX"/>
                 <constraint firstItem="aJu-qE-Pni" firstAttribute="leading" secondItem="cvM-xy-QNk" secondAttribute="leading" constant="20" id="6hp-Fv-blA"/>
                 <constraint firstAttribute="trailing" secondItem="gbY-iT-0CO" secondAttribute="trailing" constant="8" id="ByO-Lm-Idc"/>
-                <constraint firstItem="Ohn-3k-6rm" firstAttribute="leading" secondItem="cvM-xy-QNk" secondAttribute="leading" constant="7" id="CFW-6R-ZfL"/>
                 <constraint firstAttribute="centerY" secondItem="aJu-qE-Pni" secondAttribute="centerY" id="E9J-jd-MPf"/>
                 <constraint firstAttribute="bottom" secondItem="gbY-iT-0CO" secondAttribute="bottom" constant="5" id="QKJ-QN-vD2"/>
                 <constraint firstAttribute="trailing" secondItem="Mnk-5Y-nSR" secondAttribute="trailing" id="Vfq-FJ-l5h"/>
                 <constraint firstItem="Mnj-jO-Rbq" firstAttribute="leading" secondItem="cvM-xy-QNk" secondAttribute="leading" id="iKx-Oz-uq5"/>
                 <constraint firstItem="Mnj-jO-Rbq" firstAttribute="top" secondItem="cvM-xy-QNk" secondAttribute="top" id="ita-tm-AHX"/>
                 <constraint firstItem="Mnk-5Y-nSR" firstAttribute="leading" secondItem="cvM-xy-QNk" secondAttribute="leading" id="kXi-ed-FRT"/>
-                <constraint firstAttribute="bottom" secondItem="Ohn-3k-6rm" secondAttribute="bottom" constant="5" id="r4H-V3-kft"/>
                 <constraint firstAttribute="trailing" secondItem="aJu-qE-Pni" secondAttribute="trailing" constant="20" symbolic="YES" id="te7-HC-L3h"/>
                 <constraint firstAttribute="bottom" secondItem="Mnk-5Y-nSR" secondAttribute="bottom" constant="-2" id="yC5-cq-w4K"/>
                 <constraint firstItem="Mnk-5Y-nSR" firstAttribute="top" secondItem="cvM-xy-QNk" secondAttribute="top" id="zlO-eJ-UeG"/>
