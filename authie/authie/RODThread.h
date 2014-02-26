@@ -29,4 +29,7 @@
 @property (nonatomic) RODHandle *fromHandle;
 @property (nonatomic) RODHandle *toHandle;
 
+@property (nonatomic, strong) NSMutableArray *convos;
+
+
 @end

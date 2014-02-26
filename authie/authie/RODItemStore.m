@@ -1162,6 +1162,17 @@
                 NSString *from_result = [from_inner_result objectForKey:@"name"];
                 NSString *from_publicKey = [from_inner_result objectForKey:@"publicKey"];
                 
+                NSArray *convos_result = [result objectForKey:@"convos"];
+                
+                thready.convos = [[NSMutableArray alloc] init];
+                
+                for(NSDictionary *convo in convos_result) {
+                    
+                    NSString *name = [convo objectForKey:@"name"];
+                    [thready.convos addObject:name];
+                    
+                }
+                
                 RODHandle *fromHandle = [[RODHandle alloc] init];
                 fromHandle.name = from_result;
                 fromHandle.publicKey = from_publicKey;

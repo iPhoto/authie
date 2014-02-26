@@ -330,12 +330,11 @@
             // don't blur pls
             [mini.snapView addGestureRecognizer:tapView];
             
-        
             // add all of the convos here
-            for(int x = 0; x<5; x++) {
-                [self addConvo:mini withName:thread.toHandleId];
+            for(NSString *name in thread.convos) {
+                [self addConvo:mini withName:name];
             }
-
+            
         } else if ([thread.toHandleId isEqualToString:@"the wire"]) {
             // don't blur pls
             // no convos allowed here
@@ -362,10 +361,9 @@
             [mini.snapView addGestureRecognizer:tapView];
             
             // add all of the convos here
-            for(int x = 0; x<4; x++) {
-                [self addConvo:mini withName:thread.toHandleId];
+            for(NSString *name in thread.convos) {
+                [self addConvo:mini withName:name];
             }
-
             
         }
         
@@ -497,8 +495,6 @@
     [[mini view] addSubview:myLabel];
 
     mini.convos++;
-    
-    NSLog(@"Total convos: %i", mini.convos);
     
 }
 

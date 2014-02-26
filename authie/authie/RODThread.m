@@ -10,7 +10,7 @@
 
 @implementation RODThread
 @synthesize authorizeRequest, hearts, toHandleSeen, caption, fromHandle, toHandle, successfulUpload,
-    groupKey, location, font, textColor;
+    groupKey, location, font, textColor, convos;
 
 - (void) encodeWithCoder:(NSCoder *)aCoder
 {
@@ -26,6 +26,7 @@
     [aCoder encodeBool:self.successfulUpload forKey:@"successfulUpload"];
     [aCoder encodeObject:self.font forKey:@"font"];
     [aCoder encodeObject:self.textColor forKey:@"textColor"];
+    [aCoder encodeObject:self.convos forKey:@"convos"];
     
 }
 
@@ -43,6 +44,7 @@
         [self setSuccessfulUpload:[aDecoder decodeBoolForKey:@"successfulUpload"]];
         [self setFont:[aDecoder decodeObjectForKey:@"font"]];
         [self setTextColor:[aDecoder decodeObjectForKey:@"textColor"]];
+        convos = [aDecoder decodeObjectForKey:@"convos"];
 
         id hearts_result = [aDecoder decodeObjectForKey:@"hearts"];
         if(hearts_result == [NSNull null]) {
