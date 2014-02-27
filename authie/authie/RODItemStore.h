@@ -47,7 +47,7 @@
 - (void)sendNotes:(NSString *)groupKey;
 - (void)report:(NSString *)groupKey;
 - (void)giveLove:(NSString *)groupKey;
-- (void)sendChat:(NSString *)groupKey message:(NSString *)msg;
+- (void)sendChat:(NSString *)groupKey message:(NSString *)msg toKey:(NSString *)toKey;
 - (void)getPrivateKey;
 - (void)addChat:(NSString *)user message:(NSString *)message groupKey:(NSString *)groupKey;
 - (void)addBlock:(NSString *)publicKey;

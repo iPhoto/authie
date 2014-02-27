@@ -17,7 +17,7 @@
 #import "NSDate+PrettyDate.h"
 
 @implementation ThreadViewController
-@synthesize loadRow;
+@synthesize loadRow, toHandle;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -202,7 +202,7 @@
 }
 
 
-- (void)addMessage:(NSString *)user message:(NSString *)msg groupKey:(NSString *)key
+- (void)addMessage:(NSString *)user message:(NSString *)msg groupKey:(NSString *)key toId:(NSNumber *)toId
 {
 
     NSLog(@"addMessage, thread: %@, %@, %@, %i", user, msg, key, [RODItemStore sharedStore].hubConnection.state);
@@ -219,6 +219,14 @@
     [self.messageType addObject:@"1"];
     [self.tableView setHidden:NO];
     [self.subtitles addObject:[RODItemStore sharedStore].authie.handle.name];
+
+    NSString *toKey;
+    toKey = [RODItemStore sharedStore].authie.handle.publicKey;
+    
+    if([[RODItemStore sharedStore].authie.handle.publicKey isEqualToString:self.thread.fromHandle.publicKey]) {
+        // it's the other person... but who...
+        
+    }
     
     [[RODItemStore sharedStore] addChat:[RODItemStore sharedStore].authie.handle.name message:@"<3" groupKey:self.thread.groupKey];
     
@@ -229,7 +237,7 @@
     dispatch_async(queue, ^{
         // Perform async operation
         
-        [[RODItemStore sharedStore] sendChat:self.thread.groupKey message:@"<3"];
+        [[RODItemStore sharedStore] sendChat:self.thread.groupKey message:@"<3" toKey:self.toHandle.publicKey];
         
         dispatch_sync(dispatch_get_main_queue(), ^{
             // Update UI
@@ -291,6 +299,8 @@
             set_as_read.seen = [NSNumber numberWithInt:1];
             [[RODItemStore sharedStore].authie.allMessages setObject:set_as_read atIndexedSubscript:i];
             
+            
+            NSLog(@"date, text, name: %@ %@ %@", msg.sentDate, msg.messageText, msg.fromHandle.name);
             
             [self.timestamps addObject:msg.sentDate];
             [self.messages addObject:msg.messageText];
@@ -398,7 +408,7 @@
     dispatch_async(queue, ^{
         // Perform async operation
         
-        [[RODItemStore sharedStore] sendChat:self.thread.groupKey message:text];
+        [[RODItemStore sharedStore] sendChat:self.thread.groupKey message:text toKey:self.toHandle.publicKey];
 
         dispatch_sync(dispatch_get_main_queue(), ^{
             // Update UI

@@ -323,10 +323,10 @@
 
 }
 
-- (void)sendChat:(NSString *)groupKey message:(NSString *)msg
+- (void)sendChat:(NSString *)groupKey message:(NSString *)msg  toKey:(NSString *)toKey
 {
     // new shit
-    [self.hubProxy invoke:@"Send" withArgs:[NSArray arrayWithObjects: [RODItemStore sharedStore].authie.handle.name, msg, groupKey,nil]];
+    [self.hubProxy invoke:@"Send" withArgs:[NSArray arrayWithObjects: [RODItemStore sharedStore].authie.handle.name, msg, groupKey, toKey, nil]];
     
 }
 
@@ -1412,7 +1412,7 @@
             NSInteger id_result = [[result objectForKey:@"id"] integerValue];
             message.id = [NSNumber numberWithInteger:id_result];
             
-            NSDictionary *handle_result = [result objectForKey:@"handle"];
+            NSDictionary *handle_result = [result objectForKey:@"fromHandle"];
             
             RODHandle *fromHandle = [[RODHandle alloc] init];
             
@@ -1576,7 +1576,7 @@
                 NSInteger id_result = [[result objectForKey:@"id"] integerValue];
                 message.id = [NSNumber numberWithInteger:id_result];
                 
-                NSDictionary *handle_result = [result objectForKey:@"handle"];
+                NSDictionary *handle_result = [result objectForKey:@"fromHandle"];
                 
                 RODHandle *fromHandle = [[RODHandle alloc] init];
                 

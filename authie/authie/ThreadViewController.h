@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *threadFrom;
 @property (weak, nonatomic) IBOutlet UIImageView *snapView;
 @property (strong, nonatomic) RODThread *thread;
+@property (strong, nonatomic) RODHandle *toHandle;
+
 @property (weak, nonatomic) IBOutlet UILabel *snapCaption;
 
 @property (strong, nonatomic) NSMutableArray *messages;

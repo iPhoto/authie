@@ -134,12 +134,6 @@
     [appDelegate.navigationViewController toggleMenu];    
 }
 
-- (void)addMessage:(NSString *)user message:(NSString *)msg groupKey:(NSString *)key {
-    NSLog(@"addMessage, dashy: %@, %@, %@, %i", user, msg, key, [RODItemStore sharedStore].hubConnection.state);
-    [[RODItemStore sharedStore] addChat:user message:msg groupKey:key];
-
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -612,6 +606,16 @@
             } else {
                 
                 appDelegate.threadViewController = [[ThreadViewController alloc] init];
+                
+                // ok, now we need to figure out who this is to...
+                
+                // if the current user started the thread:
+                //  - check to see how many convos.
+                //  - if 0, set to to that person
+                //  - if more than 1, set it to that person
+                
+                appDelegate.threadViewController.toHandle = [RODItemStore sharedStore].authie.handle;
+                
                 [appDelegate.threadViewController setLoadRow:thread_index];
                 [appDelegate.dashViewController.navigationController pushViewController:appDelegate.threadViewController animated:YES];
             }
