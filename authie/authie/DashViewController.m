@@ -28,7 +28,7 @@
 @implementation DashViewController
 @synthesize handle, contentSize, imageToUpload, keyToUpload, handleToUpload, captionToUpload,
             doUploadOnView, imagePicker, selected, mostRecentGroupKey, photoHeight,
-            locationToUpload, fontToUpload, textColorToUpload;
+            locationToUpload, fontToUpload, textColorToUpload, tappedThread, tappedThreadIndex;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -485,7 +485,7 @@
     [myLabel setBackgroundColor:[UIColor clearColor]];
     [myLabel setTextColor:[UIColor whiteColor]];
     [myLabel setText:name];
-    [myLabel setFont:[UIFont systemFontOfSize:10.0f]];
+    [myLabel setFont:mini.labelDate.font];
     [[mini view] addSubview:myLabel];
 
     mini.convos++;
@@ -565,23 +565,42 @@
 
 - (void)tappedImageView:(UITapGestureRecognizer *)tapGesture
 {
+ 
     
     NSLog(@"tappedImageView.");
+    
+    int thread_index = ([tapGesture.view tag] / 1000);
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:thread_index];
+    
+    // if convos is more than one, pop an actionsheet
+    
+    if([thread.convos count] > 1) {
 
+        UIActionSheet *popup = [[UIActionSheet alloc] init];
+        
+        for (NSString *s in thread.convos) {
+            [popup addButtonWithTitle:s];
+        }
+        
+        [popup addButtonWithTitle:@"cancel"];
+        [popup setCancelButtonIndex:[thread.convos count]];
+        [popup setDelegate:self];
+        
+        popup.tag = 2261;
+        [popup showInView:self.scroll];
+        self.tappedThread = thread;
+        self.tappedThreadIndex = thread_index;
+        
+        return;
+        
+    }
+    
     // Block whole window
     MRProgressOverlayView *progressView = [MRProgressOverlayView new];
     [progressView setTitleLabelText:@""];
     [self.view addSubview:progressView];
     [progressView show:YES];
-    
-    
-    int thread_index = ([tapGesture.view tag] / 1000);
-    
-    //MiniThreadViewController *lil_t = [_items objectAtIndex:thread_index];
-
-    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    
-    RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:thread_index];
     
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
     dispatch_async(queue, ^{
@@ -614,7 +633,24 @@
                 //  - if 0, set to to that person
                 //  - if more than 1, set it to that person
                 
-                appDelegate.threadViewController.toHandle = [RODItemStore sharedStore].authie.handle;
+                
+                if([thread.convos count] == 0) {
+                    // dash, or whoever the item is actually to
+                    
+                    
+                    if([thread.fromHandle.publicKey isEqualToString:[RODItemStore sharedStore].authie.handle.publicKey]) {
+                        // from us
+                        appDelegate.threadViewController.toHandle = [RODItemStore sharedStore].authie.handle;
+                        
+                    } else {
+                        // from the other guy
+                        appDelegate.threadViewController.toHandle = thread.fromHandle;
+                    }
+                    
+                } else {
+                    
+                    
+                }
                 
                 [appDelegate.threadViewController setLoadRow:thread_index];
                 [appDelegate.dashViewController.navigationController pushViewController:appDelegate.threadViewController animated:YES];
@@ -627,6 +663,45 @@
     
 }
 
+
+- (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    NSLog(@"actionsheet happened");
+    
+    NSString *title = [popup buttonTitleAtIndex:buttonIndex];
+    if([title isEqualToString:@"cancel"]) {
+        return;
+    }
+    
+    switch (popup.tag) {
+        case 2261: {
+
+            NSString *name = self.tappedThread.convos[buttonIndex];
+            NSLog(@"buttonIndex: %i, %@", buttonIndex, name);
+            
+            for(RODHandle *r in [RODItemStore sharedStore].authie.allContacts)
+            {
+                if([r.name isEqualToString:name]) {
+                    // push the threadview with this name set as the contact
+                    
+                    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+                    appDelegate.threadViewController = [[ThreadViewController alloc] init];
+                    appDelegate.threadViewController.toHandle = r;
+                    
+                    [appDelegate.threadViewController setLoadRow:self.tappedThreadIndex];
+                    [appDelegate.dashViewController.navigationController pushViewController:appDelegate.threadViewController animated:YES];
+                    
+                    break;
+                    
+                }
+            }
+            
+            break;
+        }
+        default:
+            break;
+    }
+}
 
 - (void)clickedHeart:(UITapGestureRecognizer *)tapGesture
 {

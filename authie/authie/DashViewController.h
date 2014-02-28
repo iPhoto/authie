@@ -7,11 +7,12 @@
 //
 
 @class RODHandle;
+@class RODThread;
 #import <UIKit/UIKit.h>
 #import <SignalR-ObjC/SignalR.h>
 #import <GAITrackedViewController.h>
 
-@interface DashViewController : GAITrackedViewController <SRConnectionDelegate, UIScrollViewDelegate>
+@interface DashViewController : GAITrackedViewController <SRConnectionDelegate, UIScrollViewDelegate, UIActionSheetDelegate>
 {
     NSMutableArray *_items;
 }
@@ -38,6 +39,8 @@
 
 @property (strong, nonatomic) UIImagePickerController *imagePicker;
 @property (strong, nonatomic) RODHandle *selected;
+@property (strong, nonatomic) RODThread *tappedThread;
+@property (nonatomic) int tappedThreadIndex;
 
 @property (strong, nonatomic) NSString *mostRecentGroupKey;
 - (void)updateDashHeader;

@@ -1153,7 +1153,7 @@
                 // replace them with the new ones
                 RODThread *thready = [[RODThread alloc] init];
                 thready.id = [NSNumber numberWithInteger:id_result];
-                
+                                
                 NSDictionary *inner_result = [result objectForKey:@"toHandle"];
                 NSString *to_result = [inner_result objectForKey:@"name"];
                 NSString *to_publicKey = [inner_result objectForKey:@"publicKey"];
