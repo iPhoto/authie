@@ -311,7 +311,7 @@
                 
                 //from me and to the selected person
                 if([msg.toKey isEqualToString:self.toHandle.publicKey]) {
-                    canAdd = YES;                    
+                    canAdd = YES;
                 }
                 
                 // from me and to the dash?

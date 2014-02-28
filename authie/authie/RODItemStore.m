@@ -2002,9 +2002,14 @@
     
     if([user isEqualToString:self.authie.handle.name]) {
         from.name = self.authie.handle.name;
+        from.publicKey = self.authie.handle.publicKey;
         to.name = user;
+        to.publicKey = toKey;
     } else {
         from.name = user;
+        from.publicKey = toKey;
+        
+        to.publicKey = self.authie.handle.publicKey;
         to.name = self.authie.handle.name;
     }
 
