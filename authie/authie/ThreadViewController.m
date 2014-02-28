@@ -160,7 +160,7 @@
     [RODItemStore sharedStore].hubConnection.started = ^{
         
         [[RODItemStore sharedStore].hubProxy invoke:@"join" withArgs:[NSArray arrayWithObject:@"ok"]];
-        [[RODItemStore sharedStore].hubProxy on:@"addMessage" perform:self selector:@selector(addMessage:message:groupKey:)];
+        [[RODItemStore sharedStore].hubProxy on:@"addMessage" perform:self selector:@selector(addMessage:message:groupKey:toKey:)];
         
         NSLog(@"Started.");
         
@@ -202,11 +202,11 @@
 }
 
 
-- (void)addMessage:(NSString *)user message:(NSString *)msg groupKey:(NSString *)key toId:(NSString *)toKey
+- (void)addMessage:(NSString *)user message:(NSString *)msg groupKey:(NSString *)key toKey:(NSString *)toKey
 {
 
     NSLog(@"addMessage, thread: %@, %@, %@, %i", user, msg, key, [RODItemStore sharedStore].hubConnection.state);
-    [[RODItemStore sharedStore] addChat:user message:msg groupKey:key];
+    [[RODItemStore sharedStore] addChat:user message:msg groupKey:key toKey:toKey];
 
     [self reloadThread];
 }
@@ -228,7 +228,7 @@
         
     }
     
-    [[RODItemStore sharedStore] addChat:[RODItemStore sharedStore].authie.handle.name message:@"<3" groupKey:self.thread.groupKey];
+    [[RODItemStore sharedStore] addChat:[RODItemStore sharedStore].authie.handle.name message:@"<3" groupKey:self.thread.groupKey toKey:self.toHandle.publicKey];
     
     [self finishSend];
     [self scrollToBottomAnimated:YES];
@@ -311,20 +311,29 @@
                 
                 //from me and to the selected person
                 if([msg.toKey isEqualToString:self.toHandle.publicKey]) {
-                    canAdd = YES;
-                    
+                    canAdd = YES;                    
                 }
                 
                 // from me and to the dash?
                 
             }
+            
+            if([msg.fromHandle.publicKey isEqualToString:self.toHandle.publicKey]) {
+                
+                // from selected person
+                canAdd = YES;
+            }
+            
+
+            
+            
 //            
 //            if([msg.thread.fromHandle.publicKey isEqualToString:self.toHandle.publicKey] && [msg.toKey isEqualToString:[RODItemStore sharedStore].authie.handle.publicKey]) {
 //                
 //                canAdd = YES;
 //            }
             
-            NSLog(@"date, text, name, toKey: %@ %@ %@ %@ %@", msg.sentDate, msg.messageText, msg.fromHandle.name, msg.toKey, self.toHandle.publicKey);
+            NSLog(@"date %@, text %@, name %@, toKey %@, toHandle.publicKey %@", msg.sentDate, msg.messageText, msg.fromHandle.name, msg.toKey, self.toHandle.publicKey);
 
             
             if (canAdd == YES) {
@@ -434,7 +443,7 @@
     
     [self.subtitles addObject:[RODItemStore sharedStore].authie.handle.name];
 
-    [[RODItemStore sharedStore] addChat:[RODItemStore sharedStore].authie.handle.name message:text groupKey:self.thread.groupKey];    
+    [[RODItemStore sharedStore] addChat:[RODItemStore sharedStore].authie.handle.name message:text groupKey:self.thread.groupKey toKey:self.toHandle.publicKey];
 
     [self finishSend];
     [self scrollToBottomAnimated:YES];

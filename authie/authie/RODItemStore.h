@@ -49,7 +49,7 @@
 - (void)giveLove:(NSString *)groupKey;
 - (void)sendChat:(NSString *)groupKey message:(NSString *)msg toKey:(NSString *)toKey;
 - (void)getPrivateKey;
-- (void)addChat:(NSString *)user message:(NSString *)message groupKey:(NSString *)groupKey;
+- (void)addChat:(NSString *)user message:(NSString *)message groupKey:(NSString *)groupKey toKey:(NSString *)toKey;
 - (void)addBlock:(NSString *)publicKey;
 - (void)loadBlocks;
 - (void)loadMessages;
@@ -70,7 +70,6 @@
 - (int)unreadMessages;
 
 - (void)pushThreadWithGroupKey:(NSString *)group_key;
-- (void)addMessage:(NSString *)user message:(NSString *)msg groupKey:(NSString *)key;
 
 - (void)testAES;
 

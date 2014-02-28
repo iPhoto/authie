@@ -1981,7 +1981,7 @@
     }
 }
 
-- (void)addChat:(NSString *)user message:(NSString *)message groupKey:(NSString *)groupKey;
+- (void)addChat:(NSString *)user message:(NSString *)message groupKey:(NSString *)groupKey toKey:(NSString *)toKey;
 {
     RODMessage *msg = [[RODMessage alloc] init];
     
@@ -1990,6 +1990,7 @@
 
     msg.id = [NSNumber numberWithInt:-1];
     msg.sentDate = [NSDate date];
+    msg.toKey = toKey;
     
     RODThread *t;
     for(int i = 0; i<[self.authie.all_Threads count]; i++) {
@@ -2018,13 +2019,6 @@
     [appDelegate.threadViewController reloadThread];
     
     NSLog(@"Chat added.");
-}
-
-- (void)addMessage:(NSString *)user message:(NSString *)msg groupKey:(NSString *)key
-{
-    NSLog(@"addMessage, dashy: %@, %@, %@, %i", user, msg, key, [RODItemStore sharedStore].hubConnection.state);
-    [[RODItemStore sharedStore] addChat:user message:msg groupKey:key];
-    
 }
 
 - (NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse
