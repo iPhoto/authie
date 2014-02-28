@@ -9,7 +9,7 @@
 #import "RODMessage.h"
 
 @implementation RODMessage
-@synthesize active, anon, fromHandle, id, messageText, thread, seen, sentDate;
+@synthesize active, anon, fromHandle, id, messageText, thread, seen, sentDate, toKey;
 
 - (void) encodeWithCoder:(NSCoder *)aCoder
 {
@@ -22,6 +22,7 @@
     [aCoder encodeObject:self.anon forKey:@"anon"];
     [aCoder encodeObject:self.seen forKey:@"seen"];
     [aCoder encodeObject:self.messageText forKey:@"messageText"];
+    [aCoder encodeObject:self.toKey forKey:@"toKey"];
     
 }
 
@@ -36,7 +37,8 @@
         [self setActive:[NSNumber numberWithInteger:[[aDecoder decodeObjectForKey:@"active"] integerValue]]];
         [self setAnon:[NSNumber numberWithInteger:[[aDecoder decodeObjectForKey:@"anon"] integerValue]]];
         [self setSeen:[NSNumber numberWithInteger:[[aDecoder decodeObjectForKey:@"seen"] integerValue]]];
-        [self setMessageText:[aDecoder decodeObjectForKey:@"messageText"]];        
+        [self setMessageText:[aDecoder decodeObjectForKey:@"messageText"]];
+        [self setToKey:[aDecoder decodeObjectForKey:@"toKey"]];        
     }
     return self;
 }

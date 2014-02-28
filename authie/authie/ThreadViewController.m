@@ -202,7 +202,7 @@
 }
 
 
-- (void)addMessage:(NSString *)user message:(NSString *)msg groupKey:(NSString *)key toId:(NSNumber *)toId
+- (void)addMessage:(NSString *)user message:(NSString *)msg groupKey:(NSString *)key toId:(NSString *)toKey
 {
 
     NSLog(@"addMessage, thread: %@, %@, %@, %i", user, msg, key, [RODItemStore sharedStore].hubConnection.state);
@@ -285,9 +285,11 @@
     
     // now load all the messages that are associated with this thread
     
-    NSLog(@"allMessages count: %i", [[RODItemStore sharedStore].authie.allMessages count]);
+    NSLog(@"allMessages count: %i, me.publicKey: %@ toHandle: %@", [[RODItemStore sharedStore].authie.allMessages count], [RODItemStore sharedStore].authie.handle.publicKey, self.toHandle.publicKey);
     
     NSMutableArray *tempMessages = [NSMutableArray arrayWithArray:[RODItemStore sharedStore].authie.allMessages];
+    
+    
     
     for(int i = 0; i < [tempMessages count]; i++) {
         
@@ -295,25 +297,58 @@
         
         if([msg.thread.groupKey isEqualToString:self.thread.groupKey]) {
             
-            RODMessage *set_as_read = [[RODItemStore sharedStore].authie.allMessages objectAtIndex:i];
-            set_as_read.seen = [NSNumber numberWithInt:1];
-            [[RODItemStore sharedStore].authie.allMessages setObject:set_as_read atIndexedSubscript:i];
+            // NOW, one more check
+            // we want to show items that have toHandleId = self.toHandle...
+            // - from this user, to toHandleId
+            // - or from toHandleId, to this user
+
+            Boolean canAdd = NO;
             
             
-            NSLog(@"date, text, name: %@ %@ %@", msg.sentDate, msg.messageText, msg.fromHandle.name);
-            
-            [self.timestamps addObject:msg.sentDate];
-            [self.messages addObject:msg.messageText];
-            [self.subtitles addObject:msg.fromHandle.name];
-            
-            if([msg.fromHandle.name isEqualToString:[RODItemStore sharedStore].authie.handle.name])
-            {
-                // indicates outgoing
-                [self.messageType addObject:@"1"];
-            } else {
-                // incoming
-                [self.messageType addObject:@"0"];
+            if([msg.fromHandle.publicKey isEqualToString:[RODItemStore sharedStore].authie.handle.publicKey]) {
+                
+                // from me
+                
+                //from me and to the selected person
+                if([msg.toKey isEqualToString:self.toHandle.publicKey]) {
+                    canAdd = YES;
+                    
+                }
+                
+                // from me and to the dash?
+                
             }
+//            
+//            if([msg.thread.fromHandle.publicKey isEqualToString:self.toHandle.publicKey] && [msg.toKey isEqualToString:[RODItemStore sharedStore].authie.handle.publicKey]) {
+//                
+//                canAdd = YES;
+//            }
+            
+            NSLog(@"date, text, name, toKey: %@ %@ %@ %@ %@", msg.sentDate, msg.messageText, msg.fromHandle.name, msg.toKey, self.toHandle.publicKey);
+
+            
+            if (canAdd == YES) {
+                
+                RODMessage *set_as_read = [[RODItemStore sharedStore].authie.allMessages objectAtIndex:i];
+                set_as_read.seen = [NSNumber numberWithInt:1];
+                [[RODItemStore sharedStore].authie.allMessages setObject:set_as_read atIndexedSubscript:i];
+                
+                [self.timestamps addObject:msg.sentDate];
+                [self.messages addObject:msg.messageText];
+                [self.subtitles addObject:msg.fromHandle.name];
+                
+                if([msg.fromHandle.name isEqualToString:[RODItemStore sharedStore].authie.handle.name])
+                {
+                    // indicates outgoing
+                    [self.messageType addObject:@"1"];
+                } else {
+                    // incoming
+                    [self.messageType addObject:@"0"];
+                }
+
+                
+            }
+            
         }
         
     }

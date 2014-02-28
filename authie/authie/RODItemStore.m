@@ -1443,8 +1443,10 @@
             RODThread *thread = [[RODThread alloc] init];
             
             NSString *groupKey = [thread_result objectForKey:@"groupKey"];
-            
             thread.groupKey = groupKey;
+            
+            NSString *toKey = [result objectForKey:@"toKey"];
+            message.toKey = toKey;
             
             message.thread = thread;
             message.seen = [NSNumber numberWithInt:0];
@@ -1607,9 +1609,11 @@
                 RODThread *thread = [[RODThread alloc] init];
                 
                 NSString *groupKey = [thread_result objectForKey:@"groupKey"];
-                
                 thread.groupKey = groupKey;
-
+                
+                NSString *toKey = [result objectForKey:@"toKey"];
+                message.toKey = toKey;
+                
                 message.thread = thread;
                 message.seen = [NSNumber numberWithInt:0];
   

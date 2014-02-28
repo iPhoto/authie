@@ -19,6 +19,7 @@
 @property (nonatomic) NSNumber *anon;
 @property (nonatomic) NSNumber *seen;
 @property (nonatomic) NSString *messageText;
+@property (nonatomic) NSString *toKey;
 
 @property (nonatomic) RODHandle *fromHandle;
 @property (nonatomic) RODThread *thread;
