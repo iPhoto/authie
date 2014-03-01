@@ -477,8 +477,8 @@
 - (void)addConvo:(MiniThreadViewController *)mini withName:(NSString *)name
 {
     
-    int startX = 10;
-    int startY = mini.view.frame.size.height - ((mini.convos * 40) + 40);
+    int startX = 25;
+    int startY = mini.view.frame.size.height - ((mini.convos * 40) + 50);
     
     // Create Label
     UILabel *myLabel = [[UILabel alloc]initWithFrame:CGRectMake(startX, startY, 200, 40)];
@@ -579,7 +579,8 @@
 
         UIActionSheet *popup = [[UIActionSheet alloc] init];
         
-        for (NSString *s in thread.convos) {
+        for (int x = thread.convos.count - 1; x >= 0; x--) {
+            NSString *s = thread.convos[x];
             [popup addButtonWithTitle:s];
         }
         
@@ -628,27 +629,41 @@
                 
                 // ok, now we need to figure out who this is to...
                 
-                // if the current user started the thread:
-                //  - check to see how many convos.
-                //  - if 0, set to to that person
-                //  - if more than 1, set it to that person
                 
+                // all this below only applies if it's FROM YOU!!!
                 
-                if([thread.convos count] == 0) {
-                    // dash, or whoever the item is actually to
+                if([thread.fromHandle.publicKey isEqualToString:[RODItemStore sharedStore].authie.handle.publicKey]) {
                     
                     
-                    if([thread.fromHandle.publicKey isEqualToString:[RODItemStore sharedStore].authie.handle.publicKey]) {
+                    // if there are 0 convos, it's with yourself
+                    // if there are 1 convos, it's automatically with that first person
+                    
+                    if([thread.convos count] == 0) {
+                        
+                        
                         // from us
                         appDelegate.threadViewController.toHandle = [RODItemStore sharedStore].authie.handle;
                         
+                        
                     } else {
-                        // from the other guy
-                        appDelegate.threadViewController.toHandle = thread.fromHandle;
+                        
+                        NSString *chattingWith = thread.convos[0];
+                        
+                        for(RODHandle *r in [RODItemStore sharedStore].authie.allContacts)
+                        {
+                            if([r.name isEqualToString:chattingWith]) {
+                                // push the threadview with this name set as the contact
+                                appDelegate.threadViewController.toHandle = r;
+                                break;
+                            }
+                        }
+                        
                     }
                     
-                } else {
                     
+                } else {
+                    // okay, not from you, so make it to the other guy
+                    appDelegate.threadViewController.toHandle = thread.fromHandle;
                     
                 }
                 
@@ -676,7 +691,7 @@
     switch (popup.tag) {
         case 2261: {
 
-            NSString *name = self.tappedThread.convos[buttonIndex];
+            NSString *name = [popup buttonTitleAtIndex:buttonIndex];
             NSLog(@"buttonIndex: %i, %@", buttonIndex, name);
             
             for(RODHandle *r in [RODItemStore sharedStore].authie.allContacts)
