@@ -239,11 +239,7 @@
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"trashed" message:@"Your message has been trashed." delegate:appDelegate.dashViewController cancelButtonTitle:@"ok" otherButtonTitles:nil];
-    
     [appDelegate.contactsViewController.navigationController popToRootViewControllerAnimated:YES];
-    
-    [alert show];
     
 }
 
