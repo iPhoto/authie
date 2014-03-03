@@ -21,9 +21,14 @@
 {
     NSString *notificationGroupKey = [notification objectForKey:@"threadKey"];
     NSLog(@"Launched from notification...%@", notificationGroupKey );
+
     
     [[RODItemStore sharedStore] loadMessagesForThread:notificationGroupKey];
     [[RODItemStore sharedStore] pushThreadWithGroupKey:notificationGroupKey];
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.dashViewController updateDashHeader];
+    
 }
 
 - (void)receivedBackgroundNotification:(NSDictionary *)notification
@@ -39,6 +44,9 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [[RODItemStore sharedStore] loadMessagesForThread:notificationGroupKey];
     [[RODItemStore sharedStore] loadThreads:false];
+    
+    [appDelegate.dashViewController updateDashHeader];
+    
         
     if([appDelegate.threadViewController.thread.groupKey isEqualToString:notificationGroupKey]) {
         // do nothing, they are viewing this thread

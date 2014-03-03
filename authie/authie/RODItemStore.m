@@ -1016,6 +1016,8 @@
         }
     }
     
+    [[UAPush shared] setBadgeNumber:unread];    
+    
     return unread;
 }
 
