@@ -65,7 +65,7 @@
     //dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
     //dispatch_async(queue, ^{
         
-        NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://authie.me/api/snap/640/%@", groupKey]]];
+        NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://authie.me/api/snap/640/%@", groupKey]]];
         result = [UIImage imageWithData:data];
         
         //dispatch_sync(dispatch_get_main_queue(), ^{
@@ -104,7 +104,7 @@
 - (void)downloadImageAndShowScreen:(NSString *)groupKey
 {
     
-    NSString *websiteUrl = [NSString stringWithFormat:@"http://authie.me/api/snap/640/%@", groupKey];
+    NSString *websiteUrl = [NSString stringWithFormat:@"https://authie.me/api/snap/640/%@", groupKey];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:websiteUrl] cachePolicy:NSURLCacheStorageAllowed timeoutInterval:5];
     
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];

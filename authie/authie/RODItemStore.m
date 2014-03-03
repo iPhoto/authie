@@ -122,7 +122,7 @@
     NSURLResponse *response;
     NSData *localData = nil;
     
-    NSString *url = @"http://authie.me/api/follower";
+    NSString *url = @"https://authie.me/api/follower";
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLCacheStorageNotAllowed timeoutInterval:5];
     [request setHTTPMethod:@"DELETE"];
@@ -178,7 +178,7 @@
     NSURLResponse *response;
     NSData *localData = nil;
     
-    NSString *url = @"http://authie.me/api/thread";
+    NSString *url = @"https://authie.me/api/thread";
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLCacheStorageNotAllowed timeoutInterval:5];
     [request setHTTPMethod:@"DELETE"];
@@ -248,7 +248,7 @@
     NSURLResponse *response;
     NSData *localData = nil;
     
-    NSString *url = [NSString stringWithFormat:@"http://authie.me/api/notification/%@", groupKey];
+    NSString *url = [NSString stringWithFormat:@"https://authie.me/api/notification/%@", groupKey];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLCacheStorageNotAllowed timeoutInterval:5];
     [request setHTTPMethod:@"GET"];
@@ -294,7 +294,7 @@
     
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:checkDict options:kNilOptions error:&error];
     
-    NSString *url = @"http://authie.me/api/report";
+    NSString *url = @"https://authie.me/api/report";
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLCacheStorageNotAllowed timeoutInterval:5];
     [request setHTTPMethod:@"POST"];
@@ -349,7 +349,7 @@
     
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:checkDict options:kNilOptions error:&error];
     
-    NSString *url = @"http://authie.me/api/heart";
+    NSString *url = @"https://authie.me/api/heart";
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5];
     [request setHTTPMethod:@"POST"];
@@ -404,7 +404,7 @@
     NSURLResponse *response;
     NSData *localData = nil;
     
-    NSString *url = @"http://authie.me/api/login";
+    NSString *url = @"https://authie.me/api/login";
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLCacheStorageNotAllowed timeoutInterval:10];
     [request setHTTPMethod:@"POST"];
@@ -461,7 +461,7 @@
     NSURLResponse *response;
     NSData *localData = nil;
     
-    NSString *url = @"http://authie.me/api/privatekey";
+    NSString *url = @"https://authie.me/api/privatekey";
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLCacheStorageNotAllowed timeoutInterval:5];
     [request setHTTPMethod:@"GET"];
@@ -512,7 +512,7 @@
     NSURLResponse *response;
     NSData *localData = nil;
     
-    NSString *url = @"http://authie.me/api/login";
+    NSString *url = @"https://authie.me/api/login";
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLCacheStorageNotAllowed timeoutInterval:5];
     [request setHTTPMethod:@"GET"];
@@ -567,7 +567,7 @@
     
     NSURLResponse *response;
     
-    NSString *url = @"http://authie.me/api/handle";
+    NSString *url = @"https://authie.me/api/handle";
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLCacheStorageNotAllowed timeoutInterval:5];
     [request setHTTPMethod:@"GET"];
@@ -663,7 +663,7 @@
     NSURLResponse *response;
     NSData *localData = nil;
     
-    NSString *url = [NSString stringWithFormat:@"http://authie.me/api/upload/postfile?key=%@", key];
+    NSString *url = [NSString stringWithFormat:@"https://authie.me/api/upload/postfile?key=%@", key];
 
     NSLog(@"ok, about to upload snap: %@", key);
     
@@ -767,7 +767,7 @@
     NSURLResponse *response;
     NSData *localData = nil;
     
-    NSString *url = @"http://authie.me/api/thread";
+    NSString *url = @"https://authie.me/api/thread";
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLCacheStorageNotAllowed timeoutInterval:5];
     [request setHTTPMethod:@"POST"];
@@ -826,7 +826,7 @@
     NSURLResponse *response;
     NSData *localData = nil;
     
-    NSString *url = @"http://authie.me/api/follower";
+    NSString *url = @"https://authie.me/api/follower";
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLCacheStorageNotAllowed timeoutInterval:5];
     [request setHTTPMethod:@"POST"];
@@ -892,7 +892,7 @@
     NSURLResponse *response;
     NSData *localData = nil;
     
-    NSString *url = @"http://authie.me/api/authorize";
+    NSString *url = @"https://authie.me/api/authorize";
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLCacheStorageNotAllowed timeoutInterval:5];
     [request setHTTPMethod:@"POST"];
@@ -948,7 +948,7 @@
     NSURLResponse *response;
     NSData *localData = nil;
     
-    NSString *url = [NSString stringWithFormat:@"http://authie.me/api/block/%@", publicKey];
+    NSString *url = [NSString stringWithFormat:@"https://authie.me/api/block/%@", publicKey];
     NSLog(@"addBlock: %@", url);
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5];
@@ -1029,7 +1029,7 @@
     NSURLResponse *response;
     NSData *localData = nil;
     
-    NSString *url = @"http://authie.me/api/follower";
+    NSString *url = @"https://authie.me/api/follower";
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5];
     [request setHTTPMethod:@"GET"];
@@ -1101,9 +1101,9 @@
     NSString *url;
     
     if(isWire == NO) {
-        url = [NSString stringWithFormat:@"http://authie.me/api/thread/%i", self.currentPage];
+        url = [NSString stringWithFormat:@"https://authie.me/api/thread/%i", self.currentPage];
     } else {
-        url = @"http://authie.me/api/wire";
+        url = @"https://authie.me/api/wire";
     }
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5];
@@ -1273,7 +1273,7 @@
     NSURLResponse *response;
     NSData *localData = nil;
     
-    NSString *url = [NSString stringWithFormat:@"http://authie.me/api/threads/%@", publicKey];
+    NSString *url = [NSString stringWithFormat:@"https://authie.me/api/threads/%@", publicKey];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLCacheStorageAllowed timeoutInterval:5];
     [request setHTTPMethod:@"GET"];
@@ -1364,7 +1364,7 @@
     
     NSURLResponse *response;
     
-    NSString *url = [NSString stringWithFormat:@"http://authie.me/api/message/%@", key];
+    NSString *url = [NSString stringWithFormat:@"https://authie.me/api/message/%@", key];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5];
     [request setHTTPMethod:@"GET"];
@@ -1493,7 +1493,7 @@
     NSURLResponse *response;
     NSData *localData = nil;
     
-    NSString *url = [NSString stringWithFormat:@"http://authie.me/api/aes"];
+    NSString *url = [NSString stringWithFormat:@"https://authie.me/api/aes"];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5];
     [request setHTTPMethod:@"GET"];
@@ -1543,7 +1543,7 @@
     NSURLResponse *response;
     NSData *localData = nil;
     
-    NSString *url = [NSString stringWithFormat:@"http://authie.me/api/message"];
+    NSString *url = [NSString stringWithFormat:@"https://authie.me/api/message"];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5];
     [request setHTTPMethod:@"GET"];
@@ -1691,7 +1691,7 @@
     NSURLResponse *response;
     NSData *localData = nil;
     
-    NSString *url = @"http://authie.me/api/checkhandle";
+    NSString *url = @"https://authie.me/api/checkhandle";
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5];
     [request setHTTPMethod:@"POST"];
@@ -1751,7 +1751,7 @@
     NSURLResponse *response;
     NSData *localData = nil;
     
-    NSString *url = @"http://authie.me/api/handle";
+    NSString *url = @"https://authie.me/api/handle";
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLCacheStorageNotAllowed timeoutInterval:10];
     [request setHTTPMethod:@"POST"];
