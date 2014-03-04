@@ -106,8 +106,6 @@
 		5D2F714F18A56AEF00EDC1E4 /* LucidaTypewriter.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F714E18A5693E00EDC1E4 /* LucidaTypewriter.ttf */; };
 		5D2F715218A6A56000EDC1E4 /* add-v1-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F715018A6A56000EDC1E4 /* add-v1-white.png */; };
 		5D2F715318A6A56000EDC1E4 /* add-v1-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F715118A6A56000EDC1E4 /* add-v1-white@2x.png */; };
-		5D2F715518A864F200EDC1E4 /* authie-logo-v2-ocr-a.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F715418A864F200EDC1E4 /* authie-logo-v2-ocr-a.png */; };
-		5D2F715718A8698800EDC1E4 /* authie-logo-v3-ocr-a.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F715618A8698800EDC1E4 /* authie-logo-v3-ocr-a.png */; };
 		5D2F715918A873AE00EDC1E4 /* authie-logo-v4-ocr-a@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F715818A873AE00EDC1E4 /* authie-logo-v4-ocr-a@2x.png */; };
 		5D2F715B18A95FE200EDC1E4 /* authie-logo-v5-ocr-a@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F715A18A95FE200EDC1E4 /* authie-logo-v5-ocr-a@2x.png */; };
 		5D2F715F18A9844C00EDC1E4 /* WireViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F715D18A9844C00EDC1E4 /* WireViewController.m */; };
@@ -428,8 +426,6 @@
 		5D2F714E18A5693E00EDC1E4 /* LucidaTypewriter.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LucidaTypewriter.ttf; sourceTree = "<group>"; };
 		5D2F715018A6A56000EDC1E4 /* add-v1-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-v1-white.png"; sourceTree = "<group>"; };
 		5D2F715118A6A56000EDC1E4 /* add-v1-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-v1-white@2x.png"; sourceTree = "<group>"; };
-		5D2F715418A864F200EDC1E4 /* authie-logo-v2-ocr-a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "authie-logo-v2-ocr-a.png"; sourceTree = "<group>"; };
-		5D2F715618A8698800EDC1E4 /* authie-logo-v3-ocr-a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "authie-logo-v3-ocr-a.png"; sourceTree = "<group>"; };
 		5D2F715818A873AE00EDC1E4 /* authie-logo-v4-ocr-a@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "authie-logo-v4-ocr-a@2x.png"; sourceTree = "<group>"; };
 		5D2F715A18A95FE200EDC1E4 /* authie-logo-v5-ocr-a@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "authie-logo-v5-ocr-a@2x.png"; sourceTree = "<group>"; };
 		5D2F715C18A9844C00EDC1E4 /* WireViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WireViewController.h; sourceTree = "<group>"; };
@@ -1238,8 +1234,6 @@
 			children = (
 				5D2F728418B6961200EDC1E4 /* color files */,
 				5D2F714E18A5693E00EDC1E4 /* LucidaTypewriter.ttf */,
-				5D2F715418A864F200EDC1E4 /* authie-logo-v2-ocr-a.png */,
-				5D2F715618A8698800EDC1E4 /* authie-logo-v3-ocr-a.png */,
 				5D2F715818A873AE00EDC1E4 /* authie-logo-v4-ocr-a@2x.png */,
 				5D2F715A18A95FE200EDC1E4 /* authie-logo-v5-ocr-a@2x.png */,
 				5D2F71BB18AECCE100EDC1E4 /* color-v1.png */,
@@ -1517,7 +1511,6 @@
 				5D0DC37118980A8F00E8CA81 /* house-v2.png in Resources */,
 				5D2F71B718AEA7B900EDC1E4 /* font-v1.png in Resources */,
 				5D21CA1F188DAF6800330F78 /* down@2x.png in Resources */,
-				5D2F715718A8698800EDC1E4 /* authie-logo-v3-ocr-a.png in Resources */,
 				5D2F718018AD58C000EDC1E4 /* CameraViewController.xib in Resources */,
 				5DB549A5189585F700E03D9D /* home.png in Resources */,
 				5D6340BC188A187A006538C5 /* heart-blue-v2.png in Resources */,
@@ -1536,7 +1529,6 @@
 				5D2F729B18B69B7E00EDC1E4 /* green.png in Resources */,
 				5D2F729C18B69B7E00EDC1E4 /* red.png in Resources */,
 				5D2F712B18A30C2B00EDC1E4 /* about-v2.png in Resources */,
-				5D2F715518A864F200EDC1E4 /* authie-logo-v2-ocr-a.png in Resources */,
 				5D2F72A018B6A45700EDC1E4 /* orange.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
