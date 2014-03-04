@@ -150,7 +150,7 @@
     messagesItem.tag = 2;
     privateKeyItem.tag = 4;
  
-    self.menu = [[REMenu alloc] initWithItems:@[wireItem, homeItem, messagesItem, privateKeyItem]];
+    self.menu = [[REMenu alloc] initWithItems:@[wireItem, homeItem, privateKeyItem]];
     
     // Background view
     //

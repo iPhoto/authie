@@ -121,7 +121,6 @@
 		5D2F717018AC018900EDC1E4 /* house-v6-white-new-msg.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F716E18AC018900EDC1E4 /* house-v6-white-new-msg.png */; };
 		5D2F717118AC018900EDC1E4 /* house-v6-white-new-msg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F716F18AC018900EDC1E4 /* house-v6-white-new-msg@2x.png */; };
 		5D2F717318AC3EB400EDC1E4 /* USStateAbbreviations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F717218AC3EB400EDC1E4 /* USStateAbbreviations.plist */; };
-		5D2F717B18AC483B00EDC1E4 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2F717A18AC483B00EDC1E4 /* libTestFlight.a */; };
 		5D2F717F18AD58C000EDC1E4 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F717D18AD58C000EDC1E4 /* CameraViewController.m */; };
 		5D2F718018AD58C000EDC1E4 /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F717E18AD58C000EDC1E4 /* CameraViewController.xib */; };
 		5D2F71AA18AD8D0E00EDC1E4 /* RNCryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F719D18AD8D0E00EDC1E4 /* RNCryptor.m */; };
@@ -184,6 +183,7 @@
 		5D6340B81888B470006538C5 /* heart-v2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D6340B71888B470006538C5 /* heart-v2.png */; };
 		5D6340BA188A16DC006538C5 /* heart-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D6340B9188A16DC006538C5 /* heart-blue.png */; };
 		5D6340BC188A187A006538C5 /* heart-blue-v2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D6340BB188A187A006538C5 /* heart-blue-v2.png */; };
+		5D72291318C556A700B6CA8E /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D72290F18C556A700B6CA8E /* libTestFlight.a */; };
 		5D860798188C4D6600963653 /* RODMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D860797188C4D6600963653 /* RODMessage.m */; };
 		5D8C1CD7187E38E300158AE5 /* ThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C1CD5187E38E300158AE5 /* ThreadViewController.m */; };
 		5D8C1CD8187E38E300158AE5 /* ThreadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C1CD6187E38E300158AE5 /* ThreadViewController.xib */; };
@@ -445,10 +445,6 @@
 		5D2F716E18AC018900EDC1E4 /* house-v6-white-new-msg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "house-v6-white-new-msg.png"; sourceTree = "<group>"; };
 		5D2F716F18AC018900EDC1E4 /* house-v6-white-new-msg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "house-v6-white-new-msg@2x.png"; sourceTree = "<group>"; };
 		5D2F717218AC3EB400EDC1E4 /* USStateAbbreviations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = USStateAbbreviations.plist; sourceTree = "<group>"; };
-		5D2F717718AC482800EDC1E4 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
-		5D2F717818AC482800EDC1E4 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
-		5D2F717918AC482800EDC1E4 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
-		5D2F717A18AC483B00EDC1E4 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		5D2F717C18AD58C000EDC1E4 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 		5D2F717D18AD58C000EDC1E4 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		5D2F717E18AD58C000EDC1E4 /* CameraViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
@@ -547,6 +543,10 @@
 		5D6340B71888B470006538C5 /* heart-v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart-v2.png"; sourceTree = "<group>"; };
 		5D6340B9188A16DC006538C5 /* heart-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart-blue.png"; sourceTree = "<group>"; };
 		5D6340BB188A187A006538C5 /* heart-blue-v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart-blue-v2.png"; sourceTree = "<group>"; };
+		5D72290F18C556A700B6CA8E /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		5D72291018C556A700B6CA8E /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		5D72291118C556A700B6CA8E /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		5D72291218C556A700B6CA8E /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		5D860796188C4D6600963653 /* RODMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RODMessage.h; sourceTree = "<group>"; };
 		5D860797188C4D6600963653 /* RODMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RODMessage.m; sourceTree = "<group>"; };
 		5D8C1CD4187E38E300158AE5 /* ThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadViewController.h; sourceTree = "<group>"; };
@@ -632,7 +632,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D21CA0F188DAF6800330F78 /* libUAirship-3.0.2.a in Frameworks */,
-				5D2F717B18AC483B00EDC1E4 /* libTestFlight.a in Frameworks */,
+				5D72291318C556A700B6CA8E /* libTestFlight.a in Frameworks */,
 				5D21CA59188DB01A00330F78 /* CoreLocation.framework in Frameworks */,
 				5D21CA57188DB00F00330F78 /* CoreTelephony.framework in Frameworks */,
 				5D21CA55188DB00200330F78 /* libsqlite3.dylib in Frameworks */,
@@ -1304,10 +1304,10 @@
 				5DBBDBE718822C80004446DE /* README.md */,
 				5DBBDBE818822C80004446DE /* release_notes.md */,
 				5D2F717218AC3EB400EDC1E4 /* USStateAbbreviations.plist */,
-				5D2F717A18AC483B00EDC1E4 /* libTestFlight.a */,
-				5D2F717718AC482800EDC1E4 /* TestFlight.h */,
-				5D2F717818AC482800EDC1E4 /* TestFlight+AsyncLogging.h */,
-				5D2F717918AC482800EDC1E4 /* TestFlight+ManualSessions.h */,
+				5D72290F18C556A700B6CA8E /* libTestFlight.a */,
+				5D72291018C556A700B6CA8E /* TestFlight.h */,
+				5D72291118C556A700B6CA8E /* TestFlight+AsyncLogging.h */,
+				5D72291218C556A700B6CA8E /* TestFlight+ManualSessions.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
