@@ -33,7 +33,7 @@
     [super viewWillAppear:animated];
     
     // Do any additional setup after loading the view from its nib.
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://authie.me/appabout"]]];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://authie.me/appabout"]]];
 
     [self.navigationController setNavigationBarHidden:NO];
     
