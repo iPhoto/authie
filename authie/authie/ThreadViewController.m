@@ -146,7 +146,7 @@
     [[RODItemStore sharedStore].hubConnection disconnect];
     // connect to signalr for realtime
     // Connect to the service
-    [RODItemStore sharedStore].hubConnection = [SRHubConnection connectionWithURL:@"http://authie.me/"];
+    [RODItemStore sharedStore].hubConnection = [SRHubConnection connectionWithURL:@"https://authie.me/"];
     
     [RODItemStore sharedStore].hubConnection.delegate = [[RODItemStore sharedStore] self];
     

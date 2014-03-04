@@ -325,6 +325,9 @@
 
 - (void)sendChat:(NSString *)groupKey message:(NSString *)msg  toKey:(NSString *)toKey
 {
+    
+    NSLog(@"SendChat: groupKey=%@, toKey=%@, msg=%@", groupKey, toKey, msg);
+    
     // new shit
     [self.hubProxy invoke:@"Send" withArgs:[NSArray arrayWithObjects: [RODItemStore sharedStore].authie.handle.name, msg, groupKey, toKey, nil]];
     

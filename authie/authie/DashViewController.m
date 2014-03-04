@@ -299,12 +299,13 @@
                 what = [NSString stringWithFormat:@"sent direct to %@", thread.toHandleId];
             }
             
-            [mini.labelDate setText:[NSString stringWithFormat:@"snapped by %@, %@ %@", thread.fromHandle.name, what, [thread.startDate prettyDate]]];
+            [mini.labelDate setText:[NSString stringWithFormat:@"%@ %@ %@", thread.fromHandle.name, what, [thread.startDate prettyDate]]];
             
             [mini.heartsView setUserInteractionEnabled:YES];
             
-            UITapGestureRecognizer *tapHearts = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickedHeart:)];
-            [mini.heartsView addGestureRecognizer:tapHearts];
+            [mini.heartsVotingView setHidden:YES];
+            //UITapGestureRecognizer *tapHearts = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickedHeart:)];
+            //[mini.heartsView addGestureRecognizer:tapHearts];
 
             yOffset = yOffset + self.photoHeight;
 
@@ -314,12 +315,10 @@
 
         // only allow tapping on dash and direct posts
         UITapGestureRecognizer *tapView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedImageView:)];
-
-
-        [mini.heartsCount setText:[NSString stringWithFormat:@"%i", [thread.hearts intValue]]];
-        [mini.heartsVotingView setHidden:NO];
         
-        
+
+        [mini.heartsVotingView setHidden:YES];
+
         if([thread.toHandleId isEqualToString:@"dash"]) {
             // don't blur pls
             [mini.snapView addGestureRecognizer:tapView];
