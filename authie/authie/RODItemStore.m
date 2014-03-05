@@ -2040,6 +2040,7 @@
     msg.id = [NSNumber numberWithInt:-1];
     msg.sentDate = [NSDate date];
     msg.toKey = toKey;
+    msg.seen = [NSNumber numberWithInt:1];
     
     RODThread *t;
     for(int i = 0; i<[self.authie.all_Threads count]; i++) {
