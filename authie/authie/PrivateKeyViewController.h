@@ -11,5 +11,6 @@
 
 @interface PrivateKeyViewController : GAITrackedViewController
 @property (weak, nonatomic) IBOutlet UILabel *privateKey;
+- (IBAction)markRead:(id)sender;
 
 @end

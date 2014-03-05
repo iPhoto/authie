@@ -48,6 +48,19 @@
                     </attributedString>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="teC-Uc-6g7" customClass="BButton">
+                    <rect key="frame" x="78" y="230" width="111" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="111" id="Sn9-qh-iai"/>
+                    </constraints>
+                    <state key="normal" title="mark all as read">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="markRead:" destination="-1" eventType="touchUpInside" id="Jr2-fw-ObE"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <gestureRecognizers/>
@@ -58,8 +71,10 @@
                 <constraint firstAttribute="trailing" secondItem="miH-x3-9WO" secondAttribute="trailing" constant="20" id="6ss-rB-jE8"/>
                 <constraint firstItem="JWD-cW-vz3" firstAttribute="top" secondItem="6Mu-Ph-ztR" secondAttribute="top" constant="62" id="7Tm-CT-HCB"/>
                 <constraint firstItem="bRr-Ah-wdc" firstAttribute="top" secondItem="JWD-cW-vz3" secondAttribute="bottom" constant="-5" id="BBc-SN-QAl"/>
+                <constraint firstItem="teC-Uc-6g7" firstAttribute="top" secondItem="6Mu-Ph-ztR" secondAttribute="top" constant="230" id="IWz-iq-Gga"/>
                 <constraint firstItem="bRr-Ah-wdc" firstAttribute="centerX" secondItem="JWD-cW-vz3" secondAttribute="centerX" constant="-1" id="YXh-rv-LJz"/>
                 <constraint firstItem="JWD-cW-vz3" firstAttribute="leading" secondItem="6Mu-Ph-ztR" secondAttribute="leading" constant="20" id="gxw-XN-uCW"/>
+                <constraint firstAttribute="centerX" secondItem="teC-Uc-6g7" secondAttribute="centerX" id="r06-FP-flC"/>
                 <constraint firstItem="miH-x3-9WO" firstAttribute="leading" secondItem="6Mu-Ph-ztR" secondAttribute="leading" constant="20" id="rkx-7S-NOw"/>
                 <constraint firstItem="bRr-Ah-wdc" firstAttribute="top" secondItem="miH-x3-9WO" secondAttribute="bottom" constant="47" id="vvi-nG-6FS"/>
             </constraints>

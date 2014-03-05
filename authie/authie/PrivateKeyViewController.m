@@ -56,4 +56,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)markRead:(id)sender {
+    [[RODItemStore sharedStore] markRead];
+}
 @end

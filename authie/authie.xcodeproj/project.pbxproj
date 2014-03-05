@@ -182,6 +182,7 @@
 		5D6340BA188A16DC006538C5 /* heart-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D6340B9188A16DC006538C5 /* heart-blue.png */; };
 		5D6340BC188A187A006538C5 /* heart-blue-v2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D6340BB188A187A006538C5 /* heart-blue-v2.png */; };
 		5D72291318C556A700B6CA8E /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D72290F18C556A700B6CA8E /* libTestFlight.a */; };
+		5D72291518C65CD500B6CA8E /* newmsg-v1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D72291418C65CD500B6CA8E /* newmsg-v1.png */; };
 		5D860798188C4D6600963653 /* RODMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D860797188C4D6600963653 /* RODMessage.m */; };
 		5D8C1CD7187E38E300158AE5 /* ThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C1CD5187E38E300158AE5 /* ThreadViewController.m */; };
 		5D8C1CD8187E38E300158AE5 /* ThreadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C1CD6187E38E300158AE5 /* ThreadViewController.xib */; };
@@ -543,6 +544,7 @@
 		5D72291018C556A700B6CA8E /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		5D72291118C556A700B6CA8E /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
 		5D72291218C556A700B6CA8E /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		5D72291418C65CD500B6CA8E /* newmsg-v1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "newmsg-v1.png"; sourceTree = "<group>"; };
 		5D860796188C4D6600963653 /* RODMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RODMessage.h; sourceTree = "<group>"; };
 		5D860797188C4D6600963653 /* RODMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RODMessage.m; sourceTree = "<group>"; };
 		5D8C1CD4187E38E300158AE5 /* ThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadViewController.h; sourceTree = "<group>"; };
@@ -1232,6 +1234,7 @@
 		5DEE7C91185234E800F532B3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5D72291418C65CD500B6CA8E /* newmsg-v1.png */,
 				5D2F728418B6961200EDC1E4 /* color files */,
 				5D2F714E18A5693E00EDC1E4 /* LucidaTypewriter.ttf */,
 				5D2F715818A873AE00EDC1E4 /* authie-logo-v4-ocr-a@2x.png */,
@@ -1422,6 +1425,7 @@
 				5D2F729918B69B7E00EDC1E4 /* green-cyan.png in Resources */,
 				5D2F716918A9B04F00EDC1E4 /* BlankWireViewController.xib in Resources */,
 				5D2F714C18A443A200EDC1E4 /* heart-white-v1.png in Resources */,
+				5D72291518C65CD500B6CA8E /* newmsg-v1.png in Resources */,
 				5D2F71BC18AECCE100EDC1E4 /* color-v1.png in Resources */,
 				5D2F715918A873AE00EDC1E4 /* authie-logo-v4-ocr-a@2x.png in Resources */,
 				5D2F711E18A3054D00EDC1E4 /* about-v1.png in Resources */,

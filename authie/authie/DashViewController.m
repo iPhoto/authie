@@ -103,6 +103,7 @@
         self.doGetThreadsOnView = NO;
     }
     
+    [self populateScrollView];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -176,6 +177,9 @@
         
         dispatch_sync(dispatch_get_main_queue(), ^{
             // Update UI
+            // scroll to top
+            [self.scroll setContentOffset:CGPointZero animated:NO];
+                        
             [self populateScrollView];
             [progressView dismiss:YES];
             
@@ -218,6 +222,8 @@
 - (void)populateScrollView
 {
     
+    [self updateDashHeader];
+    
     MiniThreadViewController *mini;
     int yOffset = 0;
     
@@ -228,9 +234,6 @@
         // The device is an iPad running iOS 3.2 or later.
         self.photoHeight = 800;
     }
-
-    // scroll to top
-    [self.scroll setContentOffset:CGPointZero animated:NO];
     
     // remove the threads that were there before
     [[self.scroll subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
@@ -325,7 +328,8 @@
             
             // add all of the convos here
             for(NSString *name in thread.convos) {
-                [self addConvo:mini withName:name];
+                int unreadMessagesForThreadAndPerson = [[RODItemStore sharedStore] unreadMessagesFor:thread.groupKey handle:name];
+                [self addConvo:mini withName:name unreadMessages:unreadMessagesForThreadAndPerson];
             }
             
         } else if ([thread.toHandleId isEqualToString:@"the wire"]) {
@@ -355,7 +359,8 @@
             
             // add all of the convos here
             for(NSString *name in thread.convos) {
-                [self addConvo:mini withName:name];
+                int unreadMessagesForThreadAndPerson = [[RODItemStore sharedStore] unreadMessagesFor:thread.groupKey handle:name];
+                [self addConvo:mini withName:name unreadMessages:unreadMessagesForThreadAndPerson];
             }
             
         }
@@ -473,7 +478,7 @@
 }
 
 
-- (void)addConvo:(MiniThreadViewController *)mini withName:(NSString *)name
+- (void)addConvo:(MiniThreadViewController *)mini withName:(NSString *)name unreadMessages:(int)unreadMessages
 {
     
     int startX = 25;
@@ -487,6 +492,17 @@
     [myLabel setFont:mini.labelDate.font];
     [[mini view] addSubview:myLabel];
 
+    
+    if(unreadMessages > 0) {
+        
+        int moonStart = startX - 15 ;
+        UIImageView *moon = [[UIImageView alloc]initWithFrame:CGRectMake(moonStart, startY, 10, 40)];
+        [moon setImage:[UIImage imageNamed:@"newmsg-v1"]];
+        [moon setContentMode:UIViewContentModeScaleAspectFit];
+        [[mini view] addSubview:moon];
+        
+    }
+    
     mini.convos++;
     
 }

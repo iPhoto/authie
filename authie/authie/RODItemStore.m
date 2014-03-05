@@ -1008,6 +1008,39 @@
     NSLog(@"loadBlocks called.");
 }
 
+- (int)unreadMessagesFor:(NSString *)thread handle:(NSString *)contactHandle
+{
+
+    // time to count the unread messages...
+    NSArray *tempMessages = [NSArray arrayWithArray:[RODItemStore sharedStore].authie.allMessages];
+    NSArray *tempContacts = [NSArray arrayWithArray:[RODItemStore sharedStore].authie.allContacts];
+    
+    int unread = 0;
+    
+    NSString *contactPublicKey;
+    for(RODHandle *h in tempContacts) {
+        if([h.name isEqualToString:contactHandle]) {
+            contactPublicKey = h.publicKey;
+            break;
+        }
+    }
+    
+    for (RODMessage *m in tempMessages) {
+
+        if([m.thread.groupKey isEqualToString:thread] && [m.fromHandle.name isEqualToString:contactHandle] && [m.toKey isEqualToString:[RODItemStore sharedStore].authie.handle.publicKey]) {
+        
+            if([m.seen isEqualToNumber:[NSNumber numberWithInt:0]]) {
+                NSLog(@"Unread: %@", m.messageText);
+                unread++;
+            }
+            
+        }
+    }
+
+    return unread;
+    
+}
+
 - (int)unreadMessages
 {
     // time to count the unread messages...
@@ -1015,6 +1048,7 @@
     int unread = 0;
     for (RODMessage *m in tempMessages) {
         if([m.seen isEqualToNumber:[NSNumber numberWithInt:0]]) {
+            NSLog(@"Unread: %@", m.messageText);            
             unread++;
         }
     }
@@ -1023,6 +1057,16 @@
     
     return unread;
 }
+
+- (void)markRead
+{
+    // time to count the unread messages...
+    for (RODMessage *m in [RODItemStore sharedStore].authie.allMessages) {
+        m.seen = [NSNumber numberWithInt:1];
+    }
+    [[UAPush shared] setBadgeNumber:0];
+}
+
 
 - (BOOL)loadContacts
 {
@@ -1622,7 +1666,7 @@
                 message.thread = thread;
                 message.seen = [NSNumber numberWithInt:0];
   
-                //NSLog(@"Loaded message: '%@' from %@", message.messageText, message.fromHandle.name);
+                NSLog(@"Loaded message %@: '%@' from %@, to %@, seen: %@, date: %@", message.id, message.messageText, message.fromHandle.name, message.toKey, message.seen, message.sentDate);
                 
                 // now, efore we add it, we need to check to see if there
                 // is an existing message in the database, if so, we want to
