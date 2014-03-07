@@ -1588,7 +1588,7 @@
 {
     
     
-    Boolean newData = false;
+    Boolean newData = NO;
     NSError *error = nil;
     
     NSURLResponse *response;
@@ -1628,6 +1628,8 @@
             //[self.authie.allMessages removeAllObjects];
             
             for (NSDictionary *result in object) {
+                
+                Boolean foundNewThread = true;
                 
                 RODMessage *message = [[RODMessage alloc] init];
                 
@@ -1688,6 +1690,7 @@
                     if([r.thread.groupKey isEqualToString:groupKey]) {
                         if([r.id isEqualToNumber:[NSNumber numberWithInt:-1]]) {
                             [self.authie.allMessages removeObject:r];
+                            foundNewThread = false;
                             break;
                         }
                     }
@@ -1698,11 +1701,16 @@
                         message.seen = r.seen;
                         
                         [self.authie.allMessages removeObject:r];
+                        foundNewThread = false;
                         break;
                     }
                 }
 
                 //NSLog(@"Loaded message %@: '%@' from %@", message.id, message.messageText, message.fromHandle.name);
+                
+                if(foundNewThread == YES && newData == NO) {
+                    newData =  YES;
+                }
                 
                 [self.authie.allMessages addObject:message];
                 
@@ -1718,7 +1726,15 @@
         }
         
         if(completionHandler != nil) {
-            completionHandler(UIBackgroundFetchResultNewData);
+            
+            if(newData == YES) {
+                completionHandler(UIBackgroundFetchResultNewData);
+                NSLog(@"-- Result is NewData");
+            } else {
+                completionHandler(UIBackgroundFetchResultNoData);
+                NSLog(@"-- Result is NoData");
+            }
+            
         }
         
         //AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];

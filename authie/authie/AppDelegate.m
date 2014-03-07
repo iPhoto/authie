@@ -205,7 +205,8 @@
   performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
     
-    [[RODItemStore sharedStore] loadMessages:completionHandler];    
+    [[RODItemStore sharedStore] loadMessages:completionHandler];
+    [[RODItemStore sharedStore] unreadMessages];    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
