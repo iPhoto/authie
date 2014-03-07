@@ -28,6 +28,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 
+    [self setNeedsStatusBarAppearanceUpdate];
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -103,12 +109,19 @@
         }
     };
 
+    
+    [self.RODCamera setToggleCameraButton:_toggle];
+    [self.toggle addTarget:self.RODCamera action:@selector(toggleCamera:) forControlEvents:UIControlEventTouchUpInside];
+    
     // Connect the shoot button
     [self.RODCamera setShootButton:_shoot];
     [self.shoot addTarget:self.RODCamera
                      action:@selector(takePicture:)
            forControlEvents:UIControlEventTouchUpInside];
 
+    
+    [self.RODCamera setFlashButton:_flash];
+    
     [self.view addSubview:self.RODCamera];
     [self.view sendSubviewToBack:self.RODCamera];
     
@@ -161,4 +174,20 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)toggleFlash:(id)sender {
+
+    // We intentionally skip AVCaptureFlashModeAuto
+    if (self.RODCamera.currentFlashMode == AVCaptureFlashModeOff)
+    {
+        self.RODCamera.currentFlashMode = AVCaptureFlashModeOn;
+        //[self.flash setTitle:@"on" forState:UIControlStateNormal];
+    }
+    else
+    {
+        //[self.flash setTitle:@"off" forState:UIControlStateNormal];
+        self.RODCamera.currentFlashMode = AVCaptureFlashModeOff;
+    }
+
+    
+}
 @end

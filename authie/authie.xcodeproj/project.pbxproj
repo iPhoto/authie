@@ -201,6 +201,10 @@
 		5D8FEB6B18CA4216007DA8BF /* RODCameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8FEB6918CA4216007DA8BF /* RODCameraViewController.xib */; };
 		5D8FEB6D18CA4C7C007DA8BF /* circle4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8FEB6C18CA4C7C007DA8BF /* circle4.png */; };
 		5D8FEB6F18CA5676007DA8BF /* camera-open-v2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8FEB6E18CA5676007DA8BF /* camera-open-v2.png */; };
+		5D8FEB7218CA6711007DA8BF /* camera_switch.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8FEB7018CA6711007DA8BF /* camera_switch.png */; };
+		5D8FEB7318CA6711007DA8BF /* camera_switch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8FEB7118CA6711007DA8BF /* camera_switch@2x.png */; };
+		5D8FEB7618CA688D007DA8BF /* camera_flash.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8FEB7418CA688D007DA8BF /* camera_flash.png */; };
+		5D8FEB7718CA688D007DA8BF /* camera_flash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8FEB7518CA688D007DA8BF /* camera_flash@2x.png */; };
 		5D95C2E3189EC2EE00C8155D /* PagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D95C2E1189EC2EE00C8155D /* PagerViewController.m */; };
 		5D95C2E4189EC2EE00C8155D /* PagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D95C2E2189EC2EE00C8155D /* PagerViewController.xib */; };
 		5D95C2E7189F048A00C8155D /* ContactItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D95C2E6189F048A00C8155D /* ContactItemCell.m */; };
@@ -575,6 +579,10 @@
 		5D8FEB6918CA4216007DA8BF /* RODCameraViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RODCameraViewController.xib; sourceTree = "<group>"; };
 		5D8FEB6C18CA4C7C007DA8BF /* circle4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle4.png; sourceTree = "<group>"; };
 		5D8FEB6E18CA5676007DA8BF /* camera-open-v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-open-v2.png"; sourceTree = "<group>"; };
+		5D8FEB7018CA6711007DA8BF /* camera_switch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera_switch.png; sourceTree = "<group>"; };
+		5D8FEB7118CA6711007DA8BF /* camera_switch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera_switch@2x.png"; sourceTree = "<group>"; };
+		5D8FEB7418CA688D007DA8BF /* camera_flash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera_flash.png; sourceTree = "<group>"; };
+		5D8FEB7518CA688D007DA8BF /* camera_flash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera_flash@2x.png"; sourceTree = "<group>"; };
 		5D95C2E0189EC2EE00C8155D /* PagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagerViewController.h; sourceTree = "<group>"; };
 		5D95C2E1189EC2EE00C8155D /* PagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagerViewController.m; sourceTree = "<group>"; };
 		5D95C2E2189EC2EE00C8155D /* PagerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PagerViewController.xib; sourceTree = "<group>"; };
@@ -1261,6 +1269,10 @@
 				5D21C97B188DAF6800330F78 /* Airship */,
 				5D06B984187B0D4E00FC17F0 /* cog.png */,
 				5D2F727918AFE1DE00EDC1E4 /* cog-v1-white.png */,
+				5D8FEB7018CA6711007DA8BF /* camera_switch.png */,
+				5D8FEB7118CA6711007DA8BF /* camera_switch@2x.png */,
+				5D8FEB7418CA688D007DA8BF /* camera_flash.png */,
+				5D8FEB7518CA688D007DA8BF /* camera_flash@2x.png */,
 				5D2F728018B5596400EDC1E4 /* add-person-v1.png */,
 				5D2F728118B5596400EDC1E4 /* add-person-v1@2x.png */,
 				5D5A072E18848A7C003848EA /* lock.png */,
@@ -1478,6 +1490,7 @@
 				5D21CA41188DAF6800330F78 /* UAPushSettingsAddTagViewController.xib in Resources */,
 				5D8FEB6F18CA5676007DA8BF /* camera-open-v2.png in Resources */,
 				5D2F715B18A95FE200EDC1E4 /* authie-logo-v5-ocr-a@2x.png in Resources */,
+				5D8FEB7218CA6711007DA8BF /* camera_switch.png in Resources */,
 				5D2F714F18A56AEF00EDC1E4 /* LucidaTypewriter.ttf in Resources */,
 				5D2F729618B69B7E00EDC1E4 /* black.png in Resources */,
 				5D21CA3E188DAF6800330F78 /* UAMapPresentationViewController.xib in Resources */,
@@ -1514,6 +1527,7 @@
 				5D2F717118AC018900EDC1E4 /* house-v6-white-new-msg@2x.png in Resources */,
 				5D2F716318A9A0F400EDC1E4 /* eye-white-v1.png in Resources */,
 				5D6340B81888B470006538C5 /* heart-v2.png in Resources */,
+				5D8FEB7618CA688D007DA8BF /* camera_flash.png in Resources */,
 				5D21CA45188DAF6800330F78 /* UAPushSettingsTokenView.xib in Resources */,
 				5D21CA4B188DAF7500330F78 /* LICENSE in Resources */,
 				5D21CA1E188DAF6800330F78 /* down.png in Resources */,
@@ -1524,6 +1538,7 @@
 				5D2F71B818AEA7B900EDC1E4 /* font-v1@2x.png in Resources */,
 				5D8C1CDD187F3EC000158AE5 /* cog-black.png in Resources */,
 				5D21CA21188DAF6800330F78 /* overlayCloseBtn@2x.png in Resources */,
+				5D8FEB7718CA688D007DA8BF /* camera_flash@2x.png in Resources */,
 				5D2F729718B69B7E00EDC1E4 /* blue.png in Resources */,
 				5D21CA40188DAF6800330F78 /* UAPushMoreSettingsView.xib in Resources */,
 				5D2F713618A32C2A00EDC1E4 /* about-v3-white@2x.png in Resources */,
@@ -1536,6 +1551,7 @@
 				5DB549A5189585F700E03D9D /* home.png in Resources */,
 				5D6340BC188A187A006538C5 /* heart-blue-v2.png in Resources */,
 				5D2F727A18AFE1DE00EDC1E4 /* cog-v1-white.png in Resources */,
+				5D8FEB7318CA6711007DA8BF /* camera_switch@2x.png in Resources */,
 				5D5A072F18848A7C003848EA /* lock.png in Resources */,
 				5DEE7C95185234E800F532B3 /* InfoPlist.strings in Resources */,
 				5D2F716C18AADDB400EDC1E4 /* heart-green-filled-v1.png in Resources */,

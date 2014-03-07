@@ -15,9 +15,12 @@
 @property (strong, nonatomic) RODHandle *selected;
 @property (strong, nonatomic) IBOutlet NBUCameraView *RODCamera;
 @property (weak, nonatomic) IBOutlet UIButton *shoot;
+@property (weak, nonatomic) IBOutlet UIButton *toggle;
+@property (weak, nonatomic) IBOutlet UIButton *flash;
 
 
 @property (weak, nonatomic) UIImage *snap;
+- (IBAction)toggleFlash:(id)sender;
 
 
 @end
