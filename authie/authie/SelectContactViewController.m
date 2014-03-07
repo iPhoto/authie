@@ -350,6 +350,9 @@
     [cvc.RODCamera setFrame:self.navigationController.view.window.frame];
     [cvc.view setFrame:self.navigationController.view.window.frame];
     [cvc.view layoutSubviews];
+
+    cvc.selected = self.selected;
+
     [self.navigationController pushViewController:cvc animated:YES];
     
     return;

@@ -8,8 +8,11 @@
 
 #import "RODCameraViewController.h"
 #import <NBUImagePicker/NBUCameraView.h>
+#import "ConfirmSnapViewController.h"
+#import "RODHandle.h"
 
 @implementation RODCameraViewController
+@synthesize snap, selected;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -74,6 +77,20 @@
     {
         // *** Do something with the image and its URL ***
         NSLog(@"Save results.");
+
+        //NSLog(@"Picker finished with media info: %@", mediaInfos);
+        [self confirmSnap:image];
+        image = nil;
+        //if(mediaInfos == nil) {
+        //    [self.navigationController popViewControllerAnimated:YES];
+        //    return;
+        //}
+        
+        //NBUMediaInfo *m = mediaInfos[0];
+        
+        //[self dismissViewControllerAnimated:NO completion:nil];
+        
+        
     };
     
     
@@ -95,6 +112,34 @@
     [self.view addSubview:self.RODCamera];
     [self.view sendSubviewToBack:self.RODCamera];
     
+}
+
+-(void)confirmSnap:(UIImage *)sentSnap
+{
+    //UIImage *image = m.editedImage;
+    CFUUIDRef newUniqueID = CFUUIDCreate(kCFAllocatorDefault);
+    CFStringRef newUniqueIDString = CFUUIDCreateString(kCFAllocatorDefault, newUniqueID);
+    
+    NSString *key = (__bridge NSString *)newUniqueIDString;
+    
+    CFRelease(newUniqueIDString);
+    CFRelease(newUniqueID);
+    
+    // now push to confirm snap
+    
+    ConfirmSnapViewController *confirm = [[ConfirmSnapViewController alloc] init];
+    confirm.snap = sentSnap;
+    confirm.key = key;
+    confirm.handle = self.selected;
+    
+    [self.navigationController dismissViewControllerAnimated:NO completion:nil];
+    
+    NSLog(@"Snap going to self.selected.id: %@", self.selected.id);
+    
+    // old
+    [self.navigationController pushViewController:confirm animated:YES];
+    
+   
 }
 
 - (void)viewWillAppear:(BOOL)animated
