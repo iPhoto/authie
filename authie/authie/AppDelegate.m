@@ -160,7 +160,10 @@
     
     [[UAPush shared] setAutobadgeEnabled:YES];
     [[UAPush shared] resetBadge];//zero badge
-        
+    
+
+    // setting up background fetching
+    [application setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
     
     // Override point for customization after application launch.
     return YES;
@@ -196,6 +199,13 @@
     [[RODItemStore sharedStore] loadThreads:false];
     
     
+}
+
+- (void)                application:(UIApplication *)application
+  performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+{
+    
+    [[RODItemStore sharedStore] loadMessages:completionHandler];    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

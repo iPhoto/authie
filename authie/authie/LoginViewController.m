@@ -81,7 +81,7 @@
             if([RODItemStore sharedStore].authie.registered == 1) {
                 [[RODItemStore sharedStore] loadThreads:false];
                 [[RODItemStore sharedStore] loadContacts];
-                [[RODItemStore sharedStore] loadMessages];
+                [[RODItemStore sharedStore] loadMessages:nil];
                 
                 AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
                 [appDelegate.dashViewController setDoGetThreadsOnView:YES];

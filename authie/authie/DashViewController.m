@@ -173,7 +173,7 @@
         // Perform async operation
 
         [[RODItemStore sharedStore] loadThreads:false];
-        [[RODItemStore sharedStore] loadMessages];
+        [[RODItemStore sharedStore] loadMessages:nil];
         
         dispatch_sync(dispatch_get_main_queue(), ^{
             // Update UI
@@ -201,7 +201,7 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         [[RODItemStore sharedStore] loadThreads:false];
-        [[RODItemStore sharedStore] loadMessages];
+        [[RODItemStore sharedStore] loadMessages:nil];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             

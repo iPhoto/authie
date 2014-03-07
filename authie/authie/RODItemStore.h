@@ -52,7 +52,7 @@
 - (void)addChat:(NSString *)user message:(NSString *)message groupKey:(NSString *)groupKey toKey:(NSString *)toKey;
 - (void)addBlock:(NSString *)publicKey;
 - (void)loadBlocks;
-- (void)loadMessages;
+- (void)loadMessages:(void (^)(UIBackgroundFetchResult))completionHandler;
 - (void)loadMessagesForThread:(NSString *)key;
 - (BOOL)loadThreads:(bool)isWire;
 - (BOOL)loadContacts;

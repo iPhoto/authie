@@ -549,7 +549,7 @@
                 
                 is_logged_in = YES;
                 [self loadContacts];
-                [self loadMessages];
+                [self loadMessages:nil];
                 [self loadThreads:false];
 
             }
@@ -1584,9 +1584,11 @@
 
 }
 
-- (void)loadMessages
+- (void)loadMessages:(void (^)(UIBackgroundFetchResult))completionHandler
 {
     
+    
+    Boolean newData = false;
     NSError *error = nil;
     
     NSURLResponse *response;
@@ -1608,6 +1610,11 @@
             // bail out...
             AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
             [MRProgressOverlayView dismissAllOverlaysForView:appDelegate.dashViewController.view animated:YES];
+            
+            
+            if(completionHandler != nil) {
+                completionHandler(UIBackgroundFetchResultFailed);
+            }
             
             return;
         }
@@ -1703,8 +1710,16 @@
             
         } else {
             NSLog(@"loadMessages error: %@", object);
+            
+            if(completionHandler != nil) {
+                completionHandler(UIBackgroundFetchResultFailed);
+            }
+
         }
         
+        if(completionHandler != nil) {
+            completionHandler(UIBackgroundFetchResultNewData);
+        }
         
         //AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         //[appDelegate.threadViewController reloadThread];
