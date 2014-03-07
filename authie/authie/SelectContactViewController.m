@@ -17,9 +17,11 @@
 #import "ContactItemCell.h"
 #import <NBUImagePicker/NBUImagePickerController.h>
 #import <NBUImagePicker/NBUMediaInfo.h>
+#import <NBUImagePicker/NBUCameraViewController.h>
+#import "RODCameraViewController.h"
 
 @implementation SelectContactViewController
-@synthesize imagePicker, contactsTable, editingContacts;
+@synthesize imagePicker, contactsTable, editingContacts, cameraView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -319,6 +321,8 @@
     
     [self.cameraView setSavePicturesToLibrary:YES];
     
+    
+    
     // Configure for video
     //self.cameraView.targetMovieFolder = [UIApplication sharedApplication].temporaryDirectory;
         
@@ -329,11 +333,28 @@
                                         NSError * error)
     {
         // *** Do something with the image and its URL ***
+        NSLog(@"Save results.");
     };
 
 
-
-    [NBUImagePickerController startPickerWithTarget:self.view
+    self.cameraView.captureResultBlock = ^(UIImage * image,
+                                           NSError * error)
+    {
+        if (!error)
+        {
+            NSLog(@"CaptureResultBlock.");
+        }
+    };
+    
+    RODCameraViewController *cvc = [[RODCameraViewController alloc] init];
+    [cvc.RODCamera setFrame:self.navigationController.view.window.frame];
+    [cvc.view setFrame:self.navigationController.view.window.frame];
+    [cvc.view layoutSubviews];
+    [self.navigationController pushViewController:cvc animated:YES];
+    
+    return;
+    
+    [NBUImagePickerController startPickerWithTarget:self
                                             options:(NBUImagePickerOptionReturnMediaInfo |    NBUImagePickerOptionDisableConfirmation |
                                                      NBUImagePickerOptionSingleImage |
                                                      NBUImagePickerOptionDisableFilters |
@@ -345,8 +366,6 @@
          NSLog(@"Picker finished with media info: %@", mediaInfos);
          
          if(mediaInfos == nil) {
-             
-             AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
              
              [self.navigationController popViewControllerAnimated:YES];
              
