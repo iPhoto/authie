@@ -35,10 +35,11 @@
                     <rect key="frame" x="0.0" y="0.0" width="207" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 hours ago" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="189" translatesAutoresizingMaskIntoConstraints="NO" id="5zd-Wj-qXb" userLabel="ago">
-                            <rect key="frame" x="8" y="0.0" width="189" height="40"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 hours ago" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="110" translatesAutoresizingMaskIntoConstraints="NO" id="5zd-Wj-qXb" userLabel="ago">
+                            <rect key="frame" x="87" y="0.0" width="110" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
+                                <constraint firstAttribute="width" constant="110" id="8cV-NX-OPO"/>
                                 <constraint firstAttribute="height" constant="40" id="J9j-kW-VZ4"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
@@ -51,9 +52,8 @@
                     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="5zd-Wj-qXb" firstAttribute="top" secondItem="Mnj-jO-Rbq" secondAttribute="top" id="71t-D4-vkJ"/>
-                        <constraint firstItem="5zd-Wj-qXb" firstAttribute="leading" secondItem="Mnj-jO-Rbq" secondAttribute="leading" constant="8" id="72u-T3-t0m"/>
                         <constraint firstAttribute="height" constant="40" id="8Sm-pq-RMf"/>
-                        <constraint firstAttribute="trailing" secondItem="5zd-Wj-qXb" secondAttribute="trailing" constant="10" id="YUJ-pZ-cZZ"/>
+                        <constraint firstAttribute="trailing" secondItem="5zd-Wj-qXb" secondAttribute="trailing" constant="10" id="uNq-yr-h9f"/>
                     </constraints>
                 </view>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Bro Rises" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="10" preferredMaxLayoutWidth="167" translatesAutoresizingMaskIntoConstraints="NO" id="aJu-qE-Pni" userLabel="caption" customClass="FBGlowLabel">

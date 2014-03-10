@@ -1,22 +1,23 @@
 PODS:
-  - AFNetworking (2.1.0):
+  - AFNetworking (2.2.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
     - AFNetworking/UIKit
-  - AFNetworking/NSURLConnection (2.1.0):
+  - AFNetworking/NSURLConnection (2.2.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.1.0):
+  - AFNetworking/NSURLSession (2.2.0):
     - AFNetworking/NSURLConnection
-  - AFNetworking/Reachability (2.1.0)
-  - AFNetworking/Security (2.1.0)
-  - AFNetworking/Serialization (2.1.0)
-  - AFNetworking/UIKit (2.1.0):
+  - AFNetworking/Reachability (2.2.0)
+  - AFNetworking/Security (2.2.0)
+  - AFNetworking/Serialization (2.2.0)
+  - AFNetworking/UIKit (2.2.0):
     - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
   - BButton (3.2.3)
   - CXAlertView (1.0.1)
   - FBGlowLabel (0.0.1)
@@ -72,36 +73,36 @@ PODS:
     - NBUKit (>= 2.0.1)
   - NBUImagePicker/Resources (1.0.0):
     - NBUKit (>= 2.0.1)
-  - NBUKit (2.0.1):
+  - NBUKit (2.1.0):
     - Lockbox (>= 1.4.6)
     - NBUCore (>= 2.0.0)
     - NBUKit/Additions
     - NBUKit/Base
     - NBUKit/Library
     - NBUKit/UI
-  - NBUKit/Additions (2.0.1):
+  - NBUKit/Additions (2.1.0):
     - Lockbox (>= 1.4.6)
     - NBUCore (>= 2.0.0)
     - NBUKit/Base
-  - NBUKit/Base (2.0.1):
+  - NBUKit/Base (2.1.0):
     - Lockbox (>= 1.4.6)
     - NBUCore (>= 2.0.0)
-  - NBUKit/Library (2.0.1):
+  - NBUKit/Library (2.1.0):
     - Lockbox (>= 1.4.6)
     - NBUCore (>= 2.0.0)
     - NBUKit/Base
     - NBUKit/Library/NBUCompatibility
     - NBUKit/Library/RestKit Support
-  - NBUKit/Library/NBUCompatibility (2.0.1):
+  - NBUKit/Library/NBUCompatibility (2.1.0):
     - Lockbox (>= 1.4.6)
     - NBUCore (>= 2.0.0)
     - NBUKit/Base
     - NBUKit/UI
-  - NBUKit/Library/RestKit Support (2.0.1):
+  - NBUKit/Library/RestKit Support (2.1.0):
     - Lockbox (>= 1.4.6)
     - NBUCore (>= 2.0.0)
     - NBUKit/Base
-  - NBUKit/UI (2.0.1):
+  - NBUKit/UI (2.1.0):
     - Lockbox (>= 1.4.6)
     - MotionOrientation@PTEz (>= 1.0.0)
     - NBUCore (>= 2.0.0)
@@ -135,7 +136,7 @@ EXTERNAL SOURCES:
     :git: https://github.com/lyokato/FBGlowLabel.git
 
 SPEC CHECKSUMS:
-  AFNetworking: c7d7901a83f631414c7eda1737261f696101a5cd
+  AFNetworking: e8cfd8f3fe3bfe19124a0cc63f4d45752d892a56
   BButton: b405745cd7ccc9444c696b8690fb79541623766a
   CXAlertView: 59e8305700c59a27730c636765cb76311d311b88
   FBGlowLabel: c6b4d3f4d2117071be5f453e25f9bc5a67935b2d
@@ -149,7 +150,7 @@ SPEC CHECKSUMS:
   MRProgress: 51af562344c3fe38ce3c0617fd064f6f1ce55cd5
   NBUCore: 66e33f9426cbefb5ca88f3228cfc2dd36eac6e71
   NBUImagePicker: 9e16842451e59f9b3ba887a69c8b87154513c1c8
-  NBUKit: 79753017e76910f5b100910307aa06132ee38130
+  NBUKit: e13f4ef5921e3fe8b4a5282f994c81b17df9a84e
   RBVolumeButtons: 8fc67cc874d6dfa1808f61c91e9931ccabe52ae0
   REMenu: 40bb965c968b298c3f36d36067a15dd3f2c52473
   SignalR-ObjC: 5790e7749e29e4e0ed67e0986893de54a35a5a5c

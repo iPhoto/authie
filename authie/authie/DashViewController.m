@@ -302,7 +302,8 @@
                 what = [NSString stringWithFormat:@"sent direct to %@", thread.toHandleId];
             }
             
-            [mini.labelDate setText:[NSString stringWithFormat:@"%@ %@ %@", thread.fromHandle.name, what, [thread.startDate prettyDate]]];
+            //[mini.labelDate setText:[NSString stringWithFormat:@"%@ %@ %@", thread.fromHandle.name, what, [thread.startDate prettyDate]]];
+            [mini.labelDate setText:[thread.startDate prettyDate]];
             
             [mini.heartsView setUserInteractionEnabled:YES];
             
@@ -481,8 +482,8 @@
 - (void)addConvo:(MiniThreadViewController *)mini withName:(NSString *)name unreadMessages:(int)unreadMessages
 {
     
-    int startX = 25;
-    int startY = mini.view.frame.size.height - ((mini.convos * 40) + 50);
+    int startX = 10;
+    int startY = ((mini.convos * 40) + 0);
     
     // Create Label
     UILabel *myLabel = [[UILabel alloc]initWithFrame:CGRectMake(startX, startY, 200, 40)];
