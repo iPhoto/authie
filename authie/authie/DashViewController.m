@@ -94,14 +94,15 @@
     
     if(self.doUploadOnView) {
         [self doUpload];
+    } else {
+
+        if(self.doGetThreadsOnView) {
+            [self getThreads];
+            self.doGetThreadsOnView = NO;
+        }
+        
     }
 
-    if(self.doGetThreadsOnView) {
-        
-        
-        [self getThreads];
-        self.doGetThreadsOnView = NO;
-    }
     
     [self populateScrollView];
 }
@@ -153,6 +154,8 @@
 {
     
     MRProgressOverlayView *progressView = [MRProgressOverlayView new];
+    progressView.backgroundColor = [UIColor whiteColor];
+    progressView.opaque = NO;
     progressView.titleLabelText = @"syncing threads";
     progressView.titleLabel.font = [UIFont systemFontOfSize:10];
     
@@ -321,6 +324,8 @@
         UITapGestureRecognizer *tapView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedImageView:)];
         
 
+        mini.labelDate.font = [UIFont fontWithName:@"LucidaTypewriter" size:10.0f];
+        
         [mini.heartsVotingView setHidden:YES];
 
         if([thread.toHandleId isEqualToString:@"dash"]) {
@@ -482,22 +487,24 @@
 - (void)addConvo:(MiniThreadViewController *)mini withName:(NSString *)name unreadMessages:(int)unreadMessages
 {
     
-    int startX = 10;
-    int startY = ((mini.convos * 40) + 0);
+    int startX = 20;
+    int startY = ((mini.convos * 30) + 3);
     
     // Create Label
-    UILabel *myLabel = [[UILabel alloc]initWithFrame:CGRectMake(startX, startY, 200, 40)];
+    UILabel *myLabel = [[UILabel alloc]initWithFrame:CGRectMake(startX, startY, 200, 30)];
     [myLabel setBackgroundColor:[UIColor clearColor]];
     [myLabel setTextColor:[UIColor whiteColor]];
     [myLabel setText:name];
     [myLabel setFont:mini.labelDate.font];
     [[mini view] addSubview:myLabel];
-
+    myLabel.font = [UIFont fontWithName:@"LucidaTypewriter" size:10.0f];
+    myLabel.shadowColor = [UIColor blackColor];
+    myLabel.shadowOffset = CGSizeMake(0, -1);
     
     if(unreadMessages > 0) {
         
         int moonStart = startX - 15 ;
-        UIImageView *moon = [[UIImageView alloc]initWithFrame:CGRectMake(moonStart, startY, 10, 40)];
+        UIImageView *moon = [[UIImageView alloc]initWithFrame:CGRectMake(moonStart, startY, 10, 30)];
         [moon setImage:[UIImage imageNamed:@"newmsg-v1"]];
         [moon setContentMode:UIViewContentModeScaleAspectFit];
         [[mini view] addSubview:moon];
@@ -610,10 +617,16 @@
     }
     
     // Block whole window
+    
     MRProgressOverlayView *progressView = [MRProgressOverlayView new];
-    [progressView setTitleLabelText:@""];
-    [self.view addSubview:progressView];
+    progressView.backgroundColor = [UIColor whiteColor];
+    progressView.opaque = NO;
+    progressView.titleLabelText = @"";
+    
+    [self.view.window addSubview:progressView];
+    
     [progressView show:YES];
+
     
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
     dispatch_async(queue, ^{
@@ -651,7 +664,7 @@
                     // if there are 1 convos, it's automatically with that first person
                     
                     if([thread.convos count] == 0) {
-                        
+                        NSLog(@"-- thread.convos.count was equal to 0");
                         
                         // from us
                         appDelegate.threadViewController.toHandle = [RODItemStore sharedStore].authie.handle;
@@ -774,6 +787,8 @@
     // Block whole window
     
     MRProgressOverlayView *progressView = [MRProgressOverlayView new];
+    progressView.backgroundColor = [UIColor whiteColor];
+    progressView.opaque = NO;
     progressView.titleLabelText = @"uploading, pls chill a moment";
     progressView.titleLabel.font = [UIFont systemFontOfSize:10];
     
@@ -813,8 +828,8 @@
             // Update UI
             [[RODItemStore sharedStore] sendNotes:self.keyToUpload];
             [self resetUploadVariables];
-            [[RODItemStore sharedStore] loadThreads:false];
             [progressView dismiss:YES];
+            [self populateScrollView];
             
         });
     });

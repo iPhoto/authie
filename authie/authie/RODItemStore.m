@@ -800,8 +800,6 @@
                 start_convo_success = YES;
                 
                 [self uploadSnap:key];
-                //[self loadThreads];
-                
                 
             }
             
@@ -1246,8 +1244,13 @@
                 NSString *location_result = [result objectForKey:@"location"];
                 thready.location = location_result;
                 
-                Boolean uploadSuccessful = (Boolean)[result objectForKey:@"uploadSuccess"];
-                thready.successfulUpload = uploadSuccessful;
+                NSInteger uploadSuccessful = [[result objectForKey:@"uploadSuccess"] integerValue];
+                
+                if(uploadSuccessful == 0) {
+                    thready.successfulUpload = NO;
+                } else {
+                    thready.successfulUpload = YES;
+                }
                 
                 NSInteger hearts = [[result objectForKey:@"hearts"] integerValue];
                 NSInteger authorizeRequest = [[result objectForKey:@"authorizeRequest"] integerValue];
@@ -1286,7 +1289,16 @@
                     }
                 }
                 
-                NSLog(@"added thread from %@ to %@, %@, %@<3", thready.fromHandleId, thready.toHandleId, thready.groupKey, thready.hearts);
+                NSString *upload = @"";
+                if(thready.successfulUpload == NO && [thready.fromHandle.publicKey isEqualToString:[RODItemStore sharedStore].authie.handle.publicKey]) {
+                    
+                    // if we're in this situation,
+                    // there's a snap that failed to up load
+                    [self uploadSnap:thready.groupKey];
+
+                }
+                
+                NSLog(@"added thread from %@ to %@, %@, %@", thready.fromHandleId, thready.toHandleId, thready.groupKey, upload);
 
                 if(isWire ==  YES) {
                     [self.wireThreads addObject:thready];
@@ -1404,7 +1416,6 @@
 
 - (void)loadMessagesForThread:(NSString *)key;
 {
-    NSLog(@"loadMessagesForThread: %@", key);
     
     if(key == nil) {
         NSLog(@"loadMessagesForThread tried to load a null key.");
@@ -1691,6 +1702,9 @@
                         if([r.id isEqualToNumber:[NSNumber numberWithInt:-1]]) {
                             [self.authie.allMessages removeObject:r];
                             foundNewThread = false;
+                            
+                            message.seen = [NSNumber numberWithInt:1];
+                            
                             break;
                         }
                     }
