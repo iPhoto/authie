@@ -33,13 +33,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-        UINavigationController *znavigationController = [splitViewController.viewControllers lastObject];
-        splitViewController.delegate = (id)znavigationController.topViewController;
-    }
-    
-        
+            
     // test flighty
     [TestFlight takeOff:@"e0b1dd9c-b710-4223-8aa8-b68350a2da33"];
 
@@ -121,6 +115,7 @@
     
     
     NavigationController *navController = [[NavigationController alloc] initWithRootViewController:dashViewController];
+    
     [navController.navigationBar setBackgroundColor:[UIColor blackColor]];
     [navController.navigationBar setTintColor:[UIColor blackColor]];
     

@@ -39,7 +39,9 @@
         [self.navigationBar performSelector:@selector(setBarTintColor:) withObject:[UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:1]];
         self.navigationBar.tintColor = [UIColor whiteColor];
     } else {
-        self.navigationBar.tintColor = [UIColor colorWithRed:0 green:196/255.0 blue:147/255.0 alpha:1];
+        self.navigationBar.tintColor = [UIColor whiteColor];
+        self.navigationBar.backgroundColor = [UIColor blackColor];
+        self.navigationBar.barTintColor = [UIColor blackColor];
     }
         
     __typeof (self) __weak weakSelf = self;
@@ -154,12 +156,12 @@
     
     // Background view
     //
-    //self.menu.backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
-    //self.menu.backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    //self.menu.backgroundView.backgroundColor = [UIColor colorWithWhite:0.000 alpha:0.600];
-
-    //self.menu.backgroundColor = [UIColor colorWithWhite:0.8 alpha:1.0];
-    
+//    self.menu.backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
+//    self.menu.backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+//    self.menu.backgroundView.backgroundColor = [UIColor blackColor];
+//
+//    self.menu.backgroundColor = [UIColor blackColor];
+//    
     //self.menu.imageAlignment = REMenuImageAlignmentRight;
     //self.menu.closeOnSelection = NO;
     //self.menu.appearsBehindNavigationBar = NO; // Affects only iOS 7
