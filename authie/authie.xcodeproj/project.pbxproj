@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D04A27118CE9C7900B1789D /* Changelog.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5D04A26818CE9C7900B1789D /* Changelog.txt */; };
+		5D04A27218CE9C7900B1789D /* Readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5D04A27018CE9C7900B1789D /* Readme.txt */; };
+		5D04A27418CE9DAC00B1789D /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D04A27318CE9DAC00B1789D /* libGoogleAnalyticsServices.a */; };
 		5D06B982187B0C1F00FC17F0 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D06B980187B0C1F00FC17F0 /* MenuViewController.m */; };
 		5D06B985187B0D4E00FC17F0 /* cog.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D06B984187B0D4E00FC17F0 /* cog.png */; };
 		5D0DC37118980A8F00E8CA81 /* house-v2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0DC37018980A8F00E8CA81 /* house-v2.png */; };
@@ -257,6 +260,15 @@
 
 /* Begin PBXFileReference section */
 		1A1BF85A36E24AF4B7D475C5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D04A26818CE9C7900B1789D /* Changelog.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Changelog.txt; sourceTree = "<group>"; };
+		5D04A26A18CE9C7900B1789D /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		5D04A26B18CE9C7900B1789D /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		5D04A26C18CE9C7900B1789D /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
+		5D04A26D18CE9C7900B1789D /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
+		5D04A26E18CE9C7900B1789D /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		5D04A26F18CE9C7900B1789D /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		5D04A27018CE9C7900B1789D /* Readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme.txt; sourceTree = "<group>"; };
+		5D04A27318CE9DAC00B1789D /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalyticsServices.a; path = authie/GoogleAnalytics/libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
 		5D06B97F187B0C1F00FC17F0 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		5D06B980187B0C1F00FC17F0 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		5D06B984187B0D4E00FC17F0 /* cog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cog.png; sourceTree = "<group>"; };
@@ -646,6 +658,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D04A27418CE9DAC00B1789D /* libGoogleAnalyticsServices.a in Frameworks */,
 				5D21CA0F188DAF6800330F78 /* libUAirship-3.0.2.a in Frameworks */,
 				5D72291318C556A700B6CA8E /* libTestFlight.a in Frameworks */,
 				5D21CA59188DB01A00330F78 /* CoreLocation.framework in Frameworks */,
@@ -676,6 +689,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D04A26718CE9C7900B1789D /* GoogleAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				5D04A26818CE9C7900B1789D /* Changelog.txt */,
+				5D04A26918CE9C7900B1789D /* Library */,
+				5D04A27018CE9C7900B1789D /* Readme.txt */,
+			);
+			path = GoogleAnalytics;
+			sourceTree = "<group>";
+		};
+		5D04A26918CE9C7900B1789D /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				5D04A26A18CE9C7900B1789D /* GAI.h */,
+				5D04A26B18CE9C7900B1789D /* GAIDictionaryBuilder.h */,
+				5D04A26C18CE9C7900B1789D /* GAIFields.h */,
+				5D04A26D18CE9C7900B1789D /* GAILogger.h */,
+				5D04A26E18CE9C7900B1789D /* GAITrackedViewController.h */,
+				5D04A26F18CE9C7900B1789D /* GAITracker.h */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
 		5D21C97B188DAF6800330F78 /* Airship */ = {
 			isa = PBXGroup;
 			children = (
@@ -1215,6 +1251,7 @@
 		5DEE7C89185234E700F532B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5D04A27318CE9DAC00B1789D /* libGoogleAnalyticsServices.a */,
 				5D21CA58188DB01A00330F78 /* CoreLocation.framework */,
 				5D21CA56188DB00F00330F78 /* CoreTelephony.framework */,
 				5D21CA54188DB00200330F78 /* libsqlite3.dylib */,
@@ -1254,6 +1291,7 @@
 		5DEE7C91185234E800F532B3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5D04A26718CE9C7900B1789D /* GoogleAnalytics */,
 				5D72291418C65CD500B6CA8E /* newmsg-v1.png */,
 				5D8FEB6C18CA4C7C007DA8BF /* circle4.png */,
 				5D2F728418B6961200EDC1E4 /* color files */,
@@ -1518,6 +1556,7 @@
 				5D2F729E18B69B7E00EDC1E4 /* yellow.png in Resources */,
 				5D2F717318AC3EB400EDC1E4 /* USStateAbbreviations.plist in Resources */,
 				5D21CA4A188DAF7500330F78 /* CHANGELOG in Resources */,
+				5D04A27218CE9C7900B1789D /* Readme.txt in Resources */,
 				5D21CA43188DAF6800330F78 /* UAPushSettingsSoundsViewController.xib in Resources */,
 				5D8C1CF31880E45600158AE5 /* PrivateKeyViewController.xib in Resources */,
 				5D2F727318AFD9C400EDC1E4 /* thewire-logo-v2@2x.png in Resources */,
@@ -1537,6 +1576,7 @@
 				5D2F714518A3FB5100EDC1E4 /* key-v3-white.png in Resources */,
 				5D2F71B818AEA7B900EDC1E4 /* font-v1@2x.png in Resources */,
 				5D8C1CDD187F3EC000158AE5 /* cog-black.png in Resources */,
+				5D04A27118CE9C7900B1789D /* Changelog.txt in Resources */,
 				5D21CA21188DAF6800330F78 /* overlayCloseBtn@2x.png in Resources */,
 				5D8FEB7718CA688D007DA8BF /* camera_flash@2x.png in Resources */,
 				5D2F729718B69B7E00EDC1E4 /* blue.png in Resources */,
@@ -1859,6 +1899,7 @@
 					"$(inherited)",
 					/Users/seth/dev/authie/authie/authie,
 					/Users/seth/dev/authie/authie/authie/Airship,
+					"$(PROJECT_DIR)/authie/GoogleAnalytics",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "2E755CF4-AAFF-469C-A221-0D181BAF0CA1";
@@ -1896,6 +1937,7 @@
 					"$(inherited)",
 					/Users/seth/dev/authie/authie/authie,
 					/Users/seth/dev/authie/authie/authie/Airship,
+					"$(PROJECT_DIR)/authie/GoogleAnalytics",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "2E755CF4-AAFF-469C-A221-0D181BAF0CA1";

@@ -8,7 +8,7 @@
 @class RODThread;
 
 #import <UIKit/UIKit.h>
-#import <GAITrackedViewController.h>
+#import "GAITrackedViewController.h"
 
 @interface AuthorizeContactViewController : GAITrackedViewController
 @property (weak, nonatomic) IBOutlet UILabel *labelRequestDetails;

@@ -10,7 +10,7 @@
 @class RODThread;
 #import <UIKit/UIKit.h>
 #import <SignalR-ObjC/SignalR.h>
-#import <GAITrackedViewController.h>
+#import "GAITrackedViewController.h"
 
 @interface DashViewController : GAITrackedViewController <SRConnectionDelegate, UIScrollViewDelegate, UIActionSheetDelegate>
 {

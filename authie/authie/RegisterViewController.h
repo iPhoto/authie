@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <GAITrackedViewController.h>
+#import "GAITrackedViewController.h"
 
 @interface RegisterViewController : GAITrackedViewController  <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *authieHandle;

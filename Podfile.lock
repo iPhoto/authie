@@ -21,7 +21,6 @@ PODS:
   - BButton (3.2.3)
   - CXAlertView (1.0.1)
   - FBGlowLabel (0.0.1)
-  - GoogleAnalytics-iOS-SDK (3.0.2)
   - GPUImage (HEAD based on 0.1.2)
   - JSMessagesViewController (3.4.4):
     - JSQSystemSoundPlayer
@@ -121,7 +120,6 @@ DEPENDENCIES:
   - BButton
   - CXAlertView
   - FBGlowLabel (from `https://github.com/lyokato/FBGlowLabel.git`)
-  - GoogleAnalytics-iOS-SDK
   - GPUImage (HEAD)
   - JSMessagesViewController
   - KxMenu (~> 1)
@@ -140,7 +138,6 @@ SPEC CHECKSUMS:
   BButton: b405745cd7ccc9444c696b8690fb79541623766a
   CXAlertView: 59e8305700c59a27730c636765cb76311d311b88
   FBGlowLabel: c6b4d3f4d2117071be5f453e25f9bc5a67935b2d
-  GoogleAnalytics-iOS-SDK: 86393b99f7328ae8d8e975fcaa8632a39dafafe8
   GPUImage: 007145faa0e27f1ddbcab93e07f026c9776e2fa2
   JSMessagesViewController: 309de7324fbf48b7da924b002ef6017d5d2ce026
   JSQSystemSoundPlayer: 28ccd01a92a0cebc6de6361e8499011b4cb6dab7

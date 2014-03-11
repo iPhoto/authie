@@ -11,7 +11,7 @@
 #import "AppDelegate.h"
 #import <MRProgress/MRProgress.h>
 #import "RODAuthie.h"
-#import <GAITrackedViewController.h>
+#import "GAITrackedViewController.h"
 #import "RODImageStore.h"
 
 @implementation LoginViewController

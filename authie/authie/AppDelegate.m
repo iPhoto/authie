@@ -23,7 +23,7 @@
 #import "UAPush.h"
 #import <SignalR-ObjC/SignalR.h>
 #import "RODHandle.h"
-#import <GAITrackedViewController.h>
+#import "GAITrackedViewController.h"
 #import "NavigationViewController.h"
 #import "MessagesViewController.h"
 
@@ -105,9 +105,6 @@
     AboutViewController *about = [[AboutViewController alloc] init];
     aboutViewController = about;
     
-    MessagesViewController *messages = [[MessagesViewController alloc] init];
-    messagesViewController = messages;
-    
     WireViewController *wire = [[WireViewController alloc] init];
     wireViewController = wire;
     
@@ -124,7 +121,8 @@
     
     
     NavigationController *navController = [[NavigationController alloc] initWithRootViewController:dashViewController];
-    [navController.navigationBar setBackgroundColor:[UIColor whiteColor]];
+    [navController.navigationBar setBackgroundColor:[UIColor blackColor]];
+    [navController.navigationBar setTintColor:[UIColor blackColor]];
     
     NSDictionary *new_font = [NSDictionary dictionaryWithObjectsAndKeys:
                               [UIColor blackColor], NSForegroundColorAttributeName,

@@ -2,7 +2,7 @@ xcodeproj 'authie/authie.xcodeproj'
 
 platform :ios, '7.0'
 pod 'MRProgress', '~> 0.2.2'
-pod 'GoogleAnalytics-iOS-SDK'
+#pod 'GoogleAnalytics-iOS-SDK'
 pod 'SignalR-ObjC'
 pod 'JSMessagesViewController'
 pod 'CXAlertView'

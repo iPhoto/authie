@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <GAITrackedViewController.h>
+#import "GAITrackedViewController.h"
 
 @interface PrivateKeyViewController : GAITrackedViewController
 @property (weak, nonatomic) IBOutlet UILabel *privateKey;
