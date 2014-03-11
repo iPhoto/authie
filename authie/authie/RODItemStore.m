@@ -2041,7 +2041,7 @@
     
 }
 
-- (void)pushThreadWithGroupKey:(NSString *)group_key
+- (void)pushThreadWithGroupKey:(NSString *)group_key from:(NSString *)fromKey
 {
     NSLog(@"pushThreadWithGroupKey:");
     RODThread *thread;
@@ -2054,6 +2054,15 @@
             AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
             
             appDelegate.threadViewController = [[ThreadViewController alloc] init];
+            
+            
+            for(RODHandle *r in [RODItemStore sharedStore].authie.allContacts) {
+                if([r.publicKey isEqualToString:fromKey]) {
+                    appDelegate.threadViewController.toHandle = r;
+                    break;
+                }
+            }
+            
             [appDelegate.threadViewController loadThread:i];
             [appDelegate.threadViewController reloadThread];
             [appDelegate.dashViewController.navigationController pushViewController:appDelegate.threadViewController animated:YES];
@@ -2064,16 +2073,6 @@
     
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == 1) {
-        // push find thread with groupKey = self.received_group_key,
-        // push that...
-        [self pushThreadWithGroupKey:self.mostRecentGroupKey];
-        self.mostRecentGroupKey = @"";
-        
-    }
-}
 
 - (void)addChat:(NSString *)user message:(NSString *)message groupKey:(NSString *)groupKey toKey:(NSString *)toKey;
 {

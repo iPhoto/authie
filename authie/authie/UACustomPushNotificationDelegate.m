@@ -15,16 +15,17 @@
 #import "RODAuthie.h"
 
 @implementation UACustomPushNotificationDelegate
-@synthesize received_thread_key;
+@synthesize received_thread_key, received_from_public_key;
 
 - (void)launchedFromNotification:(NSDictionary *)notification
 {
     NSString *notificationGroupKey = [notification objectForKey:@"threadKey"];
+    NSString *notificationToKey = [notification objectForKey:@"fromKey"];
     NSLog(@"Launched from notification...%@", notificationGroupKey );
 
     
     [[RODItemStore sharedStore] loadMessagesForThread:notificationGroupKey];
-    [[RODItemStore sharedStore] pushThreadWithGroupKey:notificationGroupKey];
+    [[RODItemStore sharedStore] pushThreadWithGroupKey:notificationGroupKey from:notificationToKey];
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate.dashViewController updateDashHeader];
@@ -37,6 +38,7 @@
     
     NSString *alertMessage;
     NSString *notificationGroupKey = [notification objectForKey:@"threadKey"];
+    NSString *notificationToKey = [notification objectForKey:@"fromKey"];
     
     NSDictionary *aps = [notification objectForKey:@"aps"];
     alertMessage = [aps objectForKey:@"alert"];
@@ -58,7 +60,7 @@
         UIAlertView *al = [[UIAlertView alloc] initWithTitle:@"new auth" message:alertMessage delegate:self cancelButtonTitle:@"ok" otherButtonTitles:@"go to thread", nil];
         [al show];
         self.received_thread_key = notificationGroupKey;
-        
+        self.received_from_public_key = notificationGroupKey;
     }
     
 }
@@ -124,10 +126,11 @@
         // push find thread with groupKey = self.received_group_key,
         // push that...
         [[RODItemStore sharedStore] loadMessagesForThread:self.received_thread_key];
-        [[RODItemStore sharedStore] pushThreadWithGroupKey:self.received_thread_key];
+        [[RODItemStore sharedStore] pushThreadWithGroupKey:self.received_thread_key from:self.received_from_public_key];
     }
     
     self.received_thread_key = @"";
+    self.received_from_public_key = @"";
     
 }
 

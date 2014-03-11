@@ -72,7 +72,7 @@
 - (int)unreadMessagesFor:(NSString *)thread handle:(NSString *)contactHandle;
 
 
-- (void)pushThreadWithGroupKey:(NSString *)group_key;
+- (void)pushThreadWithGroupKey:(NSString *)group_key from:(NSString *)fromKey;
 
 - (void)testAES;
 
