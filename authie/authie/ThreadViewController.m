@@ -303,7 +303,7 @@
             // - or from toHandleId, to this user
 
             Boolean canAdd = NO;
-            
+            NSLog(@"Checking: %@, %@", msg.messageText, msg.toKey);
             
             if([msg.fromHandle.publicKey isEqualToString:[RODItemStore sharedStore].authie.handle.publicKey]) {
                 
@@ -315,6 +315,9 @@
                 }
                 
                 // from me and to the dash?
+                if([msg.toKey isEqualToString:@"1"]) {
+                    canAdd = YES;
+                }
                 
             }
             

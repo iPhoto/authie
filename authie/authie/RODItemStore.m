@@ -1082,6 +1082,8 @@
 
         if([m.thread.groupKey isEqualToString:thread] && [m.fromHandle.name isEqualToString:contactHandle] && [m.toKey isEqualToString:[RODItemStore sharedStore].authie.handle.publicKey]) {
         
+            NSLog(@"read: %@, %@", m.messageText, [m.seen stringValue]);
+            
             if([m.seen isEqualToNumber:[NSNumber numberWithInt:0]]) {
                 NSLog(@"Unread: %@", m.messageText);
                 unread++;

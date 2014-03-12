@@ -215,7 +215,8 @@
             refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:lastUpdate];
             
             [refreshControl endRefreshing];
-            
+
+            [self updateDashHeader];
             [self populateScrollView];
             
         });
