@@ -660,14 +660,15 @@
                 if([thread.fromHandle.publicKey isEqualToString:[RODItemStore sharedStore].authie.handle.publicKey]) {
                     
                     
-                    // if there are 0 convos, it's with yourself
+                    // if there are 0 convos, it's with yourself... send it to the dash??
                     // if there are 1 convos, it's automatically with that first person
                     
                     if([thread.convos count] == 0) {
                         NSLog(@"-- thread.convos.count was equal to 0");
                         
-                        // from us
-                        appDelegate.threadViewController.toHandle = [RODItemStore sharedStore].authie.handle;
+                        // from us, but to whoever the thread was originally to??
+                        // which may be the dash, but it also may be a DM 
+                        appDelegate.threadViewController.toHandle = thread.toHandle;
                         
                         
                     } else {

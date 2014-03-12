@@ -329,7 +329,62 @@
     NSLog(@"SendChat: groupKey=%@, toKey=%@, msg=%@", groupKey, toKey, msg);
     
     // new shit
-    [self.hubProxy invoke:@"Send" withArgs:[NSArray arrayWithObjects: [RODItemStore sharedStore].authie.handle.name, msg, groupKey, toKey, nil]];
+    //[self.hubProxy invoke:@"Send" withArgs:[NSArray arrayWithObjects: [RODItemStore sharedStore].authie.handle.name, msg, groupKey, toKey, nil]];
+    
+    // more reliable shit
+    
+    BOOL start_convo_success = NO;
+    
+	// Create a new letter and POST it to the server
+    
+    NSDictionary *checkDict = [[NSDictionary alloc] initWithObjectsAndKeys:
+                               groupKey, @"groupKey",
+                               msg, @"message",
+                               toKey, @"toKey",
+                               nil];
+    
+    NSError *error = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:checkDict options:kNilOptions error:&error];
+    
+    NSURLResponse *response;
+    NSData *localData = nil;
+    
+    NSString *url = @"https://authie.me/api/message";
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLCacheStorageNotAllowed timeoutInterval:5];
+    [request setHTTPMethod:@"POST"];
+    
+    if(error == nil) {
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        [request setHTTPBody:jsonData];
+        
+        //send the request and get the response
+        localData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        NSError *deserialize_error = nil;
+        
+        id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingAllowFragments error:&deserialize_error];
+        
+        if([object isKindOfClass:[NSDictionary class]] && deserialize_error == nil) {
+            
+            NSLog(@"results from sendChat: %@", object);
+            
+            NSInteger response_result;
+            response_result = [[object objectForKey:@"result"] integerValue];
+            
+            if(response_result == 0) {
+                // add it to be resent later?
+                start_convo_success = NO;
+            } else {
+                
+                start_convo_success = YES;
+                
+            }
+            
+        }
+        
+    }
     
 }
 
