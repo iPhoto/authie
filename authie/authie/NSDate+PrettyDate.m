@@ -28,13 +28,13 @@
         prettyTimestamp = [NSString stringWithFormat:@"%d hours ago", (int) floor(delta/3600.0) ];
     } else if (delta < ( 86400 * 2 ) ) {
         prettyTimestamp = @"one day ago";
-    } else if (delta < ( 86400 * 7 ) ) {
+    } else if (delta < ( 86400 * 3 ) ) {
         prettyTimestamp = [NSString stringWithFormat:@"%d days ago", (int) floor(delta/86400.0) ];
     } else {
         NSDateFormatter * formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateStyle:NSDateFormatterMediumStyle];
+        [formatter setDateFormat:@"M.d.yyyy"];
         
-        prettyTimestamp = [NSString stringWithFormat:@"on %@", [formatter stringFromDate:self]];
+        prettyTimestamp = [NSString stringWithFormat:@"%@", [formatter stringFromDate:self]];
     }
     
     return prettyTimestamp;
