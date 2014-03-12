@@ -7,14 +7,17 @@
 //
 
 #import "ColorViewController.h"
-#import "RSColorPickerView.h"
+#import <NKOColorPickerView/NKOColorPickerView.h>
+#import "AppDelegate.h"
+#import "ConfirmSnapViewController.h"
+#import "RODItemStore.m"
 
 @interface ColorViewController ()
 
 @end
 
 @implementation ColorViewController
-@synthesize colorPickerView;
+@synthesize pickerView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,10 +33,21 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    RSColorPickerView *color = [[RSColorPickerView alloc] initWithFrame:self.colorView.frame];
-    [color setFrame:CGRectMake(0, 0, 180, 180)];
-    self.colorPickerView = color;
-    [self.colorView addSubview:color];
+    __weak ColorViewController *weakSelf = self;
+    
+    [self.pickerView setDidChangeColorBlock:^(UIColor *color){
+        [weakSelf _customizeButton];
+    }];
+    
+    
+}
+
+- (void)_customizeButton
+{
+    
+    //[RODItemStore sharedStore].selectedColor = pickerView.color;
+    [self dismissViewControllerAnimated:NO completion:nil];
+    
 }
 
 - (void)didReceiveMemoryWarning

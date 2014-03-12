@@ -54,7 +54,7 @@
     
     
     self.cameraView.flashButtonConfigurationBlock = [self.cameraView buttonConfigurationBlockWithTitleFrom:
-                                                     @[@"Flash Off", @"Flash On", @"Flash Auto"]];
+                                                     @[@"off", @"on", @"auto"]];
     self.cameraView.focusButtonConfigurationBlock = [self.cameraView buttonConfigurationBlockWithTitleFrom:
                                                      @[@"Fcs Lckd", @"Fcs Auto", @"Fcs Cont"]];
     self.cameraView.exposureButtonConfigurationBlock = [self.cameraView buttonConfigurationBlockWithTitleFrom:
@@ -83,7 +83,7 @@
                                                      NBUImagePickerOptionDisableFilters |
                                                      NBUImagePickerOptionDisableCrop
                                                      )
-                                            nibName:@"NBUSHCameraViewController"
+                                            customStoryboard:nil
                                         resultBlock:^(NSArray * mediaInfos)
      {
          NSLog(@"Picker finished with media info: %@", mediaInfos);

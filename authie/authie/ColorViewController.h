@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "RSColorPickerView.h"
+#import <NKOColorPickerView/NKOColorPickerView.h>
 
 @interface ColorViewController : UIViewController
+@property (weak, nonatomic) IBOutlet NKOColorPickerView *pickerView;
 @property (weak, nonatomic) IBOutlet UISlider *slider;
 @property (weak, nonatomic) IBOutlet UIView *colorView;
-@property (weak, nonatomic) RSColorPickerView *colorPickerView;
 @end

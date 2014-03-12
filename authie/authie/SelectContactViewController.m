@@ -357,50 +357,50 @@
     
     return;
     
-    [NBUImagePickerController startPickerWithTarget:self
-                                            options:(NBUImagePickerOptionReturnMediaInfo |    NBUImagePickerOptionDisableConfirmation |
-                                                     NBUImagePickerOptionSingleImage |
-                                                     NBUImagePickerOptionDisableFilters |
-                                                     NBUImagePickerOptionDisableCrop
-                                                     )
-                                            nibName:nil
-                                        resultBlock:^(NSArray * mediaInfos)
-     {
-         NSLog(@"Picker finished with media info: %@", mediaInfos);
-         
-         if(mediaInfos == nil) {
-             
-             [self.navigationController popViewControllerAnimated:YES];
-             
-             return;
-         }
-         
-         NBUMediaInfo *m = mediaInfos[0];
-         
-         [self dismissViewControllerAnimated:NO completion:nil];
-         
-         UIImage *image = m.editedImage;
-         CFUUIDRef newUniqueID = CFUUIDCreate(kCFAllocatorDefault);
-         CFStringRef newUniqueIDString = CFUUIDCreateString(kCFAllocatorDefault, newUniqueID);
-         
-         NSString *key = (__bridge NSString *)newUniqueIDString;
-         
-         CFRelease(newUniqueIDString);
-         CFRelease(newUniqueID);
-         
-         // now push to confirm snap
-         
-         ConfirmSnapViewController *confirm = [[ConfirmSnapViewController alloc] init];
-         confirm.snap = image;
-         confirm.key = key;
-         confirm.handle = self.selected;
-         
-         NSLog(@"Snap going to self.selected.id: %@", self.selected.id);
-         
-         // old
-         [self.navigationController pushViewController:confirm animated:YES];
-         
-     }];
+//    [NBUImagePickerController startPickerWithTarget:self
+//                                            options:(NBUImagePickerOptionReturnMediaInfo |    NBUImagePickerOptionDisableConfirmation |
+//                                                     NBUImagePickerOptionSingleImage |
+//                                                     NBUImagePickerOptionDisableFilters |
+//                                                     NBUImagePickerOptionDisableCrop
+//                                                     )
+//                                            nibName:nil
+//                                        resultBlock:^(NSArray * mediaInfos)
+//     {
+//         NSLog(@"Picker finished with media info: %@", mediaInfos);
+//         
+//         if(mediaInfos == nil) {
+//             
+//             [self.navigationController popViewControllerAnimated:YES];
+//             
+//             return;
+//         }
+//         
+//         NBUMediaInfo *m = mediaInfos[0];
+//         
+//         [self dismissViewControllerAnimated:NO completion:nil];
+//         
+//         UIImage *image = m.editedImage;
+//         CFUUIDRef newUniqueID = CFUUIDCreate(kCFAllocatorDefault);
+//         CFStringRef newUniqueIDString = CFUUIDCreateString(kCFAllocatorDefault, newUniqueID);
+//         
+//         NSString *key = (__bridge NSString *)newUniqueIDString;
+//         
+//         CFRelease(newUniqueIDString);
+//         CFRelease(newUniqueID);
+//         
+//         // now push to confirm snap
+//         
+//         ConfirmSnapViewController *confirm = [[ConfirmSnapViewController alloc] init];
+//         confirm.snap = image;
+//         confirm.key = key;
+//         confirm.handle = self.selected;
+//         
+//         NSLog(@"Snap going to self.selected.id: %@", self.selected.id);
+//         
+//         // old
+//         [self.navigationController pushViewController:confirm animated:YES];
+//         
+//     }];
     
     //if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
     //    [self.imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];

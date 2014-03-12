@@ -38,6 +38,8 @@
         
         currentPage = 1;
         
+        //selectedColor = [UIColor whiteColor];
+        
         _authie = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
                 
         if(!_authie) {

@@ -62,8 +62,8 @@
     [holder addSubview:handleLabel];
     
     self.navigationItem.titleView = holder;
-
-    UIColor *c = [UIColor whiteColor];
+    
+    UIColor *c = [UIColor whiteColor]; //[RODItemStore sharedStore].selectedColor;
     
     self.labelCaption.textColor = c;
     
@@ -147,152 +147,15 @@
 - (void)tappedColorView:(UITapGestureRecognizer *)tapGesture
 {
     NSLog(@"Tapped color view.");
-	
-    NSMutableArray *items = [[NSMutableArray alloc] init];
-    
-    
-    KxMenuItem *black = [KxMenuItem menuItem:@"Black"
-                                        image:[UIImage imageNamed:@"black.png"]
-                                       target:self
-                                       action:@selector(colorMenuItemAction:)];
 
-    KxMenuItem *blue = [KxMenuItem menuItem:@"Blue"
-                                      image:[UIImage imageNamed:@"blue.png"]
-                                     target:self
-                                     action:@selector(colorMenuItemAction:)];
-
-    KxMenuItem *red = [KxMenuItem menuItem:@"Red"
-                                      image:[UIImage imageNamed:@"red.png"]
-                                     target:self
-                                     action:@selector(colorMenuItemAction:)];
-
-    KxMenuItem *orange = [KxMenuItem menuItem:@"Orange"
-                                     image:[UIImage imageNamed:@"orange.png"]
-                                    target:self
-                                    action:@selector(colorMenuItemAction:)];
-        
-    KxMenuItem *yellow = [KxMenuItem menuItem:@"Yellow"
-                                        image:[UIImage imageNamed:@"yellow.png"]
-                                       target:self
-                                       action:@selector(colorMenuItemAction:)];
-
-    KxMenuItem *greenYellow = [KxMenuItem menuItem:@"Green-Yellow"
-                                        image:[UIImage imageNamed:@"green-yellow.png"]
-                                       target:self
-                                       action:@selector(colorMenuItemAction:)];
-
-    KxMenuItem *green = [KxMenuItem menuItem:@"Green"
-                                             image:[UIImage imageNamed:@"green.png"]
-                                            target:self
-                                            action:@selector(colorMenuItemAction:)];
-
-    KxMenuItem *white = [KxMenuItem menuItem:@"White"
-                                       image:[UIImage imageNamed:@"white.png"]
-                                      target:self
-                                      action:@selector(colorMenuItemAction:)];
-    
-    KxMenuItem *other = [KxMenuItem menuItem:@"Other"
-                                      image:[UIImage alloc]
-                                     target:self
-                                     action:@selector(colorMenuItemAction:)];
-
-
-    
-    [items addObject:black];
-    [items addObject:blue];
-    [items addObject:red];
-    [items addObject:orange];
-    [items addObject:yellow];
-    [items addObject:greenYellow];
-    [items addObject:green];
-    
-    [items addObject:white];
-    [items addObject:other];
-    
-    [KxMenu showMenuInView:self.view
-                  fromRect:self.colorView.frame
-                 menuItems:items];
-    
-    
-    
-}
-
-- (void)selectOtherColor
-{
-    
-    
-    
-    // This is a demo for changing content at realtime.
-    CXAlertView *alertView;
-    
-    // This is a demo for changing content at realtime.
-    
+    // show a full screen color selector,
     ColorViewController *cvc = [[ColorViewController alloc] init];
-    [cvc.view setFrame:CGRectMake(0, 0, 300, 200)];
     
-    alertView = [[CXAlertView alloc] initWithTitle:@"choose color" contentView:cvc.view cancelButtonTitle:@"cancel"];
-    
-    [alertView setShowBlurBackground:NO];
-    [alertView setScrollViewPadding:0.0f];
-    
-    [alertView.contentView setBackgroundColor:[UIColor redColor]];
-    [alertView.contentView setFrame:CGRectMake(0, 0, 300, 200)];
-    
-    [alertView setVericalPadding:0];
-    [alertView setContentScrollViewMaxHeight:200.0f];
-    [alertView setContentScrollViewMinHeight:200.0f];
-    
-    [alertView setContainerWidth:300.0f];
-    [alertView.contentView setContentMode:UIViewContentModeTopLeft];
-
-    [cvc.colorPickerView setDelegate:self];
-
-    
-    NSLog(@"size: alert %f", alertView.contentView.contentScaleFactor);
-    NSLog(@"Size: alert %f", alertView.contentView.frame.size.height);
-    
-    NSLog(@"Size: cvc.view.height: %f", cvc.view.bounds.size.height);
-    
-    NSLog(@"Size: alertview.ContentView: %f", alertView.contentView.bounds.size.height);
-    
-    //[cvc.view setNeedsLayout];
-    //[cvc.view setNeedsDisplay];
-    
-    
-    
-    alertView.tag = 101;
-    
-    [alertView addButtonWithTitle:@"ok" type:CXAlertViewButtonTypeDefault handler:^(CXAlertView *alertView, CXAlertButtonItem *button) {
-        
-        [alertView dismiss];
-        
-    }];
-    
-    [alertView show];
-    
-    return;
-    
-    
-    // Optionally set and force the picker to only draw a circle
-    //    [_colorPicker setCropToCircle:YES]; // Defaults to NO (you can set BG color)
-    
-    // Set the selection color - useful to present when the user had picked a color previously
-    
-    //[_colorPicker setSelectionColor:[self randomColorOpaque:YES]];
-    
-    dragging =  YES;
-    [_colorPicker setHidden:NO];
-    [self.opacitySlider setHidden:NO];
-    
-    //[_colorPicker setSelectionColor:[[RODItemStore sharedStore] colorFromHexString:self.textColor]];
-    //    [_colorPicker setSelection:CGPointMake(269, 269)];
-    
-    // Set the delegate to receive events
-    
-    self.selectedColor = NO;
-
+    [self.navigationController pushViewController:cvc animated:NO];
     
 }
+
+
 
 -(void)colorPicker:(RSColorPickerView *)colorPicker touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -452,7 +315,7 @@
     }
     
     if([item.title isEqualToString:@"Other"]) {
-        [self selectOtherColor];
+        //[self selectOtherColor];
     }
 
     UIColor *c = self.selectedColor;
