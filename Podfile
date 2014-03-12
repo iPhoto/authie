@@ -15,4 +15,8 @@ pod 'KxMenu', '~> 1'
 
 # Recommended to keep GPUImage up-to-date
 pod 'GPUImage', :head
-pod 'NBUImagePicker'
+pod 'NBUImagePicker/Camera'
+pod 'NBUImagePicker/Assets'
+pod 'NBUImagePicker/Image'
+pod 'NBUImagePicker/Gallery'
+pod 'NBUImagePicker/Picker'

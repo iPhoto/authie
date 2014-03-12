@@ -30,48 +30,33 @@ PODS:
   - MotionOrientation@PTEz (1.0.0)
   - MRProgress (0.2.2)
   - NBUCore (2.0.0)
-  - NBUImagePicker (1.0.0):
-    - NBUImagePicker/Assets
+  - NBUImagePicker/Assets (1.2.0):
     - NBUImagePicker/Base
-    - NBUImagePicker/Camera
-    - NBUImagePicker/Filters
-    - NBUImagePicker/Gallery
-    - NBUImagePicker/Image
-    - NBUImagePicker/MediaInfo
-    - NBUImagePicker/Picker
-    - NBUImagePicker/Resources
-    - NBUKit (>= 2.0.1)
-  - NBUImagePicker/Assets (1.0.0):
-    - NBUImagePicker/Base
-    - NBUKit (>= 2.0.1)
-  - NBUImagePicker/Base (1.0.0):
-    - NBUKit (>= 2.0.1)
-  - NBUImagePicker/Camera (1.0.0):
+    - NBUKit (>= 2.1.0)
+  - NBUImagePicker/Base (1.2.0):
+    - NBUKit (>= 2.1.0)
+  - NBUImagePicker/Camera (1.2.0):
     - NBUImagePicker/Assets
-    - NBUKit (>= 2.0.1)
+    - NBUKit (>= 2.1.0)
     - RBVolumeButtons
-  - NBUImagePicker/Filters (1.0.0):
-    - GPUImage (>= 0.1.2)
-    - NBUImagePicker/Base
-    - NBUKit (>= 2.0.1)
-  - NBUImagePicker/Gallery (1.0.0):
+  - NBUImagePicker/Gallery (1.2.0):
     - NBUImagePicker/Assets
     - NBUImagePicker/MediaInfo
-    - NBUKit (>= 2.0.1)
-  - NBUImagePicker/Image (1.0.0):
-    - NBUImagePicker/Filters
+    - NBUKit (>= 2.1.0)
+  - NBUImagePicker/Image (1.2.0):
     - NBUImagePicker/MediaInfo
-    - NBUKit (>= 2.0.1)
-  - NBUImagePicker/MediaInfo (1.0.0):
+    - NBUKit (>= 2.1.0)
+  - NBUImagePicker/MediaInfo (1.2.0):
     - NBUImagePicker/Assets
-    - NBUKit (>= 2.0.1)
-  - NBUImagePicker/Picker (1.0.0):
+    - NBUKit (>= 2.1.0)
+  - NBUImagePicker/Picker (1.2.0):
     - NBUImagePicker/Camera
     - NBUImagePicker/Gallery
     - NBUImagePicker/Image
-    - NBUKit (>= 2.0.1)
-  - NBUImagePicker/Resources (1.0.0):
-    - NBUKit (>= 2.0.1)
+    - NBUImagePicker/Resources
+    - NBUKit (>= 2.1.0)
+  - NBUImagePicker/Resources (1.2.0):
+    - NBUKit (>= 2.1.0)
   - NBUKit (2.1.0):
     - Lockbox (>= 1.4.6)
     - NBUCore (>= 2.0.0)
@@ -124,7 +109,11 @@ DEPENDENCIES:
   - JSMessagesViewController
   - KxMenu (~> 1)
   - MRProgress (~> 0.2.2)
-  - NBUImagePicker
+  - NBUImagePicker/Assets
+  - NBUImagePicker/Camera
+  - NBUImagePicker/Gallery
+  - NBUImagePicker/Image
+  - NBUImagePicker/Picker
   - REMenu (~> 1.8)
   - SignalR-ObjC
   - UIImage-Helpers (~> 0.0.1)
@@ -146,7 +135,7 @@ SPEC CHECKSUMS:
   MotionOrientation@PTEz: 0b987d39639b13ce2769f6dc6f96f59783ca8786
   MRProgress: 51af562344c3fe38ce3c0617fd064f6f1ce55cd5
   NBUCore: 66e33f9426cbefb5ca88f3228cfc2dd36eac6e71
-  NBUImagePicker: 9e16842451e59f9b3ba887a69c8b87154513c1c8
+  NBUImagePicker: e298c79adbd577d63a40244f87d53468743b866e
   NBUKit: e13f4ef5921e3fe8b4a5282f994c81b17df9a84e
   RBVolumeButtons: 8fc67cc874d6dfa1808f61c91e9931ccabe52ae0
   REMenu: 40bb965c968b298c3f36d36067a15dd3f2c52473
