@@ -60,7 +60,7 @@
         UIAlertView *al = [[UIAlertView alloc] initWithTitle:@"new auth" message:alertMessage delegate:self cancelButtonTitle:@"ok" otherButtonTitles:@"go to thread", nil];
         [al show];
         self.received_thread_key = notificationGroupKey;
-        self.received_from_public_key = notificationGroupKey;
+        self.received_from_public_key = notificationToKey;
     }
     
 }
@@ -71,6 +71,7 @@
 
     NSString *alertMessage;
     NSString *notificationGroupKey = [notification objectForKey:@"threadKey"];
+    NSString *notificationfromKey = [notification objectForKey:@"fromKey"];
     
     NSDictionary *aps = [notification objectForKey:@"aps"];
     alertMessage = [aps objectForKey:@"alert"];
@@ -90,7 +91,7 @@
         UIAlertView *al = [[UIAlertView alloc] initWithTitle:@"new auth" message:alertMessage delegate:self cancelButtonTitle:@"ok" otherButtonTitles:@"go to thread", nil];
         [al show];
         self.received_thread_key = notificationGroupKey;
-        
+        self.received_from_public_key = notificationfromKey;
     }
     
 //    
