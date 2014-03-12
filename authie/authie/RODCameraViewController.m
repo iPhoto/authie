@@ -61,7 +61,7 @@
     
     
     self.RODCamera.flashButtonConfigurationBlock = [self.RODCamera buttonConfigurationBlockWithTitleFrom:
-                                                     @[@"Flash Off", @"Flash On", @"Flash Auto"]];
+                                                     @[@"off", @"on", @"auto"]];
     self.RODCamera.focusButtonConfigurationBlock = [self.RODCamera buttonConfigurationBlockWithTitleFrom:
                                                      @[@"Fcs Lckd", @"Fcs Auto", @"Fcs Cont"]];
     self.RODCamera.exposureButtonConfigurationBlock = [self.RODCamera buttonConfigurationBlockWithTitleFrom:

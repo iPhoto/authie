@@ -12,6 +12,9 @@
 
 @interface ColorViewController : UIViewController
 @property (weak, nonatomic) IBOutlet NKOColorPickerView *pickerView;
+- (IBAction)chooseColor:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIButton *choose;
 @property (weak, nonatomic) IBOutlet UISlider *slider;
 @property (weak, nonatomic) IBOutlet UIView *colorView;
 @end

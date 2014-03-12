@@ -18,7 +18,6 @@
 #import "RODMessage.h"
 #import "MessagesViewController.h"
 #import "WireViewController.h"
-#import "CameraViewController.h"
 
 @interface NavigationViewController ()
 
@@ -111,17 +110,17 @@
 //                                                          }];
     
 
-    REMenuItem *caItem = [[REMenuItem alloc] initWithTitle:@"Camera"
-                                                   subtitle:nil
-                                                      image:[UIImage imageNamed:@"add-v1-white"]
-                                           highlightedImage:nil
-                                                     action:^(REMenuItem *item) {
-
-                                                         CameraViewController *controller = [[CameraViewController alloc] init];
-                                                         
-                                                         [weakSelf setViewControllers:@[controller] animated:NO];
-                                                         
-                                                     }];
+//    REMenuItem *caItem = [[REMenuItem alloc] initWithTitle:@"Camera"
+//                                                   subtitle:nil
+//                                                      image:[UIImage imageNamed:@"add-v1-white"]
+//                                           highlightedImage:nil
+//                                                     action:^(REMenuItem *item) {
+//
+//                                                         CameraViewController *controller = [[CameraViewController alloc] init];
+//                                                         
+//                                                         [weakSelf setViewControllers:@[controller] animated:NO];
+//                                                         
+//                                                     }];
     
     REMenuItem *privateKeyItem = [[REMenuItem alloc] initWithTitle:@"Settings"
                                                        subtitle:nil

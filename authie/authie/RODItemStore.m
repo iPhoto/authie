@@ -26,7 +26,7 @@
 #import "RNDecryptor.h"
 
 @implementation RODItemStore
-@synthesize loadedThreadsFromAuthor, hubConnection, hubProxy, mostRecentGroupKey, currentPage, wireThreads;
+@synthesize loadedThreadsFromAuthor, hubConnection, hubProxy, mostRecentGroupKey, currentPage, wireThreads, selectedColor;
 
 - (id)init
 {
@@ -38,7 +38,7 @@
         
         currentPage = 1;
         
-        //selectedColor = [UIColor whiteColor];
+        selectedColor = [UIColor whiteColor];
         
         _authie = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
                 

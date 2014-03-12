@@ -24,8 +24,8 @@
 @property (strong, nonatomic) NSMutableArray *wireThreads;
 @property (strong, nonatomic) SRHubConnection *hubConnection;
 @property (strong, nonatomic) SRHubProxy *hubProxy;
+@property (strong, nonatomic) UIColor *selectedColor;
 @property (strong, nonatomic) NSString *mostRecentGroupKey;
-//@property (strong, nonatomic) UIColor *selectedColor;
 @property (nonatomic) int currentPage;
 
 + (RODItemStore *)sharedStore;

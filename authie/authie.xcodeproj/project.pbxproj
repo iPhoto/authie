@@ -122,8 +122,6 @@
 		5D2F717018AC018900EDC1E4 /* house-v6-white-new-msg.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F716E18AC018900EDC1E4 /* house-v6-white-new-msg.png */; };
 		5D2F717118AC018900EDC1E4 /* house-v6-white-new-msg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F716F18AC018900EDC1E4 /* house-v6-white-new-msg@2x.png */; };
 		5D2F717318AC3EB400EDC1E4 /* USStateAbbreviations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F717218AC3EB400EDC1E4 /* USStateAbbreviations.plist */; };
-		5D2F717F18AD58C000EDC1E4 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F717D18AD58C000EDC1E4 /* CameraViewController.m */; };
-		5D2F718018AD58C000EDC1E4 /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F717E18AD58C000EDC1E4 /* CameraViewController.xib */; };
 		5D2F71AA18AD8D0E00EDC1E4 /* RNCryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F719D18AD8D0E00EDC1E4 /* RNCryptor.m */; };
 		5D2F71AB18AD8D0E00EDC1E4 /* RNCryptorEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F719F18AD8D0E00EDC1E4 /* RNCryptorEngine.m */; };
 		5D2F71AC18AD8D0E00EDC1E4 /* RNDecryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F71A118AD8D0E00EDC1E4 /* RNDecryptor.m */; };
@@ -462,9 +460,6 @@
 		5D2F716E18AC018900EDC1E4 /* house-v6-white-new-msg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "house-v6-white-new-msg.png"; sourceTree = "<group>"; };
 		5D2F716F18AC018900EDC1E4 /* house-v6-white-new-msg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "house-v6-white-new-msg@2x.png"; sourceTree = "<group>"; };
 		5D2F717218AC3EB400EDC1E4 /* USStateAbbreviations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = USStateAbbreviations.plist; sourceTree = "<group>"; };
-		5D2F717C18AD58C000EDC1E4 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
-		5D2F717D18AD58C000EDC1E4 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
-		5D2F717E18AD58C000EDC1E4 /* CameraViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
 		5D2F719A18AD8D0E00EDC1E4 /* RNCryptor+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RNCryptor+Private.h"; sourceTree = "<group>"; };
 		5D2F719B18AD8D0E00EDC1E4 /* RNCryptor-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RNCryptor-Prefix.pch"; sourceTree = "<group>"; };
 		5D2F719C18AD8D0E00EDC1E4 /* RNCryptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNCryptor.h; sourceTree = "<group>"; };
@@ -1052,9 +1047,6 @@
 				5D0DC374189C325600E8CA81 /* AboutViewController.xib */,
 				5D2F714718A40C8A00EDC1E4 /* MessagesViewController.h */,
 				5D2F714818A40C8A00EDC1E4 /* MessagesViewController.m */,
-				5D2F717C18AD58C000EDC1E4 /* CameraViewController.h */,
-				5D2F717D18AD58C000EDC1E4 /* CameraViewController.m */,
-				5D2F717E18AD58C000EDC1E4 /* CameraViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1587,7 +1579,6 @@
 				5D0DC37118980A8F00E8CA81 /* house-v2.png in Resources */,
 				5D2F71B718AEA7B900EDC1E4 /* font-v1.png in Resources */,
 				5D21CA1F188DAF6800330F78 /* down@2x.png in Resources */,
-				5D2F718018AD58C000EDC1E4 /* CameraViewController.xib in Resources */,
 				5DB549A5189585F700E03D9D /* home.png in Resources */,
 				5D6340BC188A187A006538C5 /* heart-blue-v2.png in Resources */,
 				5D2F727A18AFE1DE00EDC1E4 /* cog-v1-white.png in Resources */,
@@ -1741,7 +1732,6 @@
 				5D9C7C57187DE25200BE2D42 /* NavigationController.m in Sources */,
 				5D9DEE9A185242E300F80413 /* RKPostSelfie.m in Sources */,
 				5D21CA30188DAF6800330F78 /* UAPushSettingsAliasViewController.m in Sources */,
-				5D2F717F18AD58C000EDC1E4 /* CameraViewController.m in Sources */,
 				5DF8649A186E1701002DCCDC /* RODHandle.m in Sources */,
 				5D21CA19188DAF6800330F78 /* UAInboxOverlayController.m in Sources */,
 				5D21CA33188DAF6800330F78 /* UAPushSettingsTokenViewController.m in Sources */,

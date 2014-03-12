@@ -21,5 +21,5 @@ pod 'NBUImagePicker/Image'
 pod 'NBUImagePicker/Gallery'
 pod 'NBUImagePicker/Picker'
 
-#pod 'NKOColorPickerView'
+pod 'NKOColorPickerView'
 

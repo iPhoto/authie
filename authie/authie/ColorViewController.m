@@ -10,7 +10,7 @@
 #import <NKOColorPickerView/NKOColorPickerView.h>
 #import "AppDelegate.h"
 #import "ConfirmSnapViewController.h"
-#import "RODItemStore.m"
+#import "RODItemStore.h"
 
 @interface ColorViewController ()
 
@@ -25,6 +25,7 @@
     if (self) {
         // Custom initialization
     }
+    
     return self;
 }
 
@@ -33,27 +34,35 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    [self setEdgesForExtendedLayout:UIRectEdgeNone];
+    
     __weak ColorViewController *weakSelf = self;
     
     [self.pickerView setDidChangeColorBlock:^(UIColor *color){
         [weakSelf _customizeButton];
     }];
     
+    [self.pickerView setColor:[RODItemStore sharedStore].selectedColor];
+    [self.pickerView setTintColor:[UIColor darkGrayColor]];
+    
+    [self _customizeButton];
     
 }
 
 - (void)_customizeButton
 {
-    
-    //[RODItemStore sharedStore].selectedColor = pickerView.color;
-    [self dismissViewControllerAnimated:NO completion:nil];
-    
+    [RODItemStore sharedStore].selectedColor = pickerView.color;
+    [self.choose setTitleColor:pickerView.color forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)chooseColor:(id)sender {
+    [self.navigationController popViewControllerAnimated:NO];
 }
 
 @end

@@ -63,7 +63,7 @@
     
     self.navigationItem.titleView = holder;
     
-    UIColor *c = [UIColor whiteColor]; //[RODItemStore sharedStore].selectedColor;
+    UIColor *c = [RODItemStore sharedStore].selectedColor;
     
     self.labelCaption.textColor = c;
     
@@ -71,7 +71,7 @@
     self.labelCaption.glowColor = [UIColor grayColor];
     
     self.labelCaption.innerGlowSize = 4;
-    self.labelCaption.innerGlowColor = [UIColor whiteColor];
+    self.labelCaption.innerGlowColor = c;
 
     UIFont *f = [UIFont fontWithName:@"LucidaTypewriter" size:20.0f];
     [self.labelCaption setFont:f];
@@ -92,6 +92,9 @@
     } else {
         handleLabel.text = [NSString stringWithFormat:@"snap for %@", self.handle.name];
     }
+    
+    [self.snapView setImage:self.snap];
+    
 }
 
 - (void)viewDidLoad
