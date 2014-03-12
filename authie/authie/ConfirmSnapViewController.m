@@ -64,6 +64,9 @@
     self.navigationItem.titleView = holder;
     
     UIColor *c = [RODItemStore sharedStore].selectedColor;
+        
+    NSString *newColor = [NSString stringWithFormat:@"#%@", [c hexStringValue]];
+    self.textColor = newColor;
     
     self.labelCaption.textColor = c;
     
