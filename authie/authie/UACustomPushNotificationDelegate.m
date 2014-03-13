@@ -82,16 +82,29 @@
     [[RODItemStore sharedStore] loadThreads:false];
 
     [appDelegate.dashViewController updateDashHeader];
+    [appDelegate.dashViewController populateScrollView];
     
-    if([appDelegate.threadViewController.thread.groupKey isEqualToString:notificationGroupKey]) {
-        // do nothing, they are viewing this thread
-        [appDelegate.threadViewController reloadThread];
+    if(appDelegate.threadViewController.thread == nil) {
         
-    } else {
         UIAlertView *al = [[UIAlertView alloc] initWithTitle:@"new auth" message:alertMessage delegate:self cancelButtonTitle:@"ok" otherButtonTitles:@"go to thread", nil];
         [al show];
         self.received_thread_key = notificationGroupKey;
         self.received_from_public_key = notificationfromKey;
+        
+    } else {
+        
+        if([appDelegate.threadViewController.thread.groupKey isEqualToString:notificationGroupKey]) {
+            // do nothing, they are viewing this thread
+            [appDelegate.threadViewController reloadThread];
+            
+        } else {
+            
+            UIAlertView *al = [[UIAlertView alloc] initWithTitle:@"new auth" message:alertMessage delegate:self cancelButtonTitle:@"ok" otherButtonTitles:@"go to thread", nil];
+            [al show];
+            self.received_thread_key = notificationGroupKey;
+            self.received_from_public_key = notificationfromKey;
+        }
+        
     }
     
 //    

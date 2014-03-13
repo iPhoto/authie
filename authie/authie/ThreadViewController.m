@@ -109,7 +109,7 @@
 {
     [super viewWillDisappear:NO];
     [self.snapView setImage:[UIImage alloc]];
-    
+    self.thread = nil;    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
