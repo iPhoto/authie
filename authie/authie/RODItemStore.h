@@ -72,6 +72,7 @@
 - (int)unreadMessages;
 - (int)unreadMessagesFor:(NSString *)thread handle:(NSString *)contactHandle;
 
+- (void)retrySendingFailedChats;
 
 - (void)pushThreadWithGroupKey:(NSString *)group_key from:(NSString *)fromKey;
 

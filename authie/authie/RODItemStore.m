@@ -24,6 +24,7 @@
 #import "NavigationViewController.h"
 #import "RNCryptor.h"
 #import "RNDecryptor.h"
+#import "RODChat.h"
 
 @implementation RODItemStore
 @synthesize loadedThreadsFromAuthor, hubConnection, hubProxy, mostRecentGroupKey, currentPage, wireThreads, selectedColor;
@@ -369,10 +370,14 @@
 
         if(localData == nil) {
             // somehow send this chat later!!!
-            NSLog(@"loadThreads error: %@", error);
+            NSLog(@"failedChat error: %@", error);
             
-            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-            [MRProgressOverlayView dismissAllOverlaysForView:appDelegate.dashViewController.view animated:YES];
+            RODChat *f = [[RODChat alloc] init];
+            f.groupKey = groupKey;
+            f.toKey = toKey;
+            f.message = msg;
+            
+            [self.authie.failedChats addObject:f];
             
             return;
         }
@@ -1803,6 +1808,14 @@
                 
             }
             
+            // after all the looping,
+            // we want to just check real quick to make sure
+            // that there are no failed chat messages to be sent
+            // as well...
+            
+            [self retrySendingFailedChats];
+            
+            
         } else {
             NSLog(@"loadMessages error: %@", object);
             
@@ -2146,6 +2159,23 @@
     
 }
 
+- (void)retrySendingFailedChats
+{
+    
+    NSLog(@"Retrying sending messages...");
+    
+    NSArray *tempChats = [NSArray arrayWithArray:self.authie.failedChats];
+    
+    for(RODChat *c in tempChats) {
+        
+        // remove the item first, if it fails it will go right back in anyway
+        [self.authie.failedChats removeObject:c];
+        
+        [self sendChat:c.groupKey message:c.message toKey:c.toKey];
+        
+    }
+    
+}
 
 - (void)addChat:(NSString *)user message:(NSString *)message groupKey:(NSString *)groupKey toKey:(NSString *)toKey;
 {
