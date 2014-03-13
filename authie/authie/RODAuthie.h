@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSMutableArray *allThreads;
 @property (nonatomic, strong) NSMutableArray *allSelfies;
 @property (nonatomic, strong) NSMutableArray *allContacts;
+@property (nonatomic, strong) NSMutableArray *failedChats;
 @property (nonatomic, strong) RODHandle *handle;
 @property (nonatomic, strong) NSString *authieHandle;
 @property (nonatomic, strong) NSString *privateKey;

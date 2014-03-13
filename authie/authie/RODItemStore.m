@@ -82,6 +82,9 @@
         if(!_authie.allMessages)
             _authie.allMessages = [[NSMutableArray alloc] init];
         
+        if(!_authie.failedChats)
+            _authie.failedChats = [[NSMutableArray alloc] init];
+        
         if(!loadedThreadsFromAuthor)
             loadedThreadsFromAuthor = [[NSMutableArray alloc] init];
         
@@ -363,6 +366,17 @@
         
         //send the request and get the response
         localData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+
+        if(localData == nil) {
+            // somehow send this chat later!!!
+            NSLog(@"loadThreads error: %@", error);
+            
+            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            [MRProgressOverlayView dismissAllOverlaysForView:appDelegate.dashViewController.view animated:YES];
+            
+            return;
+        }
+        
         
         NSError *deserialize_error = nil;
         

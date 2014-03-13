@@ -11,7 +11,7 @@
 #import "RODHandle.h"
 
 @implementation RODAuthie
-@synthesize authieHandle, privateKey, registered, allSelfies, allThreads, handle, allContacts, allMessages;
+@synthesize authieHandle, privateKey, registered, allSelfies, allThreads, handle, allContacts, allMessages, failedChats;
 
 - (NSArray *)all_Messages
 {
@@ -42,6 +42,7 @@
     [aCoder encodeObject:allContacts forKey:@"allContacts"];
     [aCoder encodeObject:allMessages forKey:@"allMessages"];
     [aCoder encodeObject:allThreads forKey:@"allThreads"];
+    [aCoder encodeObject:failedChats forKey:@"failedChats"];
     
     [aCoder encodeObject:handle forKey:@"handle"];
 }
@@ -58,6 +59,7 @@
         allContacts = [aDecoder decodeObjectForKey:@"allContacts"];
         allMessages = [aDecoder decodeObjectForKey:@"allMessages"];
         allThreads = [aDecoder decodeObjectForKey:@"allThreads"];
+        failedChats = [aDecoder decodeObjectForKey:@"failedChats"];
     }
     return self;
 }
