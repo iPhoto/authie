@@ -182,6 +182,9 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
+    [[RODItemStore sharedStore] unreadMessages];
+
 }
 
 - (void)tappedImageView:(UITapGestureRecognizer *)tapGesture

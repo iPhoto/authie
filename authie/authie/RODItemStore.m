@@ -1143,9 +1143,6 @@
             [self sendLocalNotification:m];
             RODMessage *updateMessage = [[RODItemStore sharedStore].authie.allMessages objectAtIndex:x];
             [updateMessage setLocalNotificationSent:[NSNumber numberWithInt:1]];
-        } else {
-            
-            NSLog(@"Local note was already sent... %@", m.messageText);
         }
     }
     
@@ -2208,6 +2205,8 @@
         
         // remove the item first, if it fails it will go right back in anyway
         [self.authie.failedChats removeObject:c];
+        
+        NSLog(@"Sending failed message: %@", c.message);
         
         [self sendChat:c.groupKey message:c.message toKey:c.toKey];
         
