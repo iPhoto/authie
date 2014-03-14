@@ -19,17 +19,17 @@
     if (delta < 60) {
         prettyTimestamp = @"just now";
     } else if (delta < 120) {
-        prettyTimestamp = @"one minute ago";
+        prettyTimestamp = @"1m";
     } else if (delta < 3600) {
-        prettyTimestamp = [NSString stringWithFormat:@"%d minutes ago", (int) floor(delta/60.0) ];
+        prettyTimestamp = [NSString stringWithFormat:@"%dm", (int) floor(delta/60.0) ];
     } else if (delta < 7200) {
-        prettyTimestamp = @"one hour ago";
+        prettyTimestamp = @"1h";
     } else if (delta < 86400) {
-        prettyTimestamp = [NSString stringWithFormat:@"%d hours ago", (int) floor(delta/3600.0) ];
+        prettyTimestamp = [NSString stringWithFormat:@"%dh", (int) floor(delta/3600.0) ];
     } else if (delta < ( 86400 * 2 ) ) {
-        prettyTimestamp = @"one day ago";
+        prettyTimestamp = @"1d";
     } else if (delta < ( 86400 * 3 ) ) {
-        prettyTimestamp = [NSString stringWithFormat:@"%d days ago", (int) floor(delta/86400.0) ];
+        prettyTimestamp = [NSString stringWithFormat:@"%dd ", (int) floor(delta/86400.0) ];
     } else {
         NSDateFormatter * formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"M.d.yyyy"];
