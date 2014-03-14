@@ -1099,7 +1099,10 @@
         }
     }
     
-    for (RODMessage *m in tempMessages) {
+    for (int x = 0; x<[tempMessages count]; x++) {
+        
+        RODMessage *m = [tempMessages objectAtIndex:x];
+        
 
         if([m.thread.groupKey isEqualToString:thread] && [m.fromHandle.name isEqualToString:contactHandle] && [m.toKey isEqualToString:[RODItemStore sharedStore].authie.handle.publicKey]) {
         
@@ -1108,6 +1111,12 @@
             if([m.seen isEqualToNumber:[NSNumber numberWithInt:0]]) {
                 //NSLog(@"Unread: %@", m.messageText);
                 unread++;
+            }
+            
+            if([m.localNotificationSent isEqualToNumber:[NSNumber numberWithInt:0]]) {
+                [self sendLocalNotification:m];
+                RODMessage *updateMessage = [[RODItemStore sharedStore].authie.allMessages objectAtIndex:x];
+                [updateMessage setLocalNotificationSent:[NSNumber numberWithInt:1]];
             }
             
         }
@@ -1122,16 +1131,40 @@
     // time to count the unread messages...
     NSArray *tempMessages = [NSArray arrayWithArray:[RODItemStore sharedStore].authie.allMessages];
     int unread = 0;
-    for (RODMessage *m in tempMessages) {
+    for (int x = 0; x<[tempMessages count]; x++) {
+        
+        RODMessage *m = [tempMessages objectAtIndex:x];
         if([m.seen isEqualToNumber:[NSNumber numberWithInt:0]]) {
             //NSLog(@"Unread: %@", m.messageText);
             unread++;
+        }
+        
+        if([m.localNotificationSent isEqualToNumber:[NSNumber numberWithInt:0]]) {
+            [self sendLocalNotification:m];
+            RODMessage *updateMessage = [[RODItemStore sharedStore].authie.allMessages objectAtIndex:x];
+            [updateMessage setLocalNotificationSent:[NSNumber numberWithInt:1]];
+        } else {
+            
+            NSLog(@"Local note was already sent... %@", m.messageText);
         }
     }
     
     [[UAPush shared] setBadgeNumber:unread];    
     
     return unread;
+}
+
+- (void)sendLocalNotification:(RODMessage *)msg
+{
+    
+    if([msg.localNotificationSent isEqualToNumber:[NSNumber numberWithInt:0]]) {
+        UILocalNotification *note = [[UILocalNotification alloc] init];
+        note.alertBody = [NSString stringWithFormat:@"%@ says: %@", msg.fromHandle.name, msg.messageText];
+        note.fireDate = [NSDate date];
+        [[UIApplication sharedApplication] scheduleLocalNotification:note];
+        NSLog(@"Sent note: %@", msg.messageText);
+    }
+    
 }
 
 - (void)markRead
@@ -1588,6 +1621,7 @@
             
             message.thread = thread;
             message.seen = [NSNumber numberWithInt:0];
+            message.localNotificationSent = [NSNumber numberWithInt:0];
             
             NSLog(@"Loaded message %@: '%@' from %@", message.id, message.messageText, message.fromHandle.name);
             
@@ -1599,6 +1633,7 @@
                     // we do want to co py whether or not it was seen
                     // before we remove the object
                     message.seen = r.seen;
+                    message.localNotificationSent = r.localNotificationSent;
                     
                     NSLog(@"Removed old object, seen was: %@", r.seen);
                     [self.authie.allMessages removeObject:r];
@@ -1763,6 +1798,7 @@
                 
                 message.thread = thread;
                 message.seen = [NSNumber numberWithInt:0];
+                message.localNotificationSent = [NSNumber numberWithInt:0];
   
                 NSLog(@"Loaded message %@: '%@' from %@, to %@, seen: %@, date: %@", message.id, message.messageText, message.fromHandle.name, message.toKey, message.seen, message.sentDate);
                 
@@ -1782,6 +1818,7 @@
                             foundNewThread = false;
                             
                             message.seen = [NSNumber numberWithInt:1];
+                            message.localNotificationSent = [NSNumber numberWithInt:1];
                             
                             break;
                         }
@@ -1791,6 +1828,7 @@
                         //NSLog(@"Removed old object.");
                         
                         message.seen = r.seen;
+                        message.localNotificationSent = r.localNotificationSent;
                         
                         [self.authie.allMessages removeObject:r];
                         foundNewThread = false;

@@ -13,6 +13,7 @@
 @class RODAuthie;
 @class RODThread;
 @class RODHandle;
+@class RODMessage;
 @class NavigationController;
 
 @interface RODItemStore : NSObject <SRConnectionDelegate, NSURLConnectionDataDelegate>
@@ -73,6 +74,7 @@
 - (int)unreadMessagesFor:(NSString *)thread handle:(NSString *)contactHandle;
 
 - (void)retrySendingFailedChats;
+- (void)sendLocalNotification:(RODMessage *)msg;
 
 - (void)pushThreadWithGroupKey:(NSString *)group_key from:(NSString *)fromKey;
 
