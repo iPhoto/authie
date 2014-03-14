@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController">
@@ -90,29 +90,12 @@
                         <action selector="loginWithPrivateKey:" destination="-1" eventType="touchUpInside" id="3T6-7B-CuA"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PmG-kh-WuG">
-                    <rect key="frame" x="40" y="234" width="201" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="ayN-tL-YvV"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <state key="normal" title="wait, what is authie?">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="waitWhat:" destination="-1" eventType="touchUpInside" id="JeD-pC-j2q"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="K0f-pb-hdp" firstAttribute="leading" secondItem="hzn-bz-8eH" secondAttribute="leading" constant="-6" id="046-8o-j31"/>
-                <constraint firstItem="PmG-kh-WuG" firstAttribute="top" secondItem="DPr-7t-uJo" secondAttribute="bottom" constant="8" id="0Tz-mM-EVI"/>
                 <constraint firstAttribute="trailing" secondItem="hzn-bz-8eH" secondAttribute="trailing" constant="45" id="3Mn-Cb-Pws"/>
-                <constraint firstItem="PmG-kh-WuG" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="40" id="5mM-r8-Ism"/>
-                <constraint firstItem="PmG-kh-WuG" firstAttribute="top" secondItem="1" secondAttribute="top" constant="234" id="A5Q-bu-JJt"/>
                 <constraint firstItem="ssY-d0-Zsd" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="24" id="Ba6-7V-V99"/>
                 <constraint firstItem="SG9-1b-hRM" firstAttribute="leading" secondItem="K0f-pb-hdp" secondAttribute="trailing" constant="14" id="C4m-5a-X52"/>
                 <constraint firstAttribute="trailing" secondItem="KPf-tW-n1F" secondAttribute="trailing" constant="-2" id="F0u-uE-0Bn"/>
@@ -128,7 +111,6 @@
                 <constraint firstAttribute="trailing" secondItem="ssY-d0-Zsd" secondAttribute="trailing" constant="11" id="anT-B5-Zqw"/>
                 <constraint firstItem="DPr-7t-uJo" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="40" id="bbe-3g-Gva"/>
                 <constraint firstItem="27K-o8-d8W" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="cLy-VK-vC8"/>
-                <constraint firstItem="PmG-kh-WuG" firstAttribute="width" secondItem="DPr-7t-uJo" secondAttribute="width" id="cnC-y0-cCv"/>
                 <constraint firstAttribute="trailing" secondItem="27K-o8-d8W" secondAttribute="trailing" id="dx6-IA-GuM"/>
                 <constraint firstAttribute="bottom" secondItem="27K-o8-d8W" secondAttribute="bottom" id="iSE-pC-b20"/>
                 <constraint firstItem="DPr-7t-uJo" firstAttribute="centerX" secondItem="ssY-d0-Zsd" secondAttribute="centerX" id="jO4-x4-5ST"/>
