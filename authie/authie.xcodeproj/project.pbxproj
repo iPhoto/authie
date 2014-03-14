@@ -239,6 +239,8 @@
 		5DEE7CBA185234E800F532B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DEE7CB8185234E800F532B3 /* InfoPlist.strings */; };
 		5DEE7CBC185234E800F532B3 /* authieTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DEE7CBB185234E800F532B3 /* authieTests.m */; };
 		5DF76E7618D2111F000088AA /* RODChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF76E7518D2111F000088AA /* RODChat.m */; };
+		5DF76E7918D2C0D2000088AA /* add-person-v2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF76E7718D2C0D2000088AA /* add-person-v2.png */; };
+		5DF76E7A18D2C0D2000088AA /* add-person-v2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF76E7818D2C0D2000088AA /* add-person-v2@2x.png */; };
 		5DF8648B185BEA60002DCCDC /* RODAuthie.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF8648A185BEA60002DCCDC /* RODAuthie.m */; };
 		5DF86493185F75CA002DCCDC /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF86491185F75CA002DCCDC /* RegisterViewController.m */; };
 		5DF86494185F75CA002DCCDC /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DF86492185F75CA002DCCDC /* RegisterViewController.xib */; };
@@ -639,6 +641,8 @@
 		5DEE7CBB185234E800F532B3 /* authieTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = authieTests.m; sourceTree = "<group>"; };
 		5DF76E7418D2111F000088AA /* RODChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RODChat.h; sourceTree = "<group>"; };
 		5DF76E7518D2111F000088AA /* RODChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RODChat.m; sourceTree = "<group>"; };
+		5DF76E7718D2C0D2000088AA /* add-person-v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-person-v2.png"; sourceTree = "<group>"; };
+		5DF76E7818D2C0D2000088AA /* add-person-v2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-person-v2@2x.png"; sourceTree = "<group>"; };
 		5DF86489185BEA60002DCCDC /* RODAuthie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RODAuthie.h; sourceTree = "<group>"; };
 		5DF8648A185BEA60002DCCDC /* RODAuthie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RODAuthie.m; sourceTree = "<group>"; };
 		5DF86490185F75CA002DCCDC /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
@@ -1310,6 +1314,8 @@
 				5D8FEB7518CA688D007DA8BF /* camera_flash@2x.png */,
 				5D2F728018B5596400EDC1E4 /* add-person-v1.png */,
 				5D2F728118B5596400EDC1E4 /* add-person-v1@2x.png */,
+				5DF76E7718D2C0D2000088AA /* add-person-v2.png */,
+				5DF76E7818D2C0D2000088AA /* add-person-v2@2x.png */,
 				5D5A072E18848A7C003848EA /* lock.png */,
 				5D2F71B518AEA7B900EDC1E4 /* font-v1.png */,
 				5D2F71B618AEA7B900EDC1E4 /* font-v1@2x.png */,
@@ -1568,7 +1574,9 @@
 				5D21CA4B188DAF7500330F78 /* LICENSE in Resources */,
 				5D21CA1E188DAF6800330F78 /* down.png in Resources */,
 				5D2F712C18A30C2B00EDC1E4 /* about-v2@2x.png in Resources */,
+				5DF76E7A18D2C0D2000088AA /* add-person-v2@2x.png in Resources */,
 				5D556A641882384100C5B6FB /* LoginViewController.xib in Resources */,
+				5DF76E7918D2C0D2000088AA /* add-person-v2.png in Resources */,
 				5D2F71B318AE7D5300EDC1E4 /* thewire-logo-v1.png in Resources */,
 				5D2F714518A3FB5100EDC1E4 /* key-v3-white.png in Resources */,
 				5D2F71B818AEA7B900EDC1E4 /* font-v1@2x.png in Resources */,
