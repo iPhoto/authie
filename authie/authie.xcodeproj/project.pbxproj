@@ -1281,10 +1281,10 @@
 				5D2F714218A3FAF900EDC1E4 /* Components */,
 				5D1B7BC3188EEF6A00D4DCBD /* UACustomPushNotificationDelegate.h */,
 				5D1B7BC4188EEF6A00D4DCBD /* UACustomPushNotificationDelegate.m */,
-				5DEE7CA8185234E800F532B3 /* Images.xcassets */,
-				5DEE7C91185234E800F532B3 /* Supporting Files */,
 				5D5A0726188271C4003848EA /* NSDate+PrettyDate.h */,
 				5D5A0727188271C4003848EA /* NSDate+PrettyDate.m */,
+				5DEE7CA8185234E800F532B3 /* Images.xcassets */,
+				5DEE7C91185234E800F532B3 /* Supporting Files */,
 			);
 			path = authie;
 			sourceTree = "<group>";

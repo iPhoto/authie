@@ -48,8 +48,8 @@
     [[RODItemStore sharedStore] loadThreads:false];
     
     [appDelegate.dashViewController updateDashHeader];
+    [appDelegate.dashViewController populateScrollView];
     
-        
     if([appDelegate.threadViewController.thread.groupKey isEqualToString:notificationGroupKey]) {
         // do nothing, they are viewing this thread
         // RELOAD THE THREAD
