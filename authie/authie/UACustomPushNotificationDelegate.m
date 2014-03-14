@@ -54,17 +54,23 @@
     
     [[RODItemStore sharedStore] unreadMessages];
     
-    if([appDelegate.threadViewController.thread.groupKey isEqualToString:notificationGroupKey]) {
-        // do nothing, they are viewing this thread
-        // RELOAD THE THREAD
-        
-        [appDelegate.threadViewController reloadThread];
-        
+    if(appDelegate.threadViewController.thread == nil) {
+
     } else {
-        UIAlertView *al = [[UIAlertView alloc] initWithTitle:@"new auth" message:alertMessage delegate:self cancelButtonTitle:@"ok" otherButtonTitles:@"go to thread", nil];
-        [al show];
-        self.received_thread_key = notificationGroupKey;
-        self.received_from_public_key = notificationToKey;
+
+        if([appDelegate.threadViewController.thread.groupKey isEqualToString:notificationGroupKey]) {
+            // do nothing, they are viewing this thread
+            // RELOAD THE THREAD
+            
+            [appDelegate.threadViewController reloadThread];
+            
+        } else {
+            UIAlertView *al = [[UIAlertView alloc] initWithTitle:@"new auth" message:alertMessage delegate:self cancelButtonTitle:@"ok" otherButtonTitles:@"go to thread", nil];
+            [al show];
+            self.received_thread_key = notificationGroupKey;
+            self.received_from_public_key = notificationToKey;
+        }
+        
     }
     
 }
