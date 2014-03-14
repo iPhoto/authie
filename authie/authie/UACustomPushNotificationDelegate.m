@@ -30,6 +30,8 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate.dashViewController updateDashHeader];
     
+    
+    
 }
 
 - (void)receivedBackgroundNotification:(NSDictionary *)notification
@@ -49,6 +51,8 @@
     
     [appDelegate.dashViewController updateDashHeader];
     [appDelegate.dashViewController populateScrollView];
+    
+    [[RODItemStore sharedStore] unreadMessages];
     
     if([appDelegate.threadViewController.thread.groupKey isEqualToString:notificationGroupKey]) {
         // do nothing, they are viewing this thread
