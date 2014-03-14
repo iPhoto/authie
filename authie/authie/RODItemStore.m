@@ -1103,10 +1103,10 @@
 
         if([m.thread.groupKey isEqualToString:thread] && [m.fromHandle.name isEqualToString:contactHandle] && [m.toKey isEqualToString:[RODItemStore sharedStore].authie.handle.publicKey]) {
         
-            NSLog(@"read: %@, %@", m.messageText, [m.seen stringValue]);
+            //NSLog(@"read: %@, %@", m.messageText, [m.seen stringValue]);
             
             if([m.seen isEqualToNumber:[NSNumber numberWithInt:0]]) {
-                NSLog(@"Unread: %@", m.messageText);
+                //NSLog(@"Unread: %@", m.messageText);
                 unread++;
             }
             
@@ -1124,7 +1124,7 @@
     int unread = 0;
     for (RODMessage *m in tempMessages) {
         if([m.seen isEqualToNumber:[NSNumber numberWithInt:0]]) {
-            NSLog(@"Unread: %@", m.messageText);            
+            //NSLog(@"Unread: %@", m.messageText);
             unread++;
         }
     }

@@ -96,11 +96,11 @@
     LoginViewController *login = [[LoginViewController alloc] init];
     loginViewController = login;
     
-    AboutViewController *about = [[AboutViewController alloc] init];
-    aboutViewController = about;
+//    AboutViewController *about = [[AboutViewController alloc] init];
+//    aboutViewController = about;
     
-    WireViewController *wire = [[WireViewController alloc] init];
-    wireViewController = wire;
+//    WireViewController *wire = [[WireViewController alloc] init];
+//    wireViewController = wire;
     
     UACustomPushNotificationDelegate *notes = [[UACustomPushNotificationDelegate alloc] init];
     notificationDelegate = notes;
