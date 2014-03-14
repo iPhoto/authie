@@ -202,6 +202,13 @@
 
     [[RODItemStore sharedStore] loadThreads:false];
     
+    [self.dashViewController populateScrollView];
+    [self.dashViewController updateDashHeader];
+
+    [[RODItemStore sharedStore] unreadMessages];
+    
+    [[RODItemStore sharedStore] retrySendingFailedChats];
+
     
 }
 
