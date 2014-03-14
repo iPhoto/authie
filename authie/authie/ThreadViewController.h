@@ -27,6 +27,7 @@
 @property (strong, nonatomic) NSMutableArray *subtitles;
 @property (strong, nonatomic) NSDictionary *avatars;
 @property (strong, nonatomic) NSMutableArray *messageType;
+@property (strong, nonatomic) NSMutableArray *hasTimeStamp;
 
 @property (nonatomic) int loadRow;
 

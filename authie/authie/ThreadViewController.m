@@ -30,6 +30,8 @@
         
         self.timestamps = [[NSMutableArray alloc] init];
         
+        self.hasTimeStamp = [[NSMutableArray alloc] init];
+        
         self.subtitles = [[NSMutableArray alloc] init];
         
         self.avatars = [[NSDictionary alloc] init];
@@ -94,6 +96,7 @@
     [self.messages removeAllObjects];
     [self.subtitles removeAllObjects];
     [self.timestamps removeAllObjects];
+    [self.hasTimeStamp removeAllObjects];
     [self.messageType removeAllObjects];
 }
 
@@ -143,39 +146,6 @@
 
     [self reloadThread];
     
-    [[RODItemStore sharedStore].hubConnection disconnect];
-    // connect to signalr for realtime
-    // Connect to the service
-    [RODItemStore sharedStore].hubConnection = [SRHubConnection connectionWithURL:@"https://authie.me/"];
-    
-    [RODItemStore sharedStore].hubConnection.delegate = [[RODItemStore sharedStore] self];
-    
-    // Create a proxy to the chat service
-    [RODItemStore sharedStore].hubProxy = [[RODItemStore sharedStore].hubConnection createHubProxy:@"authhub"];
-    
-    [RODItemStore sharedStore].hubConnection.received = ^(NSString * data) {
-        NSLog(@"receieved: %@", data);
-    };
-    
-    [RODItemStore sharedStore].hubConnection.started = ^{
-        
-        [[RODItemStore sharedStore].hubProxy invoke:@"join" withArgs:[NSArray arrayWithObject:@"ok"]];
-        [[RODItemStore sharedStore].hubProxy on:@"addMessage" perform:self selector:@selector(addMessage:message:groupKey:toKey:)];
-        
-        NSLog(@"Started.");
-        
-    };
-
-    [RODItemStore sharedStore].hubConnection.error = ^(NSError *__strong err){
-        NSLog(@"there was an error... go back home...");
-
-        [self dismissViewControllerAnimated:NO completion:nil];
-
-        
-    };
-    
-    // Start the connection
-    [[RODItemStore sharedStore].hubConnection start];
     
 }
 
@@ -219,6 +189,7 @@
 
     [self.messages addObject:@"<3"];
     [self.timestamps addObject:[NSDate date]];
+    [self.hasTimeStamp addObject:[NSNumber numberWithInt:0]];
     [self.messageType addObject:@"1"];
     [self.tableView setHidden:NO];
     [self.subtitles addObject:[RODItemStore sharedStore].authie.handle.name];
@@ -270,19 +241,8 @@
     
     [self.snapView setImage:[[RODImageStore sharedStore] imageForKey:thread.groupKey]];
     self.thread = thread;
-     
-    if([thread.toHandle.name isEqualToString:[RODItemStore sharedStore].authie.handle.name]) {
-        self.navigationItem.title = [NSString stringWithFormat:@"chat with %@", thread.fromHandleId];
-    } else {
-        
-        
-        if([thread.toHandle.name isEqualToString:@"dash"]) {
-            self.navigationItem.title = [NSString stringWithFormat:@"%@'s dash snap", thread.fromHandleId];
-        } else {
-            self.navigationItem.title = [NSString stringWithFormat:@"chat with %@", thread.toHandleId];
-        }
-        
-    }
+    
+    self.navigationItem.title = [NSString stringWithFormat:@"%@:%@", [RODItemStore sharedStore].authie.handle.name, self.toHandle.name];
     
     self.snapDate.text = [self.thread.startDate prettyDate];
     
@@ -344,11 +304,33 @@
             
             if (canAdd == YES) {
                 
+                [self.timestamps addObject:msg.sentDate];
+                
+                if([msg.seen isEqualToNumber:[NSNumber numberWithInt:0]] && [msg.fromHandle.publicKey isEqualToString:[RODItemStore sharedStore].authie.handle.publicKey] == false) {
+                    // hasn't been seen, give it time stamp...
+                    // but this is only true if it's from other people
+                    
+                    [self.hasTimeStamp addObject:[NSNumber numberWithInt:1]];
+                    
+                } else {
+                    // only give timestamp if it's every 3rd chat
+                    
+                    long x = [self.timestamps count];
+                    if(x % 3 == 0) {
+                        [self.hasTimeStamp addObject:[NSNumber numberWithInt:1]];
+                    } else {
+                        [self.hasTimeStamp addObject:[NSNumber numberWithInt:0]];
+                    }
+                    
+                }
+                
+
                 RODMessage *set_as_read = [[RODItemStore sharedStore].authie.allMessages objectAtIndex:i];
                 set_as_read.seen = [NSNumber numberWithInt:1];
                 [[RODItemStore sharedStore].authie.allMessages setObject:set_as_read atIndexedSubscript:i];
+
                 
-                [self.timestamps addObject:msg.sentDate];
+                
                 [self.messages addObject:msg.messageText];
                 [self.subtitles addObject:msg.fromHandle.name];
                 
@@ -442,6 +424,8 @@
     [self.messages addObject:text];
     
     [self.timestamps addObject:[NSDate date]];
+
+    [self.hasTimeStamp addObject:[NSNumber numberWithInt:0]];
     
     [self.messageType addObject:@"1"];
     
@@ -497,7 +481,19 @@
 
 - (JSMessagesViewTimestampPolicy)timestampPolicy
 {
-    return JSMessagesViewTimestampPolicyEveryFive;
+    return JSMessagesViewTimestampPolicyCustom;
+}
+
+- (BOOL)hasTimestampForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+
+    NSNumber *x = [self.hasTimeStamp objectAtIndex:indexPath.row];
+    if([x isEqualToNumber:[NSNumber numberWithInt:1]]) {
+        return YES;
+    } else {
+        return NO;
+    }
+    
 }
 
 - (JSMessagesViewAvatarPolicy)avatarPolicy
