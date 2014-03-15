@@ -351,40 +351,38 @@
     }
     
     
-    if([thread.groupKey isEqualToString:@"2fde7af1-b92b-4642-b3e8-aef43f57ed31"]) {
+    if([thread.groupKey isEqualToString:@"9074096b-9274-460c-a75a-ff1d3f55fc83"]) {
         
-        self.navigationItem.title = [NSString stringWithFormat:@"chat with vronica"];
+        self.navigationItem.title = [NSString stringWithFormat:@"Max:Sloan"];
         
         [self resetChatObjects];
 
-        NSDate *newDate = [[NSDate date] dateByAddingTimeInterval:-100];
+        NSDate *newDate = [[NSDate date] dateByAddingTimeInterval:-200];
+        NSDate *newDate2 = [[NSDate date] dateByAddingTimeInterval:-199];
         
-        [self.messages insertObject:@"The Bro Rises" atIndex:0];
-        [self.subtitles insertObject:@"vronica" atIndex:0];
+        [self.messages insertObject:@"Countdown to Chromeo..." atIndex:0];
+        [self.subtitles insertObject:@"Sloan" atIndex:0];
         [self.timestamps insertObject:newDate atIndex:0];
         [self.messageType insertObject:@"0" atIndex:0];
+        [self.hasTimeStamp insertObject:[NSNumber numberWithInt:1] atIndex:0];
         
-        [self.messages insertObject:@"Lolol" atIndex:1];
-        [self.subtitles insertObject:@"geofsf" atIndex:1];
+        [self.messages insertObject:@"cool, what side" atIndex:1];
+        [self.subtitles insertObject:@"Max" atIndex:1];
         [self.timestamps insertObject:newDate atIndex:1];
         [self.messageType insertObject:@"1" atIndex:1];
+        [self.hasTimeStamp insertObject:[NSNumber numberWithInt:0] atIndex:1];
 
-        [self.messages insertObject:@"just got to the park" atIndex:2];
-        [self.subtitles insertObject:@"vronica" atIndex:2];
+        [self.messages insertObject:@"on grass by V.I.P." atIndex:2];
+        [self.subtitles insertObject:@"Sloan" atIndex:2];
         [self.timestamps insertObject:newDate atIndex:2];
         [self.messageType insertObject:@"0" atIndex:2];
+        [self.hasTimeStamp insertObject:[NSNumber numberWithInt:0] atIndex:2];
 
-        [self.messages insertObject:@"how's Brolores today" atIndex:3];
-        [self.subtitles insertObject:@"geofsf" atIndex:3];
-        [self.timestamps insertObject:newDate atIndex:3];
+        [self.messages insertObject:@"v chill, will find u" atIndex:3];
+        [self.subtitles insertObject:@"Max" atIndex:3];
+        [self.timestamps insertObject:newDate2 atIndex:3];
         [self.messageType insertObject:@"1" atIndex:3];
-
-        [self.messages insertObject:@"chill you should come by" atIndex:4];
-        [self.subtitles insertObject:@"vronica" atIndex:4];
-        [self.timestamps insertObject:newDate atIndex:4];
-        [self.messageType insertObject:@"0" atIndex:4];
-
-        [self.messageInputView.textView setText:@"k"];
+        [self.hasTimeStamp insertObject:[NSNumber numberWithInt:1] atIndex:3];
         
     }
     
