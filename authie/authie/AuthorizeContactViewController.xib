@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AuthorizeContactViewController">
@@ -37,8 +37,8 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDb-p3-VOD">
-                            <rect key="frame" x="291" y="78" width="54" height="30"/>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDb-p3-VOD">
+                            <rect key="frame" x="157" y="78" width="54" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="54" id="qIl-kN-s1s"/>
@@ -61,7 +61,7 @@
                             </connections>
                         </button>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Co6-j3-oqB">
-                            <rect key="frame" x="229" y="78" width="54" height="30"/>
+                            <rect key="frame" x="295" y="78" width="54" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="54" id="03k-ZL-GBI"/>
@@ -81,10 +81,10 @@
                         <constraint firstItem="uBY-f8-VbB" firstAttribute="leading" secondItem="okb-iq-2Ys" secondAttribute="leading" constant="22" id="4XW-EC-GnM"/>
                         <constraint firstAttribute="bottom" secondItem="Co6-j3-oqB" secondAttribute="bottom" constant="15" id="6Ge-oq-6V0"/>
                         <constraint firstAttribute="bottom" secondItem="hDb-p3-VOD" secondAttribute="bottom" constant="15" id="870-gc-9sL"/>
-                        <constraint firstAttribute="trailing" secondItem="Co6-j3-oqB" secondAttribute="trailing" constant="86" id="8vI-do-kVi"/>
+                        <constraint firstAttribute="trailing" secondItem="Co6-j3-oqB" secondAttribute="trailing" constant="20" id="8vI-do-kVi"/>
                         <constraint firstAttribute="height" constant="123" id="9Ds-pK-ShW"/>
                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dEW-8v-Vpd" secondAttribute="trailing" constant="7" id="FXd-uv-5V3"/>
-                        <constraint firstAttribute="trailing" secondItem="hDb-p3-VOD" secondAttribute="trailing" constant="24" id="J5m-cQ-xQh"/>
+                        <constraint firstAttribute="centerX" secondItem="hDb-p3-VOD" secondAttribute="centerX" id="RP1-r5-Bgh"/>
                         <constraint firstItem="dEW-8v-Vpd" firstAttribute="top" secondItem="okb-iq-2Ys" secondAttribute="top" constant="3" id="Ycj-p9-6Fc"/>
                         <constraint firstItem="dEW-8v-Vpd" firstAttribute="leading" secondItem="okb-iq-2Ys" secondAttribute="leading" constant="22" id="aJh-Uu-HKf"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="82" id="bze-QC-AS4"/>
