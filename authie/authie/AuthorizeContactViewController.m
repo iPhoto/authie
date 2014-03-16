@@ -25,9 +25,9 @@
         // Custom initialization
         [self setEdgesForExtendedLayout:UIRectEdgeNone];
         
-        UIBarButtonItem *edit = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(removeThread:)];
-        
-        self.navigationItem.rightBarButtonItem = edit;
+//        UIBarButtonItem *edit = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(removeThread:)];
+//        
+//        self.navigationItem.rightBarButtonItem = edit;
         
         
         

@@ -14,7 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelRequestDetails;
 - (IBAction)acceptAuthorization:(id)sender;
 - (IBAction)denyAuthorization:(id)sender;
-- (IBAction)block:(id)sender;
 - (IBAction)blockHandle:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIImageView *snapView;
