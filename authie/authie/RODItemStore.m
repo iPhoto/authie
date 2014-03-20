@@ -214,11 +214,11 @@
                 NSMutableArray *tempThreads = [NSMutableArray arrayWithArray:self.authie.allThreads];
                 for(RODThread *t in tempThreads) {
                     if([t.groupKey isEqualToString:thread.groupKey]) {
-                        NSLog(@"Found the key to remove, threads: %i", [self.authie.allThreads count]);
+                        NSLog(@"Found the key to remove, threads: %ul", [self.authie.allThreads count]);
                         [self.authie.allThreads removeObject:t];
                         [self saveChanges];
                         [self loadThreads:false];
-                        NSLog(@"Found the key to remove, threads: %i", [self.authie.allThreads count]);
+                        NSLog(@"Found the key to remove, threads: %ul", [self.authie.allThreads count]);
                         break;
                     }
                 }
@@ -1135,8 +1135,13 @@
         
         RODMessage *m = [tempMessages objectAtIndex:x];
         if([m.seen isEqualToNumber:[NSNumber numberWithInt:0]]) {
-            //NSLog(@"Unread: %@", m.messageText);
-            unread++;
+            
+            if([m.fromHandle.publicKey isEqualToString:[RODItemStore sharedStore].authie.handle.publicKey]) {
+                // ignore
+            } else {
+                //NSLog(@"Unread: %@", m.messageText);
+                unread++;
+            }
         }
         
         if([m.localNotificationSent isEqualToNumber:[NSNumber numberWithInt:0]]) {
@@ -1643,6 +1648,8 @@
                     [self.authie.allMessages removeObject:r];
                     break;
                 }
+                
+                // why is it not removing old messages here? hmm
             }
 
             
