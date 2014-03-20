@@ -41,6 +41,12 @@
     NSString *alertMessage;
     NSString *notificationGroupKey = [notification objectForKey:@"threadKey"];
     NSString *notificationToKey = [notification objectForKey:@"fromKey"];
+    NSNumber *messageId = [notification objectForKey:@"messageId"];
+    
+    
+    if(messageId > 0) {
+        [[RODItemStore sharedStore] markMessageAsRead:messageId];
+    }
     
     NSDictionary *aps = [notification objectForKey:@"aps"];
     alertMessage = [aps objectForKey:@"alert"];
@@ -87,6 +93,12 @@
     
     NSDictionary *aps = [notification objectForKey:@"aps"];
     alertMessage = [aps objectForKey:@"alert"];
+    
+    NSNumber *messageId = [notification objectForKey:@"messageId"];
+    
+    if(messageId > 0) {
+        [[RODItemStore sharedStore] markMessageAsRead:messageId];
+    }
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         

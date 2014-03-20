@@ -1176,6 +1176,24 @@
     
 }
 
+- (void)markMessageAsRead:(NSNumber *)id
+{
+
+    
+    // mark the message as read so we do not send another
+    // local notification after the fact
+    for (RODMessage *m in [RODItemStore sharedStore].authie.allMessages) {
+        
+        if([m.id isEqualToNumber:id]) {
+            
+            m.localNotificationSent = [NSNumber numberWithInt:1];
+            
+        }
+    }
+
+    
+}
+
 - (void)markRead
 {
     // time to count the unread messages...

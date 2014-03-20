@@ -69,6 +69,7 @@
 - (UIBarButtonItem *)generateMenuItem:(NSString *)menu;
 - (UIBarButtonItem *)generateAddPersonMenuItem;
 
+- (void)markMessageAsRead:(NSNumber *)id;
 - (void)markRead;
 - (int)unreadMessages;
 - (int)unreadMessagesFor:(NSString *)thread handle:(NSString *)contactHandle;
