@@ -38,16 +38,24 @@
         
         self.messageType = [[NSMutableArray alloc] init];
         
-        UIButton *button_heart = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button_heart setFrame:CGRectMake(0, 0, 20, 20)];
-        [button_heart setImage:[UIImage imageNamed:@"heart-white-v1"] forState:UIControlStateNormal];
-        
-        UIBarButtonItem *rightDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_heart];
-        rightDrawerButton.target = self;
-        rightDrawerButton.action = @selector(sendLove:);
-        self.navigationItem.rightBarButtonItem = rightDrawerButton;
-        
         loadRow = -1;
+        
+        UIButton *button_menu = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button_menu setFrame:CGRectMake(0, 0, 25, 25)];
+        [button_menu setImage:[UIImage imageNamed:@"heart-white-v1"] forState:UIControlStateNormal];
+        [button_menu addTarget:self action:@selector(sendLove:) forControlEvents:UIControlEventTouchUpInside];
+        
+        UIBarButtonItem *rightDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_menu];
+        
+        UIButton *button_tweet = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button_tweet setFrame:CGRectMake(0, 0, 25, 25)];
+        [button_tweet setImage:[UIImage imageNamed:@"tweet-button-v2"] forState:UIControlStateNormal];
+        [button_tweet addTarget:self action:@selector(tweetPhoto:) forControlEvents:UIControlEventTouchUpInside];
+        
+        UIBarButtonItem *rightDrawerButtonTweet = [[UIBarButtonItem alloc] initWithCustomView:button_tweet];
+        
+        self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:rightDrawerButtonTweet, rightDrawerButton, nil];
+        
         
     }
     return self;
@@ -68,7 +76,15 @@
     [button_menu addTarget:self action:@selector(sendLove:) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *rightDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_menu];
-    self.navigationItem.rightBarButtonItem = rightDrawerButton;
+    
+    UIButton *button_tweet = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button_tweet setFrame:CGRectMake(0, 0, 25, 25)];
+    [button_tweet setImage:[UIImage imageNamed:@"tweet-button-v2"] forState:UIControlStateNormal];
+    [button_tweet addTarget:self action:@selector(tweetPhoto:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *rightDrawerButtonTweet = [[UIBarButtonItem alloc] initWithCustomView:button_tweet];
+    
+    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:rightDrawerButtonTweet, rightDrawerButton, nil];
     
     [[RODItemStore sharedStore] loadMessagesForThread:self.thread.groupKey];
     [self reloadThread];
@@ -184,6 +200,12 @@
     [self reloadThread];
 }
 
+-(void)tweetPhoto:(id)sender
+{
+    
+}
+
+
 -(void)sendLove:(id)sender
 {
 
@@ -248,7 +270,7 @@
     
     // now load all the messages that are associated with this thread
     
-    NSLog(@"allMessages count: %i, me.publicKey: %@ toHandle: %@", [[RODItemStore sharedStore].authie.allMessages count], [RODItemStore sharedStore].authie.handle.publicKey, self.toHandle.publicKey);
+    NSLog(@"allMessages count: %lu, me.publicKey: %@ toHandle: %@", (unsigned long)[[RODItemStore sharedStore].authie.allMessages count], [RODItemStore sharedStore].authie.handle.publicKey, self.toHandle.publicKey);
     
     NSMutableArray *tempMessages = [NSMutableArray arrayWithArray:[RODItemStore sharedStore].authie.allMessages];
     

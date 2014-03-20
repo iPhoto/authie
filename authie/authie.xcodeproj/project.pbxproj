@@ -12,6 +12,8 @@
 		5D04A27418CE9DAC00B1789D /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D04A27318CE9DAC00B1789D /* libGoogleAnalyticsServices.a */; };
 		5D06B982187B0C1F00FC17F0 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D06B980187B0C1F00FC17F0 /* MenuViewController.m */; };
 		5D06B985187B0D4E00FC17F0 /* cog.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D06B984187B0D4E00FC17F0 /* cog.png */; };
+		5D0C6D2E18DB678700B4F85E /* tweet-button-v2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0C6D2C18DB678700B4F85E /* tweet-button-v2.png */; };
+		5D0C6D2F18DB678700B4F85E /* tweet-button-v2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0C6D2D18DB678700B4F85E /* tweet-button-v2@2x.png */; };
 		5D0DC37118980A8F00E8CA81 /* house-v2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0DC37018980A8F00E8CA81 /* house-v2.png */; };
 		5D0DC375189C325600E8CA81 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0DC373189C325600E8CA81 /* AboutViewController.m */; };
 		5D0DC376189C325600E8CA81 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D0DC374189C325600E8CA81 /* AboutViewController.xib */; };
@@ -273,6 +275,8 @@
 		5D06B97F187B0C1F00FC17F0 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		5D06B980187B0C1F00FC17F0 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		5D06B984187B0D4E00FC17F0 /* cog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cog.png; sourceTree = "<group>"; };
+		5D0C6D2C18DB678700B4F85E /* tweet-button-v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tweet-button-v2.png"; sourceTree = "<group>"; };
+		5D0C6D2D18DB678700B4F85E /* tweet-button-v2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tweet-button-v2@2x.png"; sourceTree = "<group>"; };
 		5D0DC37018980A8F00E8CA81 /* house-v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "house-v2.png"; sourceTree = "<group>"; };
 		5D0DC372189C325600E8CA81 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		5D0DC373189C325600E8CA81 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
@@ -1360,6 +1364,8 @@
 				5D2F711B18A300EE00EDC1E4 /* key.png */,
 				5D6340B71888B470006538C5 /* heart-v2.png */,
 				5D8C1CDC187F3EC000158AE5 /* cog-black.png */,
+				5D0C6D2C18DB678700B4F85E /* tweet-button-v2.png */,
+				5D0C6D2D18DB678700B4F85E /* tweet-button-v2@2x.png */,
 				5DEE7C92185234E800F532B3 /* authie-Info.plist */,
 				5D21CA5C188DB0AB00330F78 /* AirshipConfig.plist */,
 				5DEE7C93185234E800F532B3 /* InfoPlist.strings */,
@@ -1562,6 +1568,7 @@
 				5D04A27218CE9C7900B1789D /* Readme.txt in Resources */,
 				5D21CA43188DAF6800330F78 /* UAPushSettingsSoundsViewController.xib in Resources */,
 				5D8C1CF31880E45600158AE5 /* PrivateKeyViewController.xib in Resources */,
+				5D0C6D2E18DB678700B4F85E /* tweet-button-v2.png in Resources */,
 				5D2F727318AFD9C400EDC1E4 /* thewire-logo-v2@2x.png in Resources */,
 				5D2F714618A3FB5100EDC1E4 /* key-v3-white@2x.png in Resources */,
 				5D2F712718A30AB500EDC1E4 /* key-v1.png in Resources */,
@@ -1597,6 +1604,7 @@
 				5D2F727A18AFE1DE00EDC1E4 /* cog-v1-white.png in Resources */,
 				5D8FEB7318CA6711007DA8BF /* camera_switch@2x.png in Resources */,
 				5D5A072F18848A7C003848EA /* lock.png in Resources */,
+				5D0C6D2F18DB678700B4F85E /* tweet-button-v2@2x.png in Resources */,
 				5DEE7C95185234E800F532B3 /* InfoPlist.strings in Resources */,
 				5D2F716C18AADDB400EDC1E4 /* heart-green-filled-v1.png in Resources */,
 				5D21CA25188DAF6800330F78 /* UAInboxMessageViewController.xib in Resources */,
