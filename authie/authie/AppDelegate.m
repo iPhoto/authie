@@ -178,14 +178,15 @@
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     
-    [[RODItemStore sharedStore] loadMessages:nil];
-    [[RODItemStore sharedStore] loadThreads:false];
+    //[[RODItemStore sharedStore] loadMessages:nil];
+    //[[RODItemStore sharedStore] loadThreads:false];
     
-    [self.dashViewController populateScrollView];
+    [self.dashViewController getThreads];
+    //[self.dashViewController populateScrollView];
     [self.dashViewController updateDashHeader];
     
     [[RODItemStore sharedStore] unreadMessages];
-
+ 
     [[RODItemStore sharedStore] retrySendingFailedChats];
 
     if(threadViewController.thread != nil) {
