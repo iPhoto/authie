@@ -1154,9 +1154,16 @@
 - (void)sendLocalNotification:(RODMessage *)msg
 {
     
+    if([msg.fromHandle.name isEqualToString:[RODItemStore sharedStore].authie.handle.name]) {
+        
+        // don't send local notes if you are the one that sent the message...
+        return;
+    }
+    
+    
     if([msg.localNotificationSent isEqualToNumber:[NSNumber numberWithInt:0]]) {
         UILocalNotification *note = [[UILocalNotification alloc] init];
-        note.alertBody = [NSString stringWithFormat:@"%@ says: %@", msg.fromHandle.name, msg.messageText];
+        note.alertBody = [NSString stringWithFormat:@"%@ said: %@", msg.fromHandle.name, msg.messageText];
         note.fireDate = [NSDate date];
         [[UIApplication sharedApplication] scheduleLocalNotification:note];
         NSLog(@"Sent note: %@", msg.messageText);
