@@ -15,6 +15,7 @@
 #import "RODHandle.h"
 #import "RODMessage.h"
 #import "NSDate+PrettyDate.h"
+#import <Social/Social.h>
 
 @implementation ThreadViewController
 @synthesize loadRow, toHandle;
@@ -84,7 +85,12 @@
     
     UIBarButtonItem *rightDrawerButtonTweet = [[UIBarButtonItem alloc] initWithCustomView:button_tweet];
     
-    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:rightDrawerButtonTweet, rightDrawerButton, nil];
+    if([self.thread.fromHandle.publicKey isEqualToString:[RODItemStore sharedStore].authie.handle.publicKey]) {
+        self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:rightDrawerButtonTweet, rightDrawerButton, nil];
+    } else {
+        self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:rightDrawerButton, nil];
+    }
+    
     
     [[RODItemStore sharedStore] loadMessagesForThread:self.thread.groupKey];
     [self reloadThread];
@@ -202,6 +208,15 @@
 
 -(void)tweetPhoto:(id)sender
 {
+ 
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
+    {
+        SLComposeViewController *tweetSheet = [SLComposeViewController
+                                               composeViewControllerForServiceType:SLServiceTypeTwitter];
+        [tweetSheet setInitialText:self.thread.caption];
+        [tweetSheet addImage:[[RODImageStore sharedStore] imageForKey:self.thread.groupKey]];
+        [self presentViewController:tweetSheet animated:YES completion:nil];
+    }
     
 }
 
