@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BlankSlateViewController">
@@ -14,21 +14,15 @@
             <rect key="frame" x="0.0" y="0.0" width="276" height="340"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~ tap + to snap a pic ~" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="236" translatesAutoresizingMaskIntoConstraints="NO" id="VfW-a5-abZ">
-                    <rect key="frame" x="20" y="62" width="236" height="60"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="oh, it looks like your dash is empty!~" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P9x-cs-CQp">
-                    <rect key="frame" x="20" y="27" width="236" height="27"/>
+                    <rect key="frame" x="20" y="19" width="236" height="27"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="211" translatesAutoresizingMaskIntoConstraints="NO" id="ivs-Ff-cY9">
-                    <rect key="frame" x="33" y="117" width="211" height="121"/>
+                    <rect key="frame" x="33" y="102" width="211" height="121"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="121" id="ZIL-fr-hXL"/>
@@ -46,20 +40,38 @@
                     </attributedString>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ij1-s2-Thh" customClass="BButton">
+                    <rect key="frame" x="84" y="234" width="108" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="2hQ-QF-bHh"/>
+                        <constraint firstAttribute="width" constant="108" id="YX7-Bn-3fT"/>
+                    </constraints>
+                    <state key="normal" title="add contact"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZ8-TL-KCx" customClass="BButton">
+                    <rect key="frame" x="50" y="62" width="176" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="IHm-7g-Kct"/>
+                        <constraint firstAttribute="width" constant="176" id="Yfu-ps-UI3"/>
+                    </constraints>
+                    <state key="normal" title="send a pic to the dash"/>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <gestureRecognizers/>
             <constraints>
+                <constraint firstAttribute="centerX" secondItem="Ij1-s2-Thh" secondAttribute="centerX" id="0Qw-Cg-4ZT"/>
                 <constraint firstItem="P9x-cs-CQp" firstAttribute="leading" secondItem="lxD-QP-I2u" secondAttribute="leading" constant="20" id="5be-Jl-1xT"/>
-                <constraint firstAttribute="trailing" secondItem="VfW-a5-abZ" secondAttribute="trailing" constant="20" id="A16-U2-9KS"/>
-                <constraint firstItem="VfW-a5-abZ" firstAttribute="leading" secondItem="lxD-QP-I2u" secondAttribute="leading" constant="20" id="HdF-ED-aJ3"/>
-                <constraint firstItem="VfW-a5-abZ" firstAttribute="top" secondItem="lxD-QP-I2u" secondAttribute="top" constant="62" id="I42-nA-ZfI"/>
-                <constraint firstItem="ivs-Ff-cY9" firstAttribute="top" secondItem="lxD-QP-I2u" secondAttribute="top" constant="117" id="Pdw-i4-9sn"/>
-                <constraint firstItem="ivs-Ff-cY9" firstAttribute="top" secondItem="VfW-a5-abZ" secondAttribute="bottom" constant="-5" id="SWS-uc-K7o"/>
-                <constraint firstItem="P9x-cs-CQp" firstAttribute="top" secondItem="lxD-QP-I2u" secondAttribute="top" constant="27" id="gz1-Co-jdh"/>
-                <constraint firstItem="ivs-Ff-cY9" firstAttribute="centerX" secondItem="VfW-a5-abZ" secondAttribute="centerX" constant="0.5" id="szi-27-9tZ"/>
+                <constraint firstItem="ivs-Ff-cY9" firstAttribute="top" secondItem="lxD-QP-I2u" secondAttribute="top" constant="102" id="Pdw-i4-9sn"/>
+                <constraint firstAttribute="centerX" secondItem="EZ8-TL-KCx" secondAttribute="centerX" id="WyN-qP-A2l"/>
+                <constraint firstAttribute="centerX" secondItem="ivs-Ff-cY9" secondAttribute="centerX" id="Yjb-UJ-fGI"/>
+                <constraint firstItem="EZ8-TL-KCx" firstAttribute="top" secondItem="lxD-QP-I2u" secondAttribute="top" constant="62" id="a2c-zb-cpZ"/>
+                <constraint firstItem="Ij1-s2-Thh" firstAttribute="top" secondItem="lxD-QP-I2u" secondAttribute="top" constant="234" id="aGv-ys-fdd"/>
+                <constraint firstItem="P9x-cs-CQp" firstAttribute="top" secondItem="lxD-QP-I2u" secondAttribute="top" constant="19" id="gz1-Co-jdh"/>
                 <constraint firstAttribute="trailing" secondItem="P9x-cs-CQp" secondAttribute="trailing" constant="20" id="vaq-Sy-voc"/>
-                <constraint firstItem="ivs-Ff-cY9" firstAttribute="top" secondItem="P9x-cs-CQp" secondAttribute="bottom" constant="63" id="yYm-FZ-I3E"/>
+                <constraint firstItem="ivs-Ff-cY9" firstAttribute="top" secondItem="P9x-cs-CQp" secondAttribute="bottom" constant="56" id="yYm-FZ-I3E"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
