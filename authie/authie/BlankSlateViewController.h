@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "GAITrackedViewController.h"
+#import <BButton/BButton.h>
 
 @interface BlankSlateViewController : GAITrackedViewController
+@property (weak, nonatomic) IBOutlet BButton *buttonSendPic;
+@property (weak, nonatomic) IBOutlet BButton *buttonAddContact;
+@property (weak, nonatomic) IBOutlet UILabel *labelHeader;
+@property (weak, nonatomic) IBOutlet UILabel *labelDetails;
 
 @end

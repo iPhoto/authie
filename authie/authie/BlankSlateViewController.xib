@@ -6,6 +6,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BlankSlateViewController">
             <connections>
+                <outlet property="buttonAddContact" destination="Ij1-s2-Thh" id="jUK-l9-TV8"/>
+                <outlet property="buttonSendPic" destination="EZ8-TL-KCx" id="BCY-qU-uf5"/>
+                <outlet property="labelDetails" destination="ivs-Ff-cY9" id="jbb-VJ-4Oo"/>
+                <outlet property="labelHeader" destination="P9x-cs-CQp" id="3xa-Dk-611"/>
                 <outlet property="view" destination="lxD-QP-I2u" id="Cy1-C3-UmX"/>
             </connections>
         </placeholder>
@@ -22,7 +26,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="211" translatesAutoresizingMaskIntoConstraints="NO" id="ivs-Ff-cY9">
-                    <rect key="frame" x="33" y="102" width="211" height="121"/>
+                    <rect key="frame" x="33" y="86" width="211" height="121"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="121" id="ZIL-fr-hXL"/>
@@ -30,7 +34,7 @@
                     </constraints>
                     <attributedString key="attributedText">
                         <fragment>
-                            <string key="content">when you’re ready, you can start your dash by taking a snap. since this goes on your “dash,” it means anyone you authorize as a contact will be able to see it. (you can remove the snap at any time though.)</string>
+                            <string key="content">when you're ready, start by taking a pic. this goes to your dash, where only people you've authorized as contacts can see it. you can remove the pic at any time.</string>
                             <attributes>
                                 <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <font key="NSFont" size="13" name="HelveticaNeue"/>
@@ -41,22 +45,28 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ij1-s2-Thh" customClass="BButton">
-                    <rect key="frame" x="84" y="234" width="108" height="30"/>
+                    <rect key="frame" x="84" y="216" width="108" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="2hQ-QF-bHh"/>
                         <constraint firstAttribute="width" constant="108" id="YX7-Bn-3fT"/>
                     </constraints>
-                    <state key="normal" title="add contact"/>
+                    <state key="normal" title="add contact">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZ8-TL-KCx" customClass="BButton">
-                    <rect key="frame" x="50" y="62" width="176" height="30"/>
+                    <rect key="frame" x="33" y="62" width="211" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="IHm-7g-Kct"/>
-                        <constraint firstAttribute="width" constant="176" id="Yfu-ps-UI3"/>
+                        <constraint firstAttribute="width" constant="211" id="Yfu-ps-UI3"/>
                     </constraints>
-                    <state key="normal" title="send a pic to the dash"/>
+                    <state key="normal" title="take a pic for the dash">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -64,14 +74,14 @@
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="Ij1-s2-Thh" secondAttribute="centerX" id="0Qw-Cg-4ZT"/>
                 <constraint firstItem="P9x-cs-CQp" firstAttribute="leading" secondItem="lxD-QP-I2u" secondAttribute="leading" constant="20" id="5be-Jl-1xT"/>
-                <constraint firstItem="ivs-Ff-cY9" firstAttribute="top" secondItem="lxD-QP-I2u" secondAttribute="top" constant="102" id="Pdw-i4-9sn"/>
+                <constraint firstItem="ivs-Ff-cY9" firstAttribute="top" secondItem="lxD-QP-I2u" secondAttribute="top" constant="86" id="Pdw-i4-9sn"/>
                 <constraint firstAttribute="centerX" secondItem="EZ8-TL-KCx" secondAttribute="centerX" id="WyN-qP-A2l"/>
                 <constraint firstAttribute="centerX" secondItem="ivs-Ff-cY9" secondAttribute="centerX" id="Yjb-UJ-fGI"/>
                 <constraint firstItem="EZ8-TL-KCx" firstAttribute="top" secondItem="lxD-QP-I2u" secondAttribute="top" constant="62" id="a2c-zb-cpZ"/>
-                <constraint firstItem="Ij1-s2-Thh" firstAttribute="top" secondItem="lxD-QP-I2u" secondAttribute="top" constant="234" id="aGv-ys-fdd"/>
+                <constraint firstItem="Ij1-s2-Thh" firstAttribute="top" secondItem="lxD-QP-I2u" secondAttribute="top" constant="216" id="aGv-ys-fdd"/>
                 <constraint firstItem="P9x-cs-CQp" firstAttribute="top" secondItem="lxD-QP-I2u" secondAttribute="top" constant="19" id="gz1-Co-jdh"/>
                 <constraint firstAttribute="trailing" secondItem="P9x-cs-CQp" secondAttribute="trailing" constant="20" id="vaq-Sy-voc"/>
-                <constraint firstItem="ivs-Ff-cY9" firstAttribute="top" secondItem="P9x-cs-CQp" secondAttribute="bottom" constant="56" id="yYm-FZ-I3E"/>
+                <constraint firstItem="ivs-Ff-cY9" firstAttribute="top" secondItem="P9x-cs-CQp" secondAttribute="bottom" constant="40" id="yYm-FZ-I3E"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
