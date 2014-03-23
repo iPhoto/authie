@@ -918,18 +918,19 @@
 
 - (void)showAuthorizationRequestImagePicker
 {
-    self.imagePicker = nil;
-    self.imagePicker = [[UIImagePickerController alloc] init];
+
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        [self.imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
-    } else {
-        [self.imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
-    }
+    RODCameraViewController *cvc = [[RODCameraViewController alloc] init];
+    [cvc.RODCamera setFrame:appDelegate.dashViewController.navigationController.view.window.frame];
+    [cvc.view setFrame:appDelegate.dashViewController.navigationController.view.window.frame];
+    [cvc.view layoutSubviews];
     
-    [self.imagePicker setDelegate:self];
+    cvc.selected = self.selected;
     
-    [self presentViewController:self.imagePicker animated:YES completion:nil];
+    [appDelegate.dashViewController.navigationController pushViewController:cvc animated:YES];
+    
+
 }
 
 
