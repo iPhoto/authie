@@ -343,14 +343,34 @@
     
 	// Create a new letter and POST it to the server
     
+    
     NSDictionary *checkDict = [[NSDictionary alloc] initWithObjectsAndKeys:
                                groupKey, @"groupKey",
                                msg, @"message",
                                toKey, @"toKey",
                                nil];
     
+    
     NSError *error = nil;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:checkDict options:kNilOptions error:&error];
+    
+    //const char *jsonStringByHand = "{ groupKey: }";
+    
+    // ok
+    
+    NSString *hardCoded = [NSString stringWithFormat:@"{ \"groupKey\": \"%@\", \"message\": \"%@\", \"toKey\":\"%@\" }", groupKey, msg, toKey];
+    
+    NSLog(hardCoded);
+    
+    //NSData *jsonDataUTF8 = [NSJSONSerialization dataWithJSONObject:checkDict options:kNilOptions error:&error];
+    NSData *jsonDataUTF8 = [NSData dataWithBytes:[hardCoded UTF8String] length:[hardCoded length]];
+
+    NSDictionary *checkOutput = [NSJSONSerialization JSONObjectWithData:jsonDataUTF8 options:kNilOptions error:&error];
+    NSString *convertedText = [checkOutput objectForKey:@"message"];
+
+    NSLog(@"convertedText: %@", convertedText);
+    NSLog(@"%@", checkOutput);
+    
+    //NSData *jsonData = [NSJSONSerialization dataWithJSONObject:checkDict options:kNilOptions error:&error];
     
     NSURLResponse *response;
     NSData *localData = nil;
@@ -364,7 +384,8 @@
     if(error == nil) {
         [request setValue:@"application/json; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
         [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-        [request setHTTPBody:jsonData];
+        [request setHTTPBody:jsonDataUTF8];
+        
         
         //send the request and get the response
         localData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
