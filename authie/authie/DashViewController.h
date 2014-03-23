@@ -11,8 +11,10 @@
 #import <UIKit/UIKit.h>
 #import <SignalR-ObjC/SignalR.h>
 #import "GAITrackedViewController.h"
+#import "BlankSlateViewController.h"
+#import <NBUImagePicker/NBUCameraViewController.h>
 
-@interface DashViewController : GAITrackedViewController <SRConnectionDelegate, UIScrollViewDelegate, UIActionSheetDelegate>
+@interface DashViewController : NBUCameraViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, SRConnectionDelegate, UIScrollViewDelegate, UIActionSheetDelegate>
 {
     NSMutableArray *_items;
 }
@@ -43,6 +45,7 @@
 @property (nonatomic) int tappedThreadIndex;
 
 @property (strong, nonatomic) NSString *mostRecentGroupKey;
+
 - (void)updateDashHeader;
 
 

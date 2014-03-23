@@ -9,11 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "GAITrackedViewController.h"
 #import <BButton/BButton.h>
+#import <NBUImagePicker/NBUCameraViewController.h>
 
-@interface BlankSlateViewController : GAITrackedViewController
+
+@interface BlankSlateViewController : NBUCameraViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet BButton *buttonSendPic;
 @property (weak, nonatomic) IBOutlet BButton *buttonAddContact;
 @property (weak, nonatomic) IBOutlet UILabel *labelHeader;
 @property (weak, nonatomic) IBOutlet UILabel *labelDetails;
+- (IBAction)addContact:(id)sender;
 
 @end

@@ -67,7 +67,7 @@
     [self.view setBackgroundColor:[UIColor whiteColor]];
     
     
-    if([[RODItemStore sharedStore].authie.all_Contacts count] > 2) {
+    if([[RODItemStore sharedStore].authie.all_Contacts count] > 1) {
         UIBarButtonItem *rightDrawerButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(enableBlocking:)];
         self.navigationItem.rightBarButtonItem = rightDrawerButton;        
     }
@@ -116,12 +116,12 @@
     UIBarButtonItem *rightDrawerButton;
     
     if(editingContacts == YES) {
-        NSLog(@"block.");
+        NSLog(@"remove block");
         rightDrawerButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(enableBlocking:)];
         self.navigationItem.rightBarButtonItem = rightDrawerButton;
         [self setEditingContacts:NO];
     } else {
-        NSLog(@"block.");
+        NSLog(@"editing contacts");
         rightDrawerButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(enableBlocking:)];
         self.navigationItem.rightBarButtonItem = rightDrawerButton;
         [self setEditingContacts:YES];
@@ -180,7 +180,7 @@
     }
     
     
-    if(editingContacts == YES && indexPath.row > 1) {
+    if(editingContacts == YES && indexPath.row > 0) {
         [cell.buttonBlock setHidden:NO];
         [cell.buttonRemove setHidden:NO];
         

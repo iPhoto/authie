@@ -24,6 +24,7 @@
 #import <REMenu/REMenu.h>
 #import <UIImage+Blur.h>
 #import <FBGlowLabel/FBGlowLabel.h>
+#import "RODCameraViewController.h"
 
 @implementation DashViewController
 @synthesize handle, contentSize, imageToUpload, keyToUpload, handleToUpload, captionToUpload,
@@ -90,7 +91,7 @@
 {
     [super viewDidAppear:animated];
 
-    self.screenName = @"Dash";
+    //self.screenName = @"Dash";
     
     if(self.doUploadOnView) {
         [self doUpload];
@@ -254,11 +255,17 @@
 
     if([[RODItemStore sharedStore].authie.all_Threads count] == 0) {
 
-        BlankSlateViewController *bsvc = [[BlankSlateViewController alloc] init];
-        [bsvc.view setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+        BlankSlateViewController *blank = [[BlankSlateViewController alloc] init];
+        [blank.view setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
         
         self.contentSize = self.view.frame.size.height;
-        [self.scroll addSubview:bsvc.view];
+        [self.scroll addSubview:blank.view];
+                
+        UITapGestureRecognizer *tapSendPic = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(takeDashPic:)];
+        
+        //[blank.buttonSendPic addTarget:self action:@selector(takeDashPic:) forControlEvents:UIControlEventTouchUpInside];
+        [blank.buttonSendPic addGestureRecognizer:tapSendPic];
+        
         
     }
     
@@ -835,6 +842,92 @@
             
         });
     });
+    
+}
+
+- (void)takeDashPic:(id)sender {
+    
+    RODHandle *dash;
+    
+    for(RODHandle *r in [RODItemStore sharedStore].authie.allContacts) {
+        NSLog(@"name: %@, id: %@", r.name, r.id);
+        
+        if([r.name isEqualToString:@"dash"]) {
+            dash = r;
+        }
+        
+    }
+    
+    //self.selected = dash;
+    
+    //self.cameraView.targetResolution = CGSizeMake(640.0, 640.0); // The minimum resolution we want
+    
+    self.cameraView.keepFrontCameraPicturesMirrored = YES;
+    self.cameraView.captureResultBlock = ^(UIImage * image,
+                                           NSError * error)
+    {
+        if (!error)
+        {
+            // *** Only used to update the slide view ***
+            //            UIImage * thumbnail = [image thumbnailWithSize:_slideView.targetObjectViewSize];
+            //            NSMutableArray * tmp = [NSMutableArray arrayWithArray:_slideView.objectArray];
+            //            [tmp insertObject:thumbnail atIndex:0];
+            //            _slideView.objectArray = tmp;
+        } else {
+            
+            NSLog(@"Error occurred: %@", error);
+        }
+    };
+    
+    
+    self.cameraView.flashButtonConfigurationBlock = [self.cameraView buttonConfigurationBlockWithTitleFrom:
+                                                     @[@"Flash Off", @"Flash On", @"Flash Auto"]];
+    self.cameraView.focusButtonConfigurationBlock = [self.cameraView buttonConfigurationBlockWithTitleFrom:
+                                                     @[@"Fcs Lckd", @"Fcs Auto", @"Fcs Cont"]];
+    self.cameraView.exposureButtonConfigurationBlock = [self.cameraView buttonConfigurationBlockWithTitleFrom:
+                                                        @[@"Exp Lckd", @"Exp Auto", @"Exp Cont"]];
+    self.cameraView.whiteBalanceButtonConfigurationBlock = [self.cameraView buttonConfigurationBlockWithTitleFrom:
+                                                            @[@"WB Lckd", @"WB Auto", @"WB Cont"]];
+    
+    [self.cameraView setSavePicturesToLibrary:YES];
+    
+    
+    
+    // Configure for video
+    //self.cameraView.targetMovieFolder = [UIApplication sharedApplication].temporaryDirectory;
+    
+    // Optionally auto-save pictures to the library
+    self.cameraView.saveResultBlock = ^(UIImage * image,
+                                        NSDictionary * metadata,
+                                        NSURL * url,
+                                        NSError * error)
+    {
+        // *** Do something with the image and its URL ***
+        NSLog(@"Save results.");
+    };
+    
+    
+    self.cameraView.captureResultBlock = ^(UIImage * image,
+                                           NSError * error)
+    {
+        if (!error)
+        {
+            NSLog(@"CaptureResultBlock.");
+        }
+    };
+
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+
+    
+    RODCameraViewController *cvc = [[RODCameraViewController alloc] init];
+    [cvc.RODCamera setFrame:appDelegate.dashViewController.navigationController.view.window.frame];
+    [cvc.view setFrame:appDelegate.dashViewController.navigationController.view.window.frame];
+    [cvc.view layoutSubviews];
+    
+    cvc.selected = dash;
+ 
+    [appDelegate.dashViewController.navigationController pushViewController:cvc animated:YES];
+    
     
 }
 

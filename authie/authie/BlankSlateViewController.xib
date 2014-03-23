@@ -55,6 +55,9 @@
                     <state key="normal" title="add contact">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="addContact:" destination="-1" eventType="touchUpInside" id="fmY-41-cjD"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZ8-TL-KCx" customClass="BButton">
                     <rect key="frame" x="33" y="62" width="211" height="30"/>
@@ -67,6 +70,9 @@
                     <state key="normal" title="take a pic for the dash">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="takeDashPic:" destination="-1" eventType="touchUpInside" id="LZ4-C4-cWt"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

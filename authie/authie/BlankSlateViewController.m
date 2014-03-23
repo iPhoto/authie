@@ -8,12 +8,20 @@
 
 #import "BlankSlateViewController.h"
 #import "RODItemStore.h"
+#import <NBUImagePicker/NBUImagePickerController.h>
+#import <NBUImagePicker/NBUMediaInfo.h>
+#import <NBUImagePicker/NBUCameraViewController.h>
+#import "RODCameraViewController.h"
+#import "RODItemStore.h"
+#import "RODAuthie.h"
+#import "RODHandle.h"
 
 @interface BlankSlateViewController ()
 
 @end
 
 @implementation BlankSlateViewController
+@synthesize cameraView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -51,7 +59,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    self.screenName = @"BlankSlate";
+    //self.screenName = @"BlankSlate";
 }
 
 - (void)didReceiveMemoryWarning
@@ -60,4 +68,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (IBAction)addContact:(id)sender {
+}
 @end
