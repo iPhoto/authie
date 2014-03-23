@@ -41,7 +41,7 @@
     [super viewDidAppear:animated];
 
     self.RODCamera = [[NBUCameraView alloc] initWithFrame:self.view.window.frame];
-    //self.cameraView.targetResolution = CGSizeMake(640.0, 640.0); // The minimum resolution we want
+    self.RODCamera.targetResolution = CGSizeMake(640.0, 640.0); // The minimum resolution we want
     self.RODCamera.keepFrontCameraPicturesMirrored = YES;
     self.RODCamera.captureResultBlock = ^(UIImage * image,
                                            NSError * error)

@@ -1,21 +1,21 @@
 PODS:
-  - AFNetworking (2.2.0):
+  - AFNetworking (2.2.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
     - AFNetworking/UIKit
-  - AFNetworking/NSURLConnection (2.2.0):
+  - AFNetworking/NSURLConnection (2.2.1):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.2.0):
+  - AFNetworking/NSURLSession (2.2.1):
     - AFNetworking/NSURLConnection
-  - AFNetworking/Reachability (2.2.0)
-  - AFNetworking/Security (2.2.0)
-  - AFNetworking/Serialization (2.2.0)
-  - AFNetworking/UIKit (2.2.0):
+  - AFNetworking/Reachability (2.2.1)
+  - AFNetworking/Security (2.2.1)
+  - AFNetworking/Serialization (2.2.1)
+  - AFNetworking/UIKit (2.2.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - BButton (3.2.3)
@@ -29,7 +29,7 @@ PODS:
   - Lockbox (1.4.6)
   - MotionOrientation@PTEz (1.0.0)
   - MRProgress (0.2.2)
-  - NBUCore (2.0.0)
+  - NBUCore (2.0.1)
   - NBUImagePicker/Assets (1.2.0):
     - NBUImagePicker/Base
     - NBUKit (>= 2.1.0)
@@ -125,7 +125,7 @@ EXTERNAL SOURCES:
     :git: https://github.com/lyokato/FBGlowLabel.git
 
 SPEC CHECKSUMS:
-  AFNetworking: e8cfd8f3fe3bfe19124a0cc63f4d45752d892a56
+  AFNetworking: 0121f4b69be3fa58d1ab317866e036e12ac9651d
   BButton: b405745cd7ccc9444c696b8690fb79541623766a
   CXAlertView: 59e8305700c59a27730c636765cb76311d311b88
   FBGlowLabel: c6b4d3f4d2117071be5f453e25f9bc5a67935b2d
@@ -136,7 +136,7 @@ SPEC CHECKSUMS:
   Lockbox: 56ac5c11e51d46baa4408960a5a35b355a32840e
   MotionOrientation@PTEz: 0b987d39639b13ce2769f6dc6f96f59783ca8786
   MRProgress: 51af562344c3fe38ce3c0617fd064f6f1ce55cd5
-  NBUCore: 66e33f9426cbefb5ca88f3228cfc2dd36eac6e71
+  NBUCore: 7b05286aa6a2125f0cbc7230982bd170c2aed8e0
   NBUImagePicker: e298c79adbd577d63a40244f87d53468743b866e
   NBUKit: e13f4ef5921e3fe8b4a5282f994c81b17df9a84e
   NKOColorPickerView: 3d4a70a52ad2a11555640d1ad56a8b5d4b1f7f26

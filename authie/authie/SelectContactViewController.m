@@ -263,7 +263,7 @@
             // add contact
             if (buttonIndex == 1) {
                 NSString *name = [alertView textFieldAtIndex:0].text;
-                [[RODItemStore sharedStore] addContact:name];
+                [[RODItemStore sharedStore] addContact:name fromDash:NO];
             }
 
             break;
@@ -282,69 +282,6 @@
     
     RODHandle *handle = [[RODItemStore sharedStore].authie.all_Contacts objectAtIndex:indexPath.row];
     self.selected = handle;
-        
-    //self.imagePicker = nil;
-    //self.imagePicker = [[UIImagePickerController alloc] init];
-    
-    // Configure the camera view
-    //self.cameraView.shouldAutoRotateView = YES;
-
-    [self.cameraView setBackgroundColor:[UIColor clearColor]];
-    
-    //self.cameraView.targetResolution = CGSizeMake(640.0, 640.0); // The minimum resolution we want
-    self.cameraView.keepFrontCameraPicturesMirrored = YES;
-    self.cameraView.captureResultBlock = ^(UIImage * image,
-                                           NSError * error)
-    {
-        if (!error)
-        {
-            // *** Only used to update the slide view ***
-//            UIImage * thumbnail = [image thumbnailWithSize:_slideView.targetObjectViewSize];
-//            NSMutableArray * tmp = [NSMutableArray arrayWithArray:_slideView.objectArray];
-//            [tmp insertObject:thumbnail atIndex:0];
-//            _slideView.objectArray = tmp;
-        } else {
-            
-            NSLog(@"Error occurred: %@", error);
-        }
-    };
-    
-    
-    self.cameraView.flashButtonConfigurationBlock = [self.cameraView buttonConfigurationBlockWithTitleFrom:
-                                                     @[@"Flash Off", @"Flash On", @"Flash Auto"]];
-    self.cameraView.focusButtonConfigurationBlock = [self.cameraView buttonConfigurationBlockWithTitleFrom:
-                                                     @[@"Fcs Lckd", @"Fcs Auto", @"Fcs Cont"]];
-    self.cameraView.exposureButtonConfigurationBlock = [self.cameraView buttonConfigurationBlockWithTitleFrom:
-                                                        @[@"Exp Lckd", @"Exp Auto", @"Exp Cont"]];
-    self.cameraView.whiteBalanceButtonConfigurationBlock = [self.cameraView buttonConfigurationBlockWithTitleFrom:
-                                                            @[@"WB Lckd", @"WB Auto", @"WB Cont"]];
-    
-    [self.cameraView setSavePicturesToLibrary:YES];
-    
-    
-    
-    // Configure for video
-    //self.cameraView.targetMovieFolder = [UIApplication sharedApplication].temporaryDirectory;
-        
-    // Optionally auto-save pictures to the library
-    self.cameraView.saveResultBlock = ^(UIImage * image,
-                                        NSDictionary * metadata,
-                                        NSURL * url,
-                                        NSError * error)
-    {
-        // *** Do something with the image and its URL ***
-        NSLog(@"Save results.");
-    };
-
-
-    self.cameraView.captureResultBlock = ^(UIImage * image,
-                                           NSError * error)
-    {
-        if (!error)
-        {
-            NSLog(@"CaptureResultBlock.");
-        }
-    };
     
     RODCameraViewController *cvc = [[RODCameraViewController alloc] init];
     [cvc.RODCamera setFrame:self.navigationController.view.window.frame];

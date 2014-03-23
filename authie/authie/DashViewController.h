@@ -47,6 +47,7 @@
 @property (strong, nonatomic) NSString *mostRecentGroupKey;
 
 - (void)updateDashHeader;
+- (void)showAuthorizationRequestImagePicker;
 
 
 

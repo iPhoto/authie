@@ -908,7 +908,7 @@
     return start_convo_success;
 }
 
-- (BOOL)addContact:(NSString *)handle
+- (BOOL)addContact:(NSString *)handle fromDash:(BOOL)dash;
 {
     NSLog(@"Add contact: %@", handle);
     
@@ -953,11 +953,19 @@
                 RODHandle *new_contact = [[RODHandle alloc] init];
                 new_contact.publicKey = [object objectForKey:@"message"];
                 new_contact.name = handle;
-                
+
                 // okay, now we show create screen
                 AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-                [appDelegate.selectContactViewController setSelected:new_contact];
-                [appDelegate.selectContactViewController showAuthorizationRequestImagePicker];
+
+                
+                if(dash == NO) {
+                    // came from the select contact screen
+                    [appDelegate.selectContactViewController setSelected:new_contact];
+                    [appDelegate.selectContactViewController showAuthorizationRequestImagePicker];
+                } else {
+                    [appDelegate.dashViewController setSelected:new_contact];
+                    [appDelegate.dashViewController showAuthorizationRequestImagePicker];
+                }
                 
                 
             } else {

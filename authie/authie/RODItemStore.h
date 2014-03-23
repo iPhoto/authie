@@ -63,7 +63,7 @@
 - (BOOL)startThread:(NSString *)toHandle forKey:(NSString *)key withCaption:(NSString *)caption withLocation:(NSString *)location withFont:(NSString *)font withTextColor:(NSString *)textColor;
 - (BOOL)getThreadsFromHandle:(NSString *)publicKey;
 - (BOOL)uploadSnap:(NSString *)key;
-- (BOOL)addContact:(NSString *)handle;
+- (BOOL)addContact:(NSString *)handle fromDash:(BOOL)dash;
 - (UIView *)generateHeaderView;
 - (UIView *)generateWireHeaderView;
 - (UIBarButtonItem *)generateMenuItem:(NSString *)menu;

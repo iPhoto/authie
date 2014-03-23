@@ -193,7 +193,7 @@
 {
     if (buttonIndex == 1) {
         NSString *name = [alertView textFieldAtIndex:0].text;
-        [[RODItemStore sharedStore] addContact:name];
+        [[RODItemStore sharedStore] addContact:name fromDash:NO];
     }
 }
 

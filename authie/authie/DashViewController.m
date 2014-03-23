@@ -45,6 +45,12 @@
     return self;
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -263,9 +269,10 @@
                 
         UITapGestureRecognizer *tapSendPic = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(takeDashPic:)];
         
-        //[blank.buttonSendPic addTarget:self action:@selector(takeDashPic:) forControlEvents:UIControlEventTouchUpInside];
-        [blank.buttonSendPic addGestureRecognizer:tapSendPic];
+        UITapGestureRecognizer *tapAddContact = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addContact:)];
         
+        [blank.buttonSendPic addGestureRecognizer:tapSendPic];
+        [blank.buttonAddContact addGestureRecognizer:tapAddContact];
         
     }
     
@@ -577,11 +584,12 @@
         alertView.contentView = imageView;
         alertView.tag = 101;
         
-        [alertView addButtonWithTitle:@"delete" type:CXAlertViewButtonTypeDefault handler:^(CXAlertView *alertView, CXAlertButtonItem *button) {
+        [alertView setShowBlurBackground:NO];
+        
+        [alertView addButtonWithTitle:@"delete" type:CXAlertViewButtonTypeDefault handler:^(CXAlertView *av, CXAlertButtonItem *button) {
             [[RODItemStore sharedStore] removeThread:t];
             [self populateScrollView];
-            [alertView dismiss];
-                        
+            [av dismiss];
         }];
         
         [alertView show];
@@ -857,67 +865,8 @@
         }
         
     }
-    
-    //self.selected = dash;
-    
-    //self.cameraView.targetResolution = CGSizeMake(640.0, 640.0); // The minimum resolution we want
-    
-    self.cameraView.keepFrontCameraPicturesMirrored = YES;
-    self.cameraView.captureResultBlock = ^(UIImage * image,
-                                           NSError * error)
-    {
-        if (!error)
-        {
-            // *** Only used to update the slide view ***
-            //            UIImage * thumbnail = [image thumbnailWithSize:_slideView.targetObjectViewSize];
-            //            NSMutableArray * tmp = [NSMutableArray arrayWithArray:_slideView.objectArray];
-            //            [tmp insertObject:thumbnail atIndex:0];
-            //            _slideView.objectArray = tmp;
-        } else {
-            
-            NSLog(@"Error occurred: %@", error);
-        }
-    };
-    
-    
-    self.cameraView.flashButtonConfigurationBlock = [self.cameraView buttonConfigurationBlockWithTitleFrom:
-                                                     @[@"Flash Off", @"Flash On", @"Flash Auto"]];
-    self.cameraView.focusButtonConfigurationBlock = [self.cameraView buttonConfigurationBlockWithTitleFrom:
-                                                     @[@"Fcs Lckd", @"Fcs Auto", @"Fcs Cont"]];
-    self.cameraView.exposureButtonConfigurationBlock = [self.cameraView buttonConfigurationBlockWithTitleFrom:
-                                                        @[@"Exp Lckd", @"Exp Auto", @"Exp Cont"]];
-    self.cameraView.whiteBalanceButtonConfigurationBlock = [self.cameraView buttonConfigurationBlockWithTitleFrom:
-                                                            @[@"WB Lckd", @"WB Auto", @"WB Cont"]];
-    
-    [self.cameraView setSavePicturesToLibrary:YES];
-    
-    
-    
-    // Configure for video
-    //self.cameraView.targetMovieFolder = [UIApplication sharedApplication].temporaryDirectory;
-    
-    // Optionally auto-save pictures to the library
-    self.cameraView.saveResultBlock = ^(UIImage * image,
-                                        NSDictionary * metadata,
-                                        NSURL * url,
-                                        NSError * error)
-    {
-        // *** Do something with the image and its URL ***
-        NSLog(@"Save results.");
-    };
-    
-    
-    self.cameraView.captureResultBlock = ^(UIImage * image,
-                                           NSError * error)
-    {
-        if (!error)
-        {
-            NSLog(@"CaptureResultBlock.");
-        }
-    };
 
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-
     
     RODCameraViewController *cvc = [[RODCameraViewController alloc] init];
     [cvc.RODCamera setFrame:appDelegate.dashViewController.navigationController.view.window.frame];
@@ -929,6 +878,58 @@
     [appDelegate.dashViewController.navigationController pushViewController:cvc animated:YES];
     
     
+}
+
+- (void)addContact:(id)sender
+{
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"add"
+                                                    message:@"to add a friend, enter their Authie handle and send a snap (for example, a selfie) so they know it's you."
+                                                   delegate:self
+                                          cancelButtonTitle:@"cancel"
+                                          otherButtonTitles:@"take image", nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    alert.tag = 311;
+    [alert show];
+    
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
+    if(buttonIndex == 0) {
+        // cancel button
+        return;
+    }
+    
+    // figure out if it's a remove or a block
+    switch(alertView.tag) {
+        case 311:
+            // add contact
+            if (buttonIndex == 1) {
+                NSString *name = [alertView textFieldAtIndex:0].text;
+                [[RODItemStore sharedStore] addContact:name fromDash:YES];
+            }
+            
+            break;
+    }
+    
+}
+
+- (void)showAuthorizationRequestImagePicker
+{
+    self.imagePicker = nil;
+    self.imagePicker = [[UIImagePickerController alloc] init];
+    
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        [self.imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+    } else {
+        [self.imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    }
+    
+    [self.imagePicker setDelegate:self];
+    
+    [self presentViewController:self.imagePicker animated:YES completion:nil];
 }
 
 
