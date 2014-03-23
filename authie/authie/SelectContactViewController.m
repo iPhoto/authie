@@ -21,7 +21,7 @@
 #import "RODCameraViewController.h"
 
 @implementation SelectContactViewController
-@synthesize imagePicker, contactsTable, editingContacts, cameraView;
+@synthesize contactsTable, editingContacts, cameraView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -294,46 +294,5 @@
     
     
 }
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-    
-    [self dismissViewControllerAnimated:NO completion:nil];
-    self.imagePicker = nil;
-    
-    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    
-    CFUUIDRef newUniqueID = CFUUIDCreate(kCFAllocatorDefault);
-    CFStringRef newUniqueIDString = CFUUIDCreateString(kCFAllocatorDefault, newUniqueID);
-    
-    NSString *key = (__bridge NSString *)newUniqueIDString;
-    
-    CFRelease(newUniqueIDString);
-    CFRelease(newUniqueID);
-    
-    
-    // now push to confirm snap
-    //...
-    
-    ConfirmSnapViewController *confirm = [[ConfirmSnapViewController alloc] init];
-    confirm.snap = image;
-    confirm.key = key;
-    confirm.handle = self.selected;
-    
-    [self.navigationController pushViewController:confirm animated:YES];
-    
-}
-
--(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-{
-    [self dismissViewControllerAnimated:NO completion:nil];
-    self.imagePicker = nil;
-    
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-    [appDelegate.contactsViewController.navigationController popToRootViewControllerAnimated:YES];
-    
-}
-
 
 @end

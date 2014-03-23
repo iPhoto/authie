@@ -11,7 +11,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SelectContactViewController : NBUCameraViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource>
-@property (strong, nonatomic) UIImagePickerController *imagePicker;
 @property (strong, nonatomic) RODHandle *selected;
 @property (weak, nonatomic) IBOutlet UITableView *contactsTable;
 
