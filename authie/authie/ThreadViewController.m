@@ -134,8 +134,8 @@
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:NO];
-    [self.snapView setImage:[UIImage alloc]];
-    self.thread = nil;    
+    //[self.snapView setImage:[UIImage alloc]];
+    //self.thread = nil;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -304,7 +304,7 @@
             // - or from toHandleId, to this user
 
             Boolean canAdd = NO;
-            NSLog(@"Checking: %@, %@", msg.messageText, msg.toKey);
+            //NSLog(@"Checking: %@, %@", msg.messageText, msg.toKey);
             
             if([msg.fromHandle.publicKey isEqualToString:[RODItemStore sharedStore].authie.handle.publicKey]) {
                 
@@ -337,7 +337,7 @@
 //                canAdd = YES;
 //            }
             
-            NSLog(@"date %@, text %@, name %@, toKey %@, toHandle.publicKey %@", msg.sentDate, msg.messageText, msg.fromHandle.name, msg.toKey, self.toHandle.publicKey);
+            NSLog(@"id %@ date %@, text %@, name %@, toKey %@, toHandle.publicKey %@", msg.id, msg.sentDate, msg.messageText, msg.fromHandle.name, msg.toKey, self.toHandle.publicKey);
 
             
             if (canAdd == YES) {

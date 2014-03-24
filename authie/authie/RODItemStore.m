@@ -1892,14 +1892,14 @@
                     }
                     
                     if([r.id isEqualToNumber:message.id]) {
-                        //NSLog(@"Removed old object.");
+                        NSLog(@"Removed old object: %@", r.messageText);
                         
                         message.seen = r.seen;
                         message.localNotificationSent = r.localNotificationSent;
                         
                         [self.authie.allMessages removeObject:r];
                         foundNewThread = false;
-                        break;
+                        //break;
                     }
                 }
 
