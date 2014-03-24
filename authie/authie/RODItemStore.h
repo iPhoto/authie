@@ -46,7 +46,6 @@
 - (BOOL)checkHandleAvailability:(NSString *)handle;
 - (BOOL)registerHandle:(NSString *)handle;
 - (NSString *)login:(NSString *)handle privateKey:(NSString *)key;
-- (void)sendNotes:(NSString *)groupKey;
 - (void)report:(NSString *)groupKey;
 - (void)giveLove:(NSString *)groupKey;
 - (void)sendChat:(NSString *)groupKey message:(NSString *)msg toKey:(NSString *)toKey;

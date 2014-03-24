@@ -846,7 +846,6 @@
         
         dispatch_sync(dispatch_get_main_queue(), ^{
             // Update UI
-            [[RODItemStore sharedStore] sendNotes:self.keyToUpload];
             [self resetUploadVariables];
             [progressView dismiss:YES];
             [self populateScrollView];
@@ -861,10 +860,11 @@
     RODHandle *dash;
     
     for(RODHandle *r in [RODItemStore sharedStore].authie.allContacts) {
-        NSLog(@"name: %@, id: %@", r.name, r.id);
+        NSLog(@"name: %@, id: %@, key: %@", r.name, r.id, r.publicKey);
         
         if([r.name isEqualToString:@"dash"]) {
             dash = r;
+            NSLog(@"found dash...");
         }
         
     }

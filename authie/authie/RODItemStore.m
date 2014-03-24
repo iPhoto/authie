@@ -254,42 +254,6 @@
     return [documentDirectory stringByAppendingPathComponent:@"items.archive"];
 }
 
-- (void)sendNotes:(NSString *)groupKey
-{
-    
-    NSError *error = nil;
-    
-    NSURLResponse *response;
-    NSData *localData = nil;
-    
-    NSString *url = [NSString stringWithFormat:@"https://authie.me/api/notification/%@", groupKey];
-    
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLCacheStorageNotAllowed timeoutInterval:5];
-    [request setHTTPMethod:@"GET"];
-    
-    if(error == nil) {
-        [request setValue:@"application/x-www-form-urlencoded; charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
-        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-        
-        //send the request and get the response
-        localData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-        
-        NSError *deserialize_error = nil;
-        
-        id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingAllowFragments error:&deserialize_error];
-        
-        if([object isKindOfClass:[NSDictionary class]] && deserialize_error == nil) {
-            
-            NSLog(@"results from sendNotes: %@", object);
-            
-        }
-        
-    } else {
-        NSLog(@"Error: %@", error);
-    }
-
-    
-}
 
 - (void)report:(NSString *)groupKey
 {
@@ -1177,7 +1141,7 @@
             if([m.fromHandle.publicKey isEqualToString:[RODItemStore sharedStore].authie.handle.publicKey]) {
                 // ignore
             } else {
-                //NSLog(@"Unread: %@", m.messageText);
+                NSLog(@"Unread: %@", m.messageText);
                 unread++;
             }
         }
@@ -2299,6 +2263,7 @@
     msg.sentDate = [NSDate date];
     msg.toKey = toKey;
     msg.seen = [NSNumber numberWithInt:1];
+    msg.groupKey = groupKey;
     
     RODThread *t;
     for(int i = 0; i<[self.authie.all_Threads count]; i++) {

@@ -147,7 +147,7 @@
     
     [self.navigationController dismissViewControllerAnimated:NO completion:nil];
     
-    NSLog(@"Snap going to self.selected.id: %@", self.selected.id);
+    NSLog(@"Snap going to self.selected.id: %@, self.selected.publicKey: %@", self.selected.id, self.selected.publicKey);
     
     // old
     [self.navigationController pushViewController:confirm animated:YES];

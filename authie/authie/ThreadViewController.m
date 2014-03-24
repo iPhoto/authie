@@ -133,8 +133,8 @@
 
 -(void)viewWillDisappear:(BOOL)animated
 {
-    [super viewWillDisappear:NO];
-    //[self.snapView setImage:[UIImage alloc]];
+    [super viewWillDisappear:animated];
+    [self.snapView setImage:[UIImage alloc]];
     //self.thread = nil;
 }
 
@@ -352,7 +352,7 @@
 //                canAdd = YES;
 //            }
             
-            NSLog(@"id %@ date %@, text %@, name %@, toKey %@, toHandle.publicKey %@", msg.id, msg.sentDate, msg.messageText, msg.fromHandle.name, msg.toKey, self.toHandle.publicKey);
+            NSLog(@"id %@ date %@, text %@, name %@, toKey %@, toHandle.publicKey %@, seen: %@", msg.id, msg.sentDate, msg.messageText, msg.fromHandle.name, msg.toKey, self.toHandle.publicKey, msg.seen);
 
             
             if (canAdd == YES) {
@@ -377,13 +377,8 @@
                     
                 }
                 
-
-                RODMessage *set_as_read = [[RODItemStore sharedStore].authie.allMessages objectAtIndex:i];
-                set_as_read.seen = [NSNumber numberWithInt:1];
-                [[RODItemStore sharedStore].authie.allMessages setObject:set_as_read atIndexedSubscript:i];
-
-                
-                
+                msg.seen = [NSNumber numberWithInt:1];
+                                
                 [self.messages addObject:msg.messageText];
                 [self.subtitles addObject:msg.fromHandle.name];
                 
