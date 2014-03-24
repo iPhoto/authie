@@ -153,6 +153,14 @@
             response_result = [[object objectForKey:@"result"] integerValue];
             
             if(response_result == 1) {
+
+                // remove all of this users messages so we don't have to seem them again
+                NSArray *tempMessages = [NSArray arrayWithArray:self.authie.allMessages];
+                for(RODMessage *m in tempMessages) {
+                    if([m.fromHandle.name isEqualToString:handle.name]) {
+                        [self.authie.allMessages removeObject:m];
+                    }
+                }
                 
                 [self.authie.allContacts removeObject:handle];
                 [self loadContacts];
