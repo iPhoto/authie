@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet BButton *buttonAddContact;
 @property (weak, nonatomic) IBOutlet UILabel *labelHeader;
 @property (weak, nonatomic) IBOutlet UILabel *labelDetails;
+@property (weak, nonatomic) IBOutlet UILabel *labelDetailsSecond;
 - (IBAction)addContact:(id)sender;
 
 @end

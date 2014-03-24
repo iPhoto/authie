@@ -9,6 +9,7 @@
                 <outlet property="buttonAddContact" destination="Ij1-s2-Thh" id="jUK-l9-TV8"/>
                 <outlet property="buttonSendPic" destination="EZ8-TL-KCx" id="BCY-qU-uf5"/>
                 <outlet property="labelDetails" destination="ivs-Ff-cY9" id="jbb-VJ-4Oo"/>
+                <outlet property="labelDetailsSecond" destination="Vig-DG-lzr" id="9UL-IE-kyn"/>
                 <outlet property="labelHeader" destination="P9x-cs-CQp" id="3xa-Dk-611"/>
                 <outlet property="view" destination="lxD-QP-I2u" id="Cy1-C3-UmX"/>
             </connections>
@@ -19,22 +20,22 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="oh, it looks like your dash is empty!~" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P9x-cs-CQp">
-                    <rect key="frame" x="20" y="19" width="236" height="27"/>
+                    <rect key="frame" x="20" y="14" width="236" height="27"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="211" translatesAutoresizingMaskIntoConstraints="NO" id="ivs-Ff-cY9">
-                    <rect key="frame" x="33" y="86" width="211" height="121"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="236" translatesAutoresizingMaskIntoConstraints="NO" id="ivs-Ff-cY9">
+                    <rect key="frame" x="20" y="73" width="236" height="91"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="121" id="ZIL-fr-hXL"/>
-                        <constraint firstAttribute="width" constant="211" id="bfM-zu-ObK"/>
+                        <constraint firstAttribute="height" constant="91" id="ZIL-fr-hXL"/>
+                        <constraint firstAttribute="width" constant="236" id="bfM-zu-ObK"/>
                     </constraints>
                     <attributedString key="attributedText">
                         <fragment>
-                            <string key="content">when you're ready, start by taking a pic. this goes to your dash, where only people you've authorized as contacts can see it. you can remove the pic at any time.</string>
+                            <string key="content">get started on Authie by sending a pic to the dash. only people you've authorized as contacts can see your dash. you can delete a pic at any time.</string>
                             <attributes>
                                 <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <font key="NSFont" size="13" name="HelveticaNeue"/>
@@ -45,7 +46,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ij1-s2-Thh" customClass="BButton">
-                    <rect key="frame" x="84" y="216" width="108" height="30"/>
+                    <rect key="frame" x="84" y="231" width="108" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -60,7 +61,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZ8-TL-KCx" customClass="BButton">
-                    <rect key="frame" x="33" y="62" width="211" height="30"/>
+                    <rect key="frame" x="33" y="48" width="211" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -74,20 +75,43 @@
                         <action selector="takeDashPic:" destination="-1" eventType="touchUpInside" id="LZ4-C4-cWt"/>
                     </connections>
                 </button>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="236" translatesAutoresizingMaskIntoConstraints="NO" id="Vig-DG-lzr">
+                    <rect key="frame" x="20" y="139" width="236" height="91"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="211" id="70o-re-e0h"/>
+                        <constraint firstAttribute="height" constant="91" id="Vkh-sz-abT"/>
+                        <constraint firstAttribute="width" constant="236" id="ec5-aY-gag"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="91" id="vfj-0h-wA7"/>
+                    </constraints>
+                    <attributedString key="attributedText">
+                        <fragment>
+                            <string key="content">you can also send pictures privately to contacts. these appear blurry on your dash but will be clear when the recipient opens them.</string>
+                            <attributes>
+                                <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <font key="NSFont" size="13" name="HelveticaNeue"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <gestureRecognizers/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="Ij1-s2-Thh" secondAttribute="centerX" id="0Qw-Cg-4ZT"/>
+                <constraint firstAttribute="centerX" secondItem="Vig-DG-lzr" secondAttribute="centerX" id="3jN-Of-TOh"/>
                 <constraint firstItem="P9x-cs-CQp" firstAttribute="leading" secondItem="lxD-QP-I2u" secondAttribute="leading" constant="20" id="5be-Jl-1xT"/>
-                <constraint firstItem="ivs-Ff-cY9" firstAttribute="top" secondItem="lxD-QP-I2u" secondAttribute="top" constant="86" id="Pdw-i4-9sn"/>
+                <constraint firstItem="Vig-DG-lzr" firstAttribute="top" secondItem="lxD-QP-I2u" secondAttribute="top" constant="139" id="Arq-7m-iga"/>
+                <constraint firstItem="ivs-Ff-cY9" firstAttribute="top" secondItem="lxD-QP-I2u" secondAttribute="top" constant="73" id="Pdw-i4-9sn"/>
                 <constraint firstAttribute="centerX" secondItem="EZ8-TL-KCx" secondAttribute="centerX" id="WyN-qP-A2l"/>
                 <constraint firstAttribute="centerX" secondItem="ivs-Ff-cY9" secondAttribute="centerX" id="Yjb-UJ-fGI"/>
-                <constraint firstItem="EZ8-TL-KCx" firstAttribute="top" secondItem="lxD-QP-I2u" secondAttribute="top" constant="62" id="a2c-zb-cpZ"/>
-                <constraint firstItem="Ij1-s2-Thh" firstAttribute="top" secondItem="lxD-QP-I2u" secondAttribute="top" constant="216" id="aGv-ys-fdd"/>
-                <constraint firstItem="P9x-cs-CQp" firstAttribute="top" secondItem="lxD-QP-I2u" secondAttribute="top" constant="19" id="gz1-Co-jdh"/>
+                <constraint firstItem="EZ8-TL-KCx" firstAttribute="top" secondItem="lxD-QP-I2u" secondAttribute="top" constant="48" id="a2c-zb-cpZ"/>
+                <constraint firstItem="Ij1-s2-Thh" firstAttribute="top" secondItem="lxD-QP-I2u" secondAttribute="top" constant="231" id="aGv-ys-fdd"/>
+                <constraint firstItem="P9x-cs-CQp" firstAttribute="top" secondItem="lxD-QP-I2u" secondAttribute="top" constant="14" id="gz1-Co-jdh"/>
                 <constraint firstAttribute="trailing" secondItem="P9x-cs-CQp" secondAttribute="trailing" constant="20" id="vaq-Sy-voc"/>
-                <constraint firstItem="ivs-Ff-cY9" firstAttribute="top" secondItem="P9x-cs-CQp" secondAttribute="bottom" constant="40" id="yYm-FZ-I3E"/>
+                <constraint firstItem="ivs-Ff-cY9" firstAttribute="top" secondItem="P9x-cs-CQp" secondAttribute="bottom" constant="32" id="yYm-FZ-I3E"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>

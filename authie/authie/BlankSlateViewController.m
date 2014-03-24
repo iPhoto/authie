@@ -42,9 +42,11 @@
     UIFont *f10 = [UIFont fontWithName:@"LucidaTypewriter" size:10.0f];
     
     [self.labelDetails setFont:f10];
+    [self.labelDetailsSecond setFont:f10];
     [self.labelHeader setFont:f10];
     [self.buttonSendPic.titleLabel setFont:f];
     [self.buttonAddContact.titleLabel setFont:f];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
