@@ -1681,6 +1681,8 @@
             NSString *groupKey = [thread_result objectForKey:@"groupKey"];
             thread.groupKey = groupKey;
             
+            message.groupKey = groupKey;
+            
             NSString *toKey = [result objectForKey:@"toKey"];
             message.toKey = toKey;
             
@@ -1862,6 +1864,8 @@
                 
                 NSString *toKey = [result objectForKey:@"toKey"];
                 message.toKey = toKey;
+                
+                message.groupKey = groupKey;
                 
                 message.thread = thread;
                 message.seen = [NSNumber numberWithInt:0];

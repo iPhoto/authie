@@ -21,6 +21,7 @@
 @property (nonatomic) NSString *messageText;
 @property (nonatomic) NSString *toKey;
 @property (nonatomic) NSNumber *localNotificationSent;
+@property (nonatomic) NSString *groupKey;
 
 @property (nonatomic) RODHandle *fromHandle;
 @property (nonatomic) RODThread *thread;

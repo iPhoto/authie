@@ -290,11 +290,26 @@
     
     NSMutableArray *tempMessages = [NSMutableArray arrayWithArray:[RODItemStore sharedStore].authie.allMessages];
     
+    // NOW, SORT TEMP MESSAGES BY DATE!
+    
+    NSPredicate *predictate = [NSPredicate predicateWithFormat:@"groupKey == %@", self.thread.groupKey];
+    NSMutableArray *sortedMessages = [NSMutableArray arrayWithArray:[tempMessages filteredArrayUsingPredicate:predictate]];
+    
+//    for(RODMessage *m in sortedMessages) {
+//        // remove all messages that are not equal to this groupKey
+//        if([m.thread.groupKey isEqualToString:self.thread.groupKey] == false) {
+//            [tempMessages removeObject:m];
+//        }
+//        
+//    }
+    
+    [sortedMessages sortUsingDescriptors:[NSArray arrayWithObjects:[NSSortDescriptor sortDescriptorWithKey:@"sentDate" ascending:YES], nil]];
     
     
-    for(int i = 0; i < [tempMessages count]; i++) {
+    for(int i = 0; i < [sortedMessages count]; i++) {
         
-        RODMessage *msg = [tempMessages objectAtIndex:i];
+        RODMessage *msg = [sortedMessages objectAtIndex:i];
+        
         
         if([msg.thread.groupKey isEqualToString:self.thread.groupKey]) {
             
