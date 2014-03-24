@@ -56,6 +56,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(sendSnap:)];
     self.navigationItem.rightBarButtonItem = addButton;
     self.navigationItem.titleView = [[RODItemStore sharedStore] generateHeaderView];
@@ -97,7 +98,7 @@
 {
     [super viewDidAppear:animated];
 
-    //self.screenName = @"Dash";
+    self.screenName = @"Dash";
     
     if(self.doUploadOnView) {
         [self doUpload];

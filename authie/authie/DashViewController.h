@@ -14,7 +14,7 @@
 #import "BlankSlateViewController.h"
 #import <NBUImagePicker/NBUCameraViewController.h>
 
-@interface DashViewController : NBUCameraViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, SRConnectionDelegate, UIScrollViewDelegate, UIActionSheetDelegate>
+@interface DashViewController : GAITrackedViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, SRConnectionDelegate, UIScrollViewDelegate, UIActionSheetDelegate>
 {
     NSMutableArray *_items;
 }
