@@ -841,6 +841,8 @@
                                   withTextColor:self.textColorToUpload
             ];
         
+        [[RODItemStore sharedStore] loadThreads:NO];
+        
         dispatch_sync(dispatch_get_main_queue(), ^{
             // Update UI
             [[RODItemStore sharedStore] sendNotes:self.keyToUpload];

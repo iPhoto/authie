@@ -130,6 +130,7 @@
     [self.snapView setNeedsUpdateConstraints];
 }
 
+
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:NO];
