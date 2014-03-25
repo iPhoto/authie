@@ -951,14 +951,11 @@
 
 -(UIImage *)imageByRenderingView:(UIView *)v {
 
-    UIGraphicsBeginImageContextWithOptions(v.bounds.size, v.opaque, 0.0);
-    [v.layer renderInContext:UIGraphicsGetCurrentContext()];
-    
-    UIImage * img = UIGraphicsGetImageFromCurrentImageContext();
-    
+    UIGraphicsBeginImageContextWithOptions(v.bounds.size, v.opaque, 0.0f);
+    [v drawViewHierarchyInRect:v.bounds afterScreenUpdates:NO];
+    UIImage * snapshotImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
-    return img;
+    return snapshotImage;
     
 }
 
