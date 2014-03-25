@@ -301,10 +301,10 @@
 
 }
 
-- (void)sendChat:(NSString *)groupKey message:(NSString *)msg  toKey:(NSString *)toKey
+- (void)sendChat:(NSString *)groupKey message:(NSString *)msg  toKey:(NSString *)toKey messageKey:(NSString *)key
 {
     
-    NSLog(@"SendChat: groupKey=%@, toKey=%@, msg=%@", groupKey, toKey, msg);
+    NSLog(@"SendChat: groupKey=%@, toKey=%@, msg=%@, messageKey=%@", groupKey, toKey, msg, key);
     
     // new shit
     //[self.hubProxy invoke:@"Send" withArgs:[NSArray arrayWithObjects: [RODItemStore sharedStore].authie.handle.name, msg, groupKey, toKey, nil]];
@@ -331,7 +331,7 @@
     
     NSString *hardCoded = [NSString stringWithFormat:@"{ \"groupKey\": \"%@\", \"message\": \"%@\", \"toKey\":\"%@\" }", groupKey, msg, toKey];
     
-    NSLog(hardCoded);
+    //NSLog(hardCoded);
     
     //NSData *jsonDataUTF8 = [NSJSONSerialization dataWithJSONObject:checkDict options:kNilOptions error:&error];
     NSData *jsonDataUTF8 = [NSData dataWithBytes:[hardCoded UTF8String] length:[hardCoded length]];
@@ -339,7 +339,7 @@
     NSDictionary *checkOutput = [NSJSONSerialization JSONObjectWithData:jsonDataUTF8 options:kNilOptions error:&error];
     NSString *convertedText = [checkOutput objectForKey:@"message"];
 
-    NSLog(@"convertedText: %@", convertedText);
+    //NSLog(@"convertedText: %@", convertedText);
     NSLog(@"%@", checkOutput);
     
     //NSData *jsonData = [NSJSONSerialization dataWithJSONObject:checkDict options:kNilOptions error:&error];
@@ -370,6 +370,7 @@
             f.groupKey = groupKey;
             f.toKey = toKey;
             f.message = msg;
+            f.messageKey = key;
             
             [self.authie.failedChats addObject:f];
             
@@ -392,6 +393,20 @@
                 // add it to be resent later?
                 start_convo_success = NO;
             } else {
+                
+                
+                // find the pending chat item,
+                // update that chat's id to the new one...
+                NSArray *tempMessages = [NSArray arrayWithArray:[RODItemStore sharedStore].authie.allMessages];
+
+                for(RODMessage *m in tempMessages) {
+
+                    if([m.messageKey isEqualToString:key]) {
+                        m.id = [NSNumber numberWithInteger:response_result];
+                        break;
+                    }
+                }
+                
                 
                 start_convo_success = YES;
                 
@@ -1155,6 +1170,9 @@
     
     [[UAPush shared] setBadgeNumber:unread];    
     
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.threadViewController reloadThread];
+    
     return unread;
 }
 
@@ -1595,15 +1613,47 @@
         // that do not have an id set, these are messages
         // that are place holders, put there after the
         // message has been sent on the users side
-        NSMutableArray *tempMessages = [NSMutableArray arrayWithArray:self.authie.allMessages  ];
         
-        for(RODMessage *m in tempMessages) {
-            if([m.thread.groupKey isEqualToString:key]) {
-                if([m.id isEqualToNumber:[NSNumber numberWithInt:-1]]) {
-                    [self.authie.allMessages removeObject:m];
-                }
-            }
-        }
+
+//        NSMutableArray *tempMessages = [NSMutableArray arrayWithArray:self.authie.allMessages  ];
+//        
+//        for(RODMessage *r in tempMessages) {
+//            if([r.thread.groupKey isEqualToString:groupKey]) {
+//                if([r.id isEqualToNumber:[NSNumber numberWithInt:-1]]) {
+//                    [self.authie.allMessages removeObject:r];
+//                    foundNewThread = false;
+//                    
+//                    message.seen = [NSNumber numberWithInt:1];
+//                    message.localNotificationSent = [NSNumber numberWithInt:1];
+//                    
+//                    break;
+//                }
+//            }
+//            
+//            if([r.id isEqualToNumber:message.id]) {
+//                NSLog(@"Removed old object: %@", r.messageText);
+//                
+//                message.seen = r.seen;
+//                message.localNotificationSent = r.localNotificationSent;
+//                
+//                [self.authie.allMessages removeObject:r];
+//                foundNewThread = false;
+//                //break;
+//            }
+//        }
+        
+        
+//        NSMutableArray *tempMessages = [NSMutableArray arrayWithArray:self.authie.allMessages  ];
+//        
+//        for(RODMessage *m in tempMessages) {
+//            
+//            asdfasdf
+//            if([m.thread.groupKey isEqualToString:key]) {
+//                if([m.id isEqualToNumber:[NSNumber numberWithInt:-1]]) {
+//                    [self.authie.allMessages removeObject:m];
+//                }
+//            }
+//        }
         
         for (NSDictionary *result in object) {
             
@@ -1671,6 +1721,14 @@
                     break;
                 }
                 
+                
+                if([r.fromHandle.publicKey isEqualToString:[RODItemStore sharedStore].authie.handle.publicKey] && [r.id isEqualToNumber:[NSNumber numberWithInt:-1]] && [r.thread.groupKey isEqualToString:message.groupKey]) {
+
+                    // found a placeholder chat...
+                    // but only remove if it has the same text? adn was sent very near the same time?
+                    //NSTimeInterval x = [r.sentDate timeIntervalSinceDate:message.sentDate];
+                    
+                }
                 // why is it not removing old messages here? hmm
             }
 
@@ -1685,8 +1743,8 @@
     
     [self saveChanges];
     
-    //AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    //[appDelegate.threadViewController reloadThread];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.threadViewController reloadThread];
     
 }
 
@@ -1847,17 +1905,17 @@
                 NSMutableArray *tempMessages = [NSMutableArray arrayWithArray:self.authie.allMessages  ];
                 
                 for(RODMessage *r in tempMessages) {
-                    if([r.thread.groupKey isEqualToString:groupKey]) {
-                        if([r.id isEqualToNumber:[NSNumber numberWithInt:-1]]) {
-                            [self.authie.allMessages removeObject:r];
-                            foundNewThread = false;
-                            
-                            message.seen = [NSNumber numberWithInt:1];
-                            message.localNotificationSent = [NSNumber numberWithInt:1];
-                            
-                            break;
-                        }
-                    }
+//                    if([r.thread.groupKey isEqualToString:groupKey]) {
+//                        if([r.id isEqualToNumber:[NSNumber numberWithInt:-1]]) {
+//                            [self.authie.allMessages removeObject:r];
+//                            foundNewThread = false;
+//                            
+//                            message.seen = [NSNumber numberWithInt:1];
+//                            message.localNotificationSent = [NSNumber numberWithInt:1];
+//                            
+//                            break;
+//                        }
+//                    }
                     
                     if([r.id isEqualToNumber:message.id]) {
                         NSLog(@"Removed old object: %@", r.messageText);
@@ -2246,13 +2304,13 @@
         
         NSLog(@"Sending failed message: %@", c.message);
         
-        [self sendChat:c.groupKey message:c.message toKey:c.toKey];
+        [self sendChat:c.groupKey message:c.message toKey:c.toKey messageKey:c.messageKey];
         
     }
     
 }
 
-- (void)addChat:(NSString *)user message:(NSString *)message groupKey:(NSString *)groupKey toKey:(NSString *)toKey;
+- (NSString *)addChat:(NSString *)user message:(NSString *)message groupKey:(NSString *)groupKey toKey:(NSString *)toKey;
 {
     RODMessage *msg = [[RODMessage alloc] init];
     
@@ -2264,6 +2322,7 @@
     msg.toKey = toKey;
     msg.seen = [NSNumber numberWithInt:1];
     msg.groupKey = groupKey;
+    msg.messageKey = [[NSUUID UUID] UUIDString];
     
     RODThread *t;
     for(int i = 0; i<[self.authie.all_Threads count]; i++) {
@@ -2297,6 +2356,8 @@
     [appDelegate.threadViewController reloadThread];
     
     NSLog(@"Chat added.");
+    
+    return msg.messageKey;
 }
 
 - (NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse

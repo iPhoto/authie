@@ -48,9 +48,9 @@
 - (NSString *)login:(NSString *)handle privateKey:(NSString *)key;
 - (void)report:(NSString *)groupKey;
 - (void)giveLove:(NSString *)groupKey;
-- (void)sendChat:(NSString *)groupKey message:(NSString *)msg toKey:(NSString *)toKey;
+- (void)sendChat:(NSString *)groupKey message:(NSString *)msg toKey:(NSString *)toKey messageKey:(NSString *)key;
 - (void)getPrivateKey;
-- (void)addChat:(NSString *)user message:(NSString *)message groupKey:(NSString *)groupKey toKey:(NSString *)toKey;
+- (NSString *)addChat:(NSString *)user message:(NSString *)message groupKey:(NSString *)groupKey toKey:(NSString *)toKey;
 - (void)addBlock:(NSString *)publicKey;
 - (void)loadBlocks;
 - (void)loadMessages:(void (^)(UIBackgroundFetchResult))completionHandler;

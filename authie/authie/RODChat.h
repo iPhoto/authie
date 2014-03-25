@@ -15,5 +15,6 @@
 @property (nonatomic) NSString *groupKey;
 @property (nonatomic) NSString *message;
 @property (nonatomic) NSString *toKey;
+@property (nonatomic) NSString *messageKey;
 
 @end

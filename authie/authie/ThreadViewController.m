@@ -106,6 +106,7 @@
 - (void)reloadThread
 {
     
+    NSLog(@"reloadThread: %i", loadRow);
     if(loadRow != -1) {
         NSLog(@"Reloaded thread.");
         [self resetChatObjects];
@@ -177,8 +178,9 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
+
     [[RODItemStore sharedStore] unreadMessages];
+    [self reloadThread];
 
 }
 
@@ -197,16 +199,6 @@
         [self.messageInputView setHidden:YES];
     }
     
-}
-
-
-- (void)addMessage:(NSString *)user message:(NSString *)msg groupKey:(NSString *)key toKey:(NSString *)toKey
-{
-
-    NSLog(@"addMessage, thread: %@, %@, %@, %i", user, msg, key, [RODItemStore sharedStore].hubConnection.state);
-    [[RODItemStore sharedStore] addChat:user message:msg groupKey:key toKey:toKey];
-
-    [self reloadThread];
 }
 
 -(void)tweetPhoto:(id)sender
@@ -242,7 +234,7 @@
         
     }
     
-    [[RODItemStore sharedStore] addChat:[RODItemStore sharedStore].authie.handle.name message:@"<3" groupKey:self.thread.groupKey toKey:self.toHandle.publicKey];
+    NSString *sentMessageKey = [[RODItemStore sharedStore] addChat:[RODItemStore sharedStore].authie.handle.name message:@"<3" groupKey:self.thread.groupKey toKey:self.toHandle.publicKey];
     
     [self finishSend];
     [self scrollToBottomAnimated:YES];
@@ -251,7 +243,7 @@
     dispatch_async(queue, ^{
         // Perform async operation
         
-        [[RODItemStore sharedStore] sendChat:self.thread.groupKey message:@"<3" toKey:self.toHandle.publicKey];
+        [[RODItemStore sharedStore] sendChat:self.thread.groupKey message:@"<3" toKey:self.toHandle.publicKey messageKey:sentMessageKey];
         
         dispatch_sync(dispatch_get_main_queue(), ^{
             // Update UI
@@ -312,6 +304,10 @@
         
         RODMessage *msg = [sortedMessages objectAtIndex:i];
         
+//        NSLog(@"Checking: %@, %@", msg.messageText, msg.toKey);
+
+        NSLog(@"checking id %@ date %@, text %@, name %@, toKey %@, toHandle.publicKey %@, seen: %@, groupKey: %@", msg.id, msg.sentDate, msg.messageText, msg.fromHandle.name, msg.toKey, self.toHandle.publicKey, msg.seen, msg.groupKey);
+
         
         if([msg.thread.groupKey isEqualToString:self.thread.groupKey]) {
             
@@ -321,7 +317,6 @@
             // - or from toHandleId, to this user
 
             Boolean canAdd = NO;
-            //NSLog(@"Checking: %@, %@", msg.messageText, msg.toKey);
             
             if([msg.fromHandle.publicKey isEqualToString:[RODItemStore sharedStore].authie.handle.publicKey]) {
                 
@@ -354,8 +349,6 @@
 //                canAdd = YES;
 //            }
             
-            NSLog(@"id %@ date %@, text %@, name %@, toKey %@, toHandle.publicKey %@, seen: %@", msg.id, msg.sentDate, msg.messageText, msg.fromHandle.name, msg.toKey, self.toHandle.publicKey, msg.seen);
-
             
             if (canAdd == YES) {
                 
@@ -481,7 +474,7 @@
     
     [self.subtitles addObject:[RODItemStore sharedStore].authie.handle.name];
 
-    [[RODItemStore sharedStore] addChat:[RODItemStore sharedStore].authie.handle.name message:text groupKey:self.thread.groupKey toKey:self.toHandle.publicKey];
+    NSString *sentMessageKey  = [[RODItemStore sharedStore] addChat:[RODItemStore sharedStore].authie.handle.name message:text groupKey:self.thread.groupKey toKey:self.toHandle.publicKey];
 
     [self finishSend];
     [self scrollToBottomAnimated:YES];
@@ -490,7 +483,7 @@
     dispatch_async(queue, ^{
         // Perform async operation
         
-        [[RODItemStore sharedStore] sendChat:self.thread.groupKey message:text toKey:self.toHandle.publicKey];
+        [[RODItemStore sharedStore] sendChat:self.thread.groupKey message:text toKey:self.toHandle.publicKey messageKey:sentMessageKey];
 
         dispatch_sync(dispatch_get_main_queue(), ^{
             // Update UI

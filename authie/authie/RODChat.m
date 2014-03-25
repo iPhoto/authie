@@ -9,7 +9,7 @@
 #import "RODChat.h"
 
 @implementation RODChat
-@synthesize message, groupKey, toKey;
+@synthesize message, groupKey, toKey, messageKey;
 
 - (void) encodeWithCoder:(NSCoder *)aCoder
 {
@@ -17,6 +17,7 @@
     [aCoder encodeObject:self.message forKey:@"message"];
     [aCoder encodeObject:self.groupKey forKey:@"groupKey"];
     [aCoder encodeObject:self.toKey forKey:@"toKey"];
+    [aCoder encodeObject:self.messageKey forKey:@"messageKey"];
     
 }
 
@@ -27,6 +28,7 @@
         [self setMessage:[aDecoder decodeObjectForKey:@"message"]];
         [self setGroupKey:[aDecoder decodeObjectForKey:@"groupKey"]];
         [self setToKey:[aDecoder decodeObjectForKey:@"toKey"]];
+        [self setMessageKey:[aDecoder decodeObjectForKey:@"messageKey"]];
     }
     return self;
 }

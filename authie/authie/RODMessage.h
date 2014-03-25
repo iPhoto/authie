@@ -14,6 +14,7 @@
 @interface RODMessage : NSObject
 
 @property (nonatomic) NSNumber *id;
+@property (nonatomic) NSString *messageKey;
 @property (nonatomic) NSDate *sentDate;
 @property (nonatomic) NSNumber *active;
 @property (nonatomic) NSNumber *anon;
