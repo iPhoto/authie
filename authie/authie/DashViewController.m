@@ -292,7 +292,9 @@
         UIImage *image =[[RODImageStore sharedStore] imageForKey:thread.groupKey];
 
         [mini.view setClipsToBounds:YES];
-
+        
+        [mini.view setAutoresizesSubviews:NO];
+        
         [mini.snapView setContentMode:UIViewContentModeScaleAspectFill];
         [mini.snapView setImage:image];
         
