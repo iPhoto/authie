@@ -18,7 +18,7 @@
 #import <Social/Social.h>
 
 @implementation ThreadViewController
-@synthesize loadRow, toHandle, tweetImage;
+@synthesize toHandle, tweetImage, loadedThreadKey;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,9 +38,7 @@
         self.avatars = [[NSDictionary alloc] init];
         
         self.messageType = [[NSMutableArray alloc] init];
-        
-        loadRow = -1;
-        
+                
         UIButton *button_menu = [UIButton buttonWithType:UIButtonTypeCustom];
         [button_menu setFrame:CGRectMake(0, 0, 25, 25)];
         [button_menu setImage:[UIImage imageNamed:@"heart-white-v1"] forState:UIControlStateNormal];
@@ -49,6 +47,8 @@
         UIBarButtonItem *rightDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_menu];
 
         self.navigationItem.rightBarButtonItem = rightDrawerButton;
+        
+        loadedThreadKey = @"";
         
 //        UIButton *button_tweet = [UIButton buttonWithType:UIButtonTypeCustom];
 //        [button_tweet setFrame:CGRectMake(0, 0, 25, 25)];
@@ -64,10 +64,6 @@
     return self;
 }
 
-- (void)setThreadIndex:(int)row;
-{
-    loadRow = row;
-}
 
 - (void) viewWillAppear:(BOOL)animated
 {
@@ -106,11 +102,11 @@
 - (void)reloadThread
 {
     
-    NSLog(@"reloadThread: %i", loadRow);
-    if(loadRow != -1) {
+    NSLog(@"reloadThread: %@", self.loadedThreadKey);
+    if(self.loadedThreadKey) {
         NSLog(@"Reloaded thread.");
         [self resetChatObjects];
-        [self loadThread:loadRow];
+        [self loadThread:self.loadedThreadKey];
         [self.snapView setNeedsUpdateConstraints];
 
     }
@@ -129,7 +125,7 @@
 {
     [self resetChatObjects];
     
-    [self loadThread:loadRow];
+    [self loadThread:self.loadedThreadKey];
     [self.snapView setNeedsUpdateConstraints];
 }
 
@@ -253,16 +249,25 @@
     });
 }
 
--(void)loadThread:(int)row
+-(void)loadThread:(NSString *)groupKey
 {
  
     NSString *currentMessage = self.messageInputView.textView.text;
-    loadRow = row;
+    self.loadedThreadKey = groupKey;
     
     
     [self resetChatObjects];
     
-    RODThread *thread = [[RODItemStore sharedStore].authie.all_Threads objectAtIndex:row];
+    NSArray *tempThreads = [NSArray arrayWithArray:[RODItemStore sharedStore].authie.allThreads];
+    
+    RODThread *thread;
+    
+    for(RODThread *t in tempThreads) {
+        if([t.groupKey isEqualToString:groupKey]) {
+            thread = t;
+            break;
+        }
+    }
     
 //    if(thread.successfulUpload == NO) {
 //        
@@ -447,12 +452,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-- (void)setThreadRow:(int)row
-{
-    loadRow = row;
-}
-
 
 - (void)didSendText:(NSString *)text
 {

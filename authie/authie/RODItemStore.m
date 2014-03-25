@@ -2283,7 +2283,7 @@
                 }
             }
             
-            [appDelegate.threadViewController loadThread:i];
+            [appDelegate.threadViewController loadThread:group_key];
             [appDelegate.threadViewController reloadThread];
             [appDelegate.dashViewController.navigationController pushViewController:appDelegate.threadViewController animated:YES];
             

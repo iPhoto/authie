@@ -723,7 +723,7 @@
                     
                 }
                 
-                [appDelegate.threadViewController setLoadRow:thread_index];
+                [appDelegate.threadViewController loadThread:thread.groupKey];
                 [appDelegate.dashViewController.navigationController pushViewController:appDelegate.threadViewController animated:YES];
             }
                         
@@ -764,7 +764,7 @@
                     UIImage *img = self.tappedImage;
                     appDelegate.threadViewController.tweetImage = img;
                     
-                    [appDelegate.threadViewController setLoadRow:self.tappedThreadIndex];
+                    [appDelegate.threadViewController loadThread:self.tappedThread.groupKey];
                     [appDelegate.dashViewController.navigationController pushViewController:appDelegate.threadViewController animated:YES];
                     
                     break;

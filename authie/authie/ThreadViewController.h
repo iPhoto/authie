@@ -31,11 +31,9 @@
 @property (strong, nonatomic) NSMutableArray *messageType;
 @property (strong, nonatomic) NSMutableArray *hasTimeStamp;
 
-@property (nonatomic) int loadRow;
+@property (strong, nonatomic) NSString *loadedThreadKey;
 
-- (void)setThread:(RODThread *)new_thread;
-- (void)loadThread:(int)row;
+- (void)loadThread:(NSString *)groupKey;
 - (void)reloadThread;
-- (void)setThreadIndex:(int)row;
 
 @end

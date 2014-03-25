@@ -137,7 +137,7 @@
             AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
             
             appDelegate.threadViewController = [[ThreadViewController alloc] init];
-            [appDelegate.threadViewController loadThread:i];
+            [appDelegate.threadViewController loadThread:msg.thread.groupKey];
             [appDelegate.threadViewController reloadThread];
             [appDelegate.navigationViewController pushViewController:appDelegate.threadViewController animated:YES];
             break;
