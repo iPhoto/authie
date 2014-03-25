@@ -432,7 +432,8 @@
     
     [self finishSend];
     [self scrollToBottomAnimated:YES];
-    
+        
+    [[RODItemStore sharedStore] unreadMessages];
     // to perserve seen values
     [[RODItemStore sharedStore] saveChanges];
                                                                                                                                                                                                        

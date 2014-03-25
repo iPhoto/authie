@@ -1153,7 +1153,7 @@
         RODMessage *m = [tempMessages objectAtIndex:x];
         if([m.seen isEqualToNumber:[NSNumber numberWithInt:0]]) {
             
-            if([m.fromHandle.publicKey isEqualToString:[RODItemStore sharedStore].authie.handle.publicKey]) {
+            if([m.fromHandle.publicKey isEqualToString:[RODItemStore sharedStore].authie.handle.publicKey] || [m.id isEqualToNumber:[NSNumber numberWithInt:-1]]) {
                 // ignore
             } else {
                 NSLog(@"Unread: %@", m.messageText);
@@ -1165,14 +1165,17 @@
             [self sendLocalNotification:m];
             RODMessage *updateMessage = [[RODItemStore sharedStore].authie.allMessages objectAtIndex:x];
             [updateMessage setLocalNotificationSent:[NSNumber numberWithInt:1]];
+            
+            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            if([updateMessage.groupKey isEqualToString:appDelegate.threadViewController.thread.groupKey]) {                
+                [appDelegate.threadViewController reloadThread];
+            }
+            
         }
     }
     
     [[UAPush shared] setBadgeNumber:unread];    
-    
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [appDelegate.threadViewController reloadThread];
-    
+        
     return unread;
 }
 
