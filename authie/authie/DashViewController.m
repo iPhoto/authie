@@ -248,9 +248,12 @@
         self.photoHeight = 800;
     }
     
+    
+    
     // remove the threads that were there before
     [[self.scroll subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
 
+    
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl setAttributedTitle:[[NSAttributedString alloc] initWithString:@"pull to sync"]];
     [refreshControl addTarget:self action:@selector(doRefresh:) forControlEvents:UIControlEventValueChanged];

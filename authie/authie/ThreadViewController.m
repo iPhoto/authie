@@ -47,15 +47,17 @@
         [button_menu addTarget:self action:@selector(sendLove:) forControlEvents:UIControlEventTouchUpInside];
         
         UIBarButtonItem *rightDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_menu];
+
+        self.navigationItem.rightBarButtonItem = rightDrawerButton;
         
-        UIButton *button_tweet = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button_tweet setFrame:CGRectMake(0, 0, 25, 25)];
-        [button_tweet setImage:[UIImage imageNamed:@"tweet-button-v2"] forState:UIControlStateNormal];
-        [button_tweet addTarget:self action:@selector(tweetPhoto:) forControlEvents:UIControlEventTouchUpInside];
+//        UIButton *button_tweet = [UIButton buttonWithType:UIButtonTypeCustom];
+//        [button_tweet setFrame:CGRectMake(0, 0, 25, 25)];
+//        [button_tweet setImage:[UIImage imageNamed:@"tweet-button-v2"] forState:UIControlStateNormal];
+//        [button_tweet addTarget:self action:@selector(tweetPhoto:) forControlEvents:UIControlEventTouchUpInside];
+//        
+//        UIBarButtonItem *rightDrawerButtonTweet = [[UIBarButtonItem alloc] initWithCustomView:button_tweet];
         
-        UIBarButtonItem *rightDrawerButtonTweet = [[UIBarButtonItem alloc] initWithCustomView:button_tweet];
-        
-        self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:rightDrawerButtonTweet, rightDrawerButton, nil];
+//        self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:rightDrawerButtonTweet, rightDrawerButton, nil];
         
         
     }
@@ -77,19 +79,19 @@
     [button_menu addTarget:self action:@selector(sendLove:) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *rightDrawerButton = [[UIBarButtonItem alloc] initWithCustomView:button_menu];
-    
-    UIButton *button_tweet = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button_tweet setFrame:CGRectMake(0, 0, 25, 25)];
-    [button_tweet setImage:[UIImage imageNamed:@"tweet-button-v2"] forState:UIControlStateNormal];
-    [button_tweet addTarget:self action:@selector(tweetPhoto:) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIBarButtonItem *rightDrawerButtonTweet = [[UIBarButtonItem alloc] initWithCustomView:button_tweet];
-    
-    if([self.thread.fromHandle.publicKey isEqualToString:[RODItemStore sharedStore].authie.handle.publicKey]) {
-        self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:rightDrawerButtonTweet, rightDrawerButton, nil];
-    } else {
+//    
+//    UIButton *button_tweet = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [button_tweet setFrame:CGRectMake(0, 0, 25, 25)];
+//    [button_tweet setImage:[UIImage imageNamed:@"tweet-button-v2"] forState:UIControlStateNormal];
+//    [button_tweet addTarget:self action:@selector(tweetPhoto:) forControlEvents:UIControlEventTouchUpInside];
+//    
+//    UIBarButtonItem *rightDrawerButtonTweet = [[UIBarButtonItem alloc] initWithCustomView:button_tweet];
+//    
+//    if([self.thread.fromHandle.publicKey isEqualToString:[RODItemStore sharedStore].authie.handle.publicKey]) {
+//        self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:rightDrawerButtonTweet, rightDrawerButton, nil];
+//    } else {
         self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:rightDrawerButton, nil];
-    }
+//    }
     
     
     [[RODItemStore sharedStore] loadMessagesForThread:self.thread.groupKey];
