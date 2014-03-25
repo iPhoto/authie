@@ -20,6 +20,8 @@
 @property (strong, nonatomic) RODThread *thread;
 @property (strong, nonatomic) RODHandle *toHandle;
 
+@property (strong, nonatomic) UIImage *tweetImage;
+
 @property (weak, nonatomic) IBOutlet UILabel *snapCaption;
 
 @property (strong, nonatomic) NSMutableArray *messages;

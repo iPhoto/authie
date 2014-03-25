@@ -42,6 +42,7 @@
 @property (strong, nonatomic) UIImagePickerController *imagePicker;
 @property (strong, nonatomic) RODHandle *selected;
 @property (strong, nonatomic) RODThread *tappedThread;
+@property (weak, nonatomic) UIImage *tappedImage;
 @property (nonatomic) int tappedThreadIndex;
 
 @property (strong, nonatomic) NSString *mostRecentGroupKey;

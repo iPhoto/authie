@@ -18,7 +18,7 @@
 #import <Social/Social.h>
 
 @implementation ThreadViewController
-@synthesize loadRow, toHandle;
+@synthesize loadRow, toHandle, tweetImage;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -215,7 +215,7 @@
         SLComposeViewController *tweetSheet = [SLComposeViewController
                                                composeViewControllerForServiceType:SLServiceTypeTwitter];
         [tweetSheet setInitialText:self.thread.caption];
-        [tweetSheet addImage:[[RODImageStore sharedStore] imageForKey:self.thread.groupKey]];
+        [tweetSheet addImage:self.tweetImage];
         [self presentViewController:tweetSheet animated:YES completion:nil];
     }
     

@@ -29,7 +29,8 @@
 @implementation DashViewController
 @synthesize handle, contentSize, imageToUpload, keyToUpload, handleToUpload, captionToUpload,
             doUploadOnView, imagePicker, selected, mostRecentGroupKey, photoHeight,
-            locationToUpload, fontToUpload, textColorToUpload, tappedThread, tappedThreadIndex;
+            locationToUpload, fontToUpload, textColorToUpload, tappedThread, tappedThreadIndex,
+            tappedImage;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -645,6 +646,10 @@
     [progressView show:YES];
 
     
+    UIImage *img = [self imageByRenderingView:[tapGesture.view superview]];
+    self.tappedImage = img;
+
+    
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
     dispatch_async(queue, ^{
      
@@ -675,6 +680,9 @@
                 // all this below only applies if it's FROM YOU!!!
                 
                 if([thread.fromHandle.publicKey isEqualToString:[RODItemStore sharedStore].authie.handle.publicKey]) {
+                    
+                    appDelegate.threadViewController.tweetImage = img;
+
                     
                     
                     // if there are 0 convos, it's with yourself... send it to the dash??
@@ -741,10 +749,15 @@
             {
                 if([r.name isEqualToString:name]) {
                     // push the threadview with this name set as the contact
+
+                    
                     
                     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
                     appDelegate.threadViewController = [[ThreadViewController alloc] init];
                     appDelegate.threadViewController.toHandle = r;
+
+                    UIImage *img = self.tappedImage;
+                    appDelegate.threadViewController.tweetImage = img;
                     
                     [appDelegate.threadViewController setLoadRow:self.tappedThreadIndex];
                     [appDelegate.dashViewController.navigationController pushViewController:appDelegate.threadViewController animated:YES];
@@ -934,6 +947,19 @@
     [appDelegate.dashViewController.navigationController pushViewController:cvc animated:YES];
     
 
+}
+
+-(UIImage *)imageByRenderingView:(UIView *)v {
+
+    UIGraphicsBeginImageContextWithOptions(v.bounds.size, v.opaque, 0.0);
+    [v.layer renderInContext:UIGraphicsGetCurrentContext()];
+    
+    UIImage * img = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return img;
+    
 }
 
 
