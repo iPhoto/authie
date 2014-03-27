@@ -44,13 +44,20 @@
     
     [self.contactsTable setRowHeight:100];
     
-    self.navigationItem.title = @"send snap to:";
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+ 
+    CGRect navItem = CGRectMake(0, 0, 120, 44);
+    UILabel *navLabel = [[UILabel alloc] initWithFrame:navItem];
+    navLabel.backgroundColor = [UIColor clearColor];
+    navLabel.textColor = [UIColor whiteColor];
+    navLabel.font = [UIFont fontWithName:@"LucidaTypewriter" size:10.0f];
+    navLabel.textAlignment = NSTextAlignmentCenter;
+    navLabel.text = @"send snap to:";
+    self.navigationItem.titleView = navLabel;
     
     // this happens when they are viewing their own profile
     self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateMenuItem:@"house-v5-white"];
