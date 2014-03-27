@@ -279,7 +279,13 @@
     [self.snapView setImage:[[RODImageStore sharedStore] imageForKey:thread.groupKey]];
     self.thread = thread;
     
-    self.navigationItem.title = [NSString stringWithFormat:@"%@:%@", [RODItemStore sharedStore].authie.handle.name, self.toHandle.name];
+    UILabel *threadLabel = [[UILabel alloc] init];
+    [threadLabel setText:[NSString stringWithFormat:@"%@:%@", [RODItemStore sharedStore].authie.handle.name, self.toHandle.name]];
+    [threadLabel setFont:[UIFont fontWithName:@"LucidaTypewriter" size:10.0f]];
+    [threadLabel setFrame:CGRectMake(0, 18, 100, 20)];
+    [threadLabel setTextAlignment:NSTextAlignmentCenter];
+    [threadLabel setTextColor:[UIColor whiteColor]];
+    self.navigationItem.titleView = threadLabel;
     
     self.snapDate.text = [self.thread.startDate prettyDate];
     
