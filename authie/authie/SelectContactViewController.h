@@ -9,8 +9,9 @@
 @class RODHandle;
 #import <NBUImagePicker/NBUCameraViewController.h>
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 
-@interface SelectContactViewController : NBUCameraViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface SelectContactViewController : GAITrackedViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) RODHandle *selected;
 @property (weak, nonatomic) IBOutlet UITableView *contactsTable;
 

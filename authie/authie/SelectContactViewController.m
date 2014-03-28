@@ -21,7 +21,7 @@
 #import "RODCameraViewController.h"
 
 @implementation SelectContactViewController
-@synthesize contactsTable, editingContacts, cameraView;
+@synthesize contactsTable, editingContacts;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -69,10 +69,7 @@
     
     [self.contactsTable deselectRowAtIndexPath:[self.contactsTable indexPathForSelectedRow] animated:animated];
 
-    self.cameraView.savePicturesToLibrary = YES;
-    self.cameraView.backgroundColor = [UIColor whiteColor];
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    
     
     if([[RODItemStore sharedStore].authie.all_Contacts count] > 1) {
         UIBarButtonItem *rightDrawerButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(enableBlocking:)];
@@ -81,6 +78,8 @@
     
     
     editingContacts = NO;
+
+    self.screenName = @"SelectContact";
 
     [self.contactsTable reloadData];
     

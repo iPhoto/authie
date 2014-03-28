@@ -30,18 +30,26 @@
     // Do any additional setup after loading the view from its nib.
     
     self.navigationItem.titleView = [[RODItemStore sharedStore] generateHeaderView];
-    
+ 
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
 
+    
     [[RODItemStore sharedStore] getPrivateKey];
     
     NSLog(@"Will appear: %@",[RODItemStore sharedStore].authie.privateKey);
     
     self.privateKey.text = [[RODItemStore sharedStore].authie.privateKey substringToIndex:5];
+
+    UIFont *lz10f =[UIFont fontWithName:@"LucidaTypewriter" size:12.0f];
+    UIFont *lz14f =[UIFont fontWithName:@"LucidaTypewriter" size:30.0f];
+    [self.privateKey setFont:lz14f];
+    [self.privateKeyHeaderLabel setFont:lz10f];
+    [self.privateKeyTextLabel setFont:lz10f];
     
     self.screenName = @"PrivateKey";
 

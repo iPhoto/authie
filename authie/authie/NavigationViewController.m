@@ -151,6 +151,11 @@
     messagesItem.tag = 2;
     privateKeyItem.tag = 4;
  
+    UIFont *lz14f =[UIFont fontWithName:@"LucidaTypewriter" size:14.0f];
+    
+    homeItem.font = lz14f;
+    privateKeyItem.font = lz14f;
+    
     self.menu = [[REMenu alloc] initWithItems:@[homeItem, privateKeyItem]];
     
     // Background view
