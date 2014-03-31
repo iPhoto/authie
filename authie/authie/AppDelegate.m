@@ -26,6 +26,7 @@
 #import "GAITrackedViewController.h"
 #import "NavigationViewController.h"
 #import "MessagesViewController.h"
+#import <Facebook-iOS-SDK/FacebookSDK/Facebook.h>
 
 @implementation AppDelegate
 @synthesize threadViewController, contactsViewController, privateKeyViewController, dashViewController, loginViewController, registerViewController, selectContactViewController, authorizeContactViewController, notificationDelegate, aboutViewController, navigationViewController, messagesViewController, wireViewController;
@@ -73,6 +74,9 @@
                                          UIRemoteNotificationTypeSound |
                                          UIRemoteNotificationTypeAlert);
     
+
+    [FBSettings setDefaultAppID:@"126010670926777"];
+    [FBAppEvents activateApp];
     
     ThreadViewController *thread = [[ThreadViewController alloc] init];
     threadViewController = thread;
