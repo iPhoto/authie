@@ -20,6 +20,7 @@ PODS:
     - AFNetworking/NSURLSession
   - BButton (3.2.3)
   - CXAlertView (1.0.1)
+  - Facebook-iOS-SDK (3.13.0)
   - FBGlowLabel (0.0.1)
   - GPUImage (HEAD based on 0.1.2)
   - JSMessagesViewController (3.4.4):
@@ -29,7 +30,7 @@ PODS:
   - Lockbox (1.4.6)
   - MotionOrientation@PTEz (1.0.0)
   - MRProgress (0.2.2)
-  - NBUCore (2.0.1)
+  - NBUCore (2.0.2)
   - NBUImagePicker/Assets (1.2.0):
     - NBUImagePicker/Base
     - NBUKit (>= 2.1.0)
@@ -105,6 +106,7 @@ PODS:
 DEPENDENCIES:
   - BButton
   - CXAlertView
+  - Facebook-iOS-SDK
   - FBGlowLabel (from `https://github.com/lyokato/FBGlowLabel.git`)
   - GPUImage (HEAD)
   - JSMessagesViewController
@@ -128,6 +130,7 @@ SPEC CHECKSUMS:
   AFNetworking: 0121f4b69be3fa58d1ab317866e036e12ac9651d
   BButton: b405745cd7ccc9444c696b8690fb79541623766a
   CXAlertView: 59e8305700c59a27730c636765cb76311d311b88
+  Facebook-iOS-SDK: 5788541337dc88265bc940cb5ffb05915f9b64e3
   FBGlowLabel: c6b4d3f4d2117071be5f453e25f9bc5a67935b2d
   GPUImage: 007145faa0e27f1ddbcab93e07f026c9776e2fa2
   JSMessagesViewController: 309de7324fbf48b7da924b002ef6017d5d2ce026
@@ -136,7 +139,7 @@ SPEC CHECKSUMS:
   Lockbox: 56ac5c11e51d46baa4408960a5a35b355a32840e
   MotionOrientation@PTEz: 0b987d39639b13ce2769f6dc6f96f59783ca8786
   MRProgress: 51af562344c3fe38ce3c0617fd064f6f1ce55cd5
-  NBUCore: 7b05286aa6a2125f0cbc7230982bd170c2aed8e0
+  NBUCore: 85601dd90960d52151d19ae2a42765e0416c4dd8
   NBUImagePicker: e298c79adbd577d63a40244f87d53468743b866e
   NBUKit: e13f4ef5921e3fe8b4a5282f994c81b17df9a84e
   NKOColorPickerView: 3d4a70a52ad2a11555640d1ad56a8b5d4b1f7f26
