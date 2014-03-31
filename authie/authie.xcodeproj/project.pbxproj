@@ -214,6 +214,8 @@
 		5D95C2E7189F048A00C8155D /* ContactItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D95C2E6189F048A00C8155D /* ContactItemCell.m */; };
 		5D95C2EB189F04DC00C8155D /* ContactItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D95C2EA189F04DB00C8155D /* ContactItemCell.xib */; };
 		5D9A453218765184008C45FD /* RODThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9A453118765184008C45FD /* RODThread.m */; };
+		5D9A646F18E5F145004DAF04 /* add-person-v3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9A646D18E5F145004DAF04 /* add-person-v3.png */; };
+		5D9A647018E5F145004DAF04 /* add-person-v3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9A646E18E5F145004DAF04 /* add-person-v3@2x.png */; };
 		5D9C7C57187DE25200BE2D42 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C7C56187DE25200BE2D42 /* NavigationController.m */; };
 		5D9C7C5C187E0F0400BE2D42 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C7C5B187E0F0400BE2D42 /* ContactsViewController.m */; };
 		5D9DEE9A185242E300F80413 /* RKPostSelfie.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DEE93185242E300F80413 /* RKPostSelfie.m */; };
@@ -607,6 +609,8 @@
 		5D95C2EA189F04DB00C8155D /* ContactItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactItemCell.xib; sourceTree = "<group>"; };
 		5D9A453018765184008C45FD /* RODThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RODThread.h; sourceTree = "<group>"; };
 		5D9A453118765184008C45FD /* RODThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RODThread.m; sourceTree = "<group>"; };
+		5D9A646D18E5F145004DAF04 /* add-person-v3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-person-v3.png"; sourceTree = "<group>"; };
+		5D9A646E18E5F145004DAF04 /* add-person-v3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-person-v3@2x.png"; sourceTree = "<group>"; };
 		5D9C7C55187DE25200BE2D42 /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
 		5D9C7C56187DE25200BE2D42 /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
 		5D9C7C5A187E0F0400BE2D42 /* ContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsViewController.h; sourceTree = "<group>"; };
@@ -1324,6 +1328,8 @@
 				5D2F728118B5596400EDC1E4 /* add-person-v1@2x.png */,
 				5DF76E7718D2C0D2000088AA /* add-person-v2.png */,
 				5DF76E7818D2C0D2000088AA /* add-person-v2@2x.png */,
+				5D9A646D18E5F145004DAF04 /* add-person-v3.png */,
+				5D9A646E18E5F145004DAF04 /* add-person-v3@2x.png */,
 				5D5A072E18848A7C003848EA /* lock.png */,
 				5D2F71B518AEA7B900EDC1E4 /* font-v1.png */,
 				5D2F71B618AEA7B900EDC1E4 /* font-v1@2x.png */,
@@ -1512,6 +1518,7 @@
 				5D2F713918A32C4500EDC1E4 /* messages-white-v1@2x.png in Resources */,
 				5D21CA28188DAF6800330F78 /* up.png in Resources */,
 				5D2F713218A3293000EDC1E4 /* house-v5-white@2x.png in Resources */,
+				5D9A646F18E5F145004DAF04 /* add-person-v3.png in Resources */,
 				5D8C1CF81880E8B800158AE5 /* DashViewController.xib in Resources */,
 				5D8C1CD8187E38E300158AE5 /* ThreadViewController.xib in Resources */,
 				5D2F712E18A31E3E00EDC1E4 /* logo-white-640px.png in Resources */,
@@ -1581,6 +1588,7 @@
 				5D2F717118AC018900EDC1E4 /* house-v6-white-new-msg@2x.png in Resources */,
 				5D2F716318A9A0F400EDC1E4 /* eye-white-v1.png in Resources */,
 				5D6340B81888B470006538C5 /* heart-v2.png in Resources */,
+				5D9A647018E5F145004DAF04 /* add-person-v3@2x.png in Resources */,
 				5D8FEB7618CA688D007DA8BF /* camera_flash.png in Resources */,
 				5D21CA45188DAF6800330F78 /* UAPushSettingsTokenView.xib in Resources */,
 				5D21CA4B188DAF7500330F78 /* LICENSE in Resources */,
