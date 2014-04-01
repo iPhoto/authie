@@ -333,14 +333,14 @@
     
     //NSLog(hardCoded);
     
-    //NSData *jsonDataUTF8 = [NSJSONSerialization dataWithJSONObject:checkDict options:kNilOptions error:&error];
-    NSData *jsonDataUTF8 = [NSData dataWithBytes:[hardCoded UTF8String] length:[hardCoded length]];
+    NSData *jsonDataUTF8 = [NSJSONSerialization dataWithJSONObject:checkDict options:kNilOptions error:&error];
+    //NSData *jsonDataUTF8 = [NSData dataWithBytes:[hardCoded UTF8String] length:[hardCoded length]];
 
     NSDictionary *checkOutput = [NSJSONSerialization JSONObjectWithData:jsonDataUTF8 options:kNilOptions error:&error];
     NSString *convertedText = [checkOutput objectForKey:@"message"];
 
     //NSLog(@"convertedText: %@", convertedText);
-    NSLog(@"%@", checkOutput);
+    NSLog(@"converted text: %@", convertedText);
     
     //NSData *jsonData = [NSJSONSerialization dataWithJSONObject:checkDict options:kNilOptions error:&error];
     
@@ -412,8 +412,14 @@
                 
             }
             
+        } else {
+            // failure
+            
+            NSLog(@"fail sendChat: %@", object);
         }
         
+    } else {
+        NSLog(@"error wasn't nill? %@", error);
     }
     
 }
