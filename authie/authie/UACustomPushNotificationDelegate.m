@@ -21,8 +21,13 @@
 {
     NSString *notificationGroupKey = [notification objectForKey:@"threadKey"];
     NSString *notificationToKey = [notification objectForKey:@"fromKey"];
-    NSLog(@"Launched from notification...%@", notificationGroupKey );
+    NSNumber *messageId = [notification objectForKey:@"messageId"];
 
+    if(messageId > 0) {
+        [[RODItemStore sharedStore] markMessageAsRead:messageId];
+    }
+    
+    NSLog(@"Launched from notification...%@", notificationGroupKey );
     
     [[RODItemStore sharedStore] loadMessagesForThread:notificationGroupKey];
     [[RODItemStore sharedStore] pushThreadWithGroupKey:notificationGroupKey from:notificationToKey];

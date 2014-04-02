@@ -210,18 +210,18 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
 
-    [[RODItemStore sharedStore] loadThreads:false];
-    
-    [self.dashViewController populateScrollView];
-    [self.dashViewController updateDashHeader];
-
-    [[RODItemStore sharedStore] unreadMessages];
-    
-    [[RODItemStore sharedStore] retrySendingFailedChats];
-
-    if(threadViewController.thread != nil) {
-        [threadViewController reloadThread];
-    }
+//    [[RODItemStore sharedStore] loadThreads:false];
+//    
+//    [self.dashViewController populateScrollView];
+//    [self.dashViewController updateDashHeader];
+//
+//    [[RODItemStore sharedStore] unreadMessages];
+//    
+//    [[RODItemStore sharedStore] retrySendingFailedChats];
+//
+//    if(threadViewController.thread != nil) {
+//        [threadViewController reloadThread];
+//    }
     
 }
 
