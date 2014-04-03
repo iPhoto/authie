@@ -41,6 +41,7 @@
         [self setEdgesForExtendedLayout:UIRectEdgeNone];
         _items = [[NSMutableArray alloc] init];
         
+        [self.scroll setFrame:CGRectMake(0, 0, self.view.window.frame.size.width, self.view.frame.size.height)];
         
     }
     return self;
