@@ -150,8 +150,9 @@
     homeItem.tag = 1;
     messagesItem.tag = 2;
     privateKeyItem.tag = 4;
- 
-    UIFont *lz14f =[UIFont fontWithName:@"LucidaTypewriter" size:14.0f];
+    
+    //Menlo-Bold
+    UIFont *lz14f =[UIFont fontWithName:@"Menlo-Bold" size:14.0f];
     
     homeItem.font = lz14f;
     privateKeyItem.font = lz14f;
