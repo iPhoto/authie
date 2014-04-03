@@ -133,7 +133,7 @@
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [self.snapView setImage:[UIImage alloc]];
+    //[self.snapView setImage:[UIImage alloc]];
     //self.thread = nil;
 }
 

@@ -121,8 +121,7 @@
     [super viewWillAppear:animated];    
     self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateMenuItem:@"house-v5-white"];
 
-    [self updateDashHeader];
-    
+    [self populateScrollView];
     
 }
 
