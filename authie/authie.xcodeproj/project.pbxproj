@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D032D8A18EDD1B500838EFF /* camera-v1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D032D8818EDD1B500838EFF /* camera-v1.png */; };
+		5D032D8B18EDD1B500838EFF /* camera-v1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D032D8918EDD1B500838EFF /* camera-v1@2x.png */; };
 		5D04A27118CE9C7900B1789D /* Changelog.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5D04A26818CE9C7900B1789D /* Changelog.txt */; };
 		5D04A27218CE9C7900B1789D /* Readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5D04A27018CE9C7900B1789D /* Readme.txt */; };
 		5D04A27418CE9DAC00B1789D /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D04A27318CE9DAC00B1789D /* libGoogleAnalyticsServices.a */; };
@@ -266,6 +268,8 @@
 
 /* Begin PBXFileReference section */
 		1A1BF85A36E24AF4B7D475C5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D032D8818EDD1B500838EFF /* camera-v1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-v1.png"; sourceTree = "<group>"; };
+		5D032D8918EDD1B500838EFF /* camera-v1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-v1@2x.png"; sourceTree = "<group>"; };
 		5D04A26818CE9C7900B1789D /* Changelog.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Changelog.txt; sourceTree = "<group>"; };
 		5D04A26A18CE9C7900B1789D /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
 		5D04A26B18CE9C7900B1789D /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
@@ -1324,6 +1328,8 @@
 				5D8FEB7118CA6711007DA8BF /* camera_switch@2x.png */,
 				5D8FEB7418CA688D007DA8BF /* camera_flash.png */,
 				5D8FEB7518CA688D007DA8BF /* camera_flash@2x.png */,
+				5D032D8818EDD1B500838EFF /* camera-v1.png */,
+				5D032D8918EDD1B500838EFF /* camera-v1@2x.png */,
 				5D2F728018B5596400EDC1E4 /* add-person-v1.png */,
 				5D2F728118B5596400EDC1E4 /* add-person-v1@2x.png */,
 				5DF76E7718D2C0D2000088AA /* add-person-v2.png */,
@@ -1532,6 +1538,7 @@
 				5D2F712818A30AB500EDC1E4 /* key-v1@2x.png in Resources */,
 				5D21CA3A188DAF6800330F78 /* middle-detail@2x.png in Resources */,
 				5D21CA42188DAF6800330F78 /* UAPushSettingsAliasView.xib in Resources */,
+				5D032D8B18EDD1B500838EFF /* camera-v1@2x.png in Resources */,
 				5DBBDBEE18822C80004446DE /* release_notes.md in Resources */,
 				5D2F728218B5596400EDC1E4 /* add-person-v1.png in Resources */,
 				5D2F713A18A32C4500EDC1E4 /* messages-white-v1.png in Resources */,
@@ -1565,6 +1572,7 @@
 				5D2F727818AFDAC600EDC1E4 /* MessageItemCell.xib in Resources */,
 				5D21CA20188DAF6800330F78 /* overlayCloseBtn.png in Resources */,
 				5DB549A318943DC900E03D9D /* Main_iPhone.storyboard in Resources */,
+				5D032D8A18EDD1B500838EFF /* camera-v1.png in Resources */,
 				5DBBF9BD18A15D6900F761D9 /* logo-640px.png in Resources */,
 				5DEE7CA9185234E800F532B3 /* Images.xcassets in Resources */,
 				5D0DC376189C325600E8CA81 /* AboutViewController.xib in Resources */,

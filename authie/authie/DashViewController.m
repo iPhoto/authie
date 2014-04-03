@@ -59,8 +59,14 @@
     // Do any additional setup after loading the view from its nib.
     
     
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(sendSnap:)];
-    self.navigationItem.rightBarButtonItem = addButton;
+    UIButton *addButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [addButton setFrame:CGRectMake(0, 0, 30, 30)];
+    [addButton setImage:[UIImage imageNamed:@"camera-v1"] forState:UIControlStateNormal];
+    [addButton addTarget:self action:@selector(sendSnap:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *addButtonItem = [[UIBarButtonItem alloc] initWithCustomView:addButton];
+    self.navigationItem.rightBarButtonItem = addButtonItem;
+    
+    
     self.navigationItem.titleView = [[RODItemStore sharedStore] generateHeaderView];
     
     self.navigationItem.title = @"Dash";
@@ -121,6 +127,13 @@
     [super viewWillAppear:animated];    
     self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateMenuItem:@"house-v5-white"];
     
+    UIButton *addButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [addButton setFrame:CGRectMake(0, 0, 30, 30)];
+    [addButton setImage:[UIImage imageNamed:@"camera-v1"] forState:UIControlStateNormal];
+    [addButton addTarget:self action:@selector(sendSnap:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *addButtonItem = [[UIBarButtonItem alloc] initWithCustomView:addButton];
+    self.navigationItem.rightBarButtonItem = addButtonItem;
+
 }
 
 - (void) updateDashHeader
