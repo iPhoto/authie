@@ -112,7 +112,6 @@
         
     }
 
-    
     [self populateScrollView];
 }
 
@@ -120,8 +119,6 @@
 {
     [super viewWillAppear:animated];    
     self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateMenuItem:@"house-v5-white"];
-
-    [self populateScrollView];
     
 }
 
