@@ -296,7 +296,7 @@
         
         if([thread.authorizeRequest isEqualToNumber:[NSNumber numberWithInt:1]]) {
             
-            mini.view.frame = CGRectMake(0, yOffset, self.scroll.frame.size.width, self.photoHeight);
+            mini.view.frame = CGRectMake(0, yOffset, self.view.frame.size.width, self.photoHeight);
             
             //
             // authorization request
