@@ -2159,6 +2159,7 @@
                 
                 cvc.selected = dash;
                 
+                [appDelegate.dashViewController updateDashHeader];
                 [appDelegate.dashViewController.navigationController pushViewController:cvc animated:YES];
                 
                 //AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -2168,6 +2169,10 @@
                 registered_result = NO;
             }
             
+        } else {
+            
+                NSLog(@"registration failed: %@", object);
+
         }
         
     }

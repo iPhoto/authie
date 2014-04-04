@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5D032D8A18EDD1B500838EFF /* camera-v1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D032D8818EDD1B500838EFF /* camera-v1.png */; };
 		5D032D8B18EDD1B500838EFF /* camera-v1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D032D8918EDD1B500838EFF /* camera-v1@2x.png */; };
+		5D032D8D18EF074A00838EFF /* authie-logo-v5-ocr-a-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D032D8C18EF074A00838EFF /* authie-logo-v5-ocr-a-white.png */; };
+		5D032D8F18EF077900838EFF /* authie-logo-v5-ocr-a-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D032D8E18EF077900838EFF /* authie-logo-v5-ocr-a-white@2x.png */; };
 		5D04A27118CE9C7900B1789D /* Changelog.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5D04A26818CE9C7900B1789D /* Changelog.txt */; };
 		5D04A27218CE9C7900B1789D /* Readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5D04A27018CE9C7900B1789D /* Readme.txt */; };
 		5D04A27418CE9DAC00B1789D /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D04A27318CE9DAC00B1789D /* libGoogleAnalyticsServices.a */; };
@@ -270,6 +272,8 @@
 		1A1BF85A36E24AF4B7D475C5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D032D8818EDD1B500838EFF /* camera-v1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-v1.png"; sourceTree = "<group>"; };
 		5D032D8918EDD1B500838EFF /* camera-v1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-v1@2x.png"; sourceTree = "<group>"; };
+		5D032D8C18EF074A00838EFF /* authie-logo-v5-ocr-a-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "authie-logo-v5-ocr-a-white.png"; sourceTree = "<group>"; };
+		5D032D8E18EF077900838EFF /* authie-logo-v5-ocr-a-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "authie-logo-v5-ocr-a-white@2x.png"; sourceTree = "<group>"; };
 		5D04A26818CE9C7900B1789D /* Changelog.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Changelog.txt; sourceTree = "<group>"; };
 		5D04A26A18CE9C7900B1789D /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
 		5D04A26B18CE9C7900B1789D /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
@@ -1315,6 +1319,8 @@
 				5D2F714E18A5693E00EDC1E4 /* LucidaTypewriter.ttf */,
 				5D2F715818A873AE00EDC1E4 /* authie-logo-v4-ocr-a@2x.png */,
 				5D2F715A18A95FE200EDC1E4 /* authie-logo-v5-ocr-a@2x.png */,
+				5D032D8C18EF074A00838EFF /* authie-logo-v5-ocr-a-white.png */,
+				5D032D8E18EF077900838EFF /* authie-logo-v5-ocr-a-white@2x.png */,
 				5D2F71BB18AECCE100EDC1E4 /* color-v1.png */,
 				5D8FEB6E18CA5676007DA8BF /* camera-open-v2.png */,
 				5D2F711F18A3056200EDC1E4 /* house-v3.png */,
@@ -1506,6 +1512,7 @@
 				5D2F712418A309FC00EDC1E4 /* house-v5@2x.png in Resources */,
 				5D2F716418A9A0F400EDC1E4 /* eye-white-v1@2x.png in Resources */,
 				5D2F715218A6A56000EDC1E4 /* add-v1-white.png in Resources */,
+				5D032D8D18EF074A00838EFF /* authie-logo-v5-ocr-a-white.png in Resources */,
 				5D21CA29188DAF6800330F78 /* up@2x.png in Resources */,
 				5D2F713E18A32E3600EDC1E4 /* key-v2-white@2x.png in Resources */,
 				5D21CA37188DAF6800330F78 /* bottom-detail.png in Resources */,
@@ -1636,6 +1643,7 @@
 				5D8C1CE918808FC000158AE5 /* SelectContactViewController.xib in Resources */,
 				5D5A073418848B0F003848EA /* ConfirmSnapViewController.xib in Resources */,
 				5D2F729D18B69B7E00EDC1E4 /* white.png in Resources */,
+				5D032D8F18EF077900838EFF /* authie-logo-v5-ocr-a-white@2x.png in Resources */,
 				5D2F729B18B69B7E00EDC1E4 /* green.png in Resources */,
 				5D2F729C18B69B7E00EDC1E4 /* red.png in Resources */,
 				5D2F712B18A30C2B00EDC1E4 /* about-v2.png in Resources */,
