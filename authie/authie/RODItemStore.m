@@ -2158,8 +2158,9 @@
                 [cvc.view layoutSubviews];
                 
                 cvc.selected = dash;
-                
-                [appDelegate.dashViewController updateDashHeader];
+
+                appDelegate.dashViewController.navigationItem.titleView = [[RODItemStore sharedStore] generateHeaderView];
+
                 [appDelegate.dashViewController.navigationController pushViewController:cvc animated:YES];
                 
                 //AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
