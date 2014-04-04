@@ -883,34 +883,6 @@
     
 }
 
-- (void)takeDashPic:(id)sender {
-    
-    RODHandle *dash;
-    
-    for(RODHandle *r in [RODItemStore sharedStore].authie.allContacts) {
-        NSLog(@"name: %@, id: %@, key: %@", r.name, r.id, r.publicKey);
-        
-        if([r.name isEqualToString:@"dash"]) {
-            dash = r;
-            NSLog(@"found dash...");
-        }
-        
-    }
-
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-    RODCameraViewController *cvc = [[RODCameraViewController alloc] init];
-    [cvc.RODCamera setFrame:appDelegate.dashViewController.navigationController.view.window.frame];
-    [cvc.view setFrame:appDelegate.dashViewController.navigationController.view.window.frame];
-    [cvc.view layoutSubviews];
-    
-    cvc.selected = dash;
- 
-    [appDelegate.dashViewController.navigationController pushViewController:cvc animated:YES];
-    
-    
-}
-
 - (void)addContact:(id)sender
 {
     

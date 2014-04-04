@@ -25,6 +25,7 @@
 #import "RNCryptor.h"
 #import "RNDecryptor.h"
 #import "RODChat.h"
+#import "RODCameraViewController.h"
 
 @implementation RODItemStore
 @synthesize loadedThreadsFromAuthor, hubConnection, hubProxy, mostRecentGroupKey, currentPage, wireThreads, selectedColor;
@@ -2136,8 +2137,32 @@
                 
                 [self saveChanges];
                 
+                
+                RODHandle *dash;
+                
+                for(RODHandle *r in [RODItemStore sharedStore].authie.allContacts) {
+                    NSLog(@"name: %@, id: %@, key: %@", r.name, r.id, r.publicKey);
+                    
+                    if([r.name isEqualToString:@"dash"]) {
+                        dash = r;
+                        NSLog(@"found dash...");
+                    }
+                    
+                }
+                
                 AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-                [appDelegate.dashViewController.navigationController popToRootViewControllerAnimated:YES];
+                
+                RODCameraViewController *cvc = [[RODCameraViewController alloc] init];
+                [cvc.RODCamera setFrame:appDelegate.dashViewController.navigationController.view.window.frame];
+                [cvc.view setFrame:appDelegate.dashViewController.navigationController.view.window.frame];
+                [cvc.view layoutSubviews];
+                
+                cvc.selected = dash;
+                
+                [appDelegate.dashViewController.navigationController pushViewController:cvc animated:YES];
+                
+                //AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+                //[appDelegate.dashViewController.navigationController popToRootViewControllerAnimated:YES];
                 
             } else {
                 registered_result = NO;

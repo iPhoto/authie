@@ -27,15 +27,14 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="236" translatesAutoresizingMaskIntoConstraints="NO" id="ivs-Ff-cY9">
-                    <rect key="frame" x="20" y="73" width="236" height="91"/>
+                    <rect key="frame" x="20" y="45" width="236" height="55"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="91" id="ZIL-fr-hXL"/>
+                        <constraint firstAttribute="height" constant="55" id="ZIL-fr-hXL"/>
                         <constraint firstAttribute="width" constant="236" id="bfM-zu-ObK"/>
                     </constraints>
                     <attributedString key="attributedText">
-                        <fragment>
-                            <string key="content">get started on Authie by sending a pic to the dash. only people you've authorized as contacts can see your dash. you can delete a pic at any time.</string>
+                        <fragment content="get started on Authie by sending a pic to the dash. tap the camera to begin.">
                             <attributes>
                                 <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <font key="NSFont" size="13" name="HelveticaNeue"/>
@@ -45,7 +44,7 @@
                     </attributedString>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ij1-s2-Thh" customClass="BButton">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ij1-s2-Thh" customClass="BButton">
                     <rect key="frame" x="84" y="231" width="108" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -60,8 +59,8 @@
                         <action selector="addContact:" destination="-1" eventType="touchUpInside" id="fmY-41-cjD"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZ8-TL-KCx" customClass="BButton">
-                    <rect key="frame" x="33" y="48" width="211" height="30"/>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZ8-TL-KCx" customClass="BButton">
+                    <rect key="frame" x="33" y="193" width="211" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -75,7 +74,7 @@
                         <action selector="takeDashPic:" destination="-1" eventType="touchUpInside" id="LZ4-C4-cWt"/>
                     </connections>
                 </button>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="236" translatesAutoresizingMaskIntoConstraints="NO" id="Vig-DG-lzr">
+                <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="236" translatesAutoresizingMaskIntoConstraints="NO" id="Vig-DG-lzr">
                     <rect key="frame" x="20" y="139" width="236" height="91"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
@@ -104,14 +103,14 @@
                 <constraint firstAttribute="centerX" secondItem="Vig-DG-lzr" secondAttribute="centerX" id="3jN-Of-TOh"/>
                 <constraint firstItem="P9x-cs-CQp" firstAttribute="leading" secondItem="lxD-QP-I2u" secondAttribute="leading" constant="20" id="5be-Jl-1xT"/>
                 <constraint firstItem="Vig-DG-lzr" firstAttribute="top" secondItem="lxD-QP-I2u" secondAttribute="top" constant="139" id="Arq-7m-iga"/>
-                <constraint firstItem="ivs-Ff-cY9" firstAttribute="top" secondItem="lxD-QP-I2u" secondAttribute="top" constant="73" id="Pdw-i4-9sn"/>
+                <constraint firstItem="ivs-Ff-cY9" firstAttribute="top" secondItem="lxD-QP-I2u" secondAttribute="top" constant="45" id="Pdw-i4-9sn"/>
                 <constraint firstAttribute="centerX" secondItem="EZ8-TL-KCx" secondAttribute="centerX" id="WyN-qP-A2l"/>
                 <constraint firstAttribute="centerX" secondItem="ivs-Ff-cY9" secondAttribute="centerX" id="Yjb-UJ-fGI"/>
-                <constraint firstItem="EZ8-TL-KCx" firstAttribute="top" secondItem="lxD-QP-I2u" secondAttribute="top" constant="48" id="a2c-zb-cpZ"/>
+                <constraint firstItem="EZ8-TL-KCx" firstAttribute="top" secondItem="lxD-QP-I2u" secondAttribute="top" constant="193" id="a2c-zb-cpZ"/>
                 <constraint firstItem="Ij1-s2-Thh" firstAttribute="top" secondItem="lxD-QP-I2u" secondAttribute="top" constant="231" id="aGv-ys-fdd"/>
                 <constraint firstItem="P9x-cs-CQp" firstAttribute="top" secondItem="lxD-QP-I2u" secondAttribute="top" constant="14" id="gz1-Co-jdh"/>
                 <constraint firstAttribute="trailing" secondItem="P9x-cs-CQp" secondAttribute="trailing" constant="20" id="vaq-Sy-voc"/>
-                <constraint firstItem="ivs-Ff-cY9" firstAttribute="top" secondItem="P9x-cs-CQp" secondAttribute="bottom" constant="32" id="yYm-FZ-I3E"/>
+                <constraint firstItem="ivs-Ff-cY9" firstAttribute="top" secondItem="P9x-cs-CQp" secondAttribute="bottom" constant="4" id="yYm-FZ-I3E"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>

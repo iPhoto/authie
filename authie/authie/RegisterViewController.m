@@ -11,6 +11,10 @@
 #import "RODItemStore.h"
 #import "RegisterViewController.h"
 #import "LoginViewController.h"
+#import "RODItemStore.h"
+#import "RODAuthie.h"
+#import "RODHandle.h"
+#import "RODCameraViewController.h"
 
 #define StringFromBOOL(b) ((b) ? @"YES" : @"NO")
 
@@ -124,8 +128,7 @@
         if(registered == YES) {
             
             // show the main screen
-            [self.navigationController setNavigationBarHidden:NO];
-            [self.navigationController popToRootViewControllerAnimated:NO];
+            // maybe it wasn't doing this the entire time...
             
         } else {
             
