@@ -2218,11 +2218,11 @@
 -(UIView *)generateHeaderView
 {
     UIView *holder = [[UIView alloc] init];
-    [holder setFrame:CGRectMake(0, 0, 100, 40)];
+    [holder setFrame:CGRectMake(0, 0, 120, 40)];
     
     UIImage *image = [UIImage imageNamed:@"authie-logo-v5-ocr-a"];
     UIImageView *imageview = [[UIImageView alloc] initWithImage:image];
-    [imageview setFrame:CGRectMake(0, 5, 100, 15)];
+    [imageview setFrame:CGRectMake(0, 5, 120, 15)];
     [imageview setContentMode:UIViewContentModeScaleAspectFit];
     
     [holder addSubview:imageview];
@@ -2231,7 +2231,7 @@
     handleLabel.text = [RODItemStore sharedStore].authie.handle.name;
     
     [handleLabel setFont:[UIFont fontWithName:@"LucidaTypewriter" size:10.0f]];
-    [handleLabel setFrame:CGRectMake(0, 18, 100, 20)];
+    [handleLabel setFrame:CGRectMake(0, 18, 120, 20)];
     [handleLabel setTextAlignment:NSTextAlignmentCenter];
     [handleLabel setTextColor:[UIColor whiteColor]];
     
