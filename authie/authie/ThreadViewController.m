@@ -281,7 +281,10 @@
     
     UILabel *threadLabel = [[UILabel alloc] init];
     [threadLabel setText:[NSString stringWithFormat:@"%@:%@", [RODItemStore sharedStore].authie.handle.name, self.toHandle.name]];
-    [threadLabel setFont:[UIFont fontWithName:@"LucidaTypewriter" size:10.0f]];
+    
+    UIFont *menlo10 =[UIFont fontWithName:@"Menlo-Bold" size:10.0f];
+    [threadLabel setFont:menlo10];
+    
     [threadLabel setFrame:CGRectMake(0, 18, 100, 20)];
     [threadLabel setTextAlignment:NSTextAlignmentCenter];
     [threadLabel setTextColor:[UIColor whiteColor]];
