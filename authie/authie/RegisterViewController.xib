@@ -9,7 +9,6 @@
             <connections>
                 <outlet property="authieHandle" destination="K0f-pb-hdp" id="kha-rR-Ffm"/>
                 <outlet property="backgroundImage" destination="27K-o8-d8W" id="wNF-qu-Nuz"/>
-                <outlet property="handleAvailability" destination="hzn-bz-8eH" id="e7I-Sd-Gd5"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -24,10 +23,12 @@
                     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SG9-1b-hRM" customClass="BButton">
-                    <rect key="frame" x="197" y="231" width="38" height="30"/>
+                    <rect key="frame" x="197" y="161" width="38" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
+                        <constraint firstAttribute="height" constant="30" id="YV0-JZ-Jcm"/>
                         <constraint firstAttribute="width" constant="38" id="g3e-B8-S1T"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="38" id="lyL-SG-Tei"/>
                     </constraints>
                     <state key="normal" title="go">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -37,11 +38,13 @@
                     </connections>
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="handle" minimumFontSize="32" translatesAutoresizingMaskIntoConstraints="NO" id="K0f-pb-hdp">
-                    <rect key="frame" x="55" y="231" width="134" height="30"/>
+                    <rect key="frame" x="55" y="161" width="134" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="YFM-5r-D7p"/>
                         <constraint firstAttribute="height" constant="30" id="cb8-w5-cwj"/>
+                        <constraint firstAttribute="width" constant="134" id="nbL-it-GCH"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                     <textInputTraits key="textInputTraits" returnKeyType="next"/>
@@ -50,24 +53,27 @@
                         <outlet property="delegate" destination="-1" id="7gM-gg-XWB"/>
                     </connections>
                 </textField>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="180" translatesAutoresizingMaskIntoConstraints="NO" id="ssY-d0-Zsd">
-                    <rect key="frame" x="55" y="68" width="180" height="152"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="hello. get started by choosing a handle. press 'go' to take a picture to start your dash. " lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="251" translatesAutoresizingMaskIntoConstraints="NO" id="ssY-d0-Zsd">
+                    <rect key="frame" x="20" y="72" width="251" height="73"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="152" id="2iX-cw-TV4"/>
+                        <constraint firstAttribute="height" constant="73" id="2iX-cw-TV4"/>
+                        <constraint firstAttribute="width" constant="251" id="wKb-IS-d8x"/>
                     </constraints>
-                    <string key="text">hello. get started by choosing a handle. press 'go' to take a picture to start your dash. authie is a dark social network: only friends you authorize can chat with you and see your photos.</string>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="this handle is available." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hzn-bz-8eH">
-                    <rect key="frame" x="30" y="180" width="216" height="0.0"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="authie is a dark social network: only friends you authorize can chat with you and see your photos." lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="251" translatesAutoresizingMaskIntoConstraints="NO" id="IzL-Js-05W">
+                    <rect key="frame" x="20" y="203" width="251" height="101"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
-                        <constraint firstAttribute="height" id="ANK-84-dlf"/>
+                        <constraint firstAttribute="height" constant="101" id="HQd-Oi-Cho"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="101" id="NOw-yA-IYN"/>
+                        <constraint firstAttribute="width" constant="251" id="VTq-JG-b2g"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="authie-logo-v5-ocr-a-white.png" translatesAutoresizingMaskIntoConstraints="NO" id="KPf-tW-n1F">
@@ -98,27 +104,24 @@
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstItem="K0f-pb-hdp" firstAttribute="leading" secondItem="hzn-bz-8eH" secondAttribute="leading" constant="25" id="046-8o-j31"/>
-                <constraint firstAttribute="trailing" secondItem="hzn-bz-8eH" secondAttribute="trailing" constant="45" id="3Mn-Cb-Pws"/>
-                <constraint firstItem="ssY-d0-Zsd" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="55" id="Ba6-7V-V99"/>
-                <constraint firstItem="SG9-1b-hRM" firstAttribute="leading" secondItem="K0f-pb-hdp" secondAttribute="trailing" constant="8" id="C4m-5a-X52"/>
+                <constraint firstAttribute="centerX" secondItem="ssY-d0-Zsd" secondAttribute="centerX" id="B7O-w6-7Q5"/>
                 <constraint firstAttribute="trailing" secondItem="KPf-tW-n1F" secondAttribute="trailing" id="F0u-uE-0Bn"/>
                 <constraint firstItem="27K-o8-d8W" firstAttribute="top" secondItem="1" secondAttribute="top" id="FLF-71-c08"/>
-                <constraint firstItem="ssY-d0-Zsd" firstAttribute="top" secondItem="KPf-tW-n1F" secondAttribute="bottom" constant="8" id="IVE-6U-m6y"/>
-                <constraint firstItem="K0f-pb-hdp" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="55" id="Lo1-Vs-X3c"/>
-                <constraint firstItem="K0f-pb-hdp" firstAttribute="top" secondItem="ssY-d0-Zsd" secondAttribute="bottom" constant="11" id="ORE-Y7-A5d"/>
-                <constraint firstAttribute="trailing" secondItem="SG9-1b-hRM" secondAttribute="trailing" constant="56" id="R1Z-la-HRc"/>
+                <constraint firstItem="ssY-d0-Zsd" firstAttribute="top" secondItem="KPf-tW-n1F" secondAttribute="bottom" constant="12" id="IVE-6U-m6y"/>
+                <constraint firstItem="K0f-pb-hdp" firstAttribute="top" secondItem="1" secondAttribute="top" constant="161" id="M6F-OK-aYk"/>
+                <constraint firstAttribute="centerX" secondItem="SG9-1b-hRM" secondAttribute="centerX" constant="-70.5" id="PAY-oc-BU7"/>
                 <constraint firstItem="KPf-tW-n1F" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="RWB-ol-6DA"/>
+                <constraint firstAttribute="centerX" secondItem="K0f-pb-hdp" secondAttribute="centerX" constant="23.5" id="SFg-7Q-63o"/>
                 <constraint firstItem="KPf-tW-n1F" firstAttribute="top" secondItem="1" secondAttribute="top" constant="18" id="U4k-PW-wVD"/>
-                <constraint firstItem="SG9-1b-hRM" firstAttribute="top" secondItem="ssY-d0-Zsd" secondAttribute="bottom" constant="11" id="XaL-YX-KTd"/>
-                <constraint firstAttribute="trailing" secondItem="ssY-d0-Zsd" secondAttribute="trailing" constant="56" id="anT-B5-Zqw"/>
                 <constraint firstItem="27K-o8-d8W" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="cLy-VK-vC8"/>
                 <constraint firstAttribute="bottom" secondItem="DPr-7t-uJo" secondAttribute="bottom" constant="20" id="cfI-qp-Deq"/>
                 <constraint firstAttribute="trailing" secondItem="27K-o8-d8W" secondAttribute="trailing" id="dx6-IA-GuM"/>
-                <constraint firstAttribute="centerX" secondItem="ssY-d0-Zsd" secondAttribute="centerX" constant="0.5" id="eo3-YO-fC7"/>
+                <constraint firstAttribute="centerX" secondItem="ssY-d0-Zsd" secondAttribute="centerX" id="eo3-YO-fC7"/>
+                <constraint firstItem="SG9-1b-hRM" firstAttribute="top" secondItem="1" secondAttribute="top" constant="161" id="gJe-ZT-GdN"/>
                 <constraint firstAttribute="centerX" secondItem="DPr-7t-uJo" secondAttribute="centerX" constant="0.5" id="h82-X6-gRI"/>
                 <constraint firstAttribute="bottom" secondItem="27K-o8-d8W" secondAttribute="bottom" id="iSE-pC-b20"/>
-                <constraint firstItem="hzn-bz-8eH" firstAttribute="top" secondItem="K0f-pb-hdp" secondAttribute="bottom" constant="-81" id="qqq-Og-Ps5"/>
+                <constraint firstAttribute="centerX" secondItem="IzL-Js-05W" secondAttribute="centerX" id="njq-8l-EAP"/>
+                <constraint firstItem="IzL-Js-05W" firstAttribute="top" secondItem="1" secondAttribute="top" constant="203" id="xbu-Nv-EkJ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
