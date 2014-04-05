@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5D032D8A18EDD1B500838EFF /* camera-v1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D032D8818EDD1B500838EFF /* camera-v1.png */; };
-		5D032D8B18EDD1B500838EFF /* camera-v1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D032D8918EDD1B500838EFF /* camera-v1@2x.png */; };
 		5D032D8D18EF074A00838EFF /* authie-logo-v5-ocr-a-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D032D8C18EF074A00838EFF /* authie-logo-v5-ocr-a-white.png */; };
 		5D032D8F18EF077900838EFF /* authie-logo-v5-ocr-a-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D032D8E18EF077900838EFF /* authie-logo-v5-ocr-a-white@2x.png */; };
 		5D04A27118CE9C7900B1789D /* Changelog.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5D04A26818CE9C7900B1789D /* Changelog.txt */; };
@@ -22,6 +20,8 @@
 		5D0DC37118980A8F00E8CA81 /* house-v2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0DC37018980A8F00E8CA81 /* house-v2.png */; };
 		5D0DC375189C325600E8CA81 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0DC373189C325600E8CA81 /* AboutViewController.m */; };
 		5D0DC376189C325600E8CA81 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D0DC374189C325600E8CA81 /* AboutViewController.xib */; };
+		5D11C75618F08E1000E3B7F1 /* camera-v7.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D11C75418F08E1000E3B7F1 /* camera-v7.png */; };
+		5D11C75718F08E1000E3B7F1 /* camera-v7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D11C75518F08E1000E3B7F1 /* camera-v7@2x.png */; };
 		5D1B7BC5188EEF6A00D4DCBD /* UACustomPushNotificationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1B7BC4188EEF6A00D4DCBD /* UACustomPushNotificationDelegate.m */; };
 		5D21CA0F188DAF6800330F78 /* libUAirship-3.0.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D21C9AC188DAF6800330F78 /* libUAirship-3.0.2.a */; };
 		5D21CA11188DAF6800330F78 /* UABarButtonSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D21C9B9188DAF6800330F78 /* UABarButtonSegmentedControl.m */; };
@@ -270,8 +270,6 @@
 
 /* Begin PBXFileReference section */
 		1A1BF85A36E24AF4B7D475C5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		5D032D8818EDD1B500838EFF /* camera-v1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-v1.png"; sourceTree = "<group>"; };
-		5D032D8918EDD1B500838EFF /* camera-v1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-v1@2x.png"; sourceTree = "<group>"; };
 		5D032D8C18EF074A00838EFF /* authie-logo-v5-ocr-a-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "authie-logo-v5-ocr-a-white.png"; sourceTree = "<group>"; };
 		5D032D8E18EF077900838EFF /* authie-logo-v5-ocr-a-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "authie-logo-v5-ocr-a-white@2x.png"; sourceTree = "<group>"; };
 		5D04A26818CE9C7900B1789D /* Changelog.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Changelog.txt; sourceTree = "<group>"; };
@@ -293,6 +291,8 @@
 		5D0DC372189C325600E8CA81 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		5D0DC373189C325600E8CA81 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		5D0DC374189C325600E8CA81 /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
+		5D11C75418F08E1000E3B7F1 /* camera-v7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-v7.png"; sourceTree = "<group>"; };
+		5D11C75518F08E1000E3B7F1 /* camera-v7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-v7@2x.png"; sourceTree = "<group>"; };
 		5D1B7BC3188EEF6A00D4DCBD /* UACustomPushNotificationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UACustomPushNotificationDelegate.h; sourceTree = "<group>"; };
 		5D1B7BC4188EEF6A00D4DCBD /* UACustomPushNotificationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UACustomPushNotificationDelegate.m; sourceTree = "<group>"; };
 		5D21C97D188DAF6800330F78 /* NSJSONSerialization+UAAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSJSONSerialization+UAAdditions.h"; sourceTree = "<group>"; };
@@ -1334,8 +1334,8 @@
 				5D8FEB7118CA6711007DA8BF /* camera_switch@2x.png */,
 				5D8FEB7418CA688D007DA8BF /* camera_flash.png */,
 				5D8FEB7518CA688D007DA8BF /* camera_flash@2x.png */,
-				5D032D8818EDD1B500838EFF /* camera-v1.png */,
-				5D032D8918EDD1B500838EFF /* camera-v1@2x.png */,
+				5D11C75418F08E1000E3B7F1 /* camera-v7.png */,
+				5D11C75518F08E1000E3B7F1 /* camera-v7@2x.png */,
 				5D2F728018B5596400EDC1E4 /* add-person-v1.png */,
 				5D2F728118B5596400EDC1E4 /* add-person-v1@2x.png */,
 				5DF76E7718D2C0D2000088AA /* add-person-v2.png */,
@@ -1532,6 +1532,7 @@
 				5D21CA28188DAF6800330F78 /* up.png in Resources */,
 				5D2F713218A3293000EDC1E4 /* house-v5-white@2x.png in Resources */,
 				5D9A646F18E5F145004DAF04 /* add-person-v3.png in Resources */,
+				5D11C75718F08E1000E3B7F1 /* camera-v7@2x.png in Resources */,
 				5D8C1CF81880E8B800158AE5 /* DashViewController.xib in Resources */,
 				5D8C1CD8187E38E300158AE5 /* ThreadViewController.xib in Resources */,
 				5D2F712E18A31E3E00EDC1E4 /* logo-white-640px.png in Resources */,
@@ -1545,7 +1546,6 @@
 				5D2F712818A30AB500EDC1E4 /* key-v1@2x.png in Resources */,
 				5D21CA3A188DAF6800330F78 /* middle-detail@2x.png in Resources */,
 				5D21CA42188DAF6800330F78 /* UAPushSettingsAliasView.xib in Resources */,
-				5D032D8B18EDD1B500838EFF /* camera-v1@2x.png in Resources */,
 				5DBBDBEE18822C80004446DE /* release_notes.md in Resources */,
 				5D2F728218B5596400EDC1E4 /* add-person-v1.png in Resources */,
 				5D2F713A18A32C4500EDC1E4 /* messages-white-v1.png in Resources */,
@@ -1553,6 +1553,7 @@
 				5D21CA5D188DB0AB00330F78 /* AirshipConfig.plist in Resources */,
 				5D21CA26188DAF6800330F78 /* uncheck.png in Resources */,
 				5D2F713118A3293000EDC1E4 /* house-v5-white.png in Resources */,
+				5D11C75618F08E1000E3B7F1 /* camera-v7.png in Resources */,
 				5DB549AA1895BA1500E03D9D /* BlankSlateViewController.xib in Resources */,
 				5D21CA27188DAF6800330F78 /* uncheck@2x.png in Resources */,
 				5D8FEB6D18CA4C7C007DA8BF /* circle4.png in Resources */,
@@ -1579,7 +1580,6 @@
 				5D2F727818AFDAC600EDC1E4 /* MessageItemCell.xib in Resources */,
 				5D21CA20188DAF6800330F78 /* overlayCloseBtn.png in Resources */,
 				5DB549A318943DC900E03D9D /* Main_iPhone.storyboard in Resources */,
-				5D032D8A18EDD1B500838EFF /* camera-v1.png in Resources */,
 				5DBBF9BD18A15D6900F761D9 /* logo-640px.png in Resources */,
 				5DEE7CA9185234E800F532B3 /* Images.xcassets in Resources */,
 				5D0DC376189C325600E8CA81 /* AboutViewController.xib in Resources */,

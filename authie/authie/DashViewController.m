@@ -61,7 +61,7 @@
     
     UIButton *addButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [addButton setFrame:CGRectMake(0, 0, 30, 30)];
-    [addButton setImage:[UIImage imageNamed:@"camera-v1"] forState:UIControlStateNormal];
+    [addButton setImage:[UIImage imageNamed:@"camera-v7"] forState:UIControlStateNormal];
     [addButton addTarget:self action:@selector(sendSnap:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *addButtonItem = [[UIBarButtonItem alloc] initWithCustomView:addButton];
     self.navigationItem.rightBarButtonItem = addButtonItem;
@@ -129,7 +129,7 @@
     
     UIButton *addButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [addButton setFrame:CGRectMake(0, 0, 30, 30)];
-    [addButton setImage:[UIImage imageNamed:@"camera-v1"] forState:UIControlStateNormal];
+    [addButton setImage:[UIImage imageNamed:@"camera-v7"] forState:UIControlStateNormal];
     [addButton addTarget:self action:@selector(sendSnap:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *addButtonItem = [[UIBarButtonItem alloc] initWithCustomView:addButton];
     self.navigationItem.rightBarButtonItem = addButtonItem;
