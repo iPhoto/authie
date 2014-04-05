@@ -25,6 +25,8 @@
 #import <UIImage+Blur.h>
 #import <FBGlowLabel/FBGlowLabel.h>
 #import "RODCameraViewController.h"
+#import "GAI.h"
+#import "GoogleAnalytics/Library/GAIDictionaryBuilder.h"
 
 @implementation DashViewController
 @synthesize handle, contentSize, imageToUpload, keyToUpload, handleToUpload, captionToUpload,
@@ -869,6 +871,14 @@
                                        withFont:self.fontToUpload
                                   withTextColor:self.textColorToUpload
             ];
+        
+        // tell Google Analytics an image send event happened
+        id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+        [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"iOS"     // Event category (required)
+                                                              action:@"Snap"  // Event action (required)
+                                                               label:[RODItemStore sharedStore].authie.handle.name          // Event label
+                                                               value:nil] build]];    // Event value
+        
         
         [[RODItemStore sharedStore] loadThreads:NO];
         

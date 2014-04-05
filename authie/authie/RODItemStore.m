@@ -26,6 +26,8 @@
 #import "RNDecryptor.h"
 #import "RODChat.h"
 #import "RODCameraViewController.h"
+#import "GAI.h"
+#import "GoogleAnalytics/Library/GAIDictionaryBuilder.h"
 
 @implementation RODItemStore
 @synthesize loadedThreadsFromAuthor, hubConnection, hubProxy, mostRecentGroupKey, currentPage, wireThreads, selectedColor;
@@ -2018,8 +2020,10 @@
     [request setHTTPMethod:@"POST"];
     
     if(error == nil) {
-        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setValue:@"application/json; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
         [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+
+        
         [request setHTTPBody:jsonData];
         
         //send the request and get the response
@@ -2028,8 +2032,11 @@
         NSError *deserialize_error = nil;
         
         id object = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingAllowFragments error:&deserialize_error];
-        
+
         if([object isKindOfClass:[NSDictionary class]] && deserialize_error == nil) {
+            
+            NSLog(@"checkHandleAvailability is obj: %@", object);
+
             
             NSInteger response_result;
             response_result = [[object objectForKey:@"result"] integerValue];
@@ -2040,6 +2047,8 @@
                 is_available = YES;
             }
             
+        } else {
+            NSLog(@"checkHandleAvailability failure: %@", object);
         }
         
     }
@@ -2078,7 +2087,7 @@
     [request setHTTPMethod:@"POST"];
     
     if(error == nil) {
-        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setValue:@"application/json; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
         [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
         [request setHTTPBody:jsonData];
         
@@ -2162,6 +2171,13 @@
                 appDelegate.dashViewController.navigationItem.titleView = [[RODItemStore sharedStore] generateHeaderView];
 
                 [appDelegate.dashViewController.navigationController pushViewController:cvc animated:YES];
+                
+                // tell Google Analytics a register event happened
+                id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+                [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"iOS"     // Event category (required)
+                                                                      action:@"Register"  // Event action (required)
+                                                                       label:self.authie.handle.name          // Event label
+                                                                       value:nil] build]];    // Event value
                 
                 //AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
                 //[appDelegate.dashViewController.navigationController popToRootViewControllerAnimated:YES];
