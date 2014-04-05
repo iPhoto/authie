@@ -54,7 +54,8 @@
     UILabel *navLabel = [[UILabel alloc] initWithFrame:navItem];
     navLabel.backgroundColor = [UIColor clearColor];
     navLabel.textColor = [UIColor whiteColor];
-    navLabel.font = [UIFont fontWithName:@"LucidaTypewriter" size:10.0f];
+    navLabel.font = [UIFont fontWithName:@"Menlo-Bold" size:10.0f];
+    
     navLabel.textAlignment = NSTextAlignmentCenter;
     navLabel.text = @"send snap to:";
     self.navigationItem.titleView = navLabel;

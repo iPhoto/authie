@@ -2231,7 +2231,7 @@
     UILabel *handleLabel = [[UILabel alloc] init];
     handleLabel.text = [RODItemStore sharedStore].authie.handle.name;
     
-    [handleLabel setFont:[UIFont fontWithName:@"LucidaTypewriter" size:10.0f]];
+    [handleLabel setFont:[UIFont fontWithName:@"Menlo-Bold" size:10.0f]];
     [handleLabel setFrame:CGRectMake(0, 18, 120, 20)];
     [handleLabel setTextAlignment:NSTextAlignmentCenter];
     [handleLabel setTextColor:[UIColor whiteColor]];
