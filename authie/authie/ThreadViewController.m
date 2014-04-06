@@ -423,13 +423,13 @@
         [self.messageType insertObject:@"0" atIndex:0];
         [self.hasTimeStamp insertObject:[NSNumber numberWithInt:1] atIndex:0];
         
-        [self.messages insertObject:@"cool, what side" atIndex:1];
+        [self.messages insertObject:@"😎 what side" atIndex:1];
         [self.subtitles insertObject:@"Max" atIndex:1];
         [self.timestamps insertObject:newDate atIndex:1];
         [self.messageType insertObject:@"1" atIndex:1];
         [self.hasTimeStamp insertObject:[NSNumber numberWithInt:0] atIndex:1];
 
-        [self.messages insertObject:@"on grass by V.I.P." atIndex:2];
+        [self.messages insertObject:@"on grass by V.I.P. 🌴🌴" atIndex:2];
         [self.subtitles insertObject:@"Sloan" atIndex:2];
         [self.timestamps insertObject:newDate atIndex:2];
         [self.messageType insertObject:@"0" atIndex:2];
