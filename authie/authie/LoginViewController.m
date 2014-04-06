@@ -85,6 +85,7 @@
                 
                 AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
                 [appDelegate.dashViewController setDoGetThreadsOnView:YES];
+                appDelegate.dashViewController.navigationItem.titleView = [[RODItemStore sharedStore] generateHeaderView];
                 
                 [appDelegate.navigationViewController popToRootViewControllerAnimated:NO];
                 
