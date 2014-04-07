@@ -64,11 +64,11 @@
                         <action selector="doLogin:" destination="-1" eventType="touchUpInside" id="ZEL-yX-X3m"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-white-640px.png" translatesAutoresizingMaskIntoConstraints="NO" id="xP0-4U-srW">
-                    <rect key="frame" x="21" y="6" width="151" height="74"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="authie-logo-v5-ocr-a-white.png" translatesAutoresizingMaskIntoConstraints="NO" id="xP0-4U-srW">
+                    <rect key="frame" x="21" y="6" width="151" height="54"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="74" id="PMw-Pk-MBo"/>
+                        <constraint firstAttribute="height" constant="54" id="PMw-Pk-MBo"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dUz-0k-Kh8">
@@ -103,7 +103,7 @@
                 <constraint firstItem="5Qq-Y6-yrP" firstAttribute="top" secondItem="z6l-t2-KJP" secondAttribute="bottom" constant="8" symbolic="YES" id="XMY-Ig-RFo"/>
                 <constraint firstItem="zW4-ly-ppH" firstAttribute="top" secondItem="qwO-ai-maq" secondAttribute="top" constant="-2" id="Z2z-hH-GOa"/>
                 <constraint firstItem="Lp2-Wd-tJP" firstAttribute="trailing" secondItem="z6l-t2-KJP" secondAttribute="trailing" id="bNb-55-R9T"/>
-                <constraint firstItem="Lp2-Wd-tJP" firstAttribute="top" secondItem="xP0-4U-srW" secondAttribute="bottom" constant="-12" id="fg8-I1-yRq"/>
+                <constraint firstItem="Lp2-Wd-tJP" firstAttribute="top" secondItem="xP0-4U-srW" secondAttribute="bottom" constant="8" id="fg8-I1-yRq"/>
                 <constraint firstItem="5Qq-Y6-yrP" firstAttribute="leading" secondItem="dUz-0k-Kh8" secondAttribute="trailing" constant="51" id="jCs-Op-U3H"/>
                 <constraint firstItem="dUz-0k-Kh8" firstAttribute="top" secondItem="z6l-t2-KJP" secondAttribute="bottom" constant="8" symbolic="YES" id="mzV-kb-FJt"/>
                 <constraint firstItem="z6l-t2-KJP" firstAttribute="leading" secondItem="Lp2-Wd-tJP" secondAttribute="leading" id="oQh-Tk-xJi"/>
@@ -117,6 +117,6 @@
         </view>
     </objects>
     <resources>
-        <image name="logo-white-640px.png" width="640" height="197"/>
+        <image name="authie-logo-v5-ocr-a-white.png" width="320" height="71"/>
     </resources>
 </document>
