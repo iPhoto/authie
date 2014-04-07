@@ -78,7 +78,5 @@
 
 - (void)pushThreadWithGroupKey:(NSString *)group_key from:(NSString *)fromKey;
 
-- (void)testAES;
-
 @end
 
