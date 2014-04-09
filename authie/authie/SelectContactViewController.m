@@ -35,13 +35,13 @@
     return self;
 }
 
-- (UIView *)AddContactCell
+- (UIView *)addContactCell
 {
-    if (!_AddContactCell) {
+    if (!_addContactCell) {
         [[NSBundle mainBundle] loadNibNamed:@"AddContactCell" owner:self options:nil];
     }
     
-    return _AddContactCell;
+    return _addContactCell;
 }
 
 - (void)viewDidLoad
@@ -54,10 +54,8 @@
     UINib *nib = [UINib nibWithNibName:@"ContactItemCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"ContactItemCell"];
 
-    //[self.tableView registerClass:[ContactItemCell class] forCellReuseIdentifier:@"ContactItemCell"];
-
-    //UIView *footer = self.AddContactCell;
-    //[self.tableView setTableFooterView:footer];
+    UIView *footer = self.addContactCell;
+    [self.tableView setTableFooterView:footer];
 
 }
 

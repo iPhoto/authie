@@ -13,7 +13,7 @@
 
 @interface SelectContactViewController : GAITrackedViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) RODHandle *selected;
-@property (nonatomic, strong) IBOutlet UIView *AddContactCell;
+@property (nonatomic, strong) IBOutlet UIView *addContactCell;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic) bool editingContacts;
