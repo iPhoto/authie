@@ -36,9 +36,10 @@
 -(void)didRotate:(NSNotification *)notification {
     
     NSLog(@"Rotate called.");
-    [self.RODCamera setFrame:self.view.frame];
-    [self.RODCamera setNeedsDisplay];
-    
+    //[self.RODCamera setFrame:self.view.frame];
+    //[self.RODCamera setNeedsDisplay];
+    [self.RODCamera sizeToFit];
+    [self.RODCamera didMoveToSuperview];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle
@@ -218,9 +219,19 @@
     
 }
 
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 - (BOOL)shouldAutorotate
 {
     return YES;
 }
 
+- (IBAction)closeCamera:(id)sender {
+    
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    
+}
 @end

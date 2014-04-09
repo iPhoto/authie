@@ -90,6 +90,8 @@
 		5D21CA5D188DB0AB00330F78 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D21CA5C188DB0AB00330F78 /* AirshipConfig.plist */; };
 		5D24A10C18F4DA43002FFC02 /* key-v3-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D24A10A18F4DA43002FFC02 /* key-v3-white.png */; };
 		5D24A10D18F4DA43002FFC02 /* key-v3-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D24A10B18F4DA43002FFC02 /* key-v3-white@2x.png */; };
+		5D24A10F18F6016E002FFC02 /* camera-open-v3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D24A10E18F6016D002FFC02 /* camera-open-v3.png */; };
+		5D24A11118F602A6002FFC02 /* close-camera-v1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D24A11018F602A6002FFC02 /* close-camera-v1.png */; };
 		5D2F711A18A2C5F800EDC1E4 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F711918A2C5F800EDC1E4 /* NavigationViewController.m */; };
 		5D2F712018A3056200EDC1E4 /* house-v3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F711F18A3056200EDC1E4 /* house-v3.png */; };
 		5D2F713118A3293000EDC1E4 /* house-v5-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F712F18A3293000EDC1E4 /* house-v5-white.png */; };
@@ -386,6 +388,8 @@
 		5D21CA5C188DB0AB00330F78 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		5D24A10A18F4DA43002FFC02 /* key-v3-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "key-v3-white.png"; sourceTree = "<group>"; };
 		5D24A10B18F4DA43002FFC02 /* key-v3-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "key-v3-white@2x.png"; sourceTree = "<group>"; };
+		5D24A10E18F6016D002FFC02 /* camera-open-v3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-open-v3.png"; sourceTree = "<group>"; };
+		5D24A11018F602A6002FFC02 /* close-camera-v1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close-camera-v1.png"; sourceTree = "<group>"; };
 		5D2F711818A2C5F800EDC1E4 /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
 		5D2F711918A2C5F800EDC1E4 /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
 		5D2F711F18A3056200EDC1E4 /* house-v3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "house-v3.png"; sourceTree = "<group>"; };
@@ -1177,6 +1181,8 @@
 				5D032D8E18EF077900838EFF /* authie-logo-v5-ocr-a-white@2x.png */,
 				5D2F71BB18AECCE100EDC1E4 /* color-v1.png */,
 				5D8FEB6E18CA5676007DA8BF /* camera-open-v2.png */,
+				5D24A10E18F6016D002FFC02 /* camera-open-v3.png */,
+				5D24A11018F602A6002FFC02 /* close-camera-v1.png */,
 				5D2F711F18A3056200EDC1E4 /* house-v3.png */,
 				5D2F726B18AEF7B900EDC1E4 /* Color Pack */,
 				5D2F723018AEDE7400EDC1E4 /* ColorPickerClasses */,
@@ -1338,6 +1344,7 @@
 				5D2F71BC18AECCE100EDC1E4 /* color-v1.png in Resources */,
 				5D21CA3C188DAF6800330F78 /* top-detail@2x.png in Resources */,
 				5D21CA28188DAF6800330F78 /* up.png in Resources */,
+				5D24A11118F602A6002FFC02 /* close-camera-v1.png in Resources */,
 				5D2F713218A3293000EDC1E4 /* house-v5-white@2x.png in Resources */,
 				5D9A646F18E5F145004DAF04 /* add-person-v3.png in Resources */,
 				5D11C75718F08E1000E3B7F1 /* camera-v7@2x.png in Resources */,
@@ -1420,6 +1427,7 @@
 				5D21CA24188DAF6800330F78 /* UAInboxMessageListController.xib in Resources */,
 				5D21CA47188DAF6800330F78 /* UAPushSettingsView.xib in Resources */,
 				5D8C1CE918808FC000158AE5 /* SelectContactViewController.xib in Resources */,
+				5D24A10F18F6016E002FFC02 /* camera-open-v3.png in Resources */,
 				5D5A073418848B0F003848EA /* ConfirmSnapViewController.xib in Resources */,
 				5D032D8F18EF077900838EFF /* authie-logo-v5-ocr-a-white@2x.png in Resources */,
 			);

@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *toggle;
 @property (weak, nonatomic) IBOutlet UIButton *flash;
 
+- (IBAction)closeCamera:(id)sender;
 
 @property (weak, nonatomic) UIImage *snap;
 - (IBAction)toggleFlash:(id)sender;
