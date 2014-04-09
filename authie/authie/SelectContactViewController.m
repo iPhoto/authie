@@ -15,13 +15,14 @@
 #import "ConfirmSnapViewController.h"
 #import "RODThread.h"
 #import "ContactItemCell.h"
+#import "AddContactCell.h"
 #import <NBUImagePicker/NBUImagePickerController.h>
 #import <NBUImagePicker/NBUMediaInfo.h>
 #import <NBUImagePicker/NBUCameraViewController.h>
 #import "RODCameraViewController.h"
 
 @implementation SelectContactViewController
-@synthesize contactsTable, editingContacts;
+@synthesize editingContacts, tableView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,17 +35,33 @@
     return self;
 }
 
+- (UIView *)AddContactCell
+{
+    if (!_AddContactCell) {
+        [[NSBundle mainBundle] loadNibNamed:@"AddContactCell" owner:self options:nil];
+    }
+    
+    return _AddContactCell;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 
+    [self.tableView setRowHeight:100];
+    
     UINib *nib = [UINib nibWithNibName:@"ContactItemCell" bundle:nil];
-    [self.contactsTable registerNib:nib forCellReuseIdentifier:@"ContactItemCell"];
-    
-    [self.contactsTable setRowHeight:100];
-    
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"ContactItemCell"];
+
+    //[self.tableView registerClass:[ContactItemCell class] forCellReuseIdentifier:@"ContactItemCell"];
+
+    //UIView *footer = self.AddContactCell;
+    //[self.tableView setTableFooterView:footer];
+
 }
+
+
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -60,33 +77,21 @@
     navLabel.text = @"send snap to:";
     self.navigationItem.titleView = navLabel;
     
-    // this happens when they are viewing their own profile
     self.navigationItem.leftBarButtonItem = [[RODItemStore sharedStore] generateMenuItem:@"house-v5-white"];
     
-    UIBarButtonItem *one = [[RODItemStore sharedStore] generateMenuItem:@"house-v5-white"];
-    UIBarButtonItem *two = [[RODItemStore sharedStore] generateAddPersonMenuItem];
-    
-    self.navigationItem.leftBarButtonItems = @[ one, two ];
-    
-    [self.contactsTable deselectRowAtIndexPath:[self.contactsTable indexPathForSelectedRow] animated:animated];
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:animated];
 
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    
-    if([[RODItemStore sharedStore].authie.all_Contacts count] > 1) {
-        UIBarButtonItem *rightDrawerButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(enableBlocking:)];
-        self.navigationItem.rightBarButtonItem = rightDrawerButton;        
-    }
-    
     
     editingContacts = NO;
 
     self.screenName = @"SelectContact";
 
-    [self.contactsTable reloadData];
+    [self.tableView reloadData];
     
 }
 
-- (void)addContact:(id)sender
+- (IBAction)addContact:(id)sender
 {
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"add"
@@ -117,24 +122,22 @@
 }
 
 
--(void)enableBlocking:(UIBarButtonItem *)btn
+-(IBAction)enableBlocking:(id)sender
 {
-    
-    UIBarButtonItem *rightDrawerButton;
     
     if(editingContacts == YES) {
         NSLog(@"remove block");
-        rightDrawerButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(enableBlocking:)];
-        self.navigationItem.rightBarButtonItem = rightDrawerButton;
+        //rightDrawerButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(enableBlocking:)];
+        //self.navigationItem.rightBarButtonItem = rightDrawerButton;
         [self setEditingContacts:NO];
     } else {
         NSLog(@"editing contacts");
-        rightDrawerButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(enableBlocking:)];
-        self.navigationItem.rightBarButtonItem = rightDrawerButton;
+        //rightDrawerButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(enableBlocking:)];
+        //self.navigationItem.rightBarButtonItem = rightDrawerButton;
         [self setEditingContacts:YES];
     }
     
-    [self.contactsTable reloadData];
+    [self.tableView reloadData];
     
     
 }
@@ -162,20 +165,59 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[RODItemStore sharedStore].authie.all_Contacts count];
+    
+    NSInteger countContacts = [[RODItemStore sharedStore].authie.all_Contacts count];
+    NSLog(@"Contacts: %i", countContacts);
+    return countContacts;
+    
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    RODHandle *handle = [[RODItemStore sharedStore].authie.all_Contacts objectAtIndex:indexPath.row];
+    NSLog(@"Hello: %i", indexPath.row);
     
-    ContactItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ContactItemCell"];
+    // figure out if this is the last row or not
+    
+//    NSInteger lastRowIndex = [tableView numberOfRowsInSection:0] - 1;
+//    
+//    if(indexPath.row == lastRowIndex) {
+//        // last row
+//
+//        AddContactCell *addContactCell = [tableView dequeueReusableCellWithIdentifier:@"AddContactCell"];
+//        
+//        UITapGestureRecognizer *tapAdd = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addContact:)];
+//        [addContactCell.btnAdd addGestureRecognizer:tapAdd];
+//        
+//        UITapGestureRecognizer *tapEdit = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(enableBlocking:)];
+//        [addContactCell.btnEdit addGestureRecognizer:tapEdit];
+//        
+//        [addContactCell.btnAdd.titleLabel setText:@"Add"];
+//        
+//        if(editingContacts == YES) {
+//            [addContactCell.btnEdit.titleLabel setText:@"Done"];
+//        } else {
+//            [addContactCell.btnEdit.titleLabel setText:@"Edit"];
+//        }
+//                                          
+//        return addContactCell;
+//        
+//    } else {
+        // contact item row
+    
+    RODHandle *handle = [[RODItemStore sharedStore].authie.all_Contacts objectAtIndex:indexPath.row];
+
+    NSLog(@"found: %@", handle.name);
+
+    //UITableViewCell *cell = [tv dequeueReusableCellWithIdentifier:@"ContactItemCell" forIndexPath:indexPath];
+    ContactItemCell *cell = [tv dequeueReusableCellWithIdentifier:@"ContactItemCell" forIndexPath:indexPath];
     
     [cell.contactName setText:handle.name];
+
+//    cell.textLabel.text = handle.name;
     
     UIImage *mostRecent = [UIImage alloc];
-
+    
     if(handle.mostRecentSnap == (id)[NSNull null] || handle.mostRecentSnap.length == 0) {
         // nothing
         
@@ -193,22 +235,25 @@
         
         UITapGestureRecognizer *tapBlock = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapBlock:)];
         [cell.buttonBlock addGestureRecognizer:tapBlock];
-
+        
         UITapGestureRecognizer *tapRemove = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapRemove:)];
         [cell.buttonRemove addGestureRecognizer:tapRemove];
         
         [cell.buttonRemove setTag:(indexPath.row * 1000)];
         [cell.buttonBlock setTag:(indexPath.row * 1000) + 500000];
-
-        
+                
     } else {
         [cell.buttonBlock setHidden:YES];
         [cell.buttonRemove setHidden:YES];
     }
-
+    
     [cell.mostRecentSnap setImage:mostRecent];
     
     return cell;
+        
+//    }
+//    
+    
 }
 
 - (void)tapBlock:(UITapGestureRecognizer *)tapGesture
@@ -254,14 +299,14 @@
         case 100:
             NSLog(@"clicked remove: %@", self.selected.name);
             [[RODItemStore sharedStore] removeContact:self.selected];
-            [self.contactsTable reloadData];
+            [self.tableView reloadData];
             bye = [[UIAlertView alloc] initWithTitle:@"bye" message:[NSString stringWithFormat:@"%@ is removed from your list.", self.selected.name] delegate:self cancelButtonTitle:@"good" otherButtonTitles:nil];
             [bye show];
             break;
         case 200:
             NSLog(@"clicked block");
             [[RODItemStore sharedStore] addBlock:self.selected.publicKey];
-            [self.contactsTable reloadData];
+            [self.tableView reloadData];
             
             bye = [[UIAlertView alloc] initWithTitle:@"bye" message:[NSString stringWithFormat:@"%@ is blocked.", self.selected.name] delegate:self cancelButtonTitle:@"good" otherButtonTitles:nil];
             [bye show];
@@ -282,8 +327,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+    NSLog(@"didSelectRowAtIndexPath");
+    
+    
     if(editingContacts == YES) {
-        [tableView deselectRowAtIndexPath:indexPath animated:NO];
+        [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
         return;
     }
     

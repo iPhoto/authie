@@ -88,6 +88,8 @@
 		5D21CA57188DB00F00330F78 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D21CA56188DB00F00330F78 /* CoreTelephony.framework */; };
 		5D21CA59188DB01A00330F78 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D21CA58188DB01A00330F78 /* CoreLocation.framework */; };
 		5D21CA5D188DB0AB00330F78 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D21CA5C188DB0AB00330F78 /* AirshipConfig.plist */; };
+		5D24A10C18F4DA43002FFC02 /* key-v3-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D24A10A18F4DA43002FFC02 /* key-v3-white.png */; };
+		5D24A10D18F4DA43002FFC02 /* key-v3-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D24A10B18F4DA43002FFC02 /* key-v3-white@2x.png */; };
 		5D2F711A18A2C5F800EDC1E4 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F711918A2C5F800EDC1E4 /* NavigationViewController.m */; };
 		5D2F712018A3056200EDC1E4 /* house-v3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F711F18A3056200EDC1E4 /* house-v3.png */; };
 		5D2F713118A3293000EDC1E4 /* house-v5-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F712F18A3293000EDC1E4 /* house-v5-white.png */; };
@@ -182,6 +184,8 @@
 		5DBBDBED18822C80004446DE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5DBBDBE718822C80004446DE /* README.md */; };
 		5DBBDBEE18822C80004446DE /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 5DBBDBE818822C80004446DE /* release_notes.md */; };
 		5DBBDBF018822D51004446DE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBBDBEF18822D51004446DE /* libz.dylib */; };
+		5DEE74D618F350E700DE3F50 /* AddContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DEE74D518F350E700DE3F50 /* AddContactCell.m */; };
+		5DEE74D818F3510D00DE3F50 /* AddContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DEE74D718F3510D00DE3F50 /* AddContactCell.xib */; };
 		5DEE7C8B185234E700F532B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DEE7C8A185234E700F532B3 /* Foundation.framework */; };
 		5DEE7C8D185234E700F532B3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DEE7C8C185234E700F532B3 /* CoreGraphics.framework */; };
 		5DEE7C8F185234E800F532B3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DEE7C8E185234E700F532B3 /* UIKit.framework */; };
@@ -380,6 +384,8 @@
 		5D21CA56188DB00F00330F78 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		5D21CA58188DB01A00330F78 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5D21CA5C188DB0AB00330F78 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
+		5D24A10A18F4DA43002FFC02 /* key-v3-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "key-v3-white.png"; sourceTree = "<group>"; };
+		5D24A10B18F4DA43002FFC02 /* key-v3-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "key-v3-white@2x.png"; sourceTree = "<group>"; };
 		5D2F711818A2C5F800EDC1E4 /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
 		5D2F711918A2C5F800EDC1E4 /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
 		5D2F711F18A3056200EDC1E4 /* house-v3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "house-v3.png"; sourceTree = "<group>"; };
@@ -525,6 +531,9 @@
 		5DBBDBE718822C80004446DE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		5DBBDBE818822C80004446DE /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
 		5DBBDBEF18822D51004446DE /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		5DEE74D418F350E700DE3F50 /* AddContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddContactCell.h; sourceTree = "<group>"; };
+		5DEE74D518F350E700DE3F50 /* AddContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddContactCell.m; sourceTree = "<group>"; };
+		5DEE74D718F3510D00DE3F50 /* AddContactCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddContactCell.xib; sourceTree = "<group>"; };
 		5DEE7C87185234E700F532B3 /* authie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = authie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DEE7C8A185234E700F532B3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5DEE7C8C185234E700F532B3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -1003,6 +1012,9 @@
 				5D2F727B18B3128600EDC1E4 /* ColorViewController.h */,
 				5D2F727C18B3128600EDC1E4 /* ColorViewController.m */,
 				5D2F727D18B3128600EDC1E4 /* ColorViewController.xib */,
+				5DEE74D418F350E700DE3F50 /* AddContactCell.h */,
+				5DEE74D518F350E700DE3F50 /* AddContactCell.m */,
+				5DEE74D718F3510D00DE3F50 /* AddContactCell.xib */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -1192,6 +1204,8 @@
 				5D2F716B18AADDB400EDC1E4 /* heart-green-filled-v1@2x.png */,
 				5D0C6D2C18DB678700B4F85E /* tweet-button-v2.png */,
 				5D0C6D2D18DB678700B4F85E /* tweet-button-v2@2x.png */,
+				5D24A10A18F4DA43002FFC02 /* key-v3-white.png */,
+				5D24A10B18F4DA43002FFC02 /* key-v3-white@2x.png */,
 				5DEE7C92185234E800F532B3 /* authie-Info.plist */,
 				5D21CA5C188DB0AB00330F78 /* AirshipConfig.plist */,
 				5DEE7C93185234E800F532B3 /* InfoPlist.strings */,
@@ -1339,7 +1353,9 @@
 				5D21CA42188DAF6800330F78 /* UAPushSettingsAliasView.xib in Resources */,
 				5DBBDBEE18822C80004446DE /* release_notes.md in Resources */,
 				5D21CA22188DAF6800330F78 /* UAInboxLocalization.bundle in Resources */,
+				5D24A10C18F4DA43002FFC02 /* key-v3-white.png in Resources */,
 				5D21CA5D188DB0AB00330F78 /* AirshipConfig.plist in Resources */,
+				5D24A10D18F4DA43002FFC02 /* key-v3-white@2x.png in Resources */,
 				5D21CA26188DAF6800330F78 /* uncheck.png in Resources */,
 				5D2F713118A3293000EDC1E4 /* house-v5-white.png in Resources */,
 				5D11C75618F08E1000E3B7F1 /* camera-v7.png in Resources */,
@@ -1350,6 +1366,7 @@
 				5DF86494185F75CA002DCCDC /* RegisterViewController.xib in Resources */,
 				5D21CA1C188DAF6800330F78 /* check.png in Resources */,
 				5D8C1CFD1880EEB900158AE5 /* MiniThreadViewController.xib in Resources */,
+				5DEE74D818F3510D00DE3F50 /* AddContactCell.xib in Resources */,
 				5D21CA41188DAF6800330F78 /* UAPushSettingsAddTagViewController.xib in Resources */,
 				5D8FEB6F18CA5676007DA8BF /* camera-open-v2.png in Resources */,
 				5D2F715B18A95FE200EDC1E4 /* authie-logo-v5-ocr-a@2x.png in Resources */,
@@ -1498,6 +1515,7 @@
 				5D8C1CFC1880EEB900158AE5 /* MiniThreadViewController.m in Sources */,
 				5D21CA14188DAF6800330F78 /* UAInboxAlertHandler.m in Sources */,
 				5D21CA2B188DAF6800330F78 /* UALocationSettingsViewController.m in Sources */,
+				5DEE74D618F350E700DE3F50 /* AddContactCell.m in Sources */,
 				5D21CA2A188DAF6800330F78 /* UALocationDemoAnnotation.m in Sources */,
 				5D5A073318848B0F003848EA /* ConfirmSnapViewController.m in Sources */,
 				5D2F711A18A2C5F800EDC1E4 /* NavigationViewController.m in Sources */,
