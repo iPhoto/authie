@@ -27,8 +27,18 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didRotate:) name:UIDeviceOrientationDidChangeNotification object:nil];
+    
     [self setNeedsStatusBarAppearanceUpdate];
+}
+
+-(void)didRotate:(NSNotification *)notification {
+    
+    NSLog(@"Rotate called.");
+    [self.RODCamera setFrame:self.view.frame];
+    [self.RODCamera setNeedsDisplay];
+    
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle
@@ -36,15 +46,24 @@
     return UIStatusBarStyleLightContent;
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
-    [super viewDidAppear:animated];
+    NSLog(@"Did rotate. Self.view w, h: %f %f, self.RODCamera w, h: %f %f", self.view.frame.size.width, self.view.frame.size.height, self.RODCamera.frame.size.width, self.RODCamera.frame.size.height);
+    
+    //[self.RODCamera removeFromSuperview];
+    //[self setupCamera];
+    
+}
 
-    self.RODCamera = [[NBUCameraView alloc] initWithFrame:self.view.window.frame];
+- (void)setupCamera
+{
+    self.RODCamera = [[NBUCameraView alloc] initWithFrame:self.view.frame];
     self.RODCamera.targetResolution = CGSizeMake(640.0, 640.0); // The minimum resolution we want
+    self.RODCamera.shouldAutoRotateView = YES;
+    self.RODCamera.clipsToBounds = NO;
     self.RODCamera.keepFrontCameraPicturesMirrored = YES;
     self.RODCamera.captureResultBlock = ^(UIImage * image,
-                                           NSError * error)
+                                          NSError * error)
     {
         if (!error)
         {
@@ -61,13 +80,13 @@
     
     
     self.RODCamera.flashButtonConfigurationBlock = [self.RODCamera buttonConfigurationBlockWithTitleFrom:
-                                                     @[@"off", @"on", @"auto"]];
+                                                    @[@"off", @"on", @"auto"]];
     self.RODCamera.focusButtonConfigurationBlock = [self.RODCamera buttonConfigurationBlockWithTitleFrom:
-                                                     @[@"Fcs Lckd", @"Fcs Auto", @"Fcs Cont"]];
+                                                    @[@"Fcs Lckd", @"Fcs Auto", @"Fcs Cont"]];
     self.RODCamera.exposureButtonConfigurationBlock = [self.RODCamera buttonConfigurationBlockWithTitleFrom:
-                                                        @[@"Exp Lckd", @"Exp Auto", @"Exp Cont"]];
+                                                       @[@"Exp Lckd", @"Exp Auto", @"Exp Cont"]];
     self.RODCamera.whiteBalanceButtonConfigurationBlock = [self.RODCamera buttonConfigurationBlockWithTitleFrom:
-                                                            @[@"WB Lckd", @"WB Auto", @"WB Cont"]];
+                                                           @[@"WB Lckd", @"WB Auto", @"WB Cont"]];
     
     [self.RODCamera setSavePicturesToLibrary:YES];
     
@@ -77,13 +96,13 @@
     
     // Optionally auto-save pictures to the library
     self.RODCamera.saveResultBlock = ^(UIImage * image,
-                                        NSDictionary * metadata,
-                                        NSURL * url,
-                                        NSError * error)
+                                       NSDictionary * metadata,
+                                       NSURL * url,
+                                       NSError * error)
     {
         // *** Do something with the image and its URL ***
         NSLog(@"Save results.");
-
+        
         //NSLog(@"Picker finished with media info: %@", mediaInfos);
         [self confirmSnap:image];
         image = nil;
@@ -101,29 +120,37 @@
     
     
     self.RODCamera.captureResultBlock = ^(UIImage * image,
-                                           NSError * error)
+                                          NSError * error)
     {
         if (!error)
         {
             NSLog(@"CaptureResultBlock.");
         }
     };
-
+    
     
     [self.RODCamera setToggleCameraButton:_toggle];
     [self.toggle addTarget:self.RODCamera action:@selector(toggleCamera:) forControlEvents:UIControlEventTouchUpInside];
     
     // Connect the shoot button
-    [self.RODCamera setShootButton:_shoot];
+    [self.RODCamera setShootButton:self.shoot];
     [self.shoot addTarget:self.RODCamera
-                     action:@selector(takePicture:)
-           forControlEvents:UIControlEventTouchUpInside];
-
+                   action:@selector(takePicture:)
+         forControlEvents:UIControlEventTouchUpInside];
+    
     
     [self.RODCamera setFlashButton:_flash];
     
     [self.view addSubview:self.RODCamera];
     [self.view sendSubviewToBack:self.RODCamera];
+
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+
+    [self setupCamera];
     
 }
 
@@ -190,4 +217,10 @@
 
     
 }
+
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
+
 @end
