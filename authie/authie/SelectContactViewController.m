@@ -124,14 +124,13 @@
 {
     
     if(editingContacts == YES) {
-        NSLog(@"remove block");
-        //rightDrawerButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(enableBlocking:)];
-        //self.navigationItem.rightBarButtonItem = rightDrawerButton;
+
+        [sender setTitle:@"Edit" forState:UIControlStateNormal];
         [self setEditingContacts:NO];
+        
     } else {
-        NSLog(@"editing contacts");
-        //rightDrawerButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(enableBlocking:)];
-        //self.navigationItem.rightBarButtonItem = rightDrawerButton;
+        
+        [sender setTitle:@"Done" forState:UIControlStateNormal];
         [self setEditingContacts:YES];
     }
     
