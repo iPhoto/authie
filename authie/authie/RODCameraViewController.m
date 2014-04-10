@@ -36,10 +36,20 @@
 -(void)didRotate:(NSNotification *)notification {
     
     NSLog(@"Rotate called.");
-    //[self.RODCamera setFrame:self.view.frame];
-    //[self.RODCamera setNeedsDisplay];
-    [self.RODCamera sizeToFit];
-    [self.RODCamera didMoveToSuperview];
+    
+//    [self.RODCamera removeFromSuperview];
+//    [self.RODCamera viewDidDisappear];
+//    
+//    self.RODCamera = nil;
+
+    
+//    [self.RODCamera setFrame:self.view.frame];
+//    [self.view addSubview:self.RODCamera];
+//    [self.view sendSubviewToBack:self.RODCamera];
+//    
+//    //[self.RODCamera setNeedsDisplay];
+//    [self.RODCamera sizeToFit];
+//    [self.RODCamera didMoveToSuperview];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle
@@ -49,7 +59,15 @@
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
-    NSLog(@"Did rotate. Self.view w, h: %f %f, self.RODCamera w, h: %f %f", self.view.frame.size.width, self.view.frame.size.height, self.RODCamera.frame.size.width, self.RODCamera.frame.size.height);
+    
+    [self setupCamera];
+    
+//    [self.RODCamera setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+//    [self.RODCamera setBounds:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+//    [self.RODCamera setNeedsDisplay];
+//
+//    NSLog(@"Did rotate. Self.view w, h: %f %f, self.RODCamera w, h: %f %f", self.view.frame.size.width, self.view.frame.size.height, self.RODCamera.frame.size.width, self.RODCamera.frame.size.height);
+
     
     //[self.RODCamera removeFromSuperview];
     //[self setupCamera];
@@ -58,9 +76,10 @@
 
 - (void)setupCamera
 {
-    self.RODCamera = [[NBUCameraView alloc] initWithFrame:self.view.frame];
+    NSLog(@"setupCamera found width: %f height: %f", self.view.frame.size.width, self.view.frame.size.height);
+    self.RODCamera = [[NBUCameraView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     self.RODCamera.targetResolution = CGSizeMake(640.0, 640.0); // The minimum resolution we want
-    self.RODCamera.shouldAutoRotateView = YES;
+    //self.RODCamera.shouldAutoRotateView = YES;
     self.RODCamera.clipsToBounds = NO;
     self.RODCamera.keepFrontCameraPicturesMirrored = YES;
     self.RODCamera.captureResultBlock = ^(UIImage * image,
@@ -133,6 +152,12 @@
     [self.RODCamera setToggleCameraButton:_toggle];
     [self.toggle addTarget:self.RODCamera action:@selector(toggleCamera:) forControlEvents:UIControlEventTouchUpInside];
     
+    
+    [self.RODCamera setFlashButton:_flash];
+    
+    [self.view addSubview:self.RODCamera];
+    [self.view sendSubviewToBack:self.RODCamera];
+    
     // Connect the shoot button
     [self.RODCamera setShootButton:self.shoot];
     [self.shoot addTarget:self.RODCamera
@@ -140,11 +165,6 @@
          forControlEvents:UIControlEventTouchUpInside];
     
     
-    [self.RODCamera setFlashButton:_flash];
-    
-    [self.view addSubview:self.RODCamera];
-    [self.view sendSubviewToBack:self.RODCamera];
-
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -222,11 +242,6 @@
 - (NSUInteger)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskPortrait;
-}
-
-- (BOOL)shouldAutorotate
-{
-    return YES;
 }
 
 - (IBAction)closeCamera:(id)sender {
