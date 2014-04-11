@@ -1195,6 +1195,12 @@
         return;
     }
     
+    if([msg.toKey isEqualToString:[RODItemStore sharedStore].authie.handle.publicKey] == false) {
+        
+        // don't send local notes if the message was not explicitly to you
+        return;
+    }
+    
     
     if([msg.localNotificationSent isEqualToNumber:[NSNumber numberWithInt:0]]) {
         UILocalNotification *note = [[UILocalNotification alloc] init];
