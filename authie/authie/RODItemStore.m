@@ -1139,8 +1139,10 @@
             
             if([m.localNotificationSent isEqualToNumber:[NSNumber numberWithInt:0]]) {
                 [self sendLocalNotification:m];
-                RODMessage *updateMessage = [[RODItemStore sharedStore].authie.allMessages objectAtIndex:x];
-                [updateMessage setLocalNotificationSent:[NSNumber numberWithInt:1]];
+                [m setLocalNotificationSent:[NSNumber numberWithInt:1]];
+                
+                //RODMessage *updateMessage = [[RODItemStore sharedStore].authie.allMessages objectAtIndex:x];
+                //[updateMessage setLocalNotificationSent:[NSNumber numberWithInt:1]];
             }
             
         }
@@ -1170,8 +1172,11 @@
         
         if([m.localNotificationSent isEqualToNumber:[NSNumber numberWithInt:0]]) {
             [self sendLocalNotification:m];
+            [m setLocalNotificationSent:[NSNumber numberWithInt:1]];
+            
             RODMessage *updateMessage = [[RODItemStore sharedStore].authie.allMessages objectAtIndex:x];
-            [updateMessage setLocalNotificationSent:[NSNumber numberWithInt:1]];
+            // not sure that this works... or maybe this is causing trouble
+            //[updateMessage setLocalNotificationSent:[NSNumber numberWithInt:1]];
             
             AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
             if([updateMessage.groupKey isEqualToString:appDelegate.threadViewController.thread.groupKey]) {                
