@@ -51,6 +51,7 @@
 - (void)sendChat:(NSString *)groupKey message:(NSString *)msg toKey:(NSString *)toKey messageKey:(NSString *)key;
 - (void)getPrivateKey;
 - (NSString *)addChat:(NSString *)user message:(NSString *)message groupKey:(NSString *)groupKey toKey:(NSString *)toKey;
+- (void)addChatById:(NSString *)user message:(NSString *)message groupKey:(NSString *)groupKey toKey:(NSString *)toKey messageId:(NSNumber *)mId;
 - (void)addBlock:(NSString *)publicKey;
 - (void)loadBlocks;
 - (void)loadMessages:(void (^)(UIBackgroundFetchResult))completionHandler;
@@ -72,6 +73,7 @@
 - (void)markRead;
 - (int)unreadMessages;
 - (int)unreadMessagesFor:(NSString *)thread handle:(NSString *)contactHandle;
+- (void)sendUnsentLocalNotifications;
 
 - (void)retrySendingFailedChats;
 - (void)sendLocalNotification:(RODMessage *)msg;

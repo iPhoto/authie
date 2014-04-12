@@ -230,7 +230,7 @@
 {
     
     [[RODItemStore sharedStore] loadMessages:completionHandler];
-    [[RODItemStore sharedStore] unreadMessages];    
+    [[RODItemStore sharedStore] sendUnsentLocalNotifications];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

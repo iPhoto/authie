@@ -13,6 +13,8 @@
 #import "RODHandle.h"
 #import "RODThread.h"
 #import "RODAuthie.h"
+#import "TestFlight.h"
+
 
 @implementation UACustomPushNotificationDelegate
 @synthesize received_thread_key, received_from_public_key;
@@ -45,25 +47,30 @@
     
     NSString *alertMessage;
     NSString *notificationGroupKey = [notification objectForKey:@"threadKey"];
-    NSString *notificationToKey = [notification objectForKey:@"fromKey"];
+    NSString *notificationFromKey = [notification objectForKey:@"fromKey"];
+    NSString *notificationCleanMessage = [notification objectForKey:@"message"];
     NSNumber *messageId = [notification objectForKey:@"messageId"];
     
+    //[TestFlight passCheckpoint:[NSString stringWithFormat:@"background push: mId=%@ , text=%@", messageId, alertMessage]];
+
+    [[RODItemStore sharedStore] addChatById:notificationFromKey message:notificationCleanMessage groupKey:notificationGroupKey toKey:[RODItemStore sharedStore].authie.handle.publicKey messageId:messageId];
+
     
-    if(messageId > 0) {
-        [[RODItemStore sharedStore] markMessageAsRead:messageId];
-    }
+    //if(messageId > 0) {
+    //    [[RODItemStore sharedStore] markMessageAsRead:messageId];
+    //}
     
     NSDictionary *aps = [notification objectForKey:@"aps"];
     alertMessage = [aps objectForKey:@"alert"];
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [[RODItemStore sharedStore] loadMessagesForThread:notificationGroupKey];
-    [[RODItemStore sharedStore] loadThreads:false];
+    //[[RODItemStore sharedStore] loadMessagesForThread:notificationGroupKey];
+    //[[RODItemStore sharedStore] loadThreads:false];
     
-    [appDelegate.dashViewController updateDashHeader];
-    [appDelegate.dashViewController populateScrollView];
+    //[appDelegate.dashViewController updateDashHeader];
+    //[appDelegate.dashViewController populateScrollView];
     
-    [[RODItemStore sharedStore] unreadMessages];
+    //[[RODItemStore sharedStore] unreadMessages];
     
     if(appDelegate.threadViewController.thread == nil) {
 
@@ -81,7 +88,7 @@
             UIAlertView *al = [[UIAlertView alloc] initWithTitle:@"new auth" message:alertMessage delegate:self cancelButtonTitle:@"ok" otherButtonTitles:@"go to thread", nil];
             [al show];
             self.received_thread_key = notificationGroupKey;
-            self.received_from_public_key = notificationToKey;
+            self.received_from_public_key = notificationFromKey;
         }
         
     }
@@ -95,23 +102,28 @@
     NSString *alertMessage;
     NSString *notificationGroupKey = [notification objectForKey:@"threadKey"];
     NSString *notificationfromKey = [notification objectForKey:@"fromKey"];
+    NSString *notificationCleanMessage = [notification objectForKey:@"message"];
     
     NSDictionary *aps = [notification objectForKey:@"aps"];
     alertMessage = [aps objectForKey:@"alert"];
     
     NSNumber *messageId = [notification objectForKey:@"messageId"];
     
-    if(messageId > 0) {
-        [[RODItemStore sharedStore] markMessageAsRead:messageId];
-    }
+    //[TestFlight passCheckpoint:[NSString stringWithFormat:@"foreground push: mId=%@ , text=%@", messageId, alertMessage]];
+
+    [[RODItemStore sharedStore] addChatById:notificationfromKey message:notificationCleanMessage groupKey:notificationGroupKey toKey:[RODItemStore sharedStore].authie.handle.publicKey messageId:messageId];
+    
+    //if(messageId > 0) {
+    //    [[RODItemStore sharedStore] markMessageAsRead:messageId];
+    //}
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         
-    [[RODItemStore sharedStore] loadMessagesForThread:notificationGroupKey];
-    [[RODItemStore sharedStore] loadThreads:false];
+    //[[RODItemStore sharedStore] loadMessagesForThread:notificationGroupKey];
+    //[[RODItemStore sharedStore] loadThreads:false];
 
-    [appDelegate.dashViewController updateDashHeader];
-    [appDelegate.dashViewController populateScrollView];
+    //[appDelegate.dashViewController updateDashHeader];
+    //[appDelegate.dashViewController populateScrollView];
     
     if(appDelegate.threadViewController.thread == nil) {
         

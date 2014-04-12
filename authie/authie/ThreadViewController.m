@@ -387,6 +387,7 @@
                 }
                 
                 msg.seen = [NSNumber numberWithInt:1];
+                [msg setLocalNotificationSent:[NSNumber numberWithInt:1]];
                                 
                 [self.messages addObject:msg.messageText];
                 [self.subtitles addObject:msg.fromHandle.name];

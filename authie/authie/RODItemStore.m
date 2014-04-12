@@ -1137,14 +1137,6 @@
                 unread++;
             }
             
-            if([m.localNotificationSent isEqualToNumber:[NSNumber numberWithInt:0]]) {
-                [self sendLocalNotification:m];
-                [m setLocalNotificationSent:[NSNumber numberWithInt:1]];
-                
-                //RODMessage *updateMessage = [[RODItemStore sharedStore].authie.allMessages objectAtIndex:x];
-                //[updateMessage setLocalNotificationSent:[NSNumber numberWithInt:1]];
-            }
-            
         }
     }
 
@@ -1170,25 +1162,24 @@
             }
         }
         
-        if([m.localNotificationSent isEqualToNumber:[NSNumber numberWithInt:0]]) {
-            [self sendLocalNotification:m];
-            [m setLocalNotificationSent:[NSNumber numberWithInt:1]];
-            
-            RODMessage *updateMessage = [[RODItemStore sharedStore].authie.allMessages objectAtIndex:x];
-            // not sure that this works... or maybe this is causing trouble
-            //[updateMessage setLocalNotificationSent:[NSNumber numberWithInt:1]];
-            
-            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-            if([updateMessage.groupKey isEqualToString:appDelegate.threadViewController.thread.groupKey]) {                
-                [appDelegate.threadViewController reloadThread];
-            }
-            
-        }
     }
     
     [[UAPush shared] setBadgeNumber:unread];    
         
     return unread;
+}
+
+- (void)sendUnsentLocalNotifications
+{
+    
+    for(RODMessage *m in self.authie.allMessages) {
+
+        if([m.localNotificationSent isEqualToNumber:[NSNumber numberWithInt:0]]) {
+            [self sendLocalNotification:m];
+        }
+        
+    }
+    
 }
 
 - (void)sendLocalNotification:(RODMessage *)msg
@@ -1213,6 +1204,7 @@
         note.fireDate = [NSDate date];
         [[UIApplication sharedApplication] scheduleLocalNotification:note];
         NSLog(@"Sent note: %@", msg.messageText);
+        [self markMessageAsRead:msg.id];
     }
     
 }
@@ -1228,7 +1220,7 @@
         if([m.id isEqualToNumber:id]) {
             
             m.localNotificationSent = [NSNumber numberWithInt:1];
-            
+            return;
         }
     }
 
@@ -1735,7 +1727,7 @@
                     // we do want to co py whether or not it was seen
                     // before we remove the object
                     message.seen = r.seen;
-                    message.localNotificationSent = r.localNotificationSent;
+                    message.localNotificationSent = [NSNumber numberWithInt:1];
                     
                     NSLog(@"Removed old object, seen was: %@", r.seen);
                     [self.authie.allMessages removeObject:r];
@@ -1892,7 +1884,8 @@
                         NSLog(@"Removed old object: %@", r.messageText);
                         
                         message.seen = r.seen;
-                        message.localNotificationSent = r.localNotificationSent;
+                        message.localNotificationSent = [NSNumber numberWithInt:1];
+                        
                         
                         [self.authie.allMessages removeObject:r];
                         foundNewThread = false;
@@ -2323,6 +2316,45 @@
         [self sendChat:c.groupKey message:c.message toKey:c.toKey messageKey:c.messageKey];
         
     }
+    
+}
+
+- (void)addChatById:(NSString *)fromUserKey message:(NSString *)message groupKey:(NSString *)groupKey toKey:(NSString *)toKey messageId:(NSNumber *)mId
+{
+
+    RODMessage *msg = [[RODMessage alloc] init];
+    
+    RODHandle *from = [[RODHandle alloc] init];
+    
+    msg.id = mId;
+    msg.sentDate = [NSDate date];
+    msg.toKey = toKey;
+    msg.seen = [NSNumber numberWithInt:0];
+    msg.localNotificationSent = [NSNumber numberWithInt:1];
+    msg.groupKey = groupKey;
+    msg.messageKey = [[NSUUID UUID] UUIDString];
+    
+    RODThread *t;
+    for(int i = 0; i<[self.authie.all_Threads count]; i++) {
+        t = [self.authie.all_Threads objectAtIndex:i];
+        if([t.groupKey isEqualToString:groupKey]) {
+            break;
+        }
+    }
+    
+    for(RODHandle *r in self.authie.allContacts) {
+        if([r.publicKey isEqualToString:fromUserKey]) {
+            from.name = r.name;
+            from.publicKey = r.publicKey;
+            break;
+        }
+    }
+    
+    msg.messageText = message;
+    msg.fromHandle = from;
+    msg.thread = t;
+    
+    [self.authie.allMessages addObject:msg];
     
 }
 
