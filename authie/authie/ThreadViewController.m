@@ -90,9 +90,6 @@
 //    }
     
     
-    [[RODItemStore sharedStore] loadMessagesForThread:self.thread.groupKey];
-    [self reloadThread];
-    
 }
 
 - (IBAction)tappedScreen:(id)sender {
@@ -105,7 +102,8 @@
     NSLog(@"reloadThread: %@", self.loadedThreadKey);
     if(self.loadedThreadKey) {
         NSLog(@"Reloaded thread.");
-        [self resetChatObjects];
+        [self resetChatObjects];        
+        [[RODItemStore sharedStore] loadMessagesForThread:self.thread.groupKey];
         [self loadThread:self.loadedThreadKey];
         [self.snapView setNeedsUpdateConstraints];
 

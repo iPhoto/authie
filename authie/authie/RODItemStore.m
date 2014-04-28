@@ -1757,7 +1757,7 @@
     [self saveChanges];
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [appDelegate.threadViewController reloadThread];
+    [appDelegate.threadViewController loadThread:key];
     
 }
 
