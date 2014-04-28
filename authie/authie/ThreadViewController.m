@@ -174,7 +174,7 @@
     [super viewDidAppear:animated];
 
     [[RODItemStore sharedStore] unreadMessages];
-    [self reloadThread];
+//    [self reloadThread];
 
 }
 

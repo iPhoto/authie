@@ -194,7 +194,7 @@
     [[RODItemStore sharedStore] retrySendingFailedChats];
 
     if(threadViewController.thread != nil) {
-        NSLog(@"Thread reloaded.");
+        NSLog(@"Thread reloaded in App Delegate.");
         [threadViewController reloadThread];
     }
     

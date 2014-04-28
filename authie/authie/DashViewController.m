@@ -671,7 +671,7 @@
     dispatch_async(queue, ^{
      
         NSLog(@"preloadImage");
-        
+
         [[RODImageStore sharedStore] preloadImageAndShowScreen:thread_index];
         
         dispatch_sync(dispatch_get_main_queue(), ^{
@@ -736,6 +736,7 @@
                 }
                 
                 [appDelegate.threadViewController loadThread:thread.groupKey];
+               
                 [appDelegate.dashViewController.navigationController pushViewController:appDelegate.threadViewController animated:YES];
             }
                         

@@ -111,8 +111,6 @@
     
     [conn start];
     
-    [[RODItemStore sharedStore] loadMessagesForThread:groupKey];
-
 }
 
 - (UIImage *)imageForKey:(NSString *)s

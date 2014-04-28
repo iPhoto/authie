@@ -1308,6 +1308,9 @@
 
 - (BOOL)loadThreads:(bool)isWire
 {
+
+    NSLog(@"loadThreads called");
+    
     BOOL loaded_convos = NO;
     
     NSError *error = nil;
@@ -1588,6 +1591,8 @@
 - (void)loadMessagesForThread:(NSString *)key;
 {
     
+    NSLog(@"loadMessagesForThread called: %@", key);
+    
     if(key == nil) {
         NSLog(@"loadMessagesForThread tried to load a null key.");
         return;
@@ -1764,7 +1769,8 @@
 
 - (void)loadMessages:(void (^)(UIBackgroundFetchResult))completionHandler
 {
-    
+
+    NSLog(@"loadMessages called");
     
     Boolean newData = NO;
     NSError *error = nil;
