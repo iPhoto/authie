@@ -193,18 +193,30 @@
     //[[RODItemStore sharedStore] loadMessages:nil];
     //[[RODItemStore sharedStore] loadThreads:false];
     
-    [self.dashViewController getThreads];
-    //[self.dashViewController populateScrollView];
-    [self.dashViewController updateDashHeader];
-    
-    [[RODItemStore sharedStore] unreadMessages];
- 
-    [[RODItemStore sharedStore] retrySendingFailedChats];
+    if([self.navigationViewController.topViewController isKindOfClass:[dashViewController class]]) {
+        NSLog(@"applicationWillEnterForeground: dash is active");
 
-    if(threadViewController.thread != nil) {
-        NSLog(@"Thread reloaded in App Delegate.");
-        [threadViewController reloadThread];
+        [self.dashViewController getThreads];
+        //[self.dashViewController populateScrollView];
+        [self.dashViewController updateDashHeader];
+        
+        [[RODItemStore sharedStore] unreadMessages];
+
+        
     }
+
+    if([self.navigationViewController.topViewController isKindOfClass:[threadViewController class]]) {
+        NSLog(@"applicationWillEnterForeground: thread is active");
+        
+        if(self.threadViewController.thread != nil) {
+            NSLog(@"Thread reloaded in App Delegate.");
+            [self.threadViewController reloadThread];
+        }
+
+    }
+
+    
+    [[RODItemStore sharedStore] retrySendingFailedChats];
     
 }
 

@@ -12,14 +12,14 @@
 
 - (void)registrationSucceededForChannelID:(NSString *)channelID deviceToken:(NSString *)deviceToken
 {
-    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Success" message:channelID delegate:self cancelButtonTitle:@"k" otherButtonTitles:nil];
-    [av show];
+//    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Success" message:channelID delegate:self cancelButtonTitle:@"k" otherButtonTitles:nil];
+//    [av show];
 }
 
 - (void)registrationFailed
 {
-    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Fail" message:@"Fail..." delegate:self cancelButtonTitle:@"k" otherButtonTitles:nil];
-    [av show];
+//    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Fail" message:@"Fail..." delegate:self cancelButtonTitle:@"k" otherButtonTitles:nil];
+//    [av show];
 }
 
 @end
