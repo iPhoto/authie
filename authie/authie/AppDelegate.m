@@ -27,9 +27,10 @@
 #import "NavigationViewController.h"
 #import "MessagesViewController.h"
 #import <Facebook-iOS-SDK/FacebookSDK/Facebook.h>
+#import "UARegistrationDelegate.h"
 
 @implementation AppDelegate
-@synthesize threadViewController, contactsViewController, privateKeyViewController, dashViewController, loginViewController, registerViewController, selectContactViewController, authorizeContactViewController, notificationDelegate, aboutViewController, navigationViewController, messagesViewController, wireViewController;
+@synthesize threadViewController, contactsViewController, privateKeyViewController, dashViewController, loginViewController, registerViewController, selectContactViewController, authorizeContactViewController, notificationDelegate, aboutViewController, navigationViewController, messagesViewController, wireViewController, registrationDelegate;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -109,6 +110,13 @@
     UACustomPushNotificationDelegate *notes = [[UACustomPushNotificationDelegate alloc] init];
     notificationDelegate = notes;
     [UAPush shared].pushNotificationDelegate = notificationDelegate;
+    NSString *channelID = [UAPush shared].channelID;
+    
+    NSLog(@"ChannelID: %@", channelID);
+    
+    UARegistrationDelegate *regs = [[UARegistrationDelegate alloc] init];
+    registrationDelegate = regs;
+    [UAPush shared].registrationDelegate = regs;
     
     
     // set font for all nav controllers

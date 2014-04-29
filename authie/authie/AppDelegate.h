@@ -21,6 +21,8 @@
 #import "NavigationViewController.h"
 #import "MessagesViewController.h"
 #import "WireViewController.h"
+#import "UACustomPushNotificationDelegate.h"
+#import "UARegistrationDelegate.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, SRConnectionDelegate>
 
@@ -38,5 +40,6 @@
 @property (strong, nonatomic) NavigationViewController *navigationViewController;
 @property (strong, nonatomic) MessagesViewController *messagesViewController;
 @property (strong, nonatomic) WireViewController *wireViewController;
+@property (strong, nonatomic) UARegistrationDelegate *registrationDelegate;
 
 @end
